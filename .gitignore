@@ -9,7 +9,8 @@ obj/
 packages/
 bin/
 UpgradeLog.htm
-
+TDG.CORE.QUESTIONNAIRE.UI*
+TDG.CORE.QUESTIONNAIRE.UI
 # Force include portal SupportFiles
 #!Model/Portal/*/SupportFiles/[Bb]in/
 #!Model/Portal/PortalTemplates/*/SupportFiles/[Bb]in
