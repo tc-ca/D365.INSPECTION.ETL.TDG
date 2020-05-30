@@ -1,0 +1,15 @@
+# Ignore built files
+*.dll
+*.adb
+*.exe
+
+# Ignore deployment files
+#[Mm]odel/[Dd]eployment
+obj/
+packages/
+bin/
+UpgradeLog.htm
+
+# Force include portal SupportFiles
+#!Model/Portal/*/SupportFiles/[Bb]in/
+#!Model/Portal/PortalTemplates/*/SupportFiles/[Bb]in
