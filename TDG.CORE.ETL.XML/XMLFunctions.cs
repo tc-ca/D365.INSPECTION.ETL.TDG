@@ -35,11 +35,11 @@ namespace TDG.CORE.ETL.XML
             File.WriteAllText(Path.Combine(whereAmI, $"{filename}-{now}.json"), json);
         }
 
-        public static Regulation ParseRegs(string elementName = "Body",  string rootNodeId = "1227365") // rootNodeId = lims:id="[rootNodeId]"
+        public static Regulation ParseRegs(string xmlContent, string elementName = "Body",  string rootNodeId = "1227365") // rootNodeId = lims:id="[rootNodeId]"
         {
             tempRegId = 1;
 
-            var source = XDocument.Parse(RESOURCES.Properties.Resources.SOR_2001_286);
+            var source = XDocument.Parse(xmlContent);//RESOURCES.Properties.Resources.SOR_2001_286);
 
             string findNode = $"{elementName}[@id='{rootNodeId}']";
             var rootNode = source.Root

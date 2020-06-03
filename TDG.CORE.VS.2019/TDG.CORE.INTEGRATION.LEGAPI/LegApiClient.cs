@@ -1,6 +1,7 @@
 ﻿namespace TDG.CORE.INTEGRATION.LEGAPI
 {
     using System;
+    using System.Linq;
     using System.Net;
     using System.Net.Http;
     using System.Net.Http.Headers;
@@ -10,79 +11,45 @@
 
     public static class LegApiClient
     {
-        static string _uriString = "https://legsregsdev01.azurewebsites.net/api/Acts/{actId}/{threeLetterLangId}";
+        static readonly Uri baseUrl = new Uri("https://legsregsdev01.azurewebsites.net/api/");
+        private static readonly HttpClient httpClient = new HttpClient();
 
-        public static string GetAct(string actId, string threeLetterLangId) //tdg T-19.01, eng
+        public static string GetActFromJustice()
         {
-            Uri baseUrl = new Uri(string.Format(_uriString, actId, threeLetterLangId));
-            IRestClient client = new RestClient(baseUrl);
-            IRestRequest request = new RestRequest("get", Method.GET);
-            IRestResponse<RootObject> response = client.Execute<RootObject>(request);
-            
-            if (response.IsSuccessful)
-            {
-                return response.Data.Write();
-            }
-            else
-            {
-                throw new WebException(response.ErrorMessage);
-            }
+            var result = GetResponseText("https://laws-lois.justice.gc.ca/eng/XML/T-19.01.xml");
+
+            return result?.Result;
         }
 
-        static async Task RunAsync(string regulationId)
+        public static async Task<string> GetResponseText(string address)
         {
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri("https://legsregsdev01.azurewebsites.net");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                // HTTP GET
-                HttpResponseMessage response = await client.GetAsync($"api/RegDetails/{regulationId}");
-                if (response.IsSuccessStatusCode)
-                {
-                    string regulation = await response.Content.ReadAsStringAsync();
-                }
-
-                // HTTP POST
-                //var gizmo = new Product() { Name = "Gizmo", Price = 100, Category = "Widget" };
-                //response = await client.PostAsJsonAsync("api/products", gizmo);
-                //if (response.IsSuccessStatusCode)
-                //{
-                //    Uri gizmoUrl = response.Headers.Location;
-
-                //    // HTTP PUT
-                //    gizmo.Price = 80;   // Update price
-                //    response = await client.PutAsJsonAsync(gizmoUrl, gizmo);
-
-                //    // HTTP DELETE
-                //    response = await client.DeleteAsync(gizmoUrl);
-                //}
-            }
+            return await httpClient.GetStringAsync(address);
         }
 
-        public static string GetRegulation(string regulationId) // tdg = 672172E
+        public static string GetRegulationFromJustice()
         {
-            
+            var result = GetResponseText("https://laws-lois.justice.gc.ca/eng/XML/SOR-2001-286.xml");
+
+            return result?.Result;
+        }
 
 
-
-            Uri baseUrl = new Uri($"https://legsregsdev01.azurewebsites.net");
+        //raw result needs fixing before we can use this
+        public static string GetAct(string actId, string threeLetterLangId) //tdg = Acts/T-19.01/eng
+        {
             IRestClient client = new RestClient(baseUrl);
-            //client.AddDefaultHeader("Content-Type", "application/json");
-            //client.AddDefaultHeader("Accept", "application/json");
-            //client.BaseHost = "https://legsregsdev01.azurewebsites.net";
-
-            //legsregsdev01.azurewebsites.net	/api/RegDetails/672172E
-
-            IRestRequest request = new RestRequest("api/RegDetails/672172E", Method.GET,DataFormat.Json);
-            //request.AddParameter("id", regulationId, ParameterType.QueryString);
-
+            IRestRequest request = new RestRequest($"ActDetails/{actId}/{threeLetterLangId}", Method.GET);
+            request.AddHeader("Accept", "text/plain");
             IRestResponse response = client.Execute(request);
-                        
+
             if (response.IsSuccessful)
             {
-                return response.Content<RootObject>().Write();
+                //var actDetails = MODELS.ActDetails.FromJson(response.Content);
+                //return actDetails.FullDetails.Statute.Body;
+                var jsonString = response.Content;
+                var actDetails = JsonConvert.DeserializeXmlNode(jsonString, "ActDetails");
+
+                return actDetails.ToString();
             }
             else
             {
@@ -90,9 +57,25 @@
             }
         }
 
-        public static TResult Content<TResult>(this IRestResponse response)
+        public static string GetRegulation(string regulationId) // tdg = /RegDetails/672172E
         {
-            return JsonConvert.DeserializeObject<TResult>(response.Content);
+            IRestClient client = new RestClient(baseUrl);
+            IRestRequest request = new RestRequest($"RegDetails/{regulationId}", Method.GET, DataFormat.Xml);
+
+            request.AddHeader("Accept", "text/plain");
+            IRestResponse response = client.Execute(request);
+
+            if (response.IsSuccessful)
+            {
+                var jsonString = response.Content;
+                var regDetails = JsonConvert.DeserializeXmlNode(jsonString, "RegDetails");
+
+                return regDetails.ToString();
+            }
+            else
+            {
+                throw new WebException(response.ErrorMessage);
+            }
         }
     }
 }

@@ -19,14 +19,14 @@ namespace TDG.CORE.ETL.XML.CONSOLE
 
             Debug.WriteLine("Logging Started");
 
-            var regJson = LegApiClient.GetRegulation("672172E"); 
+            var actXml = LegApiClient.GetActFromJustice();
 
-
+            var regXml = LegApiClient.GetRegulationFromJustice(); 
 
             //XML to "Regulation" class
-            var tdgr      = XMLFunctions.ParseRegs("Body", "1227365");
+            var tdgr      = XMLFunctions.ParseRegs(regXml, "Body", "1227365");
             //var schedule1 = XMLFunctions.ParseRegs("Schedule", "1230876");
-            var schedule2 = XMLFunctions.ParseRegs("Schedule", "1230890");
+            var schedule2 = XMLFunctions.ParseRegs(regXml, "Schedule", "1230890");
             //var schedule3 = XMLFunctions.ParseRegs("Schedule", "1231645");
 
             //flag data we're interested in
