@@ -218,6 +218,10 @@
       <Project>{736b66bd-7523-40c1-b02f-ede32bf0bff6}</Project>
       <Name>TDG.CORE.ETL.RESOURCES</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TDG.CORE.INTEGRATION.LEGAPI\TDG.CORE.INTEGRATION.LEGAPI.csproj">
+      <Project>{1C8C26BD-33EE-47B0-B23E-A10BDE84EF9B}</Project>
+      <Name>TDG.CORE.INTEGRATION.LEGAPI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />

@@ -19,34 +19,30 @@ namespace TDG.CORE.ETL.XML.CONSOLE
 
             Debug.WriteLine("Logging Started");
 
-            var actXml = LegApiClient.GetActFromJustice();
+            //don't need act rn
+            //var actXml = LegApiClient.GetActFromJustice();
 
             var regXml = LegApiClient.GetRegulationFromJustice(); 
 
             //XML to "Regulation" class
             var tdgr      = XMLFunctions.ParseRegs(regXml, "Body", "1227365");
-            //var schedule1 = XMLFunctions.ParseRegs("Schedule", "1230876");
             var schedule2 = XMLFunctions.ParseRegs(regXml, "Schedule", "1230890");
+
+            //a bit different / not really regulations...
+            //var schedule1 = XMLFunctions.ParseRegs("Schedule", "1230876");
             //var schedule3 = XMLFunctions.ParseRegs("Schedule", "1231645");
 
             //flag data we're interested in
             tdgr.PopulateDataFlags();
-            //schedule1.PopulateDataFlags();
             schedule2.PopulateDataFlags();
-            //schedule3.PopulateDataFlags();
 
             //output List of Regulations to JSON
             XML.XMLFunctions.SerializeRegulationsToFile(tdgr, "TDG-REGS");
-            //XML.XMLFunctions.SerializeRegulationsToFile(schedule1, "TDG-SCHEDULE-1");
             XML.XMLFunctions.SerializeRegulationsToFile(schedule2, "TDG-SCHEDULE-2");
-            //XML.XMLFunctions.SerializeRegulationsToFile(schedule3, "TDG-SCHEDULE-3");
-
 
             //convert list of Regulations to DataTable <--faster output to excel 
             var dt          = XMLFunctions.CreateDataTableFromRegulation(tdgr);
-            //var dtSchedule1 = XMLFunctions.CreateDataTableFromRegulation(schedule1);
             var dtSchedule2 = XMLFunctions.CreateDataTableFromRegulation(schedule2);
-            //var dtSchedule3 = XMLFunctions.CreateDataTableFromRegulation(schedule3);
 
             
             //export TDGR and Schedule 2 to an excel workbook

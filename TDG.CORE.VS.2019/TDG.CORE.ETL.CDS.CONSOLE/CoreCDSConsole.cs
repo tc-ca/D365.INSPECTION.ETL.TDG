@@ -8,6 +8,7 @@ using System.IO;
 using TDG.CORE.ETL.EXCEL;
 using TDG.CORE.ETL.MODELS.LEGISLATION;
 using TDG.CORE.ETL.MODELS.QUESTIONNAIRE;
+using TDG.CORE.INTEGRATION.LEGAPI;
 
 namespace TDG.CORE.ETL.CDS.CONSOLE
 {
@@ -19,27 +20,45 @@ namespace TDG.CORE.ETL.CDS.CONSOLE
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.Black;
 
+            /////////////////////QUESTIONNAIRE EXCEL SHEETS
+            ProcessQuestionnaireTemplate();
 
-            //ETLLogic.DeleteQuestionnaireData();
 
-            //ETLLogic.DeleteLegislation();
-            //List<LegislationModel> legData = ReadExcelTemplateLegislation();
-            
-            var tdgRegs = TDG.CORE.ETL.XML.XMLFunctions.ParseRegs();
-            var dtSchedule2 = TDG.CORE.ETL.XML.XMLFunctions.ParseRegs("Schedule", "1230890");
+            /////////////////////LEGISLATION
+            //ProcessTDGRegulations();
 
-            ETLLogic.ETLLegislationData(tdgRegs);
-            ETLLogic.ETLLegislationData(dtSchedule2);
-
-            //QuestionnaireModel excelTemplateGeneralCompliance = ReadExcelTemplateGeneralCompliance();
-            //ETLLogic.ETLQuestionnaireData(excelTemplateGeneralCompliance);
-
-            //string generalComplianceFetchXml = GetGeneralComplianceFetchXml();
-            //ETLLogic.FetchQuestionnaireData(generalComplianceFetchXml);
-            //ETLLogic.FetchLegislationData();
 
             Console.WriteLine("Done. Press something.");
             Console.ReadKey();
+        }
+
+        private static void ProcessQuestionnaireTemplate()
+        {
+            //ETLLogic.DeleteQuestionnaireData();
+
+            QuestionnaireModel excelTemplateGeneralCompliance = ReadExcelTemplateGeneralCompliance();
+            ETLLogic.ETLQuestionnaireData(excelTemplateGeneralCompliance);
+
+            string generalComplianceFetchXml = GetGeneralComplianceFetchXml();
+            ETLLogic.FetchQuestionnaireData(generalComplianceFetchXml);
+        }
+
+        private static void ProcessTDGRegulations()
+        {
+            //ETLLogic.DeleteLegislation();
+
+            var regXml = LegApiClient.GetRegulationFromJustice();
+
+            var tdgRegs = XML.XMLFunctions.ParseRegs(regXml, "Body", "1227365");
+
+            var dtSchedule2 = XML.XMLFunctions.ParseRegs(regXml, "Schedule", "1230890");
+
+            ETLLogic.ETLLegislationData(tdgRegs);
+
+            ETLLogic.ETLLegislationData(dtSchedule2);
+
+            string legislationFetchXml = GetLegislationFetchXml();
+            ETLLogic.FetchLegislationData(legislationFetchXml);
         }
 
         static string GetLegislationFetchXml()
