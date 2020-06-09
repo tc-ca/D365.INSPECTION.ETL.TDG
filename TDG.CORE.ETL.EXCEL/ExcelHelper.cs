@@ -112,7 +112,10 @@ namespace TDG.CORE.ETL.EXCEL
             for (int i = 0; i < ColumnsCount; i++)
                 Header[i] = table.Columns[i].ColumnName;
 
+            //where the headers go
             Microsoft.Office.Interop.Excel.Range HeaderRange = ws.get_Range((Microsoft.Office.Interop.Excel.Range)(ws.Cells[1, 1]), (Microsoft.Office.Interop.Excel.Range)(ws.Cells[1, ColumnsCount]));
+            
+            //write entire header row in one go
             HeaderRange.Value = Header;
 
             // DataCells
@@ -123,14 +126,17 @@ namespace TDG.CORE.ETL.EXCEL
                 for (int i = 0; i < ColumnsCount; i++)
                     Cells[j, i] = table.Rows[j][i];
 
+            //where does the body go
             Microsoft.Office.Interop.Excel.Range RowRange = ws.get_Range((Microsoft.Office.Interop.Excel.Range)ws.Cells[2, 1], (Microsoft.Office.Interop.Excel.Range)ws.Cells[RowsCount + 1, ColumnsCount]);
+            
+            //write the whole body in one go
             RowRange.Value = Cells;
-
 
             //make it a table
             Microsoft.Office.Interop.Excel.Range TableRange = ws.get_Range((Microsoft.Office.Interop.Excel.Range)ws.Cells[1, 1], (Microsoft.Office.Interop.Excel.Range)ws.Cells[RowsCount + 1, ColumnsCount]);
             FormatAsTable(TableRange, $"Table{tempTableNumbers++}", "TableStyleLight9");
 
+            //make all columns a decent size
             SizeAllColumns(RowRange, 35);
         }
 

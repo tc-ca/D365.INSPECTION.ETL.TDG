@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -6,17 +7,48 @@ using TDG.CORE.ETL.CONSTANTS;
 
 namespace TDG.CORE.ETL.MODELS.LEGISLATION
 {
+    public class BaseLegislationModel
+    {
+        public string Name { get; set; }
+        public string Id { get; set; }
+    }
+    
+    public class Legislation : BaseLegislationModel
+    {
+        public string LegislationType { get; set; }
+        public string LegislationReference { get; set; }
+        public string LegislationTextEnglish { get; set; }
+
+        public string LegislationTextFrench { get; set; }
+        public int Order { get; set; }
+
+        public DateTime? DateEffective { get; set; }
+        public DateTime? DateRevoked { get; set; }
+    }
+
+    public class LegislationHierarchy : BaseLegislationModel
+    {
+        public Legislation Child { get; set; }
+        public Legislation Parent { get; set; }
+    }
+
+    public class LegislationType : BaseLegislationModel
+    {
+        public string LegislationTypeEnglish { get; set; }
+        public string LegislationTypeFrench { get; set; }
+    }
+
     public class Regulation
     {
         public Regulation()
         {
-            Children  = new List<Regulation>();
+            Children = new List<Regulation>();
             DataFlags = new List<KeyValuePair<string, object>>();
         }
 
         public string Type { get; set; }
         public string TextEnglish { get; set; }
-        public string TextFrench 
+        public string TextFrench
         {
             //TODO: This has to be read in from the french justice file
             get
@@ -46,13 +78,12 @@ namespace TDG.CORE.ETL.MODELS.LEGISLATION
         public object GetDataFlag(string flag)
         {
             var dataFlag = DataFlags?.FirstOrDefault(e => e.Key == flag);
-            return DataFlags != null && dataFlag.HasValue ? dataFlag.Value.Value : false;  
+            return DataFlags != null && dataFlag.HasValue ? dataFlag.Value.Value : false;
         }
-
     }
 
-    public static class RegulationExtensions {
-
+    public static class LegislationExtensions
+    {
         public static void PopulateDataFlags(this Regulation reg)
         {
             if (reg.Children != null && reg.Children.Where(e => Constants.RegTypes.Contains(e.Type) || e.Type == "Body").Count() > 0)
@@ -87,7 +118,6 @@ namespace TDG.CORE.ETL.MODELS.LEGISLATION
 
         private static void ParseDataFlags(this Regulation reg)
         {
-
             if (!string.IsNullOrEmpty(reg?.TextEnglish))
             {
                 //TODO French
@@ -142,25 +172,6 @@ namespace TDG.CORE.ETL.MODELS.LEGISLATION
                         reg.DataFlags.Add(new KeyValuePair<string, object>(Constants.DataFlags_Classes, matchesCsv));
                     }
                 }
-
-
-                /*
-                 * 
-                   --Act flag
-
-
-                   --class flags
-
-
-                   --Exemption flags
-
-
-                   --ERAP flag
-
-
-                   --provision flag
-                */
-
             }
         }
 

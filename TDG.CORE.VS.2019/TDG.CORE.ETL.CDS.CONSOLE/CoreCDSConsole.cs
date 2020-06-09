@@ -36,7 +36,7 @@ namespace TDG.CORE.ETL.CDS.CONSOLE
         {
             //ETLLogic.DeleteQuestionnaireData();
 
-            QuestionnaireModel excelTemplateGeneralCompliance = ReadExcelTemplateGeneralCompliance();
+            Questionnaire excelTemplateGeneralCompliance = ReadExcelTemplateGeneralCompliance();
             ETLLogic.ETLQuestionnaireData(excelTemplateGeneralCompliance);
 
             string generalComplianceFetchXml = GetGeneralComplianceFetchXml();
@@ -77,7 +77,7 @@ namespace TDG.CORE.ETL.CDS.CONSOLE
             return generalComplianceFetchXml;
         }
 
-        static List<LegislationModel> ReadExcelTemplateLegislation()
+        static List<Legislation> ReadExcelTemplateLegislation()
         {
             //get template from embedded resource
             var legTemplate = TDG.CORE.ETL.RESOURCES.Properties.Resources.TDGActiveLegislation;
@@ -95,7 +95,7 @@ namespace TDG.CORE.ETL.CDS.CONSOLE
             return legData;
         }
 
-        private static QuestionnaireModel ReadExcelTemplateGeneralCompliance()
+        private static Questionnaire ReadExcelTemplateGeneralCompliance()
         {
             string tempPath = System.IO.Path.GetTempFileName();
 

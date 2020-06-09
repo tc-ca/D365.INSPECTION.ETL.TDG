@@ -17,7 +17,7 @@ namespace TDG.CORE.ETL.CDS
     {
         const string UNABLE_TO_LOGIN_ERROR = "Unable to Login to Common Data Service";
 
-        public static void ETLQuestionnaireData(QuestionnaireModel questionnaireData, CrmServiceClient existingService = null, string outputPath = "general.integration.js")
+        public static void ETLQuestionnaireData(Questionnaire questionnaireData, CrmServiceClient existingService = null, string outputPath = "general.integration.js")
         {
             CrmServiceClient service = null;
 

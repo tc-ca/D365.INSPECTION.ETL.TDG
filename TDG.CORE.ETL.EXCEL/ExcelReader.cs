@@ -54,12 +54,12 @@ namespace TDG.CORE.ETL.EXCEL
         static int QuestionInputControlTypeIndex = 8;
         static int IdIndex = 1;
         static int IsVisibleIndex = 7;
-        private static List<QuestionnaireQuestionResponse> responses = new List<QuestionnaireQuestionResponse>();
-        private static List<QuestionOrder> questionOrders = new List<QuestionOrder>();
-        private static List<QuestionGroupOrder> groupOrders = new List<QuestionGroupOrder>();
+        private static List<QuestionResponseOption> responses = new List<QuestionResponseOption>();
+        //private static List<QuestionOrder> questionOrders = new List<QuestionOrder>();
+        //private static List<GroupOrder> groupOrders = new List<GroupOrder>();
         #endregion
 
-        public static QuestionnaireModel ReadQuestionnaireWorkbook(string path)
+        public static Questionnaire ReadQuestionnaireWorkbook(string path)
         { 
             Microsoft.Office.Interop.Excel.Application xlApp                   = new Microsoft.Office.Interop.Excel.Application();
             Microsoft.Office.Interop.Excel.Workbook xlWorkbook                 = xlApp.Workbooks.Open(path);
@@ -78,9 +78,9 @@ namespace TDG.CORE.ETL.EXCEL
             int rowCount = xlRange.Rows.Count;
             int colCount = xlRange.Columns.Count;
 
-            var Template = new QuestionnaireTemplate();
-            var questions = new List<QuestionnaireQuestion>();
-            var groups = new List<QuestionGroup>();
+            var Template = new Template();
+            var questions = new List<Question>();
+            var groups = new List<Group>();
 
             //start at second row
             for (int i = 2; i <= rowCount; i++)
@@ -105,9 +105,9 @@ namespace TDG.CORE.ETL.EXCEL
 
             for (int i = 2; i <= rowCount; i++)
             {
-                var question = new QuestionGroup
+                var question = new Group
                 {
-                    TemplateName = ReadCell(xlRange, i, 1),
+                    TemplateId = ReadCell(xlRange, i, 1),
                     Name         = ReadCell(xlRange, i, 2),
                     IsRepeatable = ReadCell(xlRange, i, 8).ToBool(),
                     TitleEnglish = ReadCell(xlRange, i, 6),
@@ -132,14 +132,13 @@ namespace TDG.CORE.ETL.EXCEL
                 var questionShowKey          = ReadCell(xlRange, i, 13);
                 var QuestionIsVisible        = ReadCell(xlRange, i, 14).ToBool();
 
-                var question = new QuestionnaireQuestion
+                var question = new Question
                 {
                     Name        = QuestionId,
                     TextEnglish = QuestionEn,
                     TextFrench  = QuestionFr,
-                    ShowKey     = questionShowKey,
-                    HideKey     = questionHideKey,
-                    GroupName   = GroupId
+                    //ShowKey     = questionShowKey,
+                    //HideKey     = questionHideKey
                 };
 
                 questions.Add(question);
@@ -152,22 +151,22 @@ namespace TDG.CORE.ETL.EXCEL
 
             for (int i = 2; i <= rowCount; i++)
             {
-                var question = new QuestionnaireQuestionResponse
+                var question = new QuestionResponseOption
                 {
-                    QuestionName        = ReadCell(xlRange, i, 6),
-                    ControlInputType    = ReadCell(xlRange, i, 11),
-                    ControlInputId      = ReadCell(xlRange, i, 12),
-                    ControlInputName    = ReadCell(xlRange, i, 13),
-                    ControlLabelEnglish = ReadCell(xlRange, i, 14),
-                    ControlLabelFrench  = ReadCell(xlRange, i, 15),
+                    QuestionId        = ReadCell(xlRange, i, 6),
+                    //ControlInputType    = ReadCell(xlRange, i, 11),
+                    //ControlInputId      = ReadCell(xlRange, i, 12),
+                    //ControlInputName    = ReadCell(xlRange, i, 13),
+                    TextEnglish = ReadCell(xlRange, i, 14),
+                    TextFrench  = ReadCell(xlRange, i, 15),
                     IsProblem           = ReadCell(xlRange, i, 16),
                     IsSafetyConcern     = ReadCell(xlRange, i, 17),
                     ExternalComment     = ReadCell(xlRange, i, 18),
                     InternalComment     = ReadCell(xlRange, i, 19),
                     Picture             = ReadCell(xlRange, i, 20),
-                    EmitValue           = ReadCell(xlRange, i, 21), 
-                    Order               = ReadCell(xlRange, i, 22).ToInt(),
-                    GroupAlternateKey   = ReadCell(xlRange, i, 23), 
+                    //EmitValue           = ReadCell(xlRange, i, 21), 
+                    SortOrder               = ReadCell(xlRange, i, 22).ToInt(),
+                    //GroupAlternateKey   = ReadCell(xlRange, i, 23), 
                     Reg1 = ReadCell(xlRange, i, 24),
                     Reg2 = ReadCell(xlRange, i, 25),
                     Reg3 = ReadCell(xlRange, i, 26)
@@ -181,53 +180,53 @@ namespace TDG.CORE.ETL.EXCEL
             rowCount = xlRange.Rows.Count;
             colCount = xlRange.Columns.Count;
 
-            for (int i = 2; i <= rowCount; i++)
-            {
-                var question = new QuestionOrder
-                {
-                    TemplateName = ReadCell(xlRange, i, 1),
-                    QuestionName = ReadCell(xlRange, i, 7),
-                    Name         = ReadCell(xlRange, i, 12),
-                    ShowKey      = ReadCell(xlRange, i, 13),
-                    HideKey      = ReadCell(xlRange, i, 14),
-                    Order        = ReadCell(xlRange, i, 15).ToInt(),
-                    Visible      = ReadCell(xlRange, i, 16).ToBool()
-                };
+            //for (int i = 2; i <= rowCount; i++)
+            //{
+            //    var question = new QuestionOrder
+            //    {
+            //        TemplateName = ReadCell(xlRange, i, 1),
+            //        QuestionName = ReadCell(xlRange, i, 7),
+            //        Name         = ReadCell(xlRange, i, 12),
+            //        ShowKey      = ReadCell(xlRange, i, 13),
+            //        HideKey      = ReadCell(xlRange, i, 14),
+            //        Order        = ReadCell(xlRange, i, 15).ToInt(),
+            //        Visible      = ReadCell(xlRange, i, 16).ToBool()
+            //    };
 
-                questionOrders.Add(question);
-            }
+            //    questionOrders.Add(question);
+            //}
 
             //group orders
             xlRange  = xlWorksheetGroupOrder.UsedRange;
             rowCount = xlRange.Rows.Count;
             colCount = xlRange.Columns.Count;
 
-            for (int i = 2; i <= rowCount; i++)
-            {
-                var question = new QuestionGroupOrder
-                {
-                    TemplateName      = ReadCell(xlRange, i, 1),
-                    GroupName         = ReadCell(xlRange, i, 2),
-                    Name              = ReadCell(xlRange, i, 6),
-                    IsVisible         = ReadCell(xlRange, i, 9).ToBool(),
-                    Order             = ReadCell(xlRange, i, 10).ToInt(),
-                    Showkey           = ReadCell(xlRange, i, 11),
-                    Hidekey           = ReadCell(xlRange, i, 12), 
-                    Visible           = ReadCell(xlRange, i, 9).ToBool(), 
-                    ResponseDelimeter = ReadCell(xlRange, i, 13)
-                };
+            //for (int i = 2; i <= rowCount; i++)
+            //{
+            //    var question = new GroupOrder
+            //    {
+            //        TemplateName      = ReadCell(xlRange, i, 1),
+            //        GroupName         = ReadCell(xlRange, i, 2),
+            //        Name              = ReadCell(xlRange, i, 6),
+            //        IsVisible         = ReadCell(xlRange, i, 9).ToBool(),
+            //        Order             = ReadCell(xlRange, i, 10).ToInt(),
+            //        Showkey           = ReadCell(xlRange, i, 11),
+            //        Hidekey           = ReadCell(xlRange, i, 12), 
+            //        Visible           = ReadCell(xlRange, i, 9).ToBool(), 
+            //        ResponseDelimeter = ReadCell(xlRange, i, 13)
+            //    };
 
-                groupOrders.Add(question);
-            }
+            //    groupOrders.Add(question);
+            //}
 
-            var questionnaire = new QuestionnaireModel
+            var questionnaire = new Questionnaire
             {
                 Template          = Template,
                 Questions         = questions,
                 QuestionGroups    = groups,
-                QuestionResponses = responses,
-                QuestionOrders    = questionOrders,
-                GroupOrders       = groupOrders
+                QuestionResponses = responses
+                //QuestionOrders    = questionOrders,
+                //GroupOrders       = groupOrders
             };
 
 
@@ -251,7 +250,7 @@ namespace TDG.CORE.ETL.EXCEL
 
         #region LEGISLATION
 
-        public static List<LegislationModel> ReadLegislationWorkbook(string path)
+        public static List<Legislation> ReadLegislationWorkbook(string path)
         {
             Microsoft.Office.Interop.Excel.Application xlApp                 = new Microsoft.Office.Interop.Excel.Application();
             Microsoft.Office.Interop.Excel.Workbook xlWorkbook               = xlApp.Workbooks.Open(path);
@@ -265,12 +264,12 @@ namespace TDG.CORE.ETL.EXCEL
             int rowCount = xlRange.Rows.Count;
             int colCount = xlRange.Columns.Count;
 
-            var legislation = new List<LegislationModel>();
+            var legislation = new List<Legislation>();
 
             //start at second row
             for (int i = 2; i <= rowCount; i++)
             {
-                var model = new LegislationModel();
+                var model = new Legislation();
 
                 var legislationType        = ReadCell(xlRange, i, 1);
                 var legislationReference   = ReadCell(xlRange, i, 2);

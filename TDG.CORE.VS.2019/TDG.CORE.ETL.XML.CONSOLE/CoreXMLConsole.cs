@@ -33,6 +33,7 @@ namespace TDG.CORE.ETL.XML.CONSOLE
             //var schedule3 = XMLFunctions.ParseRegs("Schedule", "1231645");
 
             //flag data we're interested in
+            //can be added in the parsing to avoid an extra sweep
             tdgr.PopulateDataFlags();
             schedule2.PopulateDataFlags();
 
@@ -40,7 +41,7 @@ namespace TDG.CORE.ETL.XML.CONSOLE
             XML.XMLFunctions.SerializeRegulationsToFile(tdgr, "TDG-REGS");
             XML.XMLFunctions.SerializeRegulationsToFile(schedule2, "TDG-SCHEDULE-2");
 
-            //convert list of Regulations to DataTable <--faster output to excel 
+            //flatten list and output to DataTable <--faster output to excel 
             var dt          = XMLFunctions.CreateDataTableFromRegulation(tdgr);
             var dtSchedule2 = XMLFunctions.CreateDataTableFromRegulation(schedule2);
 

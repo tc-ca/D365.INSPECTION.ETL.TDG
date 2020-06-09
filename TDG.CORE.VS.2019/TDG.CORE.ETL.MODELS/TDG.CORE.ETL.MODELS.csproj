@@ -44,59 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\TDG.CORE.ETL.MODELS\LEGISLATION\BaseLegislationModel.cs">
-      <Link>LEGISLATION\BaseLegislationModel.cs</Link>
+    <Compile Include="..\..\TDG.CORE.ETL.MODELS\LEGISLATION\LegislationModels.cs">
+      <Link>LegislationModels.cs</Link>
     </Compile>
-    <Compile Include="..\..\TDG.CORE.ETL.MODELS\LEGISLATION\LegislationHierarchy.cs">
-      <Link>LEGISLATION\LegislationHierarchy.cs</Link>
-    </Compile>
-    <Compile Include="..\..\TDG.CORE.ETL.MODELS\LEGISLATION\LegislationModel.cs">
-      <Link>LEGISLATION\LegislationModel.cs</Link>
-    </Compile>
-    <Compile Include="..\..\TDG.CORE.ETL.MODELS\LEGISLATION\LegislationTypeModel.cs">
-      <Link>LEGISLATION\LegislationTypeModel.cs</Link>
-    </Compile>
-    <Compile Include="..\..\TDG.CORE.ETL.MODELS\LEGISLATION\Regulation.cs">
-      <Link>LEGISLATION\Regulation.cs</Link>
-    </Compile>
-    <Compile Include="..\..\TDG.CORE.ETL.MODELS\QUESTIONNAIRE\BaseEntityModel.cs">
-      <Link>QUESTIONNAIRE\BaseEntityModel.cs</Link>
-    </Compile>
-    <Compile Include="..\..\TDG.CORE.ETL.MODELS\QUESTIONNAIRE\QuestionControlType.cs">
-      <Link>QUESTIONNAIRE\QuestionControlType.cs</Link>
-    </Compile>
-    <Compile Include="..\..\TDG.CORE.ETL.MODELS\QUESTIONNAIRE\QuestionGroup.cs">
-      <Link>QUESTIONNAIRE\QuestionGroup.cs</Link>
-    </Compile>
-    <Compile Include="..\..\TDG.CORE.ETL.MODELS\QUESTIONNAIRE\QuestionGroupOrder.cs">
-      <Link>QUESTIONNAIRE\QuestionGroupOrder.cs</Link>
-    </Compile>
-    <Compile Include="..\..\TDG.CORE.ETL.MODELS\QUESTIONNAIRE\QuestionnaireFetchResult.cs">
-      <Link>QUESTIONNAIRE\QuestionnaireFetchResult.cs</Link>
-    </Compile>
-    <Compile Include="..\..\TDG.CORE.ETL.MODELS\QUESTIONNAIRE\QuestionnaireModel.cs">
-      <Link>QUESTIONNAIRE\QuestionnaireModel.cs</Link>
-    </Compile>
-    <Compile Include="..\..\TDG.CORE.ETL.MODELS\QUESTIONNAIRE\QuestionnaireQuestion.cs">
-      <Link>QUESTIONNAIRE\QuestionnaireQuestion.cs</Link>
-    </Compile>
-    <Compile Include="..\..\TDG.CORE.ETL.MODELS\QUESTIONNAIRE\QuestionnaireQuestionResponse.cs">
-      <Link>QUESTIONNAIRE\QuestionnaireQuestionResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\..\TDG.CORE.ETL.MODELS\QUESTIONNAIRE\QuestionnaireQuestionResponseInput.cs">
-      <Link>QUESTIONNAIRE\QuestionnaireQuestionResponseInput.cs</Link>
-    </Compile>
-    <Compile Include="..\..\TDG.CORE.ETL.MODELS\QUESTIONNAIRE\QuestionnaireQuestionsGroup.cs">
-      <Link>QUESTIONNAIRE\QuestionnaireQuestionsGroup.cs</Link>
-    </Compile>
-    <Compile Include="..\..\TDG.CORE.ETL.MODELS\QUESTIONNAIRE\QuestionnaireTemplate.cs">
-      <Link>QUESTIONNAIRE\QuestionnaireTemplate.cs</Link>
-    </Compile>
-    <Compile Include="..\..\TDG.CORE.ETL.MODELS\QUESTIONNAIRE\QuestionOrder.cs">
-      <Link>QUESTIONNAIRE\QuestionOrder.cs</Link>
-    </Compile>
-    <Compile Include="..\..\TDG.CORE.ETL.MODELS\QUESTIONNAIRE\QuestionsGroupQuestion.cs">
-      <Link>QUESTIONNAIRE\QuestionsGroupQuestion.cs</Link>
+    <Compile Include="..\..\TDG.CORE.ETL.MODELS\QUESTIONNAIRE\QuestionnaireModels.cs">
+      <Link>QuestionnaireModels.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
