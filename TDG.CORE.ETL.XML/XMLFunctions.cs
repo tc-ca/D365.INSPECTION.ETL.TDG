@@ -39,7 +39,7 @@ namespace TDG.CORE.ETL.XML
         {
             tempRegId = 1;
 
-            var source = XDocument.Parse(xmlContent);//RESOURCES.Properties.Resources.SOR_2001_286);
+            var source = XDocument.Parse(xmlContent);
 
             string findNode = $"{elementName}[@id='{rootNodeId}']";
             var rootNode = source.Root

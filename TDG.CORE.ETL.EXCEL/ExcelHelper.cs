@@ -1,17 +1,35 @@
 ﻿using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace TDG.CORE.ETL.EXCEL
 {
     public class ExcelHelper
     {
+        //http://msdn.microsoft.com/en-us/library/ms633522%28v=vs.85%29.aspx
+        [DllImport("User32.dll", SetLastError = true )]
+        public static extern int GetWindowThreadProcessId(IntPtr hWnd, ref int lpdwProcessId);
+
         public Application GetApplication() => excel;
 
+        int processId =0;
+        IntPtr xlHWND;
+        Process xlProcess;
         Application excel;
+        Workbooks wbs;
         Workbook wb;
         Worksheet ws;
+        Sheets wss;
+        Range allWorksheetColumns;
+        Range tableColumns;
+        Range tableRows;
+        ListObjects listObjects;
+        string wsName = "";
 
         static bool saveChanges = false;
         static List<string> columnHeaders = new List<string>();
@@ -19,21 +37,45 @@ namespace TDG.CORE.ETL.EXCEL
         public ExcelHelper()
         {
             excel = new Application();
+            
+            xlHWND = (IntPtr)excel.Hwnd;
 
-            wb = excel.Workbooks.Add();
+            GetWindowThreadProcessId(xlHWND, ref processId);
+            
+            xlProcess = Process.GetProcessById(processId);
 
-            ws = wb.Sheets[1];
+            wbs = excel.Workbooks;
+            
+            wb = wbs.Add();
 
-            ws.Name = "TDG Regulations";
+            wss = wb.Sheets;
+
+            ws = wss[1];
 
             columnHeaders = new List<string>();
         }
 
-
+        void NAR(object o)
+        {
+            try
+            {
+                while (System.Runtime.InteropServices.Marshal.ReleaseComObject(o) > 0) { }
+            }
+            catch { }
+            finally{o = null;}
+        }
 
         public void SaveFile(bool save = true)
         {
-            saveChanges = save;
+            var whereAmI = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
+            var now = DateTime.Now.ToString("yyyy-MM-dd");
+
+            var fileName = Path.Combine(whereAmI, $"{"TDG-PROVISIONS"}-{now}.xls");
+
+            excel.DisplayAlerts = false;
+
+            wb.SaveAs(fileName);
         }
 
         public void Recenter()
@@ -48,8 +90,25 @@ namespace TDG.CORE.ETL.EXCEL
         public void Close()
         {
             wb.Close(saveChanges);
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(wb);
+            wbs.Close();
+            NAR(allWorksheetColumns);
+            NAR(tableColumns);
+            NAR(tableRows);
+            NAR(listObjects);
+            NAR(ws);
+            NAR(wss);
+            NAR(wb);
+            NAR(wbs);
             excel.Quit();
+            NAR(excel);
+
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+
+            if (xlProcess != null && xlProcess.HasExited)
+            {
+                xlProcess.Kill();
+            }
         }
         public void Hide()
         {
@@ -61,17 +120,12 @@ namespace TDG.CORE.ETL.EXCEL
             excel.Visible = true;
         }
 
-        public void CreateNewWorksheet(string sheetName = "")
+        public void CreateNewWorksheet()
         {
-            ws = wb.Worksheets.Add(After: wb.Sheets[wb.Sheets.Count]);
-            ws.Columns.NumberFormat = "@";
-
-            if (!string.IsNullOrEmpty(sheetName)) ws.Name = sheetName;
+            ws = wss.Add(After: wss[wss.Count]);
+            allWorksheetColumns = ws.Columns;
+            allWorksheetColumns.NumberFormat = "@";
         }
-
-
-
-
 
         //slow way
         public void AddDataTableToExcel(System.Data.DataTable table)
@@ -96,9 +150,14 @@ namespace TDG.CORE.ETL.EXCEL
             }
         }
 
+        public void SetWorksheetName(string name)
+        {
+            ws.Name = name;
+        }
 
         //way faster
         static int tempTableNumbers = 1;
+
         public void BulkExportDataTableToExcel(System.Data.DataTable table)
         {
             int ColumnsCount;
@@ -127,22 +186,22 @@ namespace TDG.CORE.ETL.EXCEL
                     Cells[j, i] = table.Rows[j][i];
 
             //where does the body go
-            Microsoft.Office.Interop.Excel.Range RowRange = ws.get_Range((Microsoft.Office.Interop.Excel.Range)ws.Cells[2, 1], (Microsoft.Office.Interop.Excel.Range)ws.Cells[RowsCount + 1, ColumnsCount]);
-            
+            tableRows = ws.get_Range((Microsoft.Office.Interop.Excel.Range)ws.Cells[2, 1], (Microsoft.Office.Interop.Excel.Range)ws.Cells[RowsCount + 1, ColumnsCount]);
+
             //write the whole body in one go
-            RowRange.Value = Cells;
+            tableRows.Value = Cells;
 
             //make it a table
-            Microsoft.Office.Interop.Excel.Range TableRange = ws.get_Range((Microsoft.Office.Interop.Excel.Range)ws.Cells[1, 1], (Microsoft.Office.Interop.Excel.Range)ws.Cells[RowsCount + 1, ColumnsCount]);
-            FormatAsTable(TableRange, $"Table{tempTableNumbers++}", "TableStyleLight9");
+            tableColumns = ws.get_Range((Microsoft.Office.Interop.Excel.Range)ws.Cells[1, 1], (Microsoft.Office.Interop.Excel.Range)ws.Cells[RowsCount + 1, ColumnsCount]);
+            FormatAsTable($"Table{tempTableNumbers++}", "TableStyleLight9");
 
             //make all columns a decent size
-            SizeAllColumns(RowRange, 35);
+            tableColumns.ColumnWidth = 35;
         }
 
         public void FreezeFrame(int column, int row)
         {
-            foreach (Window win in excel.Application.Windows)
+            foreach (Window win in excel.Windows)
             {
                 win.SplitColumn = column;
                 win.SplitRow = row;
@@ -154,18 +213,15 @@ namespace TDG.CORE.ETL.EXCEL
         {
             Worksheet firstSheet = excel.Sheets[1];
             firstSheet.Activate();
+            NAR(firstSheet);
         }
 
-        void FormatAsTable(Microsoft.Office.Interop.Excel.Range SourceRange, string TableName, string TableStyleName)
+        void FormatAsTable(string TableName, string TableStyleName)
         {
-            SourceRange.Worksheet.ListObjects.Add(XlListObjectSourceType.xlSrcRange, SourceRange, System.Type.Missing, XlYesNoGuess.xlGuess, System.Type.Missing).Name = TableName;
-            SourceRange.Select();
-            SourceRange.Worksheet.ListObjects[TableName].TableStyle = TableStyleName;
-        }
-
-        void SizeAllColumns(Microsoft.Office.Interop.Excel.Range SourceRange, int columnSize)
-        {
-            SourceRange.Columns.ColumnWidth = columnSize;
+            listObjects = ws.ListObjects;
+            listObjects.Add(XlListObjectSourceType.xlSrcRange, tableColumns, System.Type.Missing, XlYesNoGuess.xlGuess, System.Type.Missing).Name = TableName;
+            tableColumns.Select();
+            listObjects[TableName].TableStyle = TableStyleName;
         }
     }
 }
