@@ -65,7 +65,7 @@ namespace TDG.CORE.ETL.EXCEL
             finally{o = null;}
         }
 
-        public void SaveFile(bool save = true)
+        public string SaveFile(bool save = true)
         {
             var whereAmI = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
@@ -76,6 +76,8 @@ namespace TDG.CORE.ETL.EXCEL
             excel.DisplayAlerts = false;
 
             wb.SaveAs(fileName);
+
+            return fileName;
         }
 
         public void Recenter()

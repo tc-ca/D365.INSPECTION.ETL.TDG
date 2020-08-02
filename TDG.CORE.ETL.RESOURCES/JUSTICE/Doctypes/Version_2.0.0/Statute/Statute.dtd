@@ -1,0 +1,376 @@
+<?xml encoding="utf-8"?>
+
+<!-- Statute DTD v2.0.0 == 20040528 -->
+
+
+<!-- Sep. 2002 - removed the "inline" attribute from Provision since
+	it was redundant.  -->
+
+<!-- Feb. 2002 - removed common elements to a separate file called
+     billCommonElements.ent...Julie Julian  -->
+             
+<!-- In the Statute DTD, we must ignore the change attribute if it
+     is the only attribute for an element.  If the element has other
+     attributes (besides change) then we can include the ATTLIST in 
+     the DTD, but we map the %changeatt; entity to the null string
+     so that the changeatt is not included.  -->
+
+<!ENTITY % ignorechange 'IGNORE'>
+
+<!ENTITY % changeatt "">
+
+<!-- The following line identifies the billCommonElements.dtd to be included 
+     in Statute.dtd -->
+  
+<!ENTITY % commonelements PUBLIC "-//Justice Canada//DTD Bill Common Elements v2.0.0//EN" "../CommonFiles/billCommonElements.ent">
+
+<!-- ____________________________________________________________________-->
+<!--                                                                     -->
+<!--                             ENTITIES                                -->
+<!--                                                                     -->
+<!-- ____________________________________________________________________-->
+
+<!ENTITY % lowleveltext  "#PCDATA | Sub | Sup | Emphasis | Language 
+                           | Fraction | FootnoteRef | XRefInternal | XRefExternal
+                           | HistoricalNote" >
+
+<!--
+
+  The parameter entity %blockfragment; defined below is used to create
+  a more restrictive content model than %blocktext; for use in the
+  %docpart; parameter entity.  In particular, %blockfragment; does
+  not contain the Provision element.  This omission is required to
+  permit required flexibility in the content of AmendedText when
+  schedules are being amended. 
+
+-->
+
+<!ENTITY % blockfragment  "BilingualGroup
+                         | FormulaGroup
+                         | FormulaDefinition 
+                         | FormulaParagraph
+                         | FormGroup 
+                         | TableGroup
+                         | SignatureBlock
+                         | Footnote 
+						 | List
+                         | Note
+                         | Oath
+                         | ImageGroup
+                         | ReadAsText" >
+                           
+<!ENTITY % blocktext  "( %blockfragment; | Provision)" >
+
+<!ENTITY % changedtext  "(#PCDATA | Emphasis | DefinedTermEn
+                          | DefinedTermFr | DefinitionEnOnly | DefinitionFrOnly | DefinitionRef | FootnoteRef | Fraction 
+                          | Language | Leader | LeaderRightJustified | Sub | Sup | XRefInternal 
+                          | XRefExternal | ImageGroup | Provision)*" >
+
+<!ENTITY % inline  "(#PCDATA | Sub | Sup | Emphasis 
+                     | DefinedTermEn | DefinedTermFr | FootnoteRef 
+                     | Fraction | Language | DefinitionEnOnly | DefinitionFrOnly | DefinitionRef | Leader | LeaderRightJustified | XRefInternal 
+                     | XRefExternal | ImageGroup | HistoricalNote 
+                     | Repealed)*" >
+
+<!ENTITY % schedulecontent  "(BillPiece | DocumentInternal | BillInternal
+                            | %blocktext; | Schedule | HistoricalNote)*" >
+                         
+
+
+<!ENTITY % tbl.entry.mdl  "(#PCDATA | Sub | Sup | Emphasis | BilingualGroup 
+               | FootnoteRef | Fraction | Formula  
+               | XRefInternal | XRefExternal | ImageGroup | Provision
+               | Language | SignatureBlock | LeaderRightJustified )* " >
+
+<!-- The following line imports the contents of billCommonElements.dtd so that
+     elements from the common elements pool can be included in Statute.dtd 
+     This reference must be positioned after the entity references. -->
+ 
+%commonelements;
+
+<!-- ____________________________________________________________________-->
+<!--                                                                     -->
+<!--                        HIGHEST LEVEL ELEMENT                        -->
+<!--                                                                     -->
+<!-- ____________________________________________________________________-->
+
+<!ELEMENT Statute  (Identification, Repealed?, Introduction?, Body, Schedule*) >
+
+<!ATTLIST Statute
+               bill-origin (commons | senate)   #REQUIRED
+               bill-type (private-public | private-private | govt-public) 
+               						"govt-public"
+               document-id  CDATA    #IMPLIED 
+               date-time  CDATA    #IMPLIED 
+               xml:lang (en | fr)   #REQUIRED  
+		in-force (yes | no) "yes" 
+		  startdate CDATA #IMPLIED 
+		hasPreviousVersion CDATA #IMPLIED >
+
+ <!ATTLIST Identification	hasPreviousVersion CDATA #IMPLIED>
+<!-- ____________________________________________________________________-->
+<!--                                                                     -->
+<!--                       IDENTIFICATION ELEMENT                        -->
+<!--                                                                     -->
+<!-- ____________________________________________________________________-->
+   
+<!ELEMENT Body  (Heading | Section)+ >
+
+<!ELEMENT Identification  (BillNumber?, Parliament?, LongTitle, 
+                           ShortTitle, RunningHead?, BillHistory, BillSponsor?, StatuteYear?, 
+                           Chapter?, ReaderNote?, BillRefNumber?) >
+
+<!ELEMENT BillHistory  (Stages+, RelatedInformation*) >
+                           
+<!ELEMENT Chapter  (ConsolidatedNumber, AnnualStatuteId?) >
+
+
+
+<!ELEMENT AnnualStatuteId  (AnnualStatuteNumber, YYYY ) >
+<!ATTLIST AnnualStatuteId
+               revised-statute (yes | no) "no"  >
+
+<!ELEMENT ConsolidatedNumber (#PCDATA) >
+<!ATTLIST ConsolidatedNumber official ( yes | no ) #REQUIRED >
+
+<!ELEMENT ReaderNote  (Note+) >
+
+<!ELEMENT StatuteYear  (#PCDATA) >
+                
+<!ELEMENT Preamble  (Provision+, HistoricalNote?) >
+
+<!ELEMENT Enacts  (Provision, HistoricalNote?) >
+
+<!-- ____________________________________________________________________-->
+<!--                                                                     -->
+<!--                       BODY ELEMENT                                  -->
+<!--                                                                     -->
+<!-- ____________________________________________________________________-->
+
+<!ELEMENT Section  (MarginalNote?, Label, InLineHeading?, 
+                    ((Text, (Definition* | (((Paragraph | %blocktext;)+, 
+                    ContinuedSectionSubsection?)* | (AmendedText, ContinuedSectionSubsection?)?))) | Subsection+),
+                    HistoricalNote?) >
+                   
+<!ATTLIST Section
+               id  ID    #IMPLIED 
+               type (normal | transitional | amending)   #IMPLIED  >
+
+<!ELEMENT Subsection  (MarginalNote?, Label, Text, 
+                       (Definition* | (((Paragraph | %blocktext;)+,
+                       ContinuedSectionSubsection?)* | (AmendedText, ContinuedSectionSubsection?)?)),
+                       HistoricalNote?) >
+                      
+<!ATTLIST Subsection
+               id  ID    #IMPLIED 
+               type (normal | transitional | amending)   #IMPLIED  >
+
+<!-- ____________________________________________________________________-->
+<!--                                                                     -->
+<!--                       SCHEDULE ELEMENT                             -->
+<!--                                                                     -->
+<!-- ____________________________________________________________________-->
+
+<!ELEMENT Schedule  (RunningHead?, ScheduleFormHeading, (%schedulecontent; | Repealed)?) >
+
+<!ATTLIST Schedule
+               id  ID    #IMPLIED
+               spanlanguages (yes | no) "no"
+               bilingual   (yes | no) "no"
+               %changeatt;  >
+
+<!ELEMENT DocumentInternal
+    		( (Group | Provision | GroupHeading)+, Schedule*, HistoricalNote? ) >
+   
+<!ELEMENT Group 
+    (
+        GroupHeading,
+        (Group | Provision)+,
+         HistoricalNote?
+    )>
+    
+<!ATTLIST Group
+    	id  ID    #IMPLIED >
+
+<!ENTITY % provisionblock "(
+                               BilingualGroup
+                             | FormulaGroup
+                             | FormGroup
+                             | TableGroup
+                             | SignatureBlock
+                             | Footnote
+                             | Note
+                             | List
+                             | Oath
+                             | ImageGroup
+                           )" >
+
+<!ELEMENT Provision (
+                      MarginalNote?,
+                      Label?,
+                      ProvisionHeading?,
+                      (
+                        (
+                          Text,
+                          (
+                            (
+                              (Provision | %provisionblock;)+,
+                              Text?
+                            )*
+                           |
+                            AmendedContent?
+                           |
+                            ReadAsContent?
+                          ),
+                          HistoricalNote?
+                        )
+                       |
+                        (Provision+, HistoricalNote?)
+                       |
+                        (%provisionblock;, HistoricalNote?)
+                      )
+                    ) >
+
+<!ATTLIST Provision	
+                format-ref  CDATA    #IMPLIED
+                first-line-indent CDATA #IMPLIED
+                subsequent-line-indent CDATA #IMPLIED
+                justification (justify | left | right | center) #IMPLIED
+                hyphenation (yes | no) #IMPLIED
+                pointsize (6 | 7 | 8 | 9 | 10 | 11 | 12) #IMPLIED
+                keep-with-next (yes | no) #IMPLIED
+                keep-with-previous (yes | no) #IMPLIED
+                topmarginspacing CDATA #IMPLIED
+		list-item (yes | no) "no"
+                xml:lang (en | fr)   #IMPLIED 
+                id  ID    #IMPLIED
+                language-align (yes | no) "no"
+                %changeatt; >
+
+<!ELEMENT AmendedContent ((Group | Provision | GroupHeading)+, HistoricalNote?) >
+
+<!ELEMENT ReadAsContent ((Group | Provision | GroupHeading)+) >
+
+
+<!ELEMENT Heading  (Label?, MarginalNote?, TitleText?, Note?)  >
+<!ATTLIST Heading
+    level (1 | 2 | 3 | 4 | 5) #REQUIRED
+    style CDATA  #IMPLIED 
+    type (normal | transitional | amending) #IMPLIED
+    %changeatt;  >
+
+
+<!-- ____________________________________________________________________-->
+<!--                                                                     -->
+<!--                       BLOCK TEXT ELEMENTS                           -->
+<!--                                                                     -->
+<!-- ____________________________________________________________________-->
+                                                                                      
+<!ELEMENT Paragraph  (MarginalNote?, Label, Text, 
+                     (((Subparagraph | %blocktext;)+, ContinuedParagraph?)* 
+                     | AmendedText?), HistoricalNote?) >
+                        
+<!ATTLIST Paragraph
+               id  ID    #IMPLIED 
+               type (normal | transitional | amending)   #IMPLIED  >
+
+<!ELEMENT Subparagraph  (Label, Text, (((Clause 
+                         | %blocktext;)+, ContinuedSubparagraph?)* 
+                         | AmendedText?), HistoricalNote?) >
+                         
+<!ATTLIST Subparagraph
+               id  ID    #IMPLIED 
+               type (normal | transitional | amending)   #IMPLIED  >
+
+<!ELEMENT Clause  (Label, Text, ((Subclause | %blocktext;)+, 
+                   ContinuedClause?)*, HistoricalNote?) >
+                   
+<!ATTLIST Clause
+               id  ID    #IMPLIED 
+               type  (normal | transitional | amending)  #IMPLIED  >
+
+<!ELEMENT Subclause  (Label, Text, ((Subsubclause | %blocktext;)+,
+                      ContinuedSubclause?)*, HistoricalNote?) >
+                     
+<!ATTLIST Subclause
+               id  ID    #IMPLIED 
+               type  (normal | transitional | amending)  #IMPLIED  >
+
+<!ELEMENT Subsubclause  (Label, Text, 
+                         (%blocktext;)*, HistoricalNote?) >
+                         
+<!ATTLIST Subsubclause
+               id  ID    #IMPLIED 
+               type  (normal | transitional | amending)  #IMPLIED  >
+
+<!ELEMENT Footnote  (Label, (Text | Provision+)) >
+                                         
+<!-- ____________________________________________________________________-->
+<!--                                                                     -->
+<!--                       INLINE TEXT ELEMENTS                          -->
+<!--                                                                     -->
+<!-- ____________________________________________________________________-->
+
+<!ELEMENT Emphasis  (%lowleveltext;)* >
+
+<!ATTLIST Emphasis
+               style (bold | italic | underline | smallcaps | overbar | regular)   #REQUIRED >
+
+<!ELEMENT Repealed  (%lowleveltext;)* >
+
+<!ELEMENT HistoricalNote  (%lowleveltext;)* >
+
+<!-- CHANGES NEEDED FOR READABILITY BUT SCM STILL EXPORTS USING THIS OLD DTD -->
+
+<!ELEMENT Leader  EMPTY >
+<!ATTLIST Leader
+               leader (solid | dot | dash | none)  "none" 
+	       length CDATA #IMPLIED >
+		   
+
+<!ELEMENT List (Item+) >
+<!ATTLIST List
+		style (arabic | roman-lc | roman-uc | alphabet-lc | alphabet-uc | bullet | en-dash | em-dash) #IMPLIED 
+		subsequent-line-indent CDATA #IMPLIED 
+		first-line-indent CDATA #IMPLIED 
+		justification (justify | left | right | center) #IMPLIED
+		hyphenation (yes | no) #IMPLIED
+		pointsize (6 | 7 | 8 | 9 | 10 | 11 | 12) #IMPLIED
+		keep-with-next (yes | no) #IMPLIED
+		keep-with-previous (yes | no) #IMPLIED
+		topmarginspacing CDATA #IMPLIED
+		xml:lang (en | fr)   #IMPLIED 
+		language-align (yes | no) "no"
+		%changeatt;  >
+<!ELEMENT Item (Label?, Text, List?) >
+	
+	
+<!-- ____________________________________________________________________-->
+<!--                                                                     -->
+<!--                       IN FORCE ATTRIBUTES                           -->
+<!--                                                                     -->
+<!-- ____________________________________________________________________-->
+
+<!ATTLIST Provision
+		  		in-force CDATA    #IMPLIED  >
+<!ATTLIST Section 
+		  		in-force CDATA    #IMPLIED  >
+<!ATTLIST Subsection 
+		  		in-force CDATA    #IMPLIED  >
+<!ATTLIST Paragraph
+		  		in-force CDATA    #IMPLIED  >
+<!ATTLIST Subparagraph 
+		  		in-force CDATA    #IMPLIED  >
+<!ATTLIST Clause 
+		  		in-force CDATA    #IMPLIED  >
+<!ATTLIST Subclause 
+		  		in-force CDATA    #IMPLIED  >
+<!ATTLIST Subsubclause 
+		  		in-force CDATA    #IMPLIED  >
+<!ATTLIST TableGroup 
+		  		in-force CDATA    #IMPLIED  >
+<!ATTLIST Schedule 
+		  		in-force CDATA    #IMPLIED  >
+<!ATTLIST Heading 
+		  		in-force CDATA    #IMPLIED  >
+

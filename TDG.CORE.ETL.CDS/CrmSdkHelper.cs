@@ -21,7 +21,7 @@ namespace TDG.CORE.ETL.CDS
         //static string questionOrderEntityName = "tc_qtn_question_order";
         //static string groupOrderEntityName = "tc_qtn_question_group_order";
         static string keyName = "tc_name";
-        static string legKeyName = "tc_legislationidentifier";
+        static string legKeyName = "tc_justiceid";//"tc_legislationidentifier";
 
 
         #region QUESTIONNAIRE
@@ -590,7 +590,6 @@ namespace TDG.CORE.ETL.CDS
         {
             var leg = new Entity(legislationEntityName);
 
-            //get list of pre-existing question groups  0
             Entity existingLeg = GetEntityUsingSimpleQuery(service, legislationEntityName, legKeyName, element.JusticeId);
 
             if (existingLeg != null)
@@ -943,7 +942,7 @@ namespace TDG.CORE.ETL.CDS
         public static CrmServiceClient Connect()
         {
             // Try to create via connection string. 
-            var service = new CrmServiceClient("Url=https://xxxxxxxxxxxxxxxxx.xxxxx.dynamics.com; Username=xxxxxxxxxxxxxx; Password=xxxxxxxxxxxxxx; authtype=xxxxxxxxxxxxxx; RequireNewInstance=True");
+            var service = new CrmServiceClient("Url=https://insp-dev4-tcd365.crm3.dynamics.com/; Username=TDG.CORE@034gc.onmicrosoft.com; Password=TDGCore1!; authtype=Office365; RequireNewInstance=True");
 
             return service;
         }
@@ -1053,16 +1052,8 @@ namespace TDG.CORE.ETL.CDS
 
         #region LEGISLATION
 
-        private static void MapLegislationDataToEntity(ref Entity legEntity, Regulation reg)
+        private static void MapLegislationMetaData(ref Entity legEntity, Regulation reg)
         {
-            legEntity.Attributes["tc_legislationtextenglish"] = reg.TextEnglish;
-            legEntity.Attributes["tc_legislationtextfrench"] = reg.TextFrench;
-            legEntity.Attributes["tc_legislationidentifier"] = reg.Label;
-            legEntity.Attributes["tc_order"] = OrderCount;
-            legEntity.Attributes["tc_daterevoked"] = null;
-            legEntity.Attributes["tc_dateeffective"] = reg.InforceStartDate;
-
-            legEntity.Attributes["tc_uniqueId"] = reg.UniqueId;
             legEntity.Attributes["tc_may"] = reg.GetDataFlag("MAY");
             legEntity.Attributes["tc_must"] = reg.GetDataFlag("MUST");
             legEntity.Attributes["tc_unless"] = reg.GetDataFlag("UNLESS");
@@ -1081,6 +1072,18 @@ namespace TDG.CORE.ETL.CDS
             legEntity.Attributes["tc_unNumbers"] = reg.GetDataFlag("UN NUMBERS");
             legEntity.Attributes["tc_hasClass"] = reg.GetDataFlag("HAS CLASS");
             legEntity.Attributes["tc_classes"] = reg.GetDataFlag("CLASSES");
+        }
+
+        private static void MapLegislationDataToEntity(ref Entity legEntity, Regulation reg)
+        {
+            legEntity.Attributes["tc_legislationtextenglish"] = reg.TextEnglish;
+            legEntity.Attributes["tc_legislationtextfrench"] = reg.TextFrench;
+            legEntity.Attributes["tc_legislationidentifier"] = reg.Label;
+            legEntity.Attributes["tc_order"] = OrderCount;
+            legEntity.Attributes["tc_daterevoked"] = null;
+            legEntity.Attributes["tc_dateeffective"] = reg.InforceStartDate;
+            legEntity.Attributes["tc_justiceid"] =reg.JusticeId;
+            legEntity.Attributes["tc_legislation"] = reg.UniqueId;
         }
 
         #endregion

@@ -73,6 +73,7 @@ namespace TDG.CORE.ETL.XML
                 if (parent != null)
                 {
                     childValue.Label = string.Concat($"{parent.Label} {childValue.Label}"); 
+                    childValue.ParentCrmId = parent.CrmId;
                 }
 
                 if (childElement.Elements().Any(e => CONSTANTS.Constants.RegTypes.Contains(e.Name.LocalName)))
@@ -101,6 +102,8 @@ namespace TDG.CORE.ETL.XML
         {
             Regulation reg             = new Regulation();
             var label                  = element.ReadNodeByType("Label");
+            
+            reg.CrmId                  = Guid.NewGuid();
             reg.Order                  = tempRegId;
             reg.UniqueId               = $"Reg{tempRegId++}";
             reg.Type                   = element.Name.LocalName;
@@ -165,6 +168,8 @@ namespace TDG.CORE.ETL.XML
         {
             System.Data.DataTable Dt = new System.Data.DataTable();
             Dt.Columns.Add(CONSTANTS.Constants.Order, typeof(int));
+            Dt.Columns.Add(CONSTANTS.Constants.CrmId, typeof(string));
+            Dt.Columns.Add(CONSTANTS.Constants.ParentCrmId, typeof(string));
             Dt.Columns.Add(CONSTANTS.Constants.UniqueId, typeof(string));
             Dt.Columns.Add(CONSTANTS.Constants.Type, typeof(string));
             Dt.Columns.Add(CONSTANTS.Constants.Label, typeof(string));
@@ -221,6 +226,8 @@ namespace TDG.CORE.ETL.XML
             DataRow dtrow = Dt.NewRow();
 
             dtrow.SetField(CONSTANTS.Constants.Order             , element.Order);
+            dtrow.SetField(CONSTANTS.Constants.CrmId             , element.CrmId);
+            dtrow.SetField(CONSTANTS.Constants.ParentCrmId       , element.ParentCrmId);
             dtrow.SetField(CONSTANTS.Constants.UniqueId          , element.UniqueId);
             dtrow.SetField(CONSTANTS.Constants.Type              , element.Type);
             dtrow.SetField(CONSTANTS.Constants.Label             , element.Label);

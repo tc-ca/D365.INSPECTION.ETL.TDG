@@ -74,11 +74,13 @@ namespace TDG.CORE.ETL.MODELS.LEGISLATION
         public string HistoricalNote { get; set; }
         public string Lang { get; set; }
         public List<KeyValuePair<string, object>> DataFlags { get; set; }
+        public Guid CrmId { get; set; }
+        public Guid? ParentCrmId { get; set; }
 
         public object GetDataFlag(string flag)
         {
             var dataFlag = DataFlags?.FirstOrDefault(e => e.Key == flag);
-            return DataFlags != null && dataFlag.HasValue ? dataFlag.Value.Value : false;
+            return DataFlags != null && dataFlag.HasValue && DataFlags.Count > 0 ? dataFlag.Value.Value ?? false : false;
         }
     }
 

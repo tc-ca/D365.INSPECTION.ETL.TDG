@@ -39,9 +39,11 @@ namespace TDG.CORE.ETL.CONSTANTS
         public static string RegulationType   = "regulation-type";
 
         //doesnt exist, but need to seperate out the french, maintain original order and have unique id
-        public static string TextFrench = "TextFrench";
-        public static string Order = "Order";
-        public static string UniqueId = "UniqueId";
+        public static string TextFrench  = "TextFrench";
+        public static string Order       = "Order";
+        public static string UniqueId    = "UniqueId";
+        public static string CrmId       = "CrmId";
+        public static string ParentCrmId = "ParentCrmId";
 
 
         //valid nodes to output

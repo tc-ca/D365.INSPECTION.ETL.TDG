@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Costura.Fody.4.1.0\build\Costura.Fody.props" Condition="Exists('..\packages\Costura.Fody.4.1.0\build\Costura.Fody.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E3B6F8B0-BC69-417F-A239-2704173BD35B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TDG.CORE.ETL</RootNamespace>
+    <AssemblyName>TDG.CORE.ETL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Costura, Version=4.1.0.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Costura.Fody.4.1.0\lib\net40\Costura.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TDGProvisions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TDG.CORE.ETL.CDS\TDG.CORE.ETL.CDS.csproj">
+      <Project>{e34681aa-d00d-49ee-8b33-caec38cf8221}</Project>
+      <Name>TDG.CORE.ETL.CDS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TDG.CORE.ETL.CONSTANTS\TDG.CORE.ETL.CONSTANTS.csproj">
+      <Project>{3db7621f-ffa3-449b-9961-b5d4a77b1ebf}</Project>
+      <Name>TDG.CORE.ETL.CONSTANTS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TDG.CORE.ETL.EXCEL\TDG.CORE.ETL.EXCEL.csproj">
+      <Project>{b8bb90ed-9930-4fe1-8e12-5c34f6cb1c44}</Project>
+      <Name>TDG.CORE.ETL.EXCEL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TDG.CORE.ETL.EXTENSIONS\TDG.CORE.ETL.EXTENSIONS.csproj">
+      <Project>{63fea08c-f0ad-4071-89bd-d9a926b6fb3e}</Project>
+      <Name>TDG.CORE.ETL.EXTENSIONS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TDG.CORE.ETL.MODELS\TDG.CORE.ETL.MODELS.csproj">
+      <Project>{45bf5593-6020-4771-9420-df5c8a7c4104}</Project>
+      <Name>TDG.CORE.ETL.MODELS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TDG.CORE.ETL.RESOURCES\TDG.CORE.ETL.RESOURCES.csproj">
+      <Project>{736b66bd-7523-40c1-b02f-ede32bf0bff6}</Project>
+      <Name>TDG.CORE.ETL.RESOURCES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TDG.CORE.ETL.XML\TDG.CORE.ETL.XML.csproj">
+      <Project>{03edff83-1ace-419e-9e93-a680cf8da96f}</Project>
+      <Name>TDG.CORE.ETL.XML</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TDG.CORE.INTEGRATION.LEGAPI\TDG.CORE.INTEGRATION.LEGAPI.csproj">
+      <Project>{1c8c26bd-33ee-47b0-b23e-a10bde84ef9b}</Project>
+      <Name>TDG.CORE.INTEGRATION.LEGAPI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FodyWeavers.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Fody.6.2.4\build\Fody.targets" Condition="Exists('..\packages\Fody.6.2.4\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.6.2.4\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.6.2.4\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Costura.Fody.4.1.0\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.4.1.0\build\Costura.Fody.props'))" />
+  </Target>
+</Project>

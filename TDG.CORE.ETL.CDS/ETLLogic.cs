@@ -343,6 +343,7 @@ namespace TDG.CORE.ETL.CDS
             }
 
             catch (Exception ex)
+            
             {
                 CrmSdkHelper.HandleException(ex);
             }
