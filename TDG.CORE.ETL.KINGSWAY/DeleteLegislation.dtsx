@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{102ADBED-FAAC-4F64-B00A-7807085AB1F7}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{4535C1B6-DDA5-4F0D-816A-7E50B374BC6C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,10 +23,10 @@
       DTS:ObjectName="Dynamics CRM Connection Manager">
       <DTS:ObjectData>
         <CrmConnectionManager
-          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=TDG.CORE@034gc.onmicrosoft.com;Domain=;CrmServerUrl=https://insp-dev4-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False">
+          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg.core@034gc.onmicrosoft.com;Domain=;CrmServerUrl=https://insp-dev4-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False">
           <Password
             Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8ixEILbxY02NLx/RyCM5NgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABtfMxB7Ue770tEsVEzM1AtAAAAAASAAACgAAAAEAAAAF1wEUvcJmvh/oM7lSY1fZEYAAAAErgmXfHg0lrHd0kil5cb9/gagpkqLdqZFAAAAKd42mZQ0FwVlZoG2sn1MRR1B9Zq</Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8ixEILbxY02NLx/RyCM5NgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAsii684wxPEwaE0VTlaVCyAAAAAASAAACgAAAAEAAAAIwzMEcnGMcP6kI/2Epau5UgAAAAaTrjNI1T367khVriAC5wsMPnlvieG5svVTeJcOHbNOQUAAAA+NQ14P30+Ulp5TcsTI7OnuJxCkU</Password>
         </CrmConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>

@@ -8,10 +8,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TDG.CORE.ETL.XML</RootNamespace>
     <AssemblyName>TDG.CORE.ETL.XML</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <ProjectGuid>{03EDFF83-1ACE-419E-9E93-A680CF8DA96F}</ProjectGuid>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
