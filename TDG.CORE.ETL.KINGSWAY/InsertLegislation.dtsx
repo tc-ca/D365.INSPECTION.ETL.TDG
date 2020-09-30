@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{699EEB6B-6798-40E8-BDB8-B5BA62D29222}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{56334161-CE97-4632-8CD4-08584EF229C9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,7 +26,7 @@
           ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=TDG.CORE@034gc.onmicrosoft.com;Domain=;CrmServerUrl=https://rom-dev-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False">
           <Password
             Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6e5F41rhfky513r+o9DMRQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADFu7BMe4WZ5ITAMuPtLWRPXXCW2EAf8dD0OV6timvQHwAAAAAOgAAAAAIAACAAAAAVUbe9c8D5tDGt6t2zI4mFOhXzy3TsZwO4WV1ryMUN9iAAAABBVvHQT3egaBIY9cIG39szXnt2guyuLDcjfNGVNkp6gUAAAABFybVq0V2gScNBaYXEpSxG/08j6N+vvJn/hbEf8w/yzZSNme0gOJ6GmhOoKMP/HohwdXezlJRvQrZKv4MNvVWc</Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqMFcBO7+9UaHA1rNx4AZZgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACE2VPu2h36BbQAVQ0bSYgeAAAAAASAAACgAAAAEAAAALGUMQjEm6jaL2If3fxMH2IgAAAAHtZiToBydFVo+Zk1WYFO2HQ9nV4++/fY+reRn46X8igUAAAAH24O91/qVYq01koTlQuas2ZDS2I</Password>
         </CrmConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1709,7 +1709,7 @@
           Id="Package\Data Flow Task\Dynamics CRM Destination"
           TopLeft="544,321" />
         <NodeLayout
-          Size="191,42"
+          Size="184,42"
           Id="Package\Data Flow Task\Premium Excel Source"
           TopLeft="558,81.909090909091" />
         <NodeLayout
@@ -1762,7 +1762,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Default Output1]"
-          TopLeft="652,123.909090909091">
+          TopLeft="650.25,123.909090909091">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
