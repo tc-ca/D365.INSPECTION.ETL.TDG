@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{4535C1B6-DDA5-4F0D-816A-7E50B374BC6C}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{B2040447-C24C-4F29-A39A-7DF60A30DE35}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,10 +23,10 @@
       DTS:ObjectName="Dynamics CRM Connection Manager">
       <DTS:ObjectData>
         <CrmConnectionManager
-          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg.core@034gc.onmicrosoft.com;Domain=;CrmServerUrl=https://insp-dev4-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False">
+          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg.core@034gc.onmicrosoft.com;Domain=;CrmServerUrl=https://rom-dev-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False">
           <Password
             Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8ixEILbxY02NLx/RyCM5NgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAsii684wxPEwaE0VTlaVCyAAAAAASAAACgAAAAEAAAAIwzMEcnGMcP6kI/2Epau5UgAAAAaTrjNI1T367khVriAC5wsMPnlvieG5svVTeJcOHbNOQUAAAA+NQ14P30+Ulp5TcsTI7OnuJxCkU</Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6e5F41rhfky513r+o9DMRQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACsJj+9we0fTOEtCQiw9YmLpP50l7nnnhHxTiWMLQDbugAAAAAOgAAAAAIAACAAAAAxHItwT6PcEjUJovQojTK54SWOzvdFI6jXw8jnwLVDxCAAAAD1HYhYwa1V20/9RFIPJ/qwiNI/nNXiScayBlVVmBXGE0AAAAACf2CRt8S6JBPWlCxobtZprcgL+IkddTKE9poN28sbH0lrNqOzPHIl3ji3pMPXgcrVwMOSZIZCFu5UhFhYNOZJ</Password>
         </CrmConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
