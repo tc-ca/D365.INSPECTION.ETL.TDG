@@ -58,6 +58,7 @@
     <None Include="EXCEL_TEMPLATES\GeneralCompliance_V2.xlsx" />
     <None Include="EXCEL_TEMPLATES\TDG-PROVISIONS-2020-07-31.xls" />
     <None Include="EXCEL_TEMPLATES\TDGActiveLegislation.xlsx" />
+    <None Include="EXCEL_TEMPLATES\TDG_Inspectors.xlsx" />
     <None Include="JUSTICE\Doctypes\mathml2\html\lat1.ent" />
     <None Include="JUSTICE\Doctypes\mathml2\html\special.ent" />
     <None Include="JUSTICE\Doctypes\mathml2\html\symbol.ent" />
