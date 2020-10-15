@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-PAJP0EI"
   DTS:CreatorName="DESKTOP-PAJP0EI\Aaron"
-  DTS:DTSID="{3F50DAE1-666A-4F04-ACDD-3473EDBED329}"
+  DTS:DTSID="{5F6130D0-EE71-487F-97F1-06DA2DD0B271}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.123"
   DTS:LocaleID="1033"
-  DTS:ObjectName="SeedBookableResource"
+  DTS:ObjectName="SeedBookableResource_DEV"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{141ECFEA-F492-428E-8020-68B60F385E4F}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{3F86C871-9E24-427E-AD69-F3A859F4653E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,7 +26,7 @@
           ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg.core@034gc.onmicrosoft.com;Domain=;CrmServerUrl=https://rom-dev-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False">
           <Password
             Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6e5F41rhfky513r+o9DMRQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABJQ9dYti5RExWHHDBpkPtiC0Snp0QWPEDmYQL84vsdxgAAAAAOgAAAAAIAACAAAAAcC2Cc44/bMApopM2y5j2BRUE9irzkwlr+Lqy+vZKLcCAAAABZdWn/iheXaIpwcBMXPhfIaflHz+ThXITvZ+Qj7QCHEEAAAABzT0+bdJP20xA8cXZE36yFAXLsYZ8XfKhxF53YbjYg7fBg7ynNyzrI5QYJRu4MSxPsXUl2X0MoOOsUQHdnmYWa</Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6e5F41rhfky513r+o9DMRQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABDECMRdzIqGpO4gpfQ1bE7qs+u/m6zLANbgjo0Ii4w/wAAAAAOgAAAAAIAACAAAACYtwguUp5VnJwkjQJc8VWJteTxb88STGBJLsZQoxZ3xyAAAABqa5OE0Gp4yWIA+qtX8NoeP8stDOpVcved3WVFBoISD0AAAABrSMnet6HMjAtm/sZVEB21FNiAwrGTstXJhyWQh9WzUgB40KIkYGjEUBRpOA9bb3Em1c2V2v0SuZOHEtMbxEbx</Password>
         </CrmConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2158,7 +2158,7 @@
                   Encrypted="1"
                   expressionType="Notify"
                   name="OpenPassword"
-                  Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6e5F41rhfky513r+o9DMRQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD0f8KXZKpiN/uSbMhqNT1k9cuoePbMp3qSBmweM1cgQwAAAAAOgAAAAAIAACAAAADT6p+Yn8oMku+D2ilB5KI5UgrxMJgLSqxNIzYvPBAJERAAAAC/FBILFkYYmtAmGxcNYLJxQAAAAD2trRuPWZMac3ioWKBqbj2zC67njiaCbnsI8VmkZKVtcOsUvT8/lOUQvqHv2fpeyx+0ngNgAHfamtRlsxCyk2c</property>
+                  Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6e5F41rhfky513r+o9DMRQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABXhrNRdjeuy+Yg50G/DUPLHJcDEQm/F+b64cg5ISdqoQAAAAAOgAAAAAIAACAAAAADN20Kg2eMguXIpnc0/PBZiwIODcRwtJfTHcZPiiDJ/BAAAACn5raLIvI3AAL+EP4bclyxQAAAAJ+iHjn6pndSr/vEMiM90K6mlUhMKtzliSzrg+Xc/NxPa5RdsLAg2VP5/RCbEK0/CY2ak63fGpDU+YdUrQArHLo</property>
                 <property
                   dataType="System.Int32"
                   description="Specify the write mode."
@@ -2464,7 +2464,7 @@
                   Encrypted="1"
                   expressionType="Notify"
                   name="OpenPassword"
-                  Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6e5F41rhfky513r+o9DMRQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABd67Joflkr4YpT9uC0AS2wlfki7cvqgrz5oOZ9yne2ZwAAAAAOgAAAAAIAACAAAADQ/QeijZXfcpiCb4pk3upJlZngrjqpL27bRKKHfNW9qRAAAADEsiZBJ8xy3+0XJz2jrK5DQAAAALgiiqlIu6MSND4HBSbVxZzAIV4aGLkVhyWTPT/iEwX8YOMAcjKeVYC1x5CAucac2n+XNLCl202HwNXVkgTqeLA</property>
+                  Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6e5F41rhfky513r+o9DMRQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB6m3jh68UjwP5hVgUByd36zyjsmLUrdK3f7+RMvJf+XgAAAAAOgAAAAAIAACAAAACoujIvUH2c+4ToNvs6jNqG5t0N3dILXCtI9k5h3hZTtxAAAACh1x0EbpDtjg1mq+qMuVKsQAAAAGC6WAy0ht7Dh5BtKm3vjjaXLlNuh2aZ63PH897MKzDLedHqx7clR3e6RPmyRCAUagH/u/Y+AhVH0FEgJzYe4iw</property>
                 <property
                   dataType="System.Int32"
                   description="Specify the write mode."

@@ -1,0 +1,1043 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/15/2020 10:32:33 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-PAJP0EI"
+  DTS:CreatorName="DESKTOP-PAJP0EI\Aaron"
+  DTS:DTSID="{308B8CC2-FABE-4ABF-853A-BB089AA64722}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DeleteBookableResource_QA"
+  DTS:PackageType="5"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{96DA08CF-C6C0-4270-BE7F-06AC754F9583}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+      DTS:CreationName="DynamicsCRM"
+      DTS:DTSID="{5F579063-84D2-40E1-ABB8-25698365582E}"
+      DTS:ObjectName="Dynamics CRM Connection Manager">
+      <DTS:ObjectData>
+        <CrmConnectionManager
+          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg.core@034gc.onmicrosoft.com;Domain=;CrmServerUrl=https://rom-qa-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False">
+          <Password
+            Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6e5F41rhfky513r+o9DMRQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAhcP/Fk9fxTeCnBOt/Kesdfb5xwJ3LVkUN29/9xMJ2IgAAAAAOgAAAAAIAACAAAAAY2b9H1mvOjCSIZ+OhaCfpCknuLHwf1C2BGo+3uzJu0CAAAAC8hsIoL80V3oJVHAbUx20N7amIRjld9HfijsGafpxNNkAAAAC/U0embXkLfMfDTyQP5e/x3zcU0D3vJ5haZETgKphaQ4iaTuNO3ozZNitu4Xe2hJ3eOVd55hA5nOJtf3rJg0bI</Password>
+        </CrmConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{57B44F5D-2436-45CE-8B18-735D6D6AB4E0}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Aaron\Google Drive\Work\TDG Core\Source\D365.INSPECTION.ETL.TDG\TDG.CORE.ETL.RESOURCES\EXCEL_TEMPLATES\TDG_Inspectors.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6DFB24CB-81B7-4016-9948-11C1A02D6DE5}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::Project_RootFolderLocation] + @[User::Project_ResourceFolderLocation] + @[User::Inspector_ExcelSheetName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Inspector_ExcelSheetLocation">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Aaron\Google Drive\Work\TDG Core\Source\D365.INSPECTION.ETL.TDG\TDG.CORE.ETL.RESOURCES\EXCEL_TEMPLATES\TDG_Inspectors.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{293C2535-851A-4CE7-8B16-4ABE821A7323}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Inspector_ExcelSheetName">
+      <DTS:VariableValue
+        DTS:DataType="8">TDG_Inspectors.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{978F9DF5-FCAD-42C9-9307-99CAF798AE14}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Inspector_FailedDeletes">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F3C01939-456C-4798-8FE5-2C75916CDD11}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Inspector_SuccessDeletes">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D2A066DF-4203-4CC6-A350-1ADDA852CFF7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Project_ResourceFolderLocation">
+      <DTS:VariableValue
+        DTS:DataType="8">TDG.CORE.ETL.RESOURCES\EXCEL_TEMPLATES\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C9B899FD-0F44-466D-944C-01F2FAF81EFD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Project_RootFolderLocation">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Aaron\Google Drive\Work\TDG Core\Source\D365.INSPECTION.ETL.TDG\</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DeleteInspectors"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E6F4171E-EF5B-4BF5-99D2-61C8163C6A44}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DeleteInspectors"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DeleteInspectors\Dynamics CRM Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Populate data into Microsoft Dynamics 365 CE/CRM."
+              name="Dynamics CRM Destination"
+              usesDispositions="true"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Destination entity to write data."
+                  expressionType="Notify"
+                  name="DestinationEntity">bookableresource</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how data is written to CRM server."
+                  name="ActionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationActionType">4</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the values of CRM lookup fields should be removed if the reference records cannot be found. "
+                  expressionType="Notify"
+                  name="RemoveUnresolvableReferences">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in Microsoft Dynamics CRM."
+                  expressionType="Notify"
+                  name="EnableDuplicateDetection">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the matching criteria to be used when Upsert action is chosen."
+                  expressionType="Notify"
+                  name="UpsertMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertMatchingCriteria">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the matching fields to be used to determine the matching records that exist in CRM when Manually Specify option is chosen for Upsert action."
+                  expressionType="Notify"
+                  name="UpsertMatchingFields"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those NULL-valued fields."
+                  expressionType="Notify"
+                  name="IgnoreNullValuedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those fields that have no value changes in the target system. "
+                  expressionType="Notify"
+                  name="IgnoreUnchangedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to remove those invalid characters before writing to CRM."
+                  expressionType="Notify"
+                  name="RemoveInvalidCharacters">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the flag field(s) that are used to track the source of changes. The field(s) will not posted to CRM server unless there are changes to other fields if specified. &quot;Ignore Unchange Fields&quot; option is required in order for the specified flag field(s) to work. "
+                  expressionType="Notify"
+                  name="ChangeFlagFields"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify what action will be taken when multiple matches are found with Upsert action."
+                  expressionType="Notify"
+                  name="HandlingOfMultipleMatches"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertHandlingOfMultipleMatches">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify whether to use optimizations when there are duplicate records form the source system."
+                  expressionType="Notify"
+                  name="OptimizationOnSourceDuplicates"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
+                <property
+                  dataType="System.String"
+                  description="Workflow to be executed."
+                  expressionType="Notify"
+                  name="Workflow"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of records to be sent to Microsoft Dynamics 365/CRM server in each service call."
+                  expressionType="Notify"
+                  name="BatchSize">100</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the total number or concurrent threads to write to Dynamics 365/CRM server simultaneously. "
+                  expressionType="Notify"
+                  name="ConcurrentWritingThreadsInTotal">20</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether datetime values should be sent to CRM server in UTC format."
+                  expressionType="Notify"
+                  name="SendDateTimeInUtcFormat">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DeleteInspectors\Dynamics CRM Destination.Connections[DynamicsCRM]"
+                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DeleteInspectors\Dynamics CRM Destination.Inputs[Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="RedirectRow"
+                  hasSideEffects="true"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Destination.Inputs[Input].Columns[bookableresourceid]"
+                      cachedDataType="guid"
+                      cachedName="bookableresourceid"
+                      externalMetadataColumnId="Package\DeleteInspectors\Dynamics CRM Destination.Inputs[Input].ExternalColumns[bookableresourceid]"
+                      lineageId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].Columns[bookableresourceid]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Destination.Inputs[Input].ExternalColumns[bookableresourceid]"
+                      dataType="guid"
+                      name="bookableresourceid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CrmFieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">bookableresource</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\DeleteInspectors\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
+                      name="CrmErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\DeleteInspectors\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
+                      dataType="guid"
+                      lineageId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
+                      name="CrmRecordId" />
+                    <outputColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                    <outputColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Default Output].Columns[NoChangesRequired]"
+                      dataType="bool"
+                      lineageId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Default Output].Columns[NoChangesRequired]"
+                      name="NoChangesRequired" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DeleteInspectors\Dynamics CRM Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Extract data from Microsoft Dynamics 365 CE/CRM."
+              name="Dynamics CRM Source"
+              usesDispositions="true"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of source data from Microsoft Dynamics CRM."
+                  expressionType="Notify"
+                  name="SourceType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceType">0</property>
+                <property
+                  dataType="System.String"
+                  description="Dynamics CRM entity to retrieve data from."
+                  expressionType="Notify"
+                  name="SourceEntity">bookableresource</property>
+                <property
+                  dataType="System.String"
+                  description="FetchXML statement."
+                  expressionType="Notify"
+                  name="FetchXML"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the batch size of the query."
+                  expressionType="Notify"
+                  name="BatchSize">2000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the maximum number of rows to be returned from the Dynamics 365/CRM server (Specify 0 to read all satisfying records)."
+                  expressionType="Notify"
+                  name="MaxRowsReturned">0</property>
+                <property
+                  dataType="System.Null"
+                  description="The caller to be used for CRM impersonation when reading from CRM server."
+                  expressionType="Notify"
+                  name="ImpersonateAs" />
+                <property
+                  dataType="System.Null"
+                  description="Specifies the output timezone for CRM datetime fields."
+                  expressionType="Notify"
+                  name="OutputTimezone"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceOutputTimezone" />
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DeleteInspectors\Dynamics CRM Source.Connections[DynamicsCRM]"
+                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output]"
+                  name="Primary Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].Columns[bookableresourceid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[bookableresourceid]"
+                      lineageId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].Columns[bookableresourceid]"
+                      name="bookableresourceid"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[accountid]"
+                      dataType="guid"
+                      name="accountid" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[accountidname]"
+                      dataType="wstr"
+                      length="160"
+                      name="accountidname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[accountidyominame]"
+                      dataType="wstr"
+                      length="160"
+                      name="accountidyominame" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[bookableresourceid]"
+                      dataType="guid"
+                      name="bookableresourceid" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[calendarid]"
+                      dataType="guid"
+                      name="calendarid" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[calendaridname]"
+                      dataType="wstr"
+                      length="160"
+                      name="calendaridname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[contactid]"
+                      dataType="guid"
+                      name="contactid" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[contactidname]"
+                      dataType="wstr"
+                      length="160"
+                      name="contactidname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[contactidyominame]"
+                      dataType="wstr"
+                      length="160"
+                      name="contactidyominame" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdby]"
+                      dataType="guid"
+                      name="createdby" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdbyname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdon]"
+                      dataType="dbTimeStamp"
+                      name="createdon" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdonbehalfby]"
+                      dataType="guid"
+                      name="createdonbehalfby" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdonbehalfbyname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdonbehalfbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[exchangerate]"
+                      dataType="numeric"
+                      name="exchangerate"
+                      precision="38"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[importsequencenumber]"
+                      dataType="i4"
+                      name="importsequencenumber" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedby]"
+                      dataType="guid"
+                      name="modifiedby" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedbyname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedon]"
+                      dataType="dbTimeStamp"
+                      name="modifiedon" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfby]"
+                      dataType="guid"
+                      name="modifiedonbehalfby" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedonbehalfbyname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedonbehalfbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_bookingstodrip]"
+                      dataType="i4"
+                      name="msdyn_bookingstodrip" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_crewstrategy]"
+                      dataType="i4"
+                      name="msdyn_crewstrategy" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_crewstrategyname]"
+                      dataType="wstr"
+                      length="255"
+                      name="msdyn_crewstrategyname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_derivecapacity]"
+                      dataType="bool"
+                      name="msdyn_derivecapacity" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_derivecapacityname]"
+                      dataType="wstr"
+                      length="255"
+                      name="msdyn_derivecapacityname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_displayonscheduleassistant]"
+                      dataType="bool"
+                      name="msdyn_displayonscheduleassistant" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_displayonscheduleassistantname]"
+                      dataType="wstr"
+                      length="255"
+                      name="msdyn_displayonscheduleassistantname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_displayonscheduleboard]"
+                      dataType="bool"
+                      name="msdyn_displayonscheduleboard" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_displayonscheduleboardname]"
+                      dataType="wstr"
+                      length="255"
+                      name="msdyn_displayonscheduleboardname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_enabledforfieldservicemobile]"
+                      dataType="bool"
+                      name="msdyn_enabledforfieldservicemobile" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_enabledforfieldservicemobilename]"
+                      dataType="wstr"
+                      length="255"
+                      name="msdyn_enabledforfieldservicemobilename" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_enabledripscheduling]"
+                      dataType="bool"
+                      name="msdyn_enabledripscheduling" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_enabledripschedulingname]"
+                      dataType="wstr"
+                      length="255"
+                      name="msdyn_enabledripschedulingname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_endlocation]"
+                      dataType="i4"
+                      name="msdyn_endlocation" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_endlocationname]"
+                      dataType="wstr"
+                      length="255"
+                      name="msdyn_endlocationname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_facilityequipmentid]"
+                      dataType="guid"
+                      name="msdyn_facilityequipmentid" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_facilityequipmentidname]"
+                      dataType="wstr"
+                      length="160"
+                      name="msdyn_facilityequipmentidname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_generictype]"
+                      dataType="i4"
+                      name="msdyn_generictype" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_generictypename]"
+                      dataType="wstr"
+                      length="255"
+                      name="msdyn_generictypename" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_hourlyrate]"
+                      dataType="numeric"
+                      name="msdyn_hourlyrate"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_hourlyrate_base]"
+                      dataType="numeric"
+                      name="msdyn_hourlyrate_base"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_internalflags]"
+                      dataType="nText"
+                      name="msdyn_internalflags" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_latitude]"
+                      dataType="r8"
+                      name="msdyn_latitude" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_locationtimestamp]"
+                      dataType="dbTimeStamp"
+                      name="msdyn_locationtimestamp" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_longitude]"
+                      dataType="r8"
+                      name="msdyn_longitude" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_organizationalunit]"
+                      dataType="guid"
+                      name="msdyn_organizationalunit" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_organizationalunitname]"
+                      dataType="wstr"
+                      length="100"
+                      name="msdyn_organizationalunitname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_pooltype]"
+                      dataType="wstr"
+                      length="4000"
+                      name="msdyn_pooltype" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_pooltypename]"
+                      dataType="wstr"
+                      length="255"
+                      name="msdyn_pooltypename" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_primaryemail]"
+                      dataType="wstr"
+                      length="100"
+                      name="msdyn_primaryemail" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_startlocation]"
+                      dataType="i4"
+                      name="msdyn_startlocation" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_startlocationname]"
+                      dataType="wstr"
+                      length="255"
+                      name="msdyn_startlocationname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_targetutilization]"
+                      dataType="i4"
+                      name="msdyn_targetutilization" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_timeoffapprovalrequired]"
+                      dataType="bool"
+                      name="msdyn_timeoffapprovalrequired" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_timeoffapprovalrequiredname]"
+                      dataType="wstr"
+                      length="255"
+                      name="msdyn_timeoffapprovalrequiredname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_warehouse]"
+                      dataType="guid"
+                      name="msdyn_warehouse" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_warehousename]"
+                      dataType="wstr"
+                      length="100"
+                      name="msdyn_warehousename" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="100"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[overriddencreatedon]"
+                      dataType="dbTimeStamp"
+                      name="overriddencreatedon" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ownerid]"
+                      dataType="guid"
+                      name="ownerid" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[owneridname]"
+                      dataType="wstr"
+                      length="200"
+                      name="owneridname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[owneridtype]"
+                      dataType="wstr"
+                      length="64"
+                      name="owneridtype" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[owneridyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="owneridyominame" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[owningbusinessunit]"
+                      dataType="guid"
+                      name="owningbusinessunit" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[owningteam]"
+                      dataType="guid"
+                      name="owningteam" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[owninguser]"
+                      dataType="guid"
+                      name="owninguser" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[processid]"
+                      dataType="guid"
+                      name="processid" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[resourcetype]"
+                      dataType="i4"
+                      name="resourcetype" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[resourcetypename]"
+                      dataType="wstr"
+                      length="255"
+                      name="resourcetypename" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[stageid]"
+                      dataType="guid"
+                      name="stageid" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statecodename]"
+                      dataType="wstr"
+                      length="255"
+                      name="statecodename" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statuscode]"
+                      dataType="i4"
+                      name="statuscode" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statuscodename]"
+                      dataType="wstr"
+                      length="255"
+                      name="statuscodename" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[timezone]"
+                      dataType="i4"
+                      name="timezone" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[timezoneruleversionnumber]"
+                      dataType="i4"
+                      name="timezoneruleversionnumber" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[transactioncurrencyid]"
+                      dataType="guid"
+                      name="transactioncurrencyid" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[transactioncurrencyidname]"
+                      dataType="wstr"
+                      length="100"
+                      name="transactioncurrencyidname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[traversedpath]"
+                      dataType="wstr"
+                      length="1250"
+                      name="traversedpath" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[userid]"
+                      dataType="guid"
+                      name="userid" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[useridname]"
+                      dataType="wstr"
+                      length="200"
+                      name="useridname" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[useridyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="useridyominame" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[utcconversiontimezonecode]"
+                      dataType="i4"
+                      name="utcconversiontimezonecode" />
+                    <externalMetadataColumn
+                      refId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[versionnumber]"
+                      dataType="i8"
+                      name="versionnumber" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DeleteInspectors\Inspector_FailedDeletes"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="Inspector_FailedDeletes">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">User::Inspector_FailedDeletes</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DeleteInspectors\Inspector_FailedDeletes.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DeleteInspectors\Inspector_FailedDeletes.Inputs[Recordset Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\DeleteInspectors\Inspector_FailedDeletes.Inputs[Recordset Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]" />
+                    <inputColumn
+                      refId="Package\DeleteInspectors\Inspector_FailedDeletes.Inputs[Recordset Destination Input].Columns[CrmErrorMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="CrmErrorMessage"
+                      lineageId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\DeleteInspectors\Inspector_SuccessDeletes"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="Inspector_SuccessDeletes">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">User::Inspector_SuccessDeletes</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DeleteInspectors\Inspector_SuccessDeletes.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DeleteInspectors\Inspector_SuccessDeletes.Inputs[Recordset Destination Input].Columns[CrmRecordId]"
+                      cachedDataType="guid"
+                      cachedName="CrmRecordId"
+                      lineageId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]" />
+                    <inputColumn
+                      refId="Package\DeleteInspectors\Inspector_SuccessDeletes.Inputs[Recordset Destination Input].Columns[IsNew]"
+                      cachedDataType="bool"
+                      cachedName="IsNew"
+                      lineageId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]" />
+                    <inputColumn
+                      refId="Package\DeleteInspectors\Inspector_SuccessDeletes.Inputs[Recordset Destination Input].Columns[NoChangesRequired]"
+                      cachedDataType="bool"
+                      cachedName="NoChangesRequired"
+                      lineageId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Default Output].Columns[NoChangesRequired]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DeleteInspectors.Paths[Default Output]"
+              endId="Package\DeleteInspectors\Inspector_SuccessDeletes.Inputs[Recordset Destination Input]"
+              name="Default Output"
+              startId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Default Output]" />
+            <path
+              refId="Package\DeleteInspectors.Paths[Error Output]"
+              endId="Package\DeleteInspectors\Inspector_FailedDeletes.Inputs[Recordset Destination Input]"
+              name="Error Output"
+              startId="Package\DeleteInspectors\Dynamics CRM Destination.Outputs[Error Output]" />
+            <path
+              refId="Package\DeleteInspectors.Paths[Primary Output]"
+              endId="Package\DeleteInspectors\Dynamics CRM Destination.Inputs[Input]"
+              name="Primary Output"
+              startId="Package\DeleteInspectors\Dynamics CRM Source.Outputs[Primary Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DeleteInspectors"
+          TopLeft="570.5,67.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DeleteInspectors">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="184,42"
+          Id="Package\DeleteInspectors\Dynamics CRM Source"
+          TopLeft="684,152" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\DeleteInspectors\Inspector_FailedDeletes"
+          TopLeft="843,446" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\DeleteInspectors\Dynamics CRM Destination"
+          TopLeft="670.5,292.5" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\DeleteInspectors\Inspector_SuccessDeletes"
+          TopLeft="535,449" />
+        <EdgeLayout
+          Id="Package\DeleteInspectors.Paths[Primary Output]"
+          TopLeft="774.5,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,98.5"
+              Start="0,0"
+              End="0,91">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,91" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DeleteInspectors.Paths[Error Output]"
+          TopLeft="805.833333333333,334.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="132.666666666667,111.5"
+              Start="0,0"
+              End="132.666666666667,104">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.1181026137464" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.1181026137464"
+                    Point2="0,55.1181026137464"
+                    Point3="4,55.1181026137464" />
+                  <mssgle:LineSegment
+                    End="128.666666666667,55.1181026137464" />
+                  <mssgle:CubicBezierSegment
+                    Point1="128.666666666667,55.1181026137464"
+                    Point2="132.666666666667,55.1181026137464"
+                    Point3="132.666666666667,59.1181026137464" />
+                  <mssgle:LineSegment
+                    End="132.666666666667,104" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="37.9969466145834,60.1181026137464,56.6727734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DeleteInspectors.Paths[Default Output]"
+          TopLeft="773,334.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-147,114.5"
+              Start="0,0"
+              End="-147,107">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,53.25"
+                    Point2="0,57.25"
+                    Point3="-4,57.25" />
+                  <mssgle:LineSegment
+                    End="-143,57.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-143,57.25"
+                    Point2="-147,57.25"
+                    Point3="-147,61.25" />
+                  <mssgle:LineSegment
+                    End="-147,107" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
