@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="25"
-  DTS:VersionGUID="{82F7AC1B-C888-48B3-98CC-604C122FCC42}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{56334161-CE97-4632-8CD4-08584EF229C9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,10 +23,10 @@
       DTS:ObjectName="Dynamics CRM Connection Manager">
       <DTS:ObjectData>
         <CrmConnectionManager
-          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=aaron.leblanc@034gc.onmicrosoft.com;Domain=;CrmServerUrl=https://insp-dev4-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False">
+          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=TDG.CORE@034gc.onmicrosoft.com;Domain=;CrmServerUrl=https://rom-dev-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False">
           <Password
             Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6e5F41rhfky513r+o9DMRQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABpnhrYKTUOFuIJ6V40WG1I2/iLXYTlFk5sb72E5+hW1QAAAAAOgAAAAAIAACAAAAASwnZzvamj6awSg/mJen5zsVWiY7syIEjLuICkLi9szyAAAACQDhGZa7+7mYGbFeBICm74vLX+lj7xVnYHWq5SHDbhbUAAAACtma4N9RiH4XHnG2eqzIeh9pK8BzvrVyj/XlisBJwRVR4gj4pxuxmTzUramBApaHh7JxIltXZDcIOQecpLq7Ji</Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqMFcBO7+9UaHA1rNx4AZZgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACE2VPu2h36BbQAVQ0bSYgeAAAAAASAAACgAAAAEAAAALGUMQjEm6jaL2If3fxMH2IgAAAAHtZiToBydFVo+Zk1WYFO2HQ9nV4++/fY+reRn46X8igUAAAAH24O91/qVYq01koTlQuas2ZDS2I</Password>
         </CrmConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -801,7 +801,7 @@
                   dataType="System.String"
                   description="Full path to the source file."
                   expressionType="Notify"
-                  name="SourceFilePath">C:\Users\Aaron\source\repos\D365.INSPECTION.ETL.TDG\D365.INSPECTION.ETL.TDG\TDG.CORE.ETL.XML.CONSOLE\bin\Debug\TDG-PROVISIONS-2020-07-31.xls</property>
+                  name="SourceFilePath">C:\Source\Repos\D365.INSPECTION.ETL.TDG\TDG.CORE.ETL.RESOURCES\EXCEL_TEMPLATES\TDG-PROVISIONS-2020-07-31.xls</property>
                 <property
                   dataType="System.String"
                   description="Password to open the Excel file."
@@ -956,186 +956,6 @@
                       length="255"
                       lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[regulation-type]"
                       name="regulation-type"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[MAY]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[MAY]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[MAY]"
-                      name="MAY"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[MUST]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[MUST]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[MUST]"
-                      name="MUST"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[UNLESS]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[UNLESS]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[UNLESS]"
-                      name="UNLESS"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[CONSIGNOR]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[CONSIGNOR]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[CONSIGNOR]"
-                      name="CONSIGNOR"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[CARRIER]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[CARRIER]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[CARRIER]"
-                      name="CARRIER"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[IMPORTER]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[IMPORTER]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[IMPORTER]"
-                      name="IMPORTER"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[EXEMPTION]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[EXEMPTION]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[EXEMPTION]"
-                      name="EXEMPTION"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[ERAP]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[ERAP]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[ERAP]"
-                      name="ERAP"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[PROVISION]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[PROVISION]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[PROVISION]"
-                      name="PROVISION"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[LARGE MEANS OF CONTAINMENT]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[LARGE MEANS OF CONTAINMENT]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[LARGE MEANS OF CONTAINMENT]"
-                      name="LARGE MEANS OF CONTAINMENT"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[SMALL MEANS OF CONTAINMENT]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[SMALL MEANS OF CONTAINMENT]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[SMALL MEANS OF CONTAINMENT]"
-                      name="SMALL MEANS OF CONTAINMENT"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[MEANS OF CONTAINMENT]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[MEANS OF CONTAINMENT]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[MEANS OF CONTAINMENT]"
-                      name="MEANS OF CONTAINMENT"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[CLASS]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[CLASS]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[CLASS]"
-                      name="CLASS"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[UN NUMBER]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[UN NUMBER]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[UN NUMBER]"
-                      name="UN NUMBER"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[Has UN Number(s)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[Has UN Number(s)]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[Has UN Number(s)]"
-                      name="Has UN Number(s)"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[UN Number(s)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[UN Number(s)]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[UN Number(s)]"
-                      name="UN Number(s)"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[Has Classes]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[Has Classes]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[Has Classes]"
-                      name="Has Classes"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[Classes]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[Classes]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[Classes]"
-                      name="Classes"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -1660,12 +1480,6 @@
                   name="Recordset Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[PROVISION]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="PROVISION"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[PROVISION]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[Type]"
                       cachedDataType="wstr"
                       cachedLength="255"
@@ -1764,12 +1578,6 @@
                   hasSideEffects="true"
                   name="Recordset Destination Input">
                   <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[PROVISION]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="PROVISION"
-                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[PROVISION]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[Type]"
                       cachedDataType="wstr"
@@ -1897,95 +1705,61 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="213,42"
+          Id="Package\Data Flow Task\Dynamics CRM Destination"
+          TopLeft="544,321" />
+        <NodeLayout
           Size="184,42"
           Id="Package\Data Flow Task\Premium Excel Source"
           TopLeft="558,81.909090909091" />
         <NodeLayout
-          Size="205,42"
-          Id="Package\Data Flow Task\Dynamics CRM Destination"
-          TopLeft="544,321" />
-        <NodeLayout
           Size="182,42"
           Id="Package\Data Flow Task\Recordset Destination"
           TopLeft="786,418" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Data Flow Task\Recordset Destination 1"
+          TopLeft="329,422" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task\Conditional Split"
+          TopLeft="573,199" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Error Output]"
-          TopLeft="679.333333333333,363">
+          TopLeft="684.666666666667,363">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="197.666666666667,55"
+              EndConnector="192.333333333333,55"
               Start="0,0"
-              End="197.666666666667,47.5">
+              End="192.333333333333,47.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.2555663117135" />
+                    End="0,18.2460391425909" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.2555663117135"
-                    Point2="0,22.2555663117135"
-                    Point3="4,22.2555663117135" />
+                    Point1="0,18.2460391425909"
+                    Point2="0,22.2460391425909"
+                    Point3="4,22.2460391425909" />
                   <mssgle:LineSegment
-                    End="193.666666666667,22.2555663117135" />
+                    End="188.333333333333,22.2460391425909" />
                   <mssgle:CubicBezierSegment
-                    Point1="193.666666666667,22.2555663117135"
-                    Point2="197.666666666667,22.2555663117135"
-                    Point3="197.666666666667,26.2555663117135" />
+                    Point1="188.333333333333,22.2460391425909"
+                    Point2="192.333333333333,22.2460391425909"
+                    Point3="192.333333333333,26.2460391425909" />
                   <mssgle:LineSegment
-                    End="197.666666666667,47.5" />
+                    End="192.333333333333,47.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="61.6282942708334,27.2555663117135,74.410078125,16"
+              BoundingBox="67.8302799479165,27.2460391425909,56.6727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="191,42"
-          Id="Package\Data Flow Task\Recordset Destination 1"
-          TopLeft="329,422" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Default Output]"
-          TopLeft="613.666666666667,363">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-189.166666666667,59"
-              Start="0,0"
-              End="-189.166666666667,51.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.8741529525653" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.8741529525653"
-                    Point2="0,23.8741529525653"
-                    Point3="-4,23.8741529525653" />
-                  <mssgle:LineSegment
-                    End="-185.166666666667,23.8741529525653" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-185.166666666667,23.8741529525653"
-                    Point2="-189.166666666667,23.8741529525653"
-                    Point3="-189.166666666667,27.8741529525653" />
-                  <mssgle:LineSegment
-                    End="-189.166666666667,51.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="155,42"
-          Id="Package\Data Flow Task\Conditional Split"
-          TopLeft="573,199" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Default Output1]"
           TopLeft="650.25,123.909090909091">
@@ -2009,8 +1783,42 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Default Output]"
+          TopLeft="616.333333333333,363">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-191.833333333333,59"
+              Start="0,0"
+              End="-191.833333333333,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.8639328984157" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.8639328984157"
+                    Point2="0,23.8639328984157"
+                    Point3="-4,23.8639328984157" />
+                  <mssgle:LineSegment
+                    End="-187.833333333333,23.8639328984157" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-187.833333333333,23.8639328984157"
+                    Point2="-191.833333333333,23.8639328984157"
+                    Point3="-191.833333333333,27.8639328984157" />
+                  <mssgle:LineSegment
+                    End="-191.833333333333,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Data Flow Task.Paths[ExcelDataFilter]"
-          TopLeft="648.5,241">
+          TopLeft="650.5,241">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
