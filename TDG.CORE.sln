@@ -27,6 +27,29 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDG.CORE.ETL", "TDG.CORE.ET
 EndProject
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "TDG.CORE.ETL.KINGSWAY", "TDG.CORE.ETL.KINGSWAY\TDG.CORE.ETL.KINGSWAY.dtproj", "{7C245BD7-F3E4-41F8-9BE0-EE5225264DDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ROM.QM.WEBRESOURCES", "ROM.QM.WEBRESOURCES\ROM.QM.WEBRESOURCES.csproj", "{8C385CDA-D6DC-4ED7-8405-5F2A94C4986D}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ROM.QM.WEBRESOURCE", "ROM.QM.WEBRESOURCE\", "{CD216DFC-14DF-4D3E-9A3F-3DB8259D258C}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_57887"
+		Debug.AspNetCompiler.PhysicalPath = "ROM.QM.WEBRESOURCE\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57887\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_57887"
+		Release.AspNetCompiler.PhysicalPath = "ROM.QM.WEBRESOURCE\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57887\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "57887"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Azure|Any CPU = Azure|Any CPU
@@ -131,6 +154,22 @@ Global
 		{7C245BD7-F3E4-41F8-9BE0-EE5225264DDB}.Development|Any CPU.Build.0 = Development
 		{7C245BD7-F3E4-41F8-9BE0-EE5225264DDB}.Release|Any CPU.ActiveCfg = Development
 		{7C245BD7-F3E4-41F8-9BE0-EE5225264DDB}.Release|Any CPU.Build.0 = Development
+		{8C385CDA-D6DC-4ED7-8405-5F2A94C4986D}.Azure|Any CPU.ActiveCfg = Release|Any CPU
+		{8C385CDA-D6DC-4ED7-8405-5F2A94C4986D}.Azure|Any CPU.Build.0 = Release|Any CPU
+		{8C385CDA-D6DC-4ED7-8405-5F2A94C4986D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C385CDA-D6DC-4ED7-8405-5F2A94C4986D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C385CDA-D6DC-4ED7-8405-5F2A94C4986D}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C385CDA-D6DC-4ED7-8405-5F2A94C4986D}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{8C385CDA-D6DC-4ED7-8405-5F2A94C4986D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C385CDA-D6DC-4ED7-8405-5F2A94C4986D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD216DFC-14DF-4D3E-9A3F-3DB8259D258C}.Azure|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD216DFC-14DF-4D3E-9A3F-3DB8259D258C}.Azure|Any CPU.Build.0 = Debug|Any CPU
+		{CD216DFC-14DF-4D3E-9A3F-3DB8259D258C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD216DFC-14DF-4D3E-9A3F-3DB8259D258C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD216DFC-14DF-4D3E-9A3F-3DB8259D258C}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD216DFC-14DF-4D3E-9A3F-3DB8259D258C}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{CD216DFC-14DF-4D3E-9A3F-3DB8259D258C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD216DFC-14DF-4D3E-9A3F-3DB8259D258C}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
