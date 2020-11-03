@@ -1,4 +1,5 @@
-﻿using Microsoft.Xrm.Tooling.Connector;
+﻿using CrmWebApiEarlyBoundGenerator;
+using Microsoft.Xrm.Tooling.Connector;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -77,7 +78,7 @@ namespace TDG.CORE.ETL.CDS.CONSOLE
             return generalComplianceFetchXml;
         }
 
-        static List<Legislation> ReadExcelTemplateLegislation()
+        static List<qm_rclegislation> ReadExcelTemplateLegislation()
         {
             //get template from embedded resource
             var legTemplate = TDG.CORE.ETL.RESOURCES.Properties.Resources.TDGActiveLegislation;

@@ -9,6 +9,8 @@ using TDG.CORE.ETL.EXTENSIONS;
 using TDG.CORE.ETL.MODELS.QUESTIONNAIRE;
 using TDG.CORE.ETL.MODELS.LEGISLATION;
 using Microsoft.Xrm.Sdk.Messages;
+using EntityReference = Microsoft.Xrm.Sdk.EntityReference;
+using Entity = Microsoft.Xrm.Sdk.Entity;
 
 namespace TDG.CORE.ETL.CDS
 {
@@ -552,16 +554,16 @@ namespace TDG.CORE.ETL.CDS
 
             //get once
             //Act        = GetEntityUsingSimpleQuery(service, "tc_legislation_type", "tc_legislationtype", "TDG Act | Loi TMD");
-            //Regulation = GetEntityUsingSimpleQuery(service, "tc_legislation_type", "tc_legislationtype", "TDG Regulations | Réglementation sur le TMD");
+            //Regulation = GetEntityUsingSimpleQuery(service, "qm_legislationTypeCd", "qm_LegislationType", "TDG Regulations | Réglementation sur le TMD");
             //Standard   = GetEntityUsingSimpleQuery(service, "tc_legislation_type", "tc_legislationtype", "TDG Standards | Normes TMD");
 
             OrderCount = 1; //reset the temp order
             RecursivelyUploadLegislation(ref service, legData);
         }
 
-        static Entity UploadLegislation(ref CrmServiceClient service, Regulation element, Entity parent = null)
+        static Microsoft.Xrm.Sdk.Entity UploadLegislation(ref CrmServiceClient service, Regulation element, Entity parent = null)
         {
-            var leg = new Entity(legislationEntityName);
+            var leg = new Microsoft.Xrm.Sdk.Entity(legislationEntityName);
 
             Entity existingLeg = GetEntityUsingSimpleQuery(service, legislationEntityName, legKeyName, element.JusticeId);
 
@@ -1046,24 +1048,24 @@ namespace TDG.CORE.ETL.CDS
 
         private static void MapLegislationMetaData(ref Entity legEntity, Regulation reg)
         {
-            legEntity.Attributes["tc_may"] = reg.GetDataFlag("MAY");
-            legEntity.Attributes["tc_must"] = reg.GetDataFlag("MUST");
-            legEntity.Attributes["tc_unless"] = reg.GetDataFlag("UNLESS");
-            legEntity.Attributes["tc_consignor"] = reg.GetDataFlag("CONSIGNOR");
-            legEntity.Attributes["tc_carrier"] = reg.GetDataFlag("CARRIER");
-            legEntity.Attributes["tc_importer"] = reg.GetDataFlag("IMPORTER");
-            legEntity.Attributes["tc_exemption"] = reg.GetDataFlag("EXEMPTION");
-            legEntity.Attributes["tc_erap"] = reg.GetDataFlag("ERAP");
-            legEntity.Attributes["tc_provision"] = reg.GetDataFlag("PROVISION");
-            legEntity.Attributes["tc_largemoc"] = reg.GetDataFlag("LARGE MEANS OF CONTAINMENT");
-            legEntity.Attributes["tc_smallmoc"] = reg.GetDataFlag("SMALL MEANS OF CONTAINMENT");
-            legEntity.Attributes["tc_moc"] = reg.GetDataFlag("MEANS OF CONTAINMENT");
-            legEntity.Attributes["tc_class"] = reg.GetDataFlag("CLASS");
+            legEntity.Attributes["tc_may"]          = reg.GetDataFlag("MAY");
+            legEntity.Attributes["tc_must"]         = reg.GetDataFlag("MUST");
+            legEntity.Attributes["tc_unless"]       = reg.GetDataFlag("UNLESS");
+            legEntity.Attributes["tc_consignor"]    = reg.GetDataFlag("CONSIGNOR");
+            legEntity.Attributes["tc_carrier"]      = reg.GetDataFlag("CARRIER");
+            legEntity.Attributes["tc_importer"]     = reg.GetDataFlag("IMPORTER");
+            legEntity.Attributes["tc_exemption"]    = reg.GetDataFlag("EXEMPTION");
+            legEntity.Attributes["tc_erap"]         = reg.GetDataFlag("ERAP");
+            legEntity.Attributes["tc_provision"]    = reg.GetDataFlag("PROVISION");
+            legEntity.Attributes["tc_largemoc"]     = reg.GetDataFlag("LARGE MEANS OF CONTAINMENT");
+            legEntity.Attributes["tc_smallmoc"]     = reg.GetDataFlag("SMALL MEANS OF CONTAINMENT");
+            legEntity.Attributes["tc_moc"]          = reg.GetDataFlag("MEANS OF CONTAINMENT");
+            legEntity.Attributes["tc_class"]        = reg.GetDataFlag("CLASS");
             legEntity.Attributes["tc_unNumberText"] = reg.GetDataFlag("UN NUMBER");
-            legEntity.Attributes["tc_hasUnNumber"] = reg.GetDataFlag("HAS UN NUMBER");
-            legEntity.Attributes["tc_unNumbers"] = reg.GetDataFlag("UN NUMBERS");
-            legEntity.Attributes["tc_hasClass"] = reg.GetDataFlag("HAS CLASS");
-            legEntity.Attributes["tc_classes"] = reg.GetDataFlag("CLASSES");
+            legEntity.Attributes["tc_hasUnNumber"]  = reg.GetDataFlag("HAS UN NUMBER");
+            legEntity.Attributes["tc_unNumbers"]    = reg.GetDataFlag("UN NUMBERS");
+            legEntity.Attributes["tc_hasClass"]     = reg.GetDataFlag("HAS CLASS");
+            legEntity.Attributes["tc_classes"]      = reg.GetDataFlag("CLASSES");
         }
 
         private static void MapLegislationDataToEntity(ref Entity legEntity, Regulation reg)
@@ -1102,8 +1104,6 @@ namespace TDG.CORE.ETL.CDS
              leg.qm_AdditionalMetadataFtxt = legEntity.GetValue<string>("qm_additionalmetadataftxt");
              leg.qm_name                   = legEntity.GetValue<string>("qm_name");
              leg.Id                        = legEntity.Id;
-
-            // leg.qm_rcParentLegislationId   = legEntity.RelatedEntities           // legEntity.Attributes["qm_rcparentlegislationid"]  = = null ? new EntityReference (leg.qm_rcParentLegislationId.EntitySetName, leg.qm_rcParentLegislationId.EntityId) : null;
         }
 
         #endregion

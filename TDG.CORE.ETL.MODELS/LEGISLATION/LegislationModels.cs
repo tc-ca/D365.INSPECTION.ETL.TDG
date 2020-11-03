@@ -12,25 +12,6 @@ namespace TDG.CORE.ETL.MODELS.LEGISLATION
         public string Name { get; set; }
         public string Id { get; set; }
     }
-    
-    public class Legislation : BaseLegislationModel
-    {
-        public string LegislationType { get; set; }
-        public string LegislationReference { get; set; }
-        public string LegislationTextEnglish { get; set; }
-
-        public string LegislationTextFrench { get; set; }
-        public int Order { get; set; }
-
-        public DateTime? DateEffective { get; set; }
-        public DateTime? DateRevoked { get; set; }
-    }
-
-    public class LegislationHierarchy : BaseLegislationModel
-    {
-        public Legislation Child { get; set; }
-        public Legislation Parent { get; set; }
-    }
 
     public class LegislationType : BaseLegislationModel
     {
