@@ -1,3 +1,5 @@
 <fetch>
-  <entity name="tc_legislation" />
+  <entity name="qm_rclegislation" >
+    <all-attributes/>
+  </entity>
 </fetch>

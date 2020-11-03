@@ -8,20 +8,19 @@ using System.Collections.Generic;
 using TDG.CORE.ETL.EXTENSIONS;
 using TDG.CORE.ETL.MODELS.QUESTIONNAIRE;
 using TDG.CORE.ETL.MODELS.LEGISLATION;
+using Microsoft.Xrm.Sdk.Messages;
 
 namespace TDG.CORE.ETL.CDS
 {
     public static class CrmSdkHelper
     {
-        private const string templateEntity = "tc_questionnaire_template";
-        static string legislationEntityName = "tc_legislation";
-        static string groupEntityName = "tc_questionnaire_questions_group";
-        static string questionEntityName = "tc_questionnaire_question";
-        static string responseEntityName = "tc_questionnaire_question_response";
-        //static string questionOrderEntityName = "tc_qtn_question_order";
-        //static string groupOrderEntityName = "tc_qtn_question_group_order";
-        static string keyName = "tc_name";
-        static string legKeyName = "tc_justiceid";//"tc_legislationidentifier";
+        private const string templateEntity = "qm_sytemplate";
+        static string legislationEntityName = "qm_rclegislation";
+        static string groupEntityName = "qm_sygroup";
+        static string questionEntityName = "qm_syquestion";
+        static string responseEntityName = "qm_syresponse";
+        static string keyName = "qm_name";
+        static string legKeyName = "qm_justiceid";//"tc_legislationidentifier";
 
 
         #region QUESTIONNAIRE
@@ -515,7 +514,7 @@ namespace TDG.CORE.ETL.CDS
         static int OrderCount = 1;
         public static void DeleteLegislation(CrmServiceClient service)
         {
-            DeleteEntity(service, "tc_legislation", "tc_legislationidentifier");
+            DeleteEntity(service, "qm_rclegislation", "qm_rclegislationid");
         }
 
         public static string ExecuteLegislationFetchXml(string fetch)
@@ -524,42 +523,16 @@ namespace TDG.CORE.ETL.CDS
             {
                 CrmServiceClient conn = Connect();
 
-                IOrganizationService service = (IOrganizationService)conn.OrganizationServiceProxy;
-
                 var fetchExpression = new FetchExpression(fetch);
-                EntityCollection fetchResult = service.RetrieveMultiple(fetchExpression);
+                EntityCollection fetchResult = conn.RetrieveMultiple(fetchExpression);
 
-                List<Legislation> results = new List<Legislation>();
+                List<CrmWebApiEarlyBoundGenerator.qm_rclegislation> results = new List<CrmWebApiEarlyBoundGenerator.qm_rclegislation>();
 
                 foreach (var row in fetchResult.Entities)
                 {
-                    var responseControlInputType = row.GetAttributeValue<EntityReference>("tc_legislationtype");
-
-                    if (responseControlInputType == null)
-                    {
-                        var troubleInput = row.GetValue<string>("response_control_input_name");
-
-                        var message = troubleInput + ": no matching control input type found in dynamics.";
-
-                        Console.WriteLine(message);
-
-                        throw new NullReferenceException(message);
-                    }
-
-                    var relatedEntity = GetEntityUsingSimpleQuery(conn, responseControlInputType.LogicalName, "tc_legislationtype", responseControlInputType.Name);
-
-                    results.Add(new Legislation
-                    {
-                        LegislationType = relatedEntity.Attributes["tc_legislationtype"].ToString(),
-                        LegislationTextEnglish = row.GetValue<string>("tc_legislationtextenglish"),
-                        LegislationTextFrench = row.GetValue<string>("tc_legislationtextfrench"),
-                        LegislationReference = row.GetValue<string>("tc_legislationidentifier"),
-                        Order = row.GetInt("tc_order"),
-                        DateRevoked = row.GetValue<DateTime?>("tc_daterevoked").ToDateTime(),
-                        DateEffective = row.GetValue<DateTime>("tc_dateeffective").ToDateTime("yyyy-MM-dd H:mm:ss"),
-                        Name = row.GetValue<string>("tc_legislation"),
-                        Id = row.Id.ToString()
-                    });
+                    var legResult = new CrmWebApiEarlyBoundGenerator.qm_rclegislation();
+                    MapLegislationEntityToModel (ref legResult, row);
+                    results.Add(legResult);
                 }
 
                 var json = Newtonsoft.Json.JsonConvert.SerializeObject(results);
@@ -612,7 +585,14 @@ namespace TDG.CORE.ETL.CDS
 
             if (parent != null)
             {
-                service.Associate(legislationEntityName, leg.Id, new Relationship("xxxxxxxxxxxxxxxx"), new EntityReferenceCollection(new List<EntityReference>() { parent.ToEntityReference() }));
+                AssociateRequest associateRequest = new AssociateRequest();
+                associateRequest.Target = new EntityReference("qm_rclegislation", parent.Id);
+                associateRequest.RelatedEntities = new EntityReferenceCollection();
+                associateRequest.RelatedEntities.Add(new EntityReference("qm_rclegislation", leg.Id));
+                associateRequest.Relationship = new Relationship("qm_qm_rclegislation_qm_rclegislation");
+                associateRequest.Relationship.PrimaryEntityRole = EntityRole.Referenced;
+
+                var associateResponse = service.Execute(associateRequest);
             }
 
             //switch (element.Type)
@@ -754,6 +734,18 @@ namespace TDG.CORE.ETL.CDS
                     throw new NullReferenceException(attribute + " was provided a null value! Correct and reimport.");
                 }
                 return null;
+            }
+
+            Type tType = typeof(T);
+            if (tType == typeof(DateTime))
+            {
+                object temp = alias;
+                return ((DateTime)temp).ToString("yyyy-MM-dd HH:mm:ss");
+            }
+            if (tType == typeof(DateTime?))
+            {
+                object temp = alias;
+                return ((DateTime?)temp).Value.ToString("yyyy-MM-dd HH:mm:ss");
             }
 
             return alias.ToString();
@@ -942,7 +934,7 @@ namespace TDG.CORE.ETL.CDS
         public static CrmServiceClient Connect()
         {
             // Try to create via connection string. 
-            var service = new CrmServiceClient("Url=https://insp-dev4-tcd365.crm3.dynamics.com/; Username=TDG.CORE@034gc.onmicrosoft.com; Password=TDGCore1!; authtype=Office365; RequireNewInstance=True");
+            var service = new CrmServiceClient("AuthType=ClientSecret; url=https://rom-dev-tcd365.crm3.dynamics.com; ClientId=a6adc57f-f130-4e0e-8cab-c0d6a26f8273; ClientSecret=Hi7_X5DvnZf.j0._3mnPWKCu.KRA2~2.2b");
 
             return service;
         }
@@ -1076,14 +1068,42 @@ namespace TDG.CORE.ETL.CDS
 
         private static void MapLegislationDataToEntity(ref Entity legEntity, Regulation reg)
         {
-            legEntity.Attributes["tc_legislationtextenglish"] = reg.TextEnglish;
-            legEntity.Attributes["tc_legislationtextfrench"] = reg.TextFrench;
-            legEntity.Attributes["tc_legislationidentifier"] = reg.Label;
-            legEntity.Attributes["tc_order"] = OrderCount;
-            legEntity.Attributes["tc_daterevoked"] = null;
-            legEntity.Attributes["tc_dateeffective"] = reg.InforceStartDate;
-            legEntity.Attributes["tc_justiceid"] =reg.JusticeId;
-            legEntity.Attributes["tc_legislation"] = reg.UniqueId;
+            var leg = reg.ConvertToTCModel();
+
+            legEntity.Attributes["qm_legislationlbl"]         = leg.qm_LegislationLbl;
+            legEntity.Attributes["qm_inforcedte"]             = leg.qm_InforceDte;
+            legEntity.Attributes["qm_lastamendeddte"]         = leg.qm_LastAmendedDte;
+            legEntity.Attributes["qm_justiceid"]              = leg.qm_JusticeId;
+            legEntity.Attributes["qm_legislationetxt"]        = leg.qm_LegislationEtxt;
+            legEntity.Attributes["qm_legislationftxt"]        = leg.qm_LegislationFtxt;
+            legEntity.Attributes["qm_ordernbr"]               = leg.qm_OrderNbr;
+            legEntity.Attributes["qm_justicefid"]             = leg.qm_JusticeFId;
+            legEntity.Attributes["qm_historicalnoteetxt"]     = leg.qm_HistoricalNoteEtxt;
+            legEntity.Attributes["qm_historicalnoteftxt"]     = leg.qm_HistoricalNoteFtxt;
+            legEntity.Attributes["qm_additionalmetadataetxt"] = leg.qm_AddtionalMetadataEtxt;
+            legEntity.Attributes["qm_additionalmetadataftxt"] = leg.qm_AdditionalMetadataFtxt;
+            // legEntity.Attributes["qm_rcparentlegislationid"]  = leg.qm_rcParentLegislationId != null ? new EntityReference (leg.qm_rcParentLegislationId.EntitySetName, leg.qm_rcParentLegislationId.EntityId) : null;
+            legEntity.Attributes["qm_name"]                   = leg.qm_name;
+        }
+
+        private static void MapLegislationEntityToModel (ref CrmWebApiEarlyBoundGenerator.qm_rclegislation leg, Entity legEntity)
+        {
+             leg.qm_LegislationLbl         = legEntity.GetValue<string>("qm_legislationlbl");         
+             leg.qm_InforceDte             = legEntity.GetValue<DateTime?>("qm_inforcedte").ToDateTime();
+             leg.qm_LastAmendedDte         = legEntity.GetValue<DateTime?>("qm_lastamendeddte").ToDateTime();          
+             leg.qm_JusticeId              = legEntity.GetValue<int?>("qm_justiceid").ToNullableInt(); 
+             leg.qm_LegislationEtxt        = legEntity.GetValue<string>("qm_legislationetxt"); 
+             leg.qm_LegislationFtxt        = legEntity.GetValue<string>("qm_legislationftxt");
+             leg.qm_OrderNbr               = legEntity.GetValue<int?>("qm_ordernbr").ToNullableInt();
+             leg.qm_JusticeFId             = legEntity.GetValue<int?>("qm_justicefid").ToNullableInt();
+             leg.qm_HistoricalNoteEtxt     = legEntity.GetValue<string>("qm_historicalnoteetxt");        
+             leg.qm_HistoricalNoteFtxt     = legEntity.GetValue<string>("qm_historicalnoteftxt");       
+             leg.qm_AddtionalMetadataEtxt  = legEntity.GetValue<string>("qm_additionalmetadataetxt"); 
+             leg.qm_AdditionalMetadataFtxt = legEntity.GetValue<string>("qm_additionalmetadataftxt");
+             leg.qm_name                   = legEntity.GetValue<string>("qm_name");
+             leg.Id                        = legEntity.Id;
+
+            // leg.qm_rcParentLegislationId   = legEntity.RelatedEntities           // legEntity.Attributes["qm_rcparentlegislationid"]  = = null ? new EntityReference (leg.qm_rcParentLegislationId.EntitySetName, leg.qm_rcParentLegislationId.EntityId) : null;
         }
 
         #endregion

@@ -45,7 +45,7 @@ namespace TDG.CORE.ETL.CDS.CONSOLE
 
         private static void ProcessTDGRegulations()
         {
-            //ETLLogic.DeleteLegislation();
+            ETLLogic.DeleteLegislation();
 
             var regXml = LegApiClient.GetRegulationFromJustice();
              
