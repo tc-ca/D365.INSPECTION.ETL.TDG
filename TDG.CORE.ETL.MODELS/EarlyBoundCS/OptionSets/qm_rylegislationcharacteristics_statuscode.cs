@@ -12,13 +12,13 @@ namespace TC.Legislation.EarlyBound {
     
     
     // <summary>
-    // Status of the Legislation Type
-    //Statut de l'élément Legislation Type
+    // Reason for the status of the Legislation Characteristics
+    //Raison du statut de l'élément Legislation Characteristics
     // </summary>
-    public enum qm_tylegislationtype_statecode {
+    public enum qm_rylegislationcharacteristics_statuscode {
         
-        Active = 0,
+        Active = 1,
         
-        Inactive = 1,
+        Inactive = 2,
     }
 }

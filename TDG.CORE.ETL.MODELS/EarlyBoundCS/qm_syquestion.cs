@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CrmWebApiEarlyBoundGenerator {
+namespace TC.Legislation.EarlyBound {
     using System.Reflection;
     using System.Linq;
     using System;
@@ -211,6 +211,32 @@ namespace CrmWebApiEarlyBoundGenerator {
         }
         
         // <summary>
+        // Unique identifier for Group associated with Question.
+        // </summary>
+        [EntityReference("qm_sygroups", "_qm_sygroupid_value")]
+        public EntityReference qm_SYGroupId {
+            get {
+                return this.GetAttributeValue<EntityReference>("qm_SYGroupId@odata.bind");
+            }
+            set {
+                this.SetAttributeValue("qm_SYGroupId@odata.bind", value);
+            }
+        }
+        
+        // <summary>
+        // Unique identifier for Group associated with Question.
+        // </summary>
+        [Entity("qm_sygroup", "qm_SYGroupId")]
+        public qm_sygroup qm_SYGroupIdEntity {
+            get {
+                return this.GetAttributeValue<qm_sygroup>("qm_SYGroupId");
+            }
+            set {
+                this.SetAttributeValue("qm_SYGroupId", value);
+            }
+        }
+        
+        // <summary>
         // Unique identifier for entity instances
         //Identificateur unique des instances d'entité
         // </summary>
@@ -326,6 +352,8 @@ namespace CrmWebApiEarlyBoundGenerator {
             
             public const string _OrganizationId_value = "_organizationid_value";
             
+            public const string _qm_SYGroupId_value = "_qm_sygroupid_value";
+            
             public const string _qm_SYQuestionId_self_value = "_qm_syquestionid_self_value";
             
             public const string CreatedBy = "createdby";
@@ -376,6 +404,10 @@ namespace CrmWebApiEarlyBoundGenerator {
             
             public const string qm_QuestionF = "qm_questionf";
             
+            public const string qm_SYGroupId = "qm_sygroupid";
+            
+            public const string qm_SYGroupIdName = "qm_sygroupidname";
+            
             public const string qm_syquestionId = "qm_syquestionid";
             
             public const string qm_SYQuestionId_self = "qm_syquestionid_self";
@@ -410,6 +442,8 @@ namespace CrmWebApiEarlyBoundGenerator {
             public const string modifiedonbehalfby = "modifiedonbehalfby";
             
             public const string organizationid = "organizationid";
+            
+            public const string qm_SYGroupId = "qm_SYGroupId";
             
             public const string qm_SYQuestionId_self = "qm_SYQuestionId_self";
         }
@@ -463,6 +497,10 @@ namespace CrmWebApiEarlyBoundGenerator {
             public const string qm_QuestionE = "qm_QuestionE";
             
             public const string qm_QuestionF = "qm_QuestionF";
+            
+            public const string qm_SYGroupId = "qm_SYGroupId";
+            
+            public const string qm_SYGroupIdName = "qm_SYGroupIdName";
             
             public const string qm_syquestionId = "qm_syquestionId";
             

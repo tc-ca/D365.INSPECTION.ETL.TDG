@@ -18,18 +18,18 @@ namespace TC.Legislation.EarlyBound {
     
     
     [ExcludeFromCodeCoverageAttribute()]
-    public class qm_sytemplate : Entity {
+    public class qm_tylegislationcharacteristic : Entity {
         
-        public new const string EntityLogicalName = "qm_sytemplate";
+        public new const string EntityLogicalName = "qm_tylegislationcharacteristic";
         
-        public new const string EntitySetName = "qm_sytemplates";
+        public new const string EntitySetName = "qm_tylegislationcharacteristics";
         
-        public new const string PrimaryIdAttribute = "qm_sytemplateid";
+        public new const string PrimaryIdAttribute = "qm_tylegislationcharacteristicid";
         
-        public qm_sytemplate() {
+        public qm_tylegislationcharacteristic() {
         }
         
-        public qm_sytemplate(ExpandoObject expandoObject) : 
+        public qm_tylegislationcharacteristic(ExpandoObject expandoObject) : 
                 base(expandoObject) {
         }
         
@@ -156,15 +156,33 @@ namespace TC.Legislation.EarlyBound {
             }
         }
         
-        // <summary>
-        // The name of the custom entity.
-        // </summary>
-        public String qm_name {
+        public String qm_legislationcharacteristicelbl {
             get {
-                return this.GetAttributeValue<String>("qm_name");
+                return this.GetAttributeValue<String>("qm_legislationcharacteristicelbl");
             }
             set {
-                this.SetAttributeValue("qm_name", value);
+                this.SetAttributeValue("qm_legislationcharacteristicelbl", value);
+            }
+        }
+        
+        public String qm_legislationcharacteristicflbl {
+            get {
+                return this.GetAttributeValue<String>("qm_legislationcharacteristicflbl");
+            }
+            set {
+                this.SetAttributeValue("qm_legislationcharacteristicflbl", value);
+            }
+        }
+        
+        // <summary>
+        // Required name field
+        // </summary>
+        public String qm_Name {
+            get {
+                return this.GetAttributeValue<String>("qm_Name");
+            }
+            set {
+                this.SetAttributeValue("qm_Name", value);
             }
         }
         
@@ -172,36 +190,18 @@ namespace TC.Legislation.EarlyBound {
         // Unique identifier for entity instances
         //Identificateur unique des instances d'entité
         // </summary>
-        public Guid? qm_sytemplateId {
+        public Guid? qm_tylegislationcharacteristicId {
             get {
-                return this.GetAttributeValue<Guid?>("qm_sytemplateId");
+                return this.GetAttributeValue<Guid?>("qm_tylegislationcharacteristicId");
             }
             set {
-                this.SetAttributeValue("qm_sytemplateId", value);
-            }
-        }
-        
-        public String qm_TemplateE {
-            get {
-                return this.GetAttributeValue<String>("qm_TemplateE");
-            }
-            set {
-                this.SetAttributeValue("qm_TemplateE", value);
-            }
-        }
-        
-        public String qm_TemplateF {
-            get {
-                return this.GetAttributeValue<String>("qm_TemplateF");
-            }
-            set {
-                this.SetAttributeValue("qm_TemplateF", value);
+                this.SetAttributeValue("qm_tylegislationcharacteristicId", value);
             }
         }
         
         // <summary>
-        // Status of the Template
-        //Statut de l'élément Template
+        // Status of the tylegislationcharacteristic
+        //Statut de l'élément tylegislationcharacteristic
         // </summary>
         public int? statecode {
             get {
@@ -213,8 +213,8 @@ namespace TC.Legislation.EarlyBound {
         }
         
         // <summary>
-        // Reason for the status of the Template
-        //Raison du statut de l'élément Template
+        // Reason for the status of the tylegislationcharacteristic
+        //Raison du statut de l'élément tylegislationcharacteristic
         // </summary>
         public int? statuscode {
             get {
@@ -312,13 +312,13 @@ namespace TC.Legislation.EarlyBound {
             
             public const string OverriddenCreatedOn = "overriddencreatedon";
             
-            public const string qm_name = "qm_name";
+            public const string qm_legislationcharacteristicelbl = "qm_legislationcharacteristicelbl";
             
-            public const string qm_sytemplateId = "qm_sytemplateid";
+            public const string qm_legislationcharacteristicflbl = "qm_legislationcharacteristicflbl";
             
-            public const string qm_TemplateE = "qm_templatee";
+            public const string qm_Name = "qm_name";
             
-            public const string qm_TemplateF = "qm_templatef";
+            public const string qm_tylegislationcharacteristicId = "qm_tylegislationcharacteristicid";
             
             public const string statecode = "statecode";
             
@@ -334,7 +334,7 @@ namespace TC.Legislation.EarlyBound {
             
             public const string VersionNumber = "versionnumber";
             
-            public const string Id = "qm_sytemplateid";
+            public const string Id = "qm_tylegislationcharacteristicid";
         }
         
         public class Properties {
@@ -348,8 +348,6 @@ namespace TC.Legislation.EarlyBound {
             public const string modifiedonbehalfby = "modifiedonbehalfby";
             
             public const string organizationid = "organizationid";
-            
-            public const string qm_sytemplate_sygroup = "qm_sytemplate_sygroup";
         }
         
         public class Schemas {
@@ -390,13 +388,13 @@ namespace TC.Legislation.EarlyBound {
             
             public const string OverriddenCreatedOn = "OverriddenCreatedOn";
             
-            public const string qm_name = "qm_name";
+            public const string qm_legislationcharacteristicelbl = "qm_legislationcharacteristicelbl";
             
-            public const string qm_sytemplateId = "qm_sytemplateId";
+            public const string qm_legislationcharacteristicflbl = "qm_legislationcharacteristicflbl";
             
-            public const string qm_TemplateE = "qm_TemplateE";
+            public const string qm_Name = "qm_Name";
             
-            public const string qm_TemplateF = "qm_TemplateF";
+            public const string qm_tylegislationcharacteristicId = "qm_tylegislationcharacteristicId";
             
             public const string statecode = "statecode";
             

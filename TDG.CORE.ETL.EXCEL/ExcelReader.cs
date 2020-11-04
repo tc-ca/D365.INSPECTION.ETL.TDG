@@ -1,4 +1,4 @@
-﻿using CrmWebApiEarlyBoundGenerator;
+﻿using TC.Legislation.EarlyBound;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -251,7 +251,7 @@ namespace TDG.CORE.ETL.EXCEL
 
         #region LEGISLATION
 
-        public static List<qm_rclegislation> ReadLegislationWorkbook(string path)
+        public static List<Regulation> ReadLegislationWorkbook(string path)
         {
             Microsoft.Office.Interop.Excel.Application xlApp                 = new Microsoft.Office.Interop.Excel.Application();
             Microsoft.Office.Interop.Excel.Workbook xlWorkbook               = xlApp.Workbooks.Open(path);
@@ -265,12 +265,12 @@ namespace TDG.CORE.ETL.EXCEL
             int rowCount = xlRange.Rows.Count;
             int colCount = xlRange.Columns.Count;
 
-            var legislation = new List<qm_rclegislation>();
+            var legislation = new List<Regulation>();
 
             //start at second row
             for (int i = 2; i <= rowCount; i++)
             {
-                var model = new qm_rclegislation();
+                var model = new Regulation();
 
                 var legislationType        = ReadCell(xlRange, i, 1);
                 var legislationReference   = ReadCell(xlRange, i, 2);
@@ -282,12 +282,12 @@ namespace TDG.CORE.ETL.EXCEL
 
 
                 // TODO model.LegislationType        = legislationType;
-                model.qm_LegislationLbl = legislationReference;
-                model.qm_LegislationEtxt = legislationTextEnglish;
-                model.qm_LegislationFtxt = legislationTextFrench;
-                model.qm_OrderNbr = order;
-                model.qm_InforceDte = dateEffective;
-                model.qm_LastAmendedDte = dateRevoked;
+                model.Label = legislationReference;
+                model.TextEnglish = legislationTextEnglish;
+                // model.TextFrench= legislationTextFrench;
+                model.Order = order;
+                model.InforceStartDate = dateEffective.ToString();
+                model.LastAmendedDate = dateRevoked.ToString();
 
                 legislation.Add(model);
             }

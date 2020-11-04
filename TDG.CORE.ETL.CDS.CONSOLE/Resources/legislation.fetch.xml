@@ -1,5 +1,18 @@
 <fetch>
   <entity name="qm_rclegislation" >
-    <all-attributes/>
+    <attribute name="qm_name" />
+    <attribute name="qm_rclegislationid" />
+    <attribute name="qm_rcparentlegislationid" />
+    <attribute name="qm_rcparentlegislationidname" />
+    <attribute name="qm_justiceid" />
+    <attribute name="qm_justicefid" />
+    <attribute name="qm_inforcedte" />
+    <attribute name="qm_lastamendeddte" />
+    <attribute name="qm_ordernbr" />
+    <attribute name="qm_legislationlbl" />
+    <attribute name="qm_legislationetxt" />
+    <attribute name="qm_legislationftxt" />
+    <attribute name="overriddencreatedon" />
+    <order attribute="qm_ordernbr" />
   </entity>
 </fetch>

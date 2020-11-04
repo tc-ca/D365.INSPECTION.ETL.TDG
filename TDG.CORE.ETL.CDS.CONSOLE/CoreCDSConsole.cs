@@ -1,4 +1,4 @@
-﻿using CrmWebApiEarlyBoundGenerator;
+﻿using TC.Legislation.EarlyBound;
 using Microsoft.Xrm.Tooling.Connector;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -46,15 +46,15 @@ namespace TDG.CORE.ETL.CDS.CONSOLE
 
         private static void ProcessTDGRegulations()
         {
-            ETLLogic.DeleteLegislation();
+            //ETLLogic.DeleteLegislation();
 
-            var regXml = LegApiClient.GetRegulationFromJustice();
+            //var regXml = LegApiClient.GetRegulationFromJustice();
              
-            var tdgRegs = XML.XMLFunctions.ParseRegs(regXml, "Body", "1227365");
+            //var tdgRegs = XML.XMLFunctions.ParseRegs(regXml, "Body", "1227365");
 
             //var dtSchedule2 = XML.XMLFunctions.ParseRegs(regXml, "Schedule", "1230890");
 
-            ETLLogic.ETLLegislationData(tdgRegs);
+            //ETLLogic.ETLLegislationData(tdgRegs);
 
             //ETLLogic.ETLLegislationData(dtSchedule2);
 
@@ -78,7 +78,7 @@ namespace TDG.CORE.ETL.CDS.CONSOLE
             return generalComplianceFetchXml;
         }
 
-        static List<qm_rclegislation> ReadExcelTemplateLegislation()
+        static List<Regulation> ReadExcelTemplateLegislation()
         {
             //get template from embedded resource
             var legTemplate = TDG.CORE.ETL.RESOURCES.Properties.Resources.TDGActiveLegislation;

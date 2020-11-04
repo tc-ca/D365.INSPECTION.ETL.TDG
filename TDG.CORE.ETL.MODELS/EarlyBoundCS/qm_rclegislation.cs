@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CrmWebApiEarlyBoundGenerator {
+namespace TC.Legislation.EarlyBound {
     using System.Reflection;
     using System.Linq;
     using System;
@@ -156,21 +156,21 @@ namespace CrmWebApiEarlyBoundGenerator {
             }
         }
         
+        public String qm_AdditionalMetadataEtxt {
+            get {
+                return this.GetAttributeValue<String>("qm_AdditionalMetadataEtxt");
+            }
+            set {
+                this.SetAttributeValue("qm_AdditionalMetadataEtxt", value);
+            }
+        }
+        
         public String qm_AdditionalMetadataFtxt {
             get {
                 return this.GetAttributeValue<String>("qm_AdditionalMetadataFtxt");
             }
             set {
                 this.SetAttributeValue("qm_AdditionalMetadataFtxt", value);
-            }
-        }
-        
-        public String qm_AddtionalMetadataEtxt {
-            get {
-                return this.GetAttributeValue<String>("qm_AddtionalMetadataEtxt");
-            }
-            set {
-                this.SetAttributeValue("qm_AddtionalMetadataEtxt", value);
             }
         }
         
@@ -426,9 +426,9 @@ namespace CrmWebApiEarlyBoundGenerator {
             
             public const string OverriddenCreatedOn = "overriddencreatedon";
             
-            public const string qm_AdditionalMetadataFtxt = "qm_additionalmetadataftxt";
+            public const string qm_AdditionalMetadataEtxt = "qm_additionalmetadataetxt";
             
-            public const string qm_AddtionalMetadataEtxt = "qm_addtionalmetadataetxt";
+            public const string qm_AdditionalMetadataFtxt = "qm_additionalmetadataftxt";
             
             public const string qm_HistoricalNoteEtxt = "qm_historicalnoteetxt";
             
@@ -528,9 +528,9 @@ namespace CrmWebApiEarlyBoundGenerator {
             
             public const string OverriddenCreatedOn = "OverriddenCreatedOn";
             
-            public const string qm_AdditionalMetadataFtxt = "qm_AdditionalMetadataFtxt";
+            public const string qm_AdditionalMetadataEtxt = "qm_AdditionalMetadataEtxt";
             
-            public const string qm_AddtionalMetadataEtxt = "qm_AddtionalMetadataEtxt";
+            public const string qm_AdditionalMetadataFtxt = "qm_AdditionalMetadataFtxt";
             
             public const string qm_HistoricalNoteEtxt = "qm_HistoricalNoteEtxt";
             

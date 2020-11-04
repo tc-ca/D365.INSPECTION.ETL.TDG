@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CrmWebApiEarlyBoundGenerator {
+namespace TC.Legislation.EarlyBound {
     
     
     // <summary>
