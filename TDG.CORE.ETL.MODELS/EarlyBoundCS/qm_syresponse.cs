@@ -360,6 +360,8 @@ namespace TC.Legislation.EarlyBound {
             public const string organizationid = "organizationid";
             
             public const string qm_SYQuestionId = "qm_SYQuestionId";
+            
+            public const string qm_syresponse_rclegislation = "qm_syresponse_rclegislation";
         }
         
         public class Schemas {

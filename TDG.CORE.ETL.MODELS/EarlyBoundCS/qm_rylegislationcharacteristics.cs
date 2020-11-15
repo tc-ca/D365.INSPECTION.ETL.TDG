@@ -168,6 +168,26 @@ namespace TC.Legislation.EarlyBound {
             }
         }
         
+        [EntityReference("qm_rclegislations", "_qm_rclegislationid_value")]
+        public EntityReference qm_rclegislationid {
+            get {
+                return this.GetAttributeValue<EntityReference>("qm_rclegislationid@odata.bind");
+            }
+            set {
+                this.SetAttributeValue("qm_rclegislationid@odata.bind", value);
+            }
+        }
+        
+        [Entity("qm_rclegislation", "qm_rclegislationid")]
+        public qm_rclegislation qm_rclegislationidEntity {
+            get {
+                return this.GetAttributeValue<qm_rclegislation>("qm_rclegislationid");
+            }
+            set {
+                this.SetAttributeValue("qm_rclegislationid", value);
+            }
+        }
+        
         // <summary>
         // Unique identifier for entity instances
         //Identificateur unique des instances d'entité
@@ -178,26 +198,6 @@ namespace TC.Legislation.EarlyBound {
             }
             set {
                 this.SetAttributeValue("qm_rylegislationcharacteristicsId", value);
-            }
-        }
-        
-        [EntityReference("qm_rclegislations", "_qm_rylegislationid_value")]
-        public EntityReference qm_rylegislationid {
-            get {
-                return this.GetAttributeValue<EntityReference>("qm_rylegislationid@odata.bind");
-            }
-            set {
-                this.SetAttributeValue("qm_rylegislationid@odata.bind", value);
-            }
-        }
-        
-        [Entity("qm_rclegislation", "qm_rylegislationid")]
-        public qm_rclegislation qm_rylegislationidEntity {
-            get {
-                return this.GetAttributeValue<qm_rclegislation>("qm_rylegislationid");
-            }
-            set {
-                this.SetAttributeValue("qm_rylegislationid", value);
             }
         }
         
@@ -298,7 +298,7 @@ namespace TC.Legislation.EarlyBound {
             
             public const string _OrganizationId_value = "_organizationid_value";
             
-            public const string _qm_rylegislationid_value = "_qm_rylegislationid_value";
+            public const string _qm_rclegislationid_value = "_qm_rclegislationid_value";
             
             public const string _qm_tylegislationcharacteristicid_value = "_qm_tylegislationcharacteristicid_value";
             
@@ -340,11 +340,11 @@ namespace TC.Legislation.EarlyBound {
             
             public const string qm_Name = "qm_name";
             
+            public const string qm_rclegislationid = "qm_rclegislationid";
+            
+            public const string qm_rclegislationidName = "qm_rclegislationidname";
+            
             public const string qm_rylegislationcharacteristicsId = "qm_rylegislationcharacteristicsid";
-            
-            public const string qm_rylegislationid = "qm_rylegislationid";
-            
-            public const string qm_rylegislationidName = "qm_rylegislationidname";
             
             public const string qm_tylegislationcharacteristicid = "qm_tylegislationcharacteristicid";
             
@@ -379,7 +379,7 @@ namespace TC.Legislation.EarlyBound {
             
             public const string organizationid = "organizationid";
             
-            public const string qm_rylegislationid = "qm_rylegislationid";
+            public const string qm_rclegislationid = "qm_rclegislationid";
             
             public const string qm_tylegislationcharacteristicid = "qm_tylegislationcharacteristicid";
         }
@@ -424,11 +424,11 @@ namespace TC.Legislation.EarlyBound {
             
             public const string qm_Name = "qm_Name";
             
+            public const string qm_rclegislationid = "qm_rclegislationid";
+            
+            public const string qm_rclegislationidName = "qm_rclegislationidName";
+            
             public const string qm_rylegislationcharacteristicsId = "qm_rylegislationcharacteristicsId";
-            
-            public const string qm_rylegislationid = "qm_rylegislationid";
-            
-            public const string qm_rylegislationidName = "qm_rylegislationidName";
             
             public const string qm_tylegislationcharacteristicid = "qm_tylegislationcharacteristicid";
             

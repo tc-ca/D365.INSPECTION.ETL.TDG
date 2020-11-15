@@ -178,32 +178,6 @@ namespace TC.Legislation.EarlyBound {
         }
         
         // <summary>
-        // Unique identifier for Dependency Group associated with Question Validation Rule.
-        // </summary>
-        [EntityReference("qm_sydependencygroups", "_qm_sydependencygroupid_value")]
-        public EntityReference qm_SYDependencyGroupId {
-            get {
-                return this.GetAttributeValue<EntityReference>("qm_SYDependencyGroupId@odata.bind");
-            }
-            set {
-                this.SetAttributeValue("qm_SYDependencyGroupId@odata.bind", value);
-            }
-        }
-        
-        // <summary>
-        // Unique identifier for Dependency Group associated with Question Validation Rule.
-        // </summary>
-        [Entity("qm_sydependencygroup", "qm_SYDependencyGroupId")]
-        public qm_sydependencygroup qm_SYDependencyGroupIdEntity {
-            get {
-                return this.GetAttributeValue<qm_sydependencygroup>("qm_SYDependencyGroupId");
-            }
-            set {
-                this.SetAttributeValue("qm_SYDependencyGroupId", value);
-            }
-        }
-        
-        // <summary>
         // Unique identifier for Question associated with Question Validation Rule.
         // </summary>
         [EntityReference("qm_syquestions", "_qm_syquestionid_value")]
@@ -328,8 +302,6 @@ namespace TC.Legislation.EarlyBound {
             
             public const string _OrganizationId_value = "_organizationid_value";
             
-            public const string _qm_SYDependencyGroupId_value = "_qm_sydependencygroupid_value";
-            
             public const string _qm_SYQuestionId_value = "_qm_syquestionid_value";
             
             public const string CreatedBy = "createdby";
@@ -374,10 +346,6 @@ namespace TC.Legislation.EarlyBound {
             
             public const string qm_name = "qm_name";
             
-            public const string qm_SYDependencyGroupId = "qm_sydependencygroupid";
-            
-            public const string qm_SYDependencyGroupIdName = "qm_sydependencygroupidname";
-            
             public const string qm_SYQuestionId = "qm_syquestionid";
             
             public const string qm_SYQuestionIdName = "qm_syquestionidname";
@@ -414,8 +382,6 @@ namespace TC.Legislation.EarlyBound {
             public const string modifiedonbehalfby = "modifiedonbehalfby";
             
             public const string organizationid = "organizationid";
-            
-            public const string qm_SYDependencyGroupId = "qm_SYDependencyGroupId";
             
             public const string qm_SYQuestionId = "qm_SYQuestionId";
         }
@@ -463,10 +429,6 @@ namespace TC.Legislation.EarlyBound {
             public const string qm_isenabledindName = "qm_isenabledindName";
             
             public const string qm_name = "qm_name";
-            
-            public const string qm_SYDependencyGroupId = "qm_SYDependencyGroupId";
-            
-            public const string qm_SYDependencyGroupIdName = "qm_SYDependencyGroupIdName";
             
             public const string qm_SYQuestionId = "qm_SYQuestionId";
             

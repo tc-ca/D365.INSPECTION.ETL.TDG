@@ -18,18 +18,18 @@ namespace TC.Legislation.EarlyBound {
     
     
     [ExcludeFromCodeCoverageAttribute()]
-    public class qm_syquestion : Entity {
+    public class qm_syQuestionnaire : Entity {
         
-        public new const string EntityLogicalName = "qm_syquestion";
+        public new const string EntityLogicalName = "qm_syquestionnaire";
         
-        public new const string EntitySetName = "qm_syquestions";
+        public new const string EntitySetName = "qm_syquestionnaires";
         
-        public new const string PrimaryIdAttribute = "qm_syquestionid";
+        public new const string PrimaryIdAttribute = "qm_syquestionnaireid";
         
-        public qm_syquestion() {
+        public qm_syQuestionnaire() {
         }
         
-        public qm_syquestion(ExpandoObject expandoObject) : 
+        public qm_syQuestionnaire(ExpandoObject expandoObject) : 
                 base(expandoObject) {
         }
         
@@ -156,92 +156,24 @@ namespace TC.Legislation.EarlyBound {
             }
         }
         
-        public bool? qm_IsVisibleInd {
-            get {
-                return this.GetAttributeValue<bool?>("qm_IsVisibleInd");
-            }
-            set {
-                this.SetAttributeValue("qm_IsVisibleInd", value);
-            }
-        }
-        
         // <summary>
-        // The name of the custom entity.
+        // Required name field
         // </summary>
-        public String qm_name {
+        public String qm_Name {
             get {
-                return this.GetAttributeValue<String>("qm_name");
+                return this.GetAttributeValue<String>("qm_Name");
             }
             set {
-                this.SetAttributeValue("qm_name", value);
+                this.SetAttributeValue("qm_Name", value);
             }
         }
         
-        public int? qm_OrderNbr {
+        public String qm_resultsjson {
             get {
-                return this.GetAttributeValue<int?>("qm_OrderNbr");
+                return this.GetAttributeValue<String>("qm_resultsjson");
             }
             set {
-                this.SetAttributeValue("qm_OrderNbr", value);
-            }
-        }
-        
-        // <summary>
-        // English
-        // </summary>
-        public String qm_QuestionE {
-            get {
-                return this.GetAttributeValue<String>("qm_QuestionE");
-            }
-            set {
-                this.SetAttributeValue("qm_QuestionE", value);
-            }
-        }
-        
-        // <summary>
-        // French
-        // </summary>
-        public String qm_QuestionF {
-            get {
-                return this.GetAttributeValue<String>("qm_QuestionF");
-            }
-            set {
-                this.SetAttributeValue("qm_QuestionF", value);
-            }
-        }
-        
-        public int? qm_QuestionTypeCd {
-            get {
-                return this.GetAttributeValue<int?>("qm_QuestionTypeCd");
-            }
-            set {
-                this.SetAttributeValue("qm_QuestionTypeCd", value);
-            }
-        }
-        
-        // <summary>
-        // Unique identifier for Group associated with Question.
-        // </summary>
-        [EntityReference("qm_sygroups", "_qm_sygroupid_value")]
-        public EntityReference qm_SYGroupId {
-            get {
-                return this.GetAttributeValue<EntityReference>("qm_SYGroupId@odata.bind");
-            }
-            set {
-                this.SetAttributeValue("qm_SYGroupId@odata.bind", value);
-            }
-        }
-        
-        // <summary>
-        // Unique identifier for Group associated with Question.
-        // </summary>
-        [Entity("qm_sygroup", "qm_SYGroupId")]
-        public qm_sygroup qm_SYGroupIdEntity {
-            get {
-                return this.GetAttributeValue<qm_sygroup>("qm_SYGroupId");
-            }
-            set {
-                this.SetAttributeValue("qm_SYGroupId", value);
+                this.SetAttributeValue("qm_resultsjson", value);
             }
         }
         
@@ -249,44 +181,18 @@ namespace TC.Legislation.EarlyBound {
         // Unique identifier for entity instances
         //Identificateur unique des instances d'entité
         // </summary>
-        public Guid? qm_syquestionId {
+        public Guid? qm_syQuestionnaireId {
             get {
-                return this.GetAttributeValue<Guid?>("qm_syquestionId");
+                return this.GetAttributeValue<Guid?>("qm_syQuestionnaireId");
             }
             set {
-                this.SetAttributeValue("qm_syquestionId", value);
+                this.SetAttributeValue("qm_syQuestionnaireId", value);
             }
         }
         
         // <summary>
-        // Unique identifier for Question associated with Question.
-        // </summary>
-        [EntityReference("qm_syquestions", "_qm_syquestionid_self_value")]
-        public EntityReference qm_SYQuestionId_self {
-            get {
-                return this.GetAttributeValue<EntityReference>("qm_SYQuestionId_self@odata.bind");
-            }
-            set {
-                this.SetAttributeValue("qm_SYQuestionId_self@odata.bind", value);
-            }
-        }
-        
-        // <summary>
-        // Unique identifier for Question associated with Question.
-        // </summary>
-        [Entity("qm_syquestion", "qm_SYQuestionId_self")]
-        public qm_syquestion qm_SYQuestionId_selfEntity {
-            get {
-                return this.GetAttributeValue<qm_syquestion>("qm_SYQuestionId_self");
-            }
-            set {
-                this.SetAttributeValue("qm_SYQuestionId_self", value);
-            }
-        }
-        
-        // <summary>
-        // Status of the Question
-        //Statut de l'élément Question
+        // Status of the Questionnaire
+        //Statut de l'élément Questionnaire
         // </summary>
         public int? statecode {
             get {
@@ -298,8 +204,8 @@ namespace TC.Legislation.EarlyBound {
         }
         
         // <summary>
-        // Reason for the status of the Question
-        //Raison du statut de l'élément Question
+        // Reason for the status of the Questionnaire
+        //Raison du statut de l'élément Questionnaire
         // </summary>
         public int? statuscode {
             get {
@@ -361,10 +267,6 @@ namespace TC.Legislation.EarlyBound {
             
             public const string _OrganizationId_value = "_organizationid_value";
             
-            public const string _qm_SYGroupId_value = "_qm_sygroupid_value";
-            
-            public const string _qm_SYQuestionId_self_value = "_qm_syquestionid_self_value";
-            
             public const string CreatedBy = "createdby";
             
             public const string CreatedByName = "createdbyname";
@@ -401,31 +303,13 @@ namespace TC.Legislation.EarlyBound {
             
             public const string OverriddenCreatedOn = "overriddencreatedon";
             
-            public const string qm_IsVisibleInd = "qm_isvisibleind";
+            public const string qm_Name = "qm_name";
             
-            public const string qm_isvisibleindName = "qm_isvisibleindname";
+            public const string qm_resultsdata_Name = "qm_resultsdata_name";
             
-            public const string qm_name = "qm_name";
+            public const string qm_resultsjson = "qm_resultsjson";
             
-            public const string qm_OrderNbr = "qm_ordernbr";
-            
-            public const string qm_QuestionE = "qm_questione";
-            
-            public const string qm_QuestionF = "qm_questionf";
-            
-            public const string qm_QuestionTypeCd = "qm_questiontypecd";
-            
-            public const string qm_questiontypecdName = "qm_questiontypecdname";
-            
-            public const string qm_SYGroupId = "qm_sygroupid";
-            
-            public const string qm_SYGroupIdName = "qm_sygroupidname";
-            
-            public const string qm_syquestionId = "qm_syquestionid";
-            
-            public const string qm_SYQuestionId_self = "qm_syquestionid_self";
-            
-            public const string qm_SYQuestionId_selfName = "qm_syquestionid_selfname";
+            public const string qm_syQuestionnaireId = "qm_syquestionnaireid";
             
             public const string statecode = "statecode";
             
@@ -441,7 +325,7 @@ namespace TC.Legislation.EarlyBound {
             
             public const string VersionNumber = "versionnumber";
             
-            public const string Id = "qm_syquestionid";
+            public const string Id = "qm_syquestionnaireid";
         }
         
         public class Properties {
@@ -456,9 +340,7 @@ namespace TC.Legislation.EarlyBound {
             
             public const string organizationid = "organizationid";
             
-            public const string qm_SYGroupId = "qm_SYGroupId";
-            
-            public const string qm_SYQuestionId_self = "qm_SYQuestionId_self";
+            public const string qm_resultsdata = "qm_resultsdata";
         }
         
         public class Schemas {
@@ -499,31 +381,13 @@ namespace TC.Legislation.EarlyBound {
             
             public const string OverriddenCreatedOn = "OverriddenCreatedOn";
             
-            public const string qm_IsVisibleInd = "qm_IsVisibleInd";
+            public const string qm_Name = "qm_Name";
             
-            public const string qm_isvisibleindName = "qm_isvisibleindName";
+            public const string qm_resultsdata_Name = "qm_resultsdata_Name";
             
-            public const string qm_name = "qm_name";
+            public const string qm_resultsjson = "qm_resultsjson";
             
-            public const string qm_OrderNbr = "qm_OrderNbr";
-            
-            public const string qm_QuestionE = "qm_QuestionE";
-            
-            public const string qm_QuestionF = "qm_QuestionF";
-            
-            public const string qm_QuestionTypeCd = "qm_QuestionTypeCd";
-            
-            public const string qm_questiontypecdName = "qm_questiontypecdName";
-            
-            public const string qm_SYGroupId = "qm_SYGroupId";
-            
-            public const string qm_SYGroupIdName = "qm_SYGroupIdName";
-            
-            public const string qm_syquestionId = "qm_syquestionId";
-            
-            public const string qm_SYQuestionId_self = "qm_SYQuestionId_self";
-            
-            public const string qm_SYQuestionId_selfName = "qm_SYQuestionId_selfName";
+            public const string qm_syQuestionnaireId = "qm_syQuestionnaireId";
             
             public const string statecode = "statecode";
             

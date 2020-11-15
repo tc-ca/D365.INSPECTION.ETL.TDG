@@ -11,20 +11,20 @@ using TDG.CORE.ETL.MODELS.LEGISLATION;
 using Microsoft.Xrm.Sdk.Messages;
 using EntityReference = Microsoft.Xrm.Sdk.EntityReference;
 using Entity = Microsoft.Xrm.Sdk.Entity;
+using TC.Legislation.EarlyBound;
 
 namespace TDG.CORE.ETL.CDS
 {
     public static class CrmSdkHelper
     {
-        private const string templateEntity = "qm_sytemplate";
         static string legislationEntityName = "qm_rclegislation";
-        static string characteristicEntityName = nameof(TC.Legislation.EarlyBound.qm_tylegislationcharacteristic);
-        static string legislationCharacteristicEntityName = nameof(TC.Legislation.EarlyBound.qm_rylegislationcharacteristics);
-        static string groupEntityName = "qm_sygroup";
-        static string questionEntityName = "qm_syquestion";
-        static string responseEntityName = "qm_syresponse";
+        static string characteristicEntityName = qm_tylegislationcharacteristic.EntityLogicalName;
+        static string legislationCharacteristicEntityName = qm_rylegislationcharacteristics.EntityLogicalName;
+        static string groupEntityName = qm_sygroup.EntityLogicalName;
+        static string questionEntityName = qm_syquestion.EntityLogicalName;
+        static string responseEntityName = qm_syresponse.EntityLogicalName;
         static string keyName = "qm_name";
-        static string legKeyName = "qm_justiceid";//"tc_legislationidentifier";
+        static string legKeyName = "qm_justiceid";
 
 
         #region QUESTIONNAIRE
@@ -40,7 +40,7 @@ namespace TDG.CORE.ETL.CDS
         {
             if (questionnaireData == null) throw new ArgumentNullException(nameof(questionnaireData));
 
-            string entityName = templateEntity;
+            string entityName = qm_sytemplate.EntityLogicalName;
             string keyValue   = questionnaireData.Template.Name;
 
             //check to see if there is an existing entity 
@@ -68,7 +68,7 @@ namespace TDG.CORE.ETL.CDS
             //groups from excel
             var excelTemplateGroups = questionnaireData.QuestionGroups;
 
-            var crmTemplate = GetEntityUsingSimpleQuery(service, templateEntity, keyName, questionnaireData.Template.Name);
+            var crmTemplate = GetEntityUsingSimpleQuery(service, qm_sytemplate.EntityLogicalName, keyName, questionnaireData.Template.Name);
 
             foreach (var item in excelTemplateGroups)
             {
@@ -99,23 +99,20 @@ namespace TDG.CORE.ETL.CDS
 
                 var entityReferenceCollection = new EntityReferenceCollection(entityReference);
 
-                //service.Associate(groupEntityName, group.Id, new Relationship("tc_Template_Questions_Group"), entityReferenceCollection);
+                //service.Associate(groupEntityName, group.Id, new Relationship("qm_Template_Questions_Group"), entityReferenceCollection);
 
-                service.CreateEntityAssociation(groupEntityName, group.Id, crmTemplate.LogicalName, crmTemplate.Id, "tc_Template_Questions_Group");
+                service.CreateEntityAssociation(groupEntityName, group.Id, crmTemplate.LogicalName, crmTemplate.Id, "qm_sytemplate_sygroup");
             }
         }
 
         private static void CreateOrUpdateCrmQuestions(CrmServiceClient service, Questionnaire questionnaireData)
         {
             Entity group = null;
+            //var requirementOptionSet = service.GetGlobalOptionSetMetadata("qm_qtn_field_requirement");
 
             foreach (var question in questionnaireData.Questions)
             {
                 if (question.Name == null) continue;
-                if (group == null || group.Attributes[keyName].ToString() != question.Name)
-                {
-                    group = GetEntityUsingSimpleQuery(service, groupEntityName, keyName, question.Name);
-                }
 
                 var crmQuestion = GetEntityUsingSimpleQuery(service, questionEntityName, keyName, question.Name);
 
@@ -134,45 +131,59 @@ namespace TDG.CORE.ETL.CDS
 
                 CreateOrUpdateEntity(ref service, ref questionEntity, keyName, crmQuestion == null);
 
-                var entityReference = new List<EntityReference>
+                if (group == null || question.GroupName != question.Name)
                 {
-                    group.ToEntityReference()
-                };
-                var entityReferenceCollection = new EntityReferenceCollection(entityReference);
+                    group = GetEntityUsingSimpleQuery(service, groupEntityName, keyName, question.GroupName);
+                    question.GroupId = group.Id;
+                    Associate(service, questionEntity, "qm_sygroup_syquestion", group);
+                }
 
-                //service.Associate(questionEntityName, questionEntity.Id, new Relationship("tc_Questions_Group_Question"), entityReferenceCollection);
+                //parent question
+                if (!String.IsNullOrEmpty(question.ParentQuestionName))
+                {
+                    var parentQuestion = GetEntityUsingSimpleQuery(service, questionEntityName, keyName, question.ParentQuestionName);
+                    question.ParentQuestionId = parentQuestion.Id;
+                    AssociateRequest(service, questionEntity, questionEntity.LogicalName, parentQuestion, parentQuestion.LogicalName, "qm_syquestion_syquestion");
+                }
 
-                service.CreateEntityAssociation(questionEntityName, questionEntity.Id, groupEntityName, group.Id, "tc_Questions_Group_Question");
+
+                //Associate(service, questionEntity, "qm_syquestion_syquestion",)
+                //var entityReference = new List<EntityReference>
+                //{
+                //    group.ToEntityReference()
+                //};
+                //var entityReferenceCollection = new EntityReferenceCollection(entityReference);
+
+                //service.Associate(questionEntityName, questionEntity.Id, new Relationship("qm_Questions_Group_Question"), entityReferenceCollection);
+
             }
         }
 
         private static void CreateOrUpdateCrmResponses(CrmServiceClient service, Questionnaire questionnaireData)
         {
-            var keyName = "tc_name";
+            //var requirementOptionSet = service.GetGlobalOptionSetMetadata("qm_qtn_field_requirement");
+            //var problemOptionSet     = service.GetGlobalOptionSetMetadata("qm_qtn_problem_type");
+            //var safetyOptionSet      = service.GetGlobalOptionSetMetadata("qm_qtn_safety_type");
 
-            var requirementOptionSet = service.GetGlobalOptionSetMetadata("tc_qtn_field_requirement");
-            var problemOptionSet     = service.GetGlobalOptionSetMetadata("tc_qtn_problem_type");
-            var safetyOptionSet      = service.GetGlobalOptionSetMetadata("tc_qtn_safety_type");
+            //var optional      = requirementOptionSet.Options.FirstOrDefault(e => e.Label.LocalizedLabels[0].Label == "Optional").Value;
+            //var required      = requirementOptionSet.Options.FirstOrDefault(e => e.Label.LocalizedLabels[0].Label == "Required").Value;
+            //var notApplicable = requirementOptionSet.Options.FirstOrDefault(e => e.Label.LocalizedLabels[0].Label == "Not Applicable").Value;
 
-            var optional      = requirementOptionSet.Options.FirstOrDefault(e => e.Label.LocalizedLabels[0].Label == "Optional").Value;
-            var required      = requirementOptionSet.Options.FirstOrDefault(e => e.Label.LocalizedLabels[0].Label == "Required").Value;
-            var notApplicable = requirementOptionSet.Options.FirstOrDefault(e => e.Label.LocalizedLabels[0].Label == "Not Applicable").Value;
+            //var YesProblem  = problemOptionSet.Options.FirstOrDefault(e => e.Label.LocalizedLabels[0].Label == "Problem - Yes").Value;
+            //var NoProblem   = problemOptionSet.Options.FirstOrDefault(e => e.Label.LocalizedLabels[0].Label == "Problem - No").Value;
+            //var NearProblem = problemOptionSet.Options.FirstOrDefault(e => e.Label.LocalizedLabels[0].Label == "Problem - Near").Value;
 
-            var YesProblem  = problemOptionSet.Options.FirstOrDefault(e => e.Label.LocalizedLabels[0].Label == "Problem - Yes").Value;
-            var NoProblem   = problemOptionSet.Options.FirstOrDefault(e => e.Label.LocalizedLabels[0].Label == "Problem - No").Value;
-            var NearProblem = problemOptionSet.Options.FirstOrDefault(e => e.Label.LocalizedLabels[0].Label == "Problem - Near").Value;
-
-            var YesSafety = safetyOptionSet.Options.FirstOrDefault(e => e.Label.LocalizedLabels[0].Label == "Safety - Yes").Value;
-            var NoSafety  = safetyOptionSet.Options.FirstOrDefault(e => e.Label.LocalizedLabels[0].Label == "Safety - No").Value;
+            //var YesSafety = safetyOptionSet.Options.FirstOrDefault(e => e.Label.LocalizedLabels[0].Label == "Safety - Yes").Value;
+            //var NoSafety  = safetyOptionSet.Options.FirstOrDefault(e => e.Label.LocalizedLabels[0].Label == "Safety - No").Value;
 
             Entity question = null;
 
             foreach (var response in questionnaireData.QuestionResponses)
             {
                 if (response.Name == null) continue;
-                if (question == null || question.Attributes[keyName].ToString() != response.QuestionId)
+                if (question == null || question.Attributes[keyName].ToString() != response.QuestionName)
                 {
-                    question = GetEntityUsingSimpleQuery(service, questionEntityName, keyName, response.QuestionId);
+                    question = GetEntityUsingSimpleQuery(service, questionEntityName, keyName, response.QuestionName);
 
                     if (question == null)
                     {
@@ -184,46 +195,20 @@ namespace TDG.CORE.ETL.CDS
 
                 var responseEntity = new Entity(responseEntityName);
 
-                if (crmResponse != null)
-                {
-                    responseEntity.Id = crmResponse.Id;
-                }
-                else
-                {
-                    responseEntity.Id = Guid.NewGuid();
-                }
+                if (crmResponse != null) 
+                     { responseEntity.Id = crmResponse.Id; } 
+                else 
+                    { responseEntity.Id = Guid.NewGuid(); }
 
                 MapResponseDataToEntity(ref responseEntity, response);
 
 
-                if (response.Picture == "0" || response.Picture == "1")
+
+                if (responseEntity.Attributes.ContainsKey("qm_syquestionid"))
                 {
-                    bool isRequired = response.Picture == "1";
-
-                    //TODO add child question for picture
+                    var entityRef = responseEntity.GetAttributeValue<EntityReference>("qm_syquestionid");
+                    response.QuestionId = entityRef.Id;
                 }
-
-                if (response.ExternalComment == "0" || response.ExternalComment == "1")
-                {
-                    bool isRequired = response.ExternalComment == "1";
-
-                    //TODO add child question for ExternalComment
-                }
-
-                if (response.InternalComment == "0" || response.InternalComment == "1")
-                {
-                    bool isRequired = response.InternalComment == "1";
-
-                    //TODO add child question for InternalComment
-                }
-
-                responseEntity.Attributes["tc_isproblem"] = new OptionSetValue(Convert.ToInt32(response.IsProblem == "0" ? NoProblem : response.IsProblem == "1" ? YesProblem : NearProblem));
-                responseEntity.Attributes["tc_issafetyconcern"] = new OptionSetValue(Convert.ToInt32(response.IsSafetyConcern == "0" ? NoSafety : response.IsSafetyConcern == "1" ? YesSafety : NoSafety));
-
-                //responseEntity.Attributes["tc_picture"] = new OptionSetValue(Convert.ToInt32(response.Picture == "0" ? optional : response.Picture == "1" ? required : notApplicable));
-                //responseEntity.Attributes["tc_externalcomment"] = new OptionSetValue(Convert.ToInt32(response.ExternalComment == "0" ? optional : response.ExternalComment == "1" ? required : notApplicable));
-                //responseEntity.Attributes["tc_internalcomment"] = new OptionSetValue(Convert.ToInt32(response.InternalComment == "0" ? optional : response.InternalComment == "1" ? required : notApplicable));
-                //responseEntity.Attributes["tc_displayingroupheader"] = response.GroupAlternateKey == "0" ? false : true;
 
                 CreateOrUpdateEntity(ref service, ref responseEntity, keyName, crmResponse == null);
 
@@ -231,30 +216,69 @@ namespace TDG.CORE.ETL.CDS
                 {
                     question.ToEntityReference()
                 };
+
                 var entityReferenceCollection = new EntityReferenceCollection(entityReference);
 
-                service.Associate(responseEntityName, responseEntity.Id, new Relationship("tc_Questionnaire_Question_tc_Questionnair"), entityReferenceCollection);
+                service.Associate(qm_syresponse.EntityLogicalName, responseEntity.Id, new Relationship("qm_syquestion_syresponse"), entityReferenceCollection);
+
+                //Associate(service, responseEntity, "qm_syquestionid", question);
+
+
+                //if (response.Picture == "0" || response.Picture == "1")
+                //{
+                //    bool isRequired = response.Picture == "1";
+
+                //    //TODO add child question for picture
+                //}
+
+                //if (response.ExternalComment == "0" || response.ExternalComment == "1")
+                //{
+                //    bool isRequired = response.ExternalComment == "1";
+
+                //    //TODO add child question for ExternalComment
+                //}
+
+                //if (response.InternalComment == "0" || response.InternalComment == "1")
+                //{
+                //    bool isRequired = response.InternalComment == "1";
+
+                //    //TODO add child question for InternalComment
+                //}
+
+                //responseEntity.Attributes["qm_isproblem"] = new OptionSetValue(Convert.ToInt32(response.IsProblem == "0" ? NoProblem : response.IsProblem == "1" ? YesProblem : NearProblem));
+                //responseEntity.Attributes["qm_issafetyconcern"] = new OptionSetValue(Convert.ToInt32(response.IsSafetyConcern == "0" ? NoSafety : response.IsSafetyConcern == "1" ? YesSafety : NoSafety));
+
+                ////responseEntity.Attributes["qm_picture"] = new OptionSetValue(Convert.ToInt32(response.Picture == "0" ? optional : response.Picture == "1" ? required : notApplicable));
+                //responseEntity.Attributes["qm_externalcomment"] = new OptionSetValue(Convert.ToInt32(response.ExternalComment == "0" ? optional : response.ExternalComment == "1" ? required : notApplicable));
+                //responseEntity.Attributes["qm_internalcomment"] = new OptionSetValue(Convert.ToInt32(response.InternalComment == "0" ? optional : response.InternalComment == "1" ? required : notApplicable));
+                //responseEntity.Attributes["qm_displayingroupheader"] = response.GroupAlternateKey == "0" ? false : true;
+
+                //var entityReference = new List<EntityReference>
+                //{
+                //    question.ToEntityReference()
+                //};
+                //var entityReferenceCollection = new EntityReferenceCollection(entityReference);
 
                 //associate input control type to lookup value
 
-                //Entity responseInputType = GetEntityUsingSimpleQuery(service, "tc_questionnaire_question_response_input", keyName, response.ControlInputType);
+                //Entity responseInputType = GetEntityUsingSimpleQuery(service, "qm_questionnaire_question_response_input", keyName, response.ControlInputType);
                 //entityReference = new List<EntityReference>();
                 //entityReference.Add(responseInputType.ToEntityReference());
                 //entityReferenceCollection = new EntityReferenceCollection(entityReference);
-                //service.Associate(responseEntityName, responseEntity.Id, new Relationship("tc_Questionnaire_Question_Response_Contro"), entityReferenceCollection);
+                //service.Associate(responseEntityName, responseEntity.Id, new Relationship("qm_Questionnaire_Question_Response_Contro"), entityReferenceCollection);
 
                 //AssociateResponseWithLegislation(service, response, responseEntity);
             }
         }
 
-        private static void AssociateResponseWithLegislation(CrmServiceClient service, QuestionResponseOption response, Entity crmResponse)
+        private static void AssociateResponseWithLegislation(CrmServiceClient service, Response response, Entity crmResponse)
         {
             //associate input control type to lookup value
             string[] regs = new[] { response.Reg1, response.Reg2, response.Reg3 }.Where(e => !string.IsNullOrEmpty(e)).ToArray();
 
             foreach (var reg in regs)
             {
-                Entity legislation = GetEntityUsingSimpleQuery(service, "tc_legislation", "tc_legislationidentifier", reg);
+                Entity legislation = GetEntityUsingSimpleQuery(service, "qm_qclegislation", "qm_qclegislationid", reg);
 
                 try
                 {
@@ -263,8 +287,7 @@ namespace TDG.CORE.ETL.CDS
                         legislation.ToEntityReference()
                     });
 
-                    service.Associate(responseEntityName, crmResponse.Id, new Relationship("tc_Questionnaire_Question_Response_tc_leg"), new EntityReferenceCollection(new List<EntityReference> { legislation.ToEntityReference() }));
-                    //service.CreateEntityAssociation(responseEntityName, crmResponse.Id, legislationEntityName, legislation.Id, "tc_Questionnaire_Question_Response_tc_leg");
+                    //TODO service.Associate(responseEntityName, crmResponse.Id, new Relationship("qm_syquestion_syresponse"), new EntityReferenceCollection(new List<EntityReference> { legislation.ToEntityReference() }));
                 }
                 catch (Exception e)
                 {
@@ -272,7 +295,6 @@ namespace TDG.CORE.ETL.CDS
                 }
             }
         }
-
         //private static void CreateOrUpdateCrmQuestionOrders(CrmServiceClient service, Questionnaire questionnaireData)
         //{
         //    try
@@ -310,7 +332,7 @@ namespace TDG.CORE.ETL.CDS
         //            };
         //            var entityReferenceCollection = new EntityReferenceCollection(entityReference);
 
-        //            service.Associate(questionOrderEntityName, orderEntity.Id, new Relationship("tc_Qtn_Question_Order_Question_tc_Questio"), entityReferenceCollection);
+        //            service.Associate(questionOrderEntityName, orderEntity.Id, new Relationship("qm_Qtn_Question_Order_Question_qm_Questio"), entityReferenceCollection);
         //        }
         //    }
         //    catch (Exception e)
@@ -351,8 +373,8 @@ namespace TDG.CORE.ETL.CDS
         //            MapGroupOrderDataToEntity(ref orderEntity, order);
 
 
-        //            var responseDelimiterOptionSet = service.GetGlobalOptionSetMetadata("tc_responsedelimiter");
-        //            if (order.ResponseDelimeter != null) orderEntity.Attributes["tc_responsedelimiter"] = new OptionSetValue(Convert.ToInt32(responseDelimiterOptionSet.Options.FirstOrDefault(e => e.Label.LocalizedLabels[0].Label == order.ResponseDelimeter).Value));
+        //            var responseDelimiterOptionSet = service.GetGlobalOptionSetMetadata("qm_responsedelimiter");
+        //            if (order.ResponseDelimeter != null) orderEntity.Attributes["qm_responsedelimiter"] = new OptionSetValue(Convert.ToInt32(responseDelimiterOptionSet.Options.FirstOrDefault(e => e.Label.LocalizedLabels[0].Label == order.ResponseDelimeter).Value));
 
 
         //            CreateOrUpdateEntity(ref service, ref orderEntity, keyName, crmOrder == null);
@@ -362,7 +384,7 @@ namespace TDG.CORE.ETL.CDS
         //                var entityReference = new List<EntityReference>();
         //                entityReference.Add(group.ToEntityReference());
         //                var entityReferenceCollection = new EntityReferenceCollection(entityReference);
-        //                service.Associate(groupOrderEntityName, orderEntity.Id, new Relationship("tc_Qtn_Question_Group_Order_Group_tc_Ques"), entityReferenceCollection);
+        //                service.Associate(groupOrderEntityName, orderEntity.Id, new Relationship("qm_Qtn_Question_Group_Order_Group_qm_Ques"), entityReferenceCollection);
         //            }
         //            catch (Exception e)
         //            {
@@ -387,71 +409,92 @@ namespace TDG.CORE.ETL.CDS
                 var fetchExpression = new FetchExpression(fetch);
                 EntityCollection fetchResult = conn.RetrieveMultiple(fetchExpression);
 
-                List<FetchResult> results = new List<FetchResult>();
-
-                foreach (var row in fetchResult.Entities)
+                var results = fetchResult.Entities.Select(row => new QuestionnaireFetchResult
                 {
+                    TemplateId         = row.GetFetchValue<string>("templateId"),
+                    TemplatePrimaryKey = row.GetFetchValue<string>("templatePrimaryKey"),
+                    TemplateTitleEn    = row.GetFetchValue<string>("templateTitleEn"),
+                    TemplateTitleFr    = row.GetFetchValue<string>("templateTitleFr"),
+                    GroupPrimaryKey    = row.GetFetchValue<string>("groups.qm_name"),
+                    GroupTitleEn       = row.GetFetchValue<string>("groups.qm_groupe"),
+                    GroupTitleFr       = row.GetFetchValue<string>("groups.qm_groupf"),
+                    GroupOrder         = row.GetFetchValue<string>("groups.qm_ordernbr"),
+                    GroupIsVisible     = row.GetFetchValue<string>("groups.qm_isvisibleind"),
+                    GroupId            = row.GetFetchValue<string>("groups.qm_sygroupid"),
+                    QuestionPrimaryKey = row.GetFetchValue<string>("questions.qm_name"),
+                    QuestionTitleEn    = row.GetFetchValue<string>("questions.qm_questione"),
+                    QuestionTitleFr    = row.GetFetchValue<string>("questions.qm_questionf"),
+                    QuestionOrder      = row.GetFetchValue<string>("questions.qm_ordernbr"),
+                    QuestionIsVisible  = row.GetFetchValue<string>("questions.qm_isvisibleind"),
+                    QuestionType       = row.GetFetchValue<OptionSetValue>("questions.qm_questiontypecd"), //OptionSetValue
+                    QuestionId         = row.GetFetchValue<string>("questions.qm_syquestionid"),
+                    QuestionParentId   = row.GetFetchValue<EntityReference>("questions.qm_syquestionid_self"),
+                    ResponsePrimaryKey = row.GetFetchValue<string>("responses.qm_name"),
+                    ResponseId         = row.GetFetchValue<string>("responses.qm_syresponseid")
+                }).ToList();
 
-                    var responseControlInputType = row.GetAttributeValue<AliasedValue>("response_control_input_type");
+                var template = ParseToTree(ref results);
 
-                    AliasedValue alias = (AliasedValue)responseControlInputType;
+                //foreach (var row in fetchResult.Entities)
+                //{
 
-                    if (alias == null)
-                    {
-                        var troubleInput = row.GetValue<string>("response_control_input_name");
+                    //var responseControlInputType = row.GetAttributeValue<AliasedValue>("response_control_input_type");
 
-                        var message = troubleInput + ": no matching control input type found in dynamics.";
+                    //AliasedValue alias = (AliasedValue)responseControlInputType;
 
-                        Console.WriteLine(message);
+                    //if (alias == null)
+                    //{
+                    //    var troubleInput = row.GetValue<string>("response_control_input_name");
 
-                        throw new NullReferenceException(message);
-                    }
+                    //    var message = troubleInput + ": no matching control input type found in dynamics.";
 
-                    EntityReference entityReference = (EntityReference)alias.Value;
+                    //    Console.WriteLine(message);
 
-                    var relatedEntity = GetEntityUsingSimpleQuery(conn, responseControlInputType.EntityLogicalName, responseControlInputType.AttributeLogicalName, entityReference.Id.ToString());
+                    //    throw new NullReferenceException(message);
+                    //}
 
-                    results.Add(new FetchResult
-                    {
-                        template_name                         = row.GetAliasedValue<string>("template_name"),
-                        template_title_english                = row.GetAliasedValue<string>("template_title_english"),
-                        template_description_english          = row.GetAliasedValue<string>("template_description_english"),
-                        group_name                            = row.GetAliasedValue<string>("group_name"),
-                        //group_html_element_id               = row.GetAliasedValue<string>("group_html_element_id"),
-                        group_is_repeatable                   = row.GetAliasedValue<string>("group_is_repeatable"),
-                        group_visible                         = row.GetAliasedValue<string>("group_visible"),
-                        group_title_english                   = row.GetAliasedValue<string>("group_title_english"),
-                        group_order                           = row.GetAliasedValue<string>("group_order"),
-                        group_response_delimiter              = row.GetAliasedValue<OptionSetValue>("group_response_delimiter"),
-                        question_text_english                 = row.GetAliasedValue<string>("question_text_english"),
-                        question_name                         = row.GetAliasedValue<string>("question_name"),
-                        //question_html_element_id            = row.GetAliasedValue<string>("question_html_element_id"),
-                        question_order                        = row.GetAliasedValue<string>("question_order"),
-                        question_visible                      = row.GetAliasedValue<string>("question_visible"),
-                        response_control_input_type           = new QuestionType()
-                        {
-                            EntityName = entityReference.LogicalName,
-                            Id         = entityReference.Id.ToString(),
-                            Name       = entityReference.Name
-                        },
-                        response_control_label_text_english   = row.GetAliasedValue<string>("response_control_label_text_english"),
-                        response_control_input_name           = row.GetAliasedValue<string>("response_control_input_name"),
-                        //response_control_input_id           = row.GetAliasedValue<string>("response_control_input_id"),
-                        response_name                         = row.GetAliasedValue<string>("response_name"),
-                        response_internal_comment             = row.GetAliasedValue<OptionSetValue>("response_internal_comment"),
-                        response_is_problem                   = row.GetAliasedValue<OptionSetValue>("response_is_problem"),
-                        response_external_comment             = row.GetAliasedValue<OptionSetValue>("response_external_comment"),
-                        response_picture                      = row.GetAliasedValue<OptionSetValue>("response_picture"),
-                        response_is_safety_concern            = row.GetAliasedValue<OptionSetValue>("response_is_safety_concern"),
-                        response_emit_value                   = row.GetAliasedValue<string>("response_emit_value"),
-                        response_order                        = row.GetAliasedValue<string>("response_order"),
-                        question_show_key                     = row.GetAliasedValue<string>("question_show_key"),
-                        question_hide_key                     = row.GetAliasedValue<string>("question_hide_key"),
-                        response_display_in_group_header      = row.GetAliasedValue<string>("response_display_in_group_header")
-                    });
-                }
+                    //EntityReference entityReference = (EntityReference)alias.Value;
 
-                var json = Newtonsoft.Json.JsonConvert.SerializeObject(results);
+                    //var relatedEntity = GetEntityUsingSimpleQuery(conn, responseControlInputType.EntityLogicalName, responseControlInputType.AttributeLogicalName, entityReference.Id.ToString());
+
+                    //results.Add(new 
+                    //{
+
+
+                        //template_name                         = row.GetAliasedValue<string>("template_name"),
+                        //template_title_english                = row.GetAliasedValue<string>("template_title_english"),
+                        //template_description_english          = row.GetAliasedValue<string>("template_description_english"),
+                        //group_name                            = row.GetAliasedValue<string>("group_name"),
+                        ////group_html_element_id               = row.GetAliasedValue<string>("group_html_element_id"),
+                        //group_is_repeatable                   = row.GetAliasedValue<string>("group_is_repeatable"),
+                        //group_visible                         = row.GetAliasedValue<string>("group_visible"),
+                        //group_title_english                   = row.GetAliasedValue<string>("group_title_english"),
+                        //group_order                           = row.GetAliasedValue<string>("group_order"),
+                        //group_response_delimiter              = row.GetAliasedValue<OptionSetValue>("group_response_delimiter"),
+                        //question_text_english                 = row.GetAliasedValue<string>("question_text_english"),
+                        //question_name                         = row.GetAliasedValue<string>("question_name"),
+                        ////question_html_element_id            = row.GetAliasedValue<string>("question_html_element_id"),
+                        //question_order                        = row.GetAliasedValue<string>("question_order"),
+                        //question_visible                      = row.GetAliasedValue<string>("question_visible"),
+                        //response_control_input_type           = row.GetAliasedValue<OptionSetValue>("qm_questiontypecdw"),
+                        //response_control_label_text_english   = row.GetAliasedValue<string>("response_control_label_text_english"),
+                        //response_control_input_name           = row.GetAliasedValue<string>("response_control_input_name"),
+                        ////response_control_input_id           = row.GetAliasedValue<string>("response_control_input_id"),
+                        //response_name                         = row.GetAliasedValue<string>("response_name"),
+                        //response_internal_comment             = row.GetAliasedValue<OptionSetValue>("response_internal_comment"),
+                        //response_is_problem                   = row.GetAliasedValue<OptionSetValue>("response_is_problem"),
+                        //response_external_comment             = row.GetAliasedValue<OptionSetValue>("response_external_comment"),
+                        //response_picture                      = row.GetAliasedValue<OptionSetValue>("response_picture"),
+                        //response_is_safety_concern            = row.GetAliasedValue<OptionSetValue>("response_is_safety_concern"),
+                        //response_emit_value                   = row.GetAliasedValue<string>("response_emit_value"),
+                        //response_order                        = row.GetAliasedValue<string>("response_order"),
+                        //question_show_key                     = row.GetAliasedValue<string>("question_show_key"),
+                        //question_hide_key                     = row.GetAliasedValue<string>("question_hide_key"),
+                        //response_display_in_group_header      = row.GetAliasedValue<string>("response_display_in_group_header")
+                    //});
+                //}
+
+                var json = Newtonsoft.Json.JsonConvert.SerializeObject(template);
                 return json;
 
             }
@@ -460,6 +503,35 @@ namespace TDG.CORE.ETL.CDS
                 //handle the exception
                 throw ex;
             }
+        }
+
+        private static Template ParseToTree(ref List<QuestionnaireFetchResult> results)
+        {
+            var template = results.Select(e => new Template { Id = new Guid(e.TemplateId), Name = e.TemplatePrimaryKey, TitleEnglish = e.TemplateTitleEn, TitleFrench = e.TemplateTitleFr, Groups = new List<Group>() }).Distinct().ToList();
+
+            var groups = results.Select(e => new Group { Id = new  Guid(e.GroupId), Name = e.GroupPrimaryKey, TitleEnglish = e.GroupTitleEn, TitleFrench = e.GroupTitleFr, IsVisible = e.GroupIsVisible.ToBool(), SortOrder = e.GroupOrder.ToInt(), TemplateId = e.TemplateId, Questions = new List<Question>() }).Distinct().ToList();
+
+            var questions = results.Select(e => new Question { Id = new Guid(e.QuestionId), Name = e.QuestionPrimaryKey, TextEnglish = e.QuestionTitleEn, TextFrench = e.QuestionTitleFr, Type = e.QuestionType, IsVisible = e.QuestionIsVisible.ToBool(), SortOrder = e.QuestionOrder.ToInt(), ParentQuestionId = e.QuestionParentId == null ? new Guid() : new Guid(e.QuestionParentId), GroupName = e.GroupPrimaryKey, GroupId = new Guid(e.GroupId) }).Distinct().ToList();
+
+            var responses = results.Select(e => new Response { Id = new Guid(e.ResponseId), Name = e.ResponsePrimaryKey, QuestionId = new Guid(e.QuestionId) }).Distinct().ToList();
+
+            for (int i = 0; i < questions.Count(); i++)
+            {
+                var question = questions[i];
+                var questionResponses = responses.Where(e => e.QuestionId == question.Id);
+                questions[i].Responses.AddRange(questionResponses);
+            }
+
+            for (int i = 0; i < groups.Count(); i++)
+            {
+                var group = groups[i];
+                var groupQuestions = questions.Where(e => e.GroupId == group.Id);
+                groups[i].Questions.AddRange(groupQuestions);   
+            }
+
+            template[0].Groups.AddRange(groups);
+
+            return template[0];
         }
 
         public static void CreateOrUpdateCrmWithExcelData(ref CrmServiceClient service, Questionnaire questionnaireData)
@@ -494,17 +566,13 @@ namespace TDG.CORE.ETL.CDS
 
         private static void DeleteTemplate(CrmServiceClient service)
         {
-            DeleteEntity(service, templateEntity, "tc_name");
-
-            DeleteEntity(service, "tc_questionnaire_questions_group", "tc_name");
-
-            DeleteEntity(service, "tc_questionnaire_question", "tc_name");
-
-            DeleteEntity(service, "tc_questionnaire_question_response", "tc_name");
-
-            DeleteEntity(service, "tc_qtn_question_order", "tc_name");
-
-            DeleteEntity(service, "tc_qtn_question_group_order", "tc_name");
+            DeleteEntity(service, qm_sytemplate.EntityLogicalName, "qm_name");
+            DeleteEntity(service, qm_sygroup.EntityLogicalName, "qm_name");
+            DeleteEntity(service, qm_syquestion.EntityLogicalName, "qm_name");
+            DeleteEntity(service, qm_syresponse.EntityLogicalName, "qm_name");
+            DeleteEntity(service, qm_sydependencygroup.EntityLogicalName, "qm_name");
+            DeleteEntity(service, qm_sydependencygroupitem.EntityLogicalName, "qm_name");
+            DeleteEntity(service, qm_syquestionvalidationrule.EntityLogicalName, "qm_name");
         }
 
         #endregion
@@ -519,6 +587,7 @@ namespace TDG.CORE.ETL.CDS
         public static void DeleteLegislation(CrmServiceClient service)
         {
             DeleteEntity(service, "qm_rclegislation", "qm_rclegislationid");
+            DeleteEntity(service, "qm_rylegislationcharacteristics", "qm_rylegislationcharacteristicsid");
         }
 
         public static string ExecuteLegislationFetchXml(string fetch)
@@ -565,17 +634,15 @@ namespace TDG.CORE.ETL.CDS
             }
         }
 
-        public static void CreateOrUpdateLegislations(CrmServiceClient service, Regulation legData)
+        public static void CreateOrUpdateLegislations(CrmServiceClient service, Regulation legData, int top = 0)
         {
             if (legData == null) throw new ArgumentNullException(nameof(legData));
 
             //get once
-            //Act        = GetEntityUsingSimpleQuery(service, "tc_legislation_type", "tc_legislationtype", "TDG Act | Loi TMD");
             //Regulation = GetEntityUsingSimpleQuery(service, "qm_legislationTypeCd", "qm_LegislationType", "TDG Regulations | Réglementation sur le TMD");
-            //Standard   = GetEntityUsingSimpleQuery(service, "tc_legislation_type", "tc_legislationtype", "TDG Standards | Normes TMD");
 
             OrderCount = 1; //reset the temp order
-            RecursivelyUploadLegislation(ref service, legData);
+            RecursivelyUploadLegislation(ref service, legData, null, top);
         }
 
         static Microsoft.Xrm.Sdk.Entity UploadLegislation(ref CrmServiceClient service, Regulation element, Entity parent = null)
@@ -595,59 +662,36 @@ namespace TDG.CORE.ETL.CDS
 
             MapLegislationDataToEntity(ref leg, element);
 
-
-            //var responseDelimiterOptionSet = service.GetGlobalOptionSetMetadata("xxxxxTYPE_LOOKUPxxxxxx");
-            //if (element.Type != null) leg.Attributes["xxxxxTYPExxxxxx"] = new OptionSetValue(Convert.ToInt32(responseDelimiterOptionSet.Options.FirstOrDefault(e => e.Label.LocalizedLabels[0].Label == element.Type).Value));
-
-
-            CreateOrUpdateEntity(ref service, ref leg, legKeyName, existingLeg == null);
+            CreateOrUpdateEntity(ref service, ref leg, legKeyName, existingLeg == null); //note use of justiceid for primary key name
 
             if (parent != null)
             {
-                AssociateRequest associateRequest = new AssociateRequest();
-                associateRequest.Target = new EntityReference("qm_rclegislation", parent.Id);
-                associateRequest.RelatedEntities = new EntityReferenceCollection();
-                associateRequest.RelatedEntities.Add(new EntityReference("qm_rclegislation", leg.Id));
-                associateRequest.Relationship = new Relationship("qm_qm_rclegislation_qm_rclegislation");
-                associateRequest.Relationship.PrimaryEntityRole = EntityRole.Referenced;
+                AssociateRequest(service, parent, parent.LogicalName, leg, leg.LogicalName, "qm_qm_rclegislation_qm_rclegislation");
+                ////associate parent legislation
+                //AssociateRequest associateRequest = new AssociateRequest();
+                //associateRequest.Target = new EntityReference("qm_rclegislation", parent.Id);
+                //associateRequest.RelatedEntities = new EntityReferenceCollection();
+                //associateRequest.RelatedEntities.Add(new EntityReference("qm_rclegislation", leg.Id));
+                //associateRequest.Relationship = new Relationship("qm_qm_rclegislation_qm_rclegislation");
+                //associateRequest.Relationship.PrimaryEntityRole = EntityRole.Referenced;
 
-                var associateResponse = service.Execute(associateRequest);
+                //var associateResponse = service.Execute(associateRequest);
             }
 
-            //if (element.GetDataFlag("MAY") != null)
-            //{
-            //    Entity relatedCharacteristic = GetEntityUsingSimpleQuery(service, characteristicEntityName, keyName, "MAY");
-            //    var existingxref = GetEntityUsingXrefEntityQuery(service, legislationCharacteristicEntityName, TC.Legislation.EarlyBound.qm_tylegislationcharacteristic.PrimaryIdAttribute, relatedCharacteristic.Id, "qm_rylegislationid", leg.Id);
-            //    var xref = new Entity(TC.Legislation.EarlyBound.qm_rylegislationcharacteristics.EntityLogicalName, Guid.NewGuid());
-
-            //    if (existingxref != null)
-            //    {
-            //       xref.Id = existingxref.Id;
-            //    }
-
-            //    xref.Attributes["qm_rylegislationid"] = leg.Id;
-            //    xref.Attributes["qm_tylegislationcharacteristicid"] = relatedCharacteristic.Id;
-
-            //    CreateOrUpdateEntity(ref service, ref xref, TC.Legislation.EarlyBound.qm_rylegislationcharacteristics.PrimaryIdAttribute, existingxref == null);
-            //}
-            if (element.GetDataFlag("MUST") != null) { }
-            if (element.GetDataFlag("UNLESS") != null) { }
-            if (element.GetDataFlag("CONSIGNOR") != null) { }
-            if (element.GetDataFlag("CARRIER") != null) { }
-            if (element.GetDataFlag("IMPORTER") != null) { }
-            if (element.GetDataFlag("EXEMPTION") != null) { }
-            if (element.GetDataFlag("ERAP") != null) { }
-            if (element.GetDataFlag("PROVISION") != null) { }
-            if (element.GetDataFlag("LARGE MEANS OF CONTAINMENT") != null) { }
-            if (element.GetDataFlag("SMALL MEANS OF CONTAINMENT") != null) { }
-            if (element.GetDataFlag("MEANS OF CONTAINMENT") != null) { }
-            if (element.GetDataFlag("CLASS") != null) { }
-            if (element.GetDataFlag("UN NUMBER") != null) { }
-            if (element.GetDataFlag("HAS UN NUMBER") != null) { }
-            if (element.GetDataFlag("UN NUMBERS") != null) { }
-            if (element.GetDataFlag("HAS CLASS") != null) { }
-            if (element.GetDataFlag("CLASSES") != null) { }
-
+            if (element.GetDataFlag("MAY")       != null && ((bool)element.GetDataFlag("MAY")) == true)       AssociateCharacteristic(DataFlag_MAY, service, leg);
+            if (element.GetDataFlag("MUST")      != null && ((bool)element.GetDataFlag("MUST")) == true)      AssociateCharacteristic(DataFlag_MUST, service, leg);
+            if (element.GetDataFlag("UNLESS")    != null && ((bool)element.GetDataFlag("UNLESS"))    == true) AssociateCharacteristic(DataFlag_UNLESS, service, leg);
+            if (element.GetDataFlag("CONSIGNOR") != null && ((bool)element.GetDataFlag("CONSIGNOR")) == true) AssociateCharacteristic(DataFlag_CONSIGNOR, service, leg);
+            if (element.GetDataFlag("CARRIER")   != null && ((bool)element.GetDataFlag("CARRIER"))   == true) AssociateCharacteristic(DataFlag_CARRIER, service, leg);
+            if (element.GetDataFlag("IMPORTER")  != null && ((bool)element.GetDataFlag("IMPORTER"))  == true) AssociateCharacteristic(DataFlag_IMPORTER, service, leg);
+            if (element.GetDataFlag("EXEMPTION") != null && ((bool)element.GetDataFlag("EXEMPTION")) == true) AssociateCharacteristic(DataFlag_EXEMPTION, service, leg);
+            if (element.GetDataFlag("ERAP")      != null && ((bool)element.GetDataFlag("ERAP"))      == true) AssociateCharacteristic(DataFlag_ERAP, service, leg);
+            if (element.GetDataFlag("PROVISION") != null && ((bool)element.GetDataFlag("PROVISION")) == true) AssociateCharacteristic(DataFlag_PROVISION, service, leg);
+            if (element.GetDataFlag("LARGEMOC")  != null && ((bool)element.GetDataFlag("LARGEMOC"))  == true) AssociateCharacteristic(DataFlag_LARGEMOC, service, leg);
+            if (element.GetDataFlag("SMALLMOC")  != null && ((bool)element.GetDataFlag("SMALLMOC"))  == true) AssociateCharacteristic(DataFlag_SMALLMOC, service, leg);
+            if (element.GetDataFlag("MOC")       != null && ((bool)element.GetDataFlag("MOC"))       == true) AssociateCharacteristic(DataFlag_MOC, service, leg);
+            if (element.GetDataFlag("CLASS")     != null && ((bool)element.GetDataFlag("CLASS"))     == true) AssociateCharacteristic(DataFlag_CLASS, service, leg);
+            if (element.GetDataFlag("UNNUMBER")  != null && ((bool)element.GetDataFlag("UNNUMBER")) == true)  AssociateCharacteristic(DataFlag_UNNUMBER, service, leg);
             //switch (element.Type)
             //{
             //    case "Transportation of Dangerous Good Act (1992)":
@@ -673,15 +717,81 @@ namespace TDG.CORE.ETL.CDS
             return leg;
         }
 
-        static void RecursivelyUploadLegislation(ref CrmServiceClient service, Regulation element, Entity parent = null)
+	    static Guid DataFlag_MAY       = new Guid("e655d4a9-401e-eb11-a813-000d3af3a7a7");	
+	    static Guid DataFlag_MUST      = new Guid("e755d4a9-401e-eb11-a813-000d3af3a7a7");	
+	    static Guid DataFlag_UNLESS    = new Guid("e855d4a9-401e-eb11-a813-000d3af3a7a7");	
+	    static Guid DataFlag_CONSIGNOR = new Guid("ea55d4a9-401e-eb11-a813-000d3af3a7a7");	
+	    static Guid DataFlag_CARRIER   = new Guid("eb55d4a9-401e-eb11-a813-000d3af3a7a7");	
+	    static Guid DataFlag_IMPORTER  = new Guid("ec55d4a9-401e-eb11-a813-000d3af3a7a7");	
+	    static Guid DataFlag_EXEMPTION = new Guid("ed55d4a9-401e-eb11-a813-000d3af3a7a7");	
+	    static Guid DataFlag_ERAP      = new Guid("ee55d4a9-401e-eb11-a813-000d3af3a7a7");	
+	    static Guid DataFlag_PROVISION = new Guid("ef55d4a9-401e-eb11-a813-000d3af3a7a7");	
+	    static Guid DataFlag_LARGEMOC  = new Guid("f055d4a9-401e-eb11-a813-000d3af3a7a7");	
+	    static Guid DataFlag_SMALLMOC  = new Guid("f155d4a9-401e-eb11-a813-000d3af3a7a7");	
+	    static Guid DataFlag_MOC       = new Guid("f255d4a9-401e-eb11-a813-000d3af3a7a7");	
+	    static Guid DataFlag_CLASS     = new Guid("f355d4a9-401e-eb11-a813-000d3af3a7a7");	
+	    static Guid DataFlag_UNNUMBER  = new Guid("f455d4a9-401e-eb11-a813-000d3af3a7a7");	
+
+        private static void AssociateCharacteristic(Guid characteristicId, CrmServiceClient service, Entity leg)
         {
+            // was there already a relationship between these two entities? 
+            var existingxref = GetEntityUsingXrefEntityQuery(service, legislationCharacteristicEntityName, qm_tylegislationcharacteristic.PrimaryIdAttribute, characteristicId, qm_rclegislation.PrimaryIdAttribute, leg.Id);
+            
+            // always create new entity, even when updating
+            var xref = new Entity(qm_rylegislationcharacteristics.EntityLogicalName);
+
+            if (existingxref != null)
+            {
+                xref.Id = existingxref.Id;
+            }
+
+            //create XREF
+            CreateOrUpdateEntity(ref service, ref xref, qm_rylegislationcharacteristics.PrimaryIdAttribute, existingxref == null);
+
+            //add associations to legislation and characteristics to populate the lookups 
+            var characteristic = new Entity("qm_tylegislationcharacteristic", "qm_tylegislationcharacteristicid", characteristicId)
+            {
+                Id = characteristicId
+            };
+
+            Associate(service, xref, "qm_rclegislation_tycharacteristic", leg);
+            Associate(service, xref, "qm_rylegislationcharacteristics_qm_tylegi", characteristic);
+        }
+
+        static void Associate(CrmServiceClient service, Entity entity1, string relationshipLogicalName, Entity entity2)
+        {
+            //associate legislation to XREF
+            var entityReferenceCollection = new EntityReferenceCollection(new List<EntityReference>
+            {
+                entity2.ToEntityReference()
+            });
+
+            service.Associate(entity1.LogicalName, entity1.Id, new Relationship(relationshipLogicalName), entityReferenceCollection);
+        }
+
+        static OrganizationResponse AssociateRequest(CrmServiceClient service, Entity entity1, string entity1LogicalName, Entity entity2, string entity2LogicalName, string relationshipLogicalName)
+        {
+            AssociateRequest associateRequest = new AssociateRequest();
+            associateRequest.Target = new EntityReference(entity1LogicalName, entity1.Id);
+            associateRequest.RelatedEntities = new EntityReferenceCollection();
+            associateRequest.RelatedEntities.Add(new EntityReference(entity2LogicalName, entity2.Id));
+            associateRequest.Relationship = new Relationship(relationshipLogicalName);
+            associateRequest.Relationship.PrimaryEntityRole = EntityRole.Referenced;
+
+            return service.Execute(associateRequest);
+        }
+
+        static void RecursivelyUploadLegislation(ref CrmServiceClient service, Regulation element, Entity parent = null, int top = 0)
+        {
+            if (top != 0 && OrderCount > top) return;
+
             if (element.Children != null && element.Children.Where(e => CONSTANTS.Constants.RegTypes.Contains(e.Type) || e.Type == "Body").Count() > 0)
             {
                 var newParent = UploadLegislation(ref service, element, parent);
 
                 foreach (var child in element.Children)
                 {
-                    RecursivelyUploadLegislation(ref service, child, newParent);
+                    RecursivelyUploadLegislation(ref service, child, newParent, top);
                 }
             }
             else
@@ -796,25 +906,36 @@ namespace TDG.CORE.ETL.CDS
         }
         #endregion
 
+        public static string GetFetchValue<T>(this Entity row, string attribute)
+        {
+            var aliasVal = GetAliasedValue<T>(row, attribute);
+
+            if (aliasVal == null)
+            {
+                var val = GetValue<T>(row, attribute);
+                if (val == null) return null;
+                return val.ToString();
+            }
+
+            return aliasVal.ToString();
+        }
+
         public static string GetAliasedValue<T>(this Entity row, string attribute)
         {
             var alias = row.GetAttributeValue<AliasedValue>(attribute);
 
-            if (alias == null)
-            {
-                if (attribute != "response_emit_value" && !attribute.Contains("show_key") && !attribute.Contains("hide_key"))
-                {
-                    Console.WriteLine(attribute + " was provided a null value! Correct and reimport.");
-                }
-                return null;
-            }
-
-
+            if (alias == null) return null;
+;
             Type type = typeof(T);
             if (type == typeof(OptionSetValue))
             {
                 var option = (OptionSetValue)alias.Value;
                 return option.Value.ToString();
+            }
+            if (type == typeof(EntityReference))
+            {
+                var entityId = ((EntityReference)alias.Value).Id;
+                return entityId.ToString();
             }
 
             return alias.Value.ToString();
@@ -896,14 +1017,14 @@ namespace TDG.CORE.ETL.CDS
             if (isNew)
             {
                 Guid newEntityId = service.Create(entity);
-
-                Console.WriteLine("Created {0} entity named {1} with GUID {2}.", entity.LogicalName, entity.Attributes[keyName], newEntityId);
+                entity.Id = newEntityId;
+                Console.WriteLine("Created {0} entity named {1} with GUID {2}.", entity.LogicalName, entity.Attributes.Contains(keyName) ? entity.Attributes[keyName] : entity.Id, newEntityId);
             }
             else
             {
                 service.Update(entity);
 
-                Console.WriteLine("Existing {0} entity named {1} updated.", entity.LogicalName, entity[keyName]);
+                Console.WriteLine("Existing {0} entity named {1} updated.", entity.LogicalName, entity.Attributes.Contains(keyName) ? entity.Attributes[keyName] : entity.Id);
             }
         }
 
@@ -1071,68 +1192,68 @@ namespace TDG.CORE.ETL.CDS
         #region QUESTIONNAIRE
         // static string DefaultHtmlSuffix = "#001"; removed
 
-        private static void MapResponseDataToEntity(ref Entity responseEntity, QuestionResponseOption response)
+        private static void MapResponseDataToEntity(ref Entity responseEntity, Response response)
         {
             //responseEntity.Attributes["tc_controlinputid"]          = response.ControlInputId;
-            //responseEntity.Attributes["tc_controlinputname"] = response.ControlInputName;
-            responseEntity.Attributes["tc_controllabelenglishtext"] = response.TextEnglish;
-            responseEntity.Attributes["tc_controllabelfrenchtext"] = response.TextFrench;
-            //responseEntity.Attributes["tc_emitvalue"] = response.EmitValue;
-            responseEntity.Attributes["tc_name"] = response.Name;
-            responseEntity.Attributes["tc_order"] = response.SortOrder;
-            //responseEntity.Attributes["tc_displayingroupheader"] = response.GroupAlternateKey;
+            //responseEntity.Attributes["qm_controlinputname"] = response.ControlInputName;
+            //responseEntity.Attributes[qm_syresponse.Fields.Id] = response.Id;
+            responseEntity.Attributes[qm_syresponse.Fields.qm_name] = response.Name;
+            //responseEntity.Attributes[qm_syresponse.Fields.qm_syresponseId] = response.Id;
+            //responseEntity.Attributes[qm_syresponse.Fields.qm_SYQuestionId] = response.QuestionId;
+            responseEntity.Attributes[qm_syresponse.Fields.qm_SYQuestionIdName] = response.QuestionName;
 
+            //responseEntity.Attributes[qm_syresponse.Fields.qm_SYQuestionIdName] = response.QuestionName;
+            //responseEntity.Attributes[qm_syresponse.Fields._qm_SYQuestionId_value] = response.QuestionCrmId;
+            //responseEntity.Attributes["qm_order"] = response.SortOrder;
+            //responseEntity.Attributes[qm_syresponse.Fields.qm_syresponseId] = response.CrmId;
         }
         //private static void MapGroupOrderDataToEntity(ref Entity orderEntity, GroupOrder order)
         //{
-        //    orderEntity.Attributes["tc_hidekey"] = order.Hidekey;
-        //    orderEntity.Attributes["tc_name"] = order.Name;
-        //    orderEntity.Attributes["tc_order"] = order.Order;
-        //    orderEntity.Attributes["tc_showkey"] = order.Showkey;
-        //    orderEntity.Attributes["tc_visible"] = order.IsVisible;
+        //    orderEntity.Attributes["qm_hidekey"] = order.Hidekey;
+        //    orderEntity.Attributes["qm_name"] = order.Name;
+        //    orderEntity.Attributes["qm_order"] = order.Order;
+        //    orderEntity.Attributes["qm_showkey"] = order.Showkey;
+        //    orderEntity.Attributes["qm_visible"] = order.IsVisible;
         //}
 
         //private static void MapQuestionOrderDataToEntity(ref Entity orderEntity, QuestionOrder order)
         //{
-        //    orderEntity.Attributes["tc_hidekey"] = order.HideKey;
-        //    orderEntity.Attributes["tc_name"] = order.Name;
-        //    orderEntity.Attributes["tc_order"] = order.Order;
-        //    orderEntity.Attributes["tc_showkey"] = order.ShowKey;
-        //    orderEntity.Attributes["tc_visible"] = order.Visible;
+        //    orderEntity.Attributes["qm_hidekey"] = order.HideKey;
+        //    orderEntity.Attributes["qm_name"] = order.Name;
+        //    orderEntity.Attributes["qm_order"] = order.Order;
+        //    orderEntity.Attributes["qm_showkey"] = order.ShowKey;
+        //    orderEntity.Attributes["qm_visible"] = order.Visible;
         //}
         private static void MapTemplateDataToEntity(ref Entity templateEntity, Template template)
         {
-            templateEntity.Attributes["tc_englishdescription"] = template.DescriptionEnglish;
-            templateEntity.Attributes["tc_englishtitle"] = template.TitleEnglish;
-            templateEntity.Attributes["tc_frenchdescription"] = template.DescriptionFrench;
-            templateEntity.Attributes["tc_frenchtitle"] = template.TitleFrench;
-            templateEntity.Attributes["tc_name"] = template.Name;
+            //templateEntity.Attributes["qm_TemplateDescEtxt"] = template.DescriptionEnglish;
+            templateEntity.Attributes[qm_sytemplate.Fields.qm_TemplateE] = template.TitleEnglish;
+            //templateEntity.Attributes["qm_TemplateDescFtxt"] = template.DescriptionFrench;
+            templateEntity.Attributes[qm_sytemplate.Fields.qm_TemplateF] = template.TitleFrench;
+            templateEntity.Attributes[qm_sytemplate.Fields.qm_name] = template.Name;
         }
 
         private static void MapQuestionGroupDataToEntity(ref Entity groupEntity, Group group)
         {
-            groupEntity.Attributes["tc_englishtitle"] = group.TitleEnglish;
-            groupEntity.Attributes["tc_frenchtitle"] = group.TitleFrench;
-            groupEntity.Attributes["tc_isrepeatable"] = group.IsRepeatable;
-            groupEntity.Attributes["tc_name"] = group.Name;
-            groupEntity.Attributes["tc_htmlelementid"] = group.Name;
+            groupEntity.Attributes[qm_sygroup.Fields.qm_GroupE] = group.TitleEnglish;
+            groupEntity.Attributes[qm_sygroup.Fields.qm_GroupF] = group.TitleFrench;
+            //groupEntity.Attributes[qm_sygroup.Fields.] = group.IsRepeatable;
+            groupEntity.Attributes["qm_name"] = group.Name;
 
             //TODO: Group Model
             //sort order
-            groupEntity.Attributes["tc_qtnsortorder"] = group.SortOrder;
+            groupEntity.Attributes[qm_sygroup.Fields.qm_OrderNbr] = group.SortOrder;
             //isVisible
-            groupEntity.Attributes["tc_qtnisvisible"] = group.IsVisible;
+            groupEntity.Attributes[qm_sygroup.Fields.qm_IsVisibleInd] = group.IsVisible;
         }
         private static void MapQuestionDataToEntity(ref Entity questionEntity, Question question)
         {
-            questionEntity.Attributes["tc_englishtext"]      = question.TextEnglish;
-            questionEntity.Attributes["tc_frenchtext"]       = question.TextFrench;
-            questionEntity.Attributes["tc_name"]             = question.Name;
-            questionEntity.Attributes["tc_questionTypeId"]   = question.Type.Name;
-            questionEntity.Attributes["tc_groupId"]          = question.GroupId;
-            questionEntity.Attributes["tc_parentQuestionId"] = question.ParentQuestionId;
-            questionEntity.Attributes["tc_sortOrder"]        = question.SortOrder;
-            questionEntity.Attributes["tc_isVisible"]        = question.IsVisible;
+            questionEntity.Attributes[qm_syquestion.Fields.qm_QuestionE]           = question.TextEnglish;
+            questionEntity.Attributes[qm_syquestion.Fields.qm_QuestionF]           = question.TextFrench;
+            questionEntity.Attributes["qm_name"]                                   = question.Name;
+            questionEntity.Attributes[qm_syquestion.Fields.qm_QuestionTypeCd]      = new OptionSetValue(Convert.ToInt32("930840000"));
+            questionEntity.Attributes[qm_syquestion.Fields.qm_OrderNbr]            = question.SortOrder;
+            questionEntity.Attributes[qm_syquestion.Fields.qm_IsVisibleInd]        = question.IsVisible;
         }
 
         #endregion
@@ -1197,7 +1318,7 @@ namespace TDG.CORE.ETL.CDS
 
             if (legEntity.Attributes.ContainsKey("qm_rcparentlegislationid")){
                 var entityRef = legEntity.GetAttributeValue<EntityReference>("qm_rcparentlegislationid");
-                leg.qm_rcParentLegislationId = new TC.Legislation.EarlyBound.EntityReference(TC.Legislation.EarlyBound.qm_rclegislation.EntitySetName, entityRef.Id);
+                leg.qm_rcParentLegislationId = new TC.Legislation.EarlyBound.EntityReference(qm_rclegislation.EntitySetName, entityRef.Id);
             }
         }
 

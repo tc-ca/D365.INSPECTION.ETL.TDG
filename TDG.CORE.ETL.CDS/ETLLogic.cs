@@ -307,7 +307,7 @@ namespace TDG.CORE.ETL.CDS
             }
         }
 
-        public static void ETLLegislationData(Regulation legData, CrmServiceClient existingService = null)
+        public static void ETLLegislationData(Regulation legData, CrmServiceClient existingService = null, int top = 0)
         {
             CrmServiceClient service = null;
 
@@ -324,7 +324,7 @@ namespace TDG.CORE.ETL.CDS
                     if (service.IsReady)
                     {
                         Console.WriteLine(Environment.NewLine + "-----UPDATING LEGISLATION DATA-----" + Environment.NewLine + ":)");
-                        CrmSdkHelper.CreateOrUpdateLegislations(service, legData);
+                        CrmSdkHelper.CreateOrUpdateLegislations(service, legData, top);
                     }
                     else
                     {
