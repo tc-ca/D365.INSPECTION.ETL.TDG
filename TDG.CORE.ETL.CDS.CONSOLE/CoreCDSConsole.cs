@@ -22,7 +22,7 @@ namespace TDG.CORE.ETL.CDS.CONSOLE
             Console.ForegroundColor = ConsoleColor.Black;
 
             /////////////////////QUESTIONNAIRE EXCEL SHEETS
-            ProcessQuestionnaireTemplate();
+            //ProcessQuestionnaireTemplate();
 
             /////////////////////LEGISLATION
             //ProcessTDGRegulations();

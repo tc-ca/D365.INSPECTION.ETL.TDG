@@ -406,93 +406,65 @@ namespace TDG.CORE.ETL.CDS
             {
                 CrmServiceClient conn = Connect();
 
-                var fetchExpression = new FetchExpression(fetch);
-                EntityCollection fetchResult = conn.RetrieveMultiple(fetchExpression);
+                //var fetchExpression = new FetchExpression(fetch);
+
+
+                // Instantiate QueryExpression QEqm_sytemplate
+                var QEqm_sytemplate = new QueryExpression("qm_sytemplate");
+                QEqm_sytemplate.ColumnSet.AddColumns("qm_sytemplateid", "qm_name", "qm_templatee", "qm_templatef");
+
+                // Add link-entity QEqm_sytemplate_qm_sytemplate_sygroup
+                var QEqm_sytemplate_qm_sytemplate_sygroup = QEqm_sytemplate.AddLink("qm_sytemplate_sygroup", "qm_sytemplateid", "qm_sytemplateid");
+                QEqm_sytemplate_qm_sytemplate_sygroup.EntityAlias = "template_groups";
+
+                // Add link-entity QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup
+                var QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup = QEqm_sytemplate_qm_sytemplate_sygroup.AddLink("qm_sygroup", "qm_sygroupid", "qm_sygroupid", JoinOperator.LeftOuter);
+                QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup.EntityAlias = "groups";
+
+                // Add columns to QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup.Columns
+                QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup.Columns.AddColumns("qm_groupf", "qm_groupe", "qm_name", "qm_ordernbr", "qm_isvisibleind", "qm_sygroupid");
+
+                // Add link-entity QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup_qm_syquestion
+                var QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup_qm_syquestion = QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup.AddLink("qm_syquestion", "qm_sygroupid", "qm_sygroupid");
+                QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup_qm_syquestion.EntityAlias = "questions";
+
+                // Add columns to QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup_qm_syquestion.Columns
+                QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup_qm_syquestion.Columns.AddColumns("qm_name", "qm_questione", "qm_questionf", "qm_ordernbr", "qm_isvisibleind", "qm_questiontypecd", "qm_syquestionid", "qm_syquestionid_self");
+
+                // Add link-entity QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup_qm_syquestion_qm_syresponse
+                var QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup_qm_syquestion_qm_syresponse = QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup_qm_syquestion.AddLink("qm_syresponse", "qm_syquestionid", "qm_syquestionid", JoinOperator.LeftOuter);
+                QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup_qm_syquestion_qm_syresponse.EntityAlias = "responses";
+
+                // Add columns to QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup_qm_syquestion_qm_syresponse.Columns
+                QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup_qm_syquestion_qm_syresponse.Columns.AddColumns("qm_name", "qm_syresponseid");
+
+                EntityCollection fetchResult = conn.RetrieveMultiple(QEqm_sytemplate);
 
                 var results = fetchResult.Entities.Select(row => new QuestionnaireFetchResult
                 {
-                    TemplateId         = row.GetFetchValue<string>("templateId"),
-                    TemplatePrimaryKey = row.GetFetchValue<string>("templatePrimaryKey"),
-                    TemplateTitleEn    = row.GetFetchValue<string>("templateTitleEn"),
-                    TemplateTitleFr    = row.GetFetchValue<string>("templateTitleFr"),
+                    TemplateId         = row.GetValue<Guid>("qm_sytemplateid"),
+                    TemplatePrimaryKey = row.GetValue<string>("qm_name"),
+                    TemplateTitleEn    = row.GetValue<string>("qm_templatee"),
+                    TemplateTitleFr    = row.GetValue<string>("qm_templatef"),
                     GroupPrimaryKey    = row.GetFetchValue<string>("groups.qm_name"),
                     GroupTitleEn       = row.GetFetchValue<string>("groups.qm_groupe"),
                     GroupTitleFr       = row.GetFetchValue<string>("groups.qm_groupf"),
                     GroupOrder         = row.GetFetchValue<string>("groups.qm_ordernbr"),
                     GroupIsVisible     = row.GetFetchValue<string>("groups.qm_isvisibleind"),
-                    GroupId            = row.GetFetchValue<string>("groups.qm_sygroupid"),
+                    GroupId            = row.GetFetchValue<Guid>("groups.qm_sygroupid"),
                     QuestionPrimaryKey = row.GetFetchValue<string>("questions.qm_name"),
                     QuestionTitleEn    = row.GetFetchValue<string>("questions.qm_questione"),
                     QuestionTitleFr    = row.GetFetchValue<string>("questions.qm_questionf"),
                     QuestionOrder      = row.GetFetchValue<string>("questions.qm_ordernbr"),
                     QuestionIsVisible  = row.GetFetchValue<string>("questions.qm_isvisibleind"),
                     QuestionType       = row.GetFetchValue<OptionSetValue>("questions.qm_questiontypecd"), //OptionSetValue
-                    QuestionId         = row.GetFetchValue<string>("questions.qm_syquestionid"),
+                    QuestionId         = row.GetFetchValue<Guid>("questions.qm_syquestionid"),
                     QuestionParentId   = row.GetFetchValue<EntityReference>("questions.qm_syquestionid_self"),
                     ResponsePrimaryKey = row.GetFetchValue<string>("responses.qm_name"),
-                    ResponseId         = row.GetFetchValue<string>("responses.qm_syresponseid")
+                    ResponseId         = row.GetFetchValue<Guid>("responses.qm_syresponseid")
                 }).ToList();
 
                 var template = ParseToTree(ref results);
-
-                //foreach (var row in fetchResult.Entities)
-                //{
-
-                    //var responseControlInputType = row.GetAttributeValue<AliasedValue>("response_control_input_type");
-
-                    //AliasedValue alias = (AliasedValue)responseControlInputType;
-
-                    //if (alias == null)
-                    //{
-                    //    var troubleInput = row.GetValue<string>("response_control_input_name");
-
-                    //    var message = troubleInput + ": no matching control input type found in dynamics.";
-
-                    //    Console.WriteLine(message);
-
-                    //    throw new NullReferenceException(message);
-                    //}
-
-                    //EntityReference entityReference = (EntityReference)alias.Value;
-
-                    //var relatedEntity = GetEntityUsingSimpleQuery(conn, responseControlInputType.EntityLogicalName, responseControlInputType.AttributeLogicalName, entityReference.Id.ToString());
-
-                    //results.Add(new 
-                    //{
-
-
-                        //template_name                         = row.GetAliasedValue<string>("template_name"),
-                        //template_title_english                = row.GetAliasedValue<string>("template_title_english"),
-                        //template_description_english          = row.GetAliasedValue<string>("template_description_english"),
-                        //group_name                            = row.GetAliasedValue<string>("group_name"),
-                        ////group_html_element_id               = row.GetAliasedValue<string>("group_html_element_id"),
-                        //group_is_repeatable                   = row.GetAliasedValue<string>("group_is_repeatable"),
-                        //group_visible                         = row.GetAliasedValue<string>("group_visible"),
-                        //group_title_english                   = row.GetAliasedValue<string>("group_title_english"),
-                        //group_order                           = row.GetAliasedValue<string>("group_order"),
-                        //group_response_delimiter              = row.GetAliasedValue<OptionSetValue>("group_response_delimiter"),
-                        //question_text_english                 = row.GetAliasedValue<string>("question_text_english"),
-                        //question_name                         = row.GetAliasedValue<string>("question_name"),
-                        ////question_html_element_id            = row.GetAliasedValue<string>("question_html_element_id"),
-                        //question_order                        = row.GetAliasedValue<string>("question_order"),
-                        //question_visible                      = row.GetAliasedValue<string>("question_visible"),
-                        //response_control_input_type           = row.GetAliasedValue<OptionSetValue>("qm_questiontypecdw"),
-                        //response_control_label_text_english   = row.GetAliasedValue<string>("response_control_label_text_english"),
-                        //response_control_input_name           = row.GetAliasedValue<string>("response_control_input_name"),
-                        ////response_control_input_id           = row.GetAliasedValue<string>("response_control_input_id"),
-                        //response_name                         = row.GetAliasedValue<string>("response_name"),
-                        //response_internal_comment             = row.GetAliasedValue<OptionSetValue>("response_internal_comment"),
-                        //response_is_problem                   = row.GetAliasedValue<OptionSetValue>("response_is_problem"),
-                        //response_external_comment             = row.GetAliasedValue<OptionSetValue>("response_external_comment"),
-                        //response_picture                      = row.GetAliasedValue<OptionSetValue>("response_picture"),
-                        //response_is_safety_concern            = row.GetAliasedValue<OptionSetValue>("response_is_safety_concern"),
-                        //response_emit_value                   = row.GetAliasedValue<string>("response_emit_value"),
-                        //response_order                        = row.GetAliasedValue<string>("response_order"),
-                        //question_show_key                     = row.GetAliasedValue<string>("question_show_key"),
-                        //question_hide_key                     = row.GetAliasedValue<string>("question_hide_key"),
-                        //response_display_in_group_header      = row.GetAliasedValue<string>("response_display_in_group_header")
-                    //});
-                //}
 
                 var json = Newtonsoft.Json.JsonConvert.SerializeObject(template);
                 return json;

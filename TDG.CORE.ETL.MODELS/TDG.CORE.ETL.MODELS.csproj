@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EarlyBoundCS\Entity.cs" />
+    <Compile Include="EarlyBoundCS\OptionSets\qm_QuestionTypeCd.cs" />
     <Compile Include="EarlyBoundCS\OptionSets\qm_rclegislation_statecode.cs" />
     <Compile Include="EarlyBoundCS\OptionSets\qm_rclegislation_statuscode.cs" />
     <Compile Include="EarlyBoundCS\OptionSets\qm_rylegislationcharacteristics_statecode.cs" />
@@ -56,6 +57,8 @@
     <Compile Include="EarlyBoundCS\OptionSets\qm_sydependencygroup_statuscode.cs" />
     <Compile Include="EarlyBoundCS\OptionSets\qm_sygroup_statecode.cs" />
     <Compile Include="EarlyBoundCS\OptionSets\qm_sygroup_statuscode.cs" />
+    <Compile Include="EarlyBoundCS\OptionSets\qm_syQuestionnaire_statecode.cs" />
+    <Compile Include="EarlyBoundCS\OptionSets\qm_syQuestionnaire_statuscode.cs" />
     <Compile Include="EarlyBoundCS\OptionSets\qm_syquestionvalidationrule_statecode.cs" />
     <Compile Include="EarlyBoundCS\OptionSets\qm_syquestionvalidationrule_statuscode.cs" />
     <Compile Include="EarlyBoundCS\OptionSets\qm_syquestion_statecode.cs" />
