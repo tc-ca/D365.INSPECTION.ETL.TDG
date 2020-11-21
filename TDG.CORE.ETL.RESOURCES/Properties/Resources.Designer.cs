@@ -97,15 +97,5 @@ namespace TDG.CORE.ETL.RESOURCES.Properties {
                 return ResourceManager.GetString("SOR_2001_286", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] TDGActiveLegislation {
-            get {
-                object obj = ResourceManager.GetObject("TDGActiveLegislation", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }

@@ -130,7 +130,4 @@
   <data name="SOR_2001_286" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\JUSTICE\Consolidation_Regs_1.2.0\EN\SOR-2001-286.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="TDGActiveLegislation" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\EXCEL_TEMPLATES\TDGActiveLegislation.xlsx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
 </root>
