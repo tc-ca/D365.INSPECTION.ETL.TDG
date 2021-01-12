@@ -20,15 +20,19 @@ namespace TDG.CORE.ETL.CDS.CONSOLE
         {
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.Black;
+            Console.SetWindowPosition(0, 0);
+            Console.SetWindowSize(250, 50);
 
             /////////////////////QUESTIONNAIRE EXCEL SHEETS
             //ProcessQuestionnaireTemplate();
 
             /////////////////////LEGISLATION
-            //ProcessTDGRegulations();
+            ProcessTDGRegulations();
 
-            string generalComplianceFetchXml = GetGeneralComplianceFetchXml();
-            ETLLogic.FetchQuestionnaireData(generalComplianceFetchXml);
+            //string generalComplianceFetchXml = GetGeneralComplianceFetchXml();
+            // ETLLogic.FetchQuestionnaireData(generalComplianceFetchXml);
+
+            ETLLogic.FetchLegislationData();
 
             Console.WriteLine("Done. Press something.");
             Console.ReadKey();
@@ -36,7 +40,7 @@ namespace TDG.CORE.ETL.CDS.CONSOLE
 
         private static void ProcessQuestionnaireTemplate()
         {
-            ETLLogic.DeleteQuestionnaireData();
+            //ETLLogic.DeleteQuestionnaireData();
 
             Questionnaire excelTemplateGeneralCompliance = ReadExcelTemplateGeneralCompliance();
             ETLLogic.ETLQuestionnaireData(excelTemplateGeneralCompliance);
@@ -45,13 +49,15 @@ namespace TDG.CORE.ETL.CDS.CONSOLE
         private static void ProcessTDGRegulations()
         {
             //ETLLogic.DeleteLegislation();
-           
+
+
             //DIGITAL OVERSIGHT LEG AND REG API => // var regXml = LegApiClient.GetRegulation("672172E");
 
+            
+            //DOWNLOAD XML DIRECTLY FROM JUSTICE
             //using below because faster
             var regXml = LegApiClient.GetRegulationFromJustice();
             
-            //DOWNLOAD XML DIRECTLY FROM JUSTICE
             var tdgRegs = XML.XMLFunctions.ParseRegs(regXml, "Body", "1227365");
 
             tdgRegs.PopulateDataFlags();
@@ -61,10 +67,8 @@ namespace TDG.CORE.ETL.CDS.CONSOLE
 
             //ETLLogic.ETLLegislationData(dtSchedule2);
 
-            string legislationFetchXml = GetLegislationFetchXml();
-            ETLLogic.FetchLegislationData(legislationFetchXml);
-
-            var json = JsonConvert.SerializeObject(tdgRegs);
+            //string legislationFetchXml = GetLegislationFetchXml();
+            ETLLogic.FetchLegislationData();
         }
 
         static string GetLegislationFetchXml()
@@ -81,24 +85,6 @@ namespace TDG.CORE.ETL.CDS.CONSOLE
             generalComplianceFetchXml = generalComplianceFetchXml.Replace("__TEMPLATE_ID__", "tdg_tmplt_gnrl_cmplnc");
         
             return generalComplianceFetchXml;
-        }
-
-        static List<Regulation> ReadExcelTemplateLegislation()
-        {
-            //get template from embedded resource
-            var legTemplate = TDG.CORE.ETL.RESOURCES.Properties.Resources.TDGActiveLegislation;
-
-            //write temporary file that we can access
-            string tempPath = System.IO.Path.GetTempFileName();
-            System.IO.File.WriteAllBytes(tempPath, legTemplate);
-
-            Console.BackgroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("-----READING LEGISTLATION DATA FROM EXCEL-----");
-
-            //read the entire workbook into a set of model classes to make the data easier to use
-            var legData = ExcelReader.ReadLegislationWorkbook(tempPath);
-
-            return legData;
         }
 
         private static Questionnaire ReadExcelTemplateGeneralCompliance()

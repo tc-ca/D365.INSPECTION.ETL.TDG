@@ -234,7 +234,7 @@ namespace TDG.CORE.ETL.CDS
             }
         }
 
-        public static void FetchLegislationData(string legFetchXml, CrmServiceClient existingService = null, string outputPath = "legislation.integration.js")
+        public static void FetchLegislationData(CrmServiceClient existingService = null, string outputPath = "legislation.integration.js")
         {
             CrmServiceClient service = null;
 
@@ -252,7 +252,7 @@ namespace TDG.CORE.ETL.CDS
                     {
                         Console.WriteLine(Environment.NewLine + "-----FETCHING LEGISLATION DATA-----" + Environment.NewLine + ":)");
 
-                        var result = CrmSdkHelper.ExecuteLegislationFetchXml(legFetchXml);
+                        var result = CrmSdkHelper.ExecuteLegislationFetchXml();
 
                         JToken jsonFormatted = JToken.Parse(result);
                         var beautified = jsonFormatted.ToString(Formatting.Indented);

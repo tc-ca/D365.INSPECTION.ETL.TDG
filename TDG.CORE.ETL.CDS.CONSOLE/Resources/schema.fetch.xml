@@ -2,8 +2,8 @@
   <entity name="qm_sytemplate">
     <attribute name="qm_sytemplateid" alias="templateId"/>
     <attribute name="qm_name" alias="templatePrimaryKey"/>
-    <attribute name="qm_templatee" alias="templateTitleEn"/>
-    <attribute name="qm_templatef" alias="templateTitleFr"/>
+    <attribute name="qm_templateetxt" alias="templateTitleEn"/>
+    <attribute name="qm_templateftxt" alias="templateTitleFr"/>
     <link-entity name="qm_sytemplate_sygroup" from="qm_sytemplateid" to="qm_sytemplateid" link-type="inner" alias="template_groups" intersect="true" >
       <link-entity name="qm_sygroup" from="qm_sygroupid" to="qm_sygroupid" link-type="outer" alias="groups" visible="true" >
         <attribute name="qm_groupf" />

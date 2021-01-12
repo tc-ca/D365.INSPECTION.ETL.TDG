@@ -81,8 +81,10 @@
     <Compile Include="EarlyBoundCS\qm_sydependencygroupitem.cs" />
     <Compile Include="EarlyBoundCS\qm_sygroup.cs" />
     <Compile Include="EarlyBoundCS\qm_syquestion.cs" />
+    <Compile Include="EarlyBoundCS\qm_syQuestionnaire.cs" />
     <Compile Include="EarlyBoundCS\qm_syquestionvalidationrule.cs" />
     <Compile Include="EarlyBoundCS\qm_syresponse.cs" />
+    <Compile Include="EarlyBoundCS\qm_syresponse_rclegislation.cs" />
     <Compile Include="EarlyBoundCS\qm_syresult.cs" />
     <Compile Include="EarlyBoundCS\qm_sytemplate.cs" />
     <Compile Include="EarlyBoundCS\qm_sytemplate_sygroup.cs" />

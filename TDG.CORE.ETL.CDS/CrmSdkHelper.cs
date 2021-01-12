@@ -19,7 +19,7 @@ namespace TDG.CORE.ETL.CDS
     {
         static string legislationEntityName = "qm_rclegislation";
         static string characteristicEntityName = qm_tylegislationcharacteristic.EntityLogicalName;
-        static string legislationCharacteristicEntityName = qm_rylegislationcharacteristics.EntityLogicalName;
+        static string legislationCharacteristicEntityName = "qm_rclegislation_tylegislationcharacteristic";//qm_rylegislationcharacteristics.EntityLogicalName;
         static string groupEntityName = qm_sygroup.EntityLogicalName;
         static string questionEntityName = qm_syquestion.EntityLogicalName;
         static string responseEntityName = qm_syresponse.EntityLogicalName;
@@ -143,7 +143,7 @@ namespace TDG.CORE.ETL.CDS
                 {
                     var parentQuestion = GetEntityUsingSimpleQuery(service, questionEntityName, keyName, question.ParentQuestionName);
                     question.ParentQuestionId = parentQuestion.Id;
-                    AssociateRequest(service, questionEntity, questionEntity.LogicalName, parentQuestion, parentQuestion.LogicalName, "qm_syquestion_syquestion");
+                    AssociateRequest(service, questionEntity, parentQuestion, "qm_syquestion_syquestion");
                 }
 
 
@@ -411,7 +411,7 @@ namespace TDG.CORE.ETL.CDS
 
                 // Instantiate QueryExpression QEqm_sytemplate
                 var QEqm_sytemplate = new QueryExpression("qm_sytemplate");
-                QEqm_sytemplate.ColumnSet.AddColumns("qm_sytemplateid", "qm_name", "qm_templatee", "qm_templatef");
+                QEqm_sytemplate.ColumnSet.AddColumns("qm_sytemplateid", "qm_name", "qm_templateenm", "qm_templatefnm", "qm_templatedescetxt", "qm_templatedescftxt");
 
                 // Add link-entity QEqm_sytemplate_qm_sytemplate_sygroup
                 var QEqm_sytemplate_qm_sytemplate_sygroup = QEqm_sytemplate.AddLink("qm_sytemplate_sygroup", "qm_sytemplateid", "qm_sytemplateid");
@@ -429,7 +429,7 @@ namespace TDG.CORE.ETL.CDS
                 QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup_qm_syquestion.EntityAlias = "questions";
 
                 // Add columns to QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup_qm_syquestion.Columns
-                QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup_qm_syquestion.Columns.AddColumns("qm_name", "qm_questione", "qm_questionf", "qm_ordernbr", "qm_isvisibleind", "qm_questiontypecd", "qm_syquestionid", "qm_syquestionid_self");
+                QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup_qm_syquestion.Columns.AddColumns("qm_name", "qm_questione", "qm_questionf", "qm_ordernbr", "qm_isvisibleind", "qm_questionresponsetypecd", "qm_syquestionid", "qm_syquestionid_self");
 
                 // Add link-entity QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup_qm_syquestion_qm_syresponse
                 var QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup_qm_syquestion_qm_syresponse = QEqm_sytemplate_qm_sytemplate_sygroup_qm_sygroup_qm_syquestion.AddLink("qm_syresponse", "qm_syquestionid", "qm_syquestionid", JoinOperator.LeftOuter);
@@ -444,8 +444,10 @@ namespace TDG.CORE.ETL.CDS
                 {
                     TemplateId         = row.GetValue<Guid>("qm_sytemplateid"),
                     TemplatePrimaryKey = row.GetValue<string>("qm_name"),
-                    TemplateTitleEn    = row.GetValue<string>("qm_templatee"),
-                    TemplateTitleFr    = row.GetValue<string>("qm_templatef"),
+                    TemplateTitleEn    = row.GetValue<string>("qm_templateenm"),
+                    TemplateTitleFr    = row.GetValue<string>("qm_templatefnm"),
+                    //TemplateDescEtxt   = row.GetValue<string>("qm_templatedescetxt"),
+                    //TemplateDescFtxt   = row.GetValue<string>("qm_templatedescftxt"),
                     GroupPrimaryKey    = row.GetFetchValue<string>("groups.qm_name"),
                     GroupTitleEn       = row.GetFetchValue<string>("groups.qm_groupe"),
                     GroupTitleFr       = row.GetFetchValue<string>("groups.qm_groupf"),
@@ -457,7 +459,7 @@ namespace TDG.CORE.ETL.CDS
                     QuestionTitleFr    = row.GetFetchValue<string>("questions.qm_questionf"),
                     QuestionOrder      = row.GetFetchValue<string>("questions.qm_ordernbr"),
                     QuestionIsVisible  = row.GetFetchValue<string>("questions.qm_isvisibleind"),
-                    QuestionType       = row.GetFetchValue<OptionSetValue>("questions.qm_questiontypecd"), //OptionSetValue
+                    QuestionType       = row.GetFetchValue<OptionSetValue>("questions.qm_questionresponsetypecd"), //OptionSetValue
                     QuestionId         = row.GetFetchValue<Guid>("questions.qm_syquestionid"),
                     QuestionParentId   = row.GetFetchValue<EntityReference>("questions.qm_syquestionid_self"),
                     ResponsePrimaryKey = row.GetFetchValue<string>("responses.qm_name"),
@@ -559,43 +561,58 @@ namespace TDG.CORE.ETL.CDS
         public static void DeleteLegislation(CrmServiceClient service)
         {
             DeleteEntity(service, "qm_rclegislation", "qm_rclegislationid");
-            DeleteEntity(service, "qm_rylegislationcharacteristics", "qm_rylegislationcharacteristicsid");
         }
 
-        public static string ExecuteLegislationFetchXml(string fetch)
+        public static string ExecuteLegislationFetchXml()
         {
             try
             {
                 CrmServiceClient conn = Connect();
 
-                var fetchExpression = new FetchExpression(fetch);
-                EntityCollection fetchResult = conn.RetrieveMultiple(fetchExpression);
+                #region queryexpression XRMToolbox
+                // Instantiate QueryExpression QEqm_rclegislation
+                var QEqm_rclegislation = new QueryExpression("qm_rclegislation");
 
-                var results = new List<object>();
+                // Add columns to QEqm_rclegislation.ColumnSet
+                QEqm_rclegislation.ColumnSet.AddColumns("qm_name", "qm_rclegislationid", "qm_rcparentlegislationid", "qm_justiceid", "qm_justicefid", "qm_inforcedte", "qm_lastamendeddte", "qm_ordernbr", "qm_legislationlbl", "qm_legislationetxt", "qm_legislationftxt");
+                QEqm_rclegislation.AddOrder("qm_ordernbr", OrderType.Ascending);
+
+                // Add link-entity QEqm_rclegislation_qm_tylegislationsource
+                var QEqm_rclegislation_qm_tylegislationsource = QEqm_rclegislation.AddLink("qm_tylegislationsource", "qm_tylegislationsourceid", "qm_tylegislationsourceid", JoinOperator.LeftOuter);
+
+                // Add columns to QEqm_rclegislation_qm_tylegislationsource.Columns
+                QEqm_rclegislation_qm_tylegislationsource.Columns.AddColumns("qm_legislationsourceelbl", "qm_tylegislationsourceid", "qm_legislationsourceetxt", "qm_legislationsourceftxt", "qm_legislationsourceflbl");
+
+                // Add link-entity QEqm_rclegislation_qm_tylegislationtype
+                var QEqm_rclegislation_qm_tylegislationtype = QEqm_rclegislation.AddLink("qm_tylegislationtype", "qm_tylegislationtypeid", "qm_tylegislationtypeid", JoinOperator.LeftOuter);
+
+                // Add columns to QEqm_rclegislation_qm_tylegislationtype.Columns
+                QEqm_rclegislation_qm_tylegislationtype.Columns.AddColumns("qm_tylegislationtypeid", "qm_name");
+
+                // Add link-entity QEqm_rclegislation_qm_rclegislation_tylegislationcharacterist
+                var QEqm_rclegislation_qm_rclegislation_tylegislationcharacterist = QEqm_rclegislation.AddLink("qm_rclegislation_tylegislationcharacterist", "qm_rclegislationid", "qm_rclegislationid", JoinOperator.LeftOuter);
+
+                // Add link-entity QEqm_rclegislation_qm_rclegislation_tylegislationcharacterist_qm_tylegislationcharacteristic
+                var QEqm_rclegislation_qm_rclegislation_tylegislationcharacterist_qm_tylegislationcharacteristic = QEqm_rclegislation_qm_rclegislation_tylegislationcharacterist.AddLink("qm_tylegislationcharacteristic", "qm_tylegislationcharacteristicid", "qm_tylegislationcharacteristicid", JoinOperator.LeftOuter);
+
+                // Add columns to QEqm_rclegislation_qm_rclegislation_tylegislationcharacterist_qm_tylegislationcharacteristic.Columns
+                QEqm_rclegislation_qm_rclegislation_tylegislationcharacterist_qm_tylegislationcharacteristic.Columns.AddColumns("qm_name", "qm_legislationcharacteristicflbl", "qm_tylegislationcharacteristicid", "qm_legislationcharacteristicelbl");
+                #endregion
+
+                EntityCollection fetchResult = conn.RetrieveMultiple(QEqm_rclegislation);
+
+                var results = new List<qm_rclegislation>();
 
                 foreach (var row in fetchResult.Entities)
                 {
-                    var leg = new TC.Legislation.EarlyBound.qm_rclegislation();
+                    var leg = new qm_rclegislation();
                     MapLegislationEntityToModel(ref leg, row);
-
-                    var result = new 
-                    {
-                        row.Id,
-                        qm_rcparentlegislationid = leg.qm_rcParentLegislationId?.EntityId ?? null,
-                        qm_justiceid             = leg.qm_JusticeId,
-                        qm_justicefid            = leg.qm_JusticeFId,
-                        qm_inforcedte            = leg.qm_InforceDte,
-                        qm_lastamendeddte        = leg.qm_LastAmendedDte,
-                        qm_ordernbr              = leg.qm_OrderNbr,
-                        qm_legislationlbl        = leg.qm_LegislationLbl,
-                        qm_legislationetxt       = leg.qm_LegislationEtxt,
-                        qm_legislationftxt       = leg.qm_LegislationFtxt
-                    };
-
-                    results.Add(result);
+                    results.Add(leg);
                 }
 
-                var json = Newtonsoft.Json.JsonConvert.SerializeObject(results);
+                var regulation = ParseLegislationToTree(results);
+
+                var json = Newtonsoft.Json.JsonConvert.SerializeObject(regulation);
                 return json;
 
             }
@@ -606,6 +623,41 @@ namespace TDG.CORE.ETL.CDS
             }
         }
 
+            private static Regulation ParseLegislationToTree(List<qm_rclegislation> results)
+            {
+                var legislationGrouped = results.Select(e => new Regulation {  
+                    CrmId              = e.Id, 
+                    AdditionalMetadata = e.qm_AdditionalMetadataEtxt, 
+                    HistoricalNote     = e.qm_HistoricalNoteEtxt, 
+                    InforceStartDate   = e.qm_InforceDte?.ToString("yyyy-M-d"), 
+                    JusticeId          = e.qm_JusticeId?.ToString(), 
+                    Label              = e.qm_LegislationLbl, 
+                    LastAmendedDate    = e.qm_LastAmendedDte?.ToString("yyyy-M-d") ?? null, 
+                    Order              = e.qm_OrderNbr ?? 0, 
+                    TextEnglish        = e.qm_LegislationEtxt, 
+                    ParentCrmId        = e.qm_rcParentLegislationId?.EntityId}
+                ).Distinct().ToList();
+
+                //var characteristics = results.Select(e => new
+                //{
+                //    e.qm_rclegislationId, 
+                //    e.
+                //})
+
+                for (int i = 0; i < legislationGrouped.Count(); i++)
+                {
+                    var leg = legislationGrouped[i];
+
+                    if (leg.ParentCrmId == null) continue;
+
+                    var parent = legislationGrouped.FirstOrDefault(e => e.CrmId == leg.ParentCrmId);
+
+                    parent.Children.Add(leg);
+                }
+
+                return legislationGrouped.FirstOrDefault(e => e.ParentCrmId == null);
+            }
+
         public static void CreateOrUpdateLegislations(CrmServiceClient service, Regulation legData, int top = 0)
         {
             if (legData == null) throw new ArgumentNullException(nameof(legData));
@@ -613,121 +665,161 @@ namespace TDG.CORE.ETL.CDS
             //get once
             //Regulation = GetEntityUsingSimpleQuery(service, "qm_legislationTypeCd", "qm_LegislationType", "TDG Regulations | Réglementation sur le TMD");
 
+            var characteristics = GetAllCharacteristics(legData);
+
+            var simple = characteristics.Where(e => bool.TryParse(e.Value?.ToString(), out _))
+                                        .Select(e => e.Key)
+                                        .Distinct();
+
+            var unNumbers = characteristics.Where(e => e.Key == CONSTANTS.Constants.DataFlags_UNNumbers).
+                                            Select(e => e.Value?.ToString().Split(',')).
+                                            SelectMany(e => e).
+                                            Distinct();
+
+            CreateOrUpdateCharacteristics(service, simple.Union(unNumbers));
+
             OrderCount = 1; //reset the temp order
             RecursivelyUploadLegislation(ref service, legData, null, top);
         }
 
-        static Microsoft.Xrm.Sdk.Entity UploadLegislation(ref CrmServiceClient service, Regulation element, Entity parent = null)
+        static void CreateOrUpdateCharacteristics(CrmServiceClient service, IEnumerable<string> characteristics)
         {
-            var leg = new Microsoft.Xrm.Sdk.Entity(legislationEntityName);
+            foreach (var c in characteristics)
+            {
+                var characteristic = new Entity(qm_tylegislationcharacteristic.EntityLogicalName);
 
+                Entity existingChar = GetEntityUsingSimpleQuery(service, qm_tylegislationcharacteristic.EntityLogicalName, qm_tylegislationcharacteristic.Fields.qm_Name, c);
+
+                if (existingChar != null)
+                {
+                    characteristic.Id = existingChar.Id;
+                }
+                else
+                {
+                    characteristic.Id = Guid.NewGuid();
+                }
+
+                characteristic[qm_tylegislationcharacteristic.Fields.qm_Name] = c;
+                characteristic[qm_tylegislationcharacteristic.Fields.qm_legislationcharacteristicelbl] = c;
+                characteristic[qm_tylegislationcharacteristic.Fields.qm_legislationcharacteristicflbl] = "FR_" + c;
+
+                CreateOrUpdateEntity(ref service, ref characteristic, qm_tylegislationcharacteristic.Fields.qm_Name, existingChar == null);
+
+                characteristicsHash.Add(new KeyValuePair<string, Guid>(c, characteristic.Id));
+            }
+        }
+
+        static List<KeyValuePair<string,object>> GetAllCharacteristics(Regulation reg)
+        {
+            var flags = reg.DataFlags;
+
+            foreach (var cr in reg.Children)
+            {
+                if (cr.Children.Count > 0)
+                {
+                    flags.AddRange(GetAllCharacteristics(cr));
+                }
+                else
+                {
+                    flags.AddRange(cr.DataFlags);
+                }
+            }
+
+            return flags;
+        }
+
+
+        static Entity UploadLegislation(ref CrmServiceClient service, Regulation element, Entity parent = null)
+        {
+            var leg = new Entity(legislationEntityName);
+
+            // check for existing
             Entity existingLeg = GetEntityUsingSimpleQuery(service, legislationEntityName, legKeyName, element.JusticeId);
 
-            if (existingLeg != null)
-            {
+            if (existingLeg != null) 
                 leg.Id = existingLeg.Id;
-            }
-            else
-            {
+            else 
                 leg.Id = Guid.NewGuid();
-            }
-
+            
+            // add values
             MapLegislationDataToEntity(ref leg, element);
 
+            // upsert
             CreateOrUpdateEntity(ref service, ref leg, legKeyName, existingLeg == null); //note use of justiceid for primary key name
 
+
+            // associate parent if exists
             if (parent != null)
             {
-                AssociateRequest(service, parent, parent.LogicalName, leg, leg.LogicalName, "qm_qm_rclegislation_qm_rclegislation");
-                ////associate parent legislation
-                //AssociateRequest associateRequest = new AssociateRequest();
-                //associateRequest.Target = new EntityReference("qm_rclegislation", parent.Id);
-                //associateRequest.RelatedEntities = new EntityReferenceCollection();
-                //associateRequest.RelatedEntities.Add(new EntityReference("qm_rclegislation", leg.Id));
-                //associateRequest.Relationship = new Relationship("qm_qm_rclegislation_qm_rclegislation");
-                //associateRequest.Relationship.PrimaryEntityRole = EntityRole.Referenced;
-
-                //var associateResponse = service.Execute(associateRequest);
+                AssociateRequest(service, parent, leg, "qm_qm_rclegislation_qm_rclegislation");
             }
 
-            if (element.GetDataFlag("MAY")       != null && ((bool)element.GetDataFlag("MAY")) == true)       AssociateCharacteristic(DataFlag_MAY, service, leg);
-            if (element.GetDataFlag("MUST")      != null && ((bool)element.GetDataFlag("MUST")) == true)      AssociateCharacteristic(DataFlag_MUST, service, leg);
-            if (element.GetDataFlag("UNLESS")    != null && ((bool)element.GetDataFlag("UNLESS"))    == true) AssociateCharacteristic(DataFlag_UNLESS, service, leg);
-            if (element.GetDataFlag("CONSIGNOR") != null && ((bool)element.GetDataFlag("CONSIGNOR")) == true) AssociateCharacteristic(DataFlag_CONSIGNOR, service, leg);
-            if (element.GetDataFlag("CARRIER")   != null && ((bool)element.GetDataFlag("CARRIER"))   == true) AssociateCharacteristic(DataFlag_CARRIER, service, leg);
-            if (element.GetDataFlag("IMPORTER")  != null && ((bool)element.GetDataFlag("IMPORTER"))  == true) AssociateCharacteristic(DataFlag_IMPORTER, service, leg);
-            if (element.GetDataFlag("EXEMPTION") != null && ((bool)element.GetDataFlag("EXEMPTION")) == true) AssociateCharacteristic(DataFlag_EXEMPTION, service, leg);
-            if (element.GetDataFlag("ERAP")      != null && ((bool)element.GetDataFlag("ERAP"))      == true) AssociateCharacteristic(DataFlag_ERAP, service, leg);
-            if (element.GetDataFlag("PROVISION") != null && ((bool)element.GetDataFlag("PROVISION")) == true) AssociateCharacteristic(DataFlag_PROVISION, service, leg);
-            if (element.GetDataFlag("LARGEMOC")  != null && ((bool)element.GetDataFlag("LARGEMOC"))  == true) AssociateCharacteristic(DataFlag_LARGEMOC, service, leg);
-            if (element.GetDataFlag("SMALLMOC")  != null && ((bool)element.GetDataFlag("SMALLMOC"))  == true) AssociateCharacteristic(DataFlag_SMALLMOC, service, leg);
-            if (element.GetDataFlag("MOC")       != null && ((bool)element.GetDataFlag("MOC"))       == true) AssociateCharacteristic(DataFlag_MOC, service, leg);
-            if (element.GetDataFlag("CLASS")     != null && ((bool)element.GetDataFlag("CLASS"))     == true) AssociateCharacteristic(DataFlag_CLASS, service, leg);
-            if (element.GetDataFlag("UNNUMBER")  != null && ((bool)element.GetDataFlag("UNNUMBER")) == true)  AssociateCharacteristic(DataFlag_UNNUMBER, service, leg);
-            //switch (element.Type)
-            //{
-            //    case "Transportation of Dangerous Good Act (1992)":
-            //        //service.CreateEntityAssociation(legislationEntityName, leg.Id, act.LogicalName, act.Id, "tc_legislation_legislationtype_tc_legisla");
-            //        service.Associate(legislationEntityName, leg.Id, new Relationship("tc_legislation_legislationtype_tc_legisla"), new EntityReferenceCollection(new List<EntityReference>() { Act.ToEntityReference() }));
-            //        break;
-            //    case "Transportation of Dangerous Goods Regulation":
-            //        //service.CreateEntityAssociation(legislationEntityName, leg.Id, regulation.LogicalName, regulation.Id, "tc_legislation_legislationtype_tc_legisla");
 
-            //        service.Associate(legislationEntityName, leg.Id, new Relationship("tc_legislation_legislationtype_tc_legisla"), new EntityReferenceCollection(new List<EntityReference>() { Regulation.ToEntityReference() }));
-            //        break;
-            //    case "Transportation of Dangerous Goods Standard":
-            //        //service.CreateEntityAssociation(legislationEntityName, leg.Id, standard.LogicalName, standard.Id, "tc_legislation_legislationtype_tc_legisla");
+            //if there is no label, and there is no text, then we don't really need to associate to characteristics
+            //avoids huge loop for the tree top node
+            if (!(string.IsNullOrEmpty(element.Label) && string.IsNullOrEmpty(element.TextEnglish)))
+            {
+                // associate any characteristics
+                foreach (var c in element.DataFlags)
+                {
+                    var ch = characteristicsHash.FirstOrDefault(e => e.Key == c.Key);
+                    if (!string.IsNullOrEmpty(ch.Key))
+                    {
+                        if (Associated(service, qm_rclegislation.PrimaryIdAttribute, leg.Id, qm_tylegislationcharacteristic.PrimaryIdAttribute, ch.Value, "qm_rclegislation_tylegislationcharacterist"))
+                        {
+                            continue;
+                        }
 
-            //        service.Associate(legislationEntityName, leg.Id, new Relationship("tc_legislation_legislationtype_tc_legisla"), new EntityReferenceCollection(new List<EntityReference>() { Standard.ToEntityReference() }));
-            //        break;
-            //    default:
-            //        throw new KeyNotFoundException(element.Type);
-            //}
+                        AssociateWithId(ch.Value, service, leg, qm_tylegislationcharacteristic.EntityLogicalName, qm_tylegislationcharacteristic.PrimaryIdAttribute, "qm_rclegislation_tylegislationcharacteristic");
+                    }
+                }
+            }
+
+
+            // associate correct leg type
+            Guid legType = new Guid();
+            if (element.Type.ToUpper() == "SECTION")      legType = LegislationTypeSection;
+            if (element.Type.ToUpper() == "SUBSECTION")   legType = LegislationTypeSubsection;
+            if (element.Type.ToUpper() == "PARAGRAPH")    legType = LegislationTypeParagraph;
+            if (element.Type.ToUpper() == "SUBPARAGRAPH") legType = LegislationTypeSubparagraph;
+            if (element.Type.ToUpper() == "CLAUSE")       legType = LegislationTypeClause;
+            if (element.Type.ToUpper() == "SCHEDULE")     legType = LegislationTypeSchedule;
+            if (element.Type.ToUpper() == "APPENDIX")     legType = LegislationTypeAppendix;
+            if (element.Type.ToUpper() == "BODY")         legType = LegislationTypeBody;
+            if (element.Type.ToUpper() == "HEADING")      legType = LegislationTypeHeading;
+
+            if (legType.CompareTo(default) != 0)
+                AssociateWithId(legType, service, leg, qm_tylegislationtype.EntityLogicalName, qm_tylegislationtype.PrimaryIdAttribute, "qm_tylegislationtype_rclegislation");
+
+
+            // associate to legislation source = TDG Regs
+            AssociateWithId(new Guid("b4033f0d-6820-eb11-a813-000d3af3ac0d"), service, leg, qm_tylegislationsource.EntityLogicalName,qm_tylegislationsource.PrimaryIdAttribute, "qm_tylegislationsource_rclegislation");
 
             OrderCount++;
 
             return leg;
         }
 
-	    static Guid DataFlag_MAY       = new Guid("e655d4a9-401e-eb11-a813-000d3af3a7a7");	
-	    static Guid DataFlag_MUST      = new Guid("e755d4a9-401e-eb11-a813-000d3af3a7a7");	
-	    static Guid DataFlag_UNLESS    = new Guid("e855d4a9-401e-eb11-a813-000d3af3a7a7");	
-	    static Guid DataFlag_CONSIGNOR = new Guid("ea55d4a9-401e-eb11-a813-000d3af3a7a7");	
-	    static Guid DataFlag_CARRIER   = new Guid("eb55d4a9-401e-eb11-a813-000d3af3a7a7");	
-	    static Guid DataFlag_IMPORTER  = new Guid("ec55d4a9-401e-eb11-a813-000d3af3a7a7");	
-	    static Guid DataFlag_EXEMPTION = new Guid("ed55d4a9-401e-eb11-a813-000d3af3a7a7");	
-	    static Guid DataFlag_ERAP      = new Guid("ee55d4a9-401e-eb11-a813-000d3af3a7a7");	
-	    static Guid DataFlag_PROVISION = new Guid("ef55d4a9-401e-eb11-a813-000d3af3a7a7");	
-	    static Guid DataFlag_LARGEMOC  = new Guid("f055d4a9-401e-eb11-a813-000d3af3a7a7");	
-	    static Guid DataFlag_SMALLMOC  = new Guid("f155d4a9-401e-eb11-a813-000d3af3a7a7");	
-	    static Guid DataFlag_MOC       = new Guid("f255d4a9-401e-eb11-a813-000d3af3a7a7");	
-	    static Guid DataFlag_CLASS     = new Guid("f355d4a9-401e-eb11-a813-000d3af3a7a7");	
-	    static Guid DataFlag_UNNUMBER  = new Guid("f455d4a9-401e-eb11-a813-000d3af3a7a7");	
+        static Guid LegislationTypeSection      = new Guid("0d256aab-6720-eb11-a813-000d3af3ac0d");
+        static Guid LegislationTypeSubsection   = new Guid("0e256aab-6720-eb11-a813-000d3af3ac0d");
+        static Guid LegislationTypeParagraph    = new Guid("38a28fb1-6720-eb11-a813-000d3af3ac0d");
+        static Guid LegislationTypeSubparagraph = new Guid("b5a38fb1-6720-eb11-a813-000d3af3ac0d");
+        static Guid LegislationTypeClause       = new Guid("b56cb0b7-6720-eb11-a813-000d3af3ac0d");
+        static Guid LegislationTypeSchedule     = new Guid("cab778c0-6720-eb11-a813-000d3af3ac0d");
+        static Guid LegislationTypeAppendix     = new Guid("cdb778c0-6720-eb11-a813-000d3af3ac0d");
+        static Guid LegislationTypeBody         = new Guid("b1015ef4-d729-eb11-a813-000d3af3a7a7");
+        static Guid LegislationTypeHeading      = new Guid("1829d66a-962b-eb11-a813-000d3af3fc19");
 
-        private static void AssociateCharacteristic(Guid characteristicId, CrmServiceClient service, Entity leg)
+        static HashSet<KeyValuePair<string, Guid>> characteristicsHash = new HashSet<KeyValuePair<string, Guid>>();
+
+        private static void AssociateWithId(Guid id, CrmServiceClient service, Entity primaryEntity, string associatedEntityName, string associatedEntityIdFieldName, string relationshipName)
         {
-            // was there already a relationship between these two entities? 
-            var existingxref = GetEntityUsingXrefEntityQuery(service, legislationCharacteristicEntityName, qm_tylegislationcharacteristic.PrimaryIdAttribute, characteristicId, qm_rclegislation.PrimaryIdAttribute, leg.Id);
-            
-            // always create new entity, even when updating
-            var xref = new Entity(qm_rylegislationcharacteristics.EntityLogicalName);
-
-            if (existingxref != null)
+            var associatedEntity = new Entity(associatedEntityName, associatedEntityIdFieldName, id)
             {
-                xref.Id = existingxref.Id;
-            }
-
-            //create XREF
-            CreateOrUpdateEntity(ref service, ref xref, qm_rylegislationcharacteristics.PrimaryIdAttribute, existingxref == null);
-
-            //add associations to legislation and characteristics to populate the lookups 
-            var characteristic = new Entity("qm_tylegislationcharacteristic", "qm_tylegislationcharacteristicid", characteristicId)
-            {
-                Id = characteristicId
+                Id = id
             };
 
-            Associate(service, xref, "qm_rclegislation_tycharacteristic", leg);
-            Associate(service, xref, "qm_rylegislationcharacteristics_qm_tylegi", characteristic);
+            Associate(service, primaryEntity, relationshipName, associatedEntity);
         }
 
         static void Associate(CrmServiceClient service, Entity entity1, string relationshipLogicalName, Entity entity2)
@@ -739,14 +831,48 @@ namespace TDG.CORE.ETL.CDS
             });
 
             service.Associate(entity1.LogicalName, entity1.Id, new Relationship(relationshipLogicalName), entityReferenceCollection);
+
+            Console.WriteLine($"new associated between {entity1.LogicalName}({entity1.Id}) and {entity2.LogicalName}({entity2.Id}) created");
         }
 
-        static OrganizationResponse AssociateRequest(CrmServiceClient service, Entity entity1, string entity1LogicalName, Entity entity2, string entity2LogicalName, string relationshipLogicalName)
+        static bool Associated(CrmServiceClient service, string entity1KeyName, Guid entity1Id, string entity2KeyName, Guid entity2Id, string relationshipLogicalName)
+        {
+            try
+            {
+                var rel = new QueryExpression(relationshipLogicalName);
+
+                rel.ColumnSet.AllColumns = true;
+
+                // Define filter
+                rel.Criteria.AddCondition(entity1KeyName, ConditionOperator.Equal, entity1Id);
+                rel.Criteria.AddCondition(entity2KeyName, ConditionOperator.Equal, entity2Id);
+
+                EntityCollection fetchResult = service.RetrieveMultiple(rel);
+
+                var associated = fetchResult.Entities.Count > 0;
+
+
+                if (associated)
+                {
+                    Console.WriteLine($"relationship {relationshipLogicalName} between {entity1KeyName}({entity1Id}) and {entity2KeyName}({entity2Id}) already exists.");
+                }
+
+
+                return associated;
+            }
+            catch (Exception ex)
+            {
+                //handle the exception
+                throw ex;
+            }
+        }
+
+        static OrganizationResponse AssociateRequest(CrmServiceClient service, Entity entity1, Entity entity2, string relationshipLogicalName)
         {
             AssociateRequest associateRequest = new AssociateRequest();
-            associateRequest.Target = new EntityReference(entity1LogicalName, entity1.Id);
+            associateRequest.Target = new EntityReference(entity1.LogicalName, entity1.Id);
             associateRequest.RelatedEntities = new EntityReferenceCollection();
-            associateRequest.RelatedEntities.Add(new EntityReference(entity2LogicalName, entity2.Id));
+            associateRequest.RelatedEntities.Add(new EntityReference(entity2.LogicalName, entity2.Id));
             associateRequest.Relationship = new Relationship(relationshipLogicalName);
             associateRequest.Relationship.PrimaryEntityRole = EntityRole.Referenced;
 
@@ -1179,23 +1305,6 @@ namespace TDG.CORE.ETL.CDS
             //responseEntity.Attributes["qm_order"] = response.SortOrder;
             //responseEntity.Attributes[qm_syresponse.Fields.qm_syresponseId] = response.CrmId;
         }
-        //private static void MapGroupOrderDataToEntity(ref Entity orderEntity, GroupOrder order)
-        //{
-        //    orderEntity.Attributes["qm_hidekey"] = order.Hidekey;
-        //    orderEntity.Attributes["qm_name"] = order.Name;
-        //    orderEntity.Attributes["qm_order"] = order.Order;
-        //    orderEntity.Attributes["qm_showkey"] = order.Showkey;
-        //    orderEntity.Attributes["qm_visible"] = order.IsVisible;
-        //}
-
-        //private static void MapQuestionOrderDataToEntity(ref Entity orderEntity, QuestionOrder order)
-        //{
-        //    orderEntity.Attributes["qm_hidekey"] = order.HideKey;
-        //    orderEntity.Attributes["qm_name"] = order.Name;
-        //    orderEntity.Attributes["qm_order"] = order.Order;
-        //    orderEntity.Attributes["qm_showkey"] = order.ShowKey;
-        //    orderEntity.Attributes["qm_visible"] = order.Visible;
-        //}
         private static void MapTemplateDataToEntity(ref Entity templateEntity, Template template)
         {
             //templateEntity.Attributes["qm_TemplateDescEtxt"] = template.DescriptionEnglish;
@@ -1233,7 +1342,7 @@ namespace TDG.CORE.ETL.CDS
 
         #region LEGISLATION
 
-        private static void MapLegislationMetaData(ref TC.Legislation.EarlyBound.qm_rclegislation leg, Entity legEntity)
+        private static void MapLegislationMetaData(ref qm_rclegislation leg, Entity legEntity)
         {
             leg.qm_LegislationLbl = legEntity.GetValue<string>("qm_legislationlbl");
             leg.qm_InforceDte = legEntity.GetValue<DateTime?>("qm_inforcedte").ToDateTime();
@@ -1271,7 +1380,7 @@ namespace TDG.CORE.ETL.CDS
             legEntity.Attributes["qm_name"]                   = leg.qm_name;
         }
 
-        private static void MapLegislationEntityToModel (ref TC.Legislation.EarlyBound.qm_rclegislation leg, Entity legEntity)
+        private static void MapLegislationEntityToModel (ref qm_rclegislation leg, Entity legEntity)
         {
              leg.qm_LegislationLbl         = legEntity.GetValue<string>("qm_legislationlbl");    
              leg.qm_InforceDte             = legEntity.GetValue<DateTime?>("qm_inforcedte").ToDateTime();

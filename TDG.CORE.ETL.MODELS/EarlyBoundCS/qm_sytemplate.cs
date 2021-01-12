@@ -316,9 +316,9 @@ namespace TC.Legislation.EarlyBound {
             
             public const string qm_sytemplateId = "qm_sytemplateid";
             
-            public const string qm_TemplateE = "qm_templatee";
+            public const string qm_TemplateE = "qm_templateenm";
             
-            public const string qm_TemplateF = "qm_templatef";
+            public const string qm_TemplateF = "qm_templatefnm";
             
             public const string statecode = "statecode";
             
@@ -394,9 +394,9 @@ namespace TC.Legislation.EarlyBound {
             
             public const string qm_sytemplateId = "qm_sytemplateId";
             
-            public const string qm_TemplateE = "qm_TemplateE";
+            public const string qm_TemplateE = "qm_TemplateEtxt";
             
-            public const string qm_TemplateF = "qm_TemplateF";
+            public const string qm_TemplateF = "qm_TemplateFtxt";
             
             public const string statecode = "statecode";
             
