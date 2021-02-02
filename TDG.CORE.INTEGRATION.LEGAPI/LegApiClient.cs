@@ -68,7 +68,7 @@
             if (response.IsSuccessful)
             {
                 var jsonString = response.Content;
-                var regDetails = JsonConvert.DeserializeXmlNode(jsonString, "RegDetails");
+                var regDetails = JsonConvert.DeserializeXmlNode(jsonString, "fullDetails");//"RegDetails");
 
                 return regDetails.ToString();
             }

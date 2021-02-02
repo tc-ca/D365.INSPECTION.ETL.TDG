@@ -1,12 +1,34 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace TDG.CORE.ETL.MODELS.QUESTIONNAIRE
 {
-	public class BaseQuestionnaireModel
+	public class BaseQuestionnaireModel : IEquatable<BaseQuestionnaireModel>
     {
         public string Name { get; set; }
-        public string Id { get; set; }
+        public Guid Id { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is BaseQuestionnaireModel)
+                return Equals((BaseQuestionnaireModel)obj);
+            return false;
+        }
+
+        public bool Equals(BaseQuestionnaireModel obj)
+        {
+            if (obj == null) return false;
+            if (!EqualityComparer<Guid>.Default.Equals(Id, obj.Id)) return false;
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            int hash = 0;
+            hash ^= EqualityComparer<Guid>.Default.GetHashCode(Id);
+            return hash;
+        }
     }
 
     #region Logic
@@ -60,85 +82,44 @@ namespace TDG.CORE.ETL.MODELS.QUESTIONNAIRE
     #endregion
 
     #region Structure
-    //public class GroupOrder : BaseQuestionnaireModel
-    //{
-    //    public string GroupName { get; set; }
-    //    public string Hidekey { get; set; }
-    //    public string Showkey { get; set; }
-    //    public string TemplateName { get; set; }
-    //    public int Order { get; set; }
-    //    public Boolean Visible { get; set; }
-    //    public bool IsVisible { get; set; }
-    //    public string ResponseDelimeter { get; set; }
-    //}
-
-    //public class QuestionOrder : BaseQuestionnaireModel
-    //{
-    //    public string ShowKey { get; set; }
-    //    public string HideKey { get; set; }
-    //    public int Order { get; set; }
-    //    public string QuestionName { get; set; }
-    //    public string TemplateName { get; set; }
-    //    public bool Visible { get; set; }
-    //}
-
-    public class FetchResult
+    public class QuestionnaireFetchResult
     {
-        public string template_name { get; set; }
-        public string template_title_english { get; set; }
-        public string template_description_english { get; set; }
-        public string group_name { get; set; }
-        // public string group_html_element_id                             { get; set; }
-        public string group_is_repeatable { get; set; }
-        public string group_visible { get; set; }
-        public string group_title_english { get; set; }
-        public string group_order { get; set; }
-        public string question_text_english { get; set; }
-        public string question_name { get; set; }
-        // public string question_html_element_id                          { get; set; }
-        public string question_order { get; set; }
-        public string question_visible { get; set; }
-        public QuestionType response_control_input_type { get; set; }
-        public string response_control_label_text_english { get; set; }
-        public string response_control_input_name { get; set; }
-        //public string response_control_input_id                         { get; set; }
-        public string response_name { get; set; }
-        public string response_internal_comment { get; set; }
-        public string response_is_problem { get; set; }
-        public string response_external_comment { get; set; }
-        public string response_picture { get; set; }
-        public string response_is_safety_concern { get; set; }
-        public string response_emit_value { get; set; }
-        public string response_order { get; set; }
-        public string question_show_key { get; set; }
-        public string question_hide_key { get; set; }
-        public string group_response_delimiter { get; set; }
-        public string response_display_in_group_header { get; set; }
+        public string TemplateId { get; set; }
+        public string TemplatePrimaryKey  { get; set; }
+        public string TemplateTitleEn     { get; set; }
+        public string TemplateTitleFr     { get; set; }
+        public string GroupPrimaryKey     { get; set; }
+        public string GroupTitleEn        { get; set; }
+        public string GroupTitleFr        { get; set; }
+        public string GroupOrder          { get; set; }
+        public string GroupIsVisible      { get; set; }
+        public string GroupId             { get; set; }
+        public string QuestionPrimaryKey  { get; set; }
+        public string QuestionTitleEn     { get; set; }
+        public string QuestionTitleFr     { get; set; }
+        public string QuestionOrder       { get; set; }
+        public string QuestionIsVisible   { get; set; }
+        public string QuestionType        { get; set; }
+        public string QuestionId          { get; set; }
+        public string QuestionParentId    { get; set; }
+        public string ResponsePrimaryKey  { get; set; }
+        public string ResponseId { get; set; }
     }
-
-    public class QuestionType : BaseQuestionnaireModel
-    {
-        public string EntityName { get; set; }
-    }
-
-    //public class QuestionsGroupQuestion : BaseQuestionnaireModel
-    //   {
-    //       QuestionnaireQuestion Question { get; set; }
-    //       QuestionnaireQuestionsGroup QuestionGroup { get; set; }
-    //   }
-
-    //public class QuestionControlType : BaseQuestionnaireModel
-    //   {
-    //   }
 
     public class Group : BaseQuestionnaireModel
     {
+        public Group()
+        {
+            Questions = new List<Question>();
+        }
+
         public string TitleEnglish { get; set; }
         public string TitleFrench { get; set; }
         public bool IsRepeatable { get; set; }
         public string TemplateId { get; set; }
         public bool IsVisible { get; set; }
         public int SortOrder { get; set; }
+        public List<Question> Questions { get; set; }
     }
 	
 	public class Questionnaire : BaseQuestionnaireModel
@@ -146,60 +127,51 @@ namespace TDG.CORE.ETL.MODELS.QUESTIONNAIRE
         public Template Template { get; set; }
         public List<Question> Questions { get; set; }
         public List<Group> QuestionGroups { get; set; }
-        public List<QuestionResponseOption> QuestionResponses { get; set; }
-        //public List<QuestionOrder> QuestionOrders { get; set; }
-        //public List<GroupOrder> GroupOrders { get; set; }
+        public List<Response> QuestionResponses { get; set; }
     }
 	
 	public class Question : BaseQuestionnaireModel
     {
+        public Question()
+        {
+            Responses = new List<Response>();
+        }
+        public Guid GroupId { get; set; }
         public string TextEnglish { get; set; }
         public string TextFrench { get; set; }
-        //public string HideKey { get; set; }
-        //public string ShowKey { get; set; }
-        public string GroupId { get; set; }
-        public QuestionType Type { get; set; }
-        public string ParentQuestionId { get; set; }
+        public string GroupName { get; set; }
+        public string Type { get; set; }
+        public string ParentQuestionName { get; set; }
+        public Guid? ParentQuestionId { get;set; }
         public int SortOrder { get; set; }
         public bool IsVisible { get; set; }
-        public string GroupAlternateKey { get; set; }
+        public List<Response> Responses { get;set;}
     }
 
-    public class QuestionResponseOption : BaseQuestionnaireModel
+    public class Response : BaseQuestionnaireModel
     {
-        //public string ControlInputId { get; set; }
-        //public string ControlInputName { get; set; }
-        //public string ControlInputType { get; set; }
         public string TextEnglish { get; set; }
         public string TextFrench { get; set; }
-
-        //public string EmitValue { get; set; }
         public string ExternalComment { get; set; }
         public string InternalComment { get; set; }
         public string Picture { get; set; }
         public string IsProblem { get; set; }
         public string IsSafetyConcern { get; set; }
-        public string QuestionId { get; set; }
+        public string QuestionName { get; set; }
+        public Guid QuestionId { get; set; }
         public int SortOrder { get; set; }
-
         public string Reg1 { get;set;}
         public string Reg2 { get;set;}
         public string Reg3 { get;set;}
+        public string ResponseType { get; set; }
     }
-	
-	//public class ResponseInput : BaseQuestionnaireModel
- //   {
- //   }
-	
-	//public class QuestionnaireQuestionsGroup : BaseQuestionnaireModel
- //   {
- //       public string EnglishTitle { get; set; }
- //       public string FrenchTitle { get; set; }
- //       public bool IsRepeatable { get; set; }
- //   }
 	
 	public class Template : BaseQuestionnaireModel
     {
+        public Template()
+        {
+            Groups = new List<Group>();
+        }
         public string TitleEnglish { get; set; }
         public string TitleFrench { get; set; }
         public string DescriptionEnglish { get; set; }

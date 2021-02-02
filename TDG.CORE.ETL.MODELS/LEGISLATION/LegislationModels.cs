@@ -61,7 +61,9 @@ namespace TDG.CORE.ETL.MODELS.LEGISLATION
         public object GetDataFlag(string flag)
         {
             var dataFlag = DataFlags?.FirstOrDefault(e => e.Key == flag);
-            return DataFlags != null && dataFlag.HasValue && DataFlags.Count > 0 ? dataFlag.Value.Value ?? false : false;
+            return (DataFlags != null && 
+                    dataFlag.HasValue && 
+                    DataFlags.Count > 0) ? dataFlag.Value.Value ?? false : false;
         }
     }
 
@@ -77,26 +79,13 @@ namespace TDG.CORE.ETL.MODELS.LEGISLATION
                 {
                     PopulateDataFlags(child);
                 }
-
-                foreach (var child in reg.Children)
-                {
-                    foreach (var flag in child.DataFlags)
-                    {
-                        if (reg.DataFlags.Any(e => e.Key == flag.Key))
-                        {
-
-                        }
-                        else
-                        {
-                            reg.DataFlags.Add(new KeyValuePair<string, object>(flag.Key, "INHERITED"));
-                        }
-                    }
-                }
             }
             else
             {
                 ParseDataFlags(reg);
             }
+
+            reg.DataFlags = reg.DataFlags.Distinct().ToList();
         }
 
         private static void ParseDataFlags(this Regulation reg)

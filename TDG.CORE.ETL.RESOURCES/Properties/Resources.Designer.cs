@@ -80,21 +80,21 @@ namespace TDG.CORE.ETL.RESOURCES.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] GeneralCompliance_V2 {
+            get {
+                object obj = ResourceManager.GetObject("GeneralCompliance_V2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;!DOCTYPE Regulation PUBLIC &quot;-//Justice Canada//DTD Regulation v1.2.2//EN&quot; &quot;Dtd/Regulations/RCM/Regulation.dtd&quot;&gt;&lt;Regulation xmlns:xml=&quot;http://www.w3.org/XML/1998/namespace&quot; gazette-part=&quot;II&quot; regulation-type=&quot;SOR&quot; xml:lang=&quot;en&quot; xmlns:lims=&quot;http://justice.gc.ca/lims&quot;&gt;&lt;Identification&gt;&lt;InstrumentNumber&gt;SOR/2001-286&lt;/InstrumentNumber&gt;&lt;RegistrationDate&gt;&lt;Date&gt;&lt;YYYY&gt;2001&lt;/YYYY&gt;&lt;MM&gt;8&lt;/MM&gt;&lt;DD&gt;1&lt;/DD&gt;&lt;/Date&gt;&lt;/RegistrationDate&gt;&lt;ConsolidationDate&gt;&lt;Date&gt;&lt;YYYY&gt;2020&lt;/YYYY&gt;&lt;MM&gt;7&lt;/MM&gt;&lt;DD&gt; [rest of string was truncated]&quot;;.
         /// </summary>
         public static string SOR_2001_286 {
             get {
                 return ResourceManager.GetString("SOR_2001_286", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] TDGActiveLegislation {
-            get {
-                object obj = ResourceManager.GetObject("TDGActiveLegislation", resourceCulture);
-                return ((byte[])(obj));
             }
         }
     }

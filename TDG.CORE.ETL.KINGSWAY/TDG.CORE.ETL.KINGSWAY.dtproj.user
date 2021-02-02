@@ -8,6 +8,8 @@
         <UseWinAuth>false</UseWinAuth>
         <WinAuthUserName />
         <WinAuthDomain />
+        <ServerName />
+        <PathOnServer />
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
@@ -16,7 +18,11 @@
           <ConfigurationSetting>
             <Id>LastModifiedTime</Id>
             <Name>LastModifiedTime</Name>
+<<<<<<< HEAD
             <Value xsi:type="xsd:dateTime">2020-11-16T22:06:37.4193514Z</Value>
+=======
+            <Value xsi:type="xsd:dateTime">2020-07-31T00:55:28.234734Z</Value>
+>>>>>>> 28ce2650299429af3b20c625d9edd68206a4b34a
           </ConfigurationSetting>
         </ParameterConfigurationSensitiveValues>
       </Options>
@@ -28,7 +34,11 @@
         <UseWinAuth>false</UseWinAuth>
         <WinAuthUserName />
         <WinAuthDomain />
+<<<<<<< HEAD
         <StartObjectID>InsertAccounts.dtsx</StartObjectID>
+=======
+        <Run64BitRuntime>false</Run64BitRuntime>
+>>>>>>> 28ce2650299429af3b20c625d9edd68206a4b34a
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
@@ -37,7 +47,11 @@
           <ConfigurationSetting>
             <Id>LastModifiedTime</Id>
             <Name>LastModifiedTime</Name>
+<<<<<<< HEAD
             <Value xsi:type="xsd:dateTime">2020-11-18T04:13:32.6317306Z</Value>
+=======
+            <Value xsi:type="xsd:dateTime">2020-08-05T21:03:51.7960496Z</Value>
+>>>>>>> 28ce2650299429af3b20c625d9edd68206a4b34a
           </ConfigurationSetting>
         </ParameterConfigurationSensitiveValues>
       </Options>
