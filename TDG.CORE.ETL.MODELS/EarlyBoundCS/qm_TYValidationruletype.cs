@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TC.Legislation.EarlyBound {
+namespace CrmWebApiEarlyBoundGenerator {
     using System.Reflection;
     using System.Linq;
     using System;
@@ -18,18 +18,18 @@ namespace TC.Legislation.EarlyBound {
     
     
     [ExcludeFromCodeCoverageAttribute()]
-    public class qm_rylegislationcharacteristics : Entity {
+    public class qm_TYValidationruletype : Entity {
         
-        public new const string EntityLogicalName = "qm_rylegislationcharacteristics";
+        public new const string EntityLogicalName = "qm_tyvalidationruletype";
         
-        public new const string EntitySetName = "qm_rylegislationcharacteristicses";
+        public new const string EntitySetName = "qm_tyvalidationruletypes";
         
-        public new const string PrimaryIdAttribute = "qm_rylegislationcharacteristicsid";
+        public new const string PrimaryIdAttribute = "qm_tyvalidationruletypeid";
         
-        public qm_rylegislationcharacteristics() {
+        public qm_TYValidationruletype() {
         }
         
-        public qm_rylegislationcharacteristics(ExpandoObject expandoObject) : 
+        public qm_TYValidationruletype(ExpandoObject expandoObject) : 
                 base(expandoObject) {
         }
         
@@ -156,35 +156,33 @@ namespace TC.Legislation.EarlyBound {
             }
         }
         
+        public String qm_DefaultErrorEN {
+            get {
+                return this.GetAttributeValue<String>("qm_DefaultErrorEN");
+            }
+            set {
+                this.SetAttributeValue("qm_DefaultErrorEN", value);
+            }
+        }
+        
+        public String qm_DefaultErrorFR {
+            get {
+                return this.GetAttributeValue<String>("qm_DefaultErrorFR");
+            }
+            set {
+                this.SetAttributeValue("qm_DefaultErrorFR", value);
+            }
+        }
+        
         // <summary>
-        // Required name field
+        // The name of the custom entity.
         // </summary>
-        public String qm_Name {
+        public String qm_name {
             get {
-                return this.GetAttributeValue<String>("qm_Name");
+                return this.GetAttributeValue<String>("qm_name");
             }
             set {
-                this.SetAttributeValue("qm_Name", value);
-            }
-        }
-        
-        [EntityReference("qm_rclegislations", "_qm_rclegislationid_value")]
-        public EntityReference qm_rclegislationid {
-            get {
-                return this.GetAttributeValue<EntityReference>("qm_rclegislationid@odata.bind");
-            }
-            set {
-                this.SetAttributeValue("qm_rclegislationid@odata.bind", value);
-            }
-        }
-        
-        [Entity("qm_rclegislation", "qm_rclegislationid")]
-        public qm_rclegislation qm_rclegislationidEntity {
-            get {
-                return this.GetAttributeValue<qm_rclegislation>("qm_rclegislationid");
-            }
-            set {
-                this.SetAttributeValue("qm_rclegislationid", value);
+                this.SetAttributeValue("qm_name", value);
             }
         }
         
@@ -192,38 +190,36 @@ namespace TC.Legislation.EarlyBound {
         // Unique identifier for entity instances
         //Identificateur unique des instances d'entité
         // </summary>
-        public Guid? qm_rylegislationcharacteristicsId {
+        public Guid? qm_TYValidationruletypeId {
             get {
-                return this.GetAttributeValue<Guid?>("qm_rylegislationcharacteristicsId");
+                return this.GetAttributeValue<Guid?>("qm_TYValidationruletypeId");
             }
             set {
-                this.SetAttributeValue("qm_rylegislationcharacteristicsId", value);
+                this.SetAttributeValue("qm_TYValidationruletypeId", value);
             }
         }
         
-        [EntityReference("qm_tylegislationcharacteristics", "_qm_tylegislationcharacteristicid_value")]
-        public EntityReference qm_tylegislationcharacteristicid {
+        public String qm_ValidationRuleTypeEN {
             get {
-                return this.GetAttributeValue<EntityReference>("qm_tylegislationcharacteristicid@odata.bind");
+                return this.GetAttributeValue<String>("qm_ValidationRuleTypeEN");
             }
             set {
-                this.SetAttributeValue("qm_tylegislationcharacteristicid@odata.bind", value);
+                this.SetAttributeValue("qm_ValidationRuleTypeEN", value);
             }
         }
         
-        [Entity("qm_tylegislationcharacteristic", "qm_tylegislationcharacteristicid")]
-        public qm_tylegislationcharacteristic qm_tylegislationcharacteristicidEntity {
+        public String qm_ValidationRuleTypeFR {
             get {
-                return this.GetAttributeValue<qm_tylegislationcharacteristic>("qm_tylegislationcharacteristicid");
+                return this.GetAttributeValue<String>("qm_ValidationRuleTypeFR");
             }
             set {
-                this.SetAttributeValue("qm_tylegislationcharacteristicid", value);
+                this.SetAttributeValue("qm_ValidationRuleTypeFR", value);
             }
         }
         
         // <summary>
-        // Status of the Legislation Characteristics
-        //Statut de l'élément Legislation Characteristics
+        // Status of the Validation Rule Type
+        //Statut de l'élément Validation Rule Type
         // </summary>
         public int? statecode {
             get {
@@ -235,8 +231,8 @@ namespace TC.Legislation.EarlyBound {
         }
         
         // <summary>
-        // Reason for the status of the Legislation Characteristics
-        //Raison du statut de l'élément Legislation Characteristics
+        // Reason for the status of the Validation Rule Type
+        //Raison du statut de l'élément Validation Rule Type
         // </summary>
         public int? statuscode {
             get {
@@ -298,10 +294,6 @@ namespace TC.Legislation.EarlyBound {
             
             public const string _OrganizationId_value = "_organizationid_value";
             
-            public const string _qm_rclegislationid_value = "_qm_rclegislationid_value";
-            
-            public const string _qm_tylegislationcharacteristicid_value = "_qm_tylegislationcharacteristicid_value";
-            
             public const string CreatedBy = "createdby";
             
             public const string CreatedByName = "createdbyname";
@@ -338,17 +330,17 @@ namespace TC.Legislation.EarlyBound {
             
             public const string OverriddenCreatedOn = "overriddencreatedon";
             
-            public const string qm_Name = "qm_name";
+            public const string qm_DefaultErrorEN = "qm_defaulterroren";
             
-            public const string qm_rclegislationid = "qm_rclegislationid";
+            public const string qm_DefaultErrorFR = "qm_defaulterrorfr";
             
-            public const string qm_rclegislationidName = "qm_rclegislationidname";
+            public const string qm_name = "qm_name";
             
-            public const string qm_rylegislationcharacteristicsId = "qm_rylegislationcharacteristicsid";
+            public const string qm_TYValidationruletypeId = "qm_tyvalidationruletypeid";
             
-            public const string qm_tylegislationcharacteristicid = "qm_tylegislationcharacteristicid";
+            public const string qm_ValidationRuleTypeEN = "qm_validationruletypeen";
             
-            public const string qm_tylegislationcharacteristicidName = "qm_tylegislationcharacteristicidname";
+            public const string qm_ValidationRuleTypeFR = "qm_validationruletypefr";
             
             public const string statecode = "statecode";
             
@@ -364,7 +356,7 @@ namespace TC.Legislation.EarlyBound {
             
             public const string VersionNumber = "versionnumber";
             
-            public const string Id = "qm_rylegislationcharacteristicsid";
+            public const string Id = "qm_tyvalidationruletypeid";
         }
         
         public class Properties {
@@ -378,10 +370,6 @@ namespace TC.Legislation.EarlyBound {
             public const string modifiedonbehalfby = "modifiedonbehalfby";
             
             public const string organizationid = "organizationid";
-            
-            public const string qm_rclegislationid = "qm_rclegislationid";
-            
-            public const string qm_tylegislationcharacteristicid = "qm_tylegislationcharacteristicid";
         }
         
         public class Schemas {
@@ -422,17 +410,17 @@ namespace TC.Legislation.EarlyBound {
             
             public const string OverriddenCreatedOn = "OverriddenCreatedOn";
             
-            public const string qm_Name = "qm_Name";
+            public const string qm_DefaultErrorEN = "qm_DefaultErrorEN";
             
-            public const string qm_rclegislationid = "qm_rclegislationid";
+            public const string qm_DefaultErrorFR = "qm_DefaultErrorFR";
             
-            public const string qm_rclegislationidName = "qm_rclegislationidName";
+            public const string qm_name = "qm_name";
             
-            public const string qm_rylegislationcharacteristicsId = "qm_rylegislationcharacteristicsId";
+            public const string qm_TYValidationruletypeId = "qm_TYValidationruletypeId";
             
-            public const string qm_tylegislationcharacteristicid = "qm_tylegislationcharacteristicid";
+            public const string qm_ValidationRuleTypeEN = "qm_ValidationRuleTypeEN";
             
-            public const string qm_tylegislationcharacteristicidName = "qm_tylegislationcharacteristicidName";
+            public const string qm_ValidationRuleTypeFR = "qm_ValidationRuleTypeFR";
             
             public const string statecode = "statecode";
             

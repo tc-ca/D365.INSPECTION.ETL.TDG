@@ -19,12 +19,26 @@ namespace TDG.CORE.ETL.MODELS.LEGISLATION
         public string LegislationTypeFrench { get; set; }
     }
 
+    public class LegislationCharacteristic
+    {
+        public string LegislationId { get; set; }
+        public string Characteristic { get; set; }
+    }
+
+    public class CharacteristicCategory
+    {
+        public string Category { get; set; }
+        public string[] Characteristics { get; set; }
+    }
+
     public class Regulation
     {
         public Regulation()
         {
-            Children = new List<Regulation>();
+            Children  = new List<Regulation>();
             DataFlags = new List<KeyValuePair<string, object>>();
+            UnNumbers = new List<string>();
+            Classes   = new List<string>();
         }
 
         public string Type { get; set; }
@@ -57,6 +71,8 @@ namespace TDG.CORE.ETL.MODELS.LEGISLATION
         public List<KeyValuePair<string, object>> DataFlags { get; set; }
         public Guid CrmId { get; set; }
         public Guid? ParentCrmId { get; set; }
+        public List<string> UnNumbers { get; set; }
+        public List<string> Classes { get; set; }
 
         public object GetDataFlag(string flag)
         {
@@ -119,6 +135,7 @@ namespace TDG.CORE.ETL.MODELS.LEGISLATION
                         foreach (Match match in matches)
                         {
                             matchesArray.Add(match.Value); // match csv values outside commas
+                            reg.UnNumbers.Add(match.Value);
                         }
 
                         var matchesCsv = string.Join(",", matchesArray);
@@ -135,7 +152,11 @@ namespace TDG.CORE.ETL.MODELS.LEGISLATION
 
                         foreach (Match match in matches)
                         {
-                            matchesArray.Add(match.Value); // match csv values outside commas
+                            char[] charsToTrim = { ',', '.', ' ' };
+                            var trimmed = match.Value.TrimEnd(charsToTrim).TrimStart(charsToTrim);
+
+                            matchesArray.Add(trimmed); // match csv values outside commas
+                            reg.Classes.Add(trimmed);
                         }
 
                         var matchesCsv = string.Join(",", matchesArray);

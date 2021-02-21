@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TC.Legislation.EarlyBound {
+namespace CrmWebApiEarlyBoundGenerator {
     using System.Reflection;
     using System.Linq;
     using System;
@@ -348,6 +348,8 @@ namespace TC.Legislation.EarlyBound {
             public const string modifiedonbehalfby = "modifiedonbehalfby";
             
             public const string organizationid = "organizationid";
+            
+            public const string qm_rclegislation_tylegislationcharacteristic = "qm_rclegislation_tylegislationcharacteristic";
         }
         
         public class Schemas {

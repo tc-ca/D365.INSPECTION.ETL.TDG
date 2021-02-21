@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TC.Legislation.EarlyBound {
+namespace CrmWebApiEarlyBoundGenerator {
     using System.Reflection;
     using System.Linq;
     using System;
@@ -210,12 +210,15 @@ namespace TC.Legislation.EarlyBound {
             }
         }
         
-        public int? qm_QuestionTypeCd {
+        // <summary>
+        // what type of question control to render on the ui for this question
+        // </summary>
+        public int? qm_questionresponsetypecd {
             get {
-                return this.GetAttributeValue<int?>("qm_QuestionTypeCd");
+                return this.GetAttributeValue<int?>("qm_questionresponsetypecd");
             }
             set {
-                this.SetAttributeValue("qm_QuestionTypeCd", value);
+                this.SetAttributeValue("qm_questionresponsetypecd", value);
             }
         }
         
@@ -413,9 +416,9 @@ namespace TC.Legislation.EarlyBound {
             
             public const string qm_QuestionF = "qm_questionf";
             
-            public const string qm_QuestionTypeCd = "qm_questiontypecd";
+            public const string qm_questionresponsetypecd = "qm_questionresponsetypecd";
             
-            public const string qm_questiontypecdName = "qm_questiontypecdname";
+            public const string qm_questionresponsetypecdName = "qm_questionresponsetypecdname";
             
             public const string qm_SYGroupId = "qm_sygroupid";
             
@@ -511,9 +514,9 @@ namespace TC.Legislation.EarlyBound {
             
             public const string qm_QuestionF = "qm_QuestionF";
             
-            public const string qm_QuestionTypeCd = "qm_QuestionTypeCd";
+            public const string qm_questionresponsetypecd = "qm_questionresponsetypecd";
             
-            public const string qm_questiontypecdName = "qm_questiontypecdName";
+            public const string qm_questionresponsetypecdName = "qm_questionresponsetypecdName";
             
             public const string qm_SYGroupId = "qm_SYGroupId";
             

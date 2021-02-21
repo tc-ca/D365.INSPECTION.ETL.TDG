@@ -8,19 +8,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TC.Legislation.EarlyBound {
+namespace CrmWebApiEarlyBoundGenerator {
     
     
-    public enum qm_QuestionTypeCd {
+    // <summary>
+    // what type of question control to render on the ui for this question
+    // </summary>
+    public enum qm_questionresponsetypecd {
         
-        Text = 930840002,
+        Text = 930840000,
         
-        Radio = 930840000,
+        Radio = 930840001,
         
-        Select = 930840001,
+        Select = 930840002,
         
-        Number = 930840004,
+        Number = 930840003,
         
-        Image = 930840003,
+        Image = 930840004,
     }
 }
