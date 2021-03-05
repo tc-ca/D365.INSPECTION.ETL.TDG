@@ -1,0 +1,131 @@
+{
+  "app": {
+    "bottom-navigation": {
+      "save": "Enregistrer "
+    },
+    "settings": {
+      "darkMode": "mode sombre ",
+      "language": "Langue",
+      "settings": "Paramètres"
+    },
+    "navigations": {
+      "home": "Acceuil",
+      "questionnaire": "FR Questionnaire",
+      "builder": "Logiciel de construction",
+      "qFromDynamics": "Questionnaire à partir de la dynamique",
+      "qFromState": "Questionnaire à partir de l'état"
+    },
+    "builder": {
+      "noGroups": "Cliquer Nouveau Group afin de créer un nouveau questionnaire!",
+      "loading": "Chargement...",
+      "save": "Enregistrer",
+      "clear": "Effacer",
+      "questionnaireName": "Nom du questionnaire",
+      "questionName": "Nom du question",
+      "questionType": "Type de Question",
+      "sortOrder": "Ordre du triage",
+      "internalComments": "Commentaires internes",
+      "externalComments": "Commentaires externes",
+      "picture": "Photo(s)",
+      "samplingAllowed": "Permettre l'enregistrement de d'échantillonnage",
+      "isRepeatable": "Reproductible?",
+      "visibleByDefault": "Visible par défaut",
+      "responseOptions": {
+        "responseOptions": "Options de réponse",
+        "sortOrder": "Ordre du triage",
+        "value": "Valeur",
+        "removResponseoption": "Supprimer l'option de réponse",
+        "provisions": {
+          "provisions": "Provisions",
+          "search": "Recherche"
+        },
+        "addOption": "Ajouter une option"
+      },
+      "validators": {
+        "validators": "Validateur",
+        "name": "Nom",
+        "enabled": "Activé",
+        "type": "Type",
+        "removeValidator": "Supprimer Validateur",
+        "addValidator": "Ajouter Validateur"
+      },
+      "dependsOn": {
+        "dependsOn": "Dépend de",
+        "type": "Type",
+        "question": "Question",
+        "tobe": "sera",
+        "to": "à",
+        "addQuestion": "Ajouter une question",
+        "removDependencyGroup": "Supprimer la dépendance de groupe",
+        "addDependencyGroup": "Ajouter un groupe de dépendances"
+      },
+
+      "group": {
+        "addGroup": "Ajouter un groupe",
+        "removeGroup": "Supprimer un groupe",
+        "groupName": "Nom du groupe",
+        "delete": "Supprimer ?",
+        "yes": "Oui",
+        "no": "Non",
+        "question": {
+          "addQuestion": "Ajouter une question",
+          "removeQuestion": "Supprimer une question",
+          "addChildQuestion": "Ajouter une question secondaire",
+          "delete": "Supprimer ?",
+          "yes": "Oui",
+          "no": "Non"
+        }
+      }
+    },
+    "questionnaire": {
+      "validate": "Valider",
+      "group": {
+        "repeatGroup": "Répéter le Groupe",
+        "deleteGroup": "Supprimer le Groupe",
+        "question": {
+          "referenceId": "ID de la Référence",
+          "referenceIdPlaceHolder": "Enterer ID de la référence",
+          "ok": "Ok",
+          "cancel": "Annuler",
+          "continue": "Continuer",
+          "unselectProvisions": "La sélection d'une réponse différente supprimera toutes les provisions sélectionnées et leurs preuves associées. Êtes-vous certain de vouloir changer de réponse?",
+          "violationCount": "Nombre d'infractions",
+          "violationCountPlaceHolder": "Entrer le nombre d'infractions",
+          "externalComment": "Commentaire externe",
+          "externalCommentInfo": "Les commentaires externes seront disponibles au public",
+          "internalComment": "Commentaire interne",
+          "internalCommentInfo": "Les commentaires internes seront disponibles aux intervenants à l'interne seulement",
+          "commentRequired": "Commentaire obligatoire",
+          "photos": "Photos",
+          "repeatable": {
+            "repeatQuestion": "Répéter cette question",
+            "deleteQuestion": "Supprimer cette question répétée"
+          },
+          "sampling": {
+            "approximateTotal": "Total estimé",
+            "sampleSize": "Taille de l'échantillon",
+            "nonCompliances": "Non-conformités",
+            "approximateTotalPlaceholder": "SVP entrer le nombre approximatif d'items",
+            "sampleSizePlaceholder": "SVP entrer la taille de l'échantillon",
+            "nonCompliancesPlaceholder": "SVP entrer le nombre de non-conformités",
+            "samplingTooltip": "Enregistrement d'échantillon",
+            "EM_ApproximateTotalRequired": "Un total approximatif est obligatoire",
+            "EM_ApproximateTotalGreaterThan1": "Total approximatif doit être supérieur à 1",
+            "EM_SampleSizeRequired": "Une taille d'échantillon est obligatoire",
+            "EM_SampleSizeGreaterThan1": "La taille de l'échantillon doit être supérieure à 1",
+            "EM_NonComplianceRequired": "Nombre de non-conformités obligatoire",
+            "EM_NonComplianceGreaterPositive": "Nombre de non-conformités doit être supérieur ou égal à 0"
+          }
+        }
+      },
+      "expandAll": "Tout développer",
+      "collapseAll": "Tout comprimer"
+    },
+    "general": {
+      "active": "Activé",
+      "inactive": "Inactivé",
+      "true": "Vrai",
+      "false": "Faux"
+    }
+  }
+}

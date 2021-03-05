@@ -7,12 +7,12 @@
   DTS:CreatorName="TC\BERNARA"
   DTS:DTSID="{5ED7B8C2-855A-4380-890A-616E57AF6FAA}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="44"
-  DTS:VersionGUID="{EE41487C-4297-40AE-BFB7-22F946878504}">
+  DTS:VersionBuild="45"
+  DTS:VersionGUID="{5156BF7D-F524-423D-ADD2-119A69A71455}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,10 +23,11 @@
       DTS:ObjectName="Dynamics CRM Connection Manager">
       <DTS:ObjectData>
         <CrmConnectionManager
-          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg.core@034gc.onmicrosoft.com;Domain=;CrmServerUrl=https://rom-dev-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False">
+          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test1@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev2-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
+          ConnectByProxy="False">
           <Password
             Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqMFcBO7+9UaHA1rNx4AZZgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACV3zIW7hd662IiV88zbKe6AAAAAASAAACgAAAAEAAAAF0tdHk4n+Tpjhe3Nzvd6yUgAAAAW+jmM7p7J4U+j2umB7IVW/8Th14O9qcDCFwJKAEODuoUAAAA3FDOaeLA9fqw+dEjpUtvcNG1k+w</Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIZuLjAfDoE+9f51sCeUnHAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACwNeCrn2ffB0/tDZE7dsOWAAAAAASAAACgAAAAEAAAAPXs5wJW1NgwrjPL4QhSojwYAAAAQB5UJh+SefMATBvrtTn276vYlWl+DC6fFAAAAKEmJ32PwK6fRyPPV7MDcoKCGKe3</Password>
         </CrmConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -41,7 +42,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqMFcBO7+9UaHA1rNx4AZZgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAC/LahbKim9qyFRMrYFqA32AAAAAASAAACgAAAAEAAAAEseE++S1Nzk90vm6aeEuVAYAAAAdkCGIHnqFMCe52Xa+KnVof4GMJ1/Tow4FAAAAD/8hFoxnLuIvZXTa0rMzWd+8PI9</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIZuLjAfDoE+9f51sCeUnHAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAC51Kk8qVHUPknNLrB30sYwAAAAAASAAACgAAAAEAAAAADODn/hljRQv1UxurJeUOYYAAAAtuhk/NC+PAYpPiPULyQ6itlJQ+QYP3zNFAAAANq7LreS4Kk9rusHY0ROmPGbwZkr</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -52,12 +53,7 @@
       DTS:ObjectName="TDGP.WORLD.TDGIIS_USER2">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=TDGP.WORLD;User ID=TDGIIS_USER;Provider=OraOLEDB.Oracle.1;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqMFcBO7+9UaHA1rNx4AZZgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABctwy92FpC0ilqYumucoMwAAAAAASAAACgAAAAEAAAAP8+82lza1g5OB3IgHoD9McYAAAASxtTk2pSFG4FQ0Pdqwt+fX7LyhA+/HKTFAAAADaSMRDu422IY3ejxmVxFKo6SBZa</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=TDGP.WORLD;User ID=TDGIIS_USER;Provider=OraOLEDB.Oracle.1;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -139,7 +135,7 @@
               description="Populate data into Microsoft Dynamics 365 CE/CRM."
               name="Dynamics CRM Destination"
               usesDispositions="true"
-              version="3">
+              version="4">
               <properties>
                 <property
                   dataType="System.String"
@@ -150,7 +146,7 @@
                   dataType="System.Int32"
                   description="Specifies how data is written to CRM server."
                   name="ActionType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationActionType">1</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">1</property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether the values of CRM lookup fields should be removed if the reference records cannot be found. "
@@ -158,20 +154,20 @@
                   name="RemoveUnresolvableReferences">false</property>
                 <property
                   dataType="System.Boolean"
-                  description="Specifies whether duplicate detection should be enabled when creating or updating CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in Microsoft Dynamics CRM."
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
                   expressionType="Notify"
-                  name="EnableDuplicateDetection">false</property>
+                  name="EnableSystemDuplicateDetection">false</property>
                 <property
                   dataType="System.Int32"
-                  description="Specify the matching criteria to be used when Upsert action is chosen."
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
-                  name="UpsertMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertMatchingCriteria">0</property>
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
                 <property
                   dataType="System.String"
-                  description="Specify the matching fields to be used to determine the matching records that exist in CRM when Manually Specify option is chosen for Upsert action."
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
                   expressionType="Notify"
-                  name="UpsertMatchingFields"></property>
+                  name="RecordMatchingKeyFields"></property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether to ignore those NULL-valued fields."
@@ -203,12 +199,12 @@
                   description="Specify whether to use optimizations when there are duplicate records form the source system."
                   expressionType="Notify"
                   name="OptimizationOnSourceDuplicates"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">1</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
                 <property
                   dataType="System.String"
-                  description="Workflow to be executed."
+                  description="Workflow or action to be executed."
                   expressionType="Notify"
-                  name="Workflow"></property>
+                  name="WorkflowAction"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of records to be sent to Microsoft Dynamics 365/CRM server in each service call."
@@ -295,7 +291,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Lookup</property>
+                          name="FieldType">Lookup</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">systemuser</property>
@@ -308,7 +304,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -321,7 +317,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">DateTime</property>
+                          name="FieldType">DateTime</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -334,7 +330,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Owner</property>
+                          name="FieldType">Owner</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">systemuser;team</property>
@@ -348,7 +344,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">EntityName</property>
+                          name="FieldType">EntityName</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -361,7 +357,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">State</property>
+                          name="FieldType">State</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -374,7 +370,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Status</property>
+                          name="FieldType">Status</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -388,7 +384,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">String</property>
+                          name="FieldType">String</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -402,7 +398,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">String</property>
+                          name="FieldType">String</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -415,7 +411,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Uniqueidentifier</property>
+                          name="FieldType">Uniqueidentifier</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -428,24 +424,13 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Lookup</property>
+                          name="FieldType">Lookup</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">tc_tcfiscalquarter</property>
                         <property
                           dataType="System.String"
-                          name="TextLookup">&lt;TextLookupSetting&gt;
-  &lt;CacheStrategy&gt;FullCache&lt;/CacheStrategy&gt;
-  &lt;LookupTargets&gt;
-    &lt;LookupTarget&gt;
-      &lt;TargetEntity&gt;tc_tcfiscalquarter&lt;/TargetEntity&gt;
-      &lt;TargetTextField&gt;tc_fiscalquarternum&lt;/TargetTextField&gt;
-      &lt;SecondaryLookupInputColumn&gt;TC_FISCAL_QUARTER_PRIMARY_NAME&lt;/SecondaryLookupInputColumn&gt;
-      &lt;SecondaryLookupTargetField&gt;tc_name&lt;/SecondaryLookupTargetField&gt;
-      &lt;WriteNullOnEmptyValues&gt;false&lt;/WriteNullOnEmptyValues&gt;
-    &lt;/LookupTarget&gt;
-  &lt;/LookupTargets&gt;
-&lt;/TextLookupSetting&gt;</property>
+                          name="LookupSettings">{"CacheStrategy":"FullCache","LookupTargets":[{"TargetEntity":"tc_tcfiscalquarter","TargetTextField":"tc_fiscalquarternum","SecondaryLookupInputColumn":"TC_FISCAL_QUARTER_PRIMARY_NAME","SecondaryLookupTargetField":"tc_name","WriteNullOnEmptyValues":false}]}</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -455,22 +440,13 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Lookup</property>
+                          name="FieldType">Lookup</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">tc_tcfiscalyear</property>
                         <property
                           dataType="System.String"
-                          name="TextLookup">&lt;TextLookupSetting&gt;
-  &lt;CacheStrategy&gt;FullCache&lt;/CacheStrategy&gt;
-  &lt;LookupTargets&gt;
-    &lt;LookupTarget&gt;
-      &lt;TargetEntity&gt;tc_tcfiscalyear&lt;/TargetEntity&gt;
-      &lt;TargetTextField&gt;tc_fiscalyearnum&lt;/TargetTextField&gt;
-      &lt;WriteNullOnEmptyValues&gt;false&lt;/WriteNullOnEmptyValues&gt;
-    &lt;/LookupTarget&gt;
-  &lt;/LookupTargets&gt;
-&lt;/TextLookupSetting&gt;</property>
+                          name="LookupSettings">{"CacheStrategy":"FullCache","LookupTargets":[{"TargetEntity":"tc_tcfiscalyear","TargetTextField":"tc_fiscalyearnum","WriteNullOnEmptyValues":false}]}</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -480,22 +456,13 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Lookup</property>
+                          name="FieldType">Lookup</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">tc_tcmonth</property>
                         <property
                           dataType="System.String"
-                          name="TextLookup">&lt;TextLookupSetting&gt;
-  &lt;CacheStrategy&gt;FullCache&lt;/CacheStrategy&gt;
-  &lt;LookupTargets&gt;
-    &lt;LookupTarget&gt;
-      &lt;TargetEntity&gt;tc_tcmonth&lt;/TargetEntity&gt;
-      &lt;TargetTextField&gt;tc_monthnum&lt;/TargetTextField&gt;
-      &lt;WriteNullOnEmptyValues&gt;false&lt;/WriteNullOnEmptyValues&gt;
-    &lt;/LookupTarget&gt;
-  &lt;/LookupTargets&gt;
-&lt;/TextLookupSetting&gt;</property>
+                          name="LookupSettings">{"CacheStrategy":"FullCache","LookupTargets":[{"TargetEntity":"tc_tcmonth","TargetTextField":"tc_monthnum","WriteNullOnEmptyValues":false}]}</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -505,7 +472,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -518,7 +485,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -528,6 +495,25 @@
                 </input>
               </inputs>
               <outputs>
+                <output
+                  refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
                 <output
                   refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Error Output]"
                   exclusionGroup="1"
@@ -548,30 +534,11 @@
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
                       dataType="wstr"
                       length="2048"
-                      lineageId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
-                      name="CrmErrorMessage" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output]"
-                  exclusionGroup="1"
-                  name="Default Output"
-                  synchronousInputId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      dataType="guid"
-                      lineageId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      name="CrmRecordId" />
-                    <outputColumn
-                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      dataType="bool"
-                      lineageId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      name="IsNew" />
+                      lineageId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -880,7 +847,7 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
               description="Populate data into Microsoft Dynamics 365 CE/CRM."
               name="Dynamics CRM Destination"
               usesDispositions="true"
-              version="3">
+              version="4">
               <properties>
                 <property
                   dataType="System.String"
@@ -891,7 +858,7 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                   dataType="System.Int32"
                   description="Specifies how data is written to CRM server."
                   name="ActionType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationActionType">1</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">1</property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether the values of CRM lookup fields should be removed if the reference records cannot be found. "
@@ -899,20 +866,20 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                   name="RemoveUnresolvableReferences">false</property>
                 <property
                   dataType="System.Boolean"
-                  description="Specifies whether duplicate detection should be enabled when creating or updating CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in Microsoft Dynamics CRM."
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
                   expressionType="Notify"
-                  name="EnableDuplicateDetection">false</property>
+                  name="EnableSystemDuplicateDetection">false</property>
                 <property
                   dataType="System.Int32"
-                  description="Specify the matching criteria to be used when Upsert action is chosen."
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
-                  name="UpsertMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertMatchingCriteria">0</property>
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
                 <property
                   dataType="System.String"
-                  description="Specify the matching fields to be used to determine the matching records that exist in CRM when Manually Specify option is chosen for Upsert action."
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
                   expressionType="Notify"
-                  name="UpsertMatchingFields"></property>
+                  name="RecordMatchingKeyFields"></property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether to ignore those NULL-valued fields."
@@ -944,12 +911,12 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                   description="Specify whether to use optimizations when there are duplicate records form the source system."
                   expressionType="Notify"
                   name="OptimizationOnSourceDuplicates"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">1</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
                 <property
                   dataType="System.String"
-                  description="Workflow to be executed."
+                  description="Workflow or action to be executed."
                   expressionType="Notify"
-                  name="Workflow"></property>
+                  name="WorkflowAction"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of records to be sent to Microsoft Dynamics 365/CRM server in each service call."
@@ -1030,7 +997,7 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Lookup</property>
+                          name="FieldType">Lookup</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">systemuser</property>
@@ -1043,7 +1010,7 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1056,7 +1023,7 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">DateTime</property>
+                          name="FieldType">DateTime</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1069,7 +1036,7 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Owner</property>
+                          name="FieldType">Owner</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">systemuser;team</property>
@@ -1083,7 +1050,7 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">EntityName</property>
+                          name="FieldType">EntityName</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1096,7 +1063,7 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">State</property>
+                          name="FieldType">State</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1109,7 +1076,7 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Status</property>
+                          name="FieldType">Status</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1123,7 +1090,7 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">String</property>
+                          name="FieldType">String</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1137,7 +1104,7 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">String</property>
+                          name="FieldType">String</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1150,7 +1117,7 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1164,7 +1131,7 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">String</property>
+                          name="FieldType">String</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1177,7 +1144,7 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Uniqueidentifier</property>
+                          name="FieldType">Uniqueidentifier</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1190,22 +1157,13 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Lookup</property>
+                          name="FieldType">Lookup</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">tc_tcfiscalyear</property>
                         <property
                           dataType="System.String"
-                          name="TextLookup">&lt;TextLookupSetting&gt;
-  &lt;CacheStrategy&gt;FullCache&lt;/CacheStrategy&gt;
-  &lt;LookupTargets&gt;
-    &lt;LookupTarget&gt;
-      &lt;TargetEntity&gt;tc_tcfiscalyear&lt;/TargetEntity&gt;
-      &lt;TargetTextField&gt;tc_fiscalyearnum&lt;/TargetTextField&gt;
-      &lt;WriteNullOnEmptyValues&gt;false&lt;/WriteNullOnEmptyValues&gt;
-    &lt;/LookupTarget&gt;
-  &lt;/LookupTargets&gt;
-&lt;/TextLookupSetting&gt;</property>
+                          name="LookupSettings">{"CacheStrategy":"FullCache","LookupTargets":[{"TargetEntity":"tc_tcfiscalyear","TargetTextField":"tc_fiscalyearnum","WriteNullOnEmptyValues":false}]}</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -1215,7 +1173,7 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1228,7 +1186,7 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1238,6 +1196,25 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                 </input>
               </inputs>
               <outputs>
+                <output
+                  refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
                 <output
                   refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output]"
                   exclusionGroup="1"
@@ -1258,30 +1235,11 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
                       dataType="wstr"
                       length="2048"
-                      lineageId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
-                      name="CrmErrorMessage" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output]"
-                  exclusionGroup="1"
-                  name="Default Output"
-                  synchronousInputId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      dataType="guid"
-                      lineageId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      name="CrmRecordId" />
-                    <outputColumn
-                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      dataType="bool"
-                      lineageId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      name="IsNew" />
+                      lineageId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1554,7 +1512,7 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
               description="Populate data into Microsoft Dynamics 365 CE/CRM."
               name="Dynamics CRM Destination"
               usesDispositions="true"
-              version="3">
+              version="4">
               <properties>
                 <property
                   dataType="System.String"
@@ -1565,7 +1523,7 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                   dataType="System.Int32"
                   description="Specifies how data is written to CRM server."
                   name="ActionType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationActionType">1</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">1</property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether the values of CRM lookup fields should be removed if the reference records cannot be found. "
@@ -1573,20 +1531,20 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                   name="RemoveUnresolvableReferences">false</property>
                 <property
                   dataType="System.Boolean"
-                  description="Specifies whether duplicate detection should be enabled when creating or updating CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in Microsoft Dynamics CRM."
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
                   expressionType="Notify"
-                  name="EnableDuplicateDetection">false</property>
+                  name="EnableSystemDuplicateDetection">false</property>
                 <property
                   dataType="System.Int32"
-                  description="Specify the matching criteria to be used when Upsert action is chosen."
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
-                  name="UpsertMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertMatchingCriteria">0</property>
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
                 <property
                   dataType="System.String"
-                  description="Specify the matching fields to be used to determine the matching records that exist in CRM when Manually Specify option is chosen for Upsert action."
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
                   expressionType="Notify"
-                  name="UpsertMatchingFields"></property>
+                  name="RecordMatchingKeyFields"></property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether to ignore those NULL-valued fields."
@@ -1618,12 +1576,12 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                   description="Specify whether to use optimizations when there are duplicate records form the source system."
                   expressionType="Notify"
                   name="OptimizationOnSourceDuplicates"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">1</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
                 <property
                   dataType="System.String"
-                  description="Workflow to be executed."
+                  description="Workflow or action to be executed."
                   expressionType="Notify"
-                  name="Workflow"></property>
+                  name="WorkflowAction"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of records to be sent to Microsoft Dynamics 365/CRM server in each service call."
@@ -1690,7 +1648,7 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Lookup</property>
+                          name="FieldType">Lookup</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">systemuser</property>
@@ -1703,7 +1661,7 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1716,7 +1674,7 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">DateTime</property>
+                          name="FieldType">DateTime</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1729,7 +1687,7 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Owner</property>
+                          name="FieldType">Owner</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">systemuser;team</property>
@@ -1743,7 +1701,7 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">EntityName</property>
+                          name="FieldType">EntityName</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1756,7 +1714,7 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">State</property>
+                          name="FieldType">State</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1769,7 +1727,7 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Status</property>
+                          name="FieldType">Status</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1783,7 +1741,7 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">String</property>
+                          name="FieldType">String</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1797,7 +1755,7 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">String</property>
+                          name="FieldType">String</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1811,7 +1769,7 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">String</property>
+                          name="FieldType">String</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1824,7 +1782,7 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Uniqueidentifier</property>
+                          name="FieldType">Uniqueidentifier</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1837,7 +1795,7 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1850,7 +1808,7 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -1860,6 +1818,25 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                 </input>
               </inputs>
               <outputs>
+                <output
+                  refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
                 <output
                   refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output]"
                   exclusionGroup="1"
@@ -1880,30 +1857,11 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
                       dataType="wstr"
                       length="2048"
-                      lineageId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
-                      name="CrmErrorMessage" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output]"
-                  exclusionGroup="1"
-                  name="Default Output"
-                  synchronousInputId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      dataType="guid"
-                      lineageId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      name="CrmRecordId" />
-                    <outputColumn
-                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      dataType="bool"
-                      lineageId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      name="IsNew" />
+                      lineageId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -2176,7 +2134,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
               description="Populate data into Microsoft Dynamics 365 CE/CRM."
               name="Dynamics CRM Destination"
               usesDispositions="true"
-              version="3">
+              version="4">
               <properties>
                 <property
                   dataType="System.String"
@@ -2187,7 +2145,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                   dataType="System.Int32"
                   description="Specifies how data is written to CRM server."
                   name="ActionType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationActionType">1</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">1</property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether the values of CRM lookup fields should be removed if the reference records cannot be found. "
@@ -2195,20 +2153,20 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                   name="RemoveUnresolvableReferences">false</property>
                 <property
                   dataType="System.Boolean"
-                  description="Specifies whether duplicate detection should be enabled when creating or updating CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in Microsoft Dynamics CRM."
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
                   expressionType="Notify"
-                  name="EnableDuplicateDetection">false</property>
+                  name="EnableSystemDuplicateDetection">false</property>
                 <property
                   dataType="System.Int32"
-                  description="Specify the matching criteria to be used when Upsert action is chosen."
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
-                  name="UpsertMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertMatchingCriteria">0</property>
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
                 <property
                   dataType="System.String"
-                  description="Specify the matching fields to be used to determine the matching records that exist in CRM when Manually Specify option is chosen for Upsert action."
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
                   expressionType="Notify"
-                  name="UpsertMatchingFields"></property>
+                  name="RecordMatchingKeyFields"></property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether to ignore those NULL-valued fields."
@@ -2240,12 +2198,12 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                   description="Specify whether to use optimizations when there are duplicate records form the source system."
                   expressionType="Notify"
                   name="OptimizationOnSourceDuplicates"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">1</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
                 <property
                   dataType="System.String"
-                  description="Workflow to be executed."
+                  description="Workflow or action to be executed."
                   expressionType="Notify"
-                  name="Workflow"></property>
+                  name="WorkflowAction"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of records to be sent to Microsoft Dynamics 365/CRM server in each service call."
@@ -2340,7 +2298,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Lookup</property>
+                          name="FieldType">Lookup</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">systemuser</property>
@@ -2353,7 +2311,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -2366,7 +2324,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">DateTime</property>
+                          name="FieldType">DateTime</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -2379,7 +2337,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Owner</property>
+                          name="FieldType">Owner</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">systemuser;team</property>
@@ -2393,7 +2351,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">EntityName</property>
+                          name="FieldType">EntityName</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -2406,7 +2364,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">State</property>
+                          name="FieldType">State</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -2419,7 +2377,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Status</property>
+                          name="FieldType">Status</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -2432,7 +2390,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -2446,7 +2404,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">String</property>
+                          name="FieldType">String</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -2460,7 +2418,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">String</property>
+                          name="FieldType">String</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -2474,7 +2432,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">String</property>
+                          name="FieldType">String</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -2488,7 +2446,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">String</property>
+                          name="FieldType">String</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -2501,7 +2459,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -2515,7 +2473,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">String</property>
+                          name="FieldType">String</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -2528,7 +2486,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Uniqueidentifier</property>
+                          name="FieldType">Uniqueidentifier</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -2541,7 +2499,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -2554,7 +2512,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -2564,6 +2522,25 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                 </input>
               </inputs>
               <outputs>
+                <output
+                  refId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
                 <output
                   refId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Error Output]"
                   exclusionGroup="1"
@@ -2584,30 +2561,11 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
                       dataType="wstr"
                       length="2048"
-                      lineageId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
-                      name="CrmErrorMessage" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Default Output]"
-                  exclusionGroup="1"
-                  name="Default Output"
-                  synchronousInputId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      dataType="guid"
-                      lineageId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      name="CrmRecordId" />
-                    <outputColumn
-                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      dataType="bool"
-                      lineageId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      name="IsNew" />
+                      lineageId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
