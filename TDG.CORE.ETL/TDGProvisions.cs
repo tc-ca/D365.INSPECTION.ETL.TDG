@@ -113,11 +113,14 @@ namespace TDG.CORE.ETL
             SetupBasicLogging();
 
             //don't need act rn
+            var actFraXml = LegApiClient.GetActFromJustice("fra");
+            var tdgFraActs = XML.XMLFunctions.ParseRegs(actFraXml, "Body", "441564");
+
             var actXml = LegApiClient.GetActFromJustice();
             var regXml = LegApiClient.GetRegulationFromJustice();
 
             //XML to "Regulation" class
-            act       = XMLFunctions.ParseRegs(actXml, "Body", "452135");
+            //act       = XMLFunctions.ParseRegs(actXml, "Body", "452135");
             tdgr      = XMLFunctions.ParseRegs(regXml, "Body", "1227365");
             schedule1 = XMLFunctions.ParseRegs(regXml, "Schedule", "1230876");
             schedule2 = XMLFunctions.ParseRegs(regXml, "Schedule", "1230890");

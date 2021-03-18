@@ -69,6 +69,33 @@ namespace TDG.CORE.ETL.CDS.CONSOLE
 
             //string legislationFetchXml = GetLegislationFetchXml();
             ETLLogic.FetchLegislationData();
+
+
+
+            //ETLLogic.DeleteLegislation();
+
+            // ACT FROM LEGS AND REGS
+            //var act = LegApiClient.GetActSerialized("T-19.01", "eng");
+            //var max = act.Regs.Select((n, i) => (Reg: n.RegReg, Index: i)).Max();
+            //var actDetails = LegApiClient.GetRegulation("452135");
+            //var tdgAct = XML.XMLFunctions.ParseRegs(actDetails, "Body", "452135");
+            //ETLLogic.ETLLegislationData(tdgAct);
+
+            // TDG REGULATIONS
+            //var regXml = LegApiClient.GetRegulationFromJustice();
+            //var tdgRegs = XML.XMLFunctions.ParseRegs(regXml, "Body", "1227365");
+            //ETLLogic.ETLLegislationData(tdgRegs);
+
+            var actXml = LegApiClient.GetActFromJustice("fra");
+            var tdgActs = XML.XMLFunctions.ParseRegs(actXml, "Body", "441564");
+            ETLLogic.ETLLegislationData(tdgActs);
+
+            //schedule
+            //var dtSchedule2 = XML.XMLFunctions.ParseRegs(regXml, "Schedule", "1230890");
+            //ETLLogic.ETLLegislationData(dtSchedule2);
+
+            //string legislationFetchXml = GetLegislationFetchXml();
+            //ETLLogic.FetchLegislationData(legislationFetchXml);
         }
 
         static string GetLegislationFetchXml()

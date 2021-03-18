@@ -2,11 +2,11 @@
 //
 // To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
-//    using TDG.CORE.ETL.MODELS.JUSTICE;
+//    using TDG.CORE.ETL.MODELS.LEGSANDREGS;
 //
-//    var ActDetails = ActDetails.FromJson(jsonString);
+//    var welcome = Welcome.FromJson(jsonString);
 
-namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
+namespace TDG.CORE.ETL.MODELS.LEGSANDREGS
 {
     using System;
     using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    public partial class ActDetails
+    public partial class LegsAndRegsActResult
     {
         [JsonProperty("uniqueId")]
         public string UniqueId { get; set; }
@@ -35,43 +35,43 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class Statute
     {
-        [JsonProperty("@lims:pit-date")]
+        [JsonProperty("lims:pit-date")]
         public DateTimeOffset LimsPitDate { get; set; }
 
-        [JsonProperty("@hasPreviousVersion")]
-        [JsonConverter(typeof(PurpleParseStringConverter))]
+        [JsonProperty("hasPreviousVersion")]
+        [JsonConverter(typeof(FluffyParseStringConverter))]
         public bool HasPreviousVersion { get; set; }
 
-        [JsonProperty("@lims:lastAmendedDate")]
+        [JsonProperty("lims:lastAmendedDate")]
         public DateTimeOffset LimsLastAmendedDate { get; set; }
 
-        [JsonProperty("@lims:current-date")]
+        [JsonProperty("lims:current-date")]
         public DateTimeOffset LimsCurrentDate { get; set; }
 
-        [JsonProperty("@lims:inforce-start-date")]
+        [JsonProperty("lims:inforce-start-date")]
         public DateTimeOffset LimsInforceStartDate { get; set; }
 
-        [JsonProperty("@lims:fid")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:fid")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsFid { get; set; }
 
-        [JsonProperty("@lims:id")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:id")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsId { get; set; }
 
-        [JsonProperty("@bill-origin")]
+        [JsonProperty("bill-origin")]
         public string BillOrigin { get; set; }
 
-        [JsonProperty("@bill-type")]
+        [JsonProperty("bill-type")]
         public string BillType { get; set; }
 
-        [JsonProperty("@in-force")]
+        [JsonProperty("in-force")]
         public string InForce { get; set; }
 
-        [JsonProperty("@xml:lang")]
+        [JsonProperty("xml:lang")]
         public string XmlLang { get; set; }
 
-        [JsonProperty("@xmlns:lims")]
+        [JsonProperty("xmlns:lims")]
         public Uri XmlnsLims { get; set; }
 
         [JsonProperty("Identification")]
@@ -89,15 +89,15 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class Body
     {
-        [JsonProperty("@lims:inforce-start-date")]
+        [JsonProperty("lims:inforce-start-date")]
         public DateTimeOffset LimsInforceStartDate { get; set; }
 
-        [JsonProperty("@lims:fid")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:fid")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsFid { get; set; }
 
-        [JsonProperty("@lims:id")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:id")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsId { get; set; }
 
         [JsonProperty("Heading")]
@@ -109,19 +109,19 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class HeadingElement
     {
-        [JsonProperty("@lims:inforce-start-date")]
+        [JsonProperty("lims:inforce-start-date")]
         public DateTimeOffset LimsInforceStartDate { get; set; }
 
-        [JsonProperty("@lims:fid")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:fid")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsFid { get; set; }
 
-        [JsonProperty("@lims:id")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:id")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsId { get; set; }
 
-        [JsonProperty("@level")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("level")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long Level { get; set; }
 
         [JsonProperty("TitleText")]
@@ -130,18 +130,18 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class SectionElement
     {
-        [JsonProperty("@lims:inforce-start-date")]
+        [JsonProperty("lims:inforce-start-date")]
         public DateTimeOffset LimsInforceStartDate { get; set; }
 
-        [JsonProperty("@lims:lastAmendedDate")]
+        [JsonProperty("lims:lastAmendedDate")]
         public DateTimeOffset LimsLastAmendedDate { get; set; }
 
-        [JsonProperty("@lims:fid")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:fid")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsFid { get; set; }
 
-        [JsonProperty("@lims:id")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:id")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsId { get; set; }
 
         [JsonProperty("MarginalNote", NullValueHandling = NullValueHandling.Ignore)]
@@ -168,15 +168,15 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class Definition
     {
-        [JsonProperty("@lims:inforce-start-date")]
+        [JsonProperty("lims:inforce-start-date")]
         public DateTimeOffset LimsInforceStartDate { get; set; }
 
-        [JsonProperty("@lims:fid")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:fid")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsFid { get; set; }
 
-        [JsonProperty("@lims:id")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:id")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsId { get; set; }
 
         [JsonProperty("Text")]
@@ -188,15 +188,15 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class DefinitionParagraph
     {
-        [JsonProperty("@lims:inforce-start-date")]
+        [JsonProperty("lims:inforce-start-date")]
         public DateTimeOffset LimsInforceStartDate { get; set; }
 
-        [JsonProperty("@lims:fid")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:fid")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsFid { get; set; }
 
-        [JsonProperty("@lims:id")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:id")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsId { get; set; }
 
         [JsonProperty("Label")]
@@ -208,7 +208,7 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class PurpleText
     {
-        [JsonProperty("#text")]
+        [JsonProperty("text")]
         public List<string> Text { get; set; }
 
         [JsonProperty("XRefExternal", NullValueHandling = NullValueHandling.Ignore)]
@@ -220,13 +220,13 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class XRefExternalElement
     {
-        [JsonProperty("@reference-type")]
+        [JsonProperty("reference-type")]
         public ReferenceType ReferenceType { get; set; }
 
-        [JsonProperty("@link", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("link", NullValueHandling = NullValueHandling.Ignore)]
         public string Link { get; set; }
 
-        [JsonProperty("#text")]
+        [JsonProperty("text")]
         public string Text { get; set; }
     }
 
@@ -238,7 +238,7 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
         [JsonProperty("Repealed", NullValueHandling = NullValueHandling.Ignore)]
         public string Repealed { get; set; }
 
-        [JsonProperty("#text", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("text", NullValueHandling = NullValueHandling.Ignore)]
         public Text? Text { get; set; }
 
         [JsonProperty("DefinedTermFr", NullValueHandling = NullValueHandling.Ignore)]
@@ -259,25 +259,25 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class Introduction
     {
-        [JsonProperty("@lims:inforce-start-date")]
+        [JsonProperty("lims:inforce-start-date")]
         public DateTimeOffset LimsInforceStartDate { get; set; }
 
-        [JsonProperty("@lims:fid")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:fid")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsFid { get; set; }
 
-        [JsonProperty("@lims:id")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:id")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsId { get; set; }
 
-        [JsonProperty("#text", NullValueHandling = NullValueHandling.Ignore)]
-        public string Text { get; set; }
+        [JsonProperty("text", NullValueHandling = NullValueHandling.Ignore)]
+        public string IntroductionText { get; set; }
 
-        [JsonProperty("@lims:enacted-date", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("lims:enacted-date", NullValueHandling = NullValueHandling.Ignore)]
         public DateTimeOffset? LimsEnactedDate { get; set; }
 
         [JsonProperty("Text", NullValueHandling = NullValueHandling.Ignore)]
-        public string IntroductionText { get; set; }
+        public string Text { get; set; }
 
         [JsonProperty("XRefExternal", NullValueHandling = NullValueHandling.Ignore)]
         public XRefExternalElement XRefExternal { get; set; }
@@ -288,7 +288,7 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
         [JsonProperty("Stages", NullValueHandling = NullValueHandling.Ignore)]
         public List<Stage> Stages { get; set; }
 
-        [JsonProperty("@status", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("status", NullValueHandling = NullValueHandling.Ignore)]
         public string Status { get; set; }
 
         [JsonProperty("Enacts", NullValueHandling = NullValueHandling.Ignore)]
@@ -300,24 +300,24 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class IntroductionProvision
     {
-        [JsonProperty("@lims:inforce-start-date")]
+        [JsonProperty("lims:inforce-start-date")]
         public DateTimeOffset LimsInforceStartDate { get; set; }
 
-        [JsonProperty("@lims:fid")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:fid")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsFid { get; set; }
 
-        [JsonProperty("@lims:id")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:id")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsId { get; set; }
 
-        [JsonProperty("@format-ref")]
+        [JsonProperty("format-ref")]
         public string FormatRef { get; set; }
 
-        [JsonProperty("@language-align")]
+        [JsonProperty("language-align")]
         public string LanguageAlign { get; set; }
 
-        [JsonProperty("@list-item")]
+        [JsonProperty("list-item")]
         public string ListItem { get; set; }
 
         [JsonProperty("Text")]
@@ -326,18 +326,18 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class Stage
     {
-        [JsonProperty("@lims:inforce-start-date")]
+        [JsonProperty("lims:inforce-start-date")]
         public DateTimeOffset LimsInforceStartDate { get; set; }
 
-        [JsonProperty("@lims:fid", NullValueHandling = NullValueHandling.Ignore)]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:fid", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long? LimsFid { get; set; }
 
-        [JsonProperty("@lims:id", NullValueHandling = NullValueHandling.Ignore)]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long? LimsId { get; set; }
 
-        [JsonProperty("@stage")]
+        [JsonProperty("stage")]
         public string StageStage { get; set; }
 
         [JsonProperty("Date")]
@@ -347,32 +347,32 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
     public partial class Date
     {
         [JsonProperty("YYYY")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long Yyyy { get; set; }
 
         [JsonProperty("MM")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long Mm { get; set; }
 
         [JsonProperty("DD")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long Dd { get; set; }
     }
 
     public partial class MarginalNote
     {
-        [JsonProperty("@lims:inforce-start-date")]
+        [JsonProperty("lims:inforce-start-date")]
         public DateTimeOffset LimsInforceStartDate { get; set; }
 
-        [JsonProperty("@lims:fid")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:fid")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsFid { get; set; }
 
-        [JsonProperty("@lims:id")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:id")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsId { get; set; }
 
-        [JsonProperty("#text")]
+        [JsonProperty("text")]
         public string Text { get; set; }
 
         [JsonProperty("XRefExternal", NullValueHandling = NullValueHandling.Ignore)]
@@ -384,24 +384,24 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class Language
     {
-        [JsonProperty("@xml:lang")]
+        [JsonProperty("xml:lang")]
         public string XmlLang { get; set; }
 
-        [JsonProperty("#text")]
+        [JsonProperty("text")]
         public string Text { get; set; }
     }
 
     public partial class SectionParagraph
     {
-        [JsonProperty("@lims:inforce-start-date")]
+        [JsonProperty("lims:inforce-start-date")]
         public DateTimeOffset LimsInforceStartDate { get; set; }
 
-        [JsonProperty("@lims:fid")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:fid")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsFid { get; set; }
 
-        [JsonProperty("@lims:id")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:id")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsId { get; set; }
 
         [JsonProperty("Label")]
@@ -413,15 +413,15 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class PurpleSubsection
     {
-        [JsonProperty("@lims:inforce-start-date")]
+        [JsonProperty("lims:inforce-start-date")]
         public DateTimeOffset LimsInforceStartDate { get; set; }
 
-        [JsonProperty("@lims:fid")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:fid")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsFid { get; set; }
 
-        [JsonProperty("@lims:id")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:id")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsId { get; set; }
 
         [JsonProperty("Label")]
@@ -442,15 +442,15 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class SubsectionParagraph
     {
-        [JsonProperty("@lims:inforce-start-date")]
+        [JsonProperty("lims:inforce-start-date")]
         public DateTimeOffset LimsInforceStartDate { get; set; }
 
-        [JsonProperty("@lims:fid")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:fid")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsFid { get; set; }
 
-        [JsonProperty("@lims:id")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:id")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsId { get; set; }
 
         [JsonProperty("Label")]
@@ -459,7 +459,7 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
         [JsonProperty("Text")]
         public IndecentText Text { get; set; }
 
-        [JsonProperty("@lims:enacted-date", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("lims:enacted-date", NullValueHandling = NullValueHandling.Ignore)]
         public DateTimeOffset? LimsEnactedDate { get; set; }
 
         [JsonProperty("Subparagraph", NullValueHandling = NullValueHandling.Ignore)]
@@ -468,7 +468,7 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class FluffyText
     {
-        [JsonProperty("#text")]
+        [JsonProperty("text")]
         public List<string> Text { get; set; }
 
         [JsonProperty("XRefExternal")]
@@ -477,7 +477,7 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class TentacledText
     {
-        [JsonProperty("#text", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("text", NullValueHandling = NullValueHandling.Ignore)]
         public List<string> Text { get; set; }
 
         [JsonProperty("XRefExternal", NullValueHandling = NullValueHandling.Ignore)]
@@ -492,15 +492,15 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class Identification
     {
-        [JsonProperty("@lims:inforce-start-date")]
+        [JsonProperty("lims:inforce-start-date")]
         public DateTimeOffset LimsInforceStartDate { get; set; }
 
-        [JsonProperty("@lims:fid")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:fid")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsFid { get; set; }
 
-        [JsonProperty("@lims:id")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:id")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsId { get; set; }
 
         [JsonProperty("LongTitle")]
@@ -521,15 +521,15 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class Chapter
     {
-        [JsonProperty("@lims:inforce-start-date")]
+        [JsonProperty("lims:inforce-start-date")]
         public DateTimeOffset LimsInforceStartDate { get; set; }
 
-        [JsonProperty("@lims:fid")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:fid")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsFid { get; set; }
 
-        [JsonProperty("@lims:id")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:id")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsId { get; set; }
 
         [JsonProperty("ConsolidatedNumber")]
@@ -541,47 +541,47 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class AnnualStatuteId
     {
-        [JsonProperty("@revised-statute")]
+        [JsonProperty("revised-statute")]
         public string RevisedStatute { get; set; }
 
         [JsonProperty("AnnualStatuteNumber")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long AnnualStatuteNumber { get; set; }
 
         [JsonProperty("YYYY")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long Yyyy { get; set; }
     }
 
     public partial class ConsolidatedNumber
     {
-        [JsonProperty("@official")]
+        [JsonProperty("official")]
         public string Official { get; set; }
 
-        [JsonProperty("#text")]
+        [JsonProperty("text")]
         public string Text { get; set; }
     }
 
     public partial class Schedule
     {
-        [JsonProperty("@lims:inforce-start-date", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("lims:inforce-start-date", NullValueHandling = NullValueHandling.Ignore)]
         public DateTimeOffset? LimsInforceStartDate { get; set; }
 
-        [JsonProperty("@lims:lastAmendedDate", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("lims:lastAmendedDate", NullValueHandling = NullValueHandling.Ignore)]
         public DateTimeOffset? LimsLastAmendedDate { get; set; }
 
-        [JsonProperty("@lims:fid", NullValueHandling = NullValueHandling.Ignore)]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:fid", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long? LimsFid { get; set; }
 
-        [JsonProperty("@lims:id", NullValueHandling = NullValueHandling.Ignore)]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long? LimsId { get; set; }
 
-        [JsonProperty("@bilingual", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("bilingual", NullValueHandling = NullValueHandling.Ignore)]
         public string Bilingual { get; set; }
 
-        [JsonProperty("@spanlanguages", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("spanlanguages", NullValueHandling = NullValueHandling.Ignore)]
         public string Spanlanguages { get; set; }
 
         [JsonProperty("ScheduleFormHeading")]
@@ -593,7 +593,7 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
         [JsonProperty("HistoricalNote", NullValueHandling = NullValueHandling.Ignore)]
         public ScheduleHistoricalNote HistoricalNote { get; set; }
 
-        [JsonProperty("@id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
         public string Id { get; set; }
 
         [JsonProperty("BillPiece", NullValueHandling = NullValueHandling.Ignore)]
@@ -617,11 +617,11 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class RelatedOrNotInForceHeading
     {
-        [JsonProperty("@level")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("level")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long Level { get; set; }
 
-        [JsonProperty("@style")]
+        [JsonProperty("style")]
         public string Style { get; set; }
 
         [JsonProperty("TitleText")]
@@ -630,11 +630,11 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class RelatedOrNotInForceSection
     {
-        [JsonProperty("@type")]
+        [JsonProperty("type")]
         public string Type { get; set; }
 
         [JsonProperty("Label")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long Label { get; set; }
 
         [JsonProperty("Text")]
@@ -646,7 +646,7 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class AmendedText
     {
-        [JsonProperty("@include-in-TableOfProvisions")]
+        [JsonProperty("include-in-TableOfProvisions")]
         public string IncludeInTableOfProvisions { get; set; }
 
         [JsonProperty("Heading")]
@@ -658,8 +658,8 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class AmendedTextHeading
     {
-        [JsonProperty("@level")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("level")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long Level { get; set; }
 
         [JsonProperty("TitleText")]
@@ -698,29 +698,29 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class ProvisionElement
     {
-        [JsonProperty("@lims:inforce-start-date")]
+        [JsonProperty("lims:inforce-start-date")]
         public DateTimeOffset LimsInforceStartDate { get; set; }
 
-        [JsonProperty("@lims:fid")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:fid")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsFid { get; set; }
 
-        [JsonProperty("@lims:id")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:id")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long LimsId { get; set; }
 
-        [JsonProperty("@first-line-indent")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("first-line-indent")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long FirstLineIndent { get; set; }
 
-        [JsonProperty("@language-align")]
+        [JsonProperty("language-align")]
         public string LanguageAlign { get; set; }
 
-        [JsonProperty("@list-item")]
+        [JsonProperty("list-item")]
         public string ListItem { get; set; }
 
-        [JsonProperty("@subsequent-line-indent")]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("subsequent-line-indent")]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long SubsequentLineIndent { get; set; }
 
         [JsonProperty("Label")]
@@ -732,7 +732,7 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class StickyText
     {
-        [JsonProperty("#text")]
+        [JsonProperty("text")]
         public Text Text { get; set; }
 
         [JsonProperty("XRefExternal")]
@@ -741,15 +741,15 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
 
     public partial class ScheduleFormHeading
     {
-        [JsonProperty("@lims:inforce-start-date", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("lims:inforce-start-date", NullValueHandling = NullValueHandling.Ignore)]
         public DateTimeOffset? LimsInforceStartDate { get; set; }
 
-        [JsonProperty("@lims:fid", NullValueHandling = NullValueHandling.Ignore)]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:fid", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long? LimsFid { get; set; }
 
-        [JsonProperty("@lims:id", NullValueHandling = NullValueHandling.Ignore)]
-        [JsonConverter(typeof(FluffyParseStringConverter))]
+        [JsonProperty("lims:id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(PurpleParseStringConverter))]
         public long? LimsId { get; set; }
 
         [JsonProperty("Label", NullValueHandling = NullValueHandling.Ignore)]
@@ -758,7 +758,7 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
         [JsonProperty("OriginatingRef", NullValueHandling = NullValueHandling.Ignore)]
         public string OriginatingRef { get; set; }
 
-        [JsonProperty("@type", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
         public string Type { get; set; }
 
         [JsonProperty("TitleText", NullValueHandling = NullValueHandling.Ignore)]
@@ -830,14 +830,14 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
         public static implicit operator ProvisionText(string String) => new ProvisionText { String = String };
     }
 
-    public partial class ActDetails
+    public partial class LegsAndRegsActResult
     {
-        public static ActDetails FromJson(string json) => JsonConvert.DeserializeObject<ActDetails>(json, MODELS.Converter.Settings);
+        public static LegsAndRegsActResult FromJson(string json) => JsonConvert.DeserializeObject<LegsAndRegsActResult>(json, TDG.CORE.ETL.MODELS.LEGSANDREGS.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this ActDetails self) => JsonConvert.SerializeObject(self, MODELS.Converter.Settings);
+        public static string ToJson(this LegsAndRegsActResult self) => JsonConvert.SerializeObject(self, TDG.CORE.ETL.MODELS.LEGSANDREGS.Converter.Settings);
     }
 
     internal static class Converter
@@ -862,38 +862,6 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
     }
 
     internal class PurpleParseStringConverter : JsonConverter
-    {
-        public override bool CanConvert(Type t) => t == typeof(bool) || t == typeof(bool?);
-
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
-        {
-            if (reader.TokenType == JsonToken.Null) return null;
-            var value = serializer.Deserialize<string>(reader);
-            bool b;
-            if (Boolean.TryParse(value, out b))
-            {
-                return b;
-            }
-            throw new Exception("Cannot unmarshal type bool");
-        }
-
-        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
-        {
-            if (untypedValue == null)
-            {
-                serializer.Serialize(writer, null);
-                return;
-            }
-            var value = (bool)untypedValue;
-            var boolString = value ? "true" : "false";
-            serializer.Serialize(writer, boolString);
-            return;
-        }
-
-        public static readonly PurpleParseStringConverter Singleton = new PurpleParseStringConverter();
-    }
-
-    internal class FluffyParseStringConverter : JsonConverter
     {
         public override bool CanConvert(Type t) => t == typeof(long) || t == typeof(long?);
 
@@ -921,7 +889,7 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
             return;
         }
 
-        public static readonly FluffyParseStringConverter Singleton = new FluffyParseStringConverter();
+        public static readonly PurpleParseStringConverter Singleton = new PurpleParseStringConverter();
     }
 
     internal class IndigoTextConverter : JsonConverter
@@ -1227,5 +1195,37 @@ namespace TDG.CORE.INTEGRATION.LEGAPI.MODELS
         }
 
         public static readonly ProvisionTextConverter Singleton = new ProvisionTextConverter();
+    }
+
+    internal class FluffyParseStringConverter : JsonConverter
+    {
+        public override bool CanConvert(Type t) => t == typeof(bool) || t == typeof(bool?);
+
+        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
+        {
+            if (reader.TokenType == JsonToken.Null) return null;
+            var value = serializer.Deserialize<string>(reader);
+            bool b;
+            if (Boolean.TryParse(value, out b))
+            {
+                return b;
+            }
+            throw new Exception("Cannot unmarshal type bool");
+        }
+
+        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
+        {
+            if (untypedValue == null)
+            {
+                serializer.Serialize(writer, null);
+                return;
+            }
+            var value = (bool)untypedValue;
+            var boolString = value ? "true" : "false";
+            serializer.Serialize(writer, boolString);
+            return;
+        }
+
+        public static readonly FluffyParseStringConverter Singleton = new FluffyParseStringConverter();
     }
 }

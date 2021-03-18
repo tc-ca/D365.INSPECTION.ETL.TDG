@@ -92,6 +92,7 @@
     <Compile Include="EarlyBoundCS\qm_tylegislationtype.cs" />
     <Compile Include="LEGISLATION\LegislationModels.cs" />
     <Compile Include="LEGISLATION\JusticeToTCModel.cs" />
+    <Compile Include="LegsRegsApiModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QUESTIONNAIRE\QuestionnaireModels.cs" />
   </ItemGroup>
