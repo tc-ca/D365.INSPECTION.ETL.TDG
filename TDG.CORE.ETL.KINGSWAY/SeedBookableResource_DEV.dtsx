@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SeedBookableResource_DEV"
   DTS:PackageType="5"
-  DTS:VersionBuild="32"
-  DTS:VersionGUID="{40486352-087F-4135-978A-12AA858BF25B}">
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{AD793DAC-71B4-4EFA-879D-EA1EE25DCAD8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,11 +23,11 @@
       DTS:ObjectName="Dynamics CRM Connection Manager">
       <DTS:ObjectData>
         <CrmConnectionManager
-          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test1@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
+          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test1@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev2-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
           ConnectByProxy="False">
           <Password
             Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIZuLjAfDoE+9f51sCeUnHAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAALjJP0HmJNx7dYB6C6wR4cAAAAAASAAACgAAAAEAAAALC5QsooGOJUsF1dfk7HSD8YAAAAUcfzKjbDKqFo0urwVnmkT3LURIlMMFsFFAAAAEZLR8W15MDykCkP/7YB863/TGDm</Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIZuLjAfDoE+9f51sCeUnHAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA0b47uCVnEnkv3ghLI4q+4AAAAAASAAACgAAAAEAAAALi3HoxCEOGwt/4q2IooNgcYAAAATHhAQi8S33g/dkvmYUcYONfFitmR9neAFAAAAAGdOLn+t6aAw2d621jZEEDs4nad</Password>
         </CrmConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -3413,7 +3413,7 @@
                   Encrypted="1"
                   expressionType="Notify"
                   name="OpenPassword"
-                  Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIZuLjAfDoE+9f51sCeUnHAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACJxTtJLmZ5b2HspqRKw7y7AAAAAASAAACgAAAAEAAAAMTeVEG41Bc7jW5KJgg46+8IAAAAzM6qDfxozHoUAAAArXiVSgq52dV+pC8nTxQkSUxDf6U</property>
+                  Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIZuLjAfDoE+9f51sCeUnHAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAnv84bgxUw2iLp1MdFikuUAAAAAASAAACgAAAAEAAAAP0O6enOUHpfZHs/x4HExY8IAAAAFTpeqRn0mbgUAAAA+LhUJqTxB3MqlTOuaXwkDKKaVsQ</property>
                 <property
                   dataType="System.Int32"
                   description="Specify the write mode."
@@ -3880,7 +3880,7 @@
                   Encrypted="1"
                   expressionType="Notify"
                   name="OpenPassword"
-                  Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIZuLjAfDoE+9f51sCeUnHAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABO2Bcu2RaYF4eS6/bG5ZbLAAAAAASAAACgAAAAEAAAADZNjXOPSsjjYzY0dLyLcTwIAAAAFnGFQUHrH9wUAAAA++/W71cL6j8hUYHTnYnfLLiYt7k</property>
+                  Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIZuLjAfDoE+9f51sCeUnHAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABPuY6W+VVyLusQzCmUf6ZzAAAAAASAAACgAAAAEAAAAD4HeW+WIGhSCjSLKhJDbSkIAAAAU+At52HBXHQUAAAAW4eqxpsriMyCFCtYqPJcR5LNrzE</property>
                 <property
                   dataType="System.Int32"
                   description="Specify the write mode."
@@ -4515,101 +4515,33 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="207,42"
-          Id="Package\Insert Inspectors\Assign Resource Territories"
-          TopLeft="471,726" />
-        <NodeLayout
           Size="202,42"
           Id="Package\Insert Inspectors\Assign Inspector Category"
           TopLeft="484,607" />
-        <NodeLayout
-          Size="139,42"
-          Id="Package\Insert Inspectors\Excel Source"
-          TopLeft="702,137" />
         <NodeLayout
           Size="199,42"
           Id="Package\Insert Inspectors\Insert Bookable Resource"
           TopLeft="669,346" />
         <NodeLayout
-          Size="154,42"
-          Id="Package\Insert Inspectors\Derived Column"
-          TopLeft="693,236" />
+          Size="207,42"
+          Id="Package\Insert Inspectors\Assign Resource Territories"
+          TopLeft="471,726" />
+        <NodeLayout
+          Size="214,42"
+          Id="Package\Insert Inspectors\Premium Excel Destination 1"
+          TopLeft="504,494" />
         <NodeLayout
           Size="204,42"
           Id="Package\Insert Inspectors\Premium Excel Destination"
           TopLeft="860,495" />
         <NodeLayout
-          Size="214,42"
-          Id="Package\Insert Inspectors\Premium Excel Destination 1"
-          TopLeft="504,494" />
-        <EdgeLayout
-          Id="Package\Insert Inspectors.Paths[Default Output1]"
-          TopLeft="611,536">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-26,71"
-              Start="0,0"
-              End="-26,63.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.5"
-                    Point2="0,35.5"
-                    Point3="-4,35.5" />
-                  <mssgle:LineSegment
-                    End="-22,35.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22,35.5"
-                    Point2="-26,35.5"
-                    Point3="-26,39.5" />
-                  <mssgle:LineSegment
-                    End="-26,63.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insert Inspectors.Paths[Default Output]"
-          TopLeft="736.666666666667,388">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-125.666666666667,106"
-              Start="0,0"
-              End="-125.666666666667,98.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.9072781655035" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,38.9072781655035"
-                    Point2="0,42.9072781655035"
-                    Point3="-4,42.9072781655035" />
-                  <mssgle:LineSegment
-                    End="-121.666666666667,42.9072781655035" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-121.666666666667,42.9072781655035"
-                    Point2="-125.666666666667,42.9072781655035"
-                    Point3="-125.666666666667,46.9072781655035" />
-                  <mssgle:LineSegment
-                    End="-125.666666666667,98.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="139,42"
+          Id="Package\Insert Inspectors\Excel Source"
+          TopLeft="702,137" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Insert Inspectors\Derived Column"
+          TopLeft="693,236" />
         <EdgeLayout
           Id="Package\Insert Inspectors.Paths[Excel Source Output]"
           TopLeft="770.75,179">
@@ -4716,6 +4648,74 @@
                     Point3="-10.5,42.5" />
                   <mssgle:LineSegment
                     End="-10.5,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insert Inspectors.Paths[Default Output1]"
+          TopLeft="611,536">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-26,71"
+              Start="0,0"
+              End="-26,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5"
+                    Point2="0,35.5"
+                    Point3="-4,35.5" />
+                  <mssgle:LineSegment
+                    End="-22,35.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22,35.5"
+                    Point2="-26,35.5"
+                    Point3="-26,39.5" />
+                  <mssgle:LineSegment
+                    End="-26,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insert Inspectors.Paths[Default Output]"
+          TopLeft="736.666666666667,388">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-125.666666666667,106"
+              Start="0,0"
+              End="-125.666666666667,98.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.9072781655035" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.9072781655035"
+                    Point2="0,42.9072781655035"
+                    Point3="-4,42.9072781655035" />
+                  <mssgle:LineSegment
+                    End="-121.666666666667,42.9072781655035" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-121.666666666667,42.9072781655035"
+                    Point2="-125.666666666667,42.9072781655035"
+                    Point3="-125.666666666667,46.9072781655035" />
+                  <mssgle:LineSegment
+                    End="-125.666666666667,98.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
