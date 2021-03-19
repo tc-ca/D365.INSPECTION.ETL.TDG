@@ -8,17 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TC.Legislation.EarlyBound {
+namespace CrmWebApiEarlyBoundGenerator {
     
     
     // <summary>
-    // Reason for the status of the Questionnaire
-    //Raison du statut de l'élément Questionnaire
+    // Status of the Validation Rule Type
+    //Statut de l'élément Validation Rule Type
     // </summary>
-    public enum qm_syQuestionnaire_statuscode {
+    public enum qm_TYValidationruletype_statecode {
         
-        Active = 1,
+        Active = 0,
         
-        Inactive = 2,
+        Inactive = 1,
     }
 }

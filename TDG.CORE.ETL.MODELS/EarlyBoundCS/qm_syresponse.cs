@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TC.Legislation.EarlyBound {
+namespace CrmWebApiEarlyBoundGenerator {
     using System.Reflection;
     using System.Linq;
     using System;
@@ -157,6 +157,30 @@ namespace TC.Legislation.EarlyBound {
         }
         
         // <summary>
+        // indicator representing if this response is a problem
+        // </summary>
+        public bool? qm_isproblemind {
+            get {
+                return this.GetAttributeValue<bool?>("qm_isproblemind");
+            }
+            set {
+                this.SetAttributeValue("qm_isproblemind", value);
+            }
+        }
+        
+        // <summary>
+        // indicator representing if this response is a safety concern
+        // </summary>
+        public bool? qm_issafetyconcern {
+            get {
+                return this.GetAttributeValue<bool?>("qm_issafetyconcern");
+            }
+            set {
+                this.SetAttributeValue("qm_issafetyconcern", value);
+            }
+        }
+        
+        // <summary>
         // The name of the custom entity.
         // </summary>
         public String qm_name {
@@ -165,6 +189,54 @@ namespace TC.Legislation.EarlyBound {
             }
             set {
                 this.SetAttributeValue("qm_name", value);
+            }
+        }
+        
+        // <summary>
+        // Order number of the response in the UI
+        // </summary>
+        public int? qm_ordernbr {
+            get {
+                return this.GetAttributeValue<int?>("qm_ordernbr");
+            }
+            set {
+                this.SetAttributeValue("qm_ordernbr", value);
+            }
+        }
+        
+        // <summary>
+        // what type of response control for this question response
+        // </summary>
+        public int? qm_questionresponsetypecd {
+            get {
+                return this.GetAttributeValue<int?>("qm_questionresponsetypecd");
+            }
+            set {
+                this.SetAttributeValue("qm_questionresponsetypecd", value);
+            }
+        }
+        
+        // <summary>
+        // English Text of Question Repsonse
+        // </summary>
+        public String qm_responseetxt {
+            get {
+                return this.GetAttributeValue<String>("qm_responseetxt");
+            }
+            set {
+                this.SetAttributeValue("qm_responseetxt", value);
+            }
+        }
+        
+        // <summary>
+        // French Text of Question REsponse
+        // </summary>
+        public String qm_responseftxt {
+            get {
+                return this.GetAttributeValue<String>("qm_responseftxt");
+            }
+            set {
+                this.SetAttributeValue("qm_responseftxt", value);
             }
         }
         
@@ -322,7 +394,25 @@ namespace TC.Legislation.EarlyBound {
             
             public const string OverriddenCreatedOn = "overriddencreatedon";
             
+            public const string qm_isproblemind = "qm_isproblemind";
+            
+            public const string qm_isproblemindName = "qm_isproblemindname";
+            
+            public const string qm_issafetyconcern = "qm_issafetyconcern";
+            
+            public const string qm_issafetyconcernName = "qm_issafetyconcernname";
+            
             public const string qm_name = "qm_name";
+            
+            public const string qm_ordernbr = "qm_ordernbr";
+            
+            public const string qm_questionresponsetypecd = "qm_questionresponsetypecd";
+            
+            public const string qm_questionresponsetypecdName = "qm_questionresponsetypecdname";
+            
+            public const string qm_responseetxt = "qm_responseetxt";
+            
+            public const string qm_responseftxt = "qm_responseftxt";
             
             public const string qm_SYQuestionId = "qm_syquestionid";
             
@@ -402,7 +492,25 @@ namespace TC.Legislation.EarlyBound {
             
             public const string OverriddenCreatedOn = "OverriddenCreatedOn";
             
+            public const string qm_isproblemind = "qm_isproblemind";
+            
+            public const string qm_isproblemindName = "qm_isproblemindName";
+            
+            public const string qm_issafetyconcern = "qm_issafetyconcern";
+            
+            public const string qm_issafetyconcernName = "qm_issafetyconcernName";
+            
             public const string qm_name = "qm_name";
+            
+            public const string qm_ordernbr = "qm_ordernbr";
+            
+            public const string qm_questionresponsetypecd = "qm_questionresponsetypecd";
+            
+            public const string qm_questionresponsetypecdName = "qm_questionresponsetypecdName";
+            
+            public const string qm_responseetxt = "qm_responseetxt";
+            
+            public const string qm_responseftxt = "qm_responseftxt";
             
             public const string qm_SYQuestionId = "qm_SYQuestionId";
             

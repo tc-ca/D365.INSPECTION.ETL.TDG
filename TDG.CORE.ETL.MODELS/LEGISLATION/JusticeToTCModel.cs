@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TDG.CORE.ETL.EXTENSIONS;
+using CrmWebApiEarlyBoundGenerator;
 
 namespace TDG.CORE.ETL.MODELS.LEGISLATION
 {

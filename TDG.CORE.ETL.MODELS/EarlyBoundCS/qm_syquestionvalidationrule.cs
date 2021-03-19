@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TC.Legislation.EarlyBound {
+namespace CrmWebApiEarlyBoundGenerator {
     using System.Reflection;
     using System.Linq;
     using System;
@@ -216,12 +216,25 @@ namespace TC.Legislation.EarlyBound {
             }
         }
         
-        public String qm_ValidationValue {
+        // <summary>
+        // Unique identifier for Validation Rule Type associated with Question Validation Rule.
+        // </summary>
+        [EntityReference("qm_tyvalidationruletypes", "_qm_tyvalidationruletypeid_value")]
+        public EntityReference qm_tyvalidationruletypeId {
             get {
-                return this.GetAttributeValue<String>("qm_ValidationValue");
+                return this.GetAttributeValue<EntityReference>("qm_tyvalidationruletypeId@odata.bind");
             }
             set {
-                this.SetAttributeValue("qm_ValidationValue", value);
+                this.SetAttributeValue("qm_tyvalidationruletypeId@odata.bind", value);
+            }
+        }
+        
+        public String qm_validationvaluetxt {
+            get {
+                return this.GetAttributeValue<String>("qm_validationvaluetxt");
+            }
+            set {
+                this.SetAttributeValue("qm_validationvaluetxt", value);
             }
         }
         
@@ -304,6 +317,8 @@ namespace TC.Legislation.EarlyBound {
             
             public const string _qm_SYQuestionId_value = "_qm_syquestionid_value";
             
+            public const string _qm_tyvalidationruletypeId_value = "_qm_tyvalidationruletypeid_value";
+            
             public const string CreatedBy = "createdby";
             
             public const string CreatedByName = "createdbyname";
@@ -352,7 +367,11 @@ namespace TC.Legislation.EarlyBound {
             
             public const string qm_syquestionvalidationruleId = "qm_syquestionvalidationruleid";
             
-            public const string qm_ValidationValue = "qm_validationvalue";
+            public const string qm_tyvalidationruletypeId = "qm_tyvalidationruletypeid";
+            
+            public const string qm_tyvalidationruletypeIdName = "qm_tyvalidationruletypeidname";
+            
+            public const string qm_validationvaluetxt = "qm_validationvaluetxt";
             
             public const string statecode = "statecode";
             
@@ -384,6 +403,8 @@ namespace TC.Legislation.EarlyBound {
             public const string organizationid = "organizationid";
             
             public const string qm_SYQuestionId = "qm_SYQuestionId";
+            
+            public const string qm_tyvalidationruletypeId = "qm_tyvalidationruletypeId";
         }
         
         public class Schemas {
@@ -436,7 +457,11 @@ namespace TC.Legislation.EarlyBound {
             
             public const string qm_syquestionvalidationruleId = "qm_syquestionvalidationruleId";
             
-            public const string qm_ValidationValue = "qm_ValidationValue";
+            public const string qm_tyvalidationruletypeId = "qm_tyvalidationruletypeId";
+            
+            public const string qm_tyvalidationruletypeIdName = "qm_tyvalidationruletypeIdName";
+            
+            public const string qm_validationvaluetxt = "qm_validationvaluetxt";
             
             public const string statecode = "statecode";
             

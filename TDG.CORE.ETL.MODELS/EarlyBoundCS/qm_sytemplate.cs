@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TC.Legislation.EarlyBound {
+namespace CrmWebApiEarlyBoundGenerator {
     using System.Reflection;
     using System.Linq;
     using System;
@@ -181,21 +181,63 @@ namespace TC.Legislation.EarlyBound {
             }
         }
         
-        public String qm_TemplateE {
+        // <summary>
+        // English description of the template
+        // </summary>
+        public String qm_templatedescetxt {
             get {
-                return this.GetAttributeValue<String>("qm_TemplateE");
+                return this.GetAttributeValue<String>("qm_templatedescetxt");
             }
             set {
-                this.SetAttributeValue("qm_TemplateE", value);
+                this.SetAttributeValue("qm_templatedescetxt", value);
             }
         }
         
-        public String qm_TemplateF {
+        // <summary>
+        // The French description of the questionnaire template
+        // </summary>
+        public String qm_templatedescftxt {
             get {
-                return this.GetAttributeValue<String>("qm_TemplateF");
+                return this.GetAttributeValue<String>("qm_templatedescftxt");
             }
             set {
-                this.SetAttributeValue("qm_TemplateF", value);
+                this.SetAttributeValue("qm_templatedescftxt", value);
+            }
+        }
+        
+        // <summary>
+        // English name of the questionnaire template
+        // </summary>
+        public String qm_templateenm {
+            get {
+                return this.GetAttributeValue<String>("qm_templateenm");
+            }
+            set {
+                this.SetAttributeValue("qm_templateenm", value);
+            }
+        }
+        
+        // <summary>
+        // The French name of the questionnaire template
+        // </summary>
+        public String qm_templatefnm {
+            get {
+                return this.GetAttributeValue<String>("qm_templatefnm");
+            }
+            set {
+                this.SetAttributeValue("qm_templatefnm", value);
+            }
+        }
+        
+        // <summary>
+        // JSON string representing the template configuration
+        // </summary>
+        public String qm_templatejsontxt {
+            get {
+                return this.GetAttributeValue<String>("qm_templatejsontxt");
+            }
+            set {
+                this.SetAttributeValue("qm_templatejsontxt", value);
             }
         }
         
@@ -316,9 +358,17 @@ namespace TC.Legislation.EarlyBound {
             
             public const string qm_sytemplateId = "qm_sytemplateid";
             
-            public const string qm_TemplateE = "qm_templateenm";
+            public const string qm_templatedescetxt = "qm_templatedescetxt";
             
-            public const string qm_TemplateF = "qm_templatefnm";
+            public const string qm_templatedescftxt = "qm_templatedescftxt";
+            
+            public const string qm_templateenm = "qm_templateenm";
+            
+            public const string qm_templatefnm = "qm_templatefnm";
+            
+            public const string qm_templatejsonblob_Name = "qm_templatejsonblob_name";
+            
+            public const string qm_templatejsontxt = "qm_templatejsontxt";
             
             public const string statecode = "statecode";
             
@@ -350,6 +400,8 @@ namespace TC.Legislation.EarlyBound {
             public const string organizationid = "organizationid";
             
             public const string qm_sytemplate_sygroup = "qm_sytemplate_sygroup";
+            
+            public const string qm_templatejsonblob = "qm_templatejsonblob";
         }
         
         public class Schemas {
@@ -394,9 +446,17 @@ namespace TC.Legislation.EarlyBound {
             
             public const string qm_sytemplateId = "qm_sytemplateId";
             
-            public const string qm_TemplateE = "qm_TemplateEtxt";
+            public const string qm_templatedescetxt = "qm_templatedescetxt";
             
-            public const string qm_TemplateF = "qm_TemplateFtxt";
+            public const string qm_templatedescftxt = "qm_templatedescftxt";
+            
+            public const string qm_templateenm = "qm_templateenm";
+            
+            public const string qm_templatefnm = "qm_templatefnm";
+            
+            public const string qm_templatejsonblob_Name = "qm_templatejsonblob_Name";
+            
+            public const string qm_templatejsontxt = "qm_templatejsontxt";
             
             public const string statecode = "statecode";
             

@@ -12,6 +12,9 @@ using Microsoft.Xrm.Sdk.Messages;
 using EntityReference = Microsoft.Xrm.Sdk.EntityReference;
 using Entity = Microsoft.Xrm.Sdk.Entity;
 using TC.Legislation.EarlyBound;
+using CrmWebApiEarlyBoundGenerator;
+using System.Text.RegularExpressions;
+using Group = TDG.CORE.ETL.MODELS.QUESTIONNAIRE.Group;
 
 namespace TDG.CORE.ETL.CDS
 {
@@ -665,53 +668,106 @@ namespace TDG.CORE.ETL.CDS
             //get once
             //Regulation = GetEntityUsingSimpleQuery(service, "qm_legislationTypeCd", "qm_LegislationType", "TDG Regulations | Réglementation sur le TMD");
 
-            var characteristics = GetAllCharacteristics(legData);
+            var characteristics = GetAllCharacteristics(legData).Distinct();
 
-            var simple = characteristics.Where(e => bool.TryParse(e.Value?.ToString(), out _))
-                                        .Select(e => e.Key)
-                                        .Distinct();
+            //var simple = characteristics.Where(e => bool.TryParse(e.Value?.ToString(), out _))
+            //                            .Select(e => e.Key)
+            //                            .Distinct();
 
-            var unNumbers = characteristics.Where(e => e.Key == CONSTANTS.Constants.DataFlags_UNNumbers).
-                                            Select(e => e.Value?.ToString().Split(',')).
-                                            SelectMany(e => e).
-                                            Distinct();
 
-            CreateOrUpdateCharacteristics(service, simple.Union(unNumbers));
+            //var unNumbers = characteristics.Where(e => e.Key == CONSTANTS.Constants.DataFlags_UNNumbers).
+            //                                Select(e => e.Value?.ToString().Split(',')).
+            //                                SelectMany(e => e).
+            //                                Distinct();
+
+            CreateOrUpdateCharacteristics(service, characteristics); //.Union(unNumbers));
 
             OrderCount = 1; //reset the temp order
             RecursivelyUploadLegislation(ref service, legData, null, top);
         }
 
+        static Guid CreateOrUpdateCharacteristic(CrmServiceClient service, string characteristic)
+        {
+            var entity = new Entity(qm_tylegislationcharacteristic.EntityLogicalName);
+
+            Entity existingChar = GetEntityUsingSimpleQuery(service, qm_tylegislationcharacteristic.EntityLogicalName, qm_tylegislationcharacteristic.Fields.qm_Name, characteristic);
+
+            if (existingChar != null)
+            {
+                entity.Id = existingChar.Id;
+            }
+            else
+            {
+                entity.Id = Guid.NewGuid();
+            }
+
+            entity[qm_tylegislationcharacteristic.Fields.qm_Name] = characteristic;
+            entity[qm_tylegislationcharacteristic.Fields.qm_legislationcharacteristicelbl] = characteristic;
+            entity[qm_tylegislationcharacteristic.Fields.qm_legislationcharacteristicflbl] = "FR_" + characteristic;
+
+            CreateOrUpdateEntity(ref service, ref entity, qm_tylegislationcharacteristic.Fields.qm_Name, existingChar == null);
+
+            characteristicsHash.Add(new KeyValuePair<string, Guid>(characteristic, entity.Id));
+
+            return entity.Id;
+        }
+
         static void CreateOrUpdateCharacteristics(CrmServiceClient service, IEnumerable<string> characteristics)
         {
+            //create all the individual characteristics
             foreach (var c in characteristics)
             {
-                var characteristic = new Entity(qm_tylegislationcharacteristic.EntityLogicalName);
+                CreateOrUpdateCharacteristic(service, c);
+            }
 
-                Entity existingChar = GetEntityUsingSimpleQuery(service, qm_tylegislationcharacteristic.EntityLogicalName, qm_tylegislationcharacteristic.Fields.qm_Name, c);
+            //create categories
+            CreateAndAssociatedCategory(service, CONSTANTS.Constants.DataFlags_Category_MocFacilityType);
+            CreateAndAssociatedCategory(service, CONSTANTS.Constants.DataFlags_Category_MocSize);
+            CreateAndAssociatedCategory(service, CONSTANTS.Constants.DataFlags_Category_Modes);
+            CreateAndAssociatedCategory(service, CONSTANTS.Constants.DataFlags_Category_MocType);
 
-                if (existingChar != null)
+            //create and associate category for UN Numbers
+            var unNumbers = characteristics.Where(e => Regex.IsMatch(e, @"^.*UN\d{4}.*$")).OrderBy(e => e).ToArray();
+            var unCategory = new KeyValuePair<string, string[]>(CONSTANTS.Constants.DataFlags_UNNumbers, unNumbers);
+            CreateAndAssociatedCategory(service, unCategory);
+
+            //create and associate category for Classes
+            var classes = characteristics.Where(e => Regex.IsMatch(e, @"^.*CLASS\s*\d\.*\d*.*$")).OrderBy(e => e).ToArray();
+            var classCategory = new KeyValuePair<string, string[]>(CONSTANTS.Constants.DataFlags_Classes, classes);
+            CreateAndAssociatedCategory(service, classCategory);
+        }
+
+        private static void CreateAndAssociatedCategory(CrmServiceClient service, KeyValuePair<string, string[]> category)
+        {
+            //create the category
+            var categoryId = CreateOrUpdateCharacteristic(service, category.Key);
+
+            var categoryEntity = new Entity(qm_tylegislationcharacteristic.EntityLogicalName, qm_tylegislationcharacteristic.PrimaryIdAttribute, categoryId)
+            {
+                Id = categoryId
+            };
+
+            //associate to its children
+            foreach (var c in category.Value)
+            {
+                var ch = characteristicsHash.FirstOrDefault(e => e.Key == c);
+                var cid = ch.Value;
+
+                if (!cid.Equals(default))
                 {
-                    characteristic.Id = existingChar.Id;
+                    var cEntity = new Entity(qm_tylegislationcharacteristic.EntityLogicalName, qm_tylegislationcharacteristic.PrimaryIdAttribute, cid)
+                    {
+                        Id = cid
+                    };
+
+                    AssociateRequest(service, categoryEntity, cEntity, "qm_tylegislationcharacteristic_itself");
                 }
-                else
-                {
-                    characteristic.Id = Guid.NewGuid();
-                }
-
-                characteristic[qm_tylegislationcharacteristic.Fields.qm_Name] = c;
-                characteristic[qm_tylegislationcharacteristic.Fields.qm_legislationcharacteristicelbl] = c;
-                characteristic[qm_tylegislationcharacteristic.Fields.qm_legislationcharacteristicflbl] = "FR_" + c;
-
-                CreateOrUpdateEntity(ref service, ref characteristic, qm_tylegislationcharacteristic.Fields.qm_Name, existingChar == null);
-
-                characteristicsHash.Add(new KeyValuePair<string, Guid>(c, characteristic.Id));
             }
         }
 
-        static List<KeyValuePair<string,object>> GetAllCharacteristics(Regulation reg)
+        static List<string> GetAllCharacteristics(Regulation reg)
         {
-            var flags = reg.DataFlags;
+            var flags = reg.DataFlags.Select(e => e.Key).ToList();
 
             foreach (var cr in reg.Children)
             {
@@ -721,7 +777,16 @@ namespace TDG.CORE.ETL.CDS
                 }
                 else
                 {
-                    flags.AddRange(cr.DataFlags);
+                    flags.AddRange(cr.DataFlags.Select(e => e.Key));
+                    
+                    if (cr.UnNumbers.Count > 0) { 
+                        flags.AddRange(cr.UnNumbers);
+                    }
+
+                    if (cr.Classes.Count > 0)
+                    {
+                        flags.AddRange(cr.Classes);
+                    }
                 }
             }
 
@@ -760,9 +825,11 @@ namespace TDG.CORE.ETL.CDS
             if (!(string.IsNullOrEmpty(element.Label) && string.IsNullOrEmpty(element.TextEnglish)))
             {
                 // associate any characteristics
-                foreach (var c in element.DataFlags)
+                var charsToAssociate = element.DataFlags.Select(e => e.Key).Union(element.UnNumbers).Union(element.Classes);
+
+                foreach (var c in charsToAssociate)
                 {
-                    var ch = characteristicsHash.FirstOrDefault(e => e.Key == c.Key);
+                    var ch = characteristicsHash.FirstOrDefault(e => e.Key == c);
                     if (!string.IsNullOrEmpty(ch.Key))
                     {
                         if (Associated(service, qm_rclegislation.PrimaryIdAttribute, leg.Id, qm_tylegislationcharacteristic.PrimaryIdAttribute, ch.Value, "qm_rclegislation_tylegislationcharacterist"))
@@ -875,6 +942,8 @@ namespace TDG.CORE.ETL.CDS
             associateRequest.RelatedEntities.Add(new EntityReference(entity2.LogicalName, entity2.Id));
             associateRequest.Relationship = new Relationship(relationshipLogicalName);
             associateRequest.Relationship.PrimaryEntityRole = EntityRole.Referenced;
+
+            Console.WriteLine($"new associated between {entity1.LogicalName}({entity1.Id}) and {entity2.LogicalName}({entity2.Id}) created");
 
             return service.Execute(associateRequest);
         }
@@ -1308,9 +1377,9 @@ namespace TDG.CORE.ETL.CDS
         private static void MapTemplateDataToEntity(ref Entity templateEntity, Template template)
         {
             //templateEntity.Attributes["qm_TemplateDescEtxt"] = template.DescriptionEnglish;
-            templateEntity.Attributes[qm_sytemplate.Fields.qm_TemplateE] = template.TitleEnglish;
+            templateEntity.Attributes[qm_sytemplate.Fields.qm_templateenm] = template.TitleEnglish;
             //templateEntity.Attributes["qm_TemplateDescFtxt"] = template.DescriptionFrench;
-            templateEntity.Attributes[qm_sytemplate.Fields.qm_TemplateF] = template.TitleFrench;
+            templateEntity.Attributes[qm_sytemplate.Fields.qm_templatefnm] = template.TitleFrench;
             templateEntity.Attributes[qm_sytemplate.Fields.qm_name] = template.Name;
         }
 
@@ -1332,7 +1401,7 @@ namespace TDG.CORE.ETL.CDS
             questionEntity.Attributes[qm_syquestion.Fields.qm_QuestionE]           = question.TextEnglish;
             questionEntity.Attributes[qm_syquestion.Fields.qm_QuestionF]           = question.TextFrench;
             questionEntity.Attributes["qm_name"]                                   = question.Name;
-            questionEntity.Attributes[qm_syquestion.Fields.qm_QuestionTypeCd]      = new OptionSetValue(Convert.ToInt32("930840000"));
+            questionEntity.Attributes[qm_syquestion.Fields.qm_questionresponsetypecd] = new OptionSetValue(Convert.ToInt32("930840000"));
             questionEntity.Attributes[qm_syquestion.Fields.qm_OrderNbr]            = question.SortOrder;
             questionEntity.Attributes[qm_syquestion.Fields.qm_IsVisibleInd]        = question.IsVisible;
         }
@@ -1399,7 +1468,7 @@ namespace TDG.CORE.ETL.CDS
 
             if (legEntity.Attributes.ContainsKey("qm_rcparentlegislationid")){
                 var entityRef = legEntity.GetAttributeValue<EntityReference>("qm_rcparentlegislationid");
-                leg.qm_rcParentLegislationId = new TC.Legislation.EarlyBound.EntityReference(qm_rclegislation.EntitySetName, entityRef.Id);
+                leg.qm_rcParentLegislationId = new  CrmWebApiEarlyBoundGenerator.EntityReference(qm_rclegislation.EntitySetName, entityRef.Id);
             }
         }
 

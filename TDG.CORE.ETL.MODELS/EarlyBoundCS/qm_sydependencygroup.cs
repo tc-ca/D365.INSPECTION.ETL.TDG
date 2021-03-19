@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TC.Legislation.EarlyBound {
+namespace CrmWebApiEarlyBoundGenerator {
     using System.Reflection;
     using System.Linq;
     using System;
@@ -350,6 +350,10 @@ namespace TC.Legislation.EarlyBound {
             
             public const string OverriddenCreatedOn = "overriddencreatedon";
             
+            public const string qm_dependencygroupruletypecd = "qm_dependencygroupruletypecd";
+            
+            public const string qm_dependencygroupruletypecdName = "qm_dependencygroupruletypecdname";
+            
             public const string qm_name = "qm_name";
             
             public const string qm_sydependencygroupId = "qm_sydependencygroupid";
@@ -433,6 +437,10 @@ namespace TC.Legislation.EarlyBound {
             public const string OrganizationIdName = "OrganizationIdName";
             
             public const string OverriddenCreatedOn = "OverriddenCreatedOn";
+            
+            public const string qm_dependencygroupruletypecd = "qm_dependencygroupruletypecd";
+            
+            public const string qm_dependencygroupruletypecdName = "qm_dependencygroupruletypecdName";
             
             public const string qm_name = "qm_name";
             
