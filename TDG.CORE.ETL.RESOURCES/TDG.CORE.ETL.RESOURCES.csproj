@@ -54,6 +54,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="CLIENT_FILES\AvSec - WP - Ontario .xlsx" />
+    <None Include="CLIENT_FILES\Copy of RDIMS-#17119563-v2-IIS_DATA_CONSOLIDATION.XLSX" />
     <None Include="CLIENT_FILES\ISSO - MIS Sample for PNR.XLSX" />
     <None Include="CLIENT_FILES\RDIMS-#15877414-v1-GENERAL_COMPLIANCE_CHECKLIST.DOCX" />
     <None Include="CLIENT_FILES\RDIMS-#17119563-v2-IIS DATA CONSOLIDATION.XLSX" />
