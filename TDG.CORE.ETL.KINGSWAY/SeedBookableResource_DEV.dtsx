@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SeedBookableResource_DEV"
   DTS:PackageType="5"
-  DTS:VersionBuild="33"
-  DTS:VersionGUID="{AD793DAC-71B4-4EFA-879D-EA1EE25DCAD8}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{A50E7FCE-9C11-473E-909C-84E84003E35A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,11 +23,11 @@
       DTS:ObjectName="Dynamics CRM Connection Manager">
       <DTS:ObjectData>
         <CrmConnectionManager
-          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test1@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev2-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
+          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test1@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
           ConnectByProxy="False">
           <Password
             Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIZuLjAfDoE+9f51sCeUnHAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA0b47uCVnEnkv3ghLI4q+4AAAAAASAAACgAAAAEAAAALi3HoxCEOGwt/4q2IooNgcYAAAATHhAQi8S33g/dkvmYUcYONfFitmR9neAFAAAAAGdOLn+t6aAw2d621jZEEDs4nad</Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgv9SWnaY00u400FrWMN42gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAh03wtrlZkypJgDXBHHIccAAAAAASAAACgAAAAEAAAAAMrCzLw8+yqh0nO6zw3AUkYAAAAY8M6dJzQuZYS/RHrlm/VKDLLlEMVj24MFAAAAFwvwYcJE/OhQVzlCUvu/joqE08S</Password>
         </CrmConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1506,25 +1506,11 @@
                   name="Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Insert Inspectors\Assign Resource Territories.Inputs[Input].Columns[ownerid]"
-                      cachedDataType="wstr"
-                      cachedLength="33"
-                      cachedName="ownerid"
-                      externalMetadataColumnId="Package\Insert Inspectors\Assign Resource Territories.Inputs[Input].ExternalColumns[ownerid]"
-                      lineageId="Package\Insert Inspectors\Derived Column.Outputs[Derived Column Output].Columns[ownerid]" />
-                    <inputColumn
                       refId="Package\Insert Inspectors\Assign Resource Territories.Inputs[Input].Columns[ownertypecd]"
                       cachedDataType="i4"
                       cachedName="ownertypecd"
                       externalMetadataColumnId="Package\Insert Inspectors\Assign Resource Territories.Inputs[Input].ExternalColumns[owneridtype]"
                       lineageId="Package\Insert Inspectors\Derived Column.Outputs[Derived Column Output].Columns[ownertypecd]" />
-                    <inputColumn
-                      refId="Package\Insert Inspectors\Assign Resource Territories.Inputs[Input].Columns[Region]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Region"
-                      externalMetadataColumnId="Package\Insert Inspectors\Assign Resource Territories.Inputs[Input].ExternalColumns[msdyn_territory]"
-                      lineageId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Output].Columns[Region]" />
                     <inputColumn
                       refId="Package\Insert Inspectors\Assign Resource Territories.Inputs[Input].Columns[SavedRecordId]"
                       cachedDataType="guid"
@@ -1538,6 +1524,20 @@
                       cachedName="Fullname"
                       externalMetadataColumnId="Package\Insert Inspectors\Assign Resource Territories.Inputs[Input].ExternalColumns[msdyn_name]"
                       lineageId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Output].Columns[Fullname]" />
+                    <inputColumn
+                      refId="Package\Insert Inspectors\Assign Resource Territories.Inputs[Input].Columns[RegionCrmId]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RegionCrmId"
+                      externalMetadataColumnId="Package\Insert Inspectors\Assign Resource Territories.Inputs[Input].ExternalColumns[msdyn_territory]"
+                      lineageId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Output].Columns[RegionCrmId]" />
+                    <inputColumn
+                      refId="Package\Insert Inspectors\Assign Resource Territories.Inputs[Input].Columns[ownerid]"
+                      cachedDataType="wstr"
+                      cachedLength="33"
+                      cachedName="ownerid"
+                      externalMetadataColumnId="Package\Insert Inspectors\Assign Resource Territories.Inputs[Input].ExternalColumns[ownerid]"
+                      lineageId="Package\Insert Inspectors\Derived Column.Outputs[Derived Column Output].Columns[ownerid]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1607,7 +1607,7 @@
                           name="LookupTypes">territory</property>
                         <property
                           dataType="System.String"
-                          name="LookupSettings">{"IgnoreCase":true,"CacheStrategy":"FullCache","LookupTargets":[{"TargetEntity":"territory","TargetTextField":"name","WriteNullOnEmptyValues":false}]}</property>
+                          name="LookupSettings"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -2078,24 +2078,14 @@
                       name="RegionFnm"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Output].Columns[account_name_calc]"
+                      refId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Output].Columns[RegionCrmId]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Output].ExternalColumns[account_name_calc]"
+                      externalMetadataColumnId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Output].ExternalColumns[RegionCrmId]"
                       length="255"
-                      lineageId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Output].Columns[account_name_calc]"
-                      name="account_name_calc"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Output].Columns[Region ID]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Output].ExternalColumns[Region ID]"
-                      length="255"
-                      lineageId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Output].Columns[Region ID]"
-                      name="Region ID"
+                      lineageId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Output].Columns[RegionCrmId]"
+                      name="RegionCrmId"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -2169,15 +2159,10 @@
                       length="255"
                       name="RegionFnm" />
                     <externalMetadataColumn
-                      refId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Output].ExternalColumns[account_name_calc]"
+                      refId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Output].ExternalColumns[RegionCrmId]"
                       dataType="wstr"
                       length="255"
-                      name="account_name_calc" />
-                    <externalMetadataColumn
-                      refId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Output].ExternalColumns[Region ID]"
-                      dataType="wstr"
-                      length="255"
-                      name="Region ID" />
+                      name="RegionCrmId" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -2228,12 +2213,6 @@
                       lineageId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Error Output].Columns[Fullname]"
                       name="Fullname" />
                     <outputColumn
-                      refId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Error Output].Columns[account_name_calc]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Error Output].Columns[account_name_calc]"
-                      name="account_name_calc" />
-                    <outputColumn
                       refId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Error Output].Columns[Account_name]"
                       dataType="wstr"
                       length="255"
@@ -2256,17 +2235,17 @@
                       lineageId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Error Output].Columns[RIN]"
                       name="RIN" />
                     <outputColumn
+                      refId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Error Output].Columns[RegionCrmId]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Error Output].Columns[RegionCrmId]"
+                      name="RegionCrmId" />
+                    <outputColumn
                       refId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Error Output].Columns[Region]"
                       dataType="wstr"
                       length="255"
                       lineageId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Error Output].Columns[Region]"
                       name="Region" />
-                    <outputColumn
-                      refId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Error Output].Columns[Region ID]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Error Output].Columns[Region ID]"
-                      name="Region ID" />
                     <outputColumn
                       refId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Error Output].Columns[RegionEnm]"
                       dataType="wstr"
@@ -2361,7 +2340,7 @@
                   description="Specifies what action will be taken when multiple matches are found with Upsert action."
                   expressionType="Notify"
                   name="HandlingOfMultipleMatches"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">1</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">4</property>
                 <property
                   dataType="System.Int32"
                   description="Specify whether to use optimizations when there are duplicate records form the source system."
@@ -2441,13 +2420,6 @@
                       externalMetadataColumnId="Package\Insert Inspectors\Insert Bookable Resource.Inputs[Input].ExternalColumns[ovs_registeredinspectornumberrin]"
                       lineageId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Output].Columns[RIN]" />
                     <inputColumn
-                      refId="Package\Insert Inspectors\Insert Bookable Resource.Inputs[Input].Columns[account_name_calc]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="account_name_calc"
-                      externalMetadataColumnId="Package\Insert Inspectors\Insert Bookable Resource.Inputs[Input].ExternalColumns[userid]"
-                      lineageId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Output].Columns[account_name_calc]" />
-                    <inputColumn
                       refId="Package\Insert Inspectors\Insert Bookable Resource.Inputs[Input].Columns[ownerid]"
                       cachedDataType="wstr"
                       cachedLength="33"
@@ -2460,6 +2432,13 @@
                       cachedName="ownertypecd"
                       externalMetadataColumnId="Package\Insert Inspectors\Insert Bookable Resource.Inputs[Input].ExternalColumns[owneridtype]"
                       lineageId="Package\Insert Inspectors\Derived Column.Outputs[Derived Column Output].Columns[ownertypecd]" />
+                    <inputColumn
+                      refId="Package\Insert Inspectors\Insert Bookable Resource.Inputs[Input].Columns[Account_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Account_name"
+                      externalMetadataColumnId="Package\Insert Inspectors\Insert Bookable Resource.Inputs[Input].ExternalColumns[userid]"
+                      lineageId="Package\Insert Inspectors\Excel Source.Outputs[Excel Source Output].Columns[Account_name]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3268,7 +3247,7 @@
                           name="LookupTypes">systemuser</property>
                         <property
                           dataType="System.String"
-                          name="LookupSettings">{"IgnoreCase":true,"SkipRecordIfLookupFails":true,"CacheStrategy":"PartialCache","LookupTargets":[{"TargetEntity":"systemuser","TargetTextField":"domainname","WriteNullOnEmptyValues":false,"SmartNameMatch":true}]}</property>
+                          name="LookupSettings">{"IgnoreCase":true,"IgnoreDiacriticsAccents":true,"CacheStrategy":"FullCache","LookupTargets":[{"TargetEntity":"systemuser","TargetTextField":"domainname","WriteNullOnEmptyValues":false}]}</property>
                         <property
                           dataType="System.Boolean"
                           name="Createable">true</property>
@@ -3325,6 +3304,25 @@
                         <property
                           dataType="System.String"
                           name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert Inspectors\Insert Bookable Resource.Inputs[Input].ExternalColumns[msdyn_enableappointments]"
+                      dataType="i4"
+                      name="msdyn_enableappointments">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Picklist</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -3413,13 +3411,13 @@
                   Encrypted="1"
                   expressionType="Notify"
                   name="OpenPassword"
-                  Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIZuLjAfDoE+9f51sCeUnHAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAnv84bgxUw2iLp1MdFikuUAAAAAASAAACgAAAAEAAAAP0O6enOUHpfZHs/x4HExY8IAAAAFTpeqRn0mbgUAAAA+LhUJqTxB3MqlTOuaXwkDKKaVsQ</property>
+                  Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgv9SWnaY00u400FrWMN42gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADZeduqvZJTgiEBsyyhVgTgAAAAAASAAACgAAAAEAAAADzy+ek4ePM0W2hI4NPi5d0IAAAAsEaMYdXQCdMUAAAAzNB3x/FD8VaYDoEqqpJwhY/kXyk</property>
                 <property
                   dataType="System.Int32"
                   description="Specify the write mode."
                   expressionType="Notify"
                   name="WriteMode"
-                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.DestinationWriteMode">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.DestinationWriteMode">1</property>
                 <property
                   dataType="System.Int32"
                   description="The starting row from which to write to the Excel file."
@@ -3880,7 +3878,7 @@
                   Encrypted="1"
                   expressionType="Notify"
                   name="OpenPassword"
-                  Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIZuLjAfDoE+9f51sCeUnHAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABPuY6W+VVyLusQzCmUf6ZzAAAAAASAAACgAAAAEAAAAD4HeW+WIGhSCjSLKhJDbSkIAAAAU+At52HBXHQUAAAAW4eqxpsriMyCFCtYqPJcR5LNrzE</property>
+                  Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgv9SWnaY00u400FrWMN42gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACC6sVCMcToVg78p6nJupiEAAAAAASAAACgAAAAEAAAAMdMMUHt7LCtA7dihkdGbFMIAAAAMFi2Kit5QX8UAAAAqBWaGjn67p7K5N8YX33IyAxR58w</property>
                 <property
                   dataType="System.Int32"
                   description="Specify the write mode."
@@ -4515,21 +4513,21 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="214,42"
+          Id="Package\Insert Inspectors\Premium Excel Destination 1"
+          TopLeft="504,494" />
+        <NodeLayout
           Size="202,42"
           Id="Package\Insert Inspectors\Assign Inspector Category"
           TopLeft="484,607" />
-        <NodeLayout
-          Size="199,42"
-          Id="Package\Insert Inspectors\Insert Bookable Resource"
-          TopLeft="669,346" />
         <NodeLayout
           Size="207,42"
           Id="Package\Insert Inspectors\Assign Resource Territories"
           TopLeft="471,726" />
         <NodeLayout
-          Size="214,42"
-          Id="Package\Insert Inspectors\Premium Excel Destination 1"
-          TopLeft="504,494" />
+          Size="199,42"
+          Id="Package\Insert Inspectors\Insert Bookable Resource"
+          TopLeft="669,346" />
         <NodeLayout
           Size="204,42"
           Id="Package\Insert Inspectors\Premium Excel Destination"
@@ -4542,6 +4540,40 @@
           Size="154,42"
           Id="Package\Insert Inspectors\Derived Column"
           TopLeft="693,236" />
+        <EdgeLayout
+          Id="Package\Insert Inspectors.Paths[Default Output]"
+          TopLeft="736.666666666667,388">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-125.666666666667,106"
+              Start="0,0"
+              End="-125.666666666667,98.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.9072781655035" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.9072781655035"
+                    Point2="0,42.9072781655035"
+                    Point3="-4,42.9072781655035" />
+                  <mssgle:LineSegment
+                    End="-121.666666666667,42.9072781655035" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-121.666666666667,42.9072781655035"
+                    Point2="-125.666666666667,42.9072781655035"
+                    Point3="-125.666666666667,46.9072781655035" />
+                  <mssgle:LineSegment
+                    End="-125.666666666667,98.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Insert Inspectors.Paths[Excel Source Output]"
           TopLeft="770.75,179">
@@ -4596,7 +4628,7 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="43.6282942708333,48.3120638085743,74.410078125,16"
+              BoundingBox="52.4969466145835,48.3120638085743,56.6727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -4682,40 +4714,6 @@
                     Point3="-26,39.5" />
                   <mssgle:LineSegment
                     End="-26,63.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insert Inspectors.Paths[Default Output]"
-          TopLeft="736.666666666667,388">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-125.666666666667,106"
-              Start="0,0"
-              End="-125.666666666667,98.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.9072781655035" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,38.9072781655035"
-                    Point2="0,42.9072781655035"
-                    Point3="-4,42.9072781655035" />
-                  <mssgle:LineSegment
-                    End="-121.666666666667,42.9072781655035" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-121.666666666667,42.9072781655035"
-                    Point2="-125.666666666667,42.9072781655035"
-                    Point3="-125.666666666667,46.9072781655035" />
-                  <mssgle:LineSegment
-                    End="-125.666666666667,98.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

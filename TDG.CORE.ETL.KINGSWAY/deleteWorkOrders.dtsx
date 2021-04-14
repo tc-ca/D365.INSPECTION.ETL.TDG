@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="deleteWorkOrders"
   DTS:PackageType="5"
-  DTS:VersionBuild="45"
-  DTS:VersionGUID="{B12E75A8-4D37-4C36-97CF-089D2F988BE3}">
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{E36153D0-21CA-4609-B0C2-5BA8A40E3F75}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,11 +23,11 @@
       DTS:ObjectName="Dynamics CRM Connection Manager">
       <DTS:ObjectData>
         <CrmConnectionManager
-          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test1@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
+          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-acc-tdg-data-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
           ConnectByProxy="False">
           <Password
             Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIZuLjAfDoE+9f51sCeUnHAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAtz2fVaf/UYRGEug/u/QO6AAAAAASAAACgAAAAEAAAABMWurvA2ynPh2TWYFg9EqEYAAAAkCkKImVj0yLZIUA6AL6Xj42dDd8Zbv8pFAAAALGAHlKyBoMIB//ASE+e/Du3d7WJ</Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgv9SWnaY00u400FrWMN42gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA3aVSPu+2trZuZbTSjtKe6AAAAAASAAACgAAAAEAAAAOrf3fSoqZp37MlUPmoMJ8kYAAAAerR3jEYgbxjZc4LY6Me1xCpV4V1P3F2bFAAAAOhPcQc18gP2rudkpUffh8U8EKWL</Password>
         </CrmConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1328,6 +1328,53 @@
                       lineageId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].Columns[versionnumber]"
                       name="versionnumber"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_basetravelduration]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_basetravelduration]"
+                      lineageId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_basetravelduration]"
+                      name="msdyn_basetravelduration"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_quickNoteAction]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_quickNoteAction]"
+                      lineageId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_quickNoteAction]"
+                      name="msdyn_quickNoteAction"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_quicknoteactionname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_quicknoteactionname]"
+                      length="255"
+                      lineageId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_quicknoteactionname]"
+                      name="msdyn_quicknoteactionname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_traveltimecalculationtype]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_traveltimecalculationtype]"
+                      lineageId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_traveltimecalculationtype]"
+                      name="msdyn_traveltimecalculationtype"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_traveltimecalculationtypename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_traveltimecalculationtypename]"
+                      length="255"
+                      lineageId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_traveltimecalculationtypename]"
+                      name="msdyn_traveltimecalculationtypename"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1816,6 +1863,28 @@
                       refId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[versionnumber]"
                       dataType="i8"
                       name="versionnumber" />
+                    <externalMetadataColumn
+                      refId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_basetravelduration]"
+                      dataType="i4"
+                      name="msdyn_basetravelduration" />
+                    <externalMetadataColumn
+                      refId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_quickNoteAction]"
+                      dataType="i4"
+                      name="msdyn_quickNoteAction" />
+                    <externalMetadataColumn
+                      refId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_quicknoteactionname]"
+                      dataType="wstr"
+                      length="255"
+                      name="msdyn_quicknoteactionname" />
+                    <externalMetadataColumn
+                      refId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_traveltimecalculationtype]"
+                      dataType="i4"
+                      name="msdyn_traveltimecalculationtype" />
+                    <externalMetadataColumn
+                      refId="Package\delete bookable resource bookings\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_traveltimecalculationtypename]"
+                      dataType="wstr"
+                      length="255"
+                      name="msdyn_traveltimecalculationtypename" />
                   </externalMetadataColumns>
                 </output>
               </outputs>
@@ -4912,7 +4981,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\delete questionnaire results\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_responseid]"
-                      length="40"
+                      length="4000"
                       lineageId="Package\delete questionnaire results\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_responseid]"
                       name="qm_responseid"
                       truncationRowDisposition="FailComponent" />
@@ -5199,7 +5268,7 @@
                     <externalMetadataColumn
                       refId="Package\delete questionnaire results\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_responseid]"
                       dataType="wstr"
-                      length="40"
+                      length="4000"
                       name="qm_responseid" />
                     <externalMetadataColumn
                       refId="Package\delete questionnaire results\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_samplesize]"
@@ -6200,25 +6269,6 @@
                       name="versionnumber"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\delete service tasks\Dynamics CRM Source.Outputs[Primary Output].Columns[ovs_inspectionstatus]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete service tasks\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ovs_inspectionstatus]"
-                      lineageId="Package\delete service tasks\Dynamics CRM Source.Outputs[Primary Output].Columns[ovs_inspectionstatus]"
-                      name="ovs_inspectionstatus"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete service tasks\Dynamics CRM Source.Outputs[Primary Output].Columns[ovs_inspectionstatusname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete service tasks\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ovs_inspectionstatusname]"
-                      length="255"
-                      lineageId="Package\delete service tasks\Dynamics CRM Source.Outputs[Primary Output].Columns[ovs_inspectionstatusname]"
-                      name="ovs_inspectionstatusname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\delete service tasks\Dynamics CRM Source.Outputs[Primary Output].Columns[ovs_isquestionnairecomplete]"
                       dataType="bool"
                       errorOrTruncationOperation="Conversion"
@@ -6595,15 +6645,6 @@
                       refId="Package\delete service tasks\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[versionnumber]"
                       dataType="i8"
                       name="versionnumber" />
-                    <externalMetadataColumn
-                      refId="Package\delete service tasks\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ovs_inspectionstatus]"
-                      dataType="bool"
-                      name="ovs_inspectionstatus" />
-                    <externalMetadataColumn
-                      refId="Package\delete service tasks\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ovs_inspectionstatusname]"
-                      dataType="wstr"
-                      length="255"
-                      name="ovs_inspectionstatusname" />
                     <externalMetadataColumn
                       refId="Package\delete service tasks\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ovs_isquestionnairecomplete]"
                       dataType="bool"
@@ -7097,7 +7138,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\delete tsis findings\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ovs_findingcomments]"
-                      length="100"
+                      length="1000"
                       lineageId="Package\delete tsis findings\Dynamics CRM Source.Outputs[Primary Output].Columns[ovs_findingcomments]"
                       name="ovs_findingcomments"
                       truncationRowDisposition="FailComponent" />
@@ -7381,7 +7422,7 @@
                     <externalMetadataColumn
                       refId="Package\delete tsis findings\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ovs_findingcomments]"
                       dataType="wstr"
-                      length="100"
+                      length="1000"
                       name="ovs_findingcomments" />
                     <externalMetadataColumn
                       refId="Package\delete tsis findings\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ovs_findingfile]"
@@ -10980,6 +11021,63 @@
                       lineageId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].Columns[versionnumber]"
                       name="versionnumber"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_primaryresolution]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_primaryresolution]"
+                      lineageId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_primaryresolution]"
+                      name="msdyn_primaryresolution"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_primaryresolutionname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_primaryresolutionname]"
+                      length="100"
+                      lineageId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_primaryresolutionname]"
+                      name="msdyn_primaryresolutionname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].Columns[ovs_asset]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ovs_asset]"
+                      lineageId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].Columns[ovs_asset]"
+                      name="ovs_asset"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].Columns[ovs_assetcategory]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ovs_assetcategory]"
+                      lineageId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].Columns[ovs_assetcategory]"
+                      name="ovs_assetcategory"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].Columns[ovs_assetcategoryname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ovs_assetcategoryname]"
+                      length="100"
+                      lineageId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].Columns[ovs_assetcategoryname]"
+                      name="ovs_assetcategoryname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].Columns[ovs_assetname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ovs_assetname]"
+                      length="100"
+                      lineageId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].Columns[ovs_assetname]"
+                      name="ovs_assetname"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -11816,6 +11914,33 @@
                       refId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[versionnumber]"
                       dataType="i8"
                       name="versionnumber" />
+                    <externalMetadataColumn
+                      refId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_primaryresolution]"
+                      dataType="guid"
+                      name="msdyn_primaryresolution" />
+                    <externalMetadataColumn
+                      refId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_primaryresolutionname]"
+                      dataType="wstr"
+                      length="100"
+                      name="msdyn_primaryresolutionname" />
+                    <externalMetadataColumn
+                      refId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ovs_asset]"
+                      dataType="guid"
+                      name="ovs_asset" />
+                    <externalMetadataColumn
+                      refId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ovs_assetcategory]"
+                      dataType="guid"
+                      name="ovs_assetcategory" />
+                    <externalMetadataColumn
+                      refId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ovs_assetcategoryname]"
+                      dataType="wstr"
+                      length="100"
+                      name="ovs_assetcategoryname" />
+                    <externalMetadataColumn
+                      refId="Package\delete work orders\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ovs_assetname]"
+                      dataType="wstr"
+                      length="100"
+                      name="ovs_assetname" />
                   </externalMetadataColumns>
                 </output>
               </outputs>
@@ -12137,7 +12262,7 @@
     design-time-name="Package\delete questionnaire results">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="184,42"
           Id="Package\delete questionnaire results\Dynamics CRM Source"
@@ -12165,9 +12290,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12253,7 +12376,7 @@
     design-time-name="Package\delete work order resource requirements">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="184,42"
           Id="Package\delete work order resource requirements\Dynamics CRM Source"
@@ -12281,9 +12404,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12295,13 +12416,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="205,42"
-          Id="Package\delete work orders\Dynamics CRM Destination"
-          TopLeft="546,452" />
-        <NodeLayout
           Size="184,42"
           Id="Package\delete work orders\Dynamics CRM Source"
           TopLeft="551.5,169.5" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\delete work orders\Dynamics CRM Destination"
+          TopLeft="546,452" />
         <EdgeLayout
           Id="Package\delete work orders.Paths[Primary Output]"
           TopLeft="646,211.5">
