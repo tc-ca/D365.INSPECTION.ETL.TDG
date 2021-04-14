@@ -61,6 +61,7 @@ CREATE TABLE [dbo].[03_SITES] (
 	[COMPLETED] [nvarchar](10) NULL,
 	[PLANNED2021] [nvarchar](10) NULL,
 ) ON [PRIMARY]
+
 GO
 
 
@@ -1733,3 +1734,6 @@ CREATE TABLE [18_BOOKABLE_RESOURCE_CATEGORY_ASSN] (
     [utcconversiontimezonecode] INT,
     [versionnumber] BIGINT
 )
+=======
+GO
+>>>>>>> ab1fe2ce787ec7e2ffc2833bad1b5d5eba36b033
