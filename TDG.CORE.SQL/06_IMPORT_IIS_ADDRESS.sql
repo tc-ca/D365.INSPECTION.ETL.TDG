@@ -1,19 +1,26 @@
 UPDATE [04_ACCOUNT]
 SET 
+--,name = T2.OPERATING_NAME,
 ovs_legalname = T2.LEGAL_NAME,
-name = T2.OPERATING_NAME,
+ovs_accountnameenglish = T2.OPERATING_NAME,
+address1_primarycontactname = T2.USER_CONTACT,
+address1_telephone1 = T2.CONTACT_TFH,
+address1_latitude = CASE WHEN ISNUMERIC(T2.LATITUDE_DEGREE_NBR) = 1 THEN CAST(T2.LATITUDE_DEGREE_NBR AS DECIMAL(38, 5)) ELSE NULL END,
+address1_longitude = CASE WHEN ISNUMERIC(T2.LONGITUDE_DEGREE_NBR) = 1 THEN CAST(T2.LONGITUDE_DEGREE_NBR AS DECIMAL(38, 5)) ELSE NULL END,
 address1_city  = TRIM(T2.CITY_TOWN_NAME_NM),
 address1_country = TRIM(T2.COUNTRY),
-address1_line1 = TRIM(T2.STREET),
---address1_line3 = T2.
 address1_postalcode = TRIM(T2.POSTAL_CODE_TXT),
 address1_stateorprovince = TRIM(T2.COUNTRY_SUBDIVISION_CD),
 address1_line3 = TRIM(POBOX),
 address1_postofficebox = TRIM(POBOX),
-address1_primarycontactname = T2.USER_CONTACT,
-address1_telephone1 = T2.CONTACT_TFH,
-address1_latitude = CASE WHEN ISNUMERIC(T2.LATITUDE_DEGREE_NBR) = 1 THEN CAST(T2.LATITUDE_DEGREE_NBR AS DECIMAL(38, 5)) ELSE NULL END,
-address1_longitude = CASE WHEN ISNUMERIC(T2.LONGITUDE_DEGREE_NBR) = 1 THEN CAST(T2.LONGITUDE_DEGREE_NBR AS DECIMAL(38, 5)) ELSE NULL END
+
+address1_line1 = 
+CASE
+	WHEN TRIM(T2.STREET) IS NULL OR TRIM(T2.STREET) = '' THEN
+		address1_line1
+	ELSE
+		TRIM(T2.STREET)
+END
 
 FROM [04_ACCOUNT] T1
 JOIN 
@@ -48,9 +55,15 @@ JOIN
 		--DATA MIGRATION RULES:
 		--Use the "Civic General Address" from IIS for this field for Address Type Civic. into this field.
 		--If this field is blank in IIS, leave this field blank in ROM.
+		IIS.PHYS_STREET_NUMBER_NUM,
+		IIS.PHYS_STREET_NAME_NM,
+		IIS.STREET_NUMBER_NUM,
+		IIS.STREET_NAME_NM,
 
 		CASE
-			WHEN ADDRESS_TYPE.[TYPE] = 'PHYSICAL' THEN 
+			WHEN STREET_NAME_NM IS NULL AND (PHYS_STREET_NAME_NM IS NULL OR TRIM(PHYS_STREET_NAME_NM) = '') THEN 
+				NULL
+			WHEN (STREET_NAME_NM IS NULL OR TRIM(STREET_NAME_NM) = '0') AND PHYS_STREET_NAME_NM IS NOT NULL THEN
 				CONCAT(IIS.PHYS_STREET_NUMBER_NUM, ' ', IIS.PHYS_STREET_NAME_NM)
 			ELSE 
 				CONCAT(IIS.STREET_NUMBER_NUM, ' ', STREET_NAME_NM)
@@ -126,19 +139,19 @@ JOIN
 				NULL
 		END POBOX,
 
---Phone
---Out of the box field.
---DATA MIGRATION RULES:
---There is no field that needs to be migrated from IIS.
-IIS.CONTACT_PHONE,
-IIS.CONTACT_BUSINESS_PHONE,
-IIS.CONTACT_EMAIL,
-IIS.CONTACT_TFH,
-IIS.USER_CONTACT
---Fax
---Out of the box field.
---DATA MIGRATION RULES:
---There is no field that needs to be migrated from IIS.
+		--Phone
+		--Out of the box field.
+		--DATA MIGRATION RULES:
+		--There is no field that needs to be migrated from IIS.
+		IIS.CONTACT_PHONE,
+		IIS.CONTACT_BUSINESS_PHONE,
+		IIS.CONTACT_EMAIL,
+		IIS.CONTACT_TFH,
+		IIS.USER_CONTACT
+		--Fax
+		--Out of the box field.
+		--DATA MIGRATION RULES:
+		--There is no field that needs to be migrated from IIS.
 
 		, ADDRESS_TYPE.[TYPE]
 		FROM [03_SITES] SITES
@@ -147,11 +160,11 @@ IIS.USER_CONTACT
 			SELECT
 			STAKEHOLDER_ID,
 			CASE
-				WHEN STREET_NUMBER_NUM IS NULL AND 
-						STREET_NAME_NM IS NULL AND 
-						CITY_TOWN_NAME_NM IS NULL AND 
-						COUNTRY_SUBDIVISION_CD IS NULL AND 
-						POSTAL_CODE_TXT IS NULL THEN
+				WHEN	(STREET_NUMBER_NUM IS NULL		OR TRIM(STREET_NUMBER_NUM) = '')		AND 
+						(STREET_NAME_NM IS NULL			OR TRIM (STREET_NAME_NM) = '')			AND 
+						(CITY_TOWN_NAME_NM IS NULL		OR TRIM(CITY_TOWN_NAME_NM) = '')		AND 
+						(COUNTRY_SUBDIVISION_CD IS NULL OR TRIM(COUNTRY_SUBDIVISION_CD) = '')	AND 
+						(POSTAL_CODE_TXT IS NULL		OR TRIM(POSTAL_CODE_TXT) = '') THEN
 						'PHYSICAL'
 				ELSE
 					'CIVIC'
@@ -160,15 +173,7 @@ IIS.USER_CONTACT
 		) ADDRESS_TYPE ON IIS.STAKEHOLDER_ID = ADDRESS_TYPE.STAKEHOLDER_ID
 ) T2
 
-ON T1.ovs_iisid = T2.STAKEHOLDER_ID
-
-
-------RESETS DESCRIPTION FIELD ON ACCOUNT IN CASE YOU SCREWED IT UP
---UPDATE [04_ACCOUNT]
---SET 
---	description = CONCAT('Converted from IIS.', CHAR(13)+CHAR(10), 'IIS ID: ', [IIS_ID])
---FROM [04_ACCOUNT] T1
---JOIN [03_SITES] T2 ON T1.ovs_iisid = T2.IIS_ID;
+ON T1.ovs_iisid = T2.STAKEHOLDER_ID;
 
 
 --MOC Registration Number
@@ -176,8 +181,7 @@ ON T1.ovs_iisid = T2.STAKEHOLDER_ID
 --get this field from the workplan uploads
 UPDATE [04_ACCOUNT]
 SET 
-
-	description = CONCAT(description, CHAR(13) + CHAR(10), 'MOC ID: ', T2.MOC_ID )
+	ovs_mocid = T2.MOC_ID
 FROM [04_ACCOUNT] T1
 JOIN 
 (
@@ -188,11 +192,11 @@ JOIN
 ) T2 
 ON T1.ovs_iisid = T2.IIS_ID;
 
+
 --View accounts linked to Sites
 --SELECT *  
 --FROM [04_ACCOUNT] T1
 --JOIN [03_SITES] T2 ON T1.ovs_iisid = T2.IIS_ID;
-
 
 
 --SITE OPERATING PROFILE TAGS:
