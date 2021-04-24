@@ -11,57 +11,11 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="CrmToSql"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{5B513AD7-FBAA-461A-9FB2-03CAF9D24785}">
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{B676221B-1207-413D-A02A-71C0928C78BE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
-      DTS:CreationName="DynamicsCRM"
-      DTS:DTSID="{B37F8C67-7531-4963-A1D3-6C1D98904568}"
-      DTS:ObjectName="Dynamics CRM Connection Manager">
-      <DTS:ObjectData>
-        <CrmConnectionManager
-          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev-tcd365.api.crm3.dynamics.com/XRMServices/2011/Organization.svc;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
-          ConnectByProxy="False">
-          <Password
-            Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgv9SWnaY00u400FrWMN42gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABlJrbztb2V/I+2hiBpy4OPAAAAAASAAACgAAAAEAAAAM/TmmVDkGWL65uoRujBpegYAAAAS6/72BydjJh5KY64H0F9H9bJKHEI7MbbFAAAAFWAzhWo0FWNhZukNemiL2ZrHba2</Password>
-        </CrmConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[tdg-data-migration-db]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{59FFB8AA-FFB9-4D6B-9FB9-7A96C27DEE5F}"
-      DTS:ObjectName="tdg-data-migration-db">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgv9SWnaY00u400FrWMN42gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD1EoJq6TfoyHVF0xDMdAwjAAAAAASAAACgAAAAEAAAAJK7b5bQYx1YalHN6IQX4/wYAAAAc05T8OsEE/riMXcecvT0eKpVzVebE8g6FAAAADHjhdjpgrShN3XVB1EwM/Zg69lS</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[tdg-data-migration-db 2]"
-      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      DTS:DTSID="{D9DF0730-5E8D-44E4-9A12-D9B387DBE828}"
-      DTS:ObjectName="tdg-data-migration-db 2">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-CrmToSql-{D9DF0730-5E8D-44E4-9A12-D9B387DBE828}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgv9SWnaY00u400FrWMN42gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADgvnzVqvyu8+dqVyCHV/b/AAAAAASAAACgAAAAEAAAAA+iak8WsQ+8awspayLT2lgYAAAAl4q6i18y9mGUaivSWRL0QvjG3BvzaruwFAAAAIU/5ZjVVMSeDkiSscX+Hq+uBhe8</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -132,8 +86,8 @@
               <connections>
                 <connection
                   refId="Package\accounts\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -3850,8 +3804,8 @@
               <connections>
                 <connection
                   refId="Package\accounts\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
-                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerID="{59FFB8AA-FFB9-4D6B-9FB9-7A96C27DEE5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[tdg-data-migration-db]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4445,7 +4399,7 @@
                     <externalMetadataColumn
                       refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owneridtype]"
                       dataType="wstr"
-                      length="64"
+                      length="4000"
                       name="owneridtype" />
                     <externalMetadataColumn
                       refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owningbusinessunit]"
@@ -4521,6 +4475,905 @@
                       dataType="wstr"
                       length="25"
                       name="ovs_iisid" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="guid"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SinkCreatedOn]"
+                      dataType="dbTimeStamp"
+                      name="SinkCreatedOn" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SinkModifiedOn]"
+                      dataType="dbTimeStamp"
+                      name="SinkModifiedOn" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_addresstypecode]"
+                      dataType="i4"
+                      name="address1_addresstypecode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_travelchargetype]"
+                      dataType="i4"
+                      name="msdyn_travelchargetype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[paymenttermscode]"
+                      dataType="i4"
+                      name="paymenttermscode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_shippingmethodcode]"
+                      dataType="i4"
+                      name="address1_shippingmethodcode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accountcategorycode]"
+                      dataType="i4"
+                      name="accountcategorycode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_freighttermscode]"
+                      dataType="i4"
+                      name="address1_freighttermscode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[preferredappointmenttimecode]"
+                      dataType="i4"
+                      name="preferredappointmenttimecode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accountclassificationcode]"
+                      dataType="i4"
+                      name="accountclassificationcode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customersizecode]"
+                      dataType="i4"
+                      name="customersizecode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ownershipcode]"
+                      dataType="i4"
+                      name="ownershipcode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_freighttermscode]"
+                      dataType="i4"
+                      name="address2_freighttermscode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[preferredcontactmethodcode]"
+                      dataType="i4"
+                      name="preferredcontactmethodcode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[industrycode]"
+                      dataType="i4"
+                      name="industrycode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[shippingmethodcode]"
+                      dataType="i4"
+                      name="shippingmethodcode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accountratingcode]"
+                      dataType="i4"
+                      name="accountratingcode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_addresstypecode]"
+                      dataType="i4"
+                      name="address2_addresstypecode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_shippingmethodcode]"
+                      dataType="i4"
+                      name="address2_shippingmethodcode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[preferredappointmentdaycode]"
+                      dataType="i4"
+                      name="preferredappointmentdaycode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[donotpostalmail]"
+                      dataType="bool"
+                      name="donotpostalmail" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[creditonhold]"
+                      dataType="bool"
+                      name="creditonhold" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[donotbulkpostalmail]"
+                      dataType="bool"
+                      name="donotbulkpostalmail" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[donotbulkemail]"
+                      dataType="bool"
+                      name="donotbulkemail" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[donotfax]"
+                      dataType="bool"
+                      name="donotfax" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[donotemail]"
+                      dataType="bool"
+                      name="donotemail" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[followemail]"
+                      dataType="bool"
+                      name="followemail" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[participatesinworkflow]"
+                      dataType="bool"
+                      name="participatesinworkflow" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[marketingonly]"
+                      dataType="bool"
+                      name="marketingonly" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[isprivate]"
+                      dataType="bool"
+                      name="isprivate" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[merged]"
+                      dataType="bool"
+                      name="merged" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[donotphone]"
+                      dataType="bool"
+                      name="donotphone" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[donotsendmm]"
+                      dataType="bool"
+                      name="donotsendmm" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_taxexempt]"
+                      dataType="bool"
+                      name="msdyn_taxexempt" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdonbehalfby]"
+                      dataType="guid"
+                      name="createdonbehalfby" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdonbehalfby_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="createdonbehalfby_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[originatingleadid]"
+                      dataType="guid"
+                      name="originatingleadid" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[originatingleadid_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="originatingleadid_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[territoryid_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="territoryid_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[slaid]"
+                      dataType="guid"
+                      name="slaid" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[slaid_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="slaid_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_country_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="ovs_country_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[parentaccountid_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="parentaccountid_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_serviceterritory_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="msdyn_serviceterritory_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[primarycontactid_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="primarycontactid_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owningbusinessunit_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="owningbusinessunit_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedonbehalfby]"
+                      dataType="guid"
+                      name="modifiedonbehalfby" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedonbehalfby_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="modifiedonbehalfby_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_workhourtemplate]"
+                      dataType="guid"
+                      name="msdyn_workhourtemplate" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_workhourtemplate_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="msdyn_workhourtemplate_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owninguser_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="owninguser_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdbyexternalparty]"
+                      dataType="guid"
+                      name="createdbyexternalparty" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdbyexternalparty_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="createdbyexternalparty_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedby]"
+                      dataType="guid"
+                      name="modifiedby" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedby_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="modifiedby_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owningteam_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="owningteam_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[slainvokedid]"
+                      dataType="guid"
+                      name="slainvokedid" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[slainvokedid_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="slainvokedid_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[preferredequipmentid]"
+                      dataType="guid"
+                      name="preferredequipmentid" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[preferredequipmentid_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="preferredequipmentid_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[transactioncurrencyid]"
+                      dataType="guid"
+                      name="transactioncurrencyid" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[transactioncurrencyid_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="transactioncurrencyid_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_billingaccount_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="msdyn_billingaccount_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[masterid]"
+                      dataType="guid"
+                      name="masterid" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[masterid_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="masterid_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedbyexternalparty]"
+                      dataType="guid"
+                      name="modifiedbyexternalparty" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedbyexternalparty_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="modifiedbyexternalparty_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[defaultpricelevelid]"
+                      dataType="guid"
+                      name="defaultpricelevelid" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[defaultpricelevelid_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="defaultpricelevelid_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdby_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="createdby_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_preferredresource_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="msdyn_preferredresource_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[preferredserviceid]"
+                      dataType="guid"
+                      name="preferredserviceid" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[preferredserviceid_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="preferredserviceid_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_salestaxcode]"
+                      dataType="guid"
+                      name="msdyn_salestaxcode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_salestaxcode_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="msdyn_salestaxcode_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[preferredsystemuserid_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="preferredsystemuserid_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_sitetype_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="ovs_sitetype_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ownerid_entitytype]"
+                      dataType="wstr"
+                      length="128"
+                      name="ownerid_entitytype" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[aging90]"
+                      dataType="numeric"
+                      name="aging90"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[openrevenue]"
+                      dataType="numeric"
+                      name="openrevenue"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[aging30]"
+                      dataType="numeric"
+                      name="aging30"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_travelcharge_base]"
+                      dataType="numeric"
+                      name="msdyn_travelcharge_base"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[aging60_base]"
+                      dataType="numeric"
+                      name="aging60_base"
+                      precision="38"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[creditlimit]"
+                      dataType="numeric"
+                      name="creditlimit"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[openrevenue_base]"
+                      dataType="numeric"
+                      name="openrevenue_base"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[creditlimit_base]"
+                      dataType="numeric"
+                      name="creditlimit_base"
+                      precision="38"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[aging60]"
+                      dataType="numeric"
+                      name="aging60"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[revenue]"
+                      dataType="numeric"
+                      name="revenue"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_travelcharge]"
+                      dataType="numeric"
+                      name="msdyn_travelcharge"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[revenue_base]"
+                      dataType="numeric"
+                      name="revenue_base"
+                      precision="38"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[aging90_base]"
+                      dataType="numeric"
+                      name="aging90_base"
+                      precision="38"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[marketcap_base]"
+                      dataType="numeric"
+                      name="marketcap_base"
+                      precision="38"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[marketcap]"
+                      dataType="numeric"
+                      name="marketcap"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[aging30_base]"
+                      dataType="numeric"
+                      name="aging30_base"
+                      precision="38"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[masteraccountidyominame]"
+                      dataType="wstr"
+                      length="100"
+                      name="masteraccountidyominame" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_serviceterritoryname]"
+                      dataType="wstr"
+                      length="200"
+                      name="msdyn_serviceterritoryname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedon]"
+                      dataType="dbTimeStamp"
+                      name="modifiedon" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_longitude]"
+                      dataType="numeric"
+                      name="address1_longitude"
+                      precision="38"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[entityimage_timestamp]"
+                      dataType="i8"
+                      name="entityimage_timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sharesoutstanding]"
+                      dataType="i4"
+                      name="sharesoutstanding" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[primarycontactidname]"
+                      dataType="wstr"
+                      length="100"
+                      name="primarycontactidname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[transactioncurrencyidname]"
+                      dataType="wstr"
+                      length="100"
+                      name="transactioncurrencyidname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_salestaxcodename]"
+                      dataType="wstr"
+                      length="100"
+                      name="msdyn_salestaxcodename" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[preferredsystemuseridyominame]"
+                      dataType="wstr"
+                      length="100"
+                      name="preferredsystemuseridyominame" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[opendeals_date]"
+                      dataType="dbTimeStamp"
+                      name="opendeals_date" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedbyexternalpartyyominame]"
+                      dataType="wstr"
+                      length="100"
+                      name="modifiedbyexternalpartyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[masteraccountidname]"
+                      dataType="wstr"
+                      length="100"
+                      name="masteraccountidname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[preferredsystemuseridname]"
+                      dataType="wstr"
+                      length="100"
+                      name="preferredsystemuseridname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_stateorprovince]"
+                      dataType="wstr"
+                      length="50"
+                      name="address2_stateorprovince" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_line2]"
+                      dataType="wstr"
+                      length="250"
+                      name="address2_line2" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[onholdtime]"
+                      dataType="i4"
+                      name="onholdtime" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[parentaccountidname]"
+                      dataType="wstr"
+                      length="100"
+                      name="parentaccountidname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[originatingleadidname]"
+                      dataType="wstr"
+                      length="100"
+                      name="originatingleadidname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_utcoffset]"
+                      dataType="i4"
+                      name="address1_utcoffset" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[numberofemployees]"
+                      dataType="i4"
+                      name="numberofemployees" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedbyexternalpartyname]"
+                      dataType="wstr"
+                      length="100"
+                      name="modifiedbyexternalpartyname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[exchangerate]"
+                      dataType="numeric"
+                      name="exchangerate"
+                      precision="38"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_county]"
+                      dataType="wstr"
+                      length="50"
+                      name="address2_county" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_taxexemptnumber]"
+                      dataType="wstr"
+                      length="20"
+                      name="msdyn_taxexemptnumber" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_latitude]"
+                      dataType="numeric"
+                      name="address2_latitude"
+                      precision="38"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdon]"
+                      dataType="dbTimeStamp"
+                      name="createdon" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[timespentbymeonemailandmeetings]"
+                      dataType="wstr"
+                      length="1250"
+                      name="timespentbymeonemailandmeetings" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_composite]"
+                      dataType="nText"
+                      name="address1_composite" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[opendeals_state]"
+                      dataType="i4"
+                      name="opendeals_state" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_postalcode]"
+                      dataType="wstr"
+                      length="20"
+                      name="address2_postalcode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lastusedincampaign]"
+                      dataType="dbTimeStamp"
+                      name="lastusedincampaign" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[processid]"
+                      dataType="guid"
+                      name="processid" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owneridyominame]"
+                      dataType="wstr"
+                      length="100"
+                      name="owneridyominame" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[entityimage_url]"
+                      dataType="wstr"
+                      length="200"
+                      name="entityimage_url" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[teamsfollowed]"
+                      dataType="i4"
+                      name="teamsfollowed" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_line3]"
+                      dataType="wstr"
+                      length="250"
+                      name="address2_line3" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_city]"
+                      dataType="wstr"
+                      length="80"
+                      name="address2_city" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[timezoneruleversionnumber]"
+                      dataType="i4"
+                      name="timezoneruleversionnumber" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_county]"
+                      dataType="wstr"
+                      length="50"
+                      name="address1_county" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdbyname]"
+                      dataType="wstr"
+                      length="100"
+                      name="createdbyname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_workhourtemplatename]"
+                      dataType="wstr"
+                      length="100"
+                      name="msdyn_workhourtemplatename" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_postofficebox]"
+                      dataType="wstr"
+                      length="20"
+                      name="address2_postofficebox" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_telephone1]"
+                      dataType="wstr"
+                      length="50"
+                      name="address2_telephone1" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_telephone2]"
+                      dataType="wstr"
+                      length="50"
+                      name="address2_telephone2" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_telephone3]"
+                      dataType="wstr"
+                      length="50"
+                      name="address2_telephone3" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[originatingleadidyominame]"
+                      dataType="wstr"
+                      length="100"
+                      name="originatingleadidyominame" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[traversedpath]"
+                      dataType="wstr"
+                      length="1250"
+                      name="traversedpath" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[territoryidname]"
+                      dataType="wstr"
+                      length="100"
+                      name="territoryidname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[yominame]"
+                      dataType="wstr"
+                      length="160"
+                      name="yominame" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdonbehalfbyname]"
+                      dataType="wstr"
+                      length="100"
+                      name="createdonbehalfbyname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_name]"
+                      dataType="wstr"
+                      length="200"
+                      name="address2_name" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[openrevenue_state]"
+                      dataType="i4"
+                      name="openrevenue_state" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[primarysatoriid]"
+                      dataType="wstr"
+                      length="200"
+                      name="primarysatoriid" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[entityimageid]"
+                      dataType="guid"
+                      name="entityimageid" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[primarytwitterid]"
+                      dataType="wstr"
+                      length="128"
+                      name="primarytwitterid" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owneridname]"
+                      dataType="wstr"
+                      length="100"
+                      name="owneridname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedonbehalfbyname]"
+                      dataType="wstr"
+                      length="100"
+                      name="modifiedonbehalfbyname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[overriddencreatedon]"
+                      dataType="dbTimeStamp"
+                      name="overriddencreatedon" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_composite]"
+                      dataType="nText"
+                      name="address2_composite" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[preferredserviceidname]"
+                      dataType="wstr"
+                      length="100"
+                      name="preferredserviceidname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdbyexternalpartyyominame]"
+                      dataType="wstr"
+                      length="100"
+                      name="createdbyexternalpartyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_countryname]"
+                      dataType="wstr"
+                      length="100"
+                      name="ovs_countryname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdonbehalfbyyominame]"
+                      dataType="wstr"
+                      length="100"
+                      name="createdonbehalfbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[slainvokedidname]"
+                      dataType="wstr"
+                      length="100"
+                      name="slainvokedidname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_country]"
+                      dataType="wstr"
+                      length="80"
+                      name="address2_country" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_utcoffset]"
+                      dataType="i4"
+                      name="address2_utcoffset" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_fax]"
+                      dataType="wstr"
+                      length="50"
+                      name="address2_fax" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_longitude]"
+                      dataType="numeric"
+                      name="address2_longitude"
+                      precision="38"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ftpsiteurl]"
+                      dataType="wstr"
+                      length="200"
+                      name="ftpsiteurl" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[preferredequipmentidname]"
+                      dataType="wstr"
+                      length="100"
+                      name="preferredequipmentidname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedbyyominame]"
+                      dataType="wstr"
+                      length="100"
+                      name="modifiedbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lastonholdtime]"
+                      dataType="dbTimeStamp"
+                      name="lastonholdtime" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[openrevenue_date]"
+                      dataType="dbTimeStamp"
+                      name="openrevenue_date" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_upszone]"
+                      dataType="wstr"
+                      length="4"
+                      name="address2_upszone" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[tickersymbol]"
+                      dataType="wstr"
+                      length="10"
+                      name="tickersymbol" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[stageid]"
+                      dataType="guid"
+                      name="stageid" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[utcconversiontimezonecode]"
+                      dataType="i4"
+                      name="utcconversiontimezonecode" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdbyexternalpartyname]"
+                      dataType="wstr"
+                      length="100"
+                      name="createdbyexternalpartyname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[defaultpricelevelidname]"
+                      dataType="wstr"
+                      length="100"
+                      name="defaultpricelevelidname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[stockexchange]"
+                      dataType="wstr"
+                      length="20"
+                      name="stockexchange" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_addressid]"
+                      dataType="guid"
+                      name="address2_addressid" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_workorderinstructions]"
+                      dataType="nText"
+                      name="msdyn_workorderinstructions" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[versionnumber]"
+                      dataType="i8"
+                      name="versionnumber" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_fax]"
+                      dataType="wstr"
+                      length="50"
+                      name="address1_fax" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_latitude]"
+                      dataType="numeric"
+                      name="address1_latitude"
+                      precision="38"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[primarycontactidyominame]"
+                      dataType="wstr"
+                      length="100"
+                      name="primarycontactidyominame" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedbyname]"
+                      dataType="wstr"
+                      length="100"
+                      name="modifiedbyname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[createdbyyominame]"
+                      dataType="wstr"
+                      length="100"
+                      name="createdbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_line1]"
+                      dataType="wstr"
+                      length="250"
+                      name="address2_line1" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_upszone]"
+                      dataType="wstr"
+                      length="4"
+                      name="address1_upszone" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[modifiedonbehalfbyyominame]"
+                      dataType="wstr"
+                      length="100"
+                      name="modifiedonbehalfbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[slaname]"
+                      dataType="wstr"
+                      length="100"
+                      name="slaname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[parentaccountidyominame]"
+                      dataType="wstr"
+                      length="100"
+                      name="parentaccountidyominame" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address2_primarycontactname]"
+                      dataType="wstr"
+                      length="100"
+                      name="address2_primarycontactname" />
+                    <externalMetadataColumn
+                      refId="Package\accounts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[opendeals]"
+                      dataType="i4"
+                      name="opendeals" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -4628,8 +5481,8 @@
               <connections>
                 <connection
                   refId="Package\bookable resource\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -6026,8 +6879,8 @@
               <connections>
                 <connection
                   refId="Package\bookable resource\Premium ADO NET Destination.Connections[ADO NET]"
-                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db 2]"
-                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db 2]"
+                  connectionManagerID="{D9DF0730-5E8D-44E4-9A12-D9B387DBE828}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[tdg-data-migration-db 2]"
                   description="ADO.NET"
                   name="ADO NET" />
               </connections>
@@ -8678,8 +9531,8 @@
               <connections>
                 <connection
                   refId="Package\bookable resource categories\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -9273,8 +10126,8 @@
               <connections>
                 <connection
                   refId="Package\bookable resource categories\Premium ADO NET Destination.Connections[ADO NET]"
-                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db 2]"
-                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db 2]"
+                  connectionManagerID="{D9DF0730-5E8D-44E4-9A12-D9B387DBE828}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[tdg-data-migration-db 2]"
                   description="ADO.NET"
                   name="ADO NET" />
               </connections>
@@ -10381,8 +11234,8 @@
               <connections>
                 <connection
                   refId="Package\bookable resource categories assn\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -11017,8 +11870,8 @@
               <connections>
                 <connection
                   refId="Package\bookable resource categories assn\Premium ADO NET Destination.Connections[ADO NET]"
-                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db 2]"
-                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db 2]"
+                  connectionManagerID="{D9DF0730-5E8D-44E4-9A12-D9B387DBE828}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[tdg-data-migration-db 2]"
                   description="ADO.NET"
                   name="ADO NET" />
               </connections>
@@ -12205,8 +13058,8 @@
               <connections>
                 <connection
                   refId="Package\contact\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -16242,8 +17095,8 @@
               <connections>
                 <connection
                   refId="Package\contact\Premium ADO NET Destination.Connections[ADO NET]"
-                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db 2]"
-                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db 2]"
+                  connectionManagerID="{D9DF0730-5E8D-44E4-9A12-D9B387DBE828}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[tdg-data-migration-db 2]"
                   description="ADO.NET"
                   name="ADO NET" />
               </connections>
@@ -23873,8 +24726,8 @@
               <connections>
                 <connection
                   refId="Package\fiscal quarter\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -24509,8 +25362,8 @@
               <connections>
                 <connection
                   refId="Package\fiscal quarter\Premium ADO NET Destination.Connections[ADO NET]"
-                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db 2]"
-                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db 2]"
+                  connectionManagerID="{D9DF0730-5E8D-44E4-9A12-D9B387DBE828}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[tdg-data-migration-db 2]"
                   description="ADO.NET"
                   name="ADO NET" />
               </connections>
@@ -26192,8 +27045,8 @@
               <connections>
                 <connection
                   refId="Package\fiscal years\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -26828,8 +27681,8 @@
               <connections>
                 <connection
                   refId="Package\fiscal years\Premium ADO NET Destination.Connections[ADO NET]"
-                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db 2]"
-                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db 2]"
+                  connectionManagerID="{D9DF0730-5E8D-44E4-9A12-D9B387DBE828}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[tdg-data-migration-db 2]"
                   description="ADO.NET"
                   name="ADO NET" />
               </connections>
@@ -28512,8 +29365,8 @@
               <connections>
                 <connection
                   refId="Package\system users\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -30978,8 +31831,8 @@
               <connections>
                 <connection
                   refId="Package\system users\Premium ADO NET Destination.Connections[ADO NET]"
-                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db 2]"
-                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db 2]"
+                  connectionManagerID="{D9DF0730-5E8D-44E4-9A12-D9B387DBE828}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[tdg-data-migration-db 2]"
                   description="ADO.NET"
                   name="ADO NET" />
               </connections>
@@ -35660,8 +36513,8 @@
               <connections>
                 <connection
                   refId="Package\work orders\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -38373,8 +39226,8 @@
               <connections>
                 <connection
                   refId="Package\work orders\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
-                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerID="{59FFB8AA-FFB9-4D6B-9FB9-7A96C27DEE5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[tdg-data-migration-db]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -40520,11 +41373,19 @@
         <NodeLayout
           Size="120,42"
           Id="Package\accounts"
-          TopLeft="491.5,194.5" />
+          TopLeft="491.5,191.5" />
         <NodeLayout
           Size="165,42"
           Id="Package\bookable resource"
           TopLeft="452.5,495.5" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\bookable resource categories"
+          TopLeft="648.5,495.5" />
+        <NodeLayout
+          Size="241,42"
+          Id="Package\bookable resource categories assn"
+          TopLeft="898.5,497.5" />
         <NodeLayout
           Size="113,42"
           Id="Package\contact"
@@ -40545,14 +41406,6 @@
           Size="135,42"
           Id="Package\work orders"
           TopLeft="479.5,285.5" />
-        <NodeLayout
-          Size="216,42"
-          Id="Package\bookable resource categories"
-          TopLeft="648.5,495.5" />
-        <NodeLayout
-          Size="241,42"
-          Id="Package\bookable resource categories assn"
-          TopLeft="898.5,497.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -40646,21 +41499,97 @@
     </LayoutInfo>
   </TaskHost>
   <TaskHost
+    design-time-name="Package\bookable resource categories">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="184,42"
+          Id="Package\bookable resource categories\Dynamics CRM Source"
+          TopLeft="537,107" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\bookable resource categories\Premium ADO NET Destination"
+          TopLeft="522,278" />
+        <EdgeLayout
+          Id="Package\bookable resource categories.Paths[Primary Output]"
+          TopLeft="631.5,149">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,129"
+              Start="0,0"
+              End="0,121.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,121.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\bookable resource categories assn">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="184,42"
+          Id="Package\bookable resource categories assn\Dynamics CRM Source"
+          TopLeft="537,107" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\bookable resource categories assn\Premium ADO NET Destination"
+          TopLeft="522,278" />
+        <EdgeLayout
+          Id="Package\bookable resource categories assn.Paths[Primary Output]"
+          TopLeft="631.5,149">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,129"
+              Start="0,0"
+              End="0,121.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,121.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
     design-time-name="Package\contact">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="224,42"
+          Size="233,42"
           Id="Package\contact\Premium ADO NET Destination"
           TopLeft="529,277" />
         <NodeLayout
-          Size="184,42"
+          Size="193,42"
           Id="Package\contact\Dynamics CRM Source"
           TopLeft="537,107" />
         <EdgeLayout
           Id="Package\contact.Paths[Primary Output]"
-          TopLeft="629,149">
+          TopLeft="633.5,149">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -40689,9 +41618,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -40864,81 +41791,5 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\bookable resource categories">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="184,42"
-          Id="Package\bookable resource categories\Dynamics CRM Source"
-          TopLeft="537,107" />
-        <NodeLayout
-          Size="224,42"
-          Id="Package\bookable resource categories\Premium ADO NET Destination"
-          TopLeft="522,278" />
-        <EdgeLayout
-          Id="Package\bookable resource categories.Paths[Primary Output]"
-          TopLeft="631.5,149">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,129"
-              Start="0,0"
-              End="0,121.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,121.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\bookable resource categories assn">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="184,42"
-          Id="Package\bookable resource categories assn\Dynamics CRM Source"
-          TopLeft="537,107" />
-        <NodeLayout
-          Size="224,42"
-          Id="Package\bookable resource categories assn\Premium ADO NET Destination"
-          TopLeft="522,278" />
-        <EdgeLayout
-          Id="Package\bookable resource categories assn.Paths[Primary Output]"
-          TopLeft="631.5,149">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,129"
-              Start="0,0"
-              End="0,121.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,121.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

@@ -5,30 +5,26 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="NCRNBH803696"
   DTS:CreatorName="TC\LEBLAAA"
-  DTS:DTSID="{79285056-B1E6-4380-80B4-71E58468437C}"
+  DTS:DTSID="{B9706707-FC91-4E53-BD26-62113E86FFD7}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.150"
   DTS:LocaleID="1033"
   DTS:ObjectName="SqlToSql"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{949A8200-B6E5-43E1-95B3-8E57B583E7EF}">
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{7465C5C8-CAA7-4A79-83B2-E45ED7B6A878}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore]"
+      DTS:refId="Package.ConnectionManagers[tdg-data-migration-db]"
       DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      DTS:DTSID="{ADDF4C9F-88A9-4AAB-A051-EDAC026FFABB}"
-      DTS:ObjectName="tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore">
+      DTS:DTSID="{C07CD924-1EF3-44C5-A334-DFF4332BE680}"
+      DTS:ObjectName="tdg-data-migration-db">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=tcp:aarons-tc-sql-server.database.windows.net,1433;User ID=tdgcore;Initial Catalog=aaron-tc-sql-db;Persist Security Info=True;Application Name=SSIS-SqlToSql-{ADDF4C9F-88A9-4AAB-A051-EDAC026FFABB}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgv9SWnaY00u400FrWMN42gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACHuzk9gajWiQ7q1Pn/LsVoAAAAAASAAACgAAAAEAAAABRqwnFo35Oe9N5+E1anrUkYAAAA4HBPD6jb6/ZB2Hrncfpj1QT2azIZTvauFAAAAPZKwmESILvN01cg8oYRszygsK6h</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-SqlToSql-{C07CD924-1EF3-44C5-A334-DFF4332BE680}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -38,7 +34,7 @@
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{6E538C57-20E4-42FF-A41E-9081F2198535}"
+      DTS:DTSID="{17E1BDF3-F274-4C52-84AB-B77856D5CEB2}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Data Flow Task"

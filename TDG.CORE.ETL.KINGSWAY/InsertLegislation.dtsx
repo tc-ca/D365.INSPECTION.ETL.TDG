@@ -7,12 +7,13 @@
   DTS:CreatorName="DESKTOP-PAJP0EI\Aaron"
   DTS:DTSID="{649E6A6C-2709-48CD-9801-792E0BA86D4A}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="39"
-  DTS:VersionGUID="{56334161-CE97-4632-8CD4-08584EF229C9}">
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{EA80ADFE-6FF4-4DB7-9392-D1FA0FC5B591}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,11 +24,8 @@
       DTS:ObjectName="Dynamics CRM Connection Manager">
       <DTS:ObjectData>
         <CrmConnectionManager
-          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=TDG.CORE@034gc.onmicrosoft.com;Domain=;CrmServerUrl=https://rom-dev-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False">
-          <Password
-            Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqMFcBO7+9UaHA1rNx4AZZgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACE2VPu2h36BbQAVQ0bSYgeAAAAAASAAACgAAAAEAAAALGUMQjEm6jaL2If3fxMH2IgAAAAHtZiToBydFVo+Zk1WYFO2HQ9nV4++/fY+reRn46X8igUAAAAH24O91/qVYq01koTlQuas2ZDS2I</Password>
-        </CrmConnectionManager>
+          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=TDG.CORE@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
+          ConnectByProxy="False" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -189,7 +187,7 @@
               description="Populate data into Microsoft Dynamics 365 CE/CRM."
               name="Dynamics CRM Destination"
               usesDispositions="true"
-              version="3">
+              version="4">
               <properties>
                 <property
                   dataType="System.String"
@@ -200,7 +198,7 @@
                   dataType="System.Int32"
                   description="Specifies how data is written to CRM server."
                   name="ActionType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationActionType">5</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">5</property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether the values of CRM lookup fields should be removed if the reference records cannot be found. "
@@ -208,20 +206,20 @@
                   name="RemoveUnresolvableReferences">false</property>
                 <property
                   dataType="System.Boolean"
-                  description="Specifies whether duplicate detection should be enabled when creating or updating CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in Microsoft Dynamics CRM."
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
                   expressionType="Notify"
-                  name="EnableDuplicateDetection">false</property>
+                  name="EnableSystemDuplicateDetection">false</property>
                 <property
                   dataType="System.Int32"
-                  description="Specify the matching criteria to be used when Upsert action is chosen."
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
-                  name="UpsertMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertMatchingCriteria">1</property>
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">1</property>
                 <property
                   dataType="System.String"
-                  description="Specify the matching fields to be used to determine the matching records that exist in CRM when Manually Specify option is chosen for Upsert action."
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
                   expressionType="Notify"
-                  name="UpsertMatchingFields"></property>
+                  name="RecordMatchingKeyFields"></property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether to ignore those NULL-valued fields."
@@ -247,18 +245,18 @@
                   description="Specify what action will be taken when multiple matches are found with Upsert action."
                   expressionType="Notify"
                   name="HandlingOfMultipleMatches"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertHandlingOfMultipleMatches">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specify whether to use optimizations when there are duplicate records form the source system."
                   expressionType="Notify"
                   name="OptimizationOnSourceDuplicates"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">1</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
                 <property
                   dataType="System.String"
-                  description="Workflow to be executed."
+                  description="Workflow or action to be executed."
                   expressionType="Notify"
-                  name="Workflow"></property>
+                  name="WorkflowAction"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of records to be sent to Microsoft Dynamics 365/CRM server in each service call."
@@ -367,7 +365,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Lookup</property>
+                          name="FieldType">Lookup</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">systemuser</property>
@@ -386,7 +384,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -405,7 +403,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">DateTime</property>
+                          name="FieldType">DateTime</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -424,7 +422,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Owner</property>
+                          name="FieldType">Owner</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">systemuser;team</property>
@@ -444,7 +442,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">EntityName</property>
+                          name="FieldType">EntityName</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -463,7 +461,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">State</property>
+                          name="FieldType">State</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -482,7 +480,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Status</property>
+                          name="FieldType">Status</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -501,7 +499,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">DateTime</property>
+                          name="FieldType">DateTime</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -520,7 +518,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">DateTime</property>
+                          name="FieldType">DateTime</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -539,7 +537,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -559,7 +557,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">String</property>
+                          name="FieldType">String</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -578,7 +576,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Uniqueidentifier</property>
+                          name="FieldType">Uniqueidentifier</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -598,7 +596,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">String</property>
+                          name="FieldType">String</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -618,7 +616,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">String</property>
+                          name="FieldType">String</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -638,7 +636,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">String</property>
+                          name="FieldType">String</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -657,7 +655,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Lookup</property>
+                          name="FieldType">Lookup</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">tc_legislation_type</property>
@@ -676,7 +674,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -695,7 +693,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -714,7 +712,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Integer</property>
+                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -730,6 +728,25 @@
                 </input>
               </inputs>
               <outputs>
+                <output
+                  refId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
                 <output
                   refId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output]"
                   exclusionGroup="1"
@@ -750,30 +767,11 @@
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
                       dataType="wstr"
                       length="2048"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
-                      name="CrmErrorMessage" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output]"
-                  exclusionGroup="1"
-                  name="Default Output"
-                  synchronousInputId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      dataType="guid"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      name="CrmRecordId" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      name="IsNew" />
+                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1550,11 +1548,11 @@
                       cachedName="ErrorColumn"
                       lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[CrmErrorMessage]"
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorMessage]"
                       cachedDataType="wstr"
                       cachedLength="2048"
-                      cachedName="CrmErrorMessage"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]" />
+                      cachedName="ErrorMessage"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1639,10 +1637,10 @@
                       cachedName="regulation-type"
                       lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[regulation-type]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[CrmRecordId]"
+                      refId="Package\Data Flow Task\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[SavedRecordId]"
                       cachedDataType="guid"
-                      cachedName="CrmRecordId"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]" />
+                      cachedName="SavedRecordId"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[IsNew]"
                       cachedDataType="bool"

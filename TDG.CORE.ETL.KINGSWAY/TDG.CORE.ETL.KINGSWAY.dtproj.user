@@ -23,20 +23,8 @@
         <WinAuthUserName />
         <WinAuthDomain />
         <Run64BitRuntime>false</Run64BitRuntime>
-        <UserIDs>
-          <ConfigurationSetting>
-            <Id>{9AA743A5-65D9-4652-91FB-E393873A3736}</Id>
-            <Name>{9AA743A5-65D9-4652-91FB-E393873A3736}</Name>
-            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgv9SWnaY00u400FrWMN42gAAAABOAAAAewA5AEEAQQA3ADQAMwBBADUALQA2ADUARAA5AC0ANAA2ADUAMgAtADkAMQBGAEIALQBFADMAOQAzADgANwAzAEEAMwA3ADMANgB9AAAAA2YAAMAAAAAQAAAA5YzjNr/W+CzdsFud5FnH1wAAAAAEgAAAoAAAABAAAACHFzHcJ64moRbsSStQaOjKEAAAABSts01ZYRnzXxT6vtfE3wIUAAAAGghgxORWunRFzW2c2oLCYEH+IWo=</Value>
-          </ConfigurationSetting>
-        </UserIDs>
-        <UserPasswords>
-          <ConfigurationSetting>
-            <Id>{9AA743A5-65D9-4652-91FB-E393873A3736}</Id>
-            <Name>{9AA743A5-65D9-4652-91FB-E393873A3736}</Name>
-            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgv9SWnaY00u400FrWMN42gAAAABOAAAAewA5AEEAQQA3ADQAMwBBADUALQA2ADUARAA5AC0ANAA2ADUAMgAtADkAMQBGAEIALQBFADMAOQAzADgANwAzAEEAMwA3ADMANgB9AAAAA2YAAMAAAAAQAAAAukyB+Lnt4H1ZqbU24yOwzgAAAAAEgAAAoAAAABAAAACGbb599cHIlBvehtCfTa+8GAAAAGgR4FuOz9Dje+vXV7+rfgRnT1418m9pGBQAAACAczsuxLkUSJO2DHTqKI550clZCA==</Value>
-          </ConfigurationSetting>
-        </UserPasswords>
+        <UserIDs />
+        <UserPasswords />
         <OfflineMode>false</OfflineMode>
         <ProgressReporting>true</ProgressReporting>
         <ParameterConfigurationSensitiveValues>

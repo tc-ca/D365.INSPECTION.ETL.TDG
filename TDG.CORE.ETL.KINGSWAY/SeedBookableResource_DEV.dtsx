@@ -11,8 +11,9 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SeedBookableResource_DEV"
   DTS:PackageType="5"
-  DTS:VersionBuild="42"
-  DTS:VersionGUID="{A50E7FCE-9C11-473E-909C-84E84003E35A}">
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="44"
+  DTS:VersionGUID="{DD95947A-BB11-4403-A2B8-78D2503DFEF8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,11 +25,7 @@
       <DTS:ObjectData>
         <CrmConnectionManager
           ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test1@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
-          ConnectByProxy="False">
-          <Password
-            Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgv9SWnaY00u400FrWMN42gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAh03wtrlZkypJgDXBHHIccAAAAAASAAACgAAAAEAAAAAMrCzLw8+yqh0nO6zw3AUkYAAAAY8M6dJzQuZYS/RHrlm/VKDLLlEMVj24MFAAAAFwvwYcJE/OhQVzlCUvu/joqE08S</Password>
-        </CrmConnectionManager>
+          ConnectByProxy="False" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -167,7 +164,7 @@
                   description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
                   name="RecordMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
                 <property
                   dataType="System.String"
                   description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
@@ -962,7 +959,7 @@
                   description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
                   name="RecordMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">3</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">3</property>
                 <property
                   dataType="System.String"
                   description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
@@ -1427,7 +1424,7 @@
                   description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
                   name="RecordMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">3</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">3</property>
                 <property
                   dataType="System.String"
                   description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
@@ -2309,7 +2306,7 @@
                   description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
                   name="RecordMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">3</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">3</property>
                 <property
                   dataType="System.String"
                   description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
@@ -2340,7 +2337,7 @@
                   description="Specifies what action will be taken when multiple matches are found with Upsert action."
                   expressionType="Notify"
                   name="HandlingOfMultipleMatches"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">4</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">4</property>
                 <property
                   dataType="System.Int32"
                   description="Specify whether to use optimizations when there are duplicate records form the source system."
@@ -3405,13 +3402,16 @@
                   description="Full path to the destination file."
                   expressionType="Notify"
                   name="DestinationFilePath">C:\Users\LEBLAAA\source\D365.INSPECTION.ETL.TDG\TDG.CORE.ETL.RESOURCES\CLIENT_FILES\TDG_Inspectors_Fail.xlsx</property>
-                <property
-                  dataType="System.String"
-                  description="Password to open the Excel file."
-                  Encrypted="1"
-                  expressionType="Notify"
-                  name="OpenPassword"
-                  Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgv9SWnaY00u400FrWMN42gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADZeduqvZJTgiEBsyyhVgTgAAAAAASAAACgAAAAEAAAADzy+ek4ePM0W2hI4NPi5d0IAAAAsEaMYdXQCdMUAAAAzNB3x/FD8VaYDoEqqpJwhY/kXyk</property>
+                <EncryptedData
+                  IV="N7B+7UXoKdKb8NO1CAnEiw=="
+                  Salt="ROYIGJCUDfE="
+                  Type="http://www.w3.org/2001/04/xmlenc#Element" xmlns="http://www.w3.org/2001/04/xmlenc#">
+                  <EncryptionMethod
+                    Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+                  <CipherData>
+                    <CipherValue>N7B+7UXoKdKb8NO1CAnEi0nCuPlz2I/Jv/D0FPYq5gwqXypJljoKDZq4z/H8PhBuIvAEObufCLhJUdBEmMv6gc/fyl47F1qXdZKcssKSgUmd24HR7hc+U7SUE4BoxTsdwt+yVx8VDhuybwGp/cOVMm4r0IY0BK2N6QPVwwKcMpGd615mJVCnwj1msrYlhHIvgdVS5o9s1dbImY7e9ri6Tkfp0WrWZN45DLMmOsDhpLrTpJWZ5ImDtli7/m6wzRn3</CipherValue>
+                  </CipherData>
+                </EncryptedData>
                 <property
                   dataType="System.Int32"
                   description="Specify the write mode."
@@ -3872,13 +3872,16 @@
                   description="Full path to the destination file."
                   expressionType="Notify"
                   name="DestinationFilePath">C:\Users\LEBLAAA\source\D365.INSPECTION.ETL.TDG\TDG.CORE.ETL.RESOURCES\CLIENT_FILES\TDG_Inspectors_Success.xlsx</property>
-                <property
-                  dataType="System.String"
-                  description="Password to open the Excel file."
-                  Encrypted="1"
-                  expressionType="Notify"
-                  name="OpenPassword"
-                  Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgv9SWnaY00u400FrWMN42gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACC6sVCMcToVg78p6nJupiEAAAAAASAAACgAAAAEAAAAMdMMUHt7LCtA7dihkdGbFMIAAAAMFi2Kit5QX8UAAAAqBWaGjn67p7K5N8YX33IyAxR58w</property>
+                <EncryptedData
+                  IV="gIFxfjpH/SlYJWdL8xZqjw=="
+                  Salt="SqrVUJ64nWs="
+                  Type="http://www.w3.org/2001/04/xmlenc#Element" xmlns="http://www.w3.org/2001/04/xmlenc#">
+                  <EncryptionMethod
+                    Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+                  <CipherData>
+                    <CipherValue>gIFxfjpH/SlYJWdL8xZqjztTGvwmtPg46hPTFvyIH39M4Yfw28EmvMUip4Hpd4SSFKnoQG9BJ9yezZ9zLVp1Pe8AI+HvHQE57nG37vxcx2dajcBt+kiTnaT20zr0YqtiVaW063bhH5gTAmvH7/txwS2DCg+VCigRwioK/qZ05ZZZBb58kyHvOGnKSR0heSRMGB6tBrs1JsYzBlGq3Nd1bH00+INQQDg27adeeJFifr8xHZ3ozSpDvddRJ1Xw1iWk</CipherValue>
+                  </CipherData>
+                </EncryptedData>
                 <property
                   dataType="System.Int32"
                   description="Specify the write mode."

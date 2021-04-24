@@ -7,12 +7,13 @@
   DTS:CreatorName="DESKTOP-PAJP0EI\Aaron"
   DTS:DTSID="{CF5783EC-5DB3-43C2-9979-CF0BB676C54B}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{B2040447-C24C-4F29-A39A-7DF60A30DE35}">
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{CE33969B-F48B-4CD1-AB72-0E2B92FC7B93}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,11 +24,8 @@
       DTS:ObjectName="Dynamics CRM Connection Manager">
       <DTS:ObjectData>
         <CrmConnectionManager
-          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg.core@034gc.onmicrosoft.com;Domain=;CrmServerUrl=https://rom-dev-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False">
-          <Password
-            Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6e5F41rhfky513r+o9DMRQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACsJj+9we0fTOEtCQiw9YmLpP50l7nnnhHxTiWMLQDbugAAAAAOgAAAAAIAACAAAAAxHItwT6PcEjUJovQojTK54SWOzvdFI6jXw8jnwLVDxCAAAAD1HYhYwa1V20/9RFIPJ/qwiNI/nNXiScayBlVVmBXGE0AAAAACf2CRt8S6JBPWlCxobtZprcgL+IkddTKE9poN28sbH0lrNqOzPHIl3ji3pMPXgcrVwMOSZIZCFu5UhFhYNOZJ</Password>
-        </CrmConnectionManager>
+          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg.core@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
+          ConnectByProxy="False" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -90,7 +88,7 @@
               description="Populate data into Microsoft Dynamics 365 CE/CRM."
               name="Dynamics CRM Destination"
               usesDispositions="true"
-              version="3">
+              version="4">
               <properties>
                 <property
                   dataType="System.String"
@@ -101,7 +99,7 @@
                   dataType="System.Int32"
                   description="Specifies how data is written to CRM server."
                   name="ActionType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationActionType">4</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">4</property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether the values of CRM lookup fields should be removed if the reference records cannot be found. "
@@ -109,20 +107,20 @@
                   name="RemoveUnresolvableReferences">false</property>
                 <property
                   dataType="System.Boolean"
-                  description="Specifies whether duplicate detection should be enabled when creating or updating CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in Microsoft Dynamics CRM."
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
                   expressionType="Notify"
-                  name="EnableDuplicateDetection">false</property>
+                  name="EnableSystemDuplicateDetection">false</property>
                 <property
                   dataType="System.Int32"
-                  description="Specify the matching criteria to be used when Upsert action is chosen."
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
-                  name="UpsertMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertMatchingCriteria">0</property>
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
                 <property
                   dataType="System.String"
-                  description="Specify the matching fields to be used to determine the matching records that exist in CRM when Manually Specify option is chosen for Upsert action."
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
                   expressionType="Notify"
-                  name="UpsertMatchingFields"></property>
+                  name="RecordMatchingKeyFields"></property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether to ignore those NULL-valued fields."
@@ -148,7 +146,7 @@
                   description="Specify what action will be taken when multiple matches are found with Upsert action."
                   expressionType="Notify"
                   name="HandlingOfMultipleMatches"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertHandlingOfMultipleMatches">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specify whether to use optimizations when there are duplicate records form the source system."
@@ -157,9 +155,9 @@
                   typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
                 <property
                   dataType="System.String"
-                  description="Workflow to be executed."
+                  description="Workflow or action to be executed."
                   expressionType="Notify"
-                  name="Workflow"></property>
+                  name="WorkflowAction"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of records to be sent to Microsoft Dynamics 365/CRM server in each service call."
@@ -211,7 +209,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Uniqueidentifier</property>
+                          name="FieldType">Uniqueidentifier</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">tc_legislation</property>
@@ -221,6 +219,25 @@
                 </input>
               </inputs>
               <outputs>
+                <output
+                  refId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
                 <output
                   refId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output]"
                   exclusionGroup="1"
@@ -241,30 +258,11 @@
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
                       dataType="wstr"
                       length="2048"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
-                      name="CrmErrorMessage" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output]"
-                  exclusionGroup="1"
-                  name="Default Output"
-                  synchronousInputId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      dataType="guid"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      name="CrmRecordId" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      name="IsNew" />
+                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -284,7 +282,7 @@
                   description="Specifies the type of source data from Microsoft Dynamics CRM."
                   expressionType="Notify"
                   name="SourceType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceType">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceType">0</property>
                 <property
                   dataType="System.String"
                   description="Dynamics CRM entity to retrieve data from."
@@ -315,7 +313,7 @@
                   description="Specifies the output timezone for CRM datetime fields."
                   expressionType="Notify"
                   name="OutputTimezone"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceOutputTimezone" />
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceOutputTimezone" />
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceComponent</property>
@@ -938,11 +936,11 @@
                       cachedName="ErrorColumn"
                       lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[CrmErrorMessage]"
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorMessage]"
                       cachedDataType="wstr"
                       cachedLength="2048"
-                      cachedName="CrmErrorMessage"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]" />
+                      cachedName="ErrorMessage"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[tc_legislation]"
                       cachedDataType="wstr"
@@ -990,10 +988,10 @@
                   name="Recordset Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[CrmRecordId]"
+                      refId="Package\Data Flow Task\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[SavedRecordId]"
                       cachedDataType="guid"
-                      cachedName="CrmRecordId"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]" />
+                      cachedName="SavedRecordId"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[IsNew]"
                       cachedDataType="bool"

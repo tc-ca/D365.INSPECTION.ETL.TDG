@@ -11,8 +11,9 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{DDF41771-3B24-48A2-83B4-A0FAAE983753}">
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{441CD3F5-D0F8-40A2-B2C4-95AAFFE4A8A2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,11 +25,7 @@
       <DTS:ObjectData>
         <CrmConnectionManager
           ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test1@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev2-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
-          ConnectByProxy="False">
-          <Password
-            Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIZuLjAfDoE+9f51sCeUnHAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAsf3fr8WS+25wTGjJ1e4f8AAAAAASAAACgAAAAEAAAAB9WR94x7T03Nve8w/IUNbgYAAAAegp+bWZDH5HhrTjXaCk2S0y3CnnNcDUTFAAAAOs2/TqwrGBLK/5XUjS0PLGfJWB4</Password>
-        </CrmConnectionManager>
+          ConnectByProxy="False" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -200,7 +197,7 @@
                   description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
                   name="RecordMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
                 <property
                   dataType="System.String"
                   description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
@@ -2231,13 +2228,16 @@
                   description="Full path to the destination file."
                   expressionType="Notify"
                   name="DestinationFilePath">C:\Users\LEBLAAA\Google Drive\Work\TDG Core\Source\util\data import\BETA2Post.xlsx</property>
-                <property
-                  dataType="System.String"
-                  description="Password to open the Excel file."
-                  Encrypted="1"
-                  expressionType="Notify"
-                  name="OpenPassword"
-                  Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIZuLjAfDoE+9f51sCeUnHAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADb2C4tRUdrWi6T+vZ6PFwSAAAAAASAAACgAAAAEAAAAKE2JrKMeAEJB7INLZGezi4IAAAAa3mAh7/IY7sUAAAA1LbQN37fARga6cq0S6yw0UyCsOM</property>
+                <EncryptedData
+                  IV="NT+4OjHylzSZXQYoOf513w=="
+                  Salt="V6eNaayCAY0="
+                  Type="http://www.w3.org/2001/04/xmlenc#Element" xmlns="http://www.w3.org/2001/04/xmlenc#">
+                  <EncryptionMethod
+                    Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+                  <CipherData>
+                    <CipherValue>NT+4OjHylzSZXQYoOf5133A25ID/mS71bC0l0idQnRxyWNPCviG8Ck8Vcfn/y3gNi9d2U7CzEhMx0KO5WOdqrH/OBfZ92EITpbdsf5RD1N2x76bEoDmB/NQdEJyj220ezCSk5sMOT8DBO1hZ2w9kyJuPiG33e6QeQmXTHDY6voshgfoIe2Dqu7TE+/KxRAKzhhgIdLU+MTkgEfKD734LdhrBig0pXub4T8YO8Acn+VApcVNC6ZBKdZfN8+nugcqy</CipherValue>
+                  </CipherData>
+                </EncryptedData>
                 <property
                   dataType="System.Int32"
                   description="Specify the write mode."
