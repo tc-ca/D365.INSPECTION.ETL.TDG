@@ -12,8 +12,8 @@
   DTS:ObjectName="deleteAllData"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="76"
-  DTS:VersionGUID="{72813329-2D84-4191-878F-1970390E8E6C}">
+  DTS:VersionBuild="78"
+  DTS:VersionGUID="{55A69EA2-6DCC-4C96-9FF0-D1DB4F75BC91}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,12 +28,12 @@
           ConnectByProxy="False">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="YGHm2NTbUXU="
-            IV="cswRIvDwj00tc+UcPUSmxg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="O0jkiJe155c="
+            IV="LC+yIS+gx/TOmbLDlEP+Kg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>cswRIvDwj00tc+UcPUSmxpraK7Vkf9m+rQ+GcAVeV4OD3HFEjJqvUQ0EO+R0iPoNjaerATbdLBhySLc/pQQVGByKc9zgmcBG24/eyqAAq9syaarRyFmwRJyL3qOVhwA7ga1d4+mUoqFfLbLV6zv7Zw==</CipherValue>
+              <CipherValue>LC+yIS+gx/TOmbLDlEP+Ks7PV176VofPNPJ9g37/nerRT98gCK4ANG7nf+H3H0+ZyjLAYnlt+QBMBWM8zDzT+Ueth6+NdHqbIsOAq30KSMfjbpswMwdnRwuIlDP7rbI8HKdW9pg0KsWfHHVE7Q08mw==</CipherValue>
             </CipherData>
           </EncryptedData>
         </CrmConnectionManager>
@@ -26635,7 +26635,7 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="118,42"
+          Size="120,42"
           Id="Package\contacts"
           TopLeft="853.636363636364,1054.90909090909" />
         <NodeLayout
@@ -26908,18 +26908,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 16]"
-          TopLeft="914.262626262627,1014.63095238095">
+          TopLeft="914.762626262627,1014.63095238095">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40.2781385281404"
+              EndConnector="0,40.2781385281421"
               Start="0,0"
-              End="0,32.7781385281404">
+              End="0,32.7781385281421">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.7781385281404" />
+                    End="0,32.7781385281421" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -26930,18 +26930,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 17]"
-          TopLeft="914.507575757576,1096.90909090909">
+          TopLeft="915.007575757576,1096.90909090909">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,32.9292929292908"
+              EndConnector="0,32.9292929292899"
               Start="0,0"
-              End="0,25.4292929292908">
+              End="0,25.4292929292899">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.4292929292908" />
+                    End="0,25.4292929292899" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -27272,7 +27272,7 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-25.1244140625,54.8857421875,50.248828125,11.228515625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
