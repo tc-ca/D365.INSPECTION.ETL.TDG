@@ -519,6 +519,30 @@ ON T1.ovs_iisid = T2.IIS_ID;
 --JOIN [03_SITES] T2 ON T1.ovs_iisid = T2.IIS_ID;
 
 
+--SITE OPERATING PROFILE TAGS:
+--The following are all characteristics of a site that will be used to build / filter the questionnaire.
+--During Data Migration the expectation is that these tags will be extracted / translated from the existing data in IIS and imported into ROM.
+
+--Means of Containment
+--DATA MIGRATION RULES:
+--Migrate the 
+--Means of Containment Facility Type
+--DATA MIGRATION RULES:
+
+--Mode
+--DATA MIGRATION RULES:
+--This field is in IIS as "Mode".  It is check boxes in IIS.
+--Migrate the value from IIS to Mode.
+--This is a Mandatory field.
+--Valid Values
+--Rail 
+--Road
+--Air
+--Marine
+--The field name remains as "Mode".
+--This is a tag that will be associated with a site.  It will need to be in the Site Operating Profile section; these values are used to build / filter the questionnaire.
+--Multiple values for Mode can be selected
+
 
 --Try to sanitize some bad data from IIS
 UPDATE [dbo].[04_ACCOUNT]
@@ -1275,8 +1299,20 @@ SET parentcustomeridtype = 'account';
 
 --Set contacts to primary contact of the account
 update [04_ACCOUNT]
-SET primarycontactid = t1.Id
+SET 
+primarycontactid = t1.Id, 
+ovs_primarycontactemail = t1.emailaddress1, 
+ovs_primarycontactphone = t1.telephone1
 FROM [11_CONTACT] t1
-JOIN [04_ACCOUNT] t2 on t1.accountid = t2.id;
+JOIN [04_ACCOUNT] t2 on t1.accountid = t2.id and t1.accountid = T2.Id
+
+
+update [11_CONTACT]
+SET
+accountid = T1.Id, 
+company = t1.Id
+FROM [04_ACCOUNT] t1
+JOIN [11_CONTACT] t2 on t1.Id = t2.accountid and t1.Id = T2.accountid
+
 
 -----===END CONTACTS
