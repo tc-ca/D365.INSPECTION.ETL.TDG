@@ -1,6 +1,6 @@
 --TRUNCATE TABLE [dbo].[20_LEGISLATION_MATCHING];
 
-	DROP TABLE #TEMP_INSPECTIONS;
+	DROP TABLE IF EXISTS #TEMP_INSPECTIONS;
 
 	--get violations and enforcement actions into temp table
     SELECT 
@@ -87,7 +87,7 @@
 	--,ENFORCEMENT_ACTIONS.ENFORCEMENT_ACTION_TYPE_CD;
 
 
-	DROP TABLE #TEMP_VIOLATIONS;
+	DROP TABLE IF EXISTS #TEMP_VIOLATIONS;
 
 	SELECT
 	ACTIVITY_ID, 
@@ -142,8 +142,6 @@ INSERT INTO [dbo].[07_VIOLATIONS]
            ,[owneridtype]
            ,[owningbusinessunit]
            ,[owningteam])
-
-
 
 SELECT
 
