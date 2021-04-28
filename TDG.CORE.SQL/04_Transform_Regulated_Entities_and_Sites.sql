@@ -797,6 +797,39 @@ CREATE TABLE [18_BOOKABLE_RESOURCE_CATEGORY_ASSN] (
 GO
 
 
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[19_IIS_INSPECTIONS]') AND type in (N'U'))
+DROP TABLE [dbo].[19_IIS_INSPECTIONS]
+GO
+
+CREATE TABLE [19_IIS_INSPECTIONS]
+(
+	[MONTH] int
+	,[YEAR]	int	
+	,FILE_NUMBER_NUM nvarchar (200)
+	,FILE_STATUS_ETXT	varchar	(50)
+	,FILE_STATUS_FTXT	varchar	(50)
+	,ACTIVITY_TYPE_ENM	varchar	(250)
+	,ACTIVITY_TYPE_FNM	varchar	(250)
+	,ACTIVITY_DATE_DTE	datetime	
+	,ACTIVITY_ID	numeric	
+	,STAKEHOLDER_ID	numeric	
+	,id	uniqueidentifier	
+	,ovs_iisid	nvarchar	(50)
+	,ACTIVITY_TYPE_CD	varchar	(20)
+	,INSPECTION_REASON_ETXT	varchar	(250)
+	,INSPECTION_REASON_FTXT	varchar	(250)
+	,PRIMARY_INSPECTOR	nvarchar	(200)
+	,PRIMARY_INSPECTOR_ID	numeric	
+	,PRIMARY_INSPECTOR_BOOKABLE_RESOURCE_ID	uniqueidentifier	
+	,PRIMARY_INSPECTOR_USER_ID uniqueidentifier
+	,SECONDARY_INSPECTOR	nvarchar (200)
+	,SECONDARY_INSPECTOR_ID	numeric	
+	,SECONDARY_INSPECTOR_BOOKABLE_RESOURCE_ID	uniqueidentifier
+	,SECONDARY_INSPECTOR_USER_ID uniqueidentifier
+);
+
+
+
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[21_TYRATIONAL]') AND type in (N'U'))
 DROP TABLE [dbo].[21_TYRATIONAL]
 GO
@@ -919,8 +952,6 @@ SELECT	'47f438c7-c104-eb11-a813-000d3af3a7a7'	[Id],	'47f438c7-c104-eb11-a813-000
 GO
 
 
-TRUNCATE TABLE [22_OVERSIGHTTYPE];
-
 INSERT INTO [dbo].[22_OVERSIGHTTYPE]
            ([Id]
            ,[ovs_oversighttypeid]
@@ -1034,6 +1065,62 @@ SELECT N'50B21A84-DB04-EB11-A813-000D3AF3AC0D',	N'50B21A84-DB04-EB11-A813-000D3A
 GO
 
 
+--=============BOOKABLE RESOURCES===
+
+INSERT INTO [dbo].[12_BOOKABLE_RESOURCE]
+           (
+		   bookableresourceid
+		   ,[userid]
+           ,[name]
+           ,[msdyn_primaryemail]
+           ,[ovs_registeredinspectornumberrin]
+           ,[ovs_badgenumber])
+
+SELECT * 
+FROM
+(
+	SELECT newid() bookableresourceid, SYSUSER.systemuserid, CONCAT(SYSUSER.firstname, ' ', SYSUSER.lastname) name, domainname, RIN, BADGE FROM [dbo].systemuser SYSUSER 
+	JOIN [16_IIS_INSPECTORS] INSP ON 
+	lower(TRIM(INSP.Account_name)) = lower(TRIM(SYSUSER.domainname)) OR 
+	(lower(TRIM(SYSUSER.firstname)) = lower(trim(INSP.[First Name])) AND lower(TRIM(SYSUSER.lastname)) = lower(trim(INSP.[Last Name])))
+) T
+
+
+UPDATE [dbo].[12_BOOKABLE_RESOURCE]
+SET 
+owningbusinessunit = '4e122e0c-73f3-ea11-a815-000d3af3ac0d',
+owneridtype = 'team',
+ownerid = 'd0483132-b964-eb11-a812-000d3af38846',
+owningteam = 'd0483132-b964-eb11-a812-000d3af38846',
+resourcetype = 3,
+statecode = 0,
+statuscode = 1,
+msdyn_derivecapacity = 0,
+msdyn_displayonscheduleassistant = 1,
+msdyn_displayonscheduleboard = 1,
+msdyn_enabledforfieldservicemobile = 1,
+msdyn_enabledripscheduling = 0,
+msdyn_endlocation = 690970002, --location agnostic
+msdyn_startlocation = 690970002, --location agnostic
+msdyn_timeoffapprovalrequired = 0;
+
+GO
+
+INSERT INTO [18_BOOKABLE_RESOURCE_CATEGORY_ASSN]
+(resource, resourcecategory, statecode, statuscode, owningbusinessunit, owneridtype, ownerid , owningteam)
+
+SELECT 
+bookableresourceid, 
+resourcecategory = '06DB6E56-01F9-EA11-A815-000D3AF3AC0D', --INSPECTOR 
+statecode = 0, 
+statuscode = 1, 
+owningbusinessunit = '4e122e0c-73f3-ea11-a815-000d3af3ac0d',
+owneridtype = 'team',
+ownerid = 'd0483132-b964-eb11-a812-000d3af38846',
+owningteam = 'd0483132-b964-eb11-a812-000d3af38846' FROM [dbo].[12_BOOKABLE_RESOURCE]; 
+
+--=====END BOOKABLE RESOURCES
+
 --===================================================================================================
 --===================================================================================================
 
@@ -1047,7 +1134,7 @@ GO
 
 
 
---SANTIY CHECKS
+--PRE-MIGRATION SANTIY CHECKS
 --===================================================================================================
 --===================================================================================================
 --staging tables should be empty before conversion
@@ -1085,38 +1172,18 @@ SELECT [name] pricelevel				FROM pricelevel				WHERE pricelevelid			= 'B92B6A16-
 SELECT [name] businessunit				FROM businessunit			WHERE businessunitid		= '4E122E0C-73F3-EA11-A815-000D3AF3AC0D';
 
 select [name] territories				FROM territory t1 JOIN [05_TERRITORY_TRANSLATION] t2 on t1.territoryid = t2.msdyn_serviceterritory;
+
+SELECT fullname, domainname FROM [dbo].[12_BOOKABLE_RESOURCE] BR
+JOIN [dbo].bookableresource CRMBR ON BR.bookableresourceid = CRMBR.bookableresourceid
+JOIN [dbo].[systemuser] SYSUSER ON BR.userid = SYSUSER.systemuserid 
 --===================================================================================================
 --===================================================================================================
 
 
 
+--CONVERT EXCEL DATA TO REGULATED ENTITY RECORDS IN STAGING TABLE
 --===================================================================================================
 --===================================================================================================
---CONVERT EXCEL DATA TO UNIQUE RECORDS WITH ADDRESS FROM "MATCHING_ID"
---===================================================================================================
---===================================================================================================
-/****** Object:  Table [dbo].[02_REGULATED_ENTITIES]    Script Date: 4/22/2021 12:41:24 AM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[02_REGULATED_ENTITIES]') AND type in (N'U'))
-DROP TABLE [dbo].[02_REGULATED_ENTITIES]
-GO
-
-CREATE TABLE [dbo].[02_REGULATED_ENTITIES](
-	[REGULATED_ENTITY_ID] [uniqueidentifier] NULL,
-	[REGULATED_ENTITY_ID_SOURCE] [nvarchar](50) NULL,
-	[IIS_ID] [numeric](18, 0) NULL,
-	[REGULATED_ENTITY_NAME] [nvarchar](500) NULL,
-	[CONSOLIDATED_COMMON_ENGLISH_NAME] [nvarchar](500) NULL,
-	[CONSOLIDATED_COMMON_FRENCH_NAME] [nvarchar](500) NULL,
-	[COUNTRY_SUBDIVISION_CD] [nvarchar](10) NULL,
-	[CITY_TOWN_NAME_NM] [nvarchar](250) NULL,
-	[ADDRESS] [nvarchar](1000) NULL,
-	[POSTAL_CODE_TXT] [nvarchar](10) NULL,
-	[COMPLETED] [nvarchar](10) NULL,
-	[NOTES] [nvarchar](500) NULL,
-	[TYPE] [nvarchar](25) NULL
-) ON [PRIMARY]
-GO
-
 
 INSERT INTO DBO.[02_REGULATED_ENTITIES]
 (
@@ -1149,11 +1216,9 @@ FROM
 
 ) REGENT
 
-------------------------------------------------
 --CONVERT REGULATED ENTITY RECORDS TO ACCOUNTS--
-------------------------------------------------
-
-TRUNCATE TABLE [dbo].[04_ACCOUNT];
+--===================================================================================================
+--===================================================================================================
 
 INSERT INTO [dbo].[04_ACCOUNT]
 (
@@ -1190,8 +1255,6 @@ FROM [dbo].[02_REGULATED_ENTITIES] REGENT;
 
 
 --=======================================SITES==========
-
-TRUNCATE TABLE DBO.[03_SITES];
 
 INSERT INTO [dbo].[03_SITES]
            ([SITE_ID]
@@ -1652,98 +1715,31 @@ SET address1_postalcode = REPLACE(address1_postalcode, ' ', ''),
 ----=============================END IIS LOGIC====
 
 
-	
-
---=============BOOKABLE RESOURCES===
-
-INSERT INTO [dbo].[12_BOOKABLE_RESOURCE]
-           (
-		   bookableresourceid
-		   ,[userid]
-           ,[name]
-           ,[msdyn_primaryemail]
-           ,[ovs_registeredinspectornumberrin]
-           ,[ovs_badgenumber])
-
-SELECT * 
-FROM
-(
-	SELECT newid() bookableresourceid, SYSUSER.systemuserid, CONCAT(SYSUSER.firstname, ' ', SYSUSER.lastname) name, domainname, RIN, BADGE FROM [dbo].systemuser SYSUSER 
-	JOIN [16_IIS_INSPECTORS] INSP ON lower(INSP.Account_name) = lower(SYSUSER.domainname)
-) T
-
-
-UPDATE [dbo].[bookableresource]
-SET 
-owningbusinessunit = '4e122e0c-73f3-ea11-a815-000d3af3ac0d',
-owneridtype = 'team',
-ownerid = 'd0483132-b964-eb11-a812-000d3af38846',
-owningteam = 'd0483132-b964-eb11-a812-000d3af38846',
-resourcetype = 3,
-statecode = 0,
-statuscode = 1,
-msdyn_derivecapacity = 0,
-msdyn_displayonscheduleassistant = 1,
-msdyn_displayonscheduleboard = 1,
-msdyn_enabledforfieldservicemobile = 1,
-msdyn_enabledripscheduling = 0,
-msdyn_endlocation = 690970002, --location agnostic
-msdyn_startlocation = 690970002, --location agnostic
-msdyn_timeoffapprovalrequired = 0;
-
-GO
-
----ADD "INSPECTOR" category to all inspectors
-TRUNCATE TABLE [18_BOOKABLE_RESOURCE_CATEGORY_ASSN];
-
-INSERT INTO [18_BOOKABLE_RESOURCE_CATEGORY_ASSN]
-(resource, resourcecategory, statecode, statuscode, owningbusinessunit, owneridtype, ownerid , owningteam)
-
-SELECT 
-bookableresourceid, 
-resourcecategory = '06DB6E56-01F9-EA11-A815-000D3AF3AC0D', --INSPECTOR 
-statecode = 0, 
-statuscode = 1, 
-owningbusinessunit = '4e122e0c-73f3-ea11-a815-000d3af3ac0d',
-owneridtype = 'team',
-ownerid = 'd0483132-b964-eb11-a812-000d3af38846',
-owningteam = 'd0483132-b964-eb11-a812-000d3af38846' FROM [dbo].[bookableresource]; 
-
---=====END BOOKABLE RESOURCES
-
-
-
 --============WORK ORDERS
-
-DROP TABLE IF EXISTS [19_IIS_INSPECTIONS];
-
-CREATE TABLE [19_IIS_INSPECTIONS]
-(
-	[MONTH] int
-	,[YEAR]	int	
-	,FILE_NUMBER_NUM nvarchar (200)
-	,FILE_STATUS_ETXT	varchar	(50)
-	,FILE_STATUS_FTXT	varchar	(50)
-	,ACTIVITY_TYPE_ENM	varchar	(250)
-	,ACTIVITY_TYPE_FNM	varchar	(250)
-	,ACTIVITY_DATE_DTE	datetime	
-	,ACTIVITY_ID	numeric	
-	,STAKEHOLDER_ID	numeric	
-	,id	uniqueidentifier	
-	,ovs_iisid	nvarchar	(50)
-	,ACTIVITY_TYPE_CD	varchar	(20)
-	,INSPECTION_REASON_ETXT	varchar	(250)
-	,INSPECTION_REASON_FTXT	varchar	(250)
-	,PRIMARY_INSPECTOR	nvarchar	(200)
-	,PRIMARY_INSPECTOR_ID	numeric	
-	,PRIMARY_INSPECTOR_BOOKABLE_RESOURCE_ID	uniqueidentifier	
-	,SECONDARY_INSPECTOR	nvarchar (200)
-	,SECONDARY_INSPECTOR_ID	numeric	
-	,SECONDARY_INSPECTOR_BOOKABLE_RESOURCE_ID	uniqueidentifier
-);
-
-INSERT INTO [19_IIS_INSPECTIONS]
-
+INSERT INTO [dbo].[19_IIS_INSPECTIONS]
+           ([MONTH]
+           ,[YEAR]
+           ,[FILE_NUMBER_NUM]
+           ,[FILE_STATUS_ETXT]
+           ,[FILE_STATUS_FTXT]
+           ,[ACTIVITY_TYPE_ENM]
+           ,[ACTIVITY_TYPE_FNM]
+           ,[ACTIVITY_DATE_DTE]
+           ,[ACTIVITY_ID]
+           ,[STAKEHOLDER_ID]
+           ,[id]
+           ,[ovs_iisid]
+           ,[ACTIVITY_TYPE_CD]
+           ,[INSPECTION_REASON_ETXT]
+           ,[INSPECTION_REASON_FTXT]
+           ,[PRIMARY_INSPECTOR]
+           ,[PRIMARY_INSPECTOR_ID]
+           ,[PRIMARY_INSPECTOR_BOOKABLE_RESOURCE_ID]
+           ,[PRIMARY_INSPECTOR_USER_ID]
+           ,[SECONDARY_INSPECTOR]
+           ,[SECONDARY_INSPECTOR_ID]
+           ,[SECONDARY_INSPECTOR_BOOKABLE_RESOURCE_ID]
+           ,[SECONDARY_INSPECTOR_USER_ID])
 SELECT
 MONTH(ACTIVITY_DATE_DTE) [MONTH],
 YEAR(ACTIVITY_DATE_DTE) [YEAR],
@@ -1766,10 +1762,13 @@ FROM
 	TD038.INSPECTION_REASON_FTXT,
 	PRIMARY_INSPECTOR.name PRIMARY_INSPECTOR,
 	PRIMARY_INSPECTOR.STAKEHOLDER_ID PRIMARY_INSPECTOR_ID, 
-	PRIMARY_INSPECTOR.id PRIMARY_INSPECTOR_BOOKABLE_RESOURCE_ID,
+	PRIMARY_INSPECTOR.bookableresourceid PRIMARY_INSPECTOR_BOOKABLE_RESOURCE_ID,
+	PRIMARY_INSPECTOR.userid PRIMARY_INSPECTOR_USER_ID,
 	SECONDARY_INSPECTOR.name SECONDARY_INSPECTOR,
 	SECONDARY_INSPECTOR.STAKEHOLDER_ID SECONDARY_INSPECTOR_ID,
-	SECONDARY_INSPECTOR.id SECONDARY_INSPECTOR_BOOKABLE_RESOURCE_ID
+	SECONDARY_INSPECTOR.bookableresourceid SECONDARY_INSPECTOR_BOOKABLE_RESOURCE_ID,
+	SECONDARY_INSPECTOR.userid SECONDARY_INSPECTOR_USER_ID
+
 	FROM YD040_ACTIVITY YD040
 	INNER JOIN YD095_STAKEHOLDER_FILE YD095 ON  YD040.FILE_NUMBER_NUM = YD095.FILE_NUMBER_NUM  
 	INNER JOIN YD101_FILE_ACTIVITY_TYPE YD101 ON YD101.FILE_NUMBER_NUM = YD095.FILE_NUMBER_NUM AND YD101.DATE_DELETED_DTE IS NULL
@@ -1783,10 +1782,11 @@ FROM
 		SELECT YD048.ACTIVITY_ID,
 		YD048.STAKEHOLDER_ID
 		,name
-		,BR.id
+		,BR.bookableresourceid
+		,BR.userid
 		FROM YD048_ACTIVITY_ASSIGNMENT YD048 
 		JOIN YD083_INDIVIDUAL_INFORMATION YD083 ON  YD048.STAKEHOLDER_ID = YD083.STAKEHOLDER_ID 
-		JOIN [dbo].[bookableresource] BR ON UPPER(TRIM(CONCAT(CONCAT(YD083.STAKEHOLDER_NAME_FIRST_NM, ' '), YD083.STAKEHOLDER_NAME_FAMILY_NM))) = UPPER([dbo].[ReplaceASCII](name))
+		JOIN [dbo].[12_BOOKABLE_RESOURCE] BR ON UPPER(TRIM(CONCAT(CONCAT(YD083.STAKEHOLDER_NAME_FIRST_NM, ' '), YD083.STAKEHOLDER_NAME_FAMILY_NM))) = UPPER([dbo].[ReplaceASCII](name))
 		WHERE YD083.DATE_DELETED_DTE IS NULL AND YD048.DATE_DELETED_DTE IS NULL AND ASSIGN_ROLE_CD = '1'
 	) PRIMARY_INSPECTOR ON PRIMARY_INSPECTOR.ACTIVITY_ID = YD040.ACTIVITY_ID
     
@@ -1795,10 +1795,11 @@ FROM
 		SELECT YD048.ACTIVITY_ID,
 		YD048.STAKEHOLDER_ID
 		,name
-		,BR.id
+		,BR.bookableresourceid
+		,BR.userid
 		FROM YD048_ACTIVITY_ASSIGNMENT YD048 
 		JOIN YD083_INDIVIDUAL_INFORMATION YD083 ON  YD048.STAKEHOLDER_ID = YD083.STAKEHOLDER_ID 
-		JOIN [dbo].[bookableresource] BR ON UPPER(TRIM(CONCAT(CONCAT(YD083.STAKEHOLDER_NAME_FIRST_NM, ' '), YD083.STAKEHOLDER_NAME_FAMILY_NM))) = UPPER([dbo].[ReplaceASCII](name))
+		JOIN [dbo].[12_BOOKABLE_RESOURCE] BR ON UPPER(TRIM(CONCAT(CONCAT(YD083.STAKEHOLDER_NAME_FIRST_NM, ' '), YD083.STAKEHOLDER_NAME_FAMILY_NM))) = UPPER([dbo].[ReplaceASCII](name))
 		WHERE YD083.DATE_DELETED_DTE IS NULL AND YD048.DATE_DELETED_DTE IS NULL AND ASSIGN_ROLE_CD = '2'
 	) SECONDARY_INSPECTOR ON SECONDARY_INSPECTOR.ACTIVITY_ID = YD040.ACTIVITY_ID
     
@@ -1827,10 +1828,12 @@ FROM
 	YD040.ACTIVITY_DATE_DTE,
 	PRIMARY_INSPECTOR.name,
 	PRIMARY_INSPECTOR.STAKEHOLDER_ID, 
-	PRIMARY_INSPECTOR.id,
+	PRIMARY_INSPECTOR.bookableresourceid,
+	PRIMARY_INSPECTOR.userid,
 	SECONDARY_INSPECTOR.name,
 	SECONDARY_INSPECTOR.STAKEHOLDER_ID,
-	SECONDARY_INSPECTOR.id
+	SECONDARY_INSPECTOR.bookableresourceid,
+	SECONDARY_INSPECTOR.userid
 			
 ) T;
 
@@ -1849,8 +1852,6 @@ WHERE ACCOUNTS.customertypecode <> 948010000;
 ----====================CREATE WORK ORDER RECORDS
 ----====================----====================----====================
 ----====================----====================----====================
-
-TRUNCATE TABLE [06_WORK_ORDERS];
 
 INSERT INTO [dbo].[06_WORK_ORDERS]
 (
@@ -1893,10 +1894,10 @@ SELECT ID, WORK_ORDER_TYPE, WORK_ORDER_NUMBER, PRICE_LIST, accountid, ovs_iisid,
 		FILE_STATUS_ETXT,
 		PRIMARY_INSPECTOR_BOOKABLE_RESOURCE_ID,													--PRIMARY INSPECTOR
 		SECONDARY_INSPECTOR_BOOKABLE_RESOURCE_ID												--SECONDARY INSPECTOR
-		,PRIMARY_INSPECTOR_BOOKABLE_RESOURCE_ID owner											--'D0483132-B964-EB11-A812-000D3AF38846' [OWNER]	--OWNER = primary inspector
+		,PRIMARY_INSPECTOR_USER_ID owner														--'D0483132-B964-EB11-A812-000D3AF38846' [OWNER]	--OWNER = primary inspector
 		,'systemuser' [OWNER_TYPE]																--OWNER TYPE = systemuser
 		,'4E122E0C-73F3-EA11-A815-000D3AF3AC0D' [OWNING_BUSINESS_UNIT]							--TDG Business Unit
-		,PRIMARY_INSPECTOR_BOOKABLE_RESOURCE_ID [owning_user]
+		,PRIMARY_INSPECTOR_USER_ID [owning_user]
 		--,'D0483132-B964-EB11-A812-000D3AF38846' [OWNING_TEAM]									--OWNING TEAM = TDG Team
 		,CAST(ACTIVITY_ID as nvarchar(500))	[WORK_ORDER_SUMMARY],	--WORK ORDER SUMMARY
 
@@ -1930,12 +1931,12 @@ SELECT ID, WORK_ORDER_TYPE, WORK_ORDER_NUMBER, PRICE_LIST, accountid, ovs_iisid,
 --'F6A0B96E-5F9C-EB11-B1AC-000D3AE92708',	'MOC Facility Opportunity'
 
 		CASE 
-			WHEN ACTIVITY_TYPE_ENM = 'Site Visit'							 THEN '50D0BDF1-269E-EB11-B1AC-000D3AE924D1'
-			WHEN ACTIVITY_TYPE_ENM = 'MOC Facility Inspection (Planned)'	 THEN '864BAA27-279E-EB11-B1AC-000D3AE924D1'
-			WHEN ACTIVITY_TYPE_ENM = 'General Compliance Inspection'		 THEN '50D0BDF1-269E-EB11-B1AC-000D3AE924D1'
-			WHEN ACTIVITY_TYPE_ENM = 'Consignment'							 THEN '460B6C2A-5F9C-EB11-B1AC-000D3AE92708'
-			WHEN ACTIVITY_TYPE_ENM = 'MOC Facility Inspection - (Unplanned)' THEN 'F6A0B96E-5F9C-EB11-B1AC-000D3AE92708'
-			WHEN ACTIVITY_TYPE_ENM = 'Document Review'						 THEN 'A4965081-5F9C-EB11-B1AC-000D3AE92708'
+			WHEN ACTIVITY_TYPE_ENM = 'Site Visit'							 THEN '50D0BDF1-269E-EB11-B1AC-000D3AE924D1' --'GC Targeted'
+			WHEN ACTIVITY_TYPE_ENM = 'MOC Facility Inspection (Planned)'	 THEN '864BAA27-279E-EB11-B1AC-000D3AE924D1' --'MOC Facility Targeted'
+			WHEN ACTIVITY_TYPE_ENM = 'General Compliance Inspection'		 THEN '50D0BDF1-269E-EB11-B1AC-000D3AE924D1' --'GC Targeted'
+			WHEN ACTIVITY_TYPE_ENM = 'Consignment'							 THEN '460B6C2A-5F9C-EB11-B1AC-000D3AE92708' --'GC Consignment'
+			WHEN ACTIVITY_TYPE_ENM = 'MOC Facility Inspection - (Unplanned)' THEN 'F6A0B96E-5F9C-EB11-B1AC-000D3AE92708' --'MOC Facility Opportunity'
+			WHEN ACTIVITY_TYPE_ENM = 'Document Review'						 THEN 'A4965081-5F9C-EB11-B1AC-000D3AE92708' --'Civil Aviation Document Review'
 		END OVERSIGHT_TYPE,
 
 --994C3EC1-C104-EB11-A813-000D3AF3A7A7	Planned
@@ -1975,8 +1976,8 @@ FROM
 [06_WORK_ORDERS] T1
 JOIN [dbo].[13_FISCAL_YEAR] FY on T1.ovs_fiscalyear = FY.tc_tcfiscalyearid
 JOIN [dbo].[14_FISCAL_QUARTER] FQ on T1.ovs_fiscalquarter = FQ.tc_tcfiscalquarterid
-JOIN [dbo].[bookableresource] BR ON T1.ovs_primaryinspector = BR.bookableresourceid
-LEFT JOIN [dbo].[bookableresource] BR2 ON T1.ovs_secondaryinspector = BR2.bookableresourceid
+JOIN [dbo].[12_BOOKABLE_RESOURCE] BR ON T1.ovs_primaryinspector = BR.bookableresourceid
+LEFT JOIN [dbo].[12_BOOKABLE_RESOURCE] BR2 ON T1.ovs_secondaryinspector = BR2.bookableresourceid
 
 
 --UPDATE WORK ORDER ADDRESSES WITH ACCOUNT ADDRESSES 
@@ -1992,8 +1993,6 @@ msdyn_postalcode = A.address1_postalcode,
 msdyn_stateorprovince = A.address1_stateorprovince
 FROM [06_WORK_ORDERS] WO
 JOIN [04_ACCOUNT] A on WO.msdyn_serviceaccount = A.id;
-
-
 
 
 --WHERE THE PRIMARY HASNT BEEN SET BECAUSE THE INSPECTOR DOES NOT HAVE AN ACCOUNT YET, THEN SET IT TO THE "TDG.CORE" user so we can at least get them in
@@ -2061,7 +2060,8 @@ SELECT
 	accountid																			accountid,				--account id for service account linked by the iis id
 	IIS_ID																				IIS_ID,					--IIS STAKEHOLDER_ID
 	'690970000'																			WORK_ORDER_STATUS,		--"Unscheduled"
-	--PRIMARY_INSPECTOR_BOOKABLE_RESOURCE_ID,											--PRIMARY INSPECTOR		--SECONDARY_INSPECTOR_BOOKABLE_RESOURCE_ID																
+	--PRIMARY_INSPECTOR_BOOKABLE_RESOURCE_ID,											--PRIMARY INSPECTOR		--SECONDARY_INSPECTOR_BOOKABLE_RESOURCE_ID		
+	--SECONDARY_INSPECTOR_BOOKABLE_RESOURCE_ID,											--PRIMARY INSPECTOR		--SECONDARY_INSPECTOR_BOOKABLE_RESOURCE_ID
 	'D0483132-B964-EB11-A812-000D3AF38846'												[OWNER]					--OWNER = primary inspector
 	--,PRIMARY_INSPECTOR_BOOKABLE_RESOURCE_ID											[owner]					--'D0483132-B964-EB11-A812-000D3AF38846' [OWNER]
 	,'systemuser'																		[OWNER_TYPE]			--OWNER TYPE = systemuser
@@ -2121,8 +2121,7 @@ FROM
 		
 		from [09_WORKPLAN_IMPORT] WP
 		WHERE 
-		CURRENTLY_PLANNED = '1' and fiscal_year = '2021-2022' AND
-		CURRENT_INSPECTOR <> '' and CURRENT_INSPECTOR IS NOT NULL
+		CURRENTLY_PLANNED = '1' and fiscal_year = '2021-2022'
 	) WP
 	--[dbo].[bookableresource] BR ON UPPER(TRIM(CONCAT(CONCAT(YD083.STAKEHOLDER_NAME_FIRST_NM, ' '), YD083.STAKEHOLDER_NAME_FAMILY_NM))) = UPPER([dbo].[ReplaceASCII](name))
 	JOIN [04_ACCOUNT] ACCOUNTS ON WP.IIS_ID = ACCOUNTS.ovs_iisid
@@ -2170,7 +2169,6 @@ FROM
 
 /****** Script for SelectTopNRows command from SSMS  ******/
 
-TRUNCATE TABLE [11_CONTACT];
 INSERT INTO [dbo].[11_CONTACT]
 	   (
 	   --id
@@ -2278,133 +2276,131 @@ JOIN [11_CONTACT] t2 on t1.Id = t2.accountid and t1.Id = T2.accountid
 --SELECT * FROM [20_LEGISLATION_MATCHING];
 --=========================================================================================================
 --=========================================================================================================
-	DROP TABLE IF EXISTS #TEMP_INSPECTIONS;
+DROP TABLE IF EXISTS #TEMP_INSPECTIONS;
 
-	--get violations and enforcement actions into temp table
-    SELECT 
-    YD095.FILE_NUMBER_NUM, 
-    TD001.FILE_STATUS_ETXT, 
-    TD001.FILE_STATUS_FTXT,	
-    TD045.ACTIVITY_TYPE_ENM, 
-    TD045.ACTIVITY_TYPE_FNM, 
-    YD040.INSPECTION_DATE_DTE, 
-    YD040.ACTIVITY_ID, 
-    YD040.STAKEHOLDER_ID, 
-    TD045.ACTIVITY_TYPE_CD, 
-    TD038.INSPECTION_REASON_ETXT, 
-    TD038.INSPECTION_REASON_FTXT,
-    VIOLATIONS.VIOLATION_CD,
-	VIOLATIONS.VIOLATION_COMMENTS_TXT,
-	VIOLATIONS.MOC_SERIAL_NUMBER_NUM,
-	VIOLATIONS.MOC_TYPE_CD, 
-	VIOLATIONS.MOC_VIOLATION_COMMENTS_TXT, 
-	VIOLATIONS.TDG_SPECIFICATION_CD, 
-	VIOLATIONS.UN_NUMBER_ID
-	--,ENFORCEMENT_ACTIONS.ENFORCEMENT_ACTION_TYPE_CD
+--get violations and enforcement actions into temp table
+SELECT 
+YD095.FILE_NUMBER_NUM, 
+TD001.FILE_STATUS_ETXT, 
+TD001.FILE_STATUS_FTXT,	
+TD045.ACTIVITY_TYPE_ENM, 
+TD045.ACTIVITY_TYPE_FNM, 
+YD040.INSPECTION_DATE_DTE, 
+YD040.ACTIVITY_ID, 
+YD040.STAKEHOLDER_ID, 
+TD045.ACTIVITY_TYPE_CD, 
+TD038.INSPECTION_REASON_ETXT, 
+TD038.INSPECTION_REASON_FTXT,
+VIOLATIONS.VIOLATION_CD,
+VIOLATIONS.VIOLATION_COMMENTS_TXT,
+VIOLATIONS.MOC_SERIAL_NUMBER_NUM,
+VIOLATIONS.MOC_TYPE_CD, 
+VIOLATIONS.MOC_VIOLATION_COMMENTS_TXT, 
+VIOLATIONS.TDG_SPECIFICATION_CD, 
+VIOLATIONS.UN_NUMBER_ID
+--,ENFORCEMENT_ACTIONS.ENFORCEMENT_ACTION_TYPE_CD
 
-	INTO #TEMP_INSPECTIONS
+INTO #TEMP_INSPECTIONS
 
-    FROM YD040_ACTIVITY YD040
-    INNER JOIN YD095_STAKEHOLDER_FILE YD095 ON  YD040.FILE_NUMBER_NUM = YD095.FILE_NUMBER_NUM  
-    INNER JOIN YD101_FILE_ACTIVITY_TYPE YD101 ON YD101.FILE_NUMBER_NUM = YD095.FILE_NUMBER_NUM AND YD101.DATE_DELETED_DTE IS NULL
-    INNER JOIN TD045_ACTIVITY_TYPE TD045 ON YD101.ACTIVITY_TYPE_CD = TD045.ACTIVITY_TYPE_CD 
-    INNER JOIN TD001_FILE_STATUS TD001 ON YD095.FILE_STATUS_CD = TD001.FILE_STATUS_CD  
-    LEFT JOIN YD041_INSPECTION YD041 ON YD040.ACTIVITY_ID = YD041.ACTIVITY_ID 
-    LEFT JOIN TD038_INSPECTION_REASON TD038 ON YD041.INSPECTION_REASON_CD = TD038.INSPECTION_REASON_CD 
+FROM YD040_ACTIVITY YD040
+INNER JOIN YD095_STAKEHOLDER_FILE YD095 ON  YD040.FILE_NUMBER_NUM = YD095.FILE_NUMBER_NUM  
+INNER JOIN YD101_FILE_ACTIVITY_TYPE YD101 ON YD101.FILE_NUMBER_NUM = YD095.FILE_NUMBER_NUM AND YD101.DATE_DELETED_DTE IS NULL
+INNER JOIN TD045_ACTIVITY_TYPE TD045 ON YD101.ACTIVITY_TYPE_CD = TD045.ACTIVITY_TYPE_CD 
+INNER JOIN TD001_FILE_STATUS TD001 ON YD095.FILE_STATUS_CD = TD001.FILE_STATUS_CD  
+LEFT JOIN YD041_INSPECTION YD041 ON YD040.ACTIVITY_ID = YD041.ACTIVITY_ID 
+LEFT JOIN TD038_INSPECTION_REASON TD038 ON YD041.INSPECTION_REASON_CD = TD038.INSPECTION_REASON_CD 
     
-    LEFT JOIN
-    (
-        SELECT YD020.ACTIVITY_ID,
-        YD020.VIOLATION_CD,
-		YD020.VIOLATION_COMMENTS_TXT,
-		YD021.MOC_SERIAL_NUMBER_NUM,
-		YD021.MOC_TYPE_CD, 
-		YD021.MOC_VIOLATION_COMMENTS_TXT, 
-		YD021.TDG_SPECIFICATION_CD, 
-		YD021.UN_NUMBER_ID
-        FROM YD020_INSPECTION_VIOLATION YD020
-		LEFT JOIN YD021_MOCLIST YD021 ON YD020.ACTIVITY_ID = YD021.ACTIVITY_ID AND YD020.VIOLATION_CD = YD021.VIOLATION_CD
-        WHERE YD020.DATE_DELETED_DTE IS NULL
-    ) VIOLATIONS ON VIOLATIONS.ACTIVITY_ID = YD040.ACTIVITY_ID
+LEFT JOIN
+(
+    SELECT YD020.ACTIVITY_ID,
+    YD020.VIOLATION_CD,
+	YD020.VIOLATION_COMMENTS_TXT,
+	YD021.MOC_SERIAL_NUMBER_NUM,
+	YD021.MOC_TYPE_CD, 
+	YD021.MOC_VIOLATION_COMMENTS_TXT, 
+	YD021.TDG_SPECIFICATION_CD, 
+	YD021.UN_NUMBER_ID
+    FROM YD020_INSPECTION_VIOLATION YD020
+	LEFT JOIN YD021_MOCLIST YD021 ON YD020.ACTIVITY_ID = YD021.ACTIVITY_ID AND YD020.VIOLATION_CD = YD021.VIOLATION_CD
+    WHERE YD020.DATE_DELETED_DTE IS NULL
+) VIOLATIONS ON VIOLATIONS.ACTIVITY_ID = YD040.ACTIVITY_ID
     
     
-    --LEFT JOIN
-    --(
-    --    SELECT YD023.ACTIVITY_ID,
-    --    YD023.ENFORCEMENT_ACTION_TYPE_CD
-    --    FROM YD023_VIOL_ENFORCEMENT_ACTION YD023 
-    --    WHERE YD023.DATE_DELETED_DTE IS NULL
-    --    GROUP BY YD023.ACTIVITY_ID, YD023.ENFORCEMENT_ACTION_TYPE_CD
-    --) ENFORCEMENT_ACTIONS ON ENFORCEMENT_ACTIONS.ACTIVITY_ID = YD040.ACTIVITY_ID
+--LEFT JOIN
+--(
+--    SELECT YD023.ACTIVITY_ID,
+--    YD023.ENFORCEMENT_ACTION_TYPE_CD
+--    FROM YD023_VIOL_ENFORCEMENT_ACTION YD023 
+--    WHERE YD023.DATE_DELETED_DTE IS NULL
+--    GROUP BY YD023.ACTIVITY_ID, YD023.ENFORCEMENT_ACTION_TYPE_CD
+--) ENFORCEMENT_ACTIONS ON ENFORCEMENT_ACTIONS.ACTIVITY_ID = YD040.ACTIVITY_ID
     
-    WHERE 
-    YD040.DATE_DELETED_DTE IS NULL AND 
-    YD095.DATE_DELETED_DTE IS NULL AND 
-    YD041.DATE_DELETED_DTE IS NULL AND 
-    YD101.DATE_DELETED_DTE IS NULL 
-    --AND TD045.ACTIVITY_TYPE_PARENT_CD IS NULL 
-    GROUP BY 
-    YD095.FILE_NUMBER_NUM, 
-    TD001.FILE_STATUS_ETXT, 
-    TD001.FILE_STATUS_FTXT, 
-    TD045.ACTIVITY_TYPE_ENM, 
-    TD045.ACTIVITY_TYPE_FNM, 
-    YD040.INSPECTION_DATE_DTE, 
-    YD040.ACTIVITY_ID, 
-    YD040.STAKEHOLDER_ID, 
-    TD045.ACTIVITY_TYPE_CD, 
-    TD038.INSPECTION_REASON_ETXT, 
-    TD038.INSPECTION_REASON_FTXT,
-    VIOLATIONS.VIOLATION_CD,
-	VIOLATIONS.VIOLATION_COMMENTS_TXT,
-	VIOLATIONS.MOC_SERIAL_NUMBER_NUM,
-	VIOLATIONS.MOC_TYPE_CD, 
-	VIOLATIONS.MOC_VIOLATION_COMMENTS_TXT, 
-	VIOLATIONS.TDG_SPECIFICATION_CD, 
-	VIOLATIONS.UN_NUMBER_ID;
-	--,ENFORCEMENT_ACTIONS.ENFORCEMENT_ACTION_TYPE_CD;
+WHERE 
+YD040.DATE_DELETED_DTE IS NULL AND 
+YD095.DATE_DELETED_DTE IS NULL AND 
+YD041.DATE_DELETED_DTE IS NULL AND 
+YD101.DATE_DELETED_DTE IS NULL 
+--AND TD045.ACTIVITY_TYPE_PARENT_CD IS NULL 
+GROUP BY 
+YD095.FILE_NUMBER_NUM, 
+TD001.FILE_STATUS_ETXT, 
+TD001.FILE_STATUS_FTXT, 
+TD045.ACTIVITY_TYPE_ENM, 
+TD045.ACTIVITY_TYPE_FNM, 
+YD040.INSPECTION_DATE_DTE, 
+YD040.ACTIVITY_ID, 
+YD040.STAKEHOLDER_ID, 
+TD045.ACTIVITY_TYPE_CD, 
+TD038.INSPECTION_REASON_ETXT, 
+TD038.INSPECTION_REASON_FTXT,
+VIOLATIONS.VIOLATION_CD,
+VIOLATIONS.VIOLATION_COMMENTS_TXT,
+VIOLATIONS.MOC_SERIAL_NUMBER_NUM,
+VIOLATIONS.MOC_TYPE_CD, 
+VIOLATIONS.MOC_VIOLATION_COMMENTS_TXT, 
+VIOLATIONS.TDG_SPECIFICATION_CD, 
+VIOLATIONS.UN_NUMBER_ID;
+--,ENFORCEMENT_ACTIONS.ENFORCEMENT_ACTION_TYPE_CD;
 
 
-	DROP TABLE IF EXISTS #TEMP_VIOLATIONS;
+DROP TABLE IF EXISTS #TEMP_VIOLATIONS;
 
-	SELECT
-	ACTIVITY_ID, 
-	STAKEHOLDER_ID,
-	T3.LegislationId,
-	T3.Label,
-	T3.Name,
-	T3.[English Text],
-	T1.VIOLATION_CD, 
-	T1.VIOLATION_COMMENTS_TXT,
-	T1.MOC_SERIAL_NUMBER_NUM,
-	T1.MOC_TYPE_CD, 
-	T1.MOC_VIOLATION_COMMENTS_TXT, 
-	T1.TDG_SPECIFICATION_CD, 
-	T1.UN_NUMBER_ID,
-	T2.VIOLATION_REFERENCE_CD,
-	T4.msdyn_workorderid,
-	CAST(T4.msdyn_workordersummary as nvarchar(4000)) msdyn_workordersummary,
-	T4.msdyn_address1,
-	T4.msdyn_address2,
-	T4.msdyn_address3,
-	T4.msdyn_addressname,
-	T4.msdyn_name,
-	T4.msdyn_postalcode,
-	T4.msdyn_serviceaccount,
-	T4.msdyn_serviceterritory,
-	T4.ovs_iisid,
-	T4.qm_reportcontactid
-	INTO #TEMP_VIOLATIONS
-	FROM #TEMP_INSPECTIONS T1
-	JOIN [dbo].[TD070_VIOLATION] T2 ON T1.VIOLATION_CD = T2.VIOLATION_CD
-	JOIN [20_LEGISLATION_MATCHING] T3 ON T2.VIOLATION_CD = T3.VIOLATION_CD
-	JOIN [06_WORK_ORDERS] T4 ON CAST(T4.msdyn_workordersummary as nvarchar(MAX)) = CAST(T1.ACTIVITY_ID as nvarchar(MAX));
+SELECT
+ACTIVITY_ID, 
+STAKEHOLDER_ID,
+T3.LegislationId,
+T3.Label,
+T3.Name,
+T3.[English Text],
+T1.VIOLATION_CD, 
+T1.VIOLATION_COMMENTS_TXT,
+T1.MOC_SERIAL_NUMBER_NUM,
+T1.MOC_TYPE_CD, 
+T1.MOC_VIOLATION_COMMENTS_TXT, 
+T1.TDG_SPECIFICATION_CD, 
+T1.UN_NUMBER_ID,
+T2.VIOLATION_REFERENCE_CD,
+T4.msdyn_workorderid,
+CAST(T4.msdyn_workordersummary as nvarchar(4000)) msdyn_workordersummary,
+T4.msdyn_address1,
+T4.msdyn_address2,
+T4.msdyn_address3,
+T4.msdyn_addressname,
+T4.msdyn_name,
+T4.msdyn_postalcode,
+T4.msdyn_serviceaccount,
+T4.msdyn_serviceterritory,
+T4.ovs_iisid,
+T4.qm_reportcontactid
+INTO #TEMP_VIOLATIONS
+FROM #TEMP_INSPECTIONS T1
+JOIN [dbo].[TD070_VIOLATION] T2 ON T1.VIOLATION_CD = T2.VIOLATION_CD
+JOIN [20_LEGISLATION_MATCHING] T3 ON T2.VIOLATION_CD = T3.VIOLATION_CD
+JOIN [06_WORK_ORDERS] T4 ON CAST(T4.msdyn_workordersummary as nvarchar(MAX)) = CAST(T1.ACTIVITY_ID as nvarchar(MAX));
 
 
-	--SELECT DISTINCT * FROM #TEMP_VIOLATIONS;
+--SELECT DISTINCT * FROM #TEMP_VIOLATIONS;
 	
-TRUNCATE TABLE [07_VIOLATIONS];
-
 INSERT INTO [dbo].[07_VIOLATIONS]
            (
 			[qm_syresultid]
@@ -2461,8 +2457,6 @@ FROM
 
 
 
-
-
 --POST MIGRATION SANITY CHECKS
 --=========================================================================================================
 --=========================================================================================================
@@ -2478,36 +2472,35 @@ SELECT COUNT(*)	[12_BOOKABLE_RESOURCE]					FROM [dbo].[12_BOOKABLE_RESOURCE];
 SELECT COUNT(*)	[18_BOOKABLE_RESOURCE_CATEGORY_ASSN]	FROM [dbo].[18_BOOKABLE_RESOURCE_CATEGORY_ASSN];
 
 
-
---once data 
---match account staging table to replicated crm account table to see how many accounts were migrated
-SELECT * FROM 
+--how many accounts were migrated
+SELECT COUNT(*) accounts FROM 
 [dbo].[account] T1
 JOIN [dbo].[04_ACCOUNT] T2 ON T1.accountid = T2.id
-WHERE T2.customertypecode <> 948010000
 
 
---match contact staging table to replicated crm contact table to see how many contacts were migrated
-SELECT * FROM 
+--how many contacts were assigned to sites
+SELECT COUNT(*) contacts FROM 
+[dbo].[account] T1 
+JOIN [dbo].[11_CONTACT] T2 ON T1.accountid = T2.accountid
+WHERE T1.customertypecode <> 948010000;
+
+
+--how many contacts were migrated
+SELECT COUNT(*) [11_CONTACT] FROM 
 [dbo].[11_CONTACT] T1
 JOIN [dbo].[contact] T2 ON T1.accountid = T2.parentcustomerid;
 
 
---match contact staging table to replicated crm account table to see how many contacts were assigned to sites in crm
-SELECT * FROM 
-[dbo].[11_CONTACT] T1
-JOIN [dbo].[account] T2 ON T1.accountid = T2.accountid;
-
-
 --match work order staging table to replicated crm work order table to see how many work order were created in crm
-SELECT * FROM 
+SELECT COUNT(*) [06_WORK_ORDERS] FROM 
 [dbo].[06_WORK_ORDERS] T1
 JOIN [dbo].msdyn_workorder T2 ON T1.msdyn_workorderid = T2.msdyn_workorderid;
 
 
 --match violation staging table to replicated crm violation table to see how many violations were created in crm
---SELECT * FROM 
---[dbo].[07_VIOLATIONS] T1
---JOIN [dbo].[qm_syresult] T2 ON T1.qm_syresultid = T2.qm_syresultid;
+SELECT * FROM 
+[dbo].[07_VIOLATIONS] T1
+JOIN [dbo].[qm_syresult] T2 ON T1.qm_syresultid = T2.qm_syresultid;
 --=========================================================================================================
 --=========================================================================================================
+

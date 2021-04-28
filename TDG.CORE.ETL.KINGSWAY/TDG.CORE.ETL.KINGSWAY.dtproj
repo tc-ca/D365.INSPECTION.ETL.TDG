@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-PAJP0EI</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="zybc9i+gwfg=" SSIS:IV="efjLzNI7byVEgV9Zls5yDQ==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">QCgccAKaz+I4acQYdcAfhPFz3TKavYOyQOnwXpriPgMAysbgMa/MHsK0pFFXElyf/+DzhQnYcu0h7cuRd/UTCN2pSTruxAv3g0eyAPkK5WGvQu555fZwezPTJvtEX0zFlNetSRCOJVr7kZ0NMd/lkj5EFyI4V1ZF8KVXz0RdHQ2dN5x72e4bMTRL1M1vxpDS</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="eumRrQVKjRg=" SSIS:IV="+cWZ4BYRTwGJ2Hk2Y4704g==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">JHR2O+CkMQ7Un0zgF+Euc9VRMeAqP2QTMRSS0rU6nqzd1Mc95CMYJdLOe0Q3hbgSwunU67NbPWJXgUs6//Qo3ZKvsfDlABDhLRNh1aJtAx7AIYxKyTRV0xArrF+25eQ7xNmgkipgAynDIj4BrQ0XJYqevLoIksNokJ2woQM5Wy03xMmf0lwbYj1fRZtQjTc4</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -51,7 +51,6 @@
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="ADO tdg-data-migration-db 2.conmgr" />
-          <SSIS:ConnectionManager SSIS:Name="OLEDB tdg-data-migration-db.conmgr" />
           <SSIS:ConnectionManager SSIS:Name="tdg-acc-tdg-data.conmgr" />
         </SSIS:ConnectionManagers>
         <SSIS:DeploymentInfo>
@@ -161,125 +160,6 @@
               </SSIS:Properties>
             </SSIS:Parameter>
             <SSIS:Parameter SSIS:Name="CM.tdg-data-migration-db 2.UserName">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="CreationName">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">tdgcore</SSIS:Property>
-                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-              </SSIS:Properties>
-            </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.tdg-data-migration-db.ConnectByProxy">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="CreationName">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
-                <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
-              </SSIS:Properties>
-            </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.tdg-data-migration-db.ConnectionString">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="CreationName">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;</SSIS:Property>
-                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-              </SSIS:Properties>
-            </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.tdg-data-migration-db.ConnectUsingManagedIdentity">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="CreationName">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
-                <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
-              </SSIS:Properties>
-            </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.tdg-data-migration-db.InitialCatalog">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="CreationName">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">tdg-data-migration-db</SSIS:Property>
-                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-              </SSIS:Properties>
-            </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.tdg-data-migration-db.Password">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="CreationName">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Sensitive">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-              </SSIS:Properties>
-            </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.tdg-data-migration-db.RetainSameConnection">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="CreationName">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
-                <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
-              </SSIS:Properties>
-            </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.tdg-data-migration-db.ServerName">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="CreationName">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">tdg-data-migration-server.database.windows.net</SSIS:Property>
-                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-              </SSIS:Properties>
-            </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.tdg-data-migration-db.UserName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -444,7 +324,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-acc-tdg-data-tcd365.api.crm3.dynamics.com/XRMServices/2011/Organization.svc;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-qa-tcd365.api.crm3.dynamics.com/XRMServices/2011/Organization.svc;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -626,7 +506,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">https://rom-acc-tdg-data-tcd365.api.crm3.dynamics.com/XRMServices/2011/Organization.svc</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">https://rom-qa-tcd365.api.crm3.dynamics.com/XRMServices/2011/Organization.svc</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -4494,10 +4374,10 @@
                 <SSIS:Property SSIS:Name="Name">deleteAllData</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">78</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">116</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{55A69EA2-6DCC-4C96-9FF0-D1DB4F75BC91}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{B77E199A-4126-4265-9F4C-124BD49A74A9}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -4654,7 +4534,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-acc-tdg-data-tcd365.api.crm3.dynamics.com/XRMServices/2011/Organization.svc;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-acc-tdg-tcd365.api.crm3.dynamics.com/XRMServices/2011/Organization.svc;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -4836,7 +4716,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">https://rom-acc-tdg-data-tcd365.api.crm3.dynamics.com/XRMServices/2011/Organization.svc</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">https://rom-acc-tdg-tcd365.api.crm3.dynamics.com/XRMServices/2011/Organization.svc</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -5744,10 +5624,10 @@
                 <SSIS:Property SSIS:Name="Name">SqlToCrm</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">150</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">224</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{2A6A0BCB-3518-437D-90B1-78FEE8CCFA69}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{BB16F685-C2C2-44F3-850C-C9FDD3588303}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
