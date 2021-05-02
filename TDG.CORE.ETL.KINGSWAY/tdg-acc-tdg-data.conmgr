@@ -5,13 +5,13 @@
   DTS:CreationName="DynamicsCRM">
   <DTS:ObjectData>
     <CrmConnectionManager
-      ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-qa-tcd365.api.crm3.dynamics.com/XRMServices/2011/Organization.svc;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
+      ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-acc-tdg-data-tcd365.api.crm3.dynamics.com/XRMServices/2011/Organization.svc;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
       ConnectByProxy="False">
       <Password
         Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-        p4:Salt="52hlGQpHmEQ="
-        p4:IV="HZwTpQaD46oiWhNn4z12Xw=="
-        p4:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" xmlns:p4="www.microsoft.com/SqlServer/SSIS">I84vHsB5NIEIcGsjjB5qzF+PDqdFndzWThqB+Nsy1oZ2kdTcGMvysbsFxeCUetalGCCVghhnpM16/n8xp/hv0SMCh/htIukHYNW7eIHzJvtdK9bKz2XI5zMqR/U9ED8u</Password>
+        p4:Salt="zUQUbJNhQmE="
+        p4:IV="0Q6BXpwqbpnmtvIJYUC80g=="
+        p4:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" xmlns:p4="www.microsoft.com/SqlServer/SSIS">7Fhy1XmPh0nFvGGJQkhuA/sYBGba5YyqVKz9fPKCMGnrXP5AUUsIHj6MnIhCf260gZIWkNJBnSSNyoKAerCEI72Dz7Uh/G4V+5TE2oZZk44kBbFIJ0999TgZdt1p8nAX</Password>
     </CrmConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>

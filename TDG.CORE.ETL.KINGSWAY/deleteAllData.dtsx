@@ -12,8 +12,8 @@
   DTS:ObjectName="deleteAllData"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="117"
-  DTS:VersionGUID="{3CE05F7B-50A1-4160-B79C-33AB6A75540E}">
+  DTS:VersionBuild="126"
+  DTS:VersionGUID="{AF9C2E0C-EA15-4D3E-BFB3-AAA20EB6BC18}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,16 +24,16 @@
       DTS:ObjectName="Dynamics CRM Connection Manager">
       <DTS:ObjectData>
         <CrmConnectionManager
-          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-acc-tdg-tcd365.api.crm3.dynamics.com/XRMServices/2011/Organization.svc;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
+          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-acc-tdg-data-tcd365.api.crm3.dynamics.com/XRMServices/2011/Organization.svc;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
           ConnectByProxy="False">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="Shz8IOB2H6Y="
-            IV="pggxjlzBAvY1yvnXQ6qP9w==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="++yMvidfBgI="
+            IV="CeHuFO4N7zaX0LrIs16Zcw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>pggxjlzBAvY1yvnXQ6qP9/otD4p1PK/FWsY7ZloWKWubS4HAjpblW3bJC4kRUPBD0EfRJvEFbMWRvMy77/1v3GYRrT9C10XkIF1T8lHCZCb+kLQkCcqMOM+JgD6FUs45HcU3Hyo+DCFi1qWdnwXdvw==</CipherValue>
+              <CipherValue>CeHuFO4N7zaX0LrIs16Zc6GXAv79zHIk/oJxl4D1ZoSS8nlEa7aGzEsTqqwmXJfml6lc6m1Uk28v2LsSXRf7gT4zJmKNFBqJO2edsACa0R1Ur8yYeoJGQrINn9dZd4b5lKYEY8CHgu4ONrMNl/4dOg==</CipherValue>
             </CipherData>
           </EncryptedData>
         </CrmConnectionManager>
@@ -2457,12 +2457,12 @@
                   dataType="System.Int32"
                   description="Specifies the number of records to be sent to CDS/Dynamics CRM server in each service call."
                   expressionType="Notify"
-                  name="BatchSize">20</property>
+                  name="BatchSize">200</property>
                 <property
                   dataType="System.Int32"
                   description="Specify the total number or concurrent threads to write to CDS/CRM server simultaneously. "
                   expressionType="Notify"
-                  name="ConcurrentWritingThreadsInTotal">1</property>
+                  name="ConcurrentWritingThreadsInTotal">10</property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether datetime values should be sent to CRM server in UTC format."
@@ -2499,7 +2499,7 @@
                 <input
                   refId="Package\delete accounts\Dynamics CRM Destination.Inputs[Input]"
                   errorOrTruncationOperation="Insert"
-                  errorRowDisposition="RedirectRow"
+                  errorRowDisposition="IgnoreFailure"
                   hasSideEffects="true"
                   name="Input">
                   <inputColumns>
@@ -3895,57 +3895,8 @@
                 </input>
               </inputs>
             </component>
-            <component
-              refId="Package\delete accounts\Recordset Destination 1"
-              componentClassID="Microsoft.RecordsetDestination"
-              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
-              name="Recordset Destination 1">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the recordset."
-                  name="VariableName">User::deleteaccountskip</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\delete accounts\Recordset Destination 1.Inputs[Recordset Destination Input]"
-                  hasSideEffects="true"
-                  name="Recordset Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\delete accounts\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[accountid]"
-                      cachedDataType="guid"
-                      cachedName="accountid"
-                      lineageId="Package\delete accounts\Dynamics CRM Source.Outputs[Primary Output].Columns[accountid]" />
-                    <inputColumn
-                      refId="Package\delete accounts\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[ErrorCode]"
-                      cachedDataType="i4"
-                      cachedName="ErrorCode"
-                      lineageId="Package\delete accounts\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]" />
-                    <inputColumn
-                      refId="Package\delete accounts\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[ErrorColumn]"
-                      cachedDataType="i4"
-                      cachedName="ErrorColumn"
-                      lineageId="Package\delete accounts\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]" />
-                    <inputColumn
-                      refId="Package\delete accounts\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[ErrorMessage]"
-                      cachedDataType="wstr"
-                      cachedLength="2048"
-                      cachedName="ErrorMessage"
-                      lineageId="Package\delete accounts\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-            </component>
           </components>
           <paths>
-            <path
-              refId="Package\delete accounts.Paths[Error Output]"
-              endId="Package\delete accounts\Recordset Destination 1.Inputs[Recordset Destination Input]"
-              name="Error Output"
-              startId="Package\delete accounts\Dynamics CRM Destination.Outputs[Error Output]" />
             <path
               refId="Package\delete accounts.Paths[Primary Output]"
               endId="Package\delete accounts\Dynamics CRM Destination.Inputs[Input]"
@@ -16964,445 +16915,6 @@
                   name="Primary Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[createdby]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdby]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[createdby]"
-                      name="createdby"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[createdbyname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdbyname]"
-                      length="200"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[createdbyname]"
-                      name="createdbyname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[createdbyyominame]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdbyyominame]"
-                      length="200"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[createdbyyominame]"
-                      name="createdbyyominame"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[createdon]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdon]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[createdon]"
-                      name="createdon"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[createdonbehalfby]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdonbehalfby]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[createdonbehalfby]"
-                      name="createdonbehalfby"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[createdonbehalfbyname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyname]"
-                      length="200"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[createdonbehalfbyname]"
-                      name="createdonbehalfbyname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[createdonbehalfbyyominame]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyyominame]"
-                      length="200"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[createdonbehalfbyyominame]"
-                      name="createdonbehalfbyyominame"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[importsequencenumber]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[importsequencenumber]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[importsequencenumber]"
-                      name="importsequencenumber"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedby]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedby]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedby]"
-                      name="modifiedby"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedbyname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedbyname]"
-                      length="200"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedbyname]"
-                      name="modifiedbyname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedbyyominame]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedbyyominame]"
-                      length="200"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedbyyominame]"
-                      name="modifiedbyyominame"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedon]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedon]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedon]"
-                      name="modifiedon"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedonbehalfby]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfby]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedonbehalfby]"
-                      name="modifiedonbehalfby"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedonbehalfbyname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyname]"
-                      length="200"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedonbehalfbyname]"
-                      name="modifiedonbehalfbyname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedonbehalfbyyominame]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyyominame]"
-                      length="200"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedonbehalfbyyominame]"
-                      name="modifiedonbehalfbyyominame"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_allocationmethod]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_allocationmethod]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_allocationmethod]"
-                      name="msdyn_allocationmethod"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_allocationmethodname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_allocationmethodname]"
-                      length="255"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_allocationmethodname]"
-                      name="msdyn_allocationmethodname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_appointmentrequirementid]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_appointmentrequirementid]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_appointmentrequirementid]"
-                      name="msdyn_appointmentrequirementid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_appointmentrequirementidname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_appointmentrequirementidname]"
-                      length="200"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_appointmentrequirementidname]"
-                      name="msdyn_appointmentrequirementidname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_bookingsetupmetadataid]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_bookingsetupmetadataid]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_bookingsetupmetadataid]"
-                      name="msdyn_bookingsetupmetadataid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_bookingsetupmetadataidname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_bookingsetupmetadataidname]"
-                      length="450"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_bookingsetupmetadataidname]"
-                      name="msdyn_bookingsetupmetadataidname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_calendarid]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_calendarid]"
-                      length="100"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_calendarid]"
-                      name="msdyn_calendarid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_duration]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_duration]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_duration]"
-                      name="msdyn_duration"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_effort]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_effort]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_effort]"
-                      name="msdyn_effort"
-                      precision="38"
-                      scale="4"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_fromdate]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_fromdate]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_fromdate]"
-                      name="msdyn_fromdate"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_fulfilledduration]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_fulfilledduration]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_fulfilledduration]"
-                      name="msdyn_fulfilledduration"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_internalflags]"
-                      dataType="nText"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_internalflags]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_internalflags]"
-                      name="msdyn_internalflags"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_isprimary]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_isprimary]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_isprimary]"
-                      name="msdyn_isprimary"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_isprimaryname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_isprimaryname]"
-                      length="255"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_isprimaryname]"
-                      name="msdyn_isprimaryname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_istemplate]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_istemplate]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_istemplate]"
-                      name="msdyn_istemplate"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_istemplatename]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_istemplatename]"
-                      length="255"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_istemplatename]"
-                      name="msdyn_istemplatename"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_latitude]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_latitude]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_latitude]"
-                      name="msdyn_latitude"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_longitude]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_longitude]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_longitude]"
-                      name="msdyn_longitude"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_name]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_name]"
-                      length="100"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_name]"
-                      name="msdyn_name"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_percentage]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_percentage]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_percentage]"
-                      name="msdyn_percentage"
-                      precision="38"
-                      scale="2"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_pooltype]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_pooltype]"
-                      length="4000"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_pooltype]"
-                      name="msdyn_pooltype"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_pooltypename]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_pooltypename]"
-                      length="255"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_pooltypename]"
-                      name="msdyn_pooltypename"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_priority]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_priority]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_priority]"
-                      name="msdyn_priority"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_priorityname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_priorityname]"
-                      length="100"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_priorityname]"
-                      name="msdyn_priorityname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_proposedduration]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_proposedduration]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_proposedduration]"
-                      name="msdyn_proposedduration"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_remainingduration]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_remainingduration]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_remainingduration]"
-                      name="msdyn_remainingduration"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_requirementgroupcontrolviewid]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_requirementgroupcontrolviewid]"
-                      length="1000"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_requirementgroupcontrolviewid]"
-                      name="msdyn_requirementgroupcontrolviewid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_requirementgroupid]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_requirementgroupid]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_requirementgroupid]"
-                      name="msdyn_requirementgroupid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_requirementgroupidname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_requirementgroupidname]"
-                      length="100"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_requirementgroupidname]"
-                      name="msdyn_requirementgroupidname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_requirementrelationshipid]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_requirementrelationshipid]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_requirementrelationshipid]"
-                      name="msdyn_requirementrelationshipid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_requirementrelationshipidname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_requirementrelationshipidname]"
-                      length="100"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_requirementrelationshipidname]"
-                      name="msdyn_requirementrelationshipidname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_resourcerequirementid]"
                       dataType="guid"
                       errorOrTruncationOperation="Conversion"
@@ -17410,373 +16922,6 @@
                       externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_resourcerequirementid]"
                       lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_resourcerequirementid]"
                       name="msdyn_resourcerequirementid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_resourcetype]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_resourcetype]"
-                      length="4000"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_resourcetype]"
-                      name="msdyn_resourcetype"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_resourcetypename]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_resourcetypename]"
-                      length="255"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_resourcetypename]"
-                      name="msdyn_resourcetypename"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_serviceappointment]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_serviceappointment]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_serviceappointment]"
-                      name="msdyn_serviceappointment"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_serviceappointmentname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_serviceappointmentname]"
-                      length="200"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_serviceappointmentname]"
-                      name="msdyn_serviceappointmentname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_sortoptions]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_sortoptions]"
-                      length="1000"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_sortoptions]"
-                      name="msdyn_sortoptions"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_status]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_status]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_status]"
-                      name="msdyn_status"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_statusname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_statusname]"
-                      length="100"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_statusname]"
-                      name="msdyn_statusname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_templaterequirementid]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_templaterequirementid]"
-                      length="100"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_templaterequirementid]"
-                      name="msdyn_templaterequirementid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_territory]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_territory]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_territory]"
-                      name="msdyn_territory"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_territoryname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_territoryname]"
-                      length="200"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_territoryname]"
-                      name="msdyn_territoryname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_timefrompromised]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_timefrompromised]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_timefrompromised]"
-                      name="msdyn_timefrompromised"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_timegroup]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_timegroup]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_timegroup]"
-                      name="msdyn_timegroup"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_timegroupname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_timegroupname]"
-                      length="100"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_timegroupname]"
-                      name="msdyn_timegroupname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_timetopromised]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_timetopromised]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_timetopromised]"
-                      name="msdyn_timetopromised"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_timewindowend]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_timewindowend]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_timewindowend]"
-                      name="msdyn_timewindowend"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_timewindowstart]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_timewindowstart]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_timewindowstart]"
-                      name="msdyn_timewindowstart"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_timezonefortimewindow]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_timezonefortimewindow]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_timezonefortimewindow]"
-                      name="msdyn_timezonefortimewindow"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_todate]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_todate]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_todate]"
-                      name="msdyn_todate"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_workhourtemplate]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_workhourtemplate]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_workhourtemplate]"
-                      name="msdyn_workhourtemplate"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_workhourtemplatename]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_workhourtemplatename]"
-                      length="100"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_workhourtemplatename]"
-                      name="msdyn_workhourtemplatename"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_worklocation]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_worklocation]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_worklocation]"
-                      name="msdyn_worklocation"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_worklocationname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_worklocationname]"
-                      length="255"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_worklocationname]"
-                      name="msdyn_worklocationname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_workorder]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_workorder]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_workorder]"
-                      name="msdyn_workorder"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_workordername]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_workordername]"
-                      length="100"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[msdyn_workordername]"
-                      name="msdyn_workordername"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[overriddencreatedon]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[overriddencreatedon]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[overriddencreatedon]"
-                      name="overriddencreatedon"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[ownerid]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ownerid]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[ownerid]"
-                      name="ownerid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[owneridname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[owneridname]"
-                      length="200"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[owneridname]"
-                      name="owneridname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[owneridtype]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[owneridtype]"
-                      length="64"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[owneridtype]"
-                      name="owneridtype"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[owneridyominame]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[owneridyominame]"
-                      length="200"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[owneridyominame]"
-                      name="owneridyominame"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[owningbusinessunit]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[owningbusinessunit]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[owningbusinessunit]"
-                      name="owningbusinessunit"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[owningteam]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[owningteam]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[owningteam]"
-                      name="owningteam"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[owninguser]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[owninguser]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[owninguser]"
-                      name="owninguser"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[statecode]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statecode]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[statecode]"
-                      name="statecode"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[statecodename]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statecodename]"
-                      length="255"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[statecodename]"
-                      name="statecodename"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscode]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statuscode]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscode]"
-                      name="statuscode"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscodename]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statuscodename]"
-                      length="255"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscodename]"
-                      name="statuscodename"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[timezoneruleversionnumber]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[timezoneruleversionnumber]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[timezoneruleversionnumber]"
-                      name="timezoneruleversionnumber"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[utcconversiontimezonecode]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[utcconversiontimezonecode]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[utcconversiontimezonecode]"
-                      name="utcconversiontimezonecode"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[versionnumber]"
-                      dataType="i8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[versionnumber]"
-                      lineageId="Package\delete resource requirements\Dynamics CRM Source.Outputs[Primary Output].Columns[versionnumber]"
-                      name="versionnumber"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -35337,6 +34482,10 @@
       <GraphLayout
         Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="125,42"
+          Id="Package\air carrier"
+          TopLeft="510.944444444445,971.297619047616" />
+        <NodeLayout
           Size="120,42"
           Id="Package\contacts"
           TopLeft="803.74747474747,1343.90909090909" />
@@ -35552,6 +34701,28 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="-165.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="572.722222222223,1013.29761904762">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,119.591269841272"
+              Start="0,0"
+              End="0,112.091269841272">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,112.091269841272" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -36013,6 +35184,28 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 31]"
+          TopLeft="777.055555555556,994.148809523808">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-141.111111111111,0"
+              Start="0,0"
+              End="-133.611111111111,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-133.611111111111,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
           TopLeft="1034.83333333333,567.686507936507">
           <EdgeLayout.Curve>
@@ -36188,57 +35381,129 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\air carrier">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="125,42"
-          Id="Package\air carrier"
-          TopLeft="510.944444444445,971.297619047616" />
+          Size="196,42"
+          Id="Package\air carrier\Recordset Destination 1"
+          TopLeft="841,649" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\air carrier\Recordset Destination"
+          TopLeft="374,654" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\air carrier\Dynamics CRM Source"
+          TopLeft="551.5,169.5" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\air carrier\Dynamics CRM Destination"
+          TopLeft="546,452" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 31]"
-          TopLeft="777.055555555556,994.148809523808">
+          Id="Package\air carrier.Paths[Skipped Rows]"
+          TopLeft="618.333333333333,494">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-141.111111111111,0"
+              EndConnector="-150.833333333333,160"
               Start="0,0"
-              End="-133.611111111111,0">
+              End="-150.833333333333,152.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-133.611111111111,0" />
+                    End="0,60.7157502329916" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,60.7157502329916"
+                    Point2="0,64.7157502329916"
+                    Point3="-4,64.7157502329916" />
+                  <mssgle:LineSegment
+                    End="-146.833333333333,64.7157502329916" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-146.833333333333,64.7157502329916"
+                    Point2="-150.833333333333,64.7157502329916"
+                    Point3="-150.833333333333,68.7157502329916" />
+                  <mssgle:LineSegment
+                    End="-150.833333333333,152.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-106.804908854167,69.7157502329916,62.776484375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 12]"
-          TopLeft="572.722222222223,1013.29761904762">
+          Id="Package\air carrier.Paths[Primary Output]"
+          TopLeft="650.25,211.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,119.591269841272"
+              EndConnector="0,240.5"
               Start="0,0"
-              End="0,112.091269841272">
+              End="0,233">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,112.091269841272" />
+                    End="0,233" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\air carrier.Paths[Error Output]"
+          TopLeft="686.666666666667,494">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="252.333333333333,155"
+              Start="0,0"
+              End="252.333333333333,147.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.6933830382106" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,58.6933830382106"
+                    Point2="0,62.6933830382106"
+                    Point3="4,62.6933830382106" />
+                  <mssgle:LineSegment
+                    End="248.333333333333,62.6933830382106" />
+                  <mssgle:CubicBezierSegment
+                    Point1="248.333333333333,62.6933830382106"
+                    Point2="252.333333333333,62.6933830382106"
+                    Point3="252.333333333333,66.6933830382106" />
+                  <mssgle:LineSegment
+                    End="252.333333333333,147.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="97.8302799479165,67.6933830382106,56.6727734375,11.43359375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
-  </Package>
+  </TaskHost>
   <TaskHost
     design-time-name="Package\contacts">
     <LayoutInfo>
@@ -36289,10 +35554,6 @@
           Id="Package\delete accounts\Recordset Destination"
           TopLeft="374,654" />
         <NodeLayout
-          Size="196,42"
-          Id="Package\delete accounts\Recordset Destination 1"
-          TopLeft="841,658" />
-        <NodeLayout
           Size="193,42"
           Id="Package\delete accounts\Dynamics CRM Source"
           TopLeft="551.5,169.5" />
@@ -36302,37 +35563,37 @@
           TopLeft="546,452" />
         <EdgeLayout
           Id="Package\delete accounts.Paths[Skipped Rows]"
-          TopLeft="618.333333333333,494">
+          TopLeft="652.5,494">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-150.833333333333,160"
+              EndConnector="-185,160"
               Start="0,0"
-              End="-150.833333333333,152.5">
+              End="-185,152.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,60.7157502329916" />
+                    End="0,76" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,60.7157502329916"
-                    Point2="0,64.7157502329916"
-                    Point3="-4,64.7157502329916" />
+                    Point1="0,76"
+                    Point2="0,80"
+                    Point3="-4,80" />
                   <mssgle:LineSegment
-                    End="-146.833333333333,64.7157502329916" />
+                    End="-181,80" />
                   <mssgle:CubicBezierSegment
-                    Point1="-146.833333333333,64.7157502329916"
-                    Point2="-150.833333333333,64.7157502329916"
-                    Point3="-150.833333333333,68.7157502329916" />
+                    Point1="-181,80"
+                    Point2="-185,80"
+                    Point3="-185,84" />
                   <mssgle:LineSegment
-                    End="-150.833333333333,152.5" />
+                    End="-185,152.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-115.492897135417,69.7157502329916,80.1524609375,16"
+              BoundingBox="-123.8882421875,85,62.776484375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -36355,45 +35616,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\delete accounts.Paths[Error Output]"
-          TopLeft="652.5,494">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="286.5,164"
-              Start="0,0"
-              End="286.5,156.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,78" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,78"
-                    Point2="0,82"
-                    Point3="4,82" />
-                  <mssgle:LineSegment
-                    End="282.5,82" />
-                  <mssgle:CubicBezierSegment
-                    Point1="282.5,82"
-                    Point2="286.5,82"
-                    Point3="286.5,86" />
-                  <mssgle:LineSegment
-                    End="286.5,156.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="106.0449609375,87,74.410078125,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -36569,23 +35792,35 @@
           Id="Package\delete bookable resources\Dynamics CRM Source"
           TopLeft="551.5,169.5" />
         <NodeLayout
-          Size="205,42"
+          Size="213,42"
           Id="Package\delete bookable resources\Dynamics CRM Destination"
           TopLeft="546,452" />
         <EdgeLayout
           Id="Package\delete bookable resources.Paths[Primary Output]"
-          TopLeft="646,211.5">
+          TopLeft="643.5,211.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,240.5"
+              EndConnector="9,240.5"
               Start="0,0"
-              End="0,233">
+              End="9,233">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,233" />
+                    End="0,116.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,116.25"
+                    Point2="0,120.25"
+                    Point3="4,120.25" />
+                  <mssgle:LineSegment
+                    End="5,120.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5,120.25"
+                    Point2="9,120.25"
+                    Point3="9,124.25" />
+                  <mssgle:LineSegment
+                    End="9,233" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -37163,7 +36398,7 @@
     design-time-name="Package\delete resource requirements">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="205,42"
           Id="Package\delete resource requirements\Dynamics CRM Destination"
@@ -37191,9 +36426,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -37515,7 +36748,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -38340,124 +37575,6 @@
             <mssgm:EdgeLabel
               BoundingBox="0,0,0,0"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\air carrier">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="187,42"
-          Id="Package\air carrier\Recordset Destination"
-          TopLeft="374,654" />
-        <NodeLayout
-          Size="193,42"
-          Id="Package\air carrier\Dynamics CRM Source"
-          TopLeft="551.5,169.5" />
-        <NodeLayout
-          Size="213,42"
-          Id="Package\air carrier\Dynamics CRM Destination"
-          TopLeft="546,452" />
-        <NodeLayout
-          Size="196,42"
-          Id="Package\air carrier\Recordset Destination 1"
-          TopLeft="841,649" />
-        <EdgeLayout
-          Id="Package\air carrier.Paths[Error Output]"
-          TopLeft="686.666666666667,494">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="252.333333333333,155"
-              Start="0,0"
-              End="252.333333333333,147.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,58.6933830382106" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,58.6933830382106"
-                    Point2="0,62.6933830382106"
-                    Point3="4,62.6933830382106" />
-                  <mssgle:LineSegment
-                    End="248.333333333333,62.6933830382106" />
-                  <mssgle:CubicBezierSegment
-                    Point1="248.333333333333,62.6933830382106"
-                    Point2="252.333333333333,62.6933830382106"
-                    Point3="252.333333333333,66.6933830382106" />
-                  <mssgle:LineSegment
-                    End="252.333333333333,147.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="97.8302799479165,67.6933830382106,56.6727734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\air carrier.Paths[Skipped Rows]"
-          TopLeft="618.333333333333,494">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-150.833333333333,160"
-              Start="0,0"
-              End="-150.833333333333,152.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,60.7157502329916" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,60.7157502329916"
-                    Point2="0,64.7157502329916"
-                    Point3="-4,64.7157502329916" />
-                  <mssgle:LineSegment
-                    End="-146.833333333333,64.7157502329916" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-146.833333333333,64.7157502329916"
-                    Point2="-150.833333333333,64.7157502329916"
-                    Point3="-150.833333333333,68.7157502329916" />
-                  <mssgle:LineSegment
-                    End="-150.833333333333,152.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-106.804908854167,69.7157502329916,62.776484375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\air carrier.Paths[Primary Output]"
-          TopLeft="650.25,211.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,240.5"
-              Start="0,0"
-              End="0,233">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,233" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
