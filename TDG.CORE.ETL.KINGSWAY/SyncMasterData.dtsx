@@ -12,8 +12,8 @@
   DTS:ObjectName="SyncMasterData"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="245"
-  DTS:VersionGUID="{221C041A-F12C-40C0-9D7F-804DFEC8811D}">
+  DTS:VersionBuild="247"
+  DTS:VersionGUID="{09425F26-3347-4490-A094-2C63646DFBFC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,12 +27,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Provider=SQLNCLI11.1;Persist Security Info=True;Connect Timeout=0;General Timeout=0;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="rSl+yvlC1W4="
-            IV="jyf7gYoAnwmgWx96PP8JfA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="tLxGGM9fHKg="
+            IV="bUyd03sxL1L62YoxlgCw5A==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>jyf7gYoAnwmgWx96PP8JfLx8wVgODik17j4IcphzjB9QnMngUdBiT1tx5gsd+wrg4u/7z876wwN/SgUcDngAWc5EzrTWni1FSM43JzMCMYRx2G1S8T8hOUQ2TtcqHspi0YTP0Bpx1/s/8CyIq57ZshwDLUnmVwFJO+vXrGfHThb71UWh6IuNMzWlKUIujyP1</CipherValue>
+              <CipherValue>bUyd03sxL1L62YoxlgCw5NOke2akndcI/cR2ssgG/jaAyQ3e4RB9s7t06Kf/RBt0WjQBJM+B1x76TFiHPA6eUQL19P9pbVheaes7DBUEHP7D4AeEBFCS7kwvqLiaFkpTOwYL1POB93EcI9DP44wEThbHKH7/AwNFCPoO99V+m8gaqFxwGCKDK5US59NYIfSM</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -48,12 +48,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-SqlToCrm-{458F205C-D352-491D-9E88-E53D4A3A43AA}tdg-data-migration-server.database.windows.net.tdg-data-migration-db.tdgco;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="3CcHJb4La6U="
-            IV="j0SNDIPrK/5qgAcHxf0z2Q==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="fGGoj3s6/4E="
+            IV="WBrtU1ToG+F5ZZ1r6H9+fA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>j0SNDIPrK/5qgAcHxf0z2ZsgRTo+FPlRPqsVkIimaZqQGwuqBFtdzoYrsRpcyqBlI3s88z/9xRHo44rtHacKUcQAPV7IwGRX3u3yUOPoZM2L0snwwVKa7k4uVn4QIPUjCyW9FPUEwaNfT1a/CctMEjjs5j1yNDMy50XDRWqv/sC8SnWad5BlS0Sa9YzhNxi3</CipherValue>
+              <CipherValue>WBrtU1ToG+F5ZZ1r6H9+fBA60N3h3UnQ8c2kcw2OZ6KDakKazsZwpWMqyR9bHX2+/AAsq2aoF8MEUCRyb9WKjYcMWybk0hFHgyKJ+3LX0mRnjIoCt3Q0d6wDtElbkIb+0NiEHit4XIIX+Zley+bMAp3ZmTlAS5BCI2c3ykvnbx7Q1BeD2B/oKx89DbvKkQIO</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -3831,7 +3831,7 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                   dataType="System.Int32"
                   description="Specifies how data is written to CDS/Dynamics CRM server."
                   name="ActionType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">1</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">3</property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether the values of CDS/CRM lookup fields should be removed if the reference records cannot be found. "
@@ -3847,7 +3847,7 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                   description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
                   name="RecordMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">1</property>
                 <property
                   dataType="System.String"
                   description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
@@ -3862,7 +3862,7 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                   dataType="System.Boolean"
                   description="Specifies whether to ignore those fields that have no value changes in the target system. "
                   expressionType="Notify"
-                  name="IgnoreUnchangedFields">false</property>
+                  name="IgnoreUnchangedFields">true</property>
                 <property
                   dataType="System.Boolean"
                   description="Specify whether to remove those invalid characters before writing to CDS/CRM."
@@ -3899,7 +3899,7 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                   dataType="System.Int32"
                   description="Specify the total number or concurrent threads to write to CDS/CRM server simultaneously. "
                   expressionType="Notify"
-                  name="ConcurrentWritingThreadsInTotal">20</property>
+                  name="ConcurrentWritingThreadsInTotal">1</property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether datetime values should be sent to CDS/CRM server in UTC format."
@@ -3979,7 +3979,7 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                           name="FieldType">Uniqueidentifier</property>
                         <property
                           dataType="System.String"
-                          name="LookupTypes"></property>
+                          name="LookupTypes">systemuser</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -4267,7 +4267,7 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                           name="FieldType">Uniqueidentifier</property>
                         <property
                           dataType="System.String"
-                          name="LookupTypes"></property>
+                          name="LookupTypes">systemuser</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -4598,19 +4598,6 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\bookable resources\system user regions.Inputs[Input].ExternalColumns[createdby]"
-                      dataType="guid"
-                      name="createdby">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">Lookup</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes">systemuser</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
                       refId="Package\bookable resources\system user regions.Inputs[Input].ExternalColumns[displayinserviceviews]"
                       dataType="bool"
                       name="displayinserviceviews">
@@ -4701,19 +4688,6 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                         <property
                           dataType="System.String"
                           name="FieldType">String</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes"></property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\bookable resources\system user regions.Inputs[Input].ExternalColumns[importsequencenumber]"
-                      dataType="i4"
-                      name="importsequencenumber">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">Integer</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -4943,19 +4917,6 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                         <property
                           dataType="System.String"
                           name="FieldType">Picklist</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes"></property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\bookable resources\system user regions.Inputs[Input].ExternalColumns[overriddencreatedon]"
-                      dataType="dbTimeStamp"
-                      name="overriddencreatedon">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">DateTime</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
@@ -5197,7 +5158,7 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                           name="FieldType">Uniqueidentifier</property>
                         <property
                           dataType="System.String"
-                          name="LookupTypes"></property>
+                          name="LookupTypes">systemuser</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -5372,6 +5333,84 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                         <property
                           dataType="System.String"
                           name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\bookable resources\system user regions.Inputs[Input].ExternalColumns[activedirectoryguid]"
+                      dataType="guid"
+                      name="activedirectoryguid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\bookable resources\system user regions.Inputs[Input].ExternalColumns[azureactivedirectoryobjectid]"
+                      dataType="guid"
+                      name="azureactivedirectoryobjectid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\bookable resources\system user regions.Inputs[Input].ExternalColumns[emailrouteraccessapproval]"
+                      dataType="i4"
+                      name="emailrouteraccessapproval">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Picklist</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\bookable resources\system user regions.Inputs[Input].ExternalColumns[entityimageid]"
+                      dataType="guid"
+                      name="entityimageid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\bookable resources\system user regions.Inputs[Input].ExternalColumns[modifiedby]"
+                      dataType="guid"
+                      name="modifiedby">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\bookable resources\system user regions.Inputs[Input].ExternalColumns[organizationid]"
+                      dataType="guid"
+                      name="organizationid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>

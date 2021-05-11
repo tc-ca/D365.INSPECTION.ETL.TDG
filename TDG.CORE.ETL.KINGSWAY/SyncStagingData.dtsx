@@ -12,8 +12,8 @@
   DTS:ObjectName="SyncStagingData"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="243"
-  DTS:VersionGUID="{7242E06C-7BE2-45C9-B1FC-25BEA2886DF3}">
+  DTS:VersionBuild="249"
+  DTS:VersionGUID="{ED8CAE7E-14F0-4472-95EC-DDFE68B4F811}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,12 +27,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Provider=SQLNCLI11.1;Persist Security Info=True;Connect Timeout=0;General Timeout=0;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="/u9QpUBFcX4="
-            IV="523uYXzB/QWmOM0hc1coDQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="gwXA4duWrBI="
+            IV="aEYBLJBjNmFPVH1Aq7d2Mg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>523uYXzB/QWmOM0hc1coDe3ok0GYS+6gS6dSiJvXKks71gDvBuJBbMKCiBgjhwd83oXEYBkomIfnu+NwXia1vww5EwWHVqhbysilBXwb7iL5kP7Te2g7mr+e0FdySbsPDX+8cLyzTdifcUGbHvn6UbZA7tf9WpsGOVuhIRftmwpeVXT2YOpo1RyHMuq/2oIf</CipherValue>
+              <CipherValue>aEYBLJBjNmFPVH1Aq7d2Mse6hwLhoQwBJBPtniDx05TAmXzqLdvfH/1Kf7RS9/zQVTZiW6cP3at4omV77hHZNRKpajwdQZmx9RGjanXMsQTHjyj3bpBFj45b0Mxh80TZGpFPN/3ohNs/j5DzXXTSvupuV+DgASrc/5D4vCvRByZ0HEHE+lh2aKpF/j0aCBIp</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -48,12 +48,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-SqlToCrm-{4C085089-C198-46C9-B725-EB3672E9A468}tdg-data-migration-server.database.windows.net.tdg-data-migration-db.tdgco;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="aIur9SXZp7U="
-            IV="57SEn6aDVgsY53FvuHOuTg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="GCtBKDUsdBI="
+            IV="j6HIP7JOpaMOByLoAz0tuw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>57SEn6aDVgsY53FvuHOuToz7Qqm4swZDev4gh+e3bcPcc4TQx24SetS2TrX4bXutuhYMUfMtrfqBEzBGOFtSjXwNHPPSDaMN4jyxuc6zLJyRWBZTKhdwMd1Zw3r+rFmM7klDEGCrrUGUnOINGFRz804FF38cRc1QIt+Sw5TKXGIvx1BB1TwKFVX0NvBTIze+</CipherValue>
+              <CipherValue>j6HIP7JOpaMOByLoAz0tu4odTEVHchnDQzH4WxQoALiPqMB1q9YdwauNTe5c22zxbrNyj2DbU4KJVD1LvtfWnFh4NkvWfZaPfPaKYvZR41R25RZ5/1zVD/pyyFp4eNaorWC6UMqBYxo9e76kyKuIzksFtVvSqDtOe+wxu81D2OaXH0DrojaqjT4Lj8GOE3TT</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -7334,6 +7334,531 @@
               </outputs>
             </component>
             <component
+              refId="Package\Regulated Entities\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[SSIS_RegulatedEntityErrors]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Regulated Entities\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[accountid]"
+                      cachedDataType="guid"
+                      cachedName="accountid"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accountid]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[accountid]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[accountnumber]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="accountnumber"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accountnumber]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[accountnumber]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_city]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="address1_city"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_city]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[address1_city]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_country]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="address1_country"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_country]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[address1_country]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_line1]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="address1_line1"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_line1]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[address1_line1]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_line2]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="address1_line2"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_line2]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[address1_line2]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_line3]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="address1_line3"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_line3]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[address1_line3]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_name]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="address1_name"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_name]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[address1_name]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_postalcode]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="address1_postalcode"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_postalcode]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[address1_postalcode]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_postofficebox]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="address1_postofficebox"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_postofficebox]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[address1_postofficebox]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_primarycontactname]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="address1_primarycontactname"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_primarycontactname]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[address1_primarycontactname]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_stateorprovince]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="address1_stateorprovince"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_stateorprovince]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[address1_stateorprovince]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_telephone1]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="address1_telephone1"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_telephone1]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[address1_telephone1]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customertypecode]"
+                      cachedDataType="i4"
+                      cachedName="customertypecode"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customertypecode]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[customertypecode]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[description]"
+                      cachedDataType="nText"
+                      cachedName="description"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[description]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_serviceterritory]"
+                      cachedDataType="guid"
+                      cachedName="msdyn_serviceterritory"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_serviceterritory]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_serviceterritory]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="160"
+                      cachedName="name"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[name]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_accountnameenglish]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="ovs_accountnameenglish"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_accountnameenglish]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_accountnameenglish]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_accountnamefrench]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="ovs_accountnamefrench"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_accountnamefrench]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_accountnamefrench]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_legalname]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="ovs_legalname"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_legalname]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_legalname]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_primarycontactemail]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="ovs_primarycontactemail"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_primarycontactemail]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_primarycontactemail]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_primarycontactphone]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="ovs_primarycontactphone"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_primarycontactphone]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_primarycontactphone]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ownerid]"
+                      cachedDataType="guid"
+                      cachedName="ownerid"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ownerid]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[ownerid]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[owneridtype]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="owneridtype"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owneridtype]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[owneridtype]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[owningbusinessunit]"
+                      cachedDataType="guid"
+                      cachedName="owningbusinessunit"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owningbusinessunit]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[owningbusinessunit]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[owningteam]"
+                      cachedDataType="guid"
+                      cachedName="owningteam"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owningteam]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[owningteam]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[parentaccountid]"
+                      cachedDataType="guid"
+                      cachedName="parentaccountid"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[parentaccountid]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[parentaccountid]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[primarycontactid]"
+                      cachedDataType="guid"
+                      cachedName="primarycontactid"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[primarycontactid]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[primarycontactid]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[territoryid]"
+                      cachedDataType="guid"
+                      cachedName="territoryid"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[territoryid]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[territoryid]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_iisid]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="ovs_iisid"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_iisid]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_iisid]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id]"
+                      cachedDataType="guid"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_longitude]"
+                      cachedDataType="numeric"
+                      cachedName="address1_longitude"
+                      cachedPrecision="38"
+                      cachedScale="5"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_longitude]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[address1_longitude]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_latitude]"
+                      cachedDataType="numeric"
+                      cachedName="address1_latitude"
+                      cachedPrecision="38"
+                      cachedScale="5"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_latitude]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[address1_latitude]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_mocid]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="ovs_mocid"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_mocid]"
+                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_mocid]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\Regulated Entities\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Regulated Entities\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]" />
+                    <inputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ErrorMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="ErrorMessage"
+                      externalMetadataColumnId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorMessage]"
+                      lineageId="Package\Regulated Entities\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accountid]"
+                      dataType="guid"
+                      name="accountid" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accountnumber]"
+                      dataType="wstr"
+                      length="20"
+                      name="accountnumber" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_city]"
+                      dataType="wstr"
+                      length="80"
+                      name="address1_city" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_country]"
+                      dataType="wstr"
+                      length="80"
+                      name="address1_country" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_line1]"
+                      dataType="wstr"
+                      length="250"
+                      name="address1_line1" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_line2]"
+                      dataType="wstr"
+                      length="250"
+                      name="address1_line2" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_line3]"
+                      dataType="wstr"
+                      length="250"
+                      name="address1_line3" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_name]"
+                      dataType="wstr"
+                      length="200"
+                      name="address1_name" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_postalcode]"
+                      dataType="wstr"
+                      length="20"
+                      name="address1_postalcode" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_postofficebox]"
+                      dataType="wstr"
+                      length="20"
+                      name="address1_postofficebox" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_primarycontactname]"
+                      dataType="wstr"
+                      length="100"
+                      name="address1_primarycontactname" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_stateorprovince]"
+                      dataType="wstr"
+                      length="50"
+                      name="address1_stateorprovince" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_telephone1]"
+                      dataType="wstr"
+                      length="50"
+                      name="address1_telephone1" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customertypecode]"
+                      dataType="i4"
+                      name="customertypecode" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                      dataType="nText"
+                      name="description" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_serviceterritory]"
+                      dataType="guid"
+                      name="msdyn_serviceterritory" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="160"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_accountnameenglish]"
+                      dataType="wstr"
+                      length="4000"
+                      name="ovs_accountnameenglish" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_accountnamefrench]"
+                      dataType="wstr"
+                      length="4000"
+                      name="ovs_accountnamefrench" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_legalname]"
+                      dataType="wstr"
+                      length="4000"
+                      name="ovs_legalname" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_primarycontactemail]"
+                      dataType="wstr"
+                      length="100"
+                      name="ovs_primarycontactemail" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_primarycontactphone]"
+                      dataType="wstr"
+                      length="100"
+                      name="ovs_primarycontactphone" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ownerid]"
+                      dataType="guid"
+                      name="ownerid" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owneridtype]"
+                      dataType="wstr"
+                      length="4000"
+                      name="owneridtype" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owningbusinessunit]"
+                      dataType="guid"
+                      name="owningbusinessunit" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owningteam]"
+                      dataType="guid"
+                      name="owningteam" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[parentaccountid]"
+                      dataType="guid"
+                      name="parentaccountid" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[primarycontactid]"
+                      dataType="guid"
+                      name="primarycontactid" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[territoryid]"
+                      dataType="guid"
+                      name="territoryid" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_iisid]"
+                      dataType="wstr"
+                      length="25"
+                      name="ovs_iisid" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="guid"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_longitude]"
+                      dataType="numeric"
+                      name="address1_longitude"
+                      precision="38"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_latitude]"
+                      dataType="numeric"
+                      name="address1_latitude"
+                      precision="38"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_mocid]"
+                      dataType="wstr"
+                      length="100"
+                      name="ovs_mocid" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      name="ErrorMessage" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Regulated Entities\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Regulated Entities\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Regulated Entities\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Regulated Entities\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Regulated Entities\OLE DB Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -8145,46 +8670,6 @@ WHERE customertypecode = 948010000</property>
               </outputs>
             </component>
             <component
-              refId="Package\Regulated Entities\Recordset Destination"
-              componentClassID="Microsoft.RecordsetDestination"
-              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
-              name="Recordset Destination">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the recordset."
-                  name="VariableName">User::Variable</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Regulated Entities\Recordset Destination.Inputs[Recordset Destination Input]"
-                  hasSideEffects="true"
-                  name="Recordset Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Regulated Entities\Recordset Destination.Inputs[Recordset Destination Input].Columns[accountid]"
-                      cachedDataType="guid"
-                      cachedName="accountid"
-                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[accountid]" />
-                    <inputColumn
-                      refId="Package\Regulated Entities\Recordset Destination.Inputs[Recordset Destination Input].Columns[accountnumber]"
-                      cachedDataType="wstr"
-                      cachedLength="20"
-                      cachedName="accountnumber"
-                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[accountnumber]" />
-                    <inputColumn
-                      refId="Package\Regulated Entities\Recordset Destination.Inputs[Recordset Destination Input].Columns[name]"
-                      cachedDataType="wstr"
-                      cachedLength="160"
-                      cachedName="name"
-                      lineageId="Package\Regulated Entities\OLE DB Source.Outputs[OLE DB Source Output].Columns[name]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-            </component>
-            <component
               refId="Package\Regulated Entities\Recordset Destination 1"
               componentClassID="Microsoft.RecordsetDestination"
               contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -8228,7 +8713,7 @@ WHERE customertypecode = 948010000</property>
           <paths>
             <path
               refId="Package\Regulated Entities.Paths[Error Output]"
-              endId="Package\Regulated Entities\Recordset Destination.Inputs[Recordset Destination Input]"
+              endId="Package\Regulated Entities\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Error Output"
               startId="Package\Regulated Entities\Dynamics CRM Destination.Outputs[Error Output]" />
             <path
@@ -16397,6 +16882,497 @@ FROM [dbo].[11_CONTACT]</property>
               </outputs>
             </component>
             <component
+              refId="Package\Sites\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[SSIS_SiteErrors]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Sites\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[accountid]"
+                      cachedDataType="guid"
+                      cachedName="accountid"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accountid]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[accountid]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[accountnumber]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="accountnumber"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accountnumber]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[accountnumber]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_city]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="address1_city"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_city]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[address1_city]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_country]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="address1_country"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_country]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[address1_country]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_line1]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="address1_line1"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_line1]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[address1_line1]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_line2]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="address1_line2"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_line2]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[address1_line2]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_line3]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="address1_line3"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_line3]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[address1_line3]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_latitude]"
+                      cachedDataType="numeric"
+                      cachedName="address1_latitude"
+                      cachedPrecision="38"
+                      cachedScale="5"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_latitude]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[address1_latitude]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_longitude]"
+                      cachedDataType="numeric"
+                      cachedName="address1_longitude"
+                      cachedPrecision="38"
+                      cachedScale="5"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_longitude]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[address1_longitude]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_name]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="address1_name"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_name]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[address1_name]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_postalcode]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="address1_postalcode"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_postalcode]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[address1_postalcode]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_postofficebox]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="address1_postofficebox"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_postofficebox]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[address1_postofficebox]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_primarycontactname]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="address1_primarycontactname"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_primarycontactname]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[address1_primarycontactname]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_stateorprovince]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="address1_stateorprovince"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_stateorprovince]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[address1_stateorprovince]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customertypecode]"
+                      cachedDataType="i4"
+                      cachedName="customertypecode"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customertypecode]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[customertypecode]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[description]"
+                      cachedDataType="nText"
+                      cachedName="description"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[description]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id]"
+                      cachedDataType="guid"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_serviceterritory]"
+                      cachedDataType="guid"
+                      cachedName="msdyn_serviceterritory"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_serviceterritory]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[msdyn_serviceterritory]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="160"
+                      cachedName="name"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[name]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_accountnameenglish]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="ovs_accountnameenglish"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_accountnameenglish]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[ovs_accountnameenglish]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_accountnamefrench]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="ovs_accountnamefrench"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_accountnamefrench]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[ovs_accountnamefrench]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_iisid]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="ovs_iisid"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_iisid]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[ovs_iisid]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_legalname]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="ovs_legalname"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_legalname]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[ovs_legalname]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_mocid]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="ovs_mocid"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_mocid]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[ovs_mocid]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ownerid]"
+                      cachedDataType="guid"
+                      cachedName="ownerid"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ownerid]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[ownerid]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[owneridtype]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="owneridtype"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owneridtype]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[owneridtype]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[owningbusinessunit]"
+                      cachedDataType="guid"
+                      cachedName="owningbusinessunit"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owningbusinessunit]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[owningbusinessunit]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[owningteam]"
+                      cachedDataType="guid"
+                      cachedName="owningteam"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owningteam]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[owningteam]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[parentaccountid]"
+                      cachedDataType="guid"
+                      cachedName="parentaccountid"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[parentaccountid]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[parentaccountid]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[territoryid]"
+                      cachedDataType="guid"
+                      cachedName="territoryid"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[territoryid]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[territoryid]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address1_telephone1]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="address1_telephone1"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_telephone1]"
+                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[address1_telephone1]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\Sites\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Sites\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]" />
+                    <inputColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ErrorMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="ErrorMessage"
+                      externalMetadataColumnId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorMessage]"
+                      lineageId="Package\Sites\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accountid]"
+                      dataType="guid"
+                      name="accountid" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accountnumber]"
+                      dataType="wstr"
+                      length="20"
+                      name="accountnumber" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_city]"
+                      dataType="wstr"
+                      length="80"
+                      name="address1_city" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_country]"
+                      dataType="wstr"
+                      length="80"
+                      name="address1_country" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_line1]"
+                      dataType="wstr"
+                      length="250"
+                      name="address1_line1" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_line2]"
+                      dataType="wstr"
+                      length="250"
+                      name="address1_line2" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_line3]"
+                      dataType="wstr"
+                      length="250"
+                      name="address1_line3" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_latitude]"
+                      dataType="numeric"
+                      name="address1_latitude"
+                      precision="38"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_longitude]"
+                      dataType="numeric"
+                      name="address1_longitude"
+                      precision="38"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_name]"
+                      dataType="wstr"
+                      length="200"
+                      name="address1_name" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_postalcode]"
+                      dataType="wstr"
+                      length="20"
+                      name="address1_postalcode" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_postofficebox]"
+                      dataType="wstr"
+                      length="20"
+                      name="address1_postofficebox" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_primarycontactname]"
+                      dataType="wstr"
+                      length="100"
+                      name="address1_primarycontactname" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_stateorprovince]"
+                      dataType="wstr"
+                      length="50"
+                      name="address1_stateorprovince" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customertypecode]"
+                      dataType="i4"
+                      name="customertypecode" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                      dataType="nText"
+                      name="description" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="guid"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_serviceterritory]"
+                      dataType="guid"
+                      name="msdyn_serviceterritory" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="160"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_accountnameenglish]"
+                      dataType="wstr"
+                      length="4000"
+                      name="ovs_accountnameenglish" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_accountnamefrench]"
+                      dataType="wstr"
+                      length="4000"
+                      name="ovs_accountnamefrench" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_iisid]"
+                      dataType="wstr"
+                      length="25"
+                      name="ovs_iisid" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_legalname]"
+                      dataType="wstr"
+                      length="4000"
+                      name="ovs_legalname" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_mocid]"
+                      dataType="wstr"
+                      length="100"
+                      name="ovs_mocid" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ownerid]"
+                      dataType="guid"
+                      name="ownerid" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owneridtype]"
+                      dataType="wstr"
+                      length="4000"
+                      name="owneridtype" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owningbusinessunit]"
+                      dataType="guid"
+                      name="owningbusinessunit" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owningteam]"
+                      dataType="guid"
+                      name="owningteam" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[parentaccountid]"
+                      dataType="guid"
+                      name="parentaccountid" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[territoryid]"
+                      dataType="guid"
+                      name="territoryid" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address1_telephone1]"
+                      dataType="wstr"
+                      length="50"
+                      name="address1_telephone1" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                    <externalMetadataColumn
+                      refId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      name="ErrorMessage" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Sites\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sites\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Sites\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Sites\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Sites\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Sites\Premium ADO NET Source"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
@@ -16966,46 +17942,6 @@ FROM [dbo].[11_CONTACT]</property>
               </outputs>
             </component>
             <component
-              refId="Package\Sites\Recordset Destination"
-              componentClassID="Microsoft.RecordsetDestination"
-              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
-              name="Recordset Destination">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the recordset."
-                  name="VariableName">User::SkipRecords4</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Sites\Recordset Destination.Inputs[Recordset Destination Input]"
-                  hasSideEffects="true"
-                  name="Recordset Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Sites\Recordset Destination.Inputs[Recordset Destination Input].Columns[accountid]"
-                      cachedDataType="guid"
-                      cachedName="accountid"
-                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[accountid]" />
-                    <inputColumn
-                      refId="Package\Sites\Recordset Destination.Inputs[Recordset Destination Input].Columns[name]"
-                      cachedDataType="wstr"
-                      cachedLength="160"
-                      cachedName="name"
-                      lineageId="Package\Sites\Premium ADO NET Source.Outputs[Default Output].Columns[name]" />
-                    <inputColumn
-                      refId="Package\Sites\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorMessage]"
-                      cachedDataType="wstr"
-                      cachedLength="2048"
-                      cachedName="ErrorMessage"
-                      lineageId="Package\Sites\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-            </component>
-            <component
               refId="Package\Sites\Recordset Destination 1"
               componentClassID="Microsoft.RecordsetDestination"
               contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -17054,7 +17990,7 @@ FROM [dbo].[11_CONTACT]</property>
               startId="Package\Sites\Premium ADO NET Source.Outputs[Default Output]" />
             <path
               refId="Package\Sites.Paths[Error Output]"
-              endId="Package\Sites\Recordset Destination.Inputs[Recordset Destination Input]"
+              endId="Package\Sites\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Error Output"
               startId="Package\Sites\Dynamics CRM Destination.Outputs[Error Output]" />
             <path
@@ -21402,6 +22338,433 @@ WHERE customertypecode = 948010001</property>
               </outputs>
             </component>
             <component
+              refId="Package\Work Orders\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[SSIS_WorkOrderErrors]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Work Orders\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_serviceterritory]"
+                      cachedDataType="guid"
+                      cachedName="msdyn_serviceterritory"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_serviceterritory]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_serviceterritory]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ownerid]"
+                      cachedDataType="guid"
+                      cachedName="ownerid"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ownerid]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ownerid]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[owneridtype]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="owneridtype"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owneridtype]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[owneridtype]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[owningbusinessunit]"
+                      cachedDataType="guid"
+                      cachedName="owningbusinessunit"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owningbusinessunit]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[owningbusinessunit]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[owninguser]"
+                      cachedDataType="guid"
+                      cachedName="owninguser"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owninguser]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[owninguser]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_iisid]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="ovs_iisid"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_iisid]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_iisid]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_address1]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="msdyn_address1"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_address1]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_address1]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_address2]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="msdyn_address2"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_address2]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_address2]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_address3]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="msdyn_address3"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_address3]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_address3]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_city]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="msdyn_city"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_city]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_city]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_country]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="msdyn_country"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_country]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_country]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="msdyn_name"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_name]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_name]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_postalcode]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="msdyn_postalcode"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_postalcode]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_postalcode]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_pricelist]"
+                      cachedDataType="guid"
+                      cachedName="msdyn_pricelist"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_pricelist]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_pricelist]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_serviceaccount]"
+                      cachedDataType="guid"
+                      cachedName="msdyn_serviceaccount"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_serviceaccount]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_serviceaccount]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_stateorprovince]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="msdyn_stateorprovince"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_stateorprovince]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_stateorprovince]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_systemstatus]"
+                      cachedDataType="i4"
+                      cachedName="msdyn_systemstatus"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_systemstatus]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_systemstatus]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_workorderid]"
+                      cachedDataType="guid"
+                      cachedName="msdyn_workorderid"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_workorderid]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_workorderid]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_workordertype]"
+                      cachedDataType="guid"
+                      cachedName="msdyn_workordertype"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_workordertype]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_workordertype]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_fiscalquarter]"
+                      cachedDataType="guid"
+                      cachedName="ovs_fiscalquarter"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_fiscalquarter]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_fiscalquarter]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_fiscalyear]"
+                      cachedDataType="guid"
+                      cachedName="ovs_fiscalyear"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_fiscalyear]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_fiscalyear]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_mocid]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="ovs_mocid"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_mocid]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_mocid]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_oversighttype]"
+                      cachedDataType="guid"
+                      cachedName="ovs_oversighttype"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_oversighttype]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_oversighttype]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_primaryinspector]"
+                      cachedDataType="guid"
+                      cachedName="ovs_primaryinspector"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_primaryinspector]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_primaryinspector]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_rational]"
+                      cachedDataType="guid"
+                      cachedName="ovs_rational"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_rational]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_rational]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_secondaryinspector]"
+                      cachedDataType="guid"
+                      cachedName="ovs_secondaryinspector"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_secondaryinspector]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_secondaryinspector]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_tyrational]"
+                      cachedDataType="guid"
+                      cachedName="ovs_tyrational"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_tyrational]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_tyrational]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\Work Orders\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Work Orders\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]" />
+                    <inputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ErrorMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="ErrorMessage"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorMessage]"
+                      lineageId="Package\Work Orders\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_serviceterritory]"
+                      dataType="guid"
+                      name="msdyn_serviceterritory" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ownerid]"
+                      dataType="guid"
+                      name="ownerid" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owneridtype]"
+                      dataType="wstr"
+                      length="64"
+                      name="owneridtype" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owningbusinessunit]"
+                      dataType="guid"
+                      name="owningbusinessunit" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owninguser]"
+                      dataType="guid"
+                      name="owninguser" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_iisid]"
+                      dataType="wstr"
+                      length="100"
+                      name="ovs_iisid" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_address1]"
+                      dataType="wstr"
+                      length="250"
+                      name="msdyn_address1" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_address2]"
+                      dataType="wstr"
+                      length="250"
+                      name="msdyn_address2" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_address3]"
+                      dataType="wstr"
+                      length="250"
+                      name="msdyn_address3" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_city]"
+                      dataType="wstr"
+                      length="80"
+                      name="msdyn_city" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_country]"
+                      dataType="wstr"
+                      length="80"
+                      name="msdyn_country" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_name]"
+                      dataType="wstr"
+                      length="100"
+                      name="msdyn_name" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_postalcode]"
+                      dataType="wstr"
+                      length="20"
+                      name="msdyn_postalcode" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_pricelist]"
+                      dataType="guid"
+                      name="msdyn_pricelist" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_serviceaccount]"
+                      dataType="guid"
+                      name="msdyn_serviceaccount" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_stateorprovince]"
+                      dataType="wstr"
+                      length="50"
+                      name="msdyn_stateorprovince" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_systemstatus]"
+                      dataType="i4"
+                      name="msdyn_systemstatus" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_workorderid]"
+                      dataType="guid"
+                      name="msdyn_workorderid" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_workordertype]"
+                      dataType="guid"
+                      name="msdyn_workordertype" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_fiscalquarter]"
+                      dataType="guid"
+                      name="ovs_fiscalquarter" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_fiscalyear]"
+                      dataType="guid"
+                      name="ovs_fiscalyear" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_mocid]"
+                      dataType="wstr"
+                      length="100"
+                      name="ovs_mocid" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_oversighttype]"
+                      dataType="guid"
+                      name="ovs_oversighttype" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_primaryinspector]"
+                      dataType="guid"
+                      name="ovs_primaryinspector" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_rational]"
+                      dataType="guid"
+                      name="ovs_rational" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_secondaryinspector]"
+                      dataType="guid"
+                      name="ovs_secondaryinspector" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_tyrational]"
+                      dataType="guid"
+                      name="ovs_tyrational" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      name="ErrorMessage" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Work Orders\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Work Orders\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Work Orders\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Work Orders\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Work Orders\OLE DB Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -22048,56 +23411,6 @@ SELECT
               </outputs>
             </component>
             <component
-              refId="Package\Work Orders\Recordset Destination"
-              componentClassID="Microsoft.RecordsetDestination"
-              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
-              name="Recordset Destination">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the recordset."
-                  name="VariableName">User::Variable</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Work Orders\Recordset Destination.Inputs[Recordset Destination Input]"
-                  hasSideEffects="true"
-                  name="Recordset Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Work Orders\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorCode]"
-                      cachedDataType="i4"
-                      cachedName="ErrorCode"
-                      lineageId="Package\Work Orders\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]" />
-                    <inputColumn
-                      refId="Package\Work Orders\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorColumn]"
-                      cachedDataType="i4"
-                      cachedName="ErrorColumn"
-                      lineageId="Package\Work Orders\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]" />
-                    <inputColumn
-                      refId="Package\Work Orders\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorMessage]"
-                      cachedDataType="wstr"
-                      cachedLength="2048"
-                      cachedName="ErrorMessage"
-                      lineageId="Package\Work Orders\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]" />
-                    <inputColumn
-                      refId="Package\Work Orders\Recordset Destination.Inputs[Recordset Destination Input].Columns[ovs_iisid]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="ovs_iisid"
-                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_iisid]" />
-                    <inputColumn
-                      refId="Package\Work Orders\Recordset Destination.Inputs[Recordset Destination Input].Columns[msdyn_workorderid]"
-                      cachedDataType="guid"
-                      cachedName="msdyn_workorderid"
-                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_workorderid]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-            </component>
-            <component
               refId="Package\Work Orders\Recordset Destination 1"
               componentClassID="Microsoft.RecordsetDestination"
               contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -22135,7 +23448,7 @@ SELECT
           <paths>
             <path
               refId="Package\Work Orders.Paths[Error Output]"
-              endId="Package\Work Orders\Recordset Destination.Inputs[Recordset Destination Input]"
+              endId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Error Output"
               startId="Package\Work Orders\Dynamics CRM Destination.Outputs[Error Output]" />
             <path
@@ -22491,10 +23804,6 @@ SELECT
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="187,42"
-          Id="Package\Regulated Entities\Recordset Destination"
-          TopLeft="753,464" />
-        <NodeLayout
           Size="196,42"
           Id="Package\Regulated Entities\Recordset Destination 1"
           TopLeft="352,459" />
@@ -22564,39 +23873,43 @@ SELECT
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Regulated Entities\OLE DB Destination"
+          TopLeft="738,468" />
         <EdgeLayout
           Id="Package\Regulated Entities.Paths[Error Output]"
-          TopLeft="606.5,332">
+          TopLeft="640.666666666667,332">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="240,132"
+              EndConnector="185.833333333333,136"
               Start="0,0"
-              End="240,124.5">
+              End="185.833333333333,128.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,62" />
+                    End="0,51.0083876980429" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,62"
-                    Point2="0,66"
-                    Point3="4,66" />
+                    Point1="0,51.0083876980429"
+                    Point2="0,55.0083876980429"
+                    Point3="4,55.0083876980429" />
                   <mssgle:LineSegment
-                    End="236,66" />
+                    End="181.833333333333,55.0083876980429" />
                   <mssgle:CubicBezierSegment
-                    Point1="236,66"
-                    Point2="240,66"
-                    Point3="240,70" />
+                    Point1="181.833333333333,55.0083876980429"
+                    Point2="185.833333333333,55.0083876980429"
+                    Point3="185.833333333333,59.0083876980429" />
                   <mssgle:LineSegment
-                    End="240,124.5" />
+                    End="185.833333333333,128.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="82.7949609375,71,74.410078125,16"
+              BoundingBox="64.5802799479167,60.0083876980429,56.6727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -22721,7 +24034,7 @@ SELECT
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-211.804908854166,88.7260018639329,62.776484375,11.609375"
+              BoundingBox="-211.804908854167,88.7260018639329,62.776484375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -22793,7 +24106,7 @@ SELECT
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="175.080279947916,98.0288909599255,56.6727734375,11.43359375"
+              BoundingBox="175.080279947917,98.0288909599255,56.6727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -22851,10 +24164,6 @@ SELECT
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="187,42"
-          Id="Package\Sites\Recordset Destination"
-          TopLeft="659,457" />
-        <NodeLayout
-          Size="187,42"
           Id="Package\Sites\Recordset Destination 1"
           TopLeft="347,452" />
         <NodeLayout
@@ -22865,42 +24174,6 @@ SELECT
           Size="213,42"
           Id="Package\Sites\Premium ADO NET Source"
           TopLeft="493,98" />
-        <EdgeLayout
-          Id="Package\Sites.Paths[Error Output]"
-          TopLeft="631.666666666667,334">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="120.833333333333,123"
-              Start="0,0"
-              End="120.833333333333,115.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.7502329916123" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,45.7502329916123"
-                    Point2="0,49.7502329916123"
-                    Point3="4,49.7502329916123" />
-                  <mssgle:LineSegment
-                    End="116.833333333333,49.7502329916123" />
-                  <mssgle:CubicBezierSegment
-                    Point1="116.833333333333,49.7502329916123"
-                    Point2="120.833333333333,49.7502329916123"
-                    Point3="120.833333333333,53.7502329916123" />
-                  <mssgle:LineSegment
-                    End="120.833333333333,115.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="32.0802799479165,54.7502329916123,56.6727734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Sites.Paths[Default Output]"
           TopLeft="598.5,140">
@@ -22956,6 +24229,46 @@ SELECT
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-92.8049088541665,52.7278657968313,62.776484375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Sites\OLE DB Destination"
+          TopLeft="687,449" />
+        <EdgeLayout
+          Id="Package\Sites.Paths[Error Output]"
+          TopLeft="631.666666666667,334">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="143.833333333333,115"
+              Start="0,0"
+              End="143.833333333333,107.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5144454799627" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.5144454799627"
+                    Point2="0,46.5144454799627"
+                    Point3="4,46.5144454799627" />
+                  <mssgle:LineSegment
+                    End="139.833333333333,46.5144454799627" />
+                  <mssgle:CubicBezierSegment
+                    Point1="139.833333333333,46.5144454799627"
+                    Point2="143.833333333333,46.5144454799627"
+                    Point3="143.833333333333,50.5144454799627" />
+                  <mssgle:LineSegment
+                    End="143.833333333333,107.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="43.5802799479167,51.5144454799627,56.6727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -23112,10 +24425,6 @@ SELECT
           Size="157,42"
           Id="Package\Work Orders\OLE DB Source"
           TopLeft="528.5,93.5" />
-        <NodeLayout
-          Size="182,42"
-          Id="Package\Work Orders\Recordset Destination"
-          TopLeft="645,472" />
         <EdgeLayout
           Id="Package\Work Orders.Paths[Skipped Rows]"
           TopLeft="574.333333333333,332">
@@ -23148,7 +24457,7 @@ SELECT
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-84.5549088541665,64.0531220876049,62.776484375,11.609375"
+              BoundingBox="-114.234069010417,64.0531220876049,122.1348046875,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -23171,42 +24480,48 @@ SELECT
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-25.18056640625,67.87841796875,50.3611328125,11.2431640625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Work Orders\OLE DB Destination"
+          TopLeft="693,482" />
         <EdgeLayout
           Id="Package\Work Orders.Paths[Error Output]"
           TopLeft="642.666666666667,332">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="93.3333333333334,140"
+              EndConnector="138.833333333333,150"
               Start="0,0"
-              End="93.3333333333334,132.5">
+              End="138.833333333333,142.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.6262814538677" />
+                    End="0,56.6710158434297" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,52.6262814538677"
-                    Point2="0,56.6262814538677"
-                    Point3="4,56.6262814538677" />
+                    Point1="0,56.6710158434297"
+                    Point2="0,60.6710158434297"
+                    Point3="4,60.6710158434297" />
                   <mssgle:LineSegment
-                    End="89.3333333333334,56.6262814538677" />
+                    End="134.833333333333,60.6710158434297" />
                   <mssgle:CubicBezierSegment
-                    Point1="89.3333333333334,56.6262814538677"
-                    Point2="93.3333333333334,56.6262814538677"
-                    Point3="93.3333333333334,60.6262814538677" />
+                    Point1="134.833333333333,60.6710158434297"
+                    Point2="138.833333333333,60.6710158434297"
+                    Point3="138.833333333333,64.6710158434296" />
                   <mssgle:LineSegment
-                    End="93.3333333333334,132.5" />
+                    End="138.833333333333,142.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="9.46162760416669,61.6262814538677,74.410078125,16"
+              BoundingBox="21.1949283854167,65.6710158434296,96.4434765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -23215,6 +24530,45 @@ SELECT
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Work Orders\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Regulated Entities\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sites\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Work Orders\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

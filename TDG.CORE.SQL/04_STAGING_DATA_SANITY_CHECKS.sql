@@ -19,6 +19,9 @@ BEGIN
 	DECLARE @CONST_RATIONALE_UNPLANNED                VARCHAR(50) = '47F438C7-C104-EB11-A813-000D3AF3A7A7';
 END
 
+--SCRIPTS TO CHECK DATA INTEGRITY BEFORE LOADING INTO CRM
+--===================================================================================================
+--===================================================================================================
 
 --no workorders with non-existing bookableresources
 SELECT systemuserid, fullname, T1.bookableresourceid, T1.statecode, T1.statuscode
@@ -75,34 +78,43 @@ SELECT COUNT(*) [11_CONTACT]       FROM [dbo].[11_CONTACT];
 SELECT COUNT(*) [12_BOOKABLE_RESOURCE]     FROM [dbo].[12_BOOKABLE_RESOURCE];
 SELECT COUNT(*) [18_BOOKABLE_RESOURCE_CATEGORY_ASSN] FROM [dbo].[18_BOOKABLE_RESOURCE_CATEGORY_ASSN];
 
+--===================================================================================================
+--===================================================================================================
+
+
+
+--DATA INTEGRITY CHECKS FOR AFTER DATA HAS BEEN LOADED TO CRM
+--===================================================================================================
+--===================================================================================================
+
 --how many accounts were migrated
-SELECT COUNT(*) accounts FROM 
+SELECT COUNT(*) crm_accounts_joined_to_staged_accounts FROM 
 [dbo].[account] T1
 JOIN [dbo].[04_ACCOUNT] T2 ON T1.accountid = T2.id
 
 --how many contacts were assigned to sites
-SELECT COUNT(*) contacts FROM 
+SELECT COUNT(*) crm_accounts_linked_to_staged_contacts FROM 
 [dbo].[account] T1 
 JOIN [dbo].[11_CONTACT] T2 ON T1.accountid = T2.accountid
 WHERE T1.customertypecode <> 948010000;   
 
 --how many contacts were migrated
-SELECT COUNT(*) [11_CONTACT] FROM 
+SELECT COUNT(*) crm_contacts_linked_to_staged_contacts FROM 
 [dbo].[11_CONTACT] T1
 JOIN [dbo].[contact] T2 ON T1.accountid = T2.parentcustomerid;
 
 --match work order staging table to replicated crm work order table to see how many work order were created in crm
-SELECT COUNT(*) [06_WORK_ORDERS] FROM  
+SELECT COUNT(*) crm_workorders_linked_to_staged_workorders FROM  
 [dbo].[06_WORK_ORDERS] T1
 JOIN [dbo].msdyn_workorder T2 ON T1.msdyn_workorderid = T2.msdyn_workorderid;
 
 --no workorders in staging table with a null rational or oversight type
-SELECT COUNT(*) [WORK_ORDERS_W_NO_OVERSIGHT_TYPE_OR_RATIONALE] FROM 
+SELECT COUNT(*) workorders_w_no_oversight_type_or_rationale FROM 
 [dbo].[06_WORK_ORDERS] T1
 WHERE T1.ovs_rational IS NULL OR T1.ovs_oversighttype IS NULL;
 
 --match violation staging table to replicated crm violation table to see how many violations were created in crm
-SELECT * FROM 
+SELECT COUNT(*) crm_violations_linked_to_staged_violations FROM 
 [dbo].[07_VIOLATIONS] T1
 JOIN [dbo].[qm_syresult] T2 ON T1.qm_syresultid = T2.qm_syresultid;
 --=========================================================================================================

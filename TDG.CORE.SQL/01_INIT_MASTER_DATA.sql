@@ -928,6 +928,17 @@ BEGIN
  END
 
 
+	--DELETE REPLICATED CRM DATA AS A PRECAUTION IN CASE IT INTERFERES WITH OUR ETL
+	--===================================================================================================
+	--===================================================================================================
+BEGIN
+	TRUNCATE TABLE dbo.bookableresource;
+	TRUNCATE TABLE dbo.account;
+	TRUNCATE TABLE dbo.msdyn_workorder;
+	TRUNCATE TABLE dbo.qm_syresult;
+END
+
+
 	--INSERT MASTER DATA
 	--===================================================================================================
 	--===================================================================================================

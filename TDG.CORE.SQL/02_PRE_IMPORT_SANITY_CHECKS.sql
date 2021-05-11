@@ -60,7 +60,7 @@ SELECT [ovs_name] moc_opportunity       FROM ovs_oversighttype		where ovs_oversi
 SELECT [ovs_name] civ_doc_review        FROM ovs_oversighttype		where ovs_oversighttypeid   = @CONST_OVERSIGHTTYPE_CIVDOCREVIEW ;
 SELECT [ovs_name] ovs_tyrational        FROM ovs_tyrational         WHERE ovs_tyrationalid      = @CONST_OVERSIGHTTYPE_RATIONALE_PLANNED;
 SELECT [ovs_name] ovs_tyrational        FROM ovs_tyrational         WHERE ovs_tyrationalid      = @CONST_OVERSIGHTTYPE_RATIONALE_UNPLANNED
-SELECT [name] tdgcore_bookable_resource FROM [12_BOOKABLE_RESOURCE] WHERE bookableresourceid    = @CONST_TDGCORE_BOOKABLE_RESOURCE_ID;
+SELECT [name] tdgcore_bookable_resource FROM dbo.bookableresource	WHERE bookableresourceid    = @CONST_TDGCORE_BOOKABLE_RESOURCE_ID;
 SELECT systemuserid tdgcore_systemuser	FROM systemuser             WHERE systemuserid          = @CONST_TDGCORE_USERID;
 SELECT [fullname] tdgcore_fullname		FROM systemuser             WHERE domainname            = @CONST_TDGCORE_DOMAINNAME;
 SELECT [name] tdgteam                   FROM team                   WHERE teamid                = @CONST_TDG_TEAMID;
