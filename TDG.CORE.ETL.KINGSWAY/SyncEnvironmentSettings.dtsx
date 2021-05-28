@@ -12,8 +12,8 @@
   DTS:ObjectName="SyncEnvironmentSettings"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="260"
-  DTS:VersionGUID="{C93CAC21-253E-4B8F-9418-316FFC7E9DCA}">
+  DTS:VersionBuild="261"
+  DTS:VersionGUID="{A9F418BB-7362-4EC5-88AD-057FF818DFDE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,16 +24,16 @@
       DTS:ObjectName="CRM DEV">
       <DTS:ObjectData>
         <CrmConnectionManager
-          ConnectionString="AuthenticationType=OnlineFederation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev-tcd365.api.crm3.dynamics.com/XRMServices/2011/Organization.svc;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
+          ConnectionString="AuthenticationType=OnlineFederation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev-tcd365.api.crm3.dynamics.com/XRMServices/2011/Organization.svc;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
           ConnectByProxy="False">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="DJhbtJtlK/g="
-            IV="C0qB7Gn8DYOYbZZTZpjRQQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="DarULlkJHJc="
+            IV="6b4zKylWOF85ZOC0edalEQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>C0qB7Gn8DYOYbZZTZpjRQRmnVk4WaN3JUv6wmgmM6y7zs2aBPo9XZzUjiZyS4dUFDF4YuX1zJxMuw5NUb4qx+prXu3Kd2aAVFLe7NFX6tBqv7Xw5zcXnoaSpa8t9HTGQ++i9npJ7ejvXCziG2+14jg==</CipherValue>
+              <CipherValue>6b4zKylWOF85ZOC0edalETAGeLI3iQLQ9egt67e6JXyI1y1/sO+cecrIArbwf7yXHGzh+PPc5uxZTzkr3uvNMQxSfcStDOSQsb6TcFrMcLBbVYwu/bGvR2VHs3kVX81pz+/dINXNwPAi2F8Z0eDZfg==</CipherValue>
             </CipherData>
           </EncryptedData>
         </CrmConnectionManager>
@@ -49,12 +49,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Provider=SQLNCLI11.1;Persist Security Info=True;Connect Timeout=0;General Timeout=0;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="Tt0SinwNwwg="
-            IV="pb0YHiBVmdnk7TLB2g98rg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="MOmiGtCIsFE="
+            IV="jafghOnA/a+WSUF8RDWrdw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>pb0YHiBVmdnk7TLB2g98rsLQEh52qkxjy7NIia5gJxvA9Lml9MGpbxOPqq+BiJKBKpR1mmtcB2k4yNZ/SRX/iPt52NGVcWKGuwVcd2TcwkWbnk6xQss4NgE3TTzSPoQ7n0gy/0BvKDvEEd+7lL9d0GvQyOtT6wFPo9G91dmPuApVZ4Ec6Gf2a9AIV32P/rg8</CipherValue>
+              <CipherValue>jafghOnA/a+WSUF8RDWrd8quY7iV/+Rf4LSoeDhDRwd6CWgtNBy4E77wE9Sj4BP9fZCdOr50oOJOM9tL9VeRCklXZS7fphYSFuyEbL41H8lW/ut6CiZttGoSX0sjmFOMwurH90rSDgO3TqxIHm/zDWmfj6AIU+ocNBcmv6wwGWXMrrZEqQUBlpI9AivgLRZp</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -70,12 +70,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-SqlToCrm-{28681578-BB40-470E-B6AB-23FC1CD21A8A}tdg-data-migration-server.database.windows.net.tdg-data-migration-db.tdgco;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="LVTeQLfTBiA="
-            IV="RnuBWie+PQIdncH23ab42A==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="w1ydfzMJne4="
+            IV="yC61MhbtSGTyCizEcijNgw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>RnuBWie+PQIdncH23ab42Ns51SmSoqEru/ysW3p3zFwWui0VdQv+BACsbCZ3C2XZJybBzU3Z1Ew5T9lwlJOEl6KhWO8Yg99gNzM0gkBOO7WZFeyPSL36SLm7uUFlD/tCuzYKmzjcadGN1vMV3WePWrLGrT5jeGThJL28D7PWUiMFLBgADyDw5sZL/cPFCNNS</CipherValue>
+              <CipherValue>yC61MhbtSGTyCizEcijNg1R/CaMLf1lw6/rw98DLgUZXZllKzPga3SiiBgoKdKc3rCeCcETsm6smiXOkPqVTdVInEC+t0LLWAeHEKSbxWJXdTqzV0E7wqWw9T/NfIO4C+t1TXFVpPE0n1BLIStl9BkZbx8a6y49wvBi8WGk2LpZonjxDwreZVWFGvfLb8Vnh</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -305,6 +305,7 @@
       DTS:refId="Package\Delete Environment Settings"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{f438d30a-a5a5-41a8-8e45-bb1b6067c287}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -976,7 +977,132 @@
               </outputs>
             </component>
             <component
-              refId="Package\Delete Environment Settings\QA Dest"
+              refId="Package\Delete Environment Settings\Recordset Destination"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="Recordset Destination">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">User::EnvErrors</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Delete Environment Settings\Recordset Destination.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Delete Environment Settings\Recordset Destination.Inputs[Recordset Destination Input].Columns[qm_name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="qm_name"
+                      lineageId="Package\Delete Environment Settings\DEV Source.Outputs[Primary Output].Columns[qm_name]" />
+                    <inputColumn
+                      refId="Package\Delete Environment Settings\Recordset Destination.Inputs[Recordset Destination Input].Columns[qm_value]"
+                      cachedDataType="nText"
+                      cachedName="qm_value"
+                      lineageId="Package\Delete Environment Settings\DEV Source.Outputs[Primary Output].Columns[qm_value]" />
+                    <inputColumn
+                      refId="Package\Delete Environment Settings\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\Delete Environment Settings\DEV Dest.Outputs[Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Delete Environment Settings\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\Delete Environment Settings\DEV Dest.Outputs[Error Output].Columns[ErrorColumn]" />
+                    <inputColumn
+                      refId="Package\Delete Environment Settings\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="ErrorMessage"
+                      lineageId="Package\Delete Environment Settings\DEV Dest.Outputs[Error Output].Columns[ErrorMessage]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Delete Environment Settings\Recordset Destination 1"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="Recordset Destination 1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">User::EnvSkipped</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Delete Environment Settings\Recordset Destination 1.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Delete Environment Settings\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[qm_name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="qm_name"
+                      lineageId="Package\Delete Environment Settings\DEV Source.Outputs[Primary Output].Columns[qm_name]" />
+                    <inputColumn
+                      refId="Package\Delete Environment Settings\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[qm_value]"
+                      cachedDataType="nText"
+                      cachedName="qm_value"
+                      lineageId="Package\Delete Environment Settings\DEV Source.Outputs[Primary Output].Columns[qm_value]" />
+                    <inputColumn
+                      refId="Package\Delete Environment Settings\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[SkipReasonMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="SkipReasonMessage"
+                      lineageId="Package\Delete Environment Settings\DEV Dest.Outputs[Skipped Rows].Columns[SkipReasonMessage]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Delete Environment Settings.Paths[Error Output]"
+              endId="Package\Delete Environment Settings\Recordset Destination.Inputs[Recordset Destination Input]"
+              name="Error Output"
+              startId="Package\Delete Environment Settings\DEV Dest.Outputs[Error Output]" />
+            <path
+              refId="Package\Delete Environment Settings.Paths[Primary Output]"
+              endId="Package\Delete Environment Settings\DEV Dest.Inputs[Input]"
+              name="Primary Output"
+              startId="Package\Delete Environment Settings\DEV Source.Outputs[Primary Output]" />
+            <path
+              refId="Package\Delete Environment Settings.Paths[Skipped Rows]"
+              endId="Package\Delete Environment Settings\Recordset Destination 1.Inputs[Recordset Destination Input]"
+              name="Skipped Rows"
+              startId="Package\Delete Environment Settings\DEV Dest.Outputs[Skipped Rows]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delete Environment Settings QA"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{daac0e42-e5ae-4297-802b-db77b5e9ace9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete Environment Settings QA"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Delete Environment Settings QA\QA Dest"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
               description="Populate data into Microsoft Dynamics 365 CE/CRM."
@@ -1073,7 +1199,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Delete Environment Settings\QA Dest.Connections[DynamicsCRM]"
+                  refId="Package\Delete Environment Settings QA\QA Dest.Connections[DynamicsCRM]"
                   connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CRM QA]"
                   description="Dynamics CRM Connection Manager"
@@ -1081,23 +1207,23 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Delete Environment Settings\QA Dest.Inputs[Input]"
+                  refId="Package\Delete Environment Settings QA\QA Dest.Inputs[Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="RedirectRow"
                   hasSideEffects="true"
                   name="Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Delete Environment Settings\QA Dest.Inputs[Input].Columns[qm_environmentsettingsid]"
+                      refId="Package\Delete Environment Settings QA\QA Dest.Inputs[Input].Columns[qm_environmentsettingsid]"
                       cachedDataType="guid"
                       cachedName="qm_environmentsettingsid"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Dest.Inputs[Input].ExternalColumns[qm_environmentsettingsid]"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[qm_environmentsettingsid]" />
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Dest.Inputs[Input].ExternalColumns[qm_environmentsettingsid]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[qm_environmentsettingsid]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Dest.Inputs[Input].ExternalColumns[qm_environmentsettingsid]"
+                      refId="Package\Delete Environment Settings QA\QA Dest.Inputs[Input].ExternalColumns[qm_environmentsettingsid]"
                       dataType="guid"
                       name="qm_environmentsettingsid">
                       <properties>
@@ -1114,63 +1240,63 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Delete Environment Settings\QA Dest.Outputs[Default Output]"
+                  refId="Package\Delete Environment Settings QA\QA Dest.Outputs[Default Output]"
                   exclusionGroup="1"
                   name="Default Output"
-                  synchronousInputId="Package\Delete Environment Settings\QA Dest.Inputs[Input]">
+                  synchronousInputId="Package\Delete Environment Settings QA\QA Dest.Inputs[Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Dest.Outputs[Default Output].Columns[SavedRecordId]"
+                      refId="Package\Delete Environment Settings QA\QA Dest.Outputs[Default Output].Columns[SavedRecordId]"
                       dataType="guid"
-                      lineageId="Package\Delete Environment Settings\QA Dest.Outputs[Default Output].Columns[SavedRecordId]"
+                      lineageId="Package\Delete Environment Settings QA\QA Dest.Outputs[Default Output].Columns[SavedRecordId]"
                       name="SavedRecordId" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Dest.Outputs[Default Output].Columns[IsNew]"
+                      refId="Package\Delete Environment Settings QA\QA Dest.Outputs[Default Output].Columns[IsNew]"
                       dataType="bool"
-                      lineageId="Package\Delete Environment Settings\QA Dest.Outputs[Default Output].Columns[IsNew]"
+                      lineageId="Package\Delete Environment Settings QA\QA Dest.Outputs[Default Output].Columns[IsNew]"
                       name="IsNew" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Delete Environment Settings\QA Dest.Outputs[Error Output]"
+                  refId="Package\Delete Environment Settings QA\QA Dest.Outputs[Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Error Output"
-                  synchronousInputId="Package\Delete Environment Settings\QA Dest.Inputs[Input]">
+                  synchronousInputId="Package\Delete Environment Settings QA\QA Dest.Inputs[Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Dest.Outputs[Error Output].Columns[ErrorCode]"
+                      refId="Package\Delete Environment Settings QA\QA Dest.Outputs[Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Delete Environment Settings\QA Dest.Outputs[Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Delete Environment Settings QA\QA Dest.Outputs[Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Dest.Outputs[Error Output].Columns[ErrorColumn]"
+                      refId="Package\Delete Environment Settings QA\QA Dest.Outputs[Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Delete Environment Settings\QA Dest.Outputs[Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Delete Environment Settings QA\QA Dest.Outputs[Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Dest.Outputs[Error Output].Columns[ErrorMessage]"
+                      refId="Package\Delete Environment Settings QA\QA Dest.Outputs[Error Output].Columns[ErrorMessage]"
                       dataType="wstr"
                       length="2048"
-                      lineageId="Package\Delete Environment Settings\QA Dest.Outputs[Error Output].Columns[ErrorMessage]"
+                      lineageId="Package\Delete Environment Settings QA\QA Dest.Outputs[Error Output].Columns[ErrorMessage]"
                       name="ErrorMessage" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Delete Environment Settings\QA Dest.Outputs[Skipped Rows]"
+                  refId="Package\Delete Environment Settings QA\QA Dest.Outputs[Skipped Rows]"
                   exclusionGroup="1"
                   name="Skipped Rows"
-                  synchronousInputId="Package\Delete Environment Settings\QA Dest.Inputs[Input]">
+                  synchronousInputId="Package\Delete Environment Settings QA\QA Dest.Inputs[Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Dest.Outputs[Skipped Rows].Columns[SkipReasonMessage]"
+                      refId="Package\Delete Environment Settings QA\QA Dest.Outputs[Skipped Rows].Columns[SkipReasonMessage]"
                       dataType="wstr"
                       length="2048"
-                      lineageId="Package\Delete Environment Settings\QA Dest.Outputs[Skipped Rows].Columns[SkipReasonMessage]"
+                      lineageId="Package\Delete Environment Settings QA\QA Dest.Outputs[Skipped Rows].Columns[SkipReasonMessage]"
                       name="SkipReasonMessage" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -1178,7 +1304,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Delete Environment Settings\QA Source"
+              refId="Package\Delete Environment Settings QA\QA Source"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
               description="Extract data from Microsoft Dynamics 365 CE/CRM."
@@ -1229,7 +1355,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Delete Environment Settings\QA Source.Connections[DynamicsCRM]"
+                  refId="Package\Delete Environment Settings QA\QA Source.Connections[DynamicsCRM]"
                   connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CRM QA]"
                   description="Dynamics CRM Connection Manager"
@@ -1237,398 +1363,398 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output]"
+                  refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output]"
                   name="Primary Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[createdby]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[createdby]"
                       dataType="guid"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[createdby]"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[createdby]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[createdby]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[createdby]"
                       name="createdby"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[createdbyname]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[createdbyname]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[createdbyname]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[createdbyname]"
                       length="200"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[createdbyname]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[createdbyname]"
                       name="createdbyname"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[createdbyyominame]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[createdbyyominame]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[createdbyyominame]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[createdbyyominame]"
                       length="200"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[createdbyyominame]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[createdbyyominame]"
                       name="createdbyyominame"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[createdon]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[createdon]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[createdon]"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[createdon]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[createdon]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[createdon]"
                       name="createdon"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[createdonbehalfby]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[createdonbehalfby]"
                       dataType="guid"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[createdonbehalfby]"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[createdonbehalfby]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[createdonbehalfby]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[createdonbehalfby]"
                       name="createdonbehalfby"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[createdonbehalfbyname]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[createdonbehalfbyname]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyname]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyname]"
                       length="200"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[createdonbehalfbyname]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[createdonbehalfbyname]"
                       name="createdonbehalfbyname"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[createdonbehalfbyyominame]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[createdonbehalfbyyominame]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyyominame]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyyominame]"
                       length="200"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[createdonbehalfbyyominame]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[createdonbehalfbyyominame]"
                       name="createdonbehalfbyyominame"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[importsequencenumber]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[importsequencenumber]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[importsequencenumber]"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[importsequencenumber]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[importsequencenumber]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[importsequencenumber]"
                       name="importsequencenumber"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[modifiedby]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[modifiedby]"
                       dataType="guid"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[modifiedby]"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[modifiedby]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[modifiedby]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[modifiedby]"
                       name="modifiedby"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[modifiedbyname]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[modifiedbyname]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[modifiedbyname]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[modifiedbyname]"
                       length="200"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[modifiedbyname]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[modifiedbyname]"
                       name="modifiedbyname"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[modifiedbyyominame]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[modifiedbyyominame]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[modifiedbyyominame]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[modifiedbyyominame]"
                       length="200"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[modifiedbyyominame]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[modifiedbyyominame]"
                       name="modifiedbyyominame"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[modifiedon]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[modifiedon]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[modifiedon]"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[modifiedon]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[modifiedon]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[modifiedon]"
                       name="modifiedon"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[modifiedonbehalfby]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[modifiedonbehalfby]"
                       dataType="guid"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfby]"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[modifiedonbehalfby]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfby]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[modifiedonbehalfby]"
                       name="modifiedonbehalfby"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[modifiedonbehalfbyname]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[modifiedonbehalfbyname]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyname]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyname]"
                       length="200"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[modifiedonbehalfbyname]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[modifiedonbehalfbyname]"
                       name="modifiedonbehalfbyname"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[modifiedonbehalfbyyominame]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[modifiedonbehalfbyyominame]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyyominame]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyyominame]"
                       length="200"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[modifiedonbehalfbyyominame]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[modifiedonbehalfbyyominame]"
                       name="modifiedonbehalfbyyominame"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[organizationid]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[organizationid]"
                       dataType="guid"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[organizationid]"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[organizationid]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[organizationid]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[organizationid]"
                       name="organizationid"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[organizationidname]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[organizationidname]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[organizationidname]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[organizationidname]"
                       length="160"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[organizationidname]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[organizationidname]"
                       name="organizationidname"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[overriddencreatedon]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[overriddencreatedon]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[overriddencreatedon]"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[overriddencreatedon]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[overriddencreatedon]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[overriddencreatedon]"
                       name="overriddencreatedon"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[qm_environmentsettingsid]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[qm_environmentsettingsid]"
                       dataType="guid"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[qm_environmentsettingsid]"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[qm_environmentsettingsid]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[qm_environmentsettingsid]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[qm_environmentsettingsid]"
                       name="qm_environmentsettingsid"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[qm_name]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[qm_name]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[qm_name]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[qm_name]"
                       length="100"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[qm_name]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[qm_name]"
                       name="qm_name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[qm_value]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[qm_value]"
                       dataType="nText"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[qm_value]"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[qm_value]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[qm_value]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[qm_value]"
                       name="qm_value"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[statecode]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[statecode]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[statecode]"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[statecode]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[statecode]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[statecode]"
                       name="statecode"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[statecodename]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[statecodename]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[statecodename]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[statecodename]"
                       length="255"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[statecodename]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[statecodename]"
                       name="statecodename"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[statuscode]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[statuscode]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[statuscode]"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[statuscode]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[statuscode]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[statuscode]"
                       name="statuscode"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[statuscodename]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[statuscodename]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[statuscodename]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[statuscodename]"
                       length="255"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[statuscodename]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[statuscodename]"
                       name="statuscodename"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[timezoneruleversionnumber]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[timezoneruleversionnumber]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[timezoneruleversionnumber]"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[timezoneruleversionnumber]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[timezoneruleversionnumber]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[timezoneruleversionnumber]"
                       name="timezoneruleversionnumber"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[utcconversiontimezonecode]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[utcconversiontimezonecode]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[utcconversiontimezonecode]"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[utcconversiontimezonecode]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[utcconversiontimezonecode]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[utcconversiontimezonecode]"
                       name="utcconversiontimezonecode"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[versionnumber]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[versionnumber]"
                       dataType="i8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[versionnumber]"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[versionnumber]"
+                      externalMetadataColumnId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[versionnumber]"
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[versionnumber]"
                       name="versionnumber"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[createdby]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[createdby]"
                       dataType="guid"
                       name="createdby" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[createdbyname]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[createdbyname]"
                       dataType="wstr"
                       length="200"
                       name="createdbyname" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[createdbyyominame]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[createdbyyominame]"
                       dataType="wstr"
                       length="200"
                       name="createdbyyominame" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[createdon]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[createdon]"
                       dataType="dbTimeStamp"
                       name="createdon" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[createdonbehalfby]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[createdonbehalfby]"
                       dataType="guid"
                       name="createdonbehalfby" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyname]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyname]"
                       dataType="wstr"
                       length="200"
                       name="createdonbehalfbyname" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyyominame]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyyominame]"
                       dataType="wstr"
                       length="200"
                       name="createdonbehalfbyyominame" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[importsequencenumber]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[importsequencenumber]"
                       dataType="i4"
                       name="importsequencenumber" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[modifiedby]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[modifiedby]"
                       dataType="guid"
                       name="modifiedby" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[modifiedbyname]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[modifiedbyname]"
                       dataType="wstr"
                       length="200"
                       name="modifiedbyname" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[modifiedbyyominame]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[modifiedbyyominame]"
                       dataType="wstr"
                       length="200"
                       name="modifiedbyyominame" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[modifiedon]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[modifiedon]"
                       dataType="dbTimeStamp"
                       name="modifiedon" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfby]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfby]"
                       dataType="guid"
                       name="modifiedonbehalfby" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyname]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyname]"
                       dataType="wstr"
                       length="200"
                       name="modifiedonbehalfbyname" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyyominame]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyyominame]"
                       dataType="wstr"
                       length="200"
                       name="modifiedonbehalfbyyominame" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[organizationid]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[organizationid]"
                       dataType="guid"
                       name="organizationid" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[organizationidname]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[organizationidname]"
                       dataType="wstr"
                       length="160"
                       name="organizationidname" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[overriddencreatedon]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[overriddencreatedon]"
                       dataType="dbTimeStamp"
                       name="overriddencreatedon" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[qm_environmentsettingsid]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[qm_environmentsettingsid]"
                       dataType="guid"
                       name="qm_environmentsettingsid" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[qm_name]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[qm_name]"
                       dataType="wstr"
                       length="100"
                       name="qm_name" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[qm_value]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[qm_value]"
                       dataType="nText"
                       name="qm_value" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[statecode]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[statecode]"
                       dataType="i4"
                       name="statecode" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[statecodename]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[statecodename]"
                       dataType="wstr"
                       length="255"
                       name="statecodename" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[statuscode]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[statuscode]"
                       dataType="i4"
                       name="statuscode" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[statuscodename]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[statuscodename]"
                       dataType="wstr"
                       length="255"
                       name="statuscodename" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[timezoneruleversionnumber]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[timezoneruleversionnumber]"
                       dataType="i4"
                       name="timezoneruleversionnumber" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[utcconversiontimezonecode]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[utcconversiontimezonecode]"
                       dataType="i4"
                       name="utcconversiontimezonecode" />
                     <externalMetadataColumn
-                      refId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].ExternalColumns[versionnumber]"
+                      refId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].ExternalColumns[versionnumber]"
                       dataType="i8"
                       name="versionnumber" />
                   </externalMetadataColumns>
@@ -1636,97 +1762,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Delete Environment Settings\Recordset Destination"
-              componentClassID="Microsoft.RecordsetDestination"
-              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
-              name="Recordset Destination">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the recordset."
-                  name="VariableName">User::EnvErrors</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Delete Environment Settings\Recordset Destination.Inputs[Recordset Destination Input]"
-                  hasSideEffects="true"
-                  name="Recordset Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Delete Environment Settings\Recordset Destination.Inputs[Recordset Destination Input].Columns[qm_name]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="qm_name"
-                      lineageId="Package\Delete Environment Settings\DEV Source.Outputs[Primary Output].Columns[qm_name]" />
-                    <inputColumn
-                      refId="Package\Delete Environment Settings\Recordset Destination.Inputs[Recordset Destination Input].Columns[qm_value]"
-                      cachedDataType="nText"
-                      cachedName="qm_value"
-                      lineageId="Package\Delete Environment Settings\DEV Source.Outputs[Primary Output].Columns[qm_value]" />
-                    <inputColumn
-                      refId="Package\Delete Environment Settings\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorCode]"
-                      cachedDataType="i4"
-                      cachedName="ErrorCode"
-                      lineageId="Package\Delete Environment Settings\DEV Dest.Outputs[Error Output].Columns[ErrorCode]" />
-                    <inputColumn
-                      refId="Package\Delete Environment Settings\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorColumn]"
-                      cachedDataType="i4"
-                      cachedName="ErrorColumn"
-                      lineageId="Package\Delete Environment Settings\DEV Dest.Outputs[Error Output].Columns[ErrorColumn]" />
-                    <inputColumn
-                      refId="Package\Delete Environment Settings\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorMessage]"
-                      cachedDataType="wstr"
-                      cachedLength="2048"
-                      cachedName="ErrorMessage"
-                      lineageId="Package\Delete Environment Settings\DEV Dest.Outputs[Error Output].Columns[ErrorMessage]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-            </component>
-            <component
-              refId="Package\Delete Environment Settings\Recordset Destination 1"
-              componentClassID="Microsoft.RecordsetDestination"
-              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
-              name="Recordset Destination 1">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the recordset."
-                  name="VariableName">User::EnvSkipped</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Delete Environment Settings\Recordset Destination 1.Inputs[Recordset Destination Input]"
-                  hasSideEffects="true"
-                  name="Recordset Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Delete Environment Settings\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[qm_name]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="qm_name"
-                      lineageId="Package\Delete Environment Settings\DEV Source.Outputs[Primary Output].Columns[qm_name]" />
-                    <inputColumn
-                      refId="Package\Delete Environment Settings\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[qm_value]"
-                      cachedDataType="nText"
-                      cachedName="qm_value"
-                      lineageId="Package\Delete Environment Settings\DEV Source.Outputs[Primary Output].Columns[qm_value]" />
-                    <inputColumn
-                      refId="Package\Delete Environment Settings\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[SkipReasonMessage]"
-                      cachedDataType="wstr"
-                      cachedLength="2048"
-                      cachedName="SkipReasonMessage"
-                      lineageId="Package\Delete Environment Settings\DEV Dest.Outputs[Skipped Rows].Columns[SkipReasonMessage]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-            </component>
-            <component
-              refId="Package\Delete Environment Settings\Recordset Destination 1 1"
+              refId="Package\Delete Environment Settings QA\Recordset Destination 1 1"
               componentClassID="Microsoft.RecordsetDestination"
               contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
@@ -1739,34 +1775,34 @@
               </properties>
               <inputs>
                 <input
-                  refId="Package\Delete Environment Settings\Recordset Destination 1 1.Inputs[Recordset Destination Input]"
+                  refId="Package\Delete Environment Settings QA\Recordset Destination 1 1.Inputs[Recordset Destination Input]"
                   hasSideEffects="true"
                   name="Recordset Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Delete Environment Settings\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[qm_name]"
+                      refId="Package\Delete Environment Settings QA\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[qm_name]"
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="qm_name"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[qm_name]" />
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[qm_name]" />
                     <inputColumn
-                      refId="Package\Delete Environment Settings\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[qm_value]"
+                      refId="Package\Delete Environment Settings QA\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[qm_value]"
                       cachedDataType="nText"
                       cachedName="qm_value"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[qm_value]" />
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[qm_value]" />
                     <inputColumn
-                      refId="Package\Delete Environment Settings\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[SkipReasonMessage]"
+                      refId="Package\Delete Environment Settings QA\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[SkipReasonMessage]"
                       cachedDataType="wstr"
                       cachedLength="2048"
                       cachedName="SkipReasonMessage"
-                      lineageId="Package\Delete Environment Settings\QA Dest.Outputs[Skipped Rows].Columns[SkipReasonMessage]" />
+                      lineageId="Package\Delete Environment Settings QA\QA Dest.Outputs[Skipped Rows].Columns[SkipReasonMessage]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
             </component>
             <component
-              refId="Package\Delete Environment Settings\Recordset Destination 2"
+              refId="Package\Delete Environment Settings QA\Recordset Destination 2"
               componentClassID="Microsoft.RecordsetDestination"
               contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
@@ -1779,37 +1815,37 @@
               </properties>
               <inputs>
                 <input
-                  refId="Package\Delete Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input]"
+                  refId="Package\Delete Environment Settings QA\Recordset Destination 2.Inputs[Recordset Destination Input]"
                   hasSideEffects="true"
                   name="Recordset Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Delete Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[qm_name]"
+                      refId="Package\Delete Environment Settings QA\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[qm_name]"
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="qm_name"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[qm_name]" />
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[qm_name]" />
                     <inputColumn
-                      refId="Package\Delete Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[qm_value]"
+                      refId="Package\Delete Environment Settings QA\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[qm_value]"
                       cachedDataType="nText"
                       cachedName="qm_value"
-                      lineageId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output].Columns[qm_value]" />
+                      lineageId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output].Columns[qm_value]" />
                     <inputColumn
-                      refId="Package\Delete Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[ErrorCode]"
+                      refId="Package\Delete Environment Settings QA\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[ErrorCode]"
                       cachedDataType="i4"
                       cachedName="ErrorCode"
-                      lineageId="Package\Delete Environment Settings\QA Dest.Outputs[Error Output].Columns[ErrorCode]" />
+                      lineageId="Package\Delete Environment Settings QA\QA Dest.Outputs[Error Output].Columns[ErrorCode]" />
                     <inputColumn
-                      refId="Package\Delete Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[ErrorColumn]"
+                      refId="Package\Delete Environment Settings QA\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[ErrorColumn]"
                       cachedDataType="i4"
                       cachedName="ErrorColumn"
-                      lineageId="Package\Delete Environment Settings\QA Dest.Outputs[Error Output].Columns[ErrorColumn]" />
+                      lineageId="Package\Delete Environment Settings QA\QA Dest.Outputs[Error Output].Columns[ErrorColumn]" />
                     <inputColumn
-                      refId="Package\Delete Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[ErrorMessage]"
+                      refId="Package\Delete Environment Settings QA\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[ErrorMessage]"
                       cachedDataType="wstr"
                       cachedLength="2048"
                       cachedName="ErrorMessage"
-                      lineageId="Package\Delete Environment Settings\QA Dest.Outputs[Error Output].Columns[ErrorMessage]" />
+                      lineageId="Package\Delete Environment Settings QA\QA Dest.Outputs[Error Output].Columns[ErrorMessage]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1818,35 +1854,20 @@
           </components>
           <paths>
             <path
-              refId="Package\Delete Environment Settings.Paths[Error Output]"
-              endId="Package\Delete Environment Settings\Recordset Destination.Inputs[Recordset Destination Input]"
+              refId="Package\Delete Environment Settings QA.Paths[Error Output]"
+              endId="Package\Delete Environment Settings QA\Recordset Destination 2.Inputs[Recordset Destination Input]"
               name="Error Output"
-              startId="Package\Delete Environment Settings\DEV Dest.Outputs[Error Output]" />
+              startId="Package\Delete Environment Settings QA\QA Dest.Outputs[Error Output]" />
             <path
-              refId="Package\Delete Environment Settings.Paths[Error Output1]"
-              endId="Package\Delete Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input]"
-              name="Error Output"
-              startId="Package\Delete Environment Settings\QA Dest.Outputs[Error Output]" />
-            <path
-              refId="Package\Delete Environment Settings.Paths[Primary Output]"
-              endId="Package\Delete Environment Settings\DEV Dest.Inputs[Input]"
+              refId="Package\Delete Environment Settings QA.Paths[Primary Output]"
+              endId="Package\Delete Environment Settings QA\QA Dest.Inputs[Input]"
               name="Primary Output"
-              startId="Package\Delete Environment Settings\DEV Source.Outputs[Primary Output]" />
+              startId="Package\Delete Environment Settings QA\QA Source.Outputs[Primary Output]" />
             <path
-              refId="Package\Delete Environment Settings.Paths[Primary Output1]"
-              endId="Package\Delete Environment Settings\QA Dest.Inputs[Input]"
-              name="Primary Output"
-              startId="Package\Delete Environment Settings\QA Source.Outputs[Primary Output]" />
-            <path
-              refId="Package\Delete Environment Settings.Paths[Skipped Rows]"
-              endId="Package\Delete Environment Settings\Recordset Destination 1.Inputs[Recordset Destination Input]"
+              refId="Package\Delete Environment Settings QA.Paths[Skipped Rows]"
+              endId="Package\Delete Environment Settings QA\Recordset Destination 1 1.Inputs[Recordset Destination Input]"
               name="Skipped Rows"
-              startId="Package\Delete Environment Settings\DEV Dest.Outputs[Skipped Rows]" />
-            <path
-              refId="Package\Delete Environment Settings.Paths[Skipped Rows1]"
-              endId="Package\Delete Environment Settings\Recordset Destination 1 1.Inputs[Recordset Destination Input]"
-              name="Skipped Rows"
-              startId="Package\Delete Environment Settings\QA Dest.Outputs[Skipped Rows]" />
+              startId="Package\Delete Environment Settings QA\QA Dest.Outputs[Skipped Rows]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1855,6 +1876,7 @@
       DTS:refId="Package\Environment Settings"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{598C4C0C-E7C7-4DA2-8235-EAD37F853A45}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -2381,521 +2403,6 @@ WHERE qm_environment = 'DEV'</property>
               </outputs>
             </component>
             <component
-              refId="Package\Environment Settings\QA"
-              componentClassID="Microsoft.ManagedComponentHost"
-              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
-              description="Populate data into Microsoft Dynamics 365 CE/CRM."
-              name="QA"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Destination entity to write data."
-                  expressionType="Notify"
-                  name="DestinationEntity">qm_environmentsettings</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how data is written to CDS/Dynamics CRM server."
-                  name="ActionType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">1</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Specifies whether the values of CDS/CRM lookup fields should be removed if the reference records cannot be found. "
-                  expressionType="Notify"
-                  name="RemoveUnresolvableReferences">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
-                  expressionType="Notify"
-                  name="EnableSystemDuplicateDetection">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specify the matching criteria to be used when performing an update or upsert. "
-                  expressionType="Notify"
-                  name="RecordMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
-                  expressionType="Notify"
-                  name="RecordMatchingKeyFields"></property>
-                <property
-                  dataType="System.Boolean"
-                  description="Specifies whether to ignore those NULL-valued fields."
-                  expressionType="Notify"
-                  name="IgnoreNullValuedFields">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Specifies whether to ignore those fields that have no value changes in the target system. "
-                  expressionType="Notify"
-                  name="IgnoreUnchangedFields">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Specify whether to remove those invalid characters before writing to CDS/CRM."
-                  expressionType="Notify"
-                  name="RemoveInvalidCharacters">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specify the flag field(s) that are used to track the source of changes. The field(s) will not posted to CDS/CRM server unless there are changes to other fields if specified. &quot;Ignore Unchange Fields&quot; option is required in order for the specified flag field(s) to work. "
-                  expressionType="Notify"
-                  name="ChangeFlagFields"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies what action will be taken when multiple matches are found with Upsert action."
-                  expressionType="Notify"
-                  name="HandlingOfMultipleMatches"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specify whether to use optimizations when there are duplicate records form the source system."
-                  expressionType="Notify"
-                  name="OptimizationOnSourceDuplicates"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
-                <property
-                  dataType="System.String"
-                  description="Workflow or action to be executed."
-                  expressionType="Notify"
-                  name="WorkflowAction"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the number of records to be sent to CDS/Dynamics CRM server in each service call."
-                  expressionType="Notify"
-                  name="BatchSize">100</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specify the total number or concurrent threads to write to CDS/CRM server simultaneously. "
-                  expressionType="Notify"
-                  name="ConcurrentWritingThreadsInTotal">1</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Specifies whether datetime values should be sent to CDS/CRM server in UTC format."
-                  expressionType="Notify"
-                  name="SendDateTimeInUtcFormat">false</property>
-                <property
-                  dataType="System.String"
-                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationComponent</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Environment Settings\QA.Connections[DynamicsCRM]"
-                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[CRM QA]"
-                  description="Dynamics CRM Connection Manager"
-                  name="DynamicsCRM" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Environment Settings\QA.Inputs[Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="RedirectRow"
-                  hasSideEffects="true"
-                  name="Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Environment Settings\QA.Inputs[Input].Columns[qm_name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1000"
-                      cachedName="qm_name"
-                      externalMetadataColumnId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[qm_name]"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_name]" />
-                    <inputColumn
-                      refId="Package\Environment Settings\QA.Inputs[Input].Columns[qm_value]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1000"
-                      cachedName="qm_value"
-                      externalMetadataColumnId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[qm_value]"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_value]" />
-                    <inputColumn
-                      refId="Package\Environment Settings\QA.Inputs[Input].Columns[qm_environmentsettingid]"
-                      cachedDataType="guid"
-                      cachedName="qm_environmentsettingid"
-                      externalMetadataColumnId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[qm_environmentsettingsid]"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[createdby]"
-                      dataType="guid"
-                      name="createdby">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">Lookup</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes">systemuser</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[importsequencenumber]"
-                      dataType="i4"
-                      name="importsequencenumber">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">Integer</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes"></property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[overriddencreatedon]"
-                      dataType="dbTimeStamp"
-                      name="overriddencreatedon">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">DateTime</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes"></property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[qm_environmentsettingsid]"
-                      dataType="guid"
-                      name="qm_environmentsettingsid">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">Uniqueidentifier</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes"></property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[qm_name]"
-                      dataType="wstr"
-                      length="100"
-                      name="qm_name">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">String</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes"></property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[qm_value]"
-                      dataType="nText"
-                      name="qm_value">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">Memo</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes"></property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[statecode]"
-                      dataType="i4"
-                      name="statecode">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">State</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes"></property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[statuscode]"
-                      dataType="i4"
-                      name="statuscode">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">Status</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes"></property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[timezoneruleversionnumber]"
-                      dataType="i4"
-                      name="timezoneruleversionnumber">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">Integer</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes"></property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[utcconversiontimezonecode]"
-                      dataType="i4"
-                      name="utcconversiontimezonecode">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">Integer</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes"></property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Environment Settings\QA.Outputs[Default Output]"
-                  exclusionGroup="1"
-                  name="Default Output"
-                  synchronousInputId="Package\Environment Settings\QA.Inputs[Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Environment Settings\QA.Outputs[Default Output].Columns[SavedRecordId]"
-                      dataType="guid"
-                      lineageId="Package\Environment Settings\QA.Outputs[Default Output].Columns[SavedRecordId]"
-                      name="SavedRecordId" />
-                    <outputColumn
-                      refId="Package\Environment Settings\QA.Outputs[Default Output].Columns[IsNew]"
-                      dataType="bool"
-                      lineageId="Package\Environment Settings\QA.Outputs[Default Output].Columns[IsNew]"
-                      name="IsNew" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Environment Settings\QA.Outputs[Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Error Output"
-                  synchronousInputId="Package\Environment Settings\QA.Inputs[Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Environment Settings\QA.Outputs[Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Environment Settings\QA.Outputs[Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Environment Settings\QA.Outputs[Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Environment Settings\QA.Outputs[Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                    <outputColumn
-                      refId="Package\Environment Settings\QA.Outputs[Error Output].Columns[ErrorMessage]"
-                      dataType="wstr"
-                      length="2048"
-                      lineageId="Package\Environment Settings\QA.Outputs[Error Output].Columns[ErrorMessage]"
-                      name="ErrorMessage" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Environment Settings\QA.Outputs[Skipped Rows]"
-                  exclusionGroup="1"
-                  name="Skipped Rows"
-                  synchronousInputId="Package\Environment Settings\QA.Inputs[Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Environment Settings\QA.Outputs[Skipped Rows].Columns[SkipReasonMessage]"
-                      dataType="wstr"
-                      length="2048"
-                      lineageId="Package\Environment Settings\QA.Outputs[Skipped Rows].Columns[SkipReasonMessage]"
-                      name="SkipReasonMessage" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Environment Settings\QA Records"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="QA Records"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[25_ENVIRONMENT_SETTINGS]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT * FROM [25_ENVIRONMENT_SETTINGS]
-WHERE qm_environment = 'QA'</property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">":Input",{DA0F35C4-069D-4B41-9327-319F08BE36AF};</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Environment Settings\QA Records.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
-                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_environmentsettingid]"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]"
-                      name="qm_environmentsettingid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_name]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_name]"
-                      length="1000"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_name]"
-                      name="qm_name"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_value]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_value]"
-                      length="1000"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_value]"
-                      name="qm_value"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_environment]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_environment]"
-                      length="50"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_environment]"
-                      name="qm_environment"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_environmentsettingid]"
-                      dataType="guid"
-                      name="qm_environmentsettingid" />
-                    <externalMetadataColumn
-                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1000"
-                      name="qm_name" />
-                    <externalMetadataColumn
-                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_value]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1000"
-                      name="qm_value" />
-                    <externalMetadataColumn
-                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_environment]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="qm_environment" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_environmentsettingid]"
-                      dataType="guid"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_environmentsettingid]"
-                      name="qm_environmentsettingid" />
-                    <outputColumn
-                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1000"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_name]"
-                      name="qm_name" />
-                    <outputColumn
-                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_value]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1000"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_value]"
-                      name="qm_value" />
-                    <outputColumn
-                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_environment]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_environment]"
-                      name="qm_environment" />
-                    <outputColumn
-                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Environment Settings\Recordset Destination"
               componentClassID="Microsoft.RecordsetDestination"
               contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -3015,8 +2522,558 @@ WHERE qm_environment = 'QA'</property>
                 </input>
               </inputs>
             </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Environment Settings.Paths[Error Output]"
+              endId="Package\Environment Settings\Recordset Destination.Inputs[Recordset Destination Input]"
+              name="Error Output"
+              startId="Package\Environment Settings\DEV.Outputs[Error Output]" />
+            <path
+              refId="Package\Environment Settings.Paths[OLE DB Source Output]"
+              endId="Package\Environment Settings\DEV.Inputs[Input]"
+              name="OLE DB Source Output"
+              startId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Environment Settings.Paths[Skipped Rows]"
+              endId="Package\Environment Settings\Recordset Destination 1.Inputs[Recordset Destination Input]"
+              name="Skipped Rows"
+              startId="Package\Environment Settings\DEV.Outputs[Skipped Rows]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Environment Settings QA"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{f80edb85-8774-4ba0-9b20-43a94ef6b9c2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Environment Settings QA"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
             <component
-              refId="Package\Environment Settings\Recordset Destination 1 1"
+              refId="Package\Environment Settings QA\QA"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Populate data into Microsoft Dynamics 365 CE/CRM."
+              name="QA"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Destination entity to write data."
+                  expressionType="Notify"
+                  name="DestinationEntity">qm_environmentsettings</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how data is written to CDS/Dynamics CRM server."
+                  name="ActionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the values of CDS/CRM lookup fields should be removed if the reference records cannot be found. "
+                  expressionType="Notify"
+                  name="RemoveUnresolvableReferences">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
+                  expressionType="Notify"
+                  name="EnableSystemDuplicateDetection">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
+                  expressionType="Notify"
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
+                  expressionType="Notify"
+                  name="RecordMatchingKeyFields"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those NULL-valued fields."
+                  expressionType="Notify"
+                  name="IgnoreNullValuedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those fields that have no value changes in the target system. "
+                  expressionType="Notify"
+                  name="IgnoreUnchangedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to remove those invalid characters before writing to CDS/CRM."
+                  expressionType="Notify"
+                  name="RemoveInvalidCharacters">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the flag field(s) that are used to track the source of changes. The field(s) will not posted to CDS/CRM server unless there are changes to other fields if specified. &quot;Ignore Unchange Fields&quot; option is required in order for the specified flag field(s) to work. "
+                  expressionType="Notify"
+                  name="ChangeFlagFields"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies what action will be taken when multiple matches are found with Upsert action."
+                  expressionType="Notify"
+                  name="HandlingOfMultipleMatches"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify whether to use optimizations when there are duplicate records form the source system."
+                  expressionType="Notify"
+                  name="OptimizationOnSourceDuplicates"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
+                <property
+                  dataType="System.String"
+                  description="Workflow or action to be executed."
+                  expressionType="Notify"
+                  name="WorkflowAction"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of records to be sent to CDS/Dynamics CRM server in each service call."
+                  expressionType="Notify"
+                  name="BatchSize">100</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the total number or concurrent threads to write to CDS/CRM server simultaneously. "
+                  expressionType="Notify"
+                  name="ConcurrentWritingThreadsInTotal">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether datetime values should be sent to CDS/CRM server in UTC format."
+                  expressionType="Notify"
+                  name="SendDateTimeInUtcFormat">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Environment Settings QA\QA.Connections[DynamicsCRM]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CRM QA]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Environment Settings QA\QA.Inputs[Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="RedirectRow"
+                  hasSideEffects="true"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Environment Settings QA\QA.Inputs[Input].Columns[qm_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="qm_name"
+                      externalMetadataColumnId="Package\Environment Settings QA\QA.Inputs[Input].ExternalColumns[qm_name]"
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].Columns[qm_name]" />
+                    <inputColumn
+                      refId="Package\Environment Settings QA\QA.Inputs[Input].Columns[qm_value]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="qm_value"
+                      externalMetadataColumnId="Package\Environment Settings QA\QA.Inputs[Input].ExternalColumns[qm_value]"
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].Columns[qm_value]" />
+                    <inputColumn
+                      refId="Package\Environment Settings QA\QA.Inputs[Input].Columns[qm_environmentsettingid]"
+                      cachedDataType="guid"
+                      cachedName="qm_environmentsettingid"
+                      externalMetadataColumnId="Package\Environment Settings QA\QA.Inputs[Input].ExternalColumns[qm_environmentsettingsid]"
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings QA\QA.Inputs[Input].ExternalColumns[createdby]"
+                      dataType="guid"
+                      name="createdby">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings QA\QA.Inputs[Input].ExternalColumns[importsequencenumber]"
+                      dataType="i4"
+                      name="importsequencenumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings QA\QA.Inputs[Input].ExternalColumns[overriddencreatedon]"
+                      dataType="dbTimeStamp"
+                      name="overriddencreatedon">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">DateTime</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings QA\QA.Inputs[Input].ExternalColumns[qm_environmentsettingsid]"
+                      dataType="guid"
+                      name="qm_environmentsettingsid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings QA\QA.Inputs[Input].ExternalColumns[qm_name]"
+                      dataType="wstr"
+                      length="100"
+                      name="qm_name">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings QA\QA.Inputs[Input].ExternalColumns[qm_value]"
+                      dataType="nText"
+                      name="qm_value">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Memo</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings QA\QA.Inputs[Input].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">State</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings QA\QA.Inputs[Input].ExternalColumns[statuscode]"
+                      dataType="i4"
+                      name="statuscode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Status</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings QA\QA.Inputs[Input].ExternalColumns[timezoneruleversionnumber]"
+                      dataType="i4"
+                      name="timezoneruleversionnumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings QA\QA.Inputs[Input].ExternalColumns[utcconversiontimezonecode]"
+                      dataType="i4"
+                      name="utcconversiontimezonecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Environment Settings QA\QA.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Environment Settings QA\QA.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Environment Settings QA\QA.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Environment Settings QA\QA.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Environment Settings QA\QA.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Environment Settings QA\QA.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Environment Settings QA\QA.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\Environment Settings QA\QA.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Environment Settings QA\QA.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Environment Settings QA\QA.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Environment Settings QA\QA.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Environment Settings QA\QA.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Environment Settings QA\QA.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Environment Settings QA\QA.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Environment Settings QA\QA.Outputs[Skipped Rows]"
+                  exclusionGroup="1"
+                  name="Skipped Rows"
+                  synchronousInputId="Package\Environment Settings QA\QA.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Environment Settings QA\QA.Outputs[Skipped Rows].Columns[SkipReasonMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Environment Settings QA\QA.Outputs[Skipped Rows].Columns[SkipReasonMessage]"
+                      name="SkipReasonMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Environment Settings QA\QA Records"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="QA Records"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[25_ENVIRONMENT_SETTINGS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT * FROM [25_ENVIRONMENT_SETTINGS]
+WHERE qm_environment = 'QA'</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">":Input",{DA0F35C4-069D-4B41-9327-319F08BE36AF};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Environment Settings QA\QA Records.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_environmentsettingid]"
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]"
+                      name="qm_environmentsettingid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].Columns[qm_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_name]"
+                      length="1000"
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].Columns[qm_name]"
+                      name="qm_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].Columns[qm_value]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_value]"
+                      length="1000"
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].Columns[qm_value]"
+                      name="qm_value"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].Columns[qm_environment]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_environment]"
+                      length="50"
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].Columns[qm_environment]"
+                      name="qm_environment"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_environmentsettingid]"
+                      dataType="guid"
+                      name="qm_environmentsettingid" />
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="qm_name" />
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_value]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="qm_value" />
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_environment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="qm_environment" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_environmentsettingid]"
+                      dataType="guid"
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_environmentsettingid]"
+                      name="qm_environmentsettingid" />
+                    <outputColumn
+                      refId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_name]"
+                      name="qm_name" />
+                    <outputColumn
+                      refId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_value]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_value]"
+                      name="qm_value" />
+                    <outputColumn
+                      refId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_environment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_environment]"
+                      name="qm_environment" />
+                    <outputColumn
+                      refId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Environment Settings QA\Recordset Destination 1 1"
               componentClassID="Microsoft.RecordsetDestination"
               contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
@@ -3029,49 +3086,49 @@ WHERE qm_environment = 'QA'</property>
               </properties>
               <inputs>
                 <input
-                  refId="Package\Environment Settings\Recordset Destination 1 1.Inputs[Recordset Destination Input]"
+                  refId="Package\Environment Settings QA\Recordset Destination 1 1.Inputs[Recordset Destination Input]"
                   hasSideEffects="true"
                   name="Recordset Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Environment Settings\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[qm_environmentsettingid]"
+                      refId="Package\Environment Settings QA\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[qm_environmentsettingid]"
                       cachedDataType="guid"
                       cachedName="qm_environmentsettingid"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]" />
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]" />
                     <inputColumn
-                      refId="Package\Environment Settings\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[qm_name]"
+                      refId="Package\Environment Settings QA\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[qm_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="1000"
                       cachedName="qm_name"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_name]" />
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].Columns[qm_name]" />
                     <inputColumn
-                      refId="Package\Environment Settings\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[qm_value]"
+                      refId="Package\Environment Settings QA\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[qm_value]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="1000"
                       cachedName="qm_value"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_value]" />
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].Columns[qm_value]" />
                     <inputColumn
-                      refId="Package\Environment Settings\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[qm_environment]"
+                      refId="Package\Environment Settings QA\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[qm_environment]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="qm_environment"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_environment]" />
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].Columns[qm_environment]" />
                     <inputColumn
-                      refId="Package\Environment Settings\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[SkipReasonMessage]"
+                      refId="Package\Environment Settings QA\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[SkipReasonMessage]"
                       cachedDataType="wstr"
                       cachedLength="2048"
                       cachedName="SkipReasonMessage"
-                      lineageId="Package\Environment Settings\QA.Outputs[Skipped Rows].Columns[SkipReasonMessage]" />
+                      lineageId="Package\Environment Settings QA\QA.Outputs[Skipped Rows].Columns[SkipReasonMessage]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
             </component>
             <component
-              refId="Package\Environment Settings\Recordset Destination 2"
+              refId="Package\Environment Settings QA\Recordset Destination 2"
               componentClassID="Microsoft.RecordsetDestination"
               contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
@@ -3084,52 +3141,52 @@ WHERE qm_environment = 'QA'</property>
               </properties>
               <inputs>
                 <input
-                  refId="Package\Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input]"
+                  refId="Package\Environment Settings QA\Recordset Destination 2.Inputs[Recordset Destination Input]"
                   hasSideEffects="true"
                   name="Recordset Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[qm_environmentsettingid]"
+                      refId="Package\Environment Settings QA\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[qm_environmentsettingid]"
                       cachedDataType="guid"
                       cachedName="qm_environmentsettingid"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]" />
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]" />
                     <inputColumn
-                      refId="Package\Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[qm_name]"
+                      refId="Package\Environment Settings QA\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[qm_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="1000"
                       cachedName="qm_name"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_name]" />
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].Columns[qm_name]" />
                     <inputColumn
-                      refId="Package\Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[qm_value]"
+                      refId="Package\Environment Settings QA\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[qm_value]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="1000"
                       cachedName="qm_value"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_value]" />
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].Columns[qm_value]" />
                     <inputColumn
-                      refId="Package\Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[qm_environment]"
+                      refId="Package\Environment Settings QA\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[qm_environment]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="qm_environment"
-                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_environment]" />
+                      lineageId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output].Columns[qm_environment]" />
                     <inputColumn
-                      refId="Package\Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[ErrorCode]"
+                      refId="Package\Environment Settings QA\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[ErrorCode]"
                       cachedDataType="i4"
                       cachedName="ErrorCode"
-                      lineageId="Package\Environment Settings\QA.Outputs[Error Output].Columns[ErrorCode]" />
+                      lineageId="Package\Environment Settings QA\QA.Outputs[Error Output].Columns[ErrorCode]" />
                     <inputColumn
-                      refId="Package\Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[ErrorColumn]"
+                      refId="Package\Environment Settings QA\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[ErrorColumn]"
                       cachedDataType="i4"
                       cachedName="ErrorColumn"
-                      lineageId="Package\Environment Settings\QA.Outputs[Error Output].Columns[ErrorColumn]" />
+                      lineageId="Package\Environment Settings QA\QA.Outputs[Error Output].Columns[ErrorColumn]" />
                     <inputColumn
-                      refId="Package\Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[ErrorMessage]"
+                      refId="Package\Environment Settings QA\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[ErrorMessage]"
                       cachedDataType="wstr"
                       cachedLength="2048"
                       cachedName="ErrorMessage"
-                      lineageId="Package\Environment Settings\QA.Outputs[Error Output].Columns[ErrorMessage]" />
+                      lineageId="Package\Environment Settings QA\QA.Outputs[Error Output].Columns[ErrorMessage]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -3138,35 +3195,20 @@ WHERE qm_environment = 'QA'</property>
           </components>
           <paths>
             <path
-              refId="Package\Environment Settings.Paths[Error Output]"
-              endId="Package\Environment Settings\Recordset Destination.Inputs[Recordset Destination Input]"
+              refId="Package\Environment Settings QA.Paths[Error Output]"
+              endId="Package\Environment Settings QA\Recordset Destination 2.Inputs[Recordset Destination Input]"
               name="Error Output"
-              startId="Package\Environment Settings\DEV.Outputs[Error Output]" />
+              startId="Package\Environment Settings QA\QA.Outputs[Error Output]" />
             <path
-              refId="Package\Environment Settings.Paths[Error Output1]"
-              endId="Package\Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input]"
-              name="Error Output"
-              startId="Package\Environment Settings\QA.Outputs[Error Output]" />
-            <path
-              refId="Package\Environment Settings.Paths[OLE DB Source Output]"
-              endId="Package\Environment Settings\DEV.Inputs[Input]"
+              refId="Package\Environment Settings QA.Paths[OLE DB Source Output]"
+              endId="Package\Environment Settings QA\QA.Inputs[Input]"
               name="OLE DB Source Output"
-              startId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output]" />
+              startId="Package\Environment Settings QA\QA Records.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Environment Settings.Paths[OLE DB Source Output1]"
-              endId="Package\Environment Settings\QA.Inputs[Input]"
-              name="OLE DB Source Output"
-              startId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\Environment Settings.Paths[Skipped Rows]"
-              endId="Package\Environment Settings\Recordset Destination 1.Inputs[Recordset Destination Input]"
+              refId="Package\Environment Settings QA.Paths[Skipped Rows]"
+              endId="Package\Environment Settings QA\Recordset Destination 1 1.Inputs[Recordset Destination Input]"
               name="Skipped Rows"
-              startId="Package\Environment Settings\DEV.Outputs[Skipped Rows]" />
-            <path
-              refId="Package\Environment Settings.Paths[Skipped Rows1]"
-              endId="Package\Environment Settings\Recordset Destination 1 1.Inputs[Recordset Destination Input]"
-              name="Skipped Rows"
-              startId="Package\Environment Settings\QA.Outputs[Skipped Rows]" />
+              startId="Package\Environment Settings QA\QA.Outputs[Skipped Rows]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -3181,6 +3223,14 @@ WHERE qm_environment = 'QA'</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Environment Settings" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6D37C278-A817-458C-8274-F0F3CA0C70D2}"
+      DTS:From="Package\Delete Environment Settings QA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Environment Settings QA" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -3193,29 +3243,59 @@ WHERE qm_environment = 'QA'</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="184,42"
-          Id="Package\Environment Settings"
-          TopLeft="813.5,330.928571428571" />
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="218,42"
           Id="Package\Delete Environment Settings"
-          TopLeft="791.5,201.928571428571" />
+          TopLeft="139.681818181818,87.3831168831164" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Environment Settings"
+          TopLeft="162.792929292929,368.605339105339" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="903,243.928571428571">
+          TopLeft="251.737373737374,129.383116883116">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,87"
+              EndConnector="0,239.222222222222"
               Start="0,0"
-              End="0,79.5">
+              End="0,231.722222222222">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,79.5" />
+                    End="0,231.722222222222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="237,42"
+          Id="Package\Delete Environment Settings QA"
+          TopLeft="408.570707070707,87.2720057720056" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Environment Settings QA"
+          TopLeft="428.166666666666,377.878066378066" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="528.118686868687,129.272005772006">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,248.606060606061"
+              Start="0,0"
+              End="0,241.106060606061">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,241.106060606061" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3228,10 +3308,128 @@ WHERE qm_environment = 'QA'</property>
     </LayoutInfo>
   </Package>
   <TaskHost
+    design-time-name="Package\Delete Environment Settings">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Delete Environment Settings\Recordset Destination"
+          TopLeft="797,614" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Delete Environment Settings\Recordset Destination 1"
+          TopLeft="258,613" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Delete Environment Settings\DEV Dest"
+          TopLeft="513,472" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Delete Environment Settings\DEV Source"
+          TopLeft="501,261" />
+        <EdgeLayout
+          Id="Package\Delete Environment Settings.Paths[Skipped Rows]"
+          TopLeft="556.666666666667,514">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-207.666666666667,99"
+              Start="0,0"
+              End="-207.666666666667,91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.3390357698289" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.3390357698289"
+                    Point2="0,40.3390357698289"
+                    Point3="-4,40.3390357698289" />
+                  <mssgle:LineSegment
+                    End="-203.666666666667,40.3390357698289" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-203.666666666667,40.3390357698289"
+                    Point2="-207.666666666667,40.3390357698289"
+                    Point3="-207.666666666667,44.3390357698289" />
+                  <mssgle:LineSegment
+                    End="-207.666666666667,91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-135.221575520833,45.3390357698289,62.776484375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Delete Environment Settings.Paths[Primary Output]"
+          TopLeft="573.5,303">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,169"
+              Start="0,0"
+              End="0,161.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,161.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Delete Environment Settings.Paths[Error Output]"
+          TopLeft="596.333333333333,514">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="291.666666666667,100"
+              Start="0,0"
+              End="291.666666666667,92.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.746500777605" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.746500777605"
+                    Point2="0,40.746500777605"
+                    Point3="4,40.746500777605" />
+                  <mssgle:LineSegment
+                    End="287.666666666667,40.746500777605" />
+                  <mssgle:CubicBezierSegment
+                    Point1="287.666666666667,40.746500777605"
+                    Point2="291.666666666667,40.746500777605"
+                    Point3="291.666666666667,44.746500777605" />
+                  <mssgle:LineSegment
+                    End="291.666666666667,92.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="108.628294270833,45.746500777605,74.410078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
     design-time-name="Package\Environment Settings">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="145,42"
           Id="Package\Environment Settings\DEV Records"
@@ -3241,9 +3439,49 @@ WHERE qm_environment = 'QA'</property>
           Id="Package\Environment Settings\Recordset Destination"
           TopLeft="797,614" />
         <NodeLayout
+          Size="182,42"
+          Id="Package\Environment Settings\Recordset Destination 1"
+          TopLeft="258,613" />
+        <NodeLayout
           Size="102,42"
           Id="Package\Environment Settings\DEV"
           TopLeft="582,466" />
+        <EdgeLayout
+          Id="Package\Environment Settings.Paths[Skipped Rows]"
+          TopLeft="617.333333333333,508">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-268.333333333333,105"
+              Start="0,0"
+              End="-268.333333333333,97.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.972972972973" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.972972972973"
+                    Point2="0,42.972972972973"
+                    Point3="-4,42.972972972973" />
+                  <mssgle:LineSegment
+                    End="-264.333333333333,42.972972972973" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-264.333333333333,42.972972972973"
+                    Point2="-268.333333333333,42.972972972973"
+                    Point3="-268.333333333333,46.972972972973" />
+                  <mssgle:LineSegment
+                    End="-268.333333333333,97.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-165.554908854167,47.972972972973,62.776484375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Environment Settings.Paths[OLE DB Source Output]"
           TopLeft="632.5,371.5">
@@ -3302,65 +3540,164 @@ WHERE qm_environment = 'QA'</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Environment Settings\DEV Records">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Delete Environment Settings QA">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Delete Environment Settings QA\QA Source"
+          TopLeft="444,111" />
         <NodeLayout
           Size="182,42"
-          Id="Package\Environment Settings\Recordset Destination 1"
-          TopLeft="258,613" />
+          Id="Package\Delete Environment Settings QA\Recordset Destination 1 1"
+          TopLeft="201,463" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Delete Environment Settings QA\Recordset Destination 2"
+          TopLeft="740,464" />
+        <NodeLayout
+          Size="120,42"
+          Id="Package\Delete Environment Settings QA\QA Dest"
+          TopLeft="456,322" />
         <EdgeLayout
-          Id="Package\Environment Settings.Paths[Skipped Rows]"
-          TopLeft="617.333333333333,508">
+          Id="Package\Delete Environment Settings QA.Paths[Skipped Rows]"
+          TopLeft="497.33333333333,364">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-268.333333333333,105"
+              EndConnector="-205.333333333333,99"
               Start="0,0"
-              End="-268.333333333333,97.5">
+              End="-205.333333333333,91.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,38.972972972973" />
+                    End="0,36.3815789473684" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,38.972972972973"
-                    Point2="0,42.972972972973"
-                    Point3="-4,42.972972972973" />
+                    Point1="0,36.3815789473684"
+                    Point2="0,40.3815789473684"
+                    Point3="-4,40.3815789473684" />
                   <mssgle:LineSegment
-                    End="-264.333333333333,42.972972972973" />
+                    End="-201.333333333333,40.3815789473684" />
                   <mssgle:CubicBezierSegment
-                    Point1="-264.333333333333,42.972972972973"
-                    Point2="-268.333333333333,42.972972972973"
-                    Point3="-268.333333333333,46.972972972973" />
+                    Point1="-201.333333333333,40.3815789473684"
+                    Point2="-205.333333333333,40.3815789473684"
+                    Point3="-205.333333333333,44.3815789473684" />
                   <mssgle:LineSegment
-                    End="-268.333333333333,97.5" />
+                    End="-205.333333333333,91.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-165.554908854167,47.972972972973,62.776484375,11.609375"
+              BoundingBox="-134.054908854167,45.3815789473684,62.776484375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="139,42"
-          Id="Package\Environment Settings\QA Records"
-          TopLeft="1435.5,331" />
+        <EdgeLayout
+          Id="Package\Delete Environment Settings QA.Paths[Primary Output]"
+          TopLeft="513.25,153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,169"
+              Start="0,0"
+              End="0,161.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,161.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Delete Environment Settings QA.Paths[Error Output]"
+          TopLeft="534.66666666667,364">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="296.333333333333,100"
+              Start="0,0"
+              End="296.333333333333,92.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.7894736842105" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.7894736842105"
+                    Point2="0,40.7894736842105"
+                    Point3="4,40.7894736842105" />
+                  <mssgle:LineSegment
+                    End="292.333333333333,40.7894736842105" />
+                  <mssgle:CubicBezierSegment
+                    Point1="292.333333333333,40.7894736842105"
+                    Point2="296.333333333333,40.7894736842105"
+                    Point3="296.333333333333,44.7894736842105" />
+                  <mssgle:LineSegment
+                    End="296.333333333333,92.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="119.830279947917,45.7894736842105,56.6727734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Environment Settings QA">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="182,42"
-          Id="Package\Environment Settings\Recordset Destination 2"
-          TopLeft="1722,604.5" />
+          Id="Package\Environment Settings QA\Recordset Destination 1 1"
+          TopLeft="104.666666666667,396.833333333333" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Environment Settings QA\Recordset Destination 2"
+          TopLeft="643.666666666667,397.833333333333" />
         <NodeLayout
           Size="95,42"
-          Id="Package\Environment Settings\QA"
-          TopLeft="1438,462.5" />
+          Id="Package\Environment Settings QA\QA"
+          TopLeft="359.666666666667,255.833333333333" />
         <NodeLayout
-          Size="182,42"
-          Id="Package\Environment Settings\Recordset Destination 1 1"
-          TopLeft="1183,603.5" />
+          Size="139,42"
+          Id="Package\Environment Settings QA\QA Records"
+          TopLeft="357.166666666667,124.333333333333" />
         <EdgeLayout
-          Id="Package\Environment Settings.Paths[OLE DB Source Output1]"
-          TopLeft="1505,373">
+          Id="Package\Environment Settings QA.Paths[OLE DB Source Output]"
+          TopLeft="426.666666666667,166.333333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3393,8 +3730,8 @@ WHERE qm_environment = 'QA'</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Environment Settings.Paths[Error Output1]"
-          TopLeft="1500,504.5">
+          Id="Package\Environment Settings QA.Paths[Error Output]"
+          TopLeft="421.666666666666,297.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3424,13 +3761,13 @@ WHERE qm_environment = 'QA'</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="119.2949609375,45.9937888198758,74.410078125,16"
+              BoundingBox="128.16361328125,45.9937888198758,56.6727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Environment Settings.Paths[Skipped Rows1]"
-          TopLeft="1471,504.5">
+          Id="Package\Environment Settings QA.Paths[Skipped Rows]"
+          TopLeft="392.666666666667,297.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3467,254 +3804,5 @@ WHERE qm_environment = 'QA'</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Environment Settings\DEV Records">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Delete Environment Settings">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="182,42"
-          Id="Package\Delete Environment Settings\Recordset Destination 1"
-          TopLeft="258,613" />
-        <NodeLayout
-          Size="182,42"
-          Id="Package\Delete Environment Settings\Recordset Destination"
-          TopLeft="797,614" />
-        <NodeLayout
-          Size="127,42"
-          Id="Package\Delete Environment Settings\DEV Dest"
-          TopLeft="513,472" />
-        <EdgeLayout
-          Id="Package\Delete Environment Settings.Paths[Skipped Rows]"
-          TopLeft="556.666666666667,514">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-207.666666666667,99"
-              Start="0,0"
-              End="-207.666666666667,91.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.3390357698289" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,36.3390357698289"
-                    Point2="0,40.3390357698289"
-                    Point3="-4,40.3390357698289" />
-                  <mssgle:LineSegment
-                    End="-203.666666666667,40.3390357698289" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-203.666666666667,40.3390357698289"
-                    Point2="-207.666666666667,40.3390357698289"
-                    Point3="-207.666666666667,44.3390357698289" />
-                  <mssgle:LineSegment
-                    End="-207.666666666667,91.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-135.221575520833,45.3390357698289,62.776484375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Delete Environment Settings.Paths[Error Output]"
-          TopLeft="596.333333333333,514">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="291.666666666667,100"
-              Start="0,0"
-              End="291.666666666667,92.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.746500777605" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,36.746500777605"
-                    Point2="0,40.746500777605"
-                    Point3="4,40.746500777605" />
-                  <mssgle:LineSegment
-                    End="287.666666666667,40.746500777605" />
-                  <mssgle:CubicBezierSegment
-                    Point1="287.666666666667,40.746500777605"
-                    Point2="291.666666666667,40.746500777605"
-                    Point3="291.666666666667,44.746500777605" />
-                  <mssgle:LineSegment
-                    End="291.666666666667,92.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="108.628294270833,45.746500777605,74.410078125,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="139,42"
-          Id="Package\Delete Environment Settings\DEV Source"
-          TopLeft="501,261" />
-        <EdgeLayout
-          Id="Package\Delete Environment Settings.Paths[Primary Output]"
-          TopLeft="573.5,303">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,169"
-              Start="0,0"
-              End="0,161.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,161.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="182,42"
-          Id="Package\Delete Environment Settings\Recordset Destination 1 1"
-          TopLeft="1121,618" />
-        <NodeLayout
-          Size="182,42"
-          Id="Package\Delete Environment Settings\Recordset Destination 2"
-          TopLeft="1660,619" />
-        <NodeLayout
-          Size="120,42"
-          Id="Package\Delete Environment Settings\QA Dest"
-          TopLeft="1376,477" />
-        <NodeLayout
-          Size="133,42"
-          Id="Package\Delete Environment Settings\QA Source"
-          TopLeft="1364,266" />
-        <EdgeLayout
-          Id="Package\Delete Environment Settings.Paths[Skipped Rows1]"
-          TopLeft="1417.33333333333,519">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-205.333333333333,99"
-              Start="0,0"
-              End="-205.333333333333,91.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.3815789473684" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,36.3815789473684"
-                    Point2="0,40.3815789473684"
-                    Point3="-4,40.3815789473684" />
-                  <mssgle:LineSegment
-                    End="-201.333333333333,40.3815789473684" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-201.333333333333,40.3815789473684"
-                    Point2="-205.333333333333,40.3815789473684"
-                    Point3="-205.333333333333,44.3815789473684" />
-                  <mssgle:LineSegment
-                    End="-205.333333333333,91.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-134.054908854167,45.3815789473684,62.776484375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Delete Environment Settings.Paths[Error Output1]"
-          TopLeft="1454.66666666667,519">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="296.333333333333,100"
-              Start="0,0"
-              End="296.333333333333,92.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.7894736842105" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,36.7894736842105"
-                    Point2="0,40.7894736842105"
-                    Point3="4,40.7894736842105" />
-                  <mssgle:LineSegment
-                    End="292.333333333333,40.7894736842105" />
-                  <mssgle:CubicBezierSegment
-                    Point1="292.333333333333,40.7894736842105"
-                    Point2="296.333333333333,40.7894736842105"
-                    Point3="296.333333333333,44.7894736842105" />
-                  <mssgle:LineSegment
-                    End="296.333333333333,92.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="110.961627604167,45.7894736842105,74.410078125,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Delete Environment Settings.Paths[Primary Output1]"
-          TopLeft="1433.25,308">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,169"
-              Start="0,0"
-              End="0,161.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,161.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Environment Settings\QA Records">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

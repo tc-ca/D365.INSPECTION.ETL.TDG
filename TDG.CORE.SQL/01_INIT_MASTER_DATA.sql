@@ -932,10 +932,10 @@ BEGIN
 	--===================================================================================================
 	--===================================================================================================
 BEGIN
-	TRUNCATE TABLE dbo.bookableresource;
-	TRUNCATE TABLE dbo.account;
-	TRUNCATE TABLE dbo.msdyn_workorder;
-	TRUNCATE TABLE dbo.qm_syresult;
+	TRUNCATE TABLE dbo.tdgdata__bookableresource;
+	TRUNCATE TABLE dbo.tdgdata__account;
+	TRUNCATE TABLE dbo.tdgdata__msdyn_workorder;
+	TRUNCATE TABLE dbo.tdgdata__qm_syresult;
 END
 
 
@@ -945,26 +945,31 @@ END
 BEGIN
 	 --DEFAULT MASTER DATA
 	DECLARE @CONST_WORKORDERTYPE_INSPECTION           VARCHAR(50) = 'b1ee680a-7cf7-ea11-a815-000d3af3a7a7';
-	DECLARE @CONST_OVERSIGHTTYPE_GCTARGETED           VARCHAR(50) = '50D0BDF1-269E-EB11-B1AC-000D3AE924D1';
+	DECLARE @CONST_OVERSIGHTTYPE_GCTARGETED           VARCHAR(50) = '72afccd3-269e-eb11-b1ac-000d3ae924d1';
+	DECLARE @CONST_OVERSIGHTTYPE_GCIPT		          VARCHAR(50) = '50D0BDF1-269E-EB11-B1AC-000D3AE924D1';
 	DECLARE @CONST_OVERSIGHTTYPE_MOCTARGETED          VARCHAR(50) = '864BAA27-279E-EB11-B1AC-000D3AE924D1';
 	DECLARE @CONST_OVERSIGHTTYPE_GCCONSIGNMENT        VARCHAR(50) = '460B6C2A-5F9C-EB11-B1AC-000D3AE92708';
 	DECLARE @CONST_OVERSIGHTTYPE_MOCOPPORTUNITY       VARCHAR(50) = 'F6A0B96E-5F9C-EB11-B1AC-000D3AE92708';
 	DECLARE @CONST_OVERSIGHTTYPE_CIVDOCREVIEW         VARCHAR(50) = 'A4965081-5F9C-EB11-B1AC-000D3AE92708';
 	DECLARE @CONST_OVERSIGHTTYPE_RATIONALE_PLANNED    VARCHAR(50) = '994c3ec1-c104-eb11-a813-000d3af3a7a7';
 	DECLARE @CONST_OVERSIGHTTYPE_RATIONALE_UNPLANNED  VARCHAR(50) = '47f438c7-c104-eb11-a813-000d3af3a7a7';
-	DECLARE @CONST_TDGCORE_BOOKABLE_RESOURCE_ID       VARCHAR(50) = '2cfc9150-d6a3-eb11-b1ac-000d3ae8bee7';
-	DECLARE @CONST_TDGCORE_USERID                     VARCHAR(50) = '53275569-d460-eb11-a812-000d3ae947a6';
-	DECLARE @CONST_TDGCORE_DOMAINNAME                 VARCHAR(50) = 'tdg.core@034gc.onmicrosoft.com';
-	DECLARE @CONST_TDG_TEAMID                         VARCHAR(50) = 'd0483132-b964-eb11-a812-000d3af38846';
-	DECLARE @CONST_TDG_TEAMNAME                       VARCHAR(50) = 'Transportation of Dangerous Goods';
-	DECLARE @CONST_TDG_BUSINESSUNITID                 VARCHAR(50) = '4E122E0C-73F3-EA11-A815-000D3AF3AC0D';
 	DECLARE @CONST_PRICELISTID                        VARCHAR(50) = 'B92B6A16-7CF7-EA11-A815-000D3AF3A7A7'; 
 	DECLARE @CONST_RATIONALE_PLANNED                  VARCHAR(50) = '994C3EC1-C104-EB11-A813-000D3AF3A7A7';
 	DECLARE @CONST_RATIONALE_UNPLANNED                VARCHAR(50) = '47F438C7-C104-EB11-A813-000D3AF3A7A7';
 
+
+	--these variables can change with the environment, so double check these match the environment you're syncing to
+	DECLARE @CONST_TDGCORE_BOOKABLE_RESOURCE_ID       VARCHAR(50) = '2cfc9150-d6a3-eb11-b1ac-000d3ae8bee7';
+	DECLARE @CONST_TDGCORE_USERID                     VARCHAR(50) = '15abdd9e-8edd-ea11-a814-000d3af3afe0';
+	DECLARE @CONST_TDGCORE_DOMAINNAME                 VARCHAR(50) = 'tdg.core@034gc.onmicrosoft.com';
+	DECLARE @CONST_TDG_TEAMID                         VARCHAR(50) = 'ed81d4e5-55b7-eb11-8236-0022483bc30f';
+	DECLARE @CONST_TDG_TEAMNAME                       VARCHAR(50) = 'TDG / TMD';
+	DECLARE @CONST_TDG_BUSINESSUNITID                 VARCHAR(50) = '4E122E0C-73F3-EA11-A815-000D3AF3AC0D';
+
+
 	INSERT INTO [dbo].[21_TYRATIONAL]
 			   ([Id]
-		 ,[ovs_tyrationalid]
+			   ,[ovs_tyrationalid]
 			   ,[ovs_name]
 			   ,[ovs_rationalelbl]
 			   ,[ovs_rationalflbl]
@@ -992,13 +997,13 @@ BEGIN
 			   ,[owningbusinessunit]
 			   ,[owningteam])
 
-	SELECT '72afccd3-269e-eb11-b1ac-000d3ae924d1', '72afccd3-269e-eb11-b1ac-000d3ae924d1', 'GC IPT::GC IPT (FR)'           , 'GC IPT'                        , 'GC IPT (FR)'                       , @CONST_TDG_TEAMID [ownerid], 'team' [owneridtype], @CONST_TDG_BUSINESSUNITID [owningbusinessunit], @CONST_TDG_TEAMID [owningteam] UNION
+	SELECT @CONST_OVERSIGHTTYPE_GCIPT, @CONST_OVERSIGHTTYPE_GCIPT, 'GC IPT::GC IPT (FR)' , 'GC IPT'                        , 'GC IPT (FR)'                       , @CONST_TDG_TEAMID [ownerid], 'team' [owneridtype], @CONST_TDG_BUSINESSUNITID [owningbusinessunit], @CONST_TDG_TEAMID [owningteam] UNION
 	SELECT 'abf3c4d9-269e-eb11-b1ac-000d3ae924d1', 'abf3c4d9-269e-eb11-b1ac-000d3ae924d1', 'GC CEP::GC IPT (FR)'           , 'GC IPT'                        , 'GC IPT (FR)'                       , @CONST_TDG_TEAMID [ownerid], 'team' [owneridtype], @CONST_TDG_BUSINESSUNITID [owningbusinessunit], @CONST_TDG_TEAMID [owningteam] UNION
 	SELECT @CONST_OVERSIGHTTYPE_GCTARGETED       , @CONST_OVERSIGHTTYPE_GCTARGETED       , 'GC Targeted::GC Targeted (FR)' , 'GC Targeted'                   , 'GC Targeted (FR)'                  , @CONST_TDG_TEAMID [ownerid], 'team' [owneridtype], @CONST_TDG_BUSINESSUNITID [owningbusinessunit], @CONST_TDG_TEAMID [owningteam] UNION
 	SELECT '1cd7bd09-279e-eb11-b1ac-000d3ae924d1', '1cd7bd09-279e-eb11-b1ac-000d3ae924d1', 'GC Follow-up'                  , 'GC Follow-up'                  , 'GC Follow-up (FR)'                 , @CONST_TDG_TEAMID [ownerid], 'team' [owneridtype], @CONST_TDG_BUSINESSUNITID [owningbusinessunit], @CONST_TDG_TEAMID [owningteam] UNION
 	SELECT 'e99ab21b-279e-eb11-b1ac-000d3ae924d1', 'e99ab21b-279e-eb11-b1ac-000d3ae924d1', 'MOC Facility IPT'              , 'MOC Facility IPT'              , 'MOC Facility IPT (FR)'             , @CONST_TDG_TEAMID [ownerid], 'team' [owneridtype], @CONST_TDG_BUSINESSUNITID [owningbusinessunit], @CONST_TDG_TEAMID [owningteam] UNION
 	SELECT @CONST_OVERSIGHTTYPE_MOCTARGETED      , @CONST_OVERSIGHTTYPE_MOCTARGETED      , 'MOC Facility Targeted'         , 'MOC Facility Targeted'         , 'MOC Facility Targeted (FR)'        , @CONST_TDG_TEAMID [ownerid], 'team' [owneridtype], @CONST_TDG_BUSINESSUNITID [owningbusinessunit], @CONST_TDG_TEAMID [owningteam] UNION
-	SELECT 'c1e09a33-279e-eb11-b1ac-000d3ae924d1', 'c1e09a33-279e-eb11-b1ac-000d3ae924d1', 'MOC Facility Follow-up'        , 'MOC Facility Follow-up'        , 'MOC Facility Follow-up (FR)'       , @CONST_TDG_TEAMID [ownerid], 'team' [owneridtype], @CONST_TDG_BUSINESSUNITID [owningbusinessunit], @CONST_TDG_TEAMID [owningteam] UNION
+	SELECT 'c1e09a'/.   7---------------------1c11419e-eb11-b1ac-000d3ae924d1', 'c1e09a33-279e-eb11-b1ac-000d3ae924d1', 'MOC Facility Follow-up'        , 'MOC Facility Follow-up'        , 'MOC Facility Follow-up (FR)'       , @CONST_TDG_TEAMID [ownerid], 'team' [owneridtype], @CONST_TDG_BUSINESSUNITID [owningbusinessunit], @CONST_TDG_TEAMID [owningteam] UNION
 	SELECT '9dee7316-5f9c-eb11-b1ac-000d3ae92708', '9dee7316-5f9c-eb11-b1ac-000d3ae92708', 'GC Triggered'                  , 'GC Triggered'                  , 'GC Triggered(FR)'                  , @CONST_TDG_TEAMID [ownerid], 'team' [owneridtype], @CONST_TDG_BUSINESSUNITID [owningbusinessunit], @CONST_TDG_TEAMID [owningteam] UNION
 	SELECT '07966e1c-5f9c-eb11-b1ac-000d3ae92708', '07966e1c-5f9c-eb11-b1ac-000d3ae92708', 'GC Opportunity'                , 'GC Opportunity'                , 'GC Opportunity(FR)'                , @CONST_TDG_TEAMID [ownerid], 'team' [owneridtype], @CONST_TDG_BUSINESSUNITID [owningbusinessunit], @CONST_TDG_TEAMID [owningteam] UNION
 	SELECT @CONST_OVERSIGHTTYPE_GCCONSIGNMENT    , @CONST_OVERSIGHTTYPE_GCCONSIGNMENT    , 'GC Consignment'                , 'GC Consignment'                , 'GC Consignment(FR)'                , @CONST_TDG_TEAMID [ownerid], 'team' [owneridtype], @CONST_TDG_BUSINESSUNITID [owningbusinessunit], @CONST_TDG_TEAMID [owningteam] UNION
@@ -1007,7 +1012,6 @@ BEGIN
 	SELECT @CONST_OVERSIGHTTYPE_MOCOPPORTUNITY   , @CONST_OVERSIGHTTYPE_MOCOPPORTUNITY   , 'MOC Facility Opportunity'      , 'MOC Facility Opportunity'      , 'MOC Facility Opportunity(FR)'      , @CONST_TDG_TEAMID [ownerid], 'team' [owneridtype], @CONST_TDG_BUSINESSUNITID [owningbusinessunit], @CONST_TDG_TEAMID [owningteam] UNION
 	SELECT @CONST_OVERSIGHTTYPE_CIVDOCREVIEW     , @CONST_OVERSIGHTTYPE_CIVDOCREVIEW     , 'Civil Aviation Document Review', 'Civil Aviation Document Review', 'Civil Aviation Document Review(FR)', @CONST_TDG_TEAMID [ownerid], 'team' [owneridtype], @CONST_TDG_BUSINESSUNITID [owningbusinessunit], @CONST_TDG_TEAMID [owningteam];
 
-	UPDATE [22_OVERSIGHTTYPE] SET [ovs_name] = CONCAT(ovs_oversighttypenameenglish, '::', ovs_oversighttypenamefrench);
 
 	INSERT INTO [dbo].[24_WORKORDERTYPE]
 			   ([Id]
@@ -1024,7 +1028,6 @@ BEGIN
 	SELECT @CONST_WORKORDERTYPE_INSPECTION       , @CONST_WORKORDERTYPE_INSPECTION			, 'Inspection::Inspection'	, @CONST_PRICELISTID, 'Inspection'				, 'FR Inspection'				, @CONST_TDG_TEAMID [ownerid], 'team' [owneridtype], @CONST_TDG_BUSINESSUNITID [owningbusinessunit], @CONST_TDG_TEAMID [owningteam] UNION
 	SELECT '46706c0a-ad60-eb11-a812-000d3ae9471c', '46706c0a-ad60-eb11-a812-000d3ae9471c'	, 'Regulatory Authorization', @CONST_PRICELISTID, 'Regulatory Authorization', 'FR Regulatory Authorization'	, @CONST_TDG_TEAMID [ownerid], 'team' [owneridtype], @CONST_TDG_BUSINESSUNITID [owningbusinessunit], @CONST_TDG_TEAMID [owningteam];
 
-	UPDATE [24_WORKORDERTYPE] SET [msdyn_name] = CONCAT([ovs_workordertypenameenglish], '::', [ovs_workordertypenamefrench]);
 
 	INSERT INTO [dbo].[17_BOOKABLE_RESOURCE_CATEGORIES]
 			   ([bookableresourcecategoryid]
@@ -1063,31 +1066,23 @@ BEGIN
 	'1337' [ovs_badgenumber];
 
 
-	--COUNTRY_SUBDIVISION_CD msdyn_serviceterritory
-	--AB 02B86E9E-1707-EB11-A813-000D3AF3A0D7
-	--MB 02B86E9E-1707-EB11-A813-000D3AF3A0D7
-	--SK 02B86E9E-1707-EB11-A813-000D3AF3A0D7
-	--NU 02B86E9E-1707-EB11-A813-000D3AF3A0D7
-	--NT 02B86E9E-1707-EB11-A813-000D3AF3A0D7
-	--YT 02B86E9E-1707-EB11-A813-000D3AF3A0D7
-	--NL FAB76E9E-1707-EB11-A813-000D3AF3A0D7
-	--PE FAB76E9E-1707-EB11-A813-000D3AF3A0D7
-	--NS FAB76E9E-1707-EB11-A813-000D3AF3A0D7
-	--NB FAB76E9E-1707-EB11-A813-000D3AF3A0D7
-	--QC FCB76E9E-1707-EB11-A813-000D3AF3A0D7
-	--ON 50B21A84-DB04-EB11-A813-000D3AF3AC0D
-	--BC FEB76E9E-1707-EB11-A813-000D3AF3A0D7
-
 	INSERT [dbo].[23_TERRITORY] ([Id], [territoryid], [name], [ovs_territorynameenglish], [ovs_territorynamefrench]) 
 
 	SELECT N'2e7b2f75-989c-eb11-b1ac-000d3ae92708', N'2e7b2f75-989c-eb11-b1ac-000d3ae92708', N'HQ-ES::FR HQ-ES'                          ,        N'HQ-ES'          ,     N'FR HQ-ES'        UNION
 	SELECT N'52c72783-989c-eb11-b1ac-000d3ae92708', N'52c72783-989c-eb11-b1ac-000d3ae92708', N'HQ-CR::FR HQ-CR'                          ,        N'HQ-CR'          ,     N'FR HQ-CR'        UNION
 	SELECT N'FAB76E9E-1707-EB11-A813-000D3AF3A0D7', N'FAB76E9E-1707-EB11-A813-000D3AF3A0D7', N'Atlantic::Atlantique'                     ,      N'Atlantic'         ,    N'Atlantique'       UNION
-	SELECT N'FCB76E9E-1707-EB11-A813-000D3AF3A0D7', N'FCB76E9E-1707-EB11-A813-000D3AF3A0D7', N'Quebec::Qu�bec'                           ,        N'Quebec'         ,     N'Qu�bec'          UNION
+	SELECT N'FCB76E9E-1707-EB11-A813-000D3AF3A0D7', N'FCB76E9E-1707-EB11-A813-000D3AF3A0D7', N'Quebec::Quebec'                           ,        N'Quebec'         ,     N'Quebec'          UNION
 	SELECT N'FEB76E9E-1707-EB11-A813-000D3AF3A0D7', N'FEB76E9E-1707-EB11-A813-000D3AF3A0D7', N'Pacific::Pacifique'                       ,       N'Pacific'         ,     N'Pacifique'       UNION
 	SELECT N'02B86E9E-1707-EB11-A813-000D3AF3A0D7', N'02B86E9E-1707-EB11-A813-000D3AF3A0D7', N'Prairie and Northern::Prairies et du Nord', N'Prairie and Northern'  , N'Prairies et du Nord' UNION
 	SELECT N'04b86e9e-1707-eb11-a813-000d3af3a0d7', N'04b86e9e-1707-eb11-a813-000d3af3a0d7', N'National Capital::Capitale Nationale'     ,  N'National Capital'     ,  N'Capitale Nationale' UNION 
 	SELECT N'50B21A84-DB04-EB11-A813-000D3AF3AC0D', N'50B21A84-DB04-EB11-A813-000D3AF3AC0D', N'Ontario::Ontario'                         ,       N'Ontario'         ,     N'Ontario';
+
+
+	--localization
+	UPDATE [24_WORKORDERTYPE] SET [msdyn_name] = CONCAT([ovs_workordertypenameenglish], '::', [ovs_workordertypenamefrench]);
+	UPDATE [22_OVERSIGHTTYPE] SET [ovs_name] = CONCAT(ovs_oversighttypenameenglish, '::', ovs_oversighttypenamefrench);
+
+
 END
 
 
@@ -1101,7 +1096,7 @@ BEGIN
 	FROM
 	(
 		 SELECT newid() bookableresourceid, SYSUSER.systemuserid, CONCAT(SYSUSER.firstname, ' ', SYSUSER.lastname) name, domainname, RIN, BADGE--, SYSUSER.isdisabled, SYSUSER.islicensed, SYSUSER.issyncwithdirectory, SYSUSER.territoryid
-		 FROM [dbo].systemuser SYSUSER 
+		 FROM [dbo].tdgdata__systemuser SYSUSER 
 		 JOIN [16_IIS_INSPECTORS] INSP ON 
 		 lower(TRIM(INSP.Account_name)) = lower(TRIM(SYSUSER.domainname))
 	) T
@@ -1151,5 +1146,5 @@ END
 
 --WAIT UNTIL BOOKABLE RESOURCES ARE SYNCED WITH CRM
 SELECT fullname, domainname FROM [dbo].[12_BOOKABLE_RESOURCE] BR
-JOIN [dbo].bookableresource CRMBR ON BR.bookableresourceid = CRMBR.bookableresourceid
-JOIN [dbo].[systemuser] SYSUSER ON BR.userid = SYSUSER.systemuserid 
+JOIN [dbo].tdgdata__bookableresource CRMBR ON BR.bookableresourceid = CRMBR.bookableresourceid
+JOIN [dbo].tdgdata__systemuser SYSUSER ON BR.userid = SYSUSER.systemuserid 

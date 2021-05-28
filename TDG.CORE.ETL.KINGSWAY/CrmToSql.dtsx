@@ -12,10 +12,34 @@
   DTS:ObjectName="CrmToSql"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="32"
-  DTS:VersionGUID="{B676221B-1207-413D-A02A-71C0928C78BE}">
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{58206A7F-4526-4804-B57B-625C0C6F1483}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+      DTS:CreationName="DynamicsCRM"
+      DTS:DTSID="{EFE127EA-6754-4B2E-9AD4-F82158575E45}"
+      DTS:ObjectName="Dynamics CRM Connection Manager">
+      <DTS:ObjectData>
+        <CrmConnectionManager
+          ConnectionString="AuthenticationType=OnlineFederation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev-tcd365.crm3.dynamics.com;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
+          ConnectByProxy="False">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="QJzyfoR9ljY="
+            IV="2Cn8wamZUw6Q+pi2BPaURg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+            <CipherData>
+              <CipherValue>2Cn8wamZUw6Q+pi2BPaURhxWUxpQUZtmb5VQMn/O7FEIuL+xm1IrIbTUh9NLGnveSMfvN1nbYKlluoh/7WVX9sBEnmCuf/vGZ99epwa3kq64S22Snfn3um5cNUtIoKzaupiCjcwCpR9WSzeoGZbw3A==</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </CrmConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -86,8 +110,8 @@
               <connections>
                 <connection
                   refId="Package\accounts\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
+                  connectionManagerRefId="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -3804,8 +3828,8 @@
               <connections>
                 <connection
                   refId="Package\accounts\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="{59FFB8AA-FFB9-4D6B-9FB9-7A96C27DEE5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerID="{59FFB8AA-FFB9-4D6B-9FB9-7A96C27DEE5F}:invalid"
+                  connectionManagerRefId="{59FFB8AA-FFB9-4D6B-9FB9-7A96C27DEE5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5481,8 +5505,8 @@
               <connections>
                 <connection
                   refId="Package\bookable resource\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
+                  connectionManagerRefId="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -9531,8 +9555,8 @@
               <connections>
                 <connection
                   refId="Package\bookable resource categories\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
+                  connectionManagerRefId="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -11234,8 +11258,8 @@
               <connections>
                 <connection
                   refId="Package\bookable resource categories assn\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
+                  connectionManagerRefId="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -13058,8 +13082,8 @@
               <connections>
                 <connection
                   refId="Package\contact\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
+                  connectionManagerRefId="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -24726,8 +24750,8 @@
               <connections>
                 <connection
                   refId="Package\fiscal quarter\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
+                  connectionManagerRefId="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -27045,8 +27069,8 @@
               <connections>
                 <connection
                   refId="Package\fiscal years\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
+                  connectionManagerRefId="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -29365,8 +29389,8 @@
               <connections>
                 <connection
                   refId="Package\system users\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
+                  connectionManagerRefId="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -36513,8 +36537,8 @@
               <connections>
                 <connection
                   refId="Package\work orders\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
+                  connectionManagerRefId="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -39226,8 +39250,8 @@
               <connections>
                 <connection
                   refId="Package\work orders\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="{59FFB8AA-FFB9-4D6B-9FB9-7A96C27DEE5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerID="{59FFB8AA-FFB9-4D6B-9FB9-7A96C27DEE5F}:invalid"
+                  connectionManagerRefId="{59FFB8AA-FFB9-4D6B-9FB9-7A96C27DEE5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>

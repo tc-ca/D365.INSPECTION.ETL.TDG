@@ -12,8 +12,8 @@
   DTS:ObjectName="ExcelToSql"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{0811B308-BB1C-4D57-9172-18CE3B191042}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{D55E31F9-FE26-4B41-AFD9-F008F6CC85C0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,12 +27,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-Package3-{7ED8F26D-FB1F-45D7-8B1A-483B25F5FF52}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="s7yYCKiQzb8="
-            IV="8/QQCR/6tjuQkjvldqy0sA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="XJspMFiDc2I="
+            IV="7pjfqXs4ALpb2LcCEUFwGw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>8/QQCR/6tjuQkjvldqy0sPICK1337DW67DnhzIHwpV+0STHDmydTL203KJxvc9NokMkItnE82/o6VVq/cGuOvx2kR4mpckJcQFAiDE3vQtgrIKuim2RKyvWuKXJ3irkG2QOPb5+s5UNFwgdckLUtI/rgi7AEW6p1QaAyNlJACwUGN/jhD0B3QL+PajNzeYlx</CipherValue>
+              <CipherValue>7pjfqXs4ALpb2LcCEUFwG/gOAima2venDbb36CeVKu5U7E+wINR3JdxDht7wkQZ/tTraBiZKHfho91FoZbbe2nm581jIkGhv5GqtusuqSFf2R9+boEfbe8JxDVT0V0FFrmhh/YwbwJzHewYr3a1ITqWhs4mG69lV5eyupd2urjNv3LyVc+/8Kb/Fxqg++Es/</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -48,12 +48,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-Package3-{45093E3D-2E74-4987-A606-797F71448B41}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="I+nI3tiXYhQ="
-            IV="9lwk+zDRyyHOnKbpyeN2Kw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="4a51ykYygy0="
+            IV="XKXJVnLbapG5eOZj/owy0Q==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>9lwk+zDRyyHOnKbpyeN2Kz+5dP5QlBR+F/9E+1Crr0RwDUnmUacODftrIGftp8Yget1AUieN7ToW7D/Uq7MO8ZEFeT7TViAqwDtv7Uv6oxX2i8Rd5RoKWkD2/E2819SEPP1v8o5MKeYmus1k/wRRAwx/h99wl1N891R7nvuZI03siSVILFFsMsSMnoYeTFEY</CipherValue>
+              <CipherValue>XKXJVnLbapG5eOZj/owy0WXLhk5exET3DOwQB1mMkJgMD5Gyj7AJNAiinR6+biG3jZnDMLKswxaxWP/IhB8EkFm6lyIaZ68jd7Lu8Bk8ynX6uUBIOFO1ZzERPk6kZ39YlDjzT4VNCAz/lQfT6UvjmO4R3ajVb3U4qxjzyC/LSgIsx42xoOp7si96NOOpn4rH</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -69,12 +69,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-Package3-{A9EC53B8-E514-4CE4-9402-92B500170879}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="LteA+iYSuYA="
-            IV="byRDX7SN4FtAqD6s7ECCcA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="HMbpZ8aYeZI="
+            IV="62IAzP1jXUP3Zhsvzs66Nw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>byRDX7SN4FtAqD6s7ECCcLqsKgnFwSIBwbOyZkAaVM7wLOELnrgYYufSOY8y7n9xxmkJjSINHd3tE9GBgDbivV1T1LnBmJY410UC4ROSzdw8hMqpYqKOz0JW/n0YUKeO3UPedzkY14dzid+PvWnCWDBQhQUrOtXHwwrHpWutpXorR2ZcYc/TFjwoZ97S032b</CipherValue>
+              <CipherValue>62IAzP1jXUP3Zhsvzs66N+tRcu3Qhs5MLKYWhWrX5r60sfqxqY8r/ZdvNTIbIXoziGtIdI9LK70yolEtl6+13fs7z1Ddcy2s5xeHf947pukqVsX3zpnkRO+afL2zfufD+TCHVI61vf/CDllFSITkJV6xl6p3HVlmD+Eva1yd8y32sGXHEbwaNz8E54gr9uVJ</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -87,6 +87,7 @@
       DTS:refId="Package\19-20 WORKPLAN"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{5C5F7C55-79D7-416B-BDB8-549E6152B125}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -7236,6 +7237,7 @@
       DTS:refId="Package\19-20 WORKPLAN 1"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{02B67C82-4614-464A-8C74-D79677614F3A}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -14095,6 +14097,7 @@
       DTS:refId="Package\20-21 WORKPLAN"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{877F572A-EDCA-4430-A0AA-3F4355C9D513}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -21507,6 +21510,7 @@
       DTS:refId="Package\21-22 WORKPLAN"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{9ABBED54-FFB6-4C5E-B1D2-1D037D57BAE7}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -30619,9 +30623,660 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Delete Legislation Excel Data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{514a4064-84a3-4554-b80b-b4fe0135bd8e}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete Legislation Excel Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Insert, Update, Upsert, and Delete data over an ADO.NET connection."
+              name="Premium ADO NET Destination 1"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DestinationTable">dbo.26_TDGLegislation</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="Action"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationAction">3</property>
+                <property
+                  dataType="System.Int32"
+                  description="WriteMode"
+                  expressionType="Notify"
+                  name="WriteMode"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationWriteMode">2</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Int32"
+                  description="BatchSize"
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how to handle duplicates in the temp table before merging. Only applies to non INSERT bulk operations."
+                  expressionType="Notify"
+                  name="DuplicateHandling"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationDuplicateHandling">0</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="FirstMatchOnly">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When enabled, will not overwrite existing values with NULL values during update/upsert operations."
+                  expressionType="Notify"
+                  name="PreventNullOverwrites">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="TransactionIsolationLevel"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionIsolationLevel">0</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PreCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PostCommand"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetDestinationComponent</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies to create a table in tempdb rather than a local temporary table when performing certain bulk operations."
+                  name="UsePermanentTemporaryTable">true</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Connections[ADO NET]"
+                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db 3]"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Primary Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[(Do Not Modify) Legislation]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="(Do Not Modify) Legislation"
+                      externalMetadataColumnId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[(Do Not Modify) Legislation]"
+                      lineageId="Package\Delete Legislation Excel Data\Premium ADO NET Source.Outputs[Default Output].Columns[(Do Not Modify) Legislation]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[(Do Not Modify) Legislation]"
+                      dataType="wstr"
+                      length="4000"
+                      name="(Do Not Modify) Legislation">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[(Do Not Modify) Modified On]"
+                      dataType="wstr"
+                      length="4000"
+                      name="(Do Not Modify) Modified On">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[(Do Not Modify) Row Checksum]"
+                      dataType="wstr"
+                      length="4000"
+                      name="(Do Not Modify) Row Checksum">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[Enabling Act]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Enabling Act">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[Enabling Regulation]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Enabling Regulation">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[English Text]"
+                      dataType="wstr"
+                      length="4000"
+                      name="English Text">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[French Text]"
+                      dataType="wstr"
+                      length="4000"
+                      name="French Text">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[Label]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Label">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[Legislation Source]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Legislation Source">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[Legislation Type]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Legislation Type">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Name">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[Order]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Order">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[Parent Legislation]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Parent Legislation">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[Violation Display Text EN]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Violation Display Text EN">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[Violation Display Text FR]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Violation Display Text FR">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[Violation Text]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Violation Text">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Outputs[Error Output]"
+                  isErrorOut="true"
+                  name="Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                    <outputColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Outputs[Error Output].Columns[(Do Not Modify) Legislation]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[(Do Not Modify) Legislation]"
+                      length="4000"
+                      lineageId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Outputs[Error Output].Columns[(Do Not Modify) Legislation]"
+                      name="(Do Not Modify) Legislation" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Outputs[Default Output].Columns[(Do Not Modify) Legislation]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[(Do Not Modify) Legislation]"
+                      length="4000"
+                      lineageId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Outputs[Default Output].Columns[(Do Not Modify) Legislation]"
+                      name="(Do Not Modify) Legislation" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Outputs[Bulk Reporting Output - Deleted Records]"
+                  name="Bulk Reporting Output - Deleted Records">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Outputs[Bulk Reporting Output - Deleted Records].Columns[(Do Not Modify) Legislation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4000"
+                      lineageId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Outputs[Bulk Reporting Output - Deleted Records].Columns[(Do Not Modify) Legislation]"
+                      name="(Do Not Modify) Legislation"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Delete Legislation Excel Data\Premium ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Read data from an ADO.NET connection."
+              name="Premium ADO NET Source"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DataSource">&lt;&lt;Custom Command&gt;&gt;</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="Command">SELECT [(Do Not Modify) Legislation]
+FROM [dbo].[26_TDGLegislation];</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="PrepareCommand">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetSourceComponent</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Delete Legislation Excel Data\Premium ADO NET Source.Connections[ADO NET]"
+                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Delete Legislation Excel Data\Premium ADO NET Source.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Source.Outputs[Default Output].Columns[(Do Not Modify) Legislation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Legislation Excel Data\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[(Do Not Modify) Legislation]"
+                      length="4000"
+                      lineageId="Package\Delete Legislation Excel Data\Premium ADO NET Source.Outputs[Default Output].Columns[(Do Not Modify) Legislation]"
+                      name="(Do Not Modify) Legislation"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Delete Legislation Excel Data\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[(Do Not Modify) Legislation]"
+                      dataType="wstr"
+                      length="4000"
+                      name="(Do Not Modify) Legislation" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Delete Legislation Excel Data.Paths[Default Output]"
+              endId="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1.Inputs[Primary Input]"
+              name="Default Output"
+              startId="Package\Delete Legislation Excel Data\Premium ADO NET Source.Outputs[Default Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\IIS CONSOLIDATION"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{A2A2B942-A1FE-41E4-AA0C-89D2C71D0DAC}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -31969,9 +32624,1401 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Import Legislation Excel Data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{9b884b11-ea10-474e-afa5-b83d46b0da05}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import Legislation Excel Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Import Legislation Excel Data\Premium ADO NET Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Insert, Update, Upsert, and Delete data over an ADO.NET connection."
+              name="Premium ADO NET Destination"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DestinationTable">dbo.26_TDGLegislation</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="Action"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationAction">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="WriteMode"
+                  expressionType="Notify"
+                  name="WriteMode"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationWriteMode">2</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Int32"
+                  description="BatchSize"
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how to handle duplicates in the temp table before merging. Only applies to non INSERT bulk operations."
+                  expressionType="Notify"
+                  name="DuplicateHandling"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationDuplicateHandling">0</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="FirstMatchOnly">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When enabled, will not overwrite existing values with NULL values during update/upsert operations."
+                  expressionType="Notify"
+                  name="PreventNullOverwrites">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="TransactionIsolationLevel"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionIsolationLevel">0</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PreCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PostCommand"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetDestinationComponent</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies to create a table in tempdb rather than a local temporary table when performing certain bulk operations."
+                  name="UsePermanentTemporaryTable">true</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Connections[ADO NET]"
+                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Primary Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].Columns[(Do Not Modify) Legislation]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="(Do Not Modify) Legislation"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[(Do Not Modify) Legislation]"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[(Do Not Modify) Legislation]" />
+                    <inputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].Columns[(Do Not Modify) Modified On]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="(Do Not Modify) Modified On"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[(Do Not Modify) Modified On]"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[(Do Not Modify) Modified On]" />
+                    <inputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].Columns[(Do Not Modify) Row Checksum]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="(Do Not Modify) Row Checksum"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[(Do Not Modify) Row Checksum]"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[(Do Not Modify) Row Checksum]" />
+                    <inputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].Columns[Enabling Act]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Enabling Act"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Enabling Act]"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Enabling Act]" />
+                    <inputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].Columns[Enabling Regulation]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Enabling Regulation"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Enabling Regulation]"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Enabling Regulation]" />
+                    <inputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].Columns[English Text]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="English Text"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[English Text]"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[English Text]" />
+                    <inputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].Columns[French Text]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="French Text"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[French Text]"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[French Text]" />
+                    <inputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].Columns[Label]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Label"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Label]"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Label]" />
+                    <inputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].Columns[Legislation Source]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Legislation Source"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Legislation Source]"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Legislation Source]" />
+                    <inputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].Columns[Legislation Type]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Legislation Type"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Legislation Type]"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Legislation Type]" />
+                    <inputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Name]"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].Columns[Order]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Order"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Order]"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Order]" />
+                    <inputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].Columns[Parent Legislation]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Parent Legislation"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Parent Legislation]"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Parent Legislation]" />
+                    <inputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].Columns[Violation Display Text EN]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Violation Display Text EN"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Violation Display Text EN]"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Violation Display Text EN]" />
+                    <inputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].Columns[Violation Display Text FR]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Violation Display Text FR"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Violation Display Text FR]"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Violation Display Text FR]" />
+                    <inputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].Columns[Violation Text]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Violation Text"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Violation Text]"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Violation Text]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[(Do Not Modify) Legislation]"
+                      dataType="wstr"
+                      length="4000"
+                      name="(Do Not Modify) Legislation">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[(Do Not Modify) Modified On]"
+                      dataType="wstr"
+                      length="4000"
+                      name="(Do Not Modify) Modified On">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[(Do Not Modify) Row Checksum]"
+                      dataType="wstr"
+                      length="4000"
+                      name="(Do Not Modify) Row Checksum">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Enabling Act]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Enabling Act">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Enabling Regulation]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Enabling Regulation">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[English Text]"
+                      dataType="wstr"
+                      length="4000"
+                      name="English Text">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[French Text]"
+                      dataType="wstr"
+                      length="4000"
+                      name="French Text">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Label]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Label">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Legislation Source]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Legislation Source">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Legislation Type]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Legislation Type">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Name">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Order]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Order">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Parent Legislation]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Parent Legislation">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Violation Display Text EN]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Violation Display Text EN">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Violation Display Text FR]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Violation Display Text FR">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Violation Text]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Violation Text">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output]"
+                  isErrorOut="true"
+                  name="Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[(Do Not Modify) Legislation]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[(Do Not Modify) Legislation]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[(Do Not Modify) Legislation]"
+                      name="(Do Not Modify) Legislation" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[(Do Not Modify) Modified On]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[(Do Not Modify) Modified On]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[(Do Not Modify) Modified On]"
+                      name="(Do Not Modify) Modified On" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[(Do Not Modify) Row Checksum]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[(Do Not Modify) Row Checksum]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[(Do Not Modify) Row Checksum]"
+                      name="(Do Not Modify) Row Checksum" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Enabling Act]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Enabling Act]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Enabling Act]"
+                      name="Enabling Act" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Enabling Regulation]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Enabling Regulation]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Enabling Regulation]"
+                      name="Enabling Regulation" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[English Text]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[English Text]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[English Text]"
+                      name="English Text" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[French Text]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[French Text]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[French Text]"
+                      name="French Text" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Label]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Label]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Label]"
+                      name="Label" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Legislation Source]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Legislation Source]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Legislation Source]"
+                      name="Legislation Source" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Legislation Type]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Legislation Type]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Legislation Type]"
+                      name="Legislation Type" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Name]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Name]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Order]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Order]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Order]"
+                      name="Order" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Parent Legislation]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Parent Legislation]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Parent Legislation]"
+                      name="Parent Legislation" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Violation Display Text EN]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Violation Display Text EN]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Violation Display Text EN]"
+                      name="Violation Display Text EN" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Violation Display Text FR]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Violation Display Text FR]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Violation Display Text FR]"
+                      name="Violation Display Text FR" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Violation Text]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Violation Text]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Error Output].Columns[Violation Text]"
+                      name="Violation Text" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[(Do Not Modify) Legislation]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[(Do Not Modify) Legislation]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[(Do Not Modify) Legislation]"
+                      name="(Do Not Modify) Legislation" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[(Do Not Modify) Modified On]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[(Do Not Modify) Modified On]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[(Do Not Modify) Modified On]"
+                      name="(Do Not Modify) Modified On" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[(Do Not Modify) Row Checksum]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[(Do Not Modify) Row Checksum]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[(Do Not Modify) Row Checksum]"
+                      name="(Do Not Modify) Row Checksum" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Enabling Act]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Enabling Act]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Enabling Act]"
+                      name="Enabling Act" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Enabling Regulation]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Enabling Regulation]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Enabling Regulation]"
+                      name="Enabling Regulation" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[English Text]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[English Text]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[English Text]"
+                      name="English Text" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[French Text]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[French Text]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[French Text]"
+                      name="French Text" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Label]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Label]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Label]"
+                      name="Label" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Legislation Source]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Legislation Source]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Legislation Source]"
+                      name="Legislation Source" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Legislation Type]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Legislation Type]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Legislation Type]"
+                      name="Legislation Type" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Name]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Name]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Order]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Order]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Order]"
+                      name="Order" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Parent Legislation]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Parent Legislation]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Parent Legislation]"
+                      name="Parent Legislation" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Violation Display Text EN]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Violation Display Text EN]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Violation Display Text EN]"
+                      name="Violation Display Text EN" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Violation Display Text FR]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Violation Display Text FR]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Violation Display Text FR]"
+                      name="Violation Display Text FR" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Violation Text]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Violation Text]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Default Output].Columns[Violation Text]"
+                      name="Violation Text" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records]"
+                  name="Bulk Reporting Output - Inserted Records">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[(Do Not Modify) Legislation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[(Do Not Modify) Legislation]"
+                      name="(Do Not Modify) Legislation"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import Legislation Excel Data\Premium Excel Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Extract data from Excel."
+              name="Premium Excel Source"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of the Worksheet to read from the Excel file."
+                  expressionType="Notify"
+                  name="WorkSheetName">Active Legislations</property>
+                <property
+                  dataType="System.String"
+                  description="The name of the range to read from the Excel file."
+                  expressionType="Notify"
+                  name="RangeName"></property>
+                <property
+                  dataType="System.String"
+                  description="Full path to the source file."
+                  expressionType="Notify"
+                  name="SourceFilePath">C:\Users\Aaron\Google Drive\Work\TDG Core\Source\D365.INSPECTION.ETL.TDG\TDG.CORE.ETL.RESOURCES\CLIENT_FILES\Legislation Clean-Up.xlsx</property>
+                <property
+                  dataType="System.String"
+                  description="Password to open the Excel file."
+                  expressionType="Notify"
+                  name="OpenPassword"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Start row number."
+                  expressionType="Notify"
+                  name="StartRow">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Number of rows to read."
+                  expressionType="Notify"
+                  name="NumberOfRows">-1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify if and where the column names are in the Excel file."
+                  expressionType="Notify"
+                  name="ColumnNamesLocation"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.ColumnNamesLocation">1</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.ExcelSourceComponent</property>
+                <property
+                  dataType="System.Int32"
+                  description="The 0-based index value of worksheet to read from the Excel file."
+                  expressionType="Notify"
+                  name="WorkSheetIndex">-1</property>
+              </properties>
+              <outputs>
+                <output
+                  refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[(Do Not Modify) Legislation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[(Do Not Modify) Legislation]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[(Do Not Modify) Legislation]"
+                      name="(Do Not Modify) Legislation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[(Do Not Modify) Row Checksum]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[(Do Not Modify) Row Checksum]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[(Do Not Modify) Row Checksum]"
+                      name="(Do Not Modify) Row Checksum"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[(Do Not Modify) Modified On]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[(Do Not Modify) Modified On]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[(Do Not Modify) Modified On]"
+                      name="(Do Not Modify) Modified On"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Name]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Legislation Source]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Legislation Source]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Legislation Source]"
+                      name="Legislation Source"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Parent Legislation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Parent Legislation]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Parent Legislation]"
+                      name="Parent Legislation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[English Text]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[English Text]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[English Text]"
+                      name="English Text"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Legislation Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Legislation Type]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Legislation Type]"
+                      name="Legislation Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Label]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Label]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Label]"
+                      name="Label"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Enabling Act]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Enabling Act]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Enabling Act]"
+                      name="Enabling Act"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Enabling Regulation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Enabling Regulation]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Enabling Regulation]"
+                      name="Enabling Regulation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Order]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Order]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Order]"
+                      name="Order"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[French Text]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[French Text]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[French Text]"
+                      name="French Text"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Violation Display Text EN]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Violation Display Text EN]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Violation Display Text EN]"
+                      name="Violation Display Text EN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Violation Display Text FR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Violation Display Text FR]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Violation Display Text FR]"
+                      name="Violation Display Text FR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Violation Text]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Violation Text]"
+                      length="4000"
+                      lineageId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].Columns[Violation Text]"
+                      name="Violation Text"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[(Do Not Modify) Legislation]"
+                      dataType="wstr"
+                      length="4000"
+                      name="(Do Not Modify) Legislation">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="OutputFormat"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IgnoreCastException"
+                          name="IgnoreCastException">false</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[(Do Not Modify) Row Checksum]"
+                      dataType="wstr"
+                      length="4000"
+                      name="(Do Not Modify) Row Checksum">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="OutputFormat"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IgnoreCastException"
+                          name="IgnoreCastException">false</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[(Do Not Modify) Modified On]"
+                      dataType="wstr"
+                      length="4000"
+                      name="(Do Not Modify) Modified On">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="OutputFormat"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IgnoreCastException"
+                          name="IgnoreCastException">false</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Name">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="OutputFormat"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IgnoreCastException"
+                          name="IgnoreCastException">false</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Legislation Source]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Legislation Source">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="OutputFormat"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IgnoreCastException"
+                          name="IgnoreCastException">false</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Parent Legislation]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Parent Legislation">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="OutputFormat"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IgnoreCastException"
+                          name="IgnoreCastException">false</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[English Text]"
+                      dataType="wstr"
+                      length="4000"
+                      name="English Text">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="OutputFormat"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IgnoreCastException"
+                          name="IgnoreCastException">false</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Legislation Type]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Legislation Type">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="OutputFormat"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IgnoreCastException"
+                          name="IgnoreCastException">false</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Label]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Label">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="OutputFormat"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IgnoreCastException"
+                          name="IgnoreCastException">false</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Enabling Act]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Enabling Act">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="OutputFormat"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IgnoreCastException"
+                          name="IgnoreCastException">false</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Enabling Regulation]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Enabling Regulation">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="OutputFormat"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IgnoreCastException"
+                          name="IgnoreCastException">false</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Order]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Order">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="OutputFormat"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IgnoreCastException"
+                          name="IgnoreCastException">false</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[French Text]"
+                      dataType="wstr"
+                      length="4000"
+                      name="French Text">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="OutputFormat"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IgnoreCastException"
+                          name="IgnoreCastException">false</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Violation Display Text EN]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Violation Display Text EN">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="OutputFormat"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IgnoreCastException"
+                          name="IgnoreCastException">false</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Violation Display Text FR]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Violation Display Text FR">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="OutputFormat"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IgnoreCastException"
+                          name="IgnoreCastException">false</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output].ExternalColumns[Violation Text]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Violation Text">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="OutputFormat"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IgnoreCastException"
+                          name="IgnoreCastException">false</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import Legislation Excel Data.Paths[Default Output]"
+              endId="Package\Import Legislation Excel Data\Premium ADO NET Destination.Inputs[Primary Input]"
+              name="Default Output"
+              startId="Package\Import Legislation Excel Data\Premium Excel Source.Outputs[Default Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\ProvisionMatches"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{4abba692-119b-454f-943f-930ac63a95e7}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -33066,6 +35113,7 @@
       DTS:refId="Package\TDGIIS_EXPORT"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{0B956244-5168-4033-BD23-CC764B2ABF04}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -36277,6 +38325,7 @@
       DTS:refId="Package\TDG_INSPECTORS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{D02A53C2-650B-4014-B9AD-AABB3671F616}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -37124,6 +39173,16 @@
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{181C2210-5F1F-4E8D-845A-5DEBDC65EDA6}"
+      DTS:From="Package\Delete Legislation Excel Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Import Legislation Excel Data" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -37135,7 +39194,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="164,42"
           Id="Package\19-20 WORKPLAN"
@@ -37157,6 +39216,10 @@
           Id="Package\IIS CONSOLIDATION"
           TopLeft="437,136" />
         <NodeLayout
+          Size="166,42"
+          Id="Package\ProvisionMatches"
+          TopLeft="435,343" />
+        <NodeLayout
           Size="167,42"
           Id="Package\TDG_INSPECTORS"
           TopLeft="745.5,130.5" />
@@ -37165,9 +39228,35 @@
           Id="Package\TDGIIS_EXPORT"
           TopLeft="1027.5,128.5" />
         <NodeLayout
-          Size="166,42"
-          Id="Package\ProvisionMatches"
-          TopLeft="435,343" />
+          Size="223,42"
+          Id="Package\Delete Legislation Excel Data"
+          TopLeft="1665,119" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\Import Legislation Excel Data"
+          TopLeft="1664,222.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="1775.75,161">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.5"
+              Start="0,0"
+              End="0,54">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -37295,7 +39384,7 @@
     design-time-name="Package\21-22 WORKPLAN">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="184,42"
           Id="Package\21-22 WORKPLAN\Premium Excel Source"
@@ -37323,9 +39412,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -37358,6 +39445,46 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,101" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\ProvisionMatches">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="233,42"
+          Id="Package\ProvisionMatches\Premium ADO NET Destination"
+          TopLeft="681,318" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\ProvisionMatches\TDG Inspectors"
+          TopLeft="718.5,166.5" />
+        <EdgeLayout
+          Id="Package\ProvisionMatches.Paths[Default Output]"
+          TopLeft="796,208.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,109.5"
+              Start="0,0"
+              End="0,102">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,102" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -37452,32 +39579,70 @@
     </LayoutInfo>
   </TaskHost>
   <TaskHost
-    design-time-name="Package\ProvisionMatches">
+    design-time-name="Package\Delete Legislation Excel Data">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="233,42"
-          Id="Package\ProvisionMatches\Premium ADO NET Destination"
-          TopLeft="681,318" />
+          Size="242,42"
+          Id="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1"
+          TopLeft="511,528" />
         <NodeLayout
-          Size="152,42"
-          Id="Package\ProvisionMatches\TDG Inspectors"
-          TopLeft="718.5,166.5" />
+          Size="213,42"
+          Id="Package\Delete Legislation Excel Data\Premium ADO NET Source"
+          TopLeft="522,346" />
         <EdgeLayout
-          Id="Package\ProvisionMatches.Paths[Default Output]"
-          TopLeft="796,208.5">
+          Id="Package\Delete Legislation Excel Data.Paths[Default Output]"
+          TopLeft="630.25,388">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,109.5"
+              EndConnector="0,140"
               Start="0,0"
-              End="0,102">
+              End="0,132.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,102" />
+                    End="0,132.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Import Legislation Excel Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Import Legislation Excel Data\Premium Excel Source"
+          TopLeft="859.5,343.5" />
+        <NodeLayout
+          Size="233,42"
+          Id="Package\Import Legislation Excel Data\Premium ADO NET Destination"
+          TopLeft="844,530" />
+        <EdgeLayout
+          Id="Package\Import Legislation Excel Data.Paths[Default Output]"
+          TopLeft="957.75,385.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,144.5"
+              Start="0,0"
+              End="0,137">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,137" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

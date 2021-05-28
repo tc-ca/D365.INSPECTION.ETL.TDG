@@ -1,0 +1,2972 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/28/2021 1:57:50 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="NCRNBH803696"
+  DTS:CreatorName="TC\LEBLAAA"
+  DTS:DTSID="{18299BB3-7298-4E46-B76F-565DB2E3627D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="SyncMobileOfflineProfiles"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="262"
+  DTS:VersionGUID="{791428DD-6F26-4C1E-9476-60A4252B48B2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CRM DEV]"
+      DTS:CreationName="DynamicsCRM"
+      DTS:DTSID="{CAADEBFE-1270-4E1A-B871-AEB2931E220F}"
+      DTS:ObjectName="CRM DEV">
+      <DTS:ObjectData>
+        <CrmConnectionManager
+          ConnectionString="AuthenticationType=OnlineFederation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev-tcd365.api.crm3.dynamics.com/XRMServices/2011/Organization.svc;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
+          ConnectByProxy="False">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="yGu7xRXBcJA="
+            IV="EqUM7RUUDIpZRqCT86Z/jQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+            <CipherData>
+              <CipherValue>EqUM7RUUDIpZRqCT86Z/jTrJXu0yn4Xinyr2RZFpzVog5gaKRXbC5r3BLySMjMsNbHcgrbfnbjpHwTc8IIuJGWTySEv5HeWxc1xkiuaU6Xa5XX4j3XoVuLOc8kv5tc5gg2oQuS3D1hfOFJ3HrpsQVQ==</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </CrmConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[tdg-data-migration-db]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6D70F8F2-9A63-43A1-9076-A2445C7F32A7}"
+      DTS:ObjectName="tdg-data-migration-db">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Provider=SQLNCLI11.1;Persist Security Info=True;Connect Timeout=0;General Timeout=0;Auto Translate=False;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="Ekv3l17AFuI="
+            IV="SGvVECfvyTUJ4OD41SKWdA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+            <CipherData>
+              <CipherValue>SGvVECfvyTUJ4OD41SKWdJsbVVA+/pn1FetvtwcLKpNKtjpdPLFezpwtzL1mrC4uiGIBBlMZOwDAsbWGeVnJwO+uQ2t3vjWLtI+h7t7WaPPHZDiwRQdKFsiwbzUWdF++CxiCpuInNzGRqh0fd/Ze6SBEVPob6MpekcqP7dUlqA0xtY2ChDoSwsMTwcoGe7FJ</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[tdg-data-migration-server.database.windows.net.tdg-data-migration-db.tdgcore]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{C2BD39FA-C3C8-4838-923C-6174268B500A}"
+      DTS:ObjectName="tdg-data-migration-server.database.windows.net.tdg-data-migration-db.tdgcore">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-SqlToCrm-{C2BD39FA-C3C8-4838-923C-6174268B500A}tdg-data-migration-server.database.windows.net.tdg-data-migration-db.tdgco;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="W3EQWZBniQM="
+            IV="Wdt41BjzwI0Rs0RHwUiwSA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+            <CipherData>
+              <CipherValue>Wdt41BjzwI0Rs0RHwUiwSENdYARuMHlYvzKNzN8TKN+OZHseUivq7cwGysxQvq62TulFWxvQl+hJZzB4y9PWkmCHfl0cOYbrPHjeFUG5et3rTecHCVHYHgFf3zUPSwczWGNYNAO++tnVQ+nWr6RnyObU5Z4+KMyVvG2txMVfcJZO3IdMVfchR7UawUl1tDLk</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{343DD7C1-D82A-465C-BA6B-C8A8A3031B78}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="conact_accout_skip">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3719D0FF-2FFA-476B-8365-DB6F9A07C924}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="contact_account_error">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E1C99517-ADCC-45EB-AF75-36E9E28111A6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="EnvErrors">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7AC058DF-162A-4DC9-AB26-F6CC573620D5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="EnvSkipped">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B0ED50BA-2E6D-4015-95B3-AB9658CEF65C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="SiteSkippedRecords">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E7EDCE66-039D-49CA-88B1-AA696361EAE2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Skip5">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CC0EFC14-13A4-4123-8D12-D37DCA0A15FC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="skip6">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F2E4461F-0435-4A1D-A6B2-37EEBC2C21B3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Skip6">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AE33E4EA-56F1-4CA0-801C-10F062C3AEAE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="SkipRecords2">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B55EC8E6-01A9-46E6-A860-A2352A2761B4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="SkipRecords3">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E7691039-F308-4612-970B-24510B57C500}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="SkipRecords4">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A225345B-AB7C-4ED7-81CD-512131AEF207}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Delete Mobile Offline Profiles"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{4E8C7DE5-A315-4CC3-8CD0-8386C599C53D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete Mobile Offline Profiles"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Delete Mobile Offline Profiles\DEV Dest"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Populate data into Microsoft Dynamics 365 CE/CRM."
+              name="DEV Dest"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Destination entity to write data."
+                  expressionType="Notify"
+                  name="DestinationEntity">mobileofflineprofile</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how data is written to CDS/Dynamics CRM server."
+                  name="ActionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">4</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the values of CDS/CRM lookup fields should be removed if the reference records cannot be found. "
+                  expressionType="Notify"
+                  name="RemoveUnresolvableReferences">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
+                  expressionType="Notify"
+                  name="EnableSystemDuplicateDetection">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
+                  expressionType="Notify"
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
+                  expressionType="Notify"
+                  name="RecordMatchingKeyFields"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those NULL-valued fields."
+                  expressionType="Notify"
+                  name="IgnoreNullValuedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those fields that have no value changes in the target system. "
+                  expressionType="Notify"
+                  name="IgnoreUnchangedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to remove those invalid characters before writing to CDS/CRM."
+                  expressionType="Notify"
+                  name="RemoveInvalidCharacters">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the flag field(s) that are used to track the source of changes. The field(s) will not posted to CDS/CRM server unless there are changes to other fields if specified. &quot;Ignore Unchange Fields&quot; option is required in order for the specified flag field(s) to work. "
+                  expressionType="Notify"
+                  name="ChangeFlagFields"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies what action will be taken when multiple matches are found with Upsert action."
+                  expressionType="Notify"
+                  name="HandlingOfMultipleMatches"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify whether to use optimizations when there are duplicate records form the source system."
+                  expressionType="Notify"
+                  name="OptimizationOnSourceDuplicates"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
+                <property
+                  dataType="System.String"
+                  description="Workflow or action to be executed."
+                  expressionType="Notify"
+                  name="WorkflowAction"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of records to be sent to CDS/Dynamics CRM server in each service call."
+                  expressionType="Notify"
+                  name="BatchSize">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the total number or concurrent threads to write to CDS/CRM server simultaneously. "
+                  expressionType="Notify"
+                  name="ConcurrentWritingThreadsInTotal">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether datetime values should be sent to CDS/CRM server in UTC format."
+                  expressionType="Notify"
+                  name="SendDateTimeInUtcFormat">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Delete Mobile Offline Profiles\DEV Dest.Connections[DynamicsCRM]"
+                  connectionManagerID="Package.ConnectionManagers[CRM DEV]"
+                  connectionManagerRefId="Package.ConnectionManagers[CRM DEV]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Delete Mobile Offline Profiles\DEV Dest.Inputs[Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="RedirectRow"
+                  hasSideEffects="true"
+                  name="Input">
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Dest.Inputs[Input].ExternalColumns[mobileofflineprofileid]"
+                      dataType="guid"
+                      name="mobileofflineprofileid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">mobileofflineprofile</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Delete Mobile Offline Profiles\DEV Dest.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\Delete Mobile Offline Profiles\DEV Dest.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Skipped Rows]"
+                  exclusionGroup="1"
+                  name="Skipped Rows"
+                  synchronousInputId="Package\Delete Mobile Offline Profiles\DEV Dest.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Skipped Rows].Columns[SkipReasonMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Skipped Rows].Columns[SkipReasonMessage]"
+                      name="SkipReasonMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Delete Mobile Offline Profiles\DEV Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Extract data from Microsoft Dynamics 365 CE/CRM."
+              name="DEV Source"
+              usesDispositions="true"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of source data from Microsoft Dynamics CRM."
+                  expressionType="Notify"
+                  name="SourceType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceType">0</property>
+                <property
+                  dataType="System.String"
+                  description="Dynamics CRM entity to retrieve data from."
+                  expressionType="Notify"
+                  name="SourceEntity">mobileofflineprofileitemassociation</property>
+                <property
+                  dataType="System.String"
+                  description="FetchXML statement."
+                  expressionType="Notify"
+                  name="FetchXML"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the batch size of the query."
+                  expressionType="Notify"
+                  name="BatchSize">2000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the maximum number of rows to be returned from the Dynamics 365/CRM server (Specify 0 to read all satisfying records)."
+                  expressionType="Notify"
+                  name="MaxRowsReturned">0</property>
+                <property
+                  dataType="System.Null"
+                  description="The caller to be used for CRM impersonation when reading from CRM server."
+                  expressionType="Notify"
+                  name="ImpersonateAs" />
+                <property
+                  dataType="System.Null"
+                  description="Specifies the output timezone for CRM datetime fields."
+                  expressionType="Notify"
+                  name="OutputTimezone"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceOutputTimezone" />
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Delete Mobile Offline Profiles\DEV Source.Connections[DynamicsCRM]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CRM QA]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output]"
+                  name="Primary Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[componentstate]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[componentstate]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[componentstate]"
+                      name="componentstate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[createdby]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[createdby]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[createdby]"
+                      name="createdby"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[createdbyname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[createdbyname]"
+                      length="200"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[createdbyname]"
+                      name="createdbyname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[createdbyyominame]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[createdbyyominame]"
+                      length="200"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[createdbyyominame]"
+                      name="createdbyyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[createdon]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[createdon]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[createdon]"
+                      name="createdon"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[createdonbehalfby]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[createdonbehalfby]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[createdonbehalfby]"
+                      name="createdonbehalfby"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[createdonbehalfbyname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyname]"
+                      length="200"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[createdonbehalfbyname]"
+                      name="createdonbehalfbyname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[createdonbehalfbyyominame]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyyominame]"
+                      length="200"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[createdonbehalfbyyominame]"
+                      name="createdonbehalfbyyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[introducedversion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[introducedversion]"
+                      length="48"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[introducedversion]"
+                      name="introducedversion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[ismanaged]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[ismanaged]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[ismanaged]"
+                      name="ismanaged"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[isvalidated]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[isvalidated]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[isvalidated]"
+                      name="isvalidated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[isvalidatedname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[isvalidatedname]"
+                      length="255"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[isvalidatedname]"
+                      name="isvalidatedname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[mobileofflineprofileitemassociationid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[mobileofflineprofileitemassociationid]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[mobileofflineprofileitemassociationid]"
+                      name="mobileofflineprofileitemassociationid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[mobileofflineprofileitemassociationidunique]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[mobileofflineprofileitemassociationidunique]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[mobileofflineprofileitemassociationidunique]"
+                      name="mobileofflineprofileitemassociationidunique"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[mobileofflineprofileitemid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[mobileofflineprofileitemid]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[mobileofflineprofileitemid]"
+                      name="mobileofflineprofileitemid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[mobileofflineprofileitemidname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[mobileofflineprofileitemidname]"
+                      length="255"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[mobileofflineprofileitemidname]"
+                      name="mobileofflineprofileitemidname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[modifiedby]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[modifiedby]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[modifiedby]"
+                      name="modifiedby"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[modifiedbyname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[modifiedbyname]"
+                      length="200"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[modifiedbyname]"
+                      name="modifiedbyname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[modifiedbyyominame]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[modifiedbyyominame]"
+                      length="200"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[modifiedbyyominame]"
+                      name="modifiedbyyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[modifiedon]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[modifiedon]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[modifiedon]"
+                      name="modifiedon"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[modifiedonbehalfby]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfby]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[modifiedonbehalfby]"
+                      name="modifiedonbehalfby"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[modifiedonbehalfbyname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyname]"
+                      length="200"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[modifiedonbehalfbyname]"
+                      name="modifiedonbehalfbyname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[modifiedonbehalfbyyominame]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyyominame]"
+                      length="200"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[modifiedonbehalfbyyominame]"
+                      name="modifiedonbehalfbyyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[name]"
+                      length="200"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[name]"
+                      name="name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[organizationid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[organizationid]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[organizationid]"
+                      name="organizationid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[organizationidname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[organizationidname]"
+                      length="160"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[organizationidname]"
+                      name="organizationidname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[overwritetime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[overwritetime]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[overwritetime]"
+                      name="overwritetime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[processid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[processid]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[processid]"
+                      name="processid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[profileitemassociationentityfilter]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[profileitemassociationentityfilter]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[profileitemassociationentityfilter]"
+                      name="profileitemassociationentityfilter"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[publishedon]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[publishedon]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[publishedon]"
+                      name="publishedon"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[relationshipdata]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[relationshipdata]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[relationshipdata]"
+                      name="relationshipdata"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[relationshipdisplayname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[relationshipdisplayname]"
+                      length="200"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[relationshipdisplayname]"
+                      name="relationshipdisplayname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[relationshipid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[relationshipid]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[relationshipid]"
+                      name="relationshipid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[relationshipname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[relationshipname]"
+                      length="200"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[relationshipname]"
+                      name="relationshipname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[selectedrelationshipsschema]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[selectedrelationshipsschema]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[selectedrelationshipsschema]"
+                      name="selectedrelationshipsschema"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[selectedrelationshipsschemaname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[selectedrelationshipsschemaname]"
+                      length="255"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[selectedrelationshipsschemaname]"
+                      name="selectedrelationshipsschemaname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[solutionid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[solutionid]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[solutionid]"
+                      name="solutionid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[stageid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[stageid]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[stageid]"
+                      name="stageid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[traversedpath]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[traversedpath]"
+                      length="1250"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[traversedpath]"
+                      name="traversedpath"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[versionnumber]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[versionnumber]"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].Columns[versionnumber]"
+                      name="versionnumber"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[componentstate]"
+                      dataType="i4"
+                      name="componentstate" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[createdby]"
+                      dataType="guid"
+                      name="createdby" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[createdbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdbyname" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[createdbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[createdon]"
+                      dataType="dbTimeStamp"
+                      name="createdon" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[createdonbehalfby]"
+                      dataType="guid"
+                      name="createdonbehalfby" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdonbehalfbyname" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdonbehalfbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[introducedversion]"
+                      dataType="wstr"
+                      length="48"
+                      name="introducedversion" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[ismanaged]"
+                      dataType="bool"
+                      name="ismanaged" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[isvalidated]"
+                      dataType="bool"
+                      name="isvalidated" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[isvalidatedname]"
+                      dataType="wstr"
+                      length="255"
+                      name="isvalidatedname" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[mobileofflineprofileitemassociationid]"
+                      dataType="guid"
+                      name="mobileofflineprofileitemassociationid" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[mobileofflineprofileitemassociationidunique]"
+                      dataType="guid"
+                      name="mobileofflineprofileitemassociationidunique" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[mobileofflineprofileitemid]"
+                      dataType="guid"
+                      name="mobileofflineprofileitemid" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[mobileofflineprofileitemidname]"
+                      dataType="wstr"
+                      length="255"
+                      name="mobileofflineprofileitemidname" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[modifiedby]"
+                      dataType="guid"
+                      name="modifiedby" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[modifiedbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedbyname" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[modifiedbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[modifiedon]"
+                      dataType="dbTimeStamp"
+                      name="modifiedon" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfby]"
+                      dataType="guid"
+                      name="modifiedonbehalfby" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedonbehalfbyname" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedonbehalfbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="200"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[organizationid]"
+                      dataType="guid"
+                      name="organizationid" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[organizationidname]"
+                      dataType="wstr"
+                      length="160"
+                      name="organizationidname" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[overwritetime]"
+                      dataType="dbTimeStamp"
+                      name="overwritetime" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[processid]"
+                      dataType="guid"
+                      name="processid" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[profileitemassociationentityfilter]"
+                      dataType="nText"
+                      name="profileitemassociationentityfilter" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[publishedon]"
+                      dataType="dbTimeStamp"
+                      name="publishedon" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[relationshipdata]"
+                      dataType="nText"
+                      name="relationshipdata" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[relationshipdisplayname]"
+                      dataType="wstr"
+                      length="200"
+                      name="relationshipdisplayname" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[relationshipid]"
+                      dataType="guid"
+                      name="relationshipid" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[relationshipname]"
+                      dataType="wstr"
+                      length="200"
+                      name="relationshipname" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[selectedrelationshipsschema]"
+                      dataType="i4"
+                      name="selectedrelationshipsschema" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[selectedrelationshipsschemaname]"
+                      dataType="wstr"
+                      length="255"
+                      name="selectedrelationshipsschemaname" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[solutionid]"
+                      dataType="guid"
+                      name="solutionid" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[stageid]"
+                      dataType="guid"
+                      name="stageid" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[traversedpath]"
+                      dataType="wstr"
+                      length="1250"
+                      name="traversedpath" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output].ExternalColumns[versionnumber]"
+                      dataType="i8"
+                      name="versionnumber" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Delete Mobile Offline Profiles\Recordset Destination"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="Recordset Destination">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">User::EnvErrors</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Delete Mobile Offline Profiles\Recordset Destination.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Delete Mobile Offline Profiles\Recordset Destination.Inputs[Recordset Destination Input].Columns[qm_name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="qm_name"
+                      lineageId="Package\Delete Mobile Offline Profiles\65:invalid" />
+                    <inputColumn
+                      refId="Package\Delete Mobile Offline Profiles\Recordset Destination.Inputs[Recordset Destination Input].Columns[qm_value]"
+                      cachedDataType="nText"
+                      cachedName="qm_value"
+                      lineageId="Package\Delete Mobile Offline Profiles\66:invalid" />
+                    <inputColumn
+                      refId="Package\Delete Mobile Offline Profiles\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Delete Mobile Offline Profiles\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Error Output].Columns[ErrorColumn]" />
+                    <inputColumn
+                      refId="Package\Delete Mobile Offline Profiles\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="ErrorMessage"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Error Output].Columns[ErrorMessage]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Delete Mobile Offline Profiles\Recordset Destination 1"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="Recordset Destination 1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">User::EnvSkipped</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Delete Mobile Offline Profiles\Recordset Destination 1.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Delete Mobile Offline Profiles\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[qm_name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="qm_name"
+                      lineageId="Package\Delete Mobile Offline Profiles\65:invalid" />
+                    <inputColumn
+                      refId="Package\Delete Mobile Offline Profiles\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[qm_value]"
+                      cachedDataType="nText"
+                      cachedName="qm_value"
+                      lineageId="Package\Delete Mobile Offline Profiles\66:invalid" />
+                    <inputColumn
+                      refId="Package\Delete Mobile Offline Profiles\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[SkipReasonMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="SkipReasonMessage"
+                      lineageId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Skipped Rows].Columns[SkipReasonMessage]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Delete Mobile Offline Profiles.Paths[Error Output]"
+              endId="Package\Delete Mobile Offline Profiles\Recordset Destination.Inputs[Recordset Destination Input]"
+              name="Error Output"
+              startId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Error Output]" />
+            <path
+              refId="Package\Delete Mobile Offline Profiles.Paths[Primary Output]"
+              endId="Package\Delete Mobile Offline Profiles\DEV Dest.Inputs[Input]"
+              name="Primary Output"
+              startId="Package\Delete Mobile Offline Profiles\DEV Source.Outputs[Primary Output]" />
+            <path
+              refId="Package\Delete Mobile Offline Profiles.Paths[Skipped Rows]"
+              endId="Package\Delete Mobile Offline Profiles\Recordset Destination 1.Inputs[Recordset Destination Input]"
+              name="Skipped Rows"
+              startId="Package\Delete Mobile Offline Profiles\DEV Dest.Outputs[Skipped Rows]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Environment Settings"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{37C70E72-17AB-45A3-A9CF-00073DDE1E85}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Environment Settings"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Environment Settings\DEV"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Populate data into Microsoft Dynamics 365 CE/CRM."
+              name="DEV"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Destination entity to write data."
+                  expressionType="Notify"
+                  name="DestinationEntity">qm_environmentsettings</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how data is written to CDS/Dynamics CRM server."
+                  name="ActionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the values of CDS/CRM lookup fields should be removed if the reference records cannot be found. "
+                  expressionType="Notify"
+                  name="RemoveUnresolvableReferences">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
+                  expressionType="Notify"
+                  name="EnableSystemDuplicateDetection">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
+                  expressionType="Notify"
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
+                  expressionType="Notify"
+                  name="RecordMatchingKeyFields"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those NULL-valued fields."
+                  expressionType="Notify"
+                  name="IgnoreNullValuedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those fields that have no value changes in the target system. "
+                  expressionType="Notify"
+                  name="IgnoreUnchangedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to remove those invalid characters before writing to CDS/CRM."
+                  expressionType="Notify"
+                  name="RemoveInvalidCharacters">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the flag field(s) that are used to track the source of changes. The field(s) will not posted to CDS/CRM server unless there are changes to other fields if specified. &quot;Ignore Unchange Fields&quot; option is required in order for the specified flag field(s) to work. "
+                  expressionType="Notify"
+                  name="ChangeFlagFields"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies what action will be taken when multiple matches are found with Upsert action."
+                  expressionType="Notify"
+                  name="HandlingOfMultipleMatches"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify whether to use optimizations when there are duplicate records form the source system."
+                  expressionType="Notify"
+                  name="OptimizationOnSourceDuplicates"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
+                <property
+                  dataType="System.String"
+                  description="Workflow or action to be executed."
+                  expressionType="Notify"
+                  name="WorkflowAction"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of records to be sent to CDS/Dynamics CRM server in each service call."
+                  expressionType="Notify"
+                  name="BatchSize">100</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the total number or concurrent threads to write to CDS/CRM server simultaneously. "
+                  expressionType="Notify"
+                  name="ConcurrentWritingThreadsInTotal">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether datetime values should be sent to CDS/CRM server in UTC format."
+                  expressionType="Notify"
+                  name="SendDateTimeInUtcFormat">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Environment Settings\DEV.Connections[DynamicsCRM]"
+                  connectionManagerID="Package.ConnectionManagers[CRM DEV]"
+                  connectionManagerRefId="Package.ConnectionManagers[CRM DEV]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Environment Settings\DEV.Inputs[Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="RedirectRow"
+                  hasSideEffects="true"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Environment Settings\DEV.Inputs[Input].Columns[qm_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="qm_name"
+                      externalMetadataColumnId="Package\Environment Settings\DEV.Inputs[Input].ExternalColumns[qm_name]"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].Columns[qm_name]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\DEV.Inputs[Input].Columns[qm_value]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="qm_value"
+                      externalMetadataColumnId="Package\Environment Settings\DEV.Inputs[Input].ExternalColumns[qm_value]"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].Columns[qm_value]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\DEV.Inputs[Input].Columns[qm_environmentsettingid]"
+                      cachedDataType="guid"
+                      cachedName="qm_environmentsettingid"
+                      externalMetadataColumnId="Package\Environment Settings\DEV.Inputs[Input].ExternalColumns[qm_environmentsettingsid]"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\DEV.Inputs[Input].ExternalColumns[createdby]"
+                      dataType="guid"
+                      name="createdby">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\DEV.Inputs[Input].ExternalColumns[importsequencenumber]"
+                      dataType="i4"
+                      name="importsequencenumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\DEV.Inputs[Input].ExternalColumns[overriddencreatedon]"
+                      dataType="dbTimeStamp"
+                      name="overriddencreatedon">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">DateTime</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\DEV.Inputs[Input].ExternalColumns[qm_environmentsettingsid]"
+                      dataType="guid"
+                      name="qm_environmentsettingsid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\DEV.Inputs[Input].ExternalColumns[qm_name]"
+                      dataType="wstr"
+                      length="100"
+                      name="qm_name">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\DEV.Inputs[Input].ExternalColumns[qm_value]"
+                      dataType="nText"
+                      name="qm_value">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Memo</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\DEV.Inputs[Input].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">State</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\DEV.Inputs[Input].ExternalColumns[statuscode]"
+                      dataType="i4"
+                      name="statuscode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Status</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\DEV.Inputs[Input].ExternalColumns[timezoneruleversionnumber]"
+                      dataType="i4"
+                      name="timezoneruleversionnumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\DEV.Inputs[Input].ExternalColumns[utcconversiontimezonecode]"
+                      dataType="i4"
+                      name="utcconversiontimezonecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Environment Settings\DEV.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Environment Settings\DEV.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Environment Settings\DEV.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Environment Settings\DEV.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Environment Settings\DEV.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Environment Settings\DEV.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Environment Settings\DEV.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\Environment Settings\DEV.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Environment Settings\DEV.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Environment Settings\DEV.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Environment Settings\DEV.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Environment Settings\DEV.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Environment Settings\DEV.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Environment Settings\DEV.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Environment Settings\DEV.Outputs[Skipped Rows]"
+                  exclusionGroup="1"
+                  name="Skipped Rows"
+                  synchronousInputId="Package\Environment Settings\DEV.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Environment Settings\DEV.Outputs[Skipped Rows].Columns[SkipReasonMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Environment Settings\DEV.Outputs[Skipped Rows].Columns[SkipReasonMessage]"
+                      name="SkipReasonMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Environment Settings\DEV Records"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="DEV Records"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[25_ENVIRONMENT_SETTINGS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT * FROM [25_ENVIRONMENT_SETTINGS]
+WHERE qm_environment = 'DEV'</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">":Input",{98D2C33B-4B4B-47F0-A926-60EAD3209316};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Environment Settings\DEV Records.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].ExternalColumns[qm_environmentsettingid]"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]"
+                      name="qm_environmentsettingid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].Columns[qm_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].ExternalColumns[qm_name]"
+                      length="1000"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].Columns[qm_name]"
+                      name="qm_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].Columns[qm_value]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].ExternalColumns[qm_value]"
+                      length="1000"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].Columns[qm_value]"
+                      name="qm_value"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].Columns[qm_environment]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].ExternalColumns[qm_environment]"
+                      length="50"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].Columns[qm_environment]"
+                      name="qm_environment"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].ExternalColumns[qm_environmentsettingid]"
+                      dataType="guid"
+                      name="qm_environmentsettingid" />
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].ExternalColumns[qm_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="qm_name" />
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].ExternalColumns[qm_value]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="qm_value" />
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].ExternalColumns[qm_environment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="qm_environment" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Error Output].Columns[qm_environmentsettingid]"
+                      dataType="guid"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Error Output].Columns[qm_environmentsettingid]"
+                      name="qm_environmentsettingid" />
+                    <outputColumn
+                      refId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Error Output].Columns[qm_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Error Output].Columns[qm_name]"
+                      name="qm_name" />
+                    <outputColumn
+                      refId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Error Output].Columns[qm_value]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Error Output].Columns[qm_value]"
+                      name="qm_value" />
+                    <outputColumn
+                      refId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Error Output].Columns[qm_environment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Error Output].Columns[qm_environment]"
+                      name="qm_environment" />
+                    <outputColumn
+                      refId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Environment Settings\QA"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Populate data into Microsoft Dynamics 365 CE/CRM."
+              name="QA"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Destination entity to write data."
+                  expressionType="Notify"
+                  name="DestinationEntity">qm_environmentsettings</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how data is written to CDS/Dynamics CRM server."
+                  name="ActionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the values of CDS/CRM lookup fields should be removed if the reference records cannot be found. "
+                  expressionType="Notify"
+                  name="RemoveUnresolvableReferences">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
+                  expressionType="Notify"
+                  name="EnableSystemDuplicateDetection">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
+                  expressionType="Notify"
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
+                  expressionType="Notify"
+                  name="RecordMatchingKeyFields"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those NULL-valued fields."
+                  expressionType="Notify"
+                  name="IgnoreNullValuedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those fields that have no value changes in the target system. "
+                  expressionType="Notify"
+                  name="IgnoreUnchangedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to remove those invalid characters before writing to CDS/CRM."
+                  expressionType="Notify"
+                  name="RemoveInvalidCharacters">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the flag field(s) that are used to track the source of changes. The field(s) will not posted to CDS/CRM server unless there are changes to other fields if specified. &quot;Ignore Unchange Fields&quot; option is required in order for the specified flag field(s) to work. "
+                  expressionType="Notify"
+                  name="ChangeFlagFields"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies what action will be taken when multiple matches are found with Upsert action."
+                  expressionType="Notify"
+                  name="HandlingOfMultipleMatches"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify whether to use optimizations when there are duplicate records form the source system."
+                  expressionType="Notify"
+                  name="OptimizationOnSourceDuplicates"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
+                <property
+                  dataType="System.String"
+                  description="Workflow or action to be executed."
+                  expressionType="Notify"
+                  name="WorkflowAction"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of records to be sent to CDS/Dynamics CRM server in each service call."
+                  expressionType="Notify"
+                  name="BatchSize">100</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the total number or concurrent threads to write to CDS/CRM server simultaneously. "
+                  expressionType="Notify"
+                  name="ConcurrentWritingThreadsInTotal">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether datetime values should be sent to CDS/CRM server in UTC format."
+                  expressionType="Notify"
+                  name="SendDateTimeInUtcFormat">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Environment Settings\QA.Connections[DynamicsCRM]"
+                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CRM QA]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Environment Settings\QA.Inputs[Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="RedirectRow"
+                  hasSideEffects="true"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Environment Settings\QA.Inputs[Input].Columns[qm_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="qm_name"
+                      externalMetadataColumnId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[qm_name]"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_name]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\QA.Inputs[Input].Columns[qm_value]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="qm_value"
+                      externalMetadataColumnId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[qm_value]"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_value]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\QA.Inputs[Input].Columns[qm_environmentsettingid]"
+                      cachedDataType="guid"
+                      cachedName="qm_environmentsettingid"
+                      externalMetadataColumnId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[qm_environmentsettingsid]"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[createdby]"
+                      dataType="guid"
+                      name="createdby">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[importsequencenumber]"
+                      dataType="i4"
+                      name="importsequencenumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[overriddencreatedon]"
+                      dataType="dbTimeStamp"
+                      name="overriddencreatedon">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">DateTime</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[qm_environmentsettingsid]"
+                      dataType="guid"
+                      name="qm_environmentsettingsid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[qm_name]"
+                      dataType="wstr"
+                      length="100"
+                      name="qm_name">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[qm_value]"
+                      dataType="nText"
+                      name="qm_value">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Memo</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">State</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[statuscode]"
+                      dataType="i4"
+                      name="statuscode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Status</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[timezoneruleversionnumber]"
+                      dataType="i4"
+                      name="timezoneruleversionnumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\QA.Inputs[Input].ExternalColumns[utcconversiontimezonecode]"
+                      dataType="i4"
+                      name="utcconversiontimezonecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Environment Settings\QA.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Environment Settings\QA.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Environment Settings\QA.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Environment Settings\QA.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Environment Settings\QA.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Environment Settings\QA.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Environment Settings\QA.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\Environment Settings\QA.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Environment Settings\QA.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Environment Settings\QA.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Environment Settings\QA.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Environment Settings\QA.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Environment Settings\QA.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Environment Settings\QA.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Environment Settings\QA.Outputs[Skipped Rows]"
+                  exclusionGroup="1"
+                  name="Skipped Rows"
+                  synchronousInputId="Package\Environment Settings\QA.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Environment Settings\QA.Outputs[Skipped Rows].Columns[SkipReasonMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Environment Settings\QA.Outputs[Skipped Rows].Columns[SkipReasonMessage]"
+                      name="SkipReasonMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Environment Settings\QA Records"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="QA Records"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[25_ENVIRONMENT_SETTINGS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT * FROM [25_ENVIRONMENT_SETTINGS]
+WHERE qm_environment = 'QA'</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">":Input",{7AC058DF-162A-4DC9-AB26-F6CC573620D5};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Environment Settings\QA Records.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_environmentsettingid]"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]"
+                      name="qm_environmentsettingid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_name]"
+                      length="1000"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_name]"
+                      name="qm_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_value]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_value]"
+                      length="1000"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_value]"
+                      name="qm_value"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_environment]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_environment]"
+                      length="50"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_environment]"
+                      name="qm_environment"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_environmentsettingid]"
+                      dataType="guid"
+                      name="qm_environmentsettingid" />
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="qm_name" />
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_value]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="qm_value" />
+                    <externalMetadataColumn
+                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].ExternalColumns[qm_environment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="qm_environment" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_environmentsettingid]"
+                      dataType="guid"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_environmentsettingid]"
+                      name="qm_environmentsettingid" />
+                    <outputColumn
+                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_name]"
+                      name="qm_name" />
+                    <outputColumn
+                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_value]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_value]"
+                      name="qm_value" />
+                    <outputColumn
+                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_environment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[qm_environment]"
+                      name="qm_environment" />
+                    <outputColumn
+                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Environment Settings\Recordset Destination"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="Recordset Destination">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">User::EnvErrors</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Environment Settings\Recordset Destination.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination.Inputs[Recordset Destination Input].Columns[qm_environmentsettingid]"
+                      cachedDataType="guid"
+                      cachedName="qm_environmentsettingid"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination.Inputs[Recordset Destination Input].Columns[qm_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="qm_name"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].Columns[qm_name]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination.Inputs[Recordset Destination Input].Columns[qm_value]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="qm_value"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].Columns[qm_value]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination.Inputs[Recordset Destination Input].Columns[qm_environment]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="qm_environment"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].Columns[qm_environment]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\Environment Settings\DEV.Outputs[Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\Environment Settings\DEV.Outputs[Error Output].Columns[ErrorColumn]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="ErrorMessage"
+                      lineageId="Package\Environment Settings\DEV.Outputs[Error Output].Columns[ErrorMessage]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Environment Settings\Recordset Destination 1"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="Recordset Destination 1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">User::EnvSkipped</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Environment Settings\Recordset Destination 1.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[qm_environmentsettingid]"
+                      cachedDataType="guid"
+                      cachedName="qm_environmentsettingid"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[qm_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="qm_name"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].Columns[qm_name]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[qm_value]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="qm_value"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].Columns[qm_value]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[qm_environment]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="qm_environment"
+                      lineageId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output].Columns[qm_environment]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[SkipReasonMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="SkipReasonMessage"
+                      lineageId="Package\Environment Settings\DEV.Outputs[Skipped Rows].Columns[SkipReasonMessage]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Environment Settings\Recordset Destination 1 1"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="Recordset Destination 1 1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">User::EnvSkipped</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Environment Settings\Recordset Destination 1 1.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[qm_environmentsettingid]"
+                      cachedDataType="guid"
+                      cachedName="qm_environmentsettingid"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[qm_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="qm_name"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_name]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[qm_value]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="qm_value"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_value]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[qm_environment]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="qm_environment"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_environment]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination 1 1.Inputs[Recordset Destination Input].Columns[SkipReasonMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="SkipReasonMessage"
+                      lineageId="Package\Environment Settings\QA.Outputs[Skipped Rows].Columns[SkipReasonMessage]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Environment Settings\Recordset Destination 2"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="Recordset Destination 2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">User::EnvErrors</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[qm_environmentsettingid]"
+                      cachedDataType="guid"
+                      cachedName="qm_environmentsettingid"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_environmentsettingid]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[qm_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="qm_name"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_name]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[qm_value]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="qm_value"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_value]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[qm_environment]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="qm_environment"
+                      lineageId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output].Columns[qm_environment]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\Environment Settings\QA.Outputs[Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\Environment Settings\QA.Outputs[Error Output].Columns[ErrorColumn]" />
+                    <inputColumn
+                      refId="Package\Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input].Columns[ErrorMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="ErrorMessage"
+                      lineageId="Package\Environment Settings\QA.Outputs[Error Output].Columns[ErrorMessage]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Environment Settings.Paths[Error Output]"
+              endId="Package\Environment Settings\Recordset Destination.Inputs[Recordset Destination Input]"
+              name="Error Output"
+              startId="Package\Environment Settings\DEV.Outputs[Error Output]" />
+            <path
+              refId="Package\Environment Settings.Paths[Error Output1]"
+              endId="Package\Environment Settings\Recordset Destination 2.Inputs[Recordset Destination Input]"
+              name="Error Output"
+              startId="Package\Environment Settings\QA.Outputs[Error Output]" />
+            <path
+              refId="Package\Environment Settings.Paths[OLE DB Source Output]"
+              endId="Package\Environment Settings\DEV.Inputs[Input]"
+              name="OLE DB Source Output"
+              startId="Package\Environment Settings\DEV Records.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Environment Settings.Paths[OLE DB Source Output1]"
+              endId="Package\Environment Settings\QA.Inputs[Input]"
+              name="OLE DB Source Output"
+              startId="Package\Environment Settings\QA Records.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Environment Settings.Paths[Skipped Rows]"
+              endId="Package\Environment Settings\Recordset Destination 1.Inputs[Recordset Destination Input]"
+              name="Skipped Rows"
+              startId="Package\Environment Settings\DEV.Outputs[Skipped Rows]" />
+            <path
+              refId="Package\Environment Settings.Paths[Skipped Rows1]"
+              endId="Package\Environment Settings\Recordset Destination 1 1.Inputs[Recordset Destination Input]"
+              name="Skipped Rows"
+              startId="Package\Environment Settings\QA.Outputs[Skipped Rows]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="221,42"
+          Id="Package\Delete Mobile Offline Profiles"
+          TopLeft="791.5,201.928571428571" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Environment Settings"
+          TopLeft="821.5,492.928571428571" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Delete Mobile Offline Profiles">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Delete Mobile Offline Profiles\Recordset Destination"
+          TopLeft="797,614" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Delete Mobile Offline Profiles\Recordset Destination 1"
+          TopLeft="258,613" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Delete Mobile Offline Profiles\DEV Dest"
+          TopLeft="513,472" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Delete Mobile Offline Profiles\DEV Source"
+          TopLeft="501,261" />
+        <EdgeLayout
+          Id="Package\Delete Mobile Offline Profiles.Paths[Skipped Rows]"
+          TopLeft="556.666666666667,514">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-207.666666666667,99"
+              Start="0,0"
+              End="-207.666666666667,91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.3390357698289" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.3390357698289"
+                    Point2="0,40.3390357698289"
+                    Point3="-4,40.3390357698289" />
+                  <mssgle:LineSegment
+                    End="-203.666666666667,40.3390357698289" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-203.666666666667,40.3390357698289"
+                    Point2="-207.666666666667,40.3390357698289"
+                    Point3="-207.666666666667,44.3390357698289" />
+                  <mssgle:LineSegment
+                    End="-207.666666666667,91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-143.909563802084,45.3390357698289,80.1524609375,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Delete Mobile Offline Profiles.Paths[Primary Output]"
+          TopLeft="573.5,303">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,169"
+              Start="0,0"
+              End="0,161.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,161.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Delete Mobile Offline Profiles.Paths[Error Output]"
+          TopLeft="596.333333333333,514">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="291.666666666667,100"
+              Start="0,0"
+              End="291.666666666667,92.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.746500777605" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.746500777605"
+                    Point2="0,40.746500777605"
+                    Point3="4,40.746500777605" />
+                  <mssgle:LineSegment
+                    End="287.666666666667,40.746500777605" />
+                  <mssgle:CubicBezierSegment
+                    Point1="287.666666666667,40.746500777605"
+                    Point2="291.666666666667,40.746500777605"
+                    Point3="291.666666666667,44.746500777605" />
+                  <mssgle:LineSegment
+                    End="291.666666666667,92.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="108.628294270834,45.746500777605,74.410078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Environment Settings">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Environment Settings\DEV Records"
+          TopLeft="559.5,329.5" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Environment Settings\Recordset Destination"
+          TopLeft="797,614" />
+        <NodeLayout
+          Size="102,42"
+          Id="Package\Environment Settings\DEV"
+          TopLeft="582,466" />
+        <EdgeLayout
+          Id="Package\Environment Settings.Paths[OLE DB Source Output]"
+          TopLeft="632.5,371.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,94.5"
+              Start="0,0"
+              End="0,87">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,87" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Environment Settings.Paths[Error Output]"
+          TopLeft="648.666666666667,508">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="239.333333333333,106"
+              Start="0,0"
+              End="239.333333333333,98.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.3822393822394" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.3822393822394"
+                    Point2="0,43.3822393822394"
+                    Point3="4,43.3822393822394" />
+                  <mssgle:LineSegment
+                    End="235.333333333333,43.3822393822394" />
+                  <mssgle:CubicBezierSegment
+                    Point1="235.333333333333,43.3822393822394"
+                    Point2="239.333333333333,43.3822393822394"
+                    Point3="239.333333333333,47.3822393822394" />
+                  <mssgle:LineSegment
+                    End="239.333333333333,98.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="82.4616276041667,48.3822393822394,74.410078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Environment Settings\Recordset Destination 1"
+          TopLeft="258,613" />
+        <EdgeLayout
+          Id="Package\Environment Settings.Paths[Skipped Rows]"
+          TopLeft="617.333333333333,508">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-268.333333333333,105"
+              Start="0,0"
+              End="-268.333333333333,97.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.972972972973" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.972972972973"
+                    Point2="0,42.972972972973"
+                    Point3="-4,42.972972972973" />
+                  <mssgle:LineSegment
+                    End="-264.333333333333,42.972972972973" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-264.333333333333,42.972972972973"
+                    Point2="-268.333333333333,42.972972972973"
+                    Point3="-268.333333333333,46.972972972973" />
+                  <mssgle:LineSegment
+                    End="-268.333333333333,97.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-165.554908854167,47.972972972973,62.776484375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Environment Settings\QA Records"
+          TopLeft="1435.5,331" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Environment Settings\Recordset Destination 2"
+          TopLeft="1722,604.5" />
+        <NodeLayout
+          Size="95,42"
+          Id="Package\Environment Settings\QA"
+          TopLeft="1438,462.5" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Environment Settings\Recordset Destination 1 1"
+          TopLeft="1183,603.5" />
+        <EdgeLayout
+          Id="Package\Environment Settings.Paths[OLE DB Source Output1]"
+          TopLeft="1505,373">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19.5,89.5"
+              Start="0,0"
+              End="-19.5,82">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.75"
+                    Point2="0,44.75"
+                    Point3="-4,44.75" />
+                  <mssgle:LineSegment
+                    End="-15.5,44.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15.5,44.75"
+                    Point2="-19.5,44.75"
+                    Point3="-19.5,48.75" />
+                  <mssgle:LineSegment
+                    End="-19.5,82" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Environment Settings.Paths[Error Output1]"
+          TopLeft="1500,504.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="313,100"
+              Start="0,0"
+              End="313,92.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.9937888198758" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.9937888198758"
+                    Point2="0,40.9937888198758"
+                    Point3="4,40.9937888198758" />
+                  <mssgle:LineSegment
+                    End="309,40.9937888198758" />
+                  <mssgle:CubicBezierSegment
+                    Point1="309,40.9937888198758"
+                    Point2="313,40.9937888198758"
+                    Point3="313,44.9937888198758" />
+                  <mssgle:LineSegment
+                    End="313,92.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="119.2949609375,45.9937888198758,74.410078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Environment Settings.Paths[Skipped Rows1]"
+          TopLeft="1471,504.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-197,99"
+              Start="0,0"
+              End="-197,91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.583850931677" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.583850931677"
+                    Point2="0,40.583850931677"
+                    Point3="-4,40.583850931677" />
+                  <mssgle:LineSegment
+                    End="-193,40.583850931677" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-193,40.583850931677"
+                    Point2="-197,40.583850931677"
+                    Point3="-197,44.583850931677" />
+                  <mssgle:LineSegment
+                    End="-197,91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-129.8882421875,45.583850931677,62.776484375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Environment Settings\DEV Records">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Environment Settings\QA Records">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
