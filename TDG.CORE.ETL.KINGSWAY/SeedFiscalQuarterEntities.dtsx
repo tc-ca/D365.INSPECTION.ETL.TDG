@@ -11,8 +11,9 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="45"
-  DTS:VersionGUID="{5156BF7D-F524-423D-ADD2-119A69A71455}">
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="47"
+  DTS:VersionGUID="{98C616DC-5355-45F2-8B97-9A177277770B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,11 +25,7 @@
       <DTS:ObjectData>
         <CrmConnectionManager
           ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test1@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev2-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
-          ConnectByProxy="False">
-          <Password
-            Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIZuLjAfDoE+9f51sCeUnHAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACwNeCrn2ffB0/tDZE7dsOWAAAAAASAAACgAAAAEAAAAPXs5wJW1NgwrjPL4QhSojwYAAAAQB5UJh+SefMATBvrtTn276vYlWl+DC6fFAAAAKEmJ32PwK6fRyPPV7MDcoKCGKe3</Password>
-        </CrmConnectionManager>
+          ConnectByProxy="False" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -38,12 +35,7 @@
       DTS:ObjectName="TDGP.WORLD.TDGIIS_OLE_DB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=TDGP.WORLD;User ID=TDGIIS_USER;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIZuLjAfDoE+9f51sCeUnHAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAC51Kk8qVHUPknNLrB30sYwAAAAAASAAACgAAAAEAAAAADODn/hljRQv1UxurJeUOYYAAAAtuhk/NC+PAYpPiPULyQ6itlJQ+QYP3zNFAAAANq7LreS4Kk9rusHY0ROmPGbwZkr</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=TDGP.WORLD;User ID=TDGIIS_USER;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -162,7 +154,7 @@
                   description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
                   name="RecordMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
                 <property
                   dataType="System.String"
                   description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
@@ -193,7 +185,7 @@
                   description="Specify what action will be taken when multiple matches are found with Upsert action."
                   expressionType="Notify"
                   name="HandlingOfMultipleMatches"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertHandlingOfMultipleMatches">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specify whether to use optimizations when there are duplicate records form the source system."
@@ -874,7 +866,7 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                   description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
                   name="RecordMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
                 <property
                   dataType="System.String"
                   description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
@@ -905,7 +897,7 @@ FROM "COREDATA"."TC059_FISCAL_PERIOD"
                   description="Specify what action will be taken when multiple matches are found with Upsert action."
                   expressionType="Notify"
                   name="HandlingOfMultipleMatches"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertHandlingOfMultipleMatches">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specify whether to use optimizations when there are duplicate records form the source system."
@@ -1539,7 +1531,7 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                   description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
                   name="RecordMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
                 <property
                   dataType="System.String"
                   description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
@@ -1570,7 +1562,7 @@ FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
                   description="Specify what action will be taken when multiple matches are found with Upsert action."
                   expressionType="Notify"
                   name="HandlingOfMultipleMatches"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertHandlingOfMultipleMatches">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specify whether to use optimizations when there are duplicate records form the source system."
@@ -2161,7 +2153,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                   description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
                   name="RecordMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
                 <property
                   dataType="System.String"
                   description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
@@ -2192,7 +2184,7 @@ FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
                   description="Specify what action will be taken when multiple matches are found with Upsert action."
                   expressionType="Notify"
                   name="HandlingOfMultipleMatches"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertHandlingOfMultipleMatches">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specify whether to use optimizations when there are duplicate records form the source system."

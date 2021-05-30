@@ -86,4 +86,4 @@ T.[msdyn_serviceterritory]												[msdyn_serviceterritory],
 T.[msdyn_serviceterritory]												[territoryid],
 [REGULATED_ENTITY_ID]													[parentaccountid]
 FROM [dbo].[03_SITES] SITES
-JOIN [dbo].[05_TERRITORY_TRANSLATION] T ON SITES.[COUNTRY_SUBDIVISION_CD] = T.[COUNTRY_SUBDIVISION_CD];
+LEFT JOIN [dbo].[05_TERRITORY_TRANSLATION] T ON SITES.[COUNTRY_SUBDIVISION_CD] = T.[COUNTRY_SUBDIVISION_CD];

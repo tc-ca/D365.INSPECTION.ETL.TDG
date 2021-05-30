@@ -7,12 +7,13 @@
   DTS:CreatorName="TC\BERNARA"
   DTS:DTSID="{7718C4DD-00CD-4639-B80A-EDC33ABC5BAF}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{A8811618-1C52-4F69-913B-1BDE3B83C5CC}">
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{1ECDDB3F-F4FE-4EE6-B2C1-81A598D7450F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,11 +24,8 @@
       DTS:ObjectName="Dynamics CRM Connection Manager">
       <DTS:ObjectData>
         <CrmConnectionManager
-          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg.core@034gc.onmicrosoft.com;Domain=;CrmServerUrl=https://rom-dev-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False">
-          <Password
-            Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqMFcBO7+9UaHA1rNx4AZZgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADPjQdzW+CpdhPeLVoS3FXcAAAAAASAAACgAAAAEAAAAJg2Zsm+sT6iDrwnayFSikogAAAABMxuoqtp6jdO2qzVIgblY5rACd3CPuwPVD4Ne0zgD/YUAAAA94tCnV2+1IzBy4U8uKRCYHiqpGE</Password>
-        </CrmConnectionManager>
+          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg.core@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
+          ConnectByProxy="False" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -91,7 +89,7 @@
               description="Populate data into Microsoft Dynamics 365 CE/CRM."
               name="Dynamics CRM Destination"
               usesDispositions="true"
-              version="3">
+              version="4">
               <properties>
                 <property
                   dataType="System.String"
@@ -102,7 +100,7 @@
                   dataType="System.Int32"
                   description="Specifies how data is written to CRM server."
                   name="ActionType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationActionType">4</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">4</property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether the values of CRM lookup fields should be removed if the reference records cannot be found. "
@@ -110,20 +108,20 @@
                   name="RemoveUnresolvableReferences">false</property>
                 <property
                   dataType="System.Boolean"
-                  description="Specifies whether duplicate detection should be enabled when creating or updating CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in Microsoft Dynamics CRM."
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
                   expressionType="Notify"
-                  name="EnableDuplicateDetection">false</property>
+                  name="EnableSystemDuplicateDetection">false</property>
                 <property
                   dataType="System.Int32"
-                  description="Specify the matching criteria to be used when Upsert action is chosen."
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
-                  name="UpsertMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertMatchingCriteria">0</property>
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
                 <property
                   dataType="System.String"
-                  description="Specify the matching fields to be used to determine the matching records that exist in CRM when Manually Specify option is chosen for Upsert action."
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
                   expressionType="Notify"
-                  name="UpsertMatchingFields"></property>
+                  name="RecordMatchingKeyFields"></property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether to ignore those NULL-valued fields."
@@ -149,7 +147,7 @@
                   description="Specify what action will be taken when multiple matches are found with Upsert action."
                   expressionType="Notify"
                   name="HandlingOfMultipleMatches"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertHandlingOfMultipleMatches">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specify whether to use optimizations when there are duplicate records form the source system."
@@ -158,9 +156,9 @@
                   typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
                 <property
                   dataType="System.String"
-                  description="Workflow to be executed."
+                  description="Workflow or action to be executed."
                   expressionType="Notify"
-                  name="Workflow"></property>
+                  name="WorkflowAction"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of records to be sent to Microsoft Dynamics 365/CRM server in each service call."
@@ -212,7 +210,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Uniqueidentifier</property>
+                          name="FieldType">Uniqueidentifier</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">tc_tcfiscalperiod</property>
@@ -222,6 +220,25 @@
                 </input>
               </inputs>
               <outputs>
+                <output
+                  refId="Package\Delete TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Delete TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Delete TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Delete TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Delete TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Delete TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
                 <output
                   refId="Package\Delete TCFiscalPeriod\Dynamics CRM Destination.Outputs[Error Output]"
                   exclusionGroup="1"
@@ -242,30 +259,11 @@
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Delete TCFiscalPeriod\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
+                      refId="Package\Delete TCFiscalPeriod\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
                       dataType="wstr"
                       length="2048"
-                      lineageId="Package\Delete TCFiscalPeriod\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
-                      name="CrmErrorMessage" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Delete TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output]"
-                  exclusionGroup="1"
-                  name="Default Output"
-                  synchronousInputId="Package\Delete TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Delete TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      dataType="guid"
-                      lineageId="Package\Delete TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      name="CrmRecordId" />
-                    <outputColumn
-                      refId="Package\Delete TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      dataType="bool"
-                      lineageId="Package\Delete TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      name="IsNew" />
+                      lineageId="Package\Delete TCFiscalPeriod\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -285,7 +283,7 @@
                   description="Specifies the type of source data from Microsoft Dynamics CRM."
                   expressionType="Notify"
                   name="SourceType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceType">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceType">0</property>
                 <property
                   dataType="System.String"
                   description="Dynamics CRM entity to retrieve data from."
@@ -316,7 +314,7 @@
                   description="Specifies the output timezone for CRM datetime fields."
                   expressionType="Notify"
                   name="OutputTimezone"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceOutputTimezone" />
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceOutputTimezone" />
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceComponent</property>
@@ -916,7 +914,7 @@
               description="Populate data into Microsoft Dynamics 365 CE/CRM."
               name="Dynamics CRM Destination"
               usesDispositions="true"
-              version="3">
+              version="4">
               <properties>
                 <property
                   dataType="System.String"
@@ -927,7 +925,7 @@
                   dataType="System.Int32"
                   description="Specifies how data is written to CRM server."
                   name="ActionType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationActionType">4</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">4</property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether the values of CRM lookup fields should be removed if the reference records cannot be found. "
@@ -935,20 +933,20 @@
                   name="RemoveUnresolvableReferences">false</property>
                 <property
                   dataType="System.Boolean"
-                  description="Specifies whether duplicate detection should be enabled when creating or updating CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in Microsoft Dynamics CRM."
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
                   expressionType="Notify"
-                  name="EnableDuplicateDetection">false</property>
+                  name="EnableSystemDuplicateDetection">false</property>
                 <property
                   dataType="System.Int32"
-                  description="Specify the matching criteria to be used when Upsert action is chosen."
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
-                  name="UpsertMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertMatchingCriteria">0</property>
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
                 <property
                   dataType="System.String"
-                  description="Specify the matching fields to be used to determine the matching records that exist in CRM when Manually Specify option is chosen for Upsert action."
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
                   expressionType="Notify"
-                  name="UpsertMatchingFields"></property>
+                  name="RecordMatchingKeyFields"></property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether to ignore those NULL-valued fields."
@@ -974,7 +972,7 @@
                   description="Specify what action will be taken when multiple matches are found with Upsert action."
                   expressionType="Notify"
                   name="HandlingOfMultipleMatches"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertHandlingOfMultipleMatches">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specify whether to use optimizations when there are duplicate records form the source system."
@@ -983,9 +981,9 @@
                   typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
                 <property
                   dataType="System.String"
-                  description="Workflow to be executed."
+                  description="Workflow or action to be executed."
                   expressionType="Notify"
-                  name="Workflow"></property>
+                  name="WorkflowAction"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of records to be sent to Microsoft Dynamics 365/CRM server in each service call."
@@ -1037,7 +1035,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Uniqueidentifier</property>
+                          name="FieldType">Uniqueidentifier</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">tc_tcfiscalquarter</property>
@@ -1047,6 +1045,25 @@
                 </input>
               </inputs>
               <outputs>
+                <output
+                  refId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
                 <output
                   refId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output]"
                   exclusionGroup="1"
@@ -1067,30 +1084,11 @@
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
+                      refId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
                       dataType="wstr"
                       length="2048"
-                      lineageId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
-                      name="CrmErrorMessage" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output]"
-                  exclusionGroup="1"
-                  name="Default Output"
-                  synchronousInputId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      dataType="guid"
-                      lineageId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      name="CrmRecordId" />
-                    <outputColumn
-                      refId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      dataType="bool"
-                      lineageId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      name="IsNew" />
+                      lineageId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1110,7 +1108,7 @@
                   description="Specifies the type of source data from Microsoft Dynamics CRM."
                   expressionType="Notify"
                   name="SourceType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceType">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceType">0</property>
                 <property
                   dataType="System.String"
                   description="Dynamics CRM entity to retrieve data from."
@@ -1141,7 +1139,7 @@
                   description="Specifies the output timezone for CRM datetime fields."
                   expressionType="Notify"
                   name="OutputTimezone"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceOutputTimezone" />
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceOutputTimezone" />
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceComponent</property>
@@ -1902,10 +1900,10 @@
                       cachedName="versionnumber"
                       lineageId="Package\Delete TCFiscalQuarter\Dynamics CRM Source.Outputs[Primary Output].Columns[versionnumber]" />
                     <inputColumn
-                      refId="Package\Delete TCFiscalQuarter\Recordset Destination.Inputs[Recordset Destination Input].Columns[CrmRecordId]"
+                      refId="Package\Delete TCFiscalQuarter\Recordset Destination.Inputs[Recordset Destination Input].Columns[SavedRecordId]"
                       cachedDataType="guid"
-                      cachedName="CrmRecordId"
-                      lineageId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]" />
+                      cachedName="SavedRecordId"
+                      lineageId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]" />
                     <inputColumn
                       refId="Package\Delete TCFiscalQuarter\Recordset Destination.Inputs[Recordset Destination Input].Columns[IsNew]"
                       cachedDataType="bool"
@@ -2147,11 +2145,11 @@
                       cachedName="ErrorColumn"
                       lineageId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]" />
                     <inputColumn
-                      refId="Package\Delete TCFiscalQuarter\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[CrmErrorMessage]"
+                      refId="Package\Delete TCFiscalQuarter\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[ErrorMessage]"
                       cachedDataType="wstr"
                       cachedLength="2048"
-                      cachedName="CrmErrorMessage"
-                      lineageId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]" />
+                      cachedName="ErrorMessage"
+                      lineageId="Package\Delete TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2199,7 +2197,7 @@
               description="Populate data into Microsoft Dynamics 365 CE/CRM."
               name="Dynamics CRM Destination"
               usesDispositions="true"
-              version="3">
+              version="4">
               <properties>
                 <property
                   dataType="System.String"
@@ -2210,7 +2208,7 @@
                   dataType="System.Int32"
                   description="Specifies how data is written to CRM server."
                   name="ActionType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationActionType">4</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">4</property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether the values of CRM lookup fields should be removed if the reference records cannot be found. "
@@ -2218,20 +2216,20 @@
                   name="RemoveUnresolvableReferences">false</property>
                 <property
                   dataType="System.Boolean"
-                  description="Specifies whether duplicate detection should be enabled when creating or updating CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in Microsoft Dynamics CRM."
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
                   expressionType="Notify"
-                  name="EnableDuplicateDetection">false</property>
+                  name="EnableSystemDuplicateDetection">false</property>
                 <property
                   dataType="System.Int32"
-                  description="Specify the matching criteria to be used when Upsert action is chosen."
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
-                  name="UpsertMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertMatchingCriteria">0</property>
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
                 <property
                   dataType="System.String"
-                  description="Specify the matching fields to be used to determine the matching records that exist in CRM when Manually Specify option is chosen for Upsert action."
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
                   expressionType="Notify"
-                  name="UpsertMatchingFields"></property>
+                  name="RecordMatchingKeyFields"></property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether to ignore those NULL-valued fields."
@@ -2257,7 +2255,7 @@
                   description="Specify what action will be taken when multiple matches are found with Upsert action."
                   expressionType="Notify"
                   name="HandlingOfMultipleMatches"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertHandlingOfMultipleMatches">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specify whether to use optimizations when there are duplicate records form the source system."
@@ -2266,9 +2264,9 @@
                   typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
                 <property
                   dataType="System.String"
-                  description="Workflow to be executed."
+                  description="Workflow or action to be executed."
                   expressionType="Notify"
-                  name="Workflow"></property>
+                  name="WorkflowAction"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of records to be sent to Microsoft Dynamics 365/CRM server in each service call."
@@ -2320,7 +2318,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Uniqueidentifier</property>
+                          name="FieldType">Uniqueidentifier</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">tc_tcfiscalyear</property>
@@ -2330,6 +2328,25 @@
                 </input>
               </inputs>
               <outputs>
+                <output
+                  refId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
                 <output
                   refId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output]"
                   exclusionGroup="1"
@@ -2350,30 +2367,11 @@
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
+                      refId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
                       dataType="wstr"
                       length="2048"
-                      lineageId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
-                      name="CrmErrorMessage" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output]"
-                  exclusionGroup="1"
-                  name="Default Output"
-                  synchronousInputId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Inputs[Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      dataType="guid"
-                      lineageId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      name="CrmRecordId" />
-                    <outputColumn
-                      refId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      dataType="bool"
-                      lineageId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      name="IsNew" />
+                      lineageId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -2393,7 +2391,7 @@
                   description="Specifies the type of source data from Microsoft Dynamics CRM."
                   expressionType="Notify"
                   name="SourceType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceType">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceType">0</property>
                 <property
                   dataType="System.String"
                   description="Dynamics CRM entity to retrieve data from."
@@ -2424,7 +2422,7 @@
                   description="Specifies the output timezone for CRM datetime fields."
                   expressionType="Notify"
                   name="OutputTimezone"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceOutputTimezone" />
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceOutputTimezone" />
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceComponent</property>
@@ -3128,10 +3126,10 @@
                       cachedName="versionnumber"
                       lineageId="Package\Delete TCFiscalYear\Dynamics CRM Source.Outputs[Primary Output].Columns[versionnumber]" />
                     <inputColumn
-                      refId="Package\Delete TCFiscalYear\Recordset Destination.Inputs[Recordset Destination Input].Columns[CrmRecordId]"
+                      refId="Package\Delete TCFiscalYear\Recordset Destination.Inputs[Recordset Destination Input].Columns[SavedRecordId]"
                       cachedDataType="guid"
-                      cachedName="CrmRecordId"
-                      lineageId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]" />
+                      cachedName="SavedRecordId"
+                      lineageId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]" />
                     <inputColumn
                       refId="Package\Delete TCFiscalYear\Recordset Destination.Inputs[Recordset Destination Input].Columns[IsNew]"
                       cachedDataType="bool"
@@ -3357,11 +3355,11 @@
                       cachedName="ErrorColumn"
                       lineageId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]" />
                     <inputColumn
-                      refId="Package\Delete TCFiscalYear\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[CrmErrorMessage]"
+                      refId="Package\Delete TCFiscalYear\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[ErrorMessage]"
                       cachedDataType="wstr"
                       cachedLength="2048"
-                      cachedName="CrmErrorMessage"
-                      lineageId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]" />
+                      cachedName="ErrorMessage"
+                      lineageId="Package\Delete TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -3409,7 +3407,7 @@
               description="Populate data into Microsoft Dynamics 365 CE/CRM."
               name="Dynamics CRM Destination"
               usesDispositions="true"
-              version="3">
+              version="4">
               <properties>
                 <property
                   dataType="System.String"
@@ -3420,7 +3418,7 @@
                   dataType="System.Int32"
                   description="Specifies how data is written to CRM server."
                   name="ActionType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationActionType">4</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">4</property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether the values of CRM lookup fields should be removed if the reference records cannot be found. "
@@ -3428,20 +3426,20 @@
                   name="RemoveUnresolvableReferences">false</property>
                 <property
                   dataType="System.Boolean"
-                  description="Specifies whether duplicate detection should be enabled when creating or updating CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in Microsoft Dynamics CRM."
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
                   expressionType="Notify"
-                  name="EnableDuplicateDetection">false</property>
+                  name="EnableSystemDuplicateDetection">false</property>
                 <property
                   dataType="System.Int32"
-                  description="Specify the matching criteria to be used when Upsert action is chosen."
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
-                  name="UpsertMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertMatchingCriteria">0</property>
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
                 <property
                   dataType="System.String"
-                  description="Specify the matching fields to be used to determine the matching records that exist in CRM when Manually Specify option is chosen for Upsert action."
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
                   expressionType="Notify"
-                  name="UpsertMatchingFields"></property>
+                  name="RecordMatchingKeyFields"></property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether to ignore those NULL-valued fields."
@@ -3467,7 +3465,7 @@
                   description="Specify what action will be taken when multiple matches are found with Upsert action."
                   expressionType="Notify"
                   name="HandlingOfMultipleMatches"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertHandlingOfMultipleMatches">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specify whether to use optimizations when there are duplicate records form the source system."
@@ -3476,9 +3474,9 @@
                   typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
                 <property
                   dataType="System.String"
-                  description="Workflow to be executed."
+                  description="Workflow or action to be executed."
                   expressionType="Notify"
-                  name="Workflow"></property>
+                  name="WorkflowAction"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of records to be sent to Microsoft Dynamics 365/CRM server in each service call."
@@ -3530,7 +3528,7 @@
                       <properties>
                         <property
                           dataType="System.String"
-                          name="CrmFieldType">Uniqueidentifier</property>
+                          name="FieldType">Uniqueidentifier</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes">tc_tcmonth</property>
@@ -3540,6 +3538,25 @@
                 </input>
               </inputs>
               <outputs>
+                <output
+                  refId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Delete TCMonth\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
                 <output
                   refId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Error Output]"
                   exclusionGroup="1"
@@ -3560,30 +3577,11 @@
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
+                      refId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
                       dataType="wstr"
                       length="2048"
-                      lineageId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]"
-                      name="CrmErrorMessage" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Default Output]"
-                  exclusionGroup="1"
-                  name="Default Output"
-                  synchronousInputId="Package\Delete TCMonth\Dynamics CRM Destination.Inputs[Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      dataType="guid"
-                      lineageId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]"
-                      name="CrmRecordId" />
-                    <outputColumn
-                      refId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      dataType="bool"
-                      lineageId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
-                      name="IsNew" />
+                      lineageId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -3603,7 +3601,7 @@
                   description="Specifies the type of source data from Microsoft Dynamics CRM."
                   expressionType="Notify"
                   name="SourceType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceType">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceType">0</property>
                 <property
                   dataType="System.String"
                   description="Dynamics CRM entity to retrieve data from."
@@ -3634,7 +3632,7 @@
                   description="Specifies the output timezone for CRM datetime fields."
                   expressionType="Notify"
                   name="OutputTimezone"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceOutputTimezone" />
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceOutputTimezone" />
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceComponent</property>
@@ -4416,10 +4414,10 @@
                       cachedName="versionnumber"
                       lineageId="Package\Delete TCMonth\Dynamics CRM Source.Outputs[Primary Output].Columns[versionnumber]" />
                     <inputColumn
-                      refId="Package\Delete TCMonth\Recordset Destination.Inputs[Recordset Destination Input].Columns[CrmRecordId]"
+                      refId="Package\Delete TCMonth\Recordset Destination.Inputs[Recordset Destination Input].Columns[SavedRecordId]"
                       cachedDataType="guid"
-                      cachedName="CrmRecordId"
-                      lineageId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[CrmRecordId]" />
+                      cachedName="SavedRecordId"
+                      lineageId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]" />
                     <inputColumn
                       refId="Package\Delete TCMonth\Recordset Destination.Inputs[Recordset Destination Input].Columns[IsNew]"
                       cachedDataType="bool"
@@ -4667,11 +4665,11 @@
                       cachedName="ErrorColumn"
                       lineageId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]" />
                     <inputColumn
-                      refId="Package\Delete TCMonth\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[CrmErrorMessage]"
+                      refId="Package\Delete TCMonth\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[ErrorMessage]"
                       cachedDataType="wstr"
                       cachedLength="2048"
-                      cachedName="CrmErrorMessage"
-                      lineageId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Error Output].Columns[CrmErrorMessage]" />
+                      cachedName="ErrorMessage"
+                      lineageId="Package\Delete TCMonth\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -4738,6 +4736,10 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="180,42"
+          Id="Package\Delete TCFiscalPeriod"
+          TopLeft="198,477" />
+        <NodeLayout
           Size="187,42"
           Id="Package\Delete TCFiscalQuarter"
           TopLeft="192,258" />
@@ -4793,17 +4795,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <AnnotationLayout
-          Text="Note: Deletes all data from the specified tables"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="276,40"
-          Id="7dfe4acd-bd7f-4b22-b951-ccff570f10e7"
-          TopLeft="153,57" />
-        <NodeLayout
-          Size="180,42"
-          Id="Package\Delete TCFiscalPeriod"
-          TopLeft="198,477" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="285,419">
@@ -4826,9 +4817,54 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="Note: Deletes all data from the specified tables"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="276,40"
+          Id="7dfe4acd-bd7f-4b22-b951-ccff570f10e7"
+          TopLeft="153,57" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Delete TCFiscalPeriod">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Delete TCFiscalPeriod\Dynamics CRM Source"
+          TopLeft="345,98" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Delete TCFiscalPeriod\Dynamics CRM Destination"
+          TopLeft="339,212" />
+        <EdgeLayout
+          Id="Package\Delete TCFiscalPeriod.Paths[Primary Output]"
+          TopLeft="439.25,140">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <TaskHost
     design-time-name="Package\Delete TCFiscalQuarter">
     <LayoutInfo>
@@ -5184,44 +5220,6 @@
             <mssgm:EdgeLabel
               BoundingBox="0,0,0,0"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\Delete TCFiscalPeriod">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="184,42"
-          Id="Package\Delete TCFiscalPeriod\Dynamics CRM Source"
-          TopLeft="345,98" />
-        <NodeLayout
-          Size="205,42"
-          Id="Package\Delete TCFiscalPeriod\Dynamics CRM Destination"
-          TopLeft="339,212" />
-        <EdgeLayout
-          Id="Package\Delete TCFiscalPeriod.Paths[Primary Output]"
-          TopLeft="439.25,140">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,72"
-              Start="0,0"
-              End="0,64.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,64.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

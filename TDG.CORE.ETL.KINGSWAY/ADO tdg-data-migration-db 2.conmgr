@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="tdg-data-migration-db 2"
+  DTS:DTSID="{D9DF0730-5E8D-44E4-9A12-D9B387DBE828}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-CrmToSql-{D9DF0730-5E8D-44E4-9A12-D9B387DBE828}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"
+        p4:Salt="NfOWyFCDkJ4="
+        p4:IV="9VVUMCFOfFf7aFu2Hd7qeA=="
+        p4:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" xmlns:p4="www.microsoft.com/SqlServer/SSIS">Zw+td4P8Qqh82zhnRGCFxxqTbpenpuJCCDvGPEHiFPzzH9u+QT2OGx5NtdbfrlBK8xadRyXhhXTilhDhh0QiYuxI8Zbx5tBOZY/Q4xNXA+WgBFHhuz6O141h2QqTCFJTIGr/rEb0QF+U9COGf5AnFb929DfaYgPeG52BO0UplrA=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

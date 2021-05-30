@@ -1,10 +1,15 @@
-/****** Script for SelectTopNRows command from SSMS  ******/
-UPDATE [dbo].[bookableresource]
-SET 
-[ovs_badgenumber] = INSP.BADGE,
-[ovs_registeredinspectornumberrin] = INSP.RIN 
-FROM [bookableresource] BR
-JOIN [dbo].systemuser SYSUSER ON SYSUSER.Id = BR.userid
+TRUNCATE TABLE [dbo].[bookableresource];
+
+
+INSERT INTO [dbo].[bookableresource]
+           ([userid]
+           ,[name]
+           ,[msdyn_primaryemail]
+           ,[id]
+           ,[ovs_registeredinspectornumberrin]
+           ,[ovs_badgenumber])
+
+SELECT SYSUSER.systemuserid, SYSUSER.fullname, domainname, newid() bookableresourceid, RIN, BADGE FROM [dbo].systemuser SYSUSER 
 JOIN [16_IIS_INSPECTORS] INSP ON lower(INSP.Account_name) = lower(SYSUSER.domainname);
 
 
@@ -27,8 +32,6 @@ msdyn_endlocation = 690970002, --location agnostic
 msdyn_startlocation = 690970002, --location agnostic
 msdyn_timeoffapprovalrequired = 0;
 
-SELECT * FROM [dbo].[bookableresource];
-
 
 ---ADD "INSPECTOR" category to all inspectors
 TRUNCATE TABLE [18_BOOKABLE_RESOURCE_CATEGORY_ASSN];
@@ -46,9 +49,3 @@ owneridtype = 'team',
 ownerid = 'd0483132-b964-eb11-a812-000d3af38846',
 owningteam = 'd0483132-b964-eb11-a812-000d3af38846' FROM [dbo].[bookableresource]; 
 
-SELECT * FROM [dbo].[18_BOOKABLE_RESOURCE_CATEGORY_ASSN]
-
-
-
-
---SELECT * FROM [dbo].[15_SYSTEM_USER] order by fullname

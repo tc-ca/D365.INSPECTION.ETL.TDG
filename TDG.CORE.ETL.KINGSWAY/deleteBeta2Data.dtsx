@@ -11,8 +11,9 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="deleteBeta2Data"
   DTS:PackageType="5"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{8E1C946E-B3D2-4AE4-B868-3288FD0CDDCA}">
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{03A89F8E-27CA-4AB6-B89E-610C18D52690}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,11 +25,7 @@
       <DTS:ObjectData>
         <CrmConnectionManager
           ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test1@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-acc-tdg-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
-          ConnectByProxy="False">
-          <Password
-            Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIZuLjAfDoE+9f51sCeUnHAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD1jkC+vT3cRwfEvvlapRuwAAAAAASAAACgAAAAEAAAAFGSclBFhCq5/F9NY29KRhoYAAAAZQiF23Byn/B746QtzIYsmIiMhP7HRlsVFAAAAPQ/4u6Tyot8AIeV2ue5zm8+mGrv</Password>
-        </CrmConnectionManager>
+          ConnectByProxy="False" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -82,7 +79,7 @@
                   description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
                   name="RecordMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
                 <property
                   dataType="System.String"
                   description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
@@ -1879,7 +1876,7 @@
                   description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
                   name="RecordMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
                 <property
                   dataType="System.String"
                   description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
@@ -2719,7 +2716,7 @@
                   description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
                   name="RecordMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
                 <property
                   dataType="System.String"
                   description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
@@ -3072,7 +3069,7 @@
                   description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
                   name="RecordMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
                 <property
                   dataType="System.String"
                   description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
@@ -3884,7 +3881,7 @@
                   description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
                   name="RecordMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
                 <property
                   dataType="System.String"
                   description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
@@ -4860,7 +4857,7 @@
                   description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
                   name="RecordMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
                 <property
                   dataType="System.String"
                   description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
@@ -6140,7 +6137,7 @@
                   description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
                   name="RecordMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
                 <property
                   dataType="System.String"
                   description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."

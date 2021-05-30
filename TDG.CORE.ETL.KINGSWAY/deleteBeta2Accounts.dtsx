@@ -11,8 +11,9 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="deleteBeta2Accounts"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{D7A636CB-B1CB-4DF2-BF8B-F2BBDA585984}">
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{3238786B-5865-4516-8F25-7D281C81125F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,12 +24,8 @@
       DTS:ObjectName="Dynamics CRM Connection Manager">
       <DTS:ObjectData>
         <CrmConnectionManager
-          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=rom-test2@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
-          ConnectByProxy="False">
-          <Password
-            Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIZuLjAfDoE+9f51sCeUnHAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAByPXKzBIFN9EMwmNakFAmmAAAAAASAAACgAAAAEAAAAEtQ9P3kfLpkm+4xwpqC4BEYAAAAIHB+v29+l08xhc/kN/o0KNZ882cWxuTgFAAAAGseQi35hnXGSh2EBtT8sWmynnbq</Password>
-        </CrmConnectionManager>
+          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
+          ConnectByProxy="False" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -200,7 +197,7 @@
                   description="Specify the matching criteria to be used when performing an update or upsert. "
                   expressionType="Notify"
                   name="RecordMatchingCriteria"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria, KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7]], KingswaySoft.IntegrationToolkit.DynamicsCrm, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
                 <property
                   dataType="System.String"
                   description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
@@ -1210,20 +1207,20 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="184,42"
-          Id="Package\Data Flow Task\Premium Excel Source"
-          TopLeft="557.5,151.5" />
-        <NodeLayout
-          Size="205,42"
+          Size="213,42"
           Id="Package\Data Flow Task\Dynamics CRM Destination"
           TopLeft="546,452" />
         <NodeLayout
           Size="154,42"
           Id="Package\Data Flow Task\Derived Column"
           TopLeft="579,301" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Data Flow Task\Premium Excel Source"
+          TopLeft="557.5,151.5" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="652.25,343">
+          TopLeft="654.25,343">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"

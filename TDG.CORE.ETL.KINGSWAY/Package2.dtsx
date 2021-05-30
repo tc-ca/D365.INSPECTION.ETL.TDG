@@ -1,81 +1,78 @@
 ﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="8/1/2020 12:37:56 PM"
+  DTS:CreationDate="5/20/2021 2:54:54 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-PAJP0EI"
   DTS:CreatorName="DESKTOP-PAJP0EI\Aaron"
-  DTS:DTSID="{CF5783EC-5DB3-43C2-9979-CF0BB676C54B}"
+  DTS:DTSID="{1978051A-3CE8-4172-BAF1-5FC8B611A7EB}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.150"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{CE33969B-F48B-4CD1-AB72-0E2B92FC7B93}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{53D92674-4CD0-407A-85E4-390E9FB7D0C6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
       DTS:CreationName="DynamicsCRM"
-      DTS:DTSID="{3F19A7C1-83ED-49A5-9BB6-F6829F7516C8}"
+      DTS:DTSID="{D3707A4C-936F-4F5E-8E9A-6C9593648239}"
       DTS:ObjectName="Dynamics CRM Connection Manager">
       <DTS:ObjectData>
         <CrmConnectionManager
-          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg.core@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
-          ConnectByProxy="False" />
+          ConnectionString="AuthenticationType=OnlineFederation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
+          ConnectByProxy="False">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="i038lTdzung="
+            IV="PgbhhJ3lGSzK6akLsNKB+A==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+            <CipherData>
+              <CipherValue>PgbhhJ3lGSzK6akLsNKB+NOlm5tyalSE+3i5NBMq1+D8a6rHlo4p8TA+I5Rs+1mAxTYxZyIX60Df8gFKBDdqMFhHQHrhPqHVSA5nKjvfs1c+hB3mIX6Odt+LnpVFlBJs9nMxtEHvYu+Kggrx3z5mcQ==</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </CrmConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Dynamics CRM Connection Manager 1]"
+      DTS:CreationName="DynamicsCRM"
+      DTS:DTSID="{B4E62D6A-0D88-426F-BC08-F3324408CC71}"
+      DTS:ObjectName="Dynamics CRM Connection Manager 1">
+      <DTS:ObjectData>
+        <CrmConnectionManager
+          ConnectionString="AuthenticationType=OnlineFederation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-qa-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
+          ConnectByProxy="False">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="lT39nRyORnQ="
+            IV="hMdHcsUPOYc7FVDDecYGtg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+            <CipherData>
+              <CipherValue>hMdHcsUPOYc7FVDDecYGtg45gpZXGiAr4rP9FpA0ymRx+GPZGT8C8kFMv3t8qphC4PkuYPAgrFUc6btsjD29aDDwXhk5G+YHBnt5DSSzIlfCkHcZs2r2TgT/u7KdMEjdoL8Wy4CTqczN2EjlgBl6Hg==</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </CrmConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:Variables>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{0E515E63-534B-4019-A126-FAE2D518F10D}"
-      DTS:IncludeInDebugDump="6789"
-      DTS:Namespace="User"
-      DTS:ObjectName="DeleteErrors">
-      <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{93292E0F-4D6B-45A9-A325-E91A247CEE31}"
-      DTS:IncludeInDebugDump="6789"
-      DTS:Namespace="User"
-      DTS:ObjectName="DeleteSuccess">
-      <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
-    </DTS:Variable>
-  </DTS:Variables>
+  <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{3A548246-72E9-48F3-BBB9-0539EF1EC1FD}"
+      DTS:DTSID="{65EF125D-A84A-4F35-A3F0-06017DFDA16D}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task">
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
         <pipeline
@@ -94,15 +91,15 @@
                   dataType="System.String"
                   description="Destination entity to write data."
                   expressionType="Notify"
-                  name="DestinationEntity">tc_legislation</property>
+                  name="DestinationEntity">bookableresourcecategory</property>
                 <property
                   dataType="System.Int32"
-                  description="Specifies how data is written to CRM server."
+                  description="Specifies how data is written to CDS/Dynamics CRM server."
                   name="ActionType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">4</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">1</property>
                 <property
                   dataType="System.Boolean"
-                  description="Specifies whether the values of CRM lookup fields should be removed if the reference records cannot be found. "
+                  description="Specifies whether the values of CDS/CRM lookup fields should be removed if the reference records cannot be found. "
                   expressionType="Notify"
                   name="RemoveUnresolvableReferences">false</property>
                 <property
@@ -133,17 +130,17 @@
                   name="IgnoreUnchangedFields">false</property>
                 <property
                   dataType="System.Boolean"
-                  description="Specify whether to remove those invalid characters before writing to CRM."
+                  description="Specify whether to remove those invalid characters before writing to CDS/CRM."
                   expressionType="Notify"
                   name="RemoveInvalidCharacters">false</property>
                 <property
                   dataType="System.String"
-                  description="Specify the flag field(s) that are used to track the source of changes. The field(s) will not posted to CRM server unless there are changes to other fields if specified. &quot;Ignore Unchange Fields&quot; option is required in order for the specified flag field(s) to work. "
+                  description="Specify the flag field(s) that are used to track the source of changes. The field(s) will not posted to CDS/CRM server unless there are changes to other fields if specified. &quot;Ignore Unchange Fields&quot; option is required in order for the specified flag field(s) to work. "
                   expressionType="Notify"
                   name="ChangeFlagFields"></property>
                 <property
                   dataType="System.Int32"
-                  description="Specify what action will be taken when multiple matches are found with Upsert action."
+                  description="Specifies what action will be taken when multiple matches are found with Upsert action."
                   expressionType="Notify"
                   name="HandlingOfMultipleMatches"
                   typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
@@ -160,17 +157,17 @@
                   name="WorkflowAction"></property>
                 <property
                   dataType="System.Int32"
-                  description="Specifies the number of records to be sent to Microsoft Dynamics 365/CRM server in each service call."
+                  description="Specifies the number of records to be sent to CDS/Dynamics CRM server in each service call."
                   expressionType="Notify"
                   name="BatchSize">100</property>
                 <property
                   dataType="System.Int32"
-                  description="Specify the total number or concurrent threads to write to Dynamics 365/CRM server simultaneously. "
+                  description="Specify the total number or concurrent threads to write to CDS/CRM server simultaneously. "
                   expressionType="Notify"
                   name="ConcurrentWritingThreadsInTotal">20</property>
                 <property
                   dataType="System.Boolean"
-                  description="Specifies whether datetime values should be sent to CRM server in UTC format."
+                  description="Specifies whether datetime values should be sent to CDS/CRM server in UTC format."
                   expressionType="Notify"
                   name="SendDateTimeInUtcFormat">false</property>
                 <property
@@ -180,8 +177,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Dynamics CRM Destination.Connections[DynamicsCRM]"
-                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager 1]"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -189,30 +186,216 @@
                 <input
                   refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input]"
                   errorOrTruncationOperation="Insert"
-                  errorRowDisposition="RedirectRow"
+                  errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].Columns[tc_legislationid]"
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].Columns[bookableresourcecategoryid]"
                       cachedDataType="guid"
-                      cachedName="tc_legislationid"
-                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_legislationid]"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_legislationid]" />
+                      cachedName="bookableresourcecategoryid"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[bookableresourcecategoryid]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[bookableresourcecategoryid]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].Columns[description]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="description"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[description]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[description]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].Columns[ownerid]"
+                      cachedDataType="guid"
+                      cachedName="ownerid"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ownerid]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[ownerid]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="name"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[name]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].Columns[owneridtype]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="owneridtype"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[owneridtype]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[owneridtype]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_legislationid]"
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[bookableresourcecategoryid]"
                       dataType="guid"
-                      name="tc_legislationid">
+                      name="bookableresourcecategoryid">
                       <properties>
                         <property
                           dataType="System.String"
                           name="FieldType">Uniqueidentifier</property>
                         <property
                           dataType="System.String"
-                          name="LookupTypes">tc_legislation</property>
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[createdby]"
+                      dataType="guid"
+                      name="createdby">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[description]"
+                      dataType="wstr"
+                      length="100"
+                      name="description">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[importsequencenumber]"
+                      dataType="i4"
+                      name="importsequencenumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="100"
+                      name="name">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[overriddencreatedon]"
+                      dataType="dbTimeStamp"
+                      name="overriddencreatedon">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">DateTime</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ownerid]"
+                      dataType="guid"
+                      name="ownerid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Owner</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser;team</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[owneridtype]"
+                      dataType="wstr"
+                      length="64"
+                      name="owneridtype">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">EntityName</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">State</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[statuscode]"
+                      dataType="i4"
+                      name="statuscode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Status</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[timezoneruleversionnumber]"
+                      dataType="i4"
+                      name="timezoneruleversionnumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[transactioncurrencyid]"
+                      dataType="guid"
+                      name="transactioncurrencyid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">transactioncurrency</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input].ExternalColumns[utcconversiontimezonecode]"
+                      dataType="i4"
+                      name="utcconversiontimezonecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
                       </properties>
                     </externalMetadataColumn>
                   </externalMetadataColumns>
@@ -287,7 +470,7 @@
                   dataType="System.String"
                   description="Dynamics CRM entity to retrieve data from."
                   expressionType="Notify"
-                  name="SourceEntity">tc_legislation</property>
+                  name="SourceEntity">bookableresourcecategory</property>
                 <property
                   dataType="System.String"
                   description="FetchXML statement."
@@ -331,6 +514,15 @@
                   refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output]"
                   name="Primary Output">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[bookableresourcecategoryid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[bookableresourcecategoryid]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[bookableresourcecategoryid]"
+                      name="bookableresourcecategoryid"
+                      truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[createdby]"
                       dataType="guid"
@@ -397,6 +589,27 @@
                       length="200"
                       lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[createdonbehalfbyyominame]"
                       name="createdonbehalfbyyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[description]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[description]"
+                      name="description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[exchangerate]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[exchangerate]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[exchangerate]"
+                      name="exchangerate"
+                      precision="38"
+                      scale="10"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[importsequencenumber]"
@@ -473,6 +686,16 @@
                       length="200"
                       lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedonbehalfbyyominame]"
                       name="modifiedonbehalfbyyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[name]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[name]"
+                      name="name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[overriddencreatedon]"
@@ -588,110 +811,6 @@
                       name="statuscodename"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_dateeffective]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_dateeffective]"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_dateeffective]"
-                      name="tc_dateeffective"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_daterevoked]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_daterevoked]"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_daterevoked]"
-                      name="tc_daterevoked"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_justiceid]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_justiceid]"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_justiceid]"
-                      name="tc_justiceid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_legislation]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_legislation]"
-                      length="100"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_legislation]"
-                      name="tc_legislation"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_legislationid]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_legislationid]"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_legislationid]"
-                      name="tc_legislationid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_legislationidentifier]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_legislationidentifier]"
-                      length="100"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_legislationidentifier]"
-                      name="tc_legislationidentifier"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_legislationtextenglish]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_legislationtextenglish]"
-                      length="4000"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_legislationtextenglish]"
-                      name="tc_legislationtextenglish"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_legislationtextfrench]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_legislationtextfrench]"
-                      length="4000"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_legislationtextfrench]"
-                      name="tc_legislationtextfrench"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_legislationtype]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_legislationtype]"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_legislationtype]"
-                      name="tc_legislationtype"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_legislationtypename]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_legislationtypename]"
-                      length="100"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_legislationtypename]"
-                      name="tc_legislationtypename"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_order]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_order]"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_order]"
-                      name="tc_order"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[timezoneruleversionnumber]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
@@ -699,6 +818,25 @@
                       externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[timezoneruleversionnumber]"
                       lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[timezoneruleversionnumber]"
                       name="timezoneruleversionnumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[transactioncurrencyid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[transactioncurrencyid]"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[transactioncurrencyid]"
+                      name="transactioncurrencyid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[transactioncurrencyidname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[transactioncurrencyidname]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[transactioncurrencyidname]"
+                      name="transactioncurrencyidname"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[utcconversiontimezonecode]"
@@ -721,6 +859,10 @@
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[bookableresourcecategoryid]"
+                      dataType="guid"
+                      name="bookableresourcecategoryid" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdby]"
                       dataType="guid"
@@ -753,6 +895,17 @@
                       dataType="wstr"
                       length="200"
                       name="createdonbehalfbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[description]"
+                      dataType="wstr"
+                      length="100"
+                      name="description" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[exchangerate]"
+                      dataType="numeric"
+                      name="exchangerate"
+                      precision="38"
+                      scale="10" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[importsequencenumber]"
                       dataType="i4"
@@ -789,6 +942,11 @@
                       dataType="wstr"
                       length="200"
                       name="modifiedonbehalfbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="100"
+                      name="name" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[overriddencreatedon]"
                       dataType="dbTimeStamp"
@@ -843,58 +1001,18 @@
                       length="255"
                       name="statuscodename" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_dateeffective]"
-                      dataType="dbTimeStamp"
-                      name="tc_dateeffective" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_daterevoked]"
-                      dataType="dbTimeStamp"
-                      name="tc_daterevoked" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_justiceid]"
-                      dataType="i4"
-                      name="tc_justiceid" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_legislation]"
-                      dataType="wstr"
-                      length="100"
-                      name="tc_legislation" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_legislationid]"
-                      dataType="guid"
-                      name="tc_legislationid" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_legislationidentifier]"
-                      dataType="wstr"
-                      length="100"
-                      name="tc_legislationidentifier" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_legislationtextenglish]"
-                      dataType="wstr"
-                      length="4000"
-                      name="tc_legislationtextenglish" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_legislationtextfrench]"
-                      dataType="wstr"
-                      length="4000"
-                      name="tc_legislationtextfrench" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_legislationtype]"
-                      dataType="guid"
-                      name="tc_legislationtype" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_legislationtypename]"
-                      dataType="wstr"
-                      length="100"
-                      name="tc_legislationtypename" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[tc_order]"
-                      dataType="i4"
-                      name="tc_order" />
-                    <externalMetadataColumn
                       refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[timezoneruleversionnumber]"
                       dataType="i4"
                       name="timezoneruleversionnumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[transactioncurrencyid]"
+                      dataType="guid"
+                      name="transactioncurrencyid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[transactioncurrencyidname]"
+                      dataType="wstr"
+                      length="100"
+                      name="transactioncurrencyidname" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[utcconversiontimezonecode]"
                       dataType="i4"
@@ -907,113 +1025,8 @@
                 </output>
               </outputs>
             </component>
-            <component
-              refId="Package\Data Flow Task\Recordset Destination"
-              componentClassID="Microsoft.RecordsetDestination"
-              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
-              name="Recordset Destination">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the recordset."
-                  name="VariableName">User::DeleteErrors</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input]"
-                  hasSideEffects="true"
-                  name="Recordset Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorCode]"
-                      cachedDataType="i4"
-                      cachedName="ErrorCode"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorColumn]"
-                      cachedDataType="i4"
-                      cachedName="ErrorColumn"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[ErrorMessage]"
-                      cachedDataType="wstr"
-                      cachedLength="2048"
-                      cachedName="ErrorMessage"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[tc_legislation]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="tc_legislation"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_legislation]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[tc_legislationid]"
-                      cachedDataType="guid"
-                      cachedName="tc_legislationid"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_legislationid]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[tc_legislationidentifier]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="tc_legislationidentifier"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_legislationidentifier]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[tc_legislationtextenglish]"
-                      cachedDataType="wstr"
-                      cachedLength="4000"
-                      cachedName="tc_legislationtextenglish"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_legislationtextenglish]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-            </component>
-            <component
-              refId="Package\Data Flow Task\Recordset Destination 1"
-              componentClassID="Microsoft.RecordsetDestination"
-              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
-              name="Recordset Destination 1">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the recordset."
-                  name="VariableName">User::DeleteSuccess</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task\Recordset Destination 1.Inputs[Recordset Destination Input]"
-                  hasSideEffects="true"
-                  name="Recordset Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[SavedRecordId]"
-                      cachedDataType="guid"
-                      cachedName="SavedRecordId"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Recordset Destination 1.Inputs[Recordset Destination Input].Columns[IsNew]"
-                      cachedDataType="bool"
-                      cachedName="IsNew"
-                      lineageId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-            </component>
           </components>
           <paths>
-            <path
-              refId="Package\Data Flow Task.Paths[Default Output]"
-              endId="Package\Data Flow Task\Recordset Destination 1.Inputs[Recordset Destination Input]"
-              name="Default Output"
-              startId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Default Output]" />
-            <path
-              refId="Package\Data Flow Task.Paths[Error Output]"
-              endId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input]"
-              name="Error Output"
-              startId="Package\Data Flow Task\Dynamics CRM Destination.Outputs[Error Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Primary Output]"
               endId="Package\Data Flow Task\Dynamics CRM Destination.Inputs[Input]"
@@ -1037,9 +1050,9 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="151,42"
+          Size="155,42"
           Id="Package\Data Flow Task"
-          TopLeft="5.5,5.5" />
+          TopLeft="805.5,222.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1047,107 +1060,29 @@
     design-time-name="Package\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="184,42"
+          Size="193,42"
           Id="Package\Data Flow Task\Dynamics CRM Source"
-          TopLeft="724.5,201.5" />
+          TopLeft="861.5,223.5" />
         <NodeLayout
-          Size="191,42"
-          Id="Package\Data Flow Task\Recordset Destination 1"
-          TopLeft="360.5,531.5" />
-        <NodeLayout
-          Size="205,42"
+          Size="213,42"
           Id="Package\Data Flow Task\Dynamics CRM Destination"
-          TopLeft="709.5,403.5" />
-        <NodeLayout
-          Size="182,42"
-          Id="Package\Data Flow Task\Recordset Destination"
-          TopLeft="1089.5,541.5" />
+          TopLeft="849.5,359.5" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Primary Output]"
-          TopLeft="814.25,243.5">
+          TopLeft="957,265.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,160"
+              EndConnector="0,94"
               Start="0,0"
-              End="0,152.5">
+              End="0,86.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,152.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Error Output]"
-          TopLeft="844.833333333333,445.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="335.666666666667,96"
-              Start="0,0"
-              End="335.666666666667,88.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.8460793804453" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34.8460793804453"
-                    Point2="0,38.8460793804453"
-                    Point3="4,38.8460793804453" />
-                  <mssgle:LineSegment
-                    End="331.666666666667,38.8460793804453" />
-                  <mssgle:CubicBezierSegment
-                    Point1="331.666666666667,38.8460793804453"
-                    Point2="335.666666666667,38.8460793804453"
-                    Point3="335.666666666667,42.8460793804453" />
-                  <mssgle:LineSegment
-                    End="335.666666666667,88.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="139.496946614584,43.8460793804453,56.6727734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Default Output]"
-          TopLeft="812,445.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-356,86"
-              Start="0,0"
-              End="-356,78.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,39"
-                    Point2="0,43"
-                    Point3="-4,43" />
-                  <mssgle:LineSegment
-                    End="-352,43" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-352,43"
-                    Point2="-356,43"
-                    Point3="-356,47" />
-                  <mssgle:LineSegment
-                    End="-356,78.5" />
+                    End="0,86.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

@@ -5,30 +5,26 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="NCRNBH803696"
   DTS:CreatorName="TC\LEBLAAA"
-  DTS:DTSID="{02AD5D7C-4462-4B13-A0E7-28951C14F38D}"
+  DTS:DTSID="{4098F9DF-57E0-4EF7-9245-40749135A087}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.150"
   DTS:LocaleID="1033"
   DTS:ObjectName="ImportWorkplans"
   DTS:PackageType="5"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{465CCA95-35C4-499A-BF43-D6367299CE21}">
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{65162C40-E54F-4764-8BF5-A07AC08F9242}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore]"
+      DTS:refId="Package.ConnectionManagers[tdg-data-migration-db]"
       DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      DTS:DTSID="{568226E4-8CA7-41C8-B9A5-829AAA43B118}"
-      DTS:ObjectName="tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore">
+      DTS:DTSID="{1305C1BB-56FF-4DA1-8A84-7FCFD24BE74C}"
+      DTS:ObjectName="tdg-data-migration-db">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=tcp:aarons-tc-sql-server.database.windows.net,1433;User ID=tdgcore;Initial Catalog=aaron-tc-sql-db;Persist Security Info=True;Application Name=SSIS-Package3-{568226E4-8CA7-41C8-B9A5-829AAA43B118}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgv9SWnaY00u400FrWMN42gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACFG3S1zO3aGq8DUZZXm5RUAAAAAASAAACgAAAAEAAAAJ79u5vPEovqBmytWRsosP0YAAAALYOytG3J0czjI8lgBtNSZfLNjpeOkjC+FAAAAG/6GOjsG6b3mqH31AqVCnOYogkZ</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-Package3-{1305C1BB-56FF-4DA1-8A84-7FCFD24BE74C}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -38,7 +34,7 @@
       DTS:refId="Package\19-20 WORKPLAN"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{b327ba69-ae83-49f9-97c4-81001e750eea}"
+      DTS:DTSID="{7BC7D7E6-7F68-4739-B00A-D676693ED2AF}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="19-20 WORKPLAN"
@@ -121,8 +117,8 @@
               <connections>
                 <connection
                   refId="Package\19-20 WORKPLAN\Premium ADO NET Destination.Connections[ADO NET]"
-                  connectionManagerID="Package.ConnectionManagers[tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore]"
-                  connectionManagerRefId="Package.ConnectionManagers[tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore]"
+                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
                   description="ADO.NET"
                   name="ADO NET" />
               </connections>
@@ -7186,7 +7182,7 @@
       DTS:refId="Package\19-20 WORKPLAN 1"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{b2a6d930-ab38-40ec-a97e-ec7e8c42366d}"
+      DTS:DTSID="{6C5005C5-494F-4CCE-99F6-5EC1DFF0C947}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="19-20 WORKPLAN 1"
@@ -7270,8 +7266,8 @@
               <connections>
                 <connection
                   refId="Package\19-20 WORKPLAN 1\Premium ADO NET Destination.Connections[ADO NET]"
-                  connectionManagerID="Package.ConnectionManagers[tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore]"
-                  connectionManagerRefId="Package.ConnectionManagers[tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore]"
+                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
                   description="ADO.NET"
                   name="ADO NET" />
               </connections>
@@ -14041,7 +14037,7 @@
       DTS:refId="Package\20-21 WORKPLAN"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{2d7cb79e-6bf1-467e-8474-28cd8a7258ae}"
+      DTS:DTSID="{7820159E-AF98-4300-94C9-2FF16FCDC32A}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="20-21 WORKPLAN"
@@ -14124,8 +14120,8 @@
               <connections>
                 <connection
                   refId="Package\20-21 WORKPLAN\Premium ADO NET Destination.Connections[ADO NET]"
-                  connectionManagerID="Package.ConnectionManagers[tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore]"
-                  connectionManagerRefId="Package.ConnectionManagers[tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore]"
+                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
                   description="ADO.NET"
                   name="ADO NET" />
               </connections>
@@ -21452,7 +21448,7 @@
       DTS:refId="Package\21-22 WORKPLAN"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{6C838299-C0EC-4524-88EF-336A3C95E6B7}"
+      DTS:DTSID="{263B0734-4B30-4E81-9F0B-9B190CBAF8EA}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="21-22 WORKPLAN"
@@ -21535,8 +21531,8 @@
               <connections>
                 <connection
                   refId="Package\21-22 WORKPLAN\Premium ADO NET Destination.Connections[ADO NET]"
-                  connectionManagerID="Package.ConnectionManagers[tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore]"
-                  connectionManagerRefId="Package.ConnectionManagers[tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore]"
+                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
                   description="ADO.NET"
                   name="ADO NET" />
               </connections>

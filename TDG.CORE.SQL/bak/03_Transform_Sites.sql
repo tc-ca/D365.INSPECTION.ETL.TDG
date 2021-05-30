@@ -29,11 +29,11 @@ NEWID(),
 [COMPLETED],
 [PLANNED2021]
 FROM [dbo].[01_IIS_DATA_CONSOLIDATION]
-WHERE [REGULATED_ENTITY_ID] IN 
-(
-	--Only bring in sites for regulated entities that have been converted
-	SELECT REGULATED_ENTITY_ID_SOURCE FROM DBO.[02_REGULATED_ENTITIES]
-)
+--WHERE [REGULATED_ENTITY_ID] IN 
+--(
+--	--Only bring in sites for regulated entities that have been converted
+--	SELECT REGULATED_ENTITY_ID_SOURCE FROM DBO.[02_REGULATED_ENTITIES]
+--)
 
 
 --get the uniqueindentifiers for regulated entities and update the site table
