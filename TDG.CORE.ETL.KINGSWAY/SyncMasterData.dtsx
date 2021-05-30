@@ -12,8 +12,8 @@
   DTS:ObjectName="SyncMasterData"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="271"
-  DTS:VersionGUID="{DDD9E7D6-8C90-4254-8F22-A8BA167870BF}">
+  DTS:VersionBuild="274"
+  DTS:VersionGUID="{F3EA4CB3-384D-4A37-AD78-B30DA2F03E27}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,16 +24,16 @@
       DTS:ObjectName="Dynamics CRM Connection Manager">
       <DTS:ObjectData>
         <CrmConnectionManager
-          ConnectionString="AuthenticationType=OnlineFederation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-qa-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
+          ConnectionString="AuthenticationType=OAuth;ServiceEndpoint=Soap2011;UserName=;Domain=;ServerUrl=https://rom-qa-tcd365.crm3.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;OAuthType=ClientCredentials;ClientAppId=a6adc57f-f130-4e0e-8cab-c0d6a26f8273;AuthorizationServerUrl=;ServiceResource=;CertificateThumbprint=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
           ConnectByProxy="False">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="xgswozP5DUw="
-            IV="iMu5eZm8qv6+mJZu+7TTHQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="m87JAiIJeBU="
+            IV="2UVHYUfg+n1RkYrPrXiMJg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>iMu5eZm8qv6+mJZu+7TTHX3CfQG7GsMxI/zZdK+1gWMtmdDrXNRz8oSJU0AZNikbd7PxwHKgPAoFI6N4349+cCN2dUwViTSh9/NPe8P5clj0AGkhYIiGUt7rMwjWkShghB39ItXFxkKyvDuOvqqUuw==</CipherValue>
+              <CipherValue>2UVHYUfg+n1RkYrPrXiMJlq0iYVci3tVUVJZGnQbri2KlwwaqQx+GBRgTE35NAtk6Q8I9TqqeP0+oWYoqmAV9UtyVLgzvsxm4W1TDgH0gm1Wpfv3CCSaYaAXeiS9bGe2Of+RDoow+wBaVwEs8cO5VBCE+fIE2K/oT84Cb+MxLaBcZypdBCUUDWO/jxCmURNj</CipherValue>
             </CipherData>
           </EncryptedData>
         </CrmConnectionManager>
@@ -49,12 +49,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Provider=SQLNCLI11.1;Persist Security Info=True;Connect Timeout=0;General Timeout=0;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="1vxiMwtdtkw="
-            IV="6JrEA7q72xmI2AvnESSyrA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="CWbwGGdGr6E="
+            IV="6a7rXVAZBJrqzYnSNf13MA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>6JrEA7q72xmI2AvnESSyrBGl7qz6bXmz3AKfzBe5wl9vR6vLzQCfiiJQlsrzXZHYiNtdQWM4tXOTjzrs8Bue9MANCZnK6U7M7fa3QlkLmB141/w2IlPcAOjkwzeTQXwzfh/ezkxFqEW3RFRlcf6FMF6AZE4vw6L5MEuIJTh4NONpkqv+Fexr5N/PBk/Zz9zZ</CipherValue>
+              <CipherValue>6a7rXVAZBJrqzYnSNf13MMtPF5GWWNEsk0gsJGS9efoD/xuQ8yiZR8OhJz6msn/VU6ySYZGi93uWDD1TsvUC2rcgo/hN2jgkNvpp07Xh3jcVjmYQGDGDyAJQo6lCVu6ksscZTxhUba+jzultghkEM/0wfNJfM8g3N7k5cMdoanjSsrSJ8kyw2BXwTH8YAnnQ</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -70,12 +70,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-SqlToCrm-{458F205C-D352-491D-9E88-E53D4A3A43AA}tdg-data-migration-server.database.windows.net.tdg-data-migration-db.tdgco;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="r0yWCM5Xkjc="
-            IV="UPsJNGnQhaYaMjDl5O0DcA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="R6CHfmBmV7E="
+            IV="nC1m5862PIql8TlW9LB6yw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>UPsJNGnQhaYaMjDl5O0DcLX+xu+6QarykQppY8vrE2PLb8/2XelPjtnXTgFz4z+coqRjVTzETCpNAYkNePCEQ0L9dzm/V/IYV+2m0WEGGuFcpaKYEmxO553E7/udLBjhAuXUxdWyo2CdzM+E2bG19LmglwjV4OdRwtxJ9/De33ITHChCAsQkpBmVAyQPnk7B</CipherValue>
+              <CipherValue>nC1m5862PIql8TlW9LB6y0U0kYj5GPztqiJBUG7YHavS28aN67Jj/uW5gTPO29AIrH5Wt35o1PlxlwU2ZqCK/K4BEzqkMteHyC0ibzwesBIy6/3tywjE99zwbMuo7VyvM8Tl7vhE5CyLLnLVMhpJpWzNfRtGZqv5zPQHeunYYgHsaI6SKBN6D5pIACpKfNtl</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -420,28 +420,32 @@
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[userid]" />
                     <inputColumn
                       refId="Package\bookable resources\bookable resources.Inputs[Input].Columns[name]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="100"
                       cachedName="name"
                       externalMetadataColumnId="Package\bookable resources\bookable resources.Inputs[Input].ExternalColumns[name]"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[name]" />
                     <inputColumn
                       refId="Package\bookable resources\bookable resources.Inputs[Input].Columns[msdyn_primaryemail]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="100"
                       cachedName="msdyn_primaryemail"
                       externalMetadataColumnId="Package\bookable resources\bookable resources.Inputs[Input].ExternalColumns[msdyn_primaryemail]"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_primaryemail]" />
                     <inputColumn
                       refId="Package\bookable resources\bookable resources.Inputs[Input].Columns[ovs_badgenumber]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="100"
                       cachedName="ovs_badgenumber"
                       externalMetadataColumnId="Package\bookable resources\bookable resources.Inputs[Input].ExternalColumns[ovs_badgenumber]"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_badgenumber]" />
                     <inputColumn
                       refId="Package\bookable resources\bookable resources.Inputs[Input].Columns[ovs_registeredinspectornumberrin]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="100"
                       cachedName="ovs_registeredinspectornumberrin"
                       externalMetadataColumnId="Package\bookable resources\bookable resources.Inputs[Input].ExternalColumns[ovs_registeredinspectornumberrin]"
@@ -454,7 +458,8 @@
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[ownerid]" />
                     <inputColumn
                       refId="Package\bookable resources\bookable resources.Inputs[Input].Columns[owneridtype]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="64"
                       cachedName="owneridtype"
                       externalMetadataColumnId="Package\bookable resources\bookable resources.Inputs[Input].ExternalColumns[owneridtype]"
@@ -1214,7 +1219,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[12_BOOKABLE_RESOURCE]</property>
+                  name="OpenRowset">[dbo].[STAGING__BOOKABLE_RESOURCE]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -1290,7 +1295,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[owneridtype]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[owneridtype]"
@@ -1345,7 +1351,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[createdbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[createdbyname]"
@@ -1355,7 +1362,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[createdbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[createdbyyominame]"
@@ -1383,7 +1391,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[createdonbehalfbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[createdonbehalfbyname]"
@@ -1393,7 +1402,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[createdonbehalfbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[createdonbehalfbyyominame]"
@@ -1423,7 +1433,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[modifiedbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[modifiedbyname]"
@@ -1433,7 +1444,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[modifiedbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[modifiedbyyominame]"
@@ -1461,7 +1473,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[modifiedonbehalfbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[modifiedonbehalfbyname]"
@@ -1471,7 +1484,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[modifiedonbehalfbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[modifiedonbehalfbyyominame]"
@@ -1517,7 +1531,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[owneridname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[owneridname]"
@@ -1527,7 +1542,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[owneridyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[owneridyominame]"
@@ -1573,7 +1589,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[transactioncurrencyidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[transactioncurrencyidname]"
@@ -1583,7 +1600,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[traversedpath]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[traversedpath]"
@@ -1620,7 +1638,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[accountidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[accountidname]"
@@ -1630,7 +1649,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[accountidyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[accountidyominame]"
@@ -1658,7 +1678,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[calendaridname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[calendaridname]"
@@ -1677,7 +1698,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[contactidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[contactidname]"
@@ -1687,7 +1709,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[contactidyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[contactidyominame]"
@@ -1787,7 +1810,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_facilityequipmentidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_facilityequipmentidname]"
@@ -1846,7 +1870,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_organizationalunitname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_organizationalunitname]"
@@ -1856,7 +1881,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_pooltype]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_pooltype]"
@@ -1866,7 +1892,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_primaryemail]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_primaryemail]"
@@ -1912,7 +1939,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_warehousename]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_warehousename]"
@@ -1922,7 +1950,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[name]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[name]"
@@ -1932,7 +1961,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_badgenumber]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ovs_badgenumber]"
@@ -1942,7 +1972,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_registeredinspectornumberrin]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ovs_registeredinspectornumberrin]"
@@ -1979,7 +2010,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[useridname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[useridname]"
@@ -1989,7 +2021,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[useridyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[useridyominame]"
@@ -1999,7 +2032,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_crewstrategyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_crewstrategyname]"
@@ -2009,7 +2043,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_derivecapacityname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_derivecapacityname]"
@@ -2019,7 +2054,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_displayonscheduleassistantname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_displayonscheduleassistantname]"
@@ -2029,7 +2065,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_displayonscheduleboardname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_displayonscheduleboardname]"
@@ -2039,7 +2076,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_enableappointmentsname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_enableappointmentsname]"
@@ -2049,7 +2087,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_enabledforfieldservicemobilename]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_enabledforfieldservicemobilename]"
@@ -2059,7 +2098,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_enabledripschedulingname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_enabledripschedulingname]"
@@ -2069,7 +2109,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_endlocationname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_endlocationname]"
@@ -2079,7 +2120,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_generictypename]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_generictypename]"
@@ -2089,7 +2131,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_pooltypename]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_pooltypename]"
@@ -2099,7 +2142,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_startlocationname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_startlocationname]"
@@ -2109,7 +2153,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_timeoffapprovalrequiredname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_timeoffapprovalrequiredname]"
@@ -2119,7 +2164,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[resourcetypename]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[resourcetypename]"
@@ -2129,7 +2175,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[statecodename]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[statecodename]"
@@ -2139,7 +2186,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[statuscodename]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[statuscodename]"
@@ -2164,7 +2212,8 @@ WHERE customertypecode = 948010001</property>
                       name="ownerid" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[owneridtype]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="64"
                       name="owneridtype" />
                     <externalMetadataColumn
@@ -2189,12 +2238,14 @@ WHERE customertypecode = 948010001</property>
                       name="statuscode" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[createdbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="createdbyname" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[createdbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="createdbyyominame" />
                     <externalMetadataColumn
@@ -2207,12 +2258,14 @@ WHERE customertypecode = 948010001</property>
                       name="createdonbehalfby" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[createdonbehalfbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="createdonbehalfbyname" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[createdonbehalfbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="createdonbehalfbyyominame" />
                     <externalMetadataColumn
@@ -2227,12 +2280,14 @@ WHERE customertypecode = 948010001</property>
                       name="modifiedby" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[modifiedbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="modifiedbyname" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[modifiedbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="modifiedbyyominame" />
                     <externalMetadataColumn
@@ -2245,12 +2300,14 @@ WHERE customertypecode = 948010001</property>
                       name="modifiedonbehalfby" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[modifiedonbehalfbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="modifiedonbehalfbyname" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[modifiedonbehalfbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="modifiedonbehalfbyyominame" />
                     <externalMetadataColumn
@@ -2271,12 +2328,14 @@ WHERE customertypecode = 948010001</property>
                       name="overriddencreatedon" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[owneridname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="owneridname" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[owneridyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="owneridyominame" />
                     <externalMetadataColumn
@@ -2297,12 +2356,14 @@ WHERE customertypecode = 948010001</property>
                       name="transactioncurrencyid" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[transactioncurrencyidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       name="transactioncurrencyidname" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[traversedpath]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="1250"
                       name="traversedpath" />
                     <externalMetadataColumn
@@ -2319,12 +2380,14 @@ WHERE customertypecode = 948010001</property>
                       name="accountid" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[accountidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="160"
                       name="accountidname" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[accountidyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="160"
                       name="accountidyominame" />
                     <externalMetadataColumn
@@ -2337,7 +2400,8 @@ WHERE customertypecode = 948010001</property>
                       name="calendarid" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[calendaridname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="160"
                       name="calendaridname" />
                     <externalMetadataColumn
@@ -2346,12 +2410,14 @@ WHERE customertypecode = 948010001</property>
                       name="contactid" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[contactidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="160"
                       name="contactidname" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[contactidyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="160"
                       name="contactidyominame" />
                     <externalMetadataColumn
@@ -2396,7 +2462,8 @@ WHERE customertypecode = 948010001</property>
                       name="msdyn_facilityequipmentid" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_facilityequipmentidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="160"
                       name="msdyn_facilityequipmentidname" />
                     <externalMetadataColumn
@@ -2425,17 +2492,20 @@ WHERE customertypecode = 948010001</property>
                       name="msdyn_organizationalunit" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_organizationalunitname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       name="msdyn_organizationalunitname" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_pooltype]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="4000"
                       name="msdyn_pooltype" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_primaryemail]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       name="msdyn_primaryemail" />
                     <externalMetadataColumn
@@ -2456,22 +2526,26 @@ WHERE customertypecode = 948010001</property>
                       name="msdyn_warehouse" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_warehousename]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       name="msdyn_warehousename" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[name]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       name="name" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ovs_badgenumber]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       name="ovs_badgenumber" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ovs_registeredinspectornumberrin]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       name="ovs_registeredinspectornumberrin" />
                     <externalMetadataColumn
@@ -2488,87 +2562,104 @@ WHERE customertypecode = 948010001</property>
                       name="userid" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[useridname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="useridname" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[useridyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="useridyominame" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_crewstrategyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="msdyn_crewstrategyname" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_derivecapacityname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="msdyn_derivecapacityname" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_displayonscheduleassistantname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="msdyn_displayonscheduleassistantname" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_displayonscheduleboardname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="msdyn_displayonscheduleboardname" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_enableappointmentsname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="msdyn_enableappointmentsname" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_enabledforfieldservicemobilename]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="msdyn_enabledforfieldservicemobilename" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_enabledripschedulingname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="msdyn_enabledripschedulingname" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_endlocationname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="msdyn_endlocationname" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_generictypename]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="msdyn_generictypename" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_pooltypename]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="msdyn_pooltypename" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_startlocationname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="msdyn_startlocationname" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_timeoffapprovalrequiredname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="msdyn_timeoffapprovalrequiredname" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[resourcetypename]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="resourcetypename" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[statecodename]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="statecodename" />
                     <externalMetadataColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[statuscodename]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="statuscodename" />
                   </externalMetadataColumns>
@@ -2579,384 +2670,27 @@ WHERE customertypecode = 948010001</property>
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accountid]"
-                      dataType="guid"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accountid]"
-                      name="accountid" />
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
                     <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accountidname]"
-                      dataType="wstr"
-                      length="160"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accountidname]"
-                      name="accountidname" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accountidyominame]"
-                      dataType="wstr"
-                      length="160"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accountidyominame]"
-                      name="accountidyominame" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bookableresourceid]"
-                      dataType="guid"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bookableresourceid]"
-                      name="bookableresourceid" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[calendarid]"
-                      dataType="guid"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[calendarid]"
-                      name="calendarid" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[calendaridname]"
-                      dataType="wstr"
-                      length="160"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[calendaridname]"
-                      name="calendaridname" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[contactid]"
-                      dataType="guid"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[contactid]"
-                      name="contactid" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[contactidname]"
-                      dataType="wstr"
-                      length="160"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[contactidname]"
-                      name="contactidname" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[contactidyominame]"
-                      dataType="wstr"
-                      length="160"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[contactidyominame]"
-                      name="contactidyominame" />
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdby]"
                       dataType="guid"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdby]"
                       name="createdby" />
                     <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdbyname]"
-                      dataType="wstr"
-                      length="200"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdbyname]"
-                      name="createdbyname" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdbyyominame]"
-                      dataType="wstr"
-                      length="200"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdbyyominame]"
-                      name="createdbyyominame" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdon]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdon]"
-                      name="createdon" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdonbehalfby]"
-                      dataType="guid"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdonbehalfby]"
-                      name="createdonbehalfby" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdonbehalfbyname]"
-                      dataType="wstr"
-                      length="200"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdonbehalfbyname]"
-                      name="createdonbehalfbyname" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdonbehalfbyyominame]"
-                      dataType="wstr"
-                      length="200"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdonbehalfbyyominame]"
-                      name="createdonbehalfbyyominame" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[exchangerate]"
-                      dataType="numeric"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[exchangerate]"
-                      name="exchangerate"
-                      precision="38"
-                      scale="10" />
-                    <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[importsequencenumber]"
                       dataType="i4"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[importsequencenumber]"
                       name="importsequencenumber" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedby]"
-                      dataType="guid"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedby]"
-                      name="modifiedby" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedbyname]"
-                      dataType="wstr"
-                      length="200"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedbyname]"
-                      name="modifiedbyname" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedbyyominame]"
-                      dataType="wstr"
-                      length="200"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedbyyominame]"
-                      name="modifiedbyyominame" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedon]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedon]"
-                      name="modifiedon" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedonbehalfby]"
-                      dataType="guid"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedonbehalfby]"
-                      name="modifiedonbehalfby" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedonbehalfbyname]"
-                      dataType="wstr"
-                      length="200"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedonbehalfbyname]"
-                      name="modifiedonbehalfbyname" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedonbehalfbyyominame]"
-                      dataType="wstr"
-                      length="200"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedonbehalfbyyominame]"
-                      name="modifiedonbehalfbyyominame" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_bookingstodrip]"
-                      dataType="i4"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_bookingstodrip]"
-                      name="msdyn_bookingstodrip" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_crewstrategy]"
-                      dataType="i4"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_crewstrategy]"
-                      name="msdyn_crewstrategy" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_crewstrategyname]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_crewstrategyname]"
-                      name="msdyn_crewstrategyname" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_derivecapacity]"
-                      dataType="bool"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_derivecapacity]"
-                      name="msdyn_derivecapacity" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_derivecapacityname]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_derivecapacityname]"
-                      name="msdyn_derivecapacityname" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_displayonscheduleassistant]"
-                      dataType="bool"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_displayonscheduleassistant]"
-                      name="msdyn_displayonscheduleassistant" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_displayonscheduleassistantname]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_displayonscheduleassistantname]"
-                      name="msdyn_displayonscheduleassistantname" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_displayonscheduleboard]"
-                      dataType="bool"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_displayonscheduleboard]"
-                      name="msdyn_displayonscheduleboard" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_displayonscheduleboardname]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_displayonscheduleboardname]"
-                      name="msdyn_displayonscheduleboardname" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enableappointments]"
-                      dataType="i4"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enableappointments]"
-                      name="msdyn_enableappointments" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enableappointmentsname]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enableappointmentsname]"
-                      name="msdyn_enableappointmentsname" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enabledforfieldservicemobile]"
-                      dataType="bool"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enabledforfieldservicemobile]"
-                      name="msdyn_enabledforfieldservicemobile" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enabledforfieldservicemobilename]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enabledforfieldservicemobilename]"
-                      name="msdyn_enabledforfieldservicemobilename" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enabledripscheduling]"
-                      dataType="bool"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enabledripscheduling]"
-                      name="msdyn_enabledripscheduling" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enabledripschedulingname]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enabledripschedulingname]"
-                      name="msdyn_enabledripschedulingname" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_endlocation]"
-                      dataType="i4"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_endlocation]"
-                      name="msdyn_endlocation" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_endlocationname]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_endlocationname]"
-                      name="msdyn_endlocationname" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_facilityequipmentid]"
-                      dataType="guid"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_facilityequipmentid]"
-                      name="msdyn_facilityequipmentid" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_facilityequipmentidname]"
-                      dataType="wstr"
-                      length="160"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_facilityequipmentidname]"
-                      name="msdyn_facilityequipmentidname" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_generictype]"
-                      dataType="i4"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_generictype]"
-                      name="msdyn_generictype" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_generictypename]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_generictypename]"
-                      name="msdyn_generictypename" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_hourlyrate]"
-                      dataType="numeric"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_hourlyrate]"
-                      name="msdyn_hourlyrate"
-                      precision="38"
-                      scale="2" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_hourlyrate_base]"
-                      dataType="numeric"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_hourlyrate_base]"
-                      name="msdyn_hourlyrate_base"
-                      precision="38"
-                      scale="2" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_internalflags]"
-                      dataType="nText"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_internalflags]"
-                      name="msdyn_internalflags" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_latitude]"
-                      dataType="r8"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_latitude]"
-                      name="msdyn_latitude" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_locationtimestamp]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_locationtimestamp]"
-                      name="msdyn_locationtimestamp" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_longitude]"
-                      dataType="r8"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_longitude]"
-                      name="msdyn_longitude" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_organizationalunit]"
-                      dataType="guid"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_organizationalunit]"
-                      name="msdyn_organizationalunit" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_organizationalunitname]"
-                      dataType="wstr"
-                      length="100"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_organizationalunitname]"
-                      name="msdyn_organizationalunitname" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_pooltype]"
-                      dataType="wstr"
-                      length="4000"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_pooltype]"
-                      name="msdyn_pooltype" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_pooltypename]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_pooltypename]"
-                      name="msdyn_pooltypename" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_primaryemail]"
-                      dataType="wstr"
-                      length="100"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_primaryemail]"
-                      name="msdyn_primaryemail" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_startlocation]"
-                      dataType="i4"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_startlocation]"
-                      name="msdyn_startlocation" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_startlocationname]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_startlocationname]"
-                      name="msdyn_startlocationname" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_targetutilization]"
-                      dataType="i4"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_targetutilization]"
-                      name="msdyn_targetutilization" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_timeoffapprovalrequired]"
-                      dataType="bool"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_timeoffapprovalrequired]"
-                      name="msdyn_timeoffapprovalrequired" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_timeoffapprovalrequiredname]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_timeoffapprovalrequiredname]"
-                      name="msdyn_timeoffapprovalrequiredname" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_warehouse]"
-                      dataType="guid"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_warehouse]"
-                      name="msdyn_warehouse" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_warehousename]"
-                      dataType="wstr"
-                      length="100"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_warehousename]"
-                      name="msdyn_warehousename" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[name]"
-                      dataType="wstr"
-                      length="100"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[name]"
-                      name="name" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[overriddencreatedon]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[overriddencreatedon]"
-                      name="overriddencreatedon" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ovs_badgenumber]"
-                      dataType="wstr"
-                      length="100"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ovs_badgenumber]"
-                      name="ovs_badgenumber" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ovs_registeredinspectornumberrin]"
-                      dataType="wstr"
-                      length="100"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ovs_registeredinspectornumberrin]"
-                      name="ovs_registeredinspectornumberrin" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ownerid]"
                       dataType="guid"
@@ -2964,27 +2698,16 @@ WHERE customertypecode = 948010001</property>
                       name="ownerid" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridtype]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="64"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridtype]"
                       name="owneridtype" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridname]"
-                      dataType="wstr"
-                      length="200"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridname]"
-                      name="owneridname" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owningbusinessunit]"
                       dataType="guid"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owningbusinessunit]"
                       name="owningbusinessunit" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridyominame]"
-                      dataType="wstr"
-                      length="200"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridyominame]"
-                      name="owneridyominame" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owningteam]"
                       dataType="guid"
@@ -3001,16 +2724,132 @@ WHERE customertypecode = 948010001</property>
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statecode]"
                       name="statecode" />
                     <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[resourcetype]"
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statuscode]"
                       dataType="i4"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[resourcetype]"
-                      name="resourcetype" />
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statuscode]"
+                      name="statuscode" />
                     <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[resourcetypename]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[resourcetypename]"
-                      name="resourcetypename" />
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdbyname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdbyname]"
+                      name="createdbyname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdbyyominame]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdbyyominame]"
+                      name="createdbyyominame" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdon]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdon]"
+                      name="createdon" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdonbehalfby]"
+                      dataType="guid"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdonbehalfby]"
+                      name="createdonbehalfby" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdonbehalfbyname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdonbehalfbyname]"
+                      name="createdonbehalfbyname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdonbehalfbyyominame]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdonbehalfbyyominame]"
+                      name="createdonbehalfbyyominame" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[exchangerate]"
+                      dataType="numeric"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[exchangerate]"
+                      name="exchangerate"
+                      precision="38"
+                      scale="10" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedby]"
+                      dataType="guid"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedby]"
+                      name="modifiedby" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedbyname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedbyname]"
+                      name="modifiedbyname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedbyyominame]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedbyyominame]"
+                      name="modifiedbyyominame" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedon]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedon]"
+                      name="modifiedon" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedonbehalfby]"
+                      dataType="guid"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedonbehalfby]"
+                      name="modifiedonbehalfby" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedonbehalfbyname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedonbehalfbyname]"
+                      name="modifiedonbehalfbyname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedonbehalfbyyominame]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedonbehalfbyyominame]"
+                      name="modifiedonbehalfbyyominame" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_internalflags]"
+                      dataType="nText"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_internalflags]"
+                      name="msdyn_internalflags" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_latitude]"
+                      dataType="r8"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_latitude]"
+                      name="msdyn_latitude" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_longitude]"
+                      dataType="r8"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_longitude]"
+                      name="msdyn_longitude" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[overriddencreatedon]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[overriddencreatedon]"
+                      name="overriddencreatedon" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridname]"
+                      name="owneridname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridyominame]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridyominame]"
+                      name="owneridyominame" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[processid]"
                       dataType="guid"
@@ -3021,28 +2860,6 @@ WHERE customertypecode = 948010001</property>
                       dataType="guid"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[stageid]"
                       name="stageid" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statecodename]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statecodename]"
-                      name="statecodename" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statuscode]"
-                      dataType="i4"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statuscode]"
-                      name="statuscode" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statuscodename]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statuscodename]"
-                      name="statuscodename" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[timezone]"
-                      dataType="i4"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[timezone]"
-                      name="timezone" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[timezoneruleversionnumber]"
                       dataType="i4"
@@ -3055,33 +2872,18 @@ WHERE customertypecode = 948010001</property>
                       name="transactioncurrencyid" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[transactioncurrencyidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[transactioncurrencyidname]"
                       name="transactioncurrencyidname" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[traversedpath]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="1250"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[traversedpath]"
                       name="traversedpath" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[userid]"
-                      dataType="guid"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[userid]"
-                      name="userid" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[useridname]"
-                      dataType="wstr"
-                      length="200"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[useridname]"
-                      name="useridname" />
-                    <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[useridyominame]"
-                      dataType="wstr"
-                      length="200"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[useridyominame]"
-                      name="useridyominame" />
                     <outputColumn
                       refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[utcconversiontimezonecode]"
                       dataType="i4"
@@ -3093,17 +2895,349 @@ WHERE customertypecode = 948010001</property>
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[versionnumber]"
                       name="versionnumber" />
                     <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accountid]"
+                      dataType="guid"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accountid]"
+                      name="accountid" />
                     <outputColumn
-                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accountidname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="160"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accountidname]"
+                      name="accountidname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accountidyominame]"
+                      codePage="1252"
+                      dataType="str"
+                      length="160"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accountidyominame]"
+                      name="accountidyominame" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bookableresourceid]"
+                      dataType="guid"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bookableresourceid]"
+                      name="bookableresourceid" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[calendarid]"
+                      dataType="guid"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[calendarid]"
+                      name="calendarid" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[calendaridname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="160"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[calendaridname]"
+                      name="calendaridname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[contactid]"
+                      dataType="guid"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[contactid]"
+                      name="contactid" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[contactidname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="160"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[contactidname]"
+                      name="contactidname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[contactidyominame]"
+                      codePage="1252"
+                      dataType="str"
+                      length="160"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[contactidyominame]"
+                      name="contactidyominame" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_bookingstodrip]"
                       dataType="i4"
-                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_bookingstodrip]"
+                      name="msdyn_bookingstodrip" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_crewstrategy]"
+                      dataType="i4"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_crewstrategy]"
+                      name="msdyn_crewstrategy" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_derivecapacity]"
+                      dataType="bool"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_derivecapacity]"
+                      name="msdyn_derivecapacity" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_displayonscheduleassistant]"
+                      dataType="bool"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_displayonscheduleassistant]"
+                      name="msdyn_displayonscheduleassistant" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_displayonscheduleboard]"
+                      dataType="bool"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_displayonscheduleboard]"
+                      name="msdyn_displayonscheduleboard" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enableappointments]"
+                      dataType="i4"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enableappointments]"
+                      name="msdyn_enableappointments" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enabledforfieldservicemobile]"
+                      dataType="bool"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enabledforfieldservicemobile]"
+                      name="msdyn_enabledforfieldservicemobile" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enabledripscheduling]"
+                      dataType="bool"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enabledripscheduling]"
+                      name="msdyn_enabledripscheduling" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_endlocation]"
+                      dataType="i4"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_endlocation]"
+                      name="msdyn_endlocation" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_facilityequipmentid]"
+                      dataType="guid"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_facilityequipmentid]"
+                      name="msdyn_facilityequipmentid" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_facilityequipmentidname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="160"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_facilityequipmentidname]"
+                      name="msdyn_facilityequipmentidname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_generictype]"
+                      dataType="i4"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_generictype]"
+                      name="msdyn_generictype" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_hourlyrate]"
+                      dataType="numeric"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_hourlyrate]"
+                      name="msdyn_hourlyrate"
+                      precision="38"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_hourlyrate_base]"
+                      dataType="numeric"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_hourlyrate_base]"
+                      name="msdyn_hourlyrate_base"
+                      precision="38"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_locationtimestamp]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_locationtimestamp]"
+                      name="msdyn_locationtimestamp" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_organizationalunit]"
+                      dataType="guid"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_organizationalunit]"
+                      name="msdyn_organizationalunit" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_organizationalunitname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_organizationalunitname]"
+                      name="msdyn_organizationalunitname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_pooltype]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4000"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_pooltype]"
+                      name="msdyn_pooltype" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_primaryemail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_primaryemail]"
+                      name="msdyn_primaryemail" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_startlocation]"
+                      dataType="i4"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_startlocation]"
+                      name="msdyn_startlocation" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_targetutilization]"
+                      dataType="i4"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_targetutilization]"
+                      name="msdyn_targetutilization" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_timeoffapprovalrequired]"
+                      dataType="bool"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_timeoffapprovalrequired]"
+                      name="msdyn_timeoffapprovalrequired" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_warehouse]"
+                      dataType="guid"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_warehouse]"
+                      name="msdyn_warehouse" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_warehousename]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_warehousename]"
+                      name="msdyn_warehousename" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[name]"
+                      name="name" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ovs_badgenumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ovs_badgenumber]"
+                      name="ovs_badgenumber" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ovs_registeredinspectornumberrin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ovs_registeredinspectornumberrin]"
+                      name="ovs_registeredinspectornumberrin" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[resourcetype]"
+                      dataType="i4"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[resourcetype]"
+                      name="resourcetype" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[timezone]"
+                      dataType="i4"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[timezone]"
+                      name="timezone" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[userid]"
+                      dataType="guid"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[userid]"
+                      name="userid" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[useridname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[useridname]"
+                      name="useridname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[useridyominame]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[useridyominame]"
+                      name="useridyominame" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_crewstrategyname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_crewstrategyname]"
+                      name="msdyn_crewstrategyname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_derivecapacityname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_derivecapacityname]"
+                      name="msdyn_derivecapacityname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_displayonscheduleassistantname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_displayonscheduleassistantname]"
+                      name="msdyn_displayonscheduleassistantname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_displayonscheduleboardname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_displayonscheduleboardname]"
+                      name="msdyn_displayonscheduleboardname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enableappointmentsname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enableappointmentsname]"
+                      name="msdyn_enableappointmentsname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enabledforfieldservicemobilename]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enabledforfieldservicemobilename]"
+                      name="msdyn_enabledforfieldservicemobilename" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enabledripschedulingname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_enabledripschedulingname]"
+                      name="msdyn_enabledripschedulingname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_endlocationname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_endlocationname]"
+                      name="msdyn_endlocationname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_generictypename]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_generictypename]"
+                      name="msdyn_generictypename" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_pooltypename]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_pooltypename]"
+                      name="msdyn_pooltypename" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_startlocationname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_startlocationname]"
+                      name="msdyn_startlocationname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_timeoffapprovalrequiredname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_timeoffapprovalrequiredname]"
+                      name="msdyn_timeoffapprovalrequiredname" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[resourcetypename]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[resourcetypename]"
+                      name="resourcetypename" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statecodename]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statecodename]"
+                      name="statecodename" />
+                    <outputColumn
+                      refId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statuscodename]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statuscodename]"
+                      name="statuscodename" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -3144,8 +3278,8 @@ SYSUSER.islicensed,
 SYSUSER.issyncwithdirectory, 
 RegionCrmId
 FROM [dbo].tdgdata__systemuser SYSUSER 
-JOIN [16_IIS_INSPECTORS] INSP ON 
-(TRIM(INSP.Account_name)) = lower(TRIM(SYSUSER.domainname))</property>
+JOIN dbo.SOURCE__IIS_INSPECTORS INSP ON 
+lower(TRIM(INSP.Account_name)) = lower(TRIM(SYSUSER.domainname))</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -3420,7 +3554,8 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[ownerid]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[owneridtype]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="64"
                       cachedName="owneridtype"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[owneridtype]" />
@@ -3451,13 +3586,15 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[statuscode]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[createdbyname]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="200"
                       cachedName="createdbyname"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[createdbyname]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[createdbyyominame]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="200"
                       cachedName="createdbyyominame"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[createdbyyominame]" />
@@ -3473,13 +3610,15 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[createdonbehalfby]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[createdonbehalfbyname]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="200"
                       cachedName="createdonbehalfbyname"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[createdonbehalfbyname]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[createdonbehalfbyyominame]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="200"
                       cachedName="createdonbehalfbyyominame"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[createdonbehalfbyyominame]" />
@@ -3497,13 +3636,15 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[modifiedby]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[modifiedbyname]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="200"
                       cachedName="modifiedbyname"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[modifiedbyname]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[modifiedbyyominame]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="200"
                       cachedName="modifiedbyyominame"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[modifiedbyyominame]" />
@@ -3519,13 +3660,15 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[modifiedonbehalfby]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[modifiedonbehalfbyname]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="200"
                       cachedName="modifiedonbehalfbyname"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[modifiedonbehalfbyname]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[modifiedonbehalfbyyominame]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="200"
                       cachedName="modifiedonbehalfbyyominame"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[modifiedonbehalfbyyominame]" />
@@ -3551,13 +3694,15 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[overriddencreatedon]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[owneridname]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="200"
                       cachedName="owneridname"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[owneridname]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[owneridyominame]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="200"
                       cachedName="owneridyominame"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[owneridyominame]" />
@@ -3583,13 +3728,15 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[transactioncurrencyid]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[transactioncurrencyidname]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="100"
                       cachedName="transactioncurrencyidname"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[transactioncurrencyidname]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[traversedpath]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="1250"
                       cachedName="traversedpath"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[traversedpath]" />
@@ -3610,13 +3757,15 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[accountid]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[accountidname]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="160"
                       cachedName="accountidname"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[accountidname]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[accountidyominame]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="160"
                       cachedName="accountidyominame"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[accountidyominame]" />
@@ -3632,7 +3781,8 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[calendarid]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[calendaridname]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="160"
                       cachedName="calendaridname"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[calendaridname]" />
@@ -3643,13 +3793,15 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[contactid]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[contactidname]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="160"
                       cachedName="contactidname"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[contactidname]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[contactidyominame]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="160"
                       cachedName="contactidyominame"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[contactidyominame]" />
@@ -3705,7 +3857,8 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_facilityequipmentid]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[msdyn_facilityequipmentidname]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="160"
                       cachedName="msdyn_facilityequipmentidname"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_facilityequipmentidname]" />
@@ -3740,19 +3893,22 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_organizationalunit]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[msdyn_organizationalunitname]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="100"
                       cachedName="msdyn_organizationalunitname"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_organizationalunitname]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[msdyn_pooltype]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="4000"
                       cachedName="msdyn_pooltype"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_pooltype]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[msdyn_primaryemail]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="100"
                       cachedName="msdyn_primaryemail"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_primaryemail]" />
@@ -3778,25 +3934,29 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_warehouse]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[msdyn_warehousename]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="100"
                       cachedName="msdyn_warehousename"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_warehousename]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[name]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="100"
                       cachedName="name"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[name]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[ovs_badgenumber]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="100"
                       cachedName="ovs_badgenumber"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_badgenumber]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[ovs_registeredinspectornumberrin]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="100"
                       cachedName="ovs_registeredinspectornumberrin"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_registeredinspectornumberrin]" />
@@ -3817,13 +3977,15 @@ JOIN [16_IIS_INSPECTORS] INSP ON
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[userid]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[useridname]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="200"
                       cachedName="useridname"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[useridname]" />
                     <inputColumn
                       refId="Package\bookable resources\Recordset Destination.Inputs[Recordset Destination Input].Columns[useridyominame]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="200"
                       cachedName="useridyominame"
                       lineageId="Package\bookable resources\OLE DB Source.Outputs[OLE DB Source Output].Columns[useridyominame]" />
@@ -15427,7 +15589,7 @@ WHERE customertypecode = 948010001</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[23_TERRITORY]</property>
+                  name="OpenRowset">[dbo].[STAGING__TERRITORY]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -16841,112 +17003,6 @@ WHERE customertypecode = 948010001</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
         <NodeLayout
-          Size="128,42"
-          Id="Package\legislation"
-          TopLeft="1274.64285714286,783.928571428571" />
-        <NodeLayout
-          Size="193,42"
-          Id="Package\legislation relationships"
-          TopLeft="1238,890" />
-        <NodeLayout
-          Size="170,42"
-          Id="Package\legislation sources"
-          TopLeft="1142.64285714286,666.928571428571" />
-        <NodeLayout
-          Size="157,42"
-          Id="Package\legislation types"
-          TopLeft="1391.64285714286,671.928571428571" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="1470.14285714286,713.928571428571">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-131.5,70"
-              Start="0,0"
-              End="-131.5,62.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31"
-                    Point2="0,35"
-                    Point3="-4,35" />
-                  <mssgle:LineSegment
-                    End="-127.5,35" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-127.5,35"
-                    Point2="-131.5,35"
-                    Point3="-131.5,39" />
-                  <mssgle:LineSegment
-                    End="-131.5,62.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="1227.64285714286,708.928571428571">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="91,75"
-              Start="0,0"
-              End="91,67.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.4444444444444" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,40.4444444444444"
-                    Point2="0,44.4444444444444"
-                    Point3="4,44.4444444444444" />
-                  <mssgle:LineSegment
-                    End="87,44.4444444444444" />
-                  <mssgle:CubicBezierSegment
-                    Point1="87,44.4444444444444"
-                    Point2="91,44.4444444444444"
-                    Point3="91,48.4444444444444" />
-                  <mssgle:LineSegment
-                    End="91,67.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="1336.57142857143,825.928571428571">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64.0714285714287"
-              Start="0,0"
-              End="0,56.5714285714287">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.5714285714287" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
           Size="220,42"
           Id="Package\bookable resources category"
           TopLeft="628.5,53.9285714285714" />
@@ -17154,15 +17210,121 @@ WHERE customertypecode = 948010001</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="128,42"
+          Id="Package\legislation"
+          TopLeft="1063.89285714286,172.178571428571" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="1225.64285714286,97.178571428571">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-77.75,75"
+              Start="0,0"
+              End="-77.75,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.4444444444445" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.4444444444445"
+                    Point2="0,44.4444444444445"
+                    Point3="-4,44.4444444444445" />
+                  <mssgle:LineSegment
+                    End="-73.75,44.4444444444445" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-73.75,44.4444444444445"
+                    Point2="-77.75,44.4444444444445"
+                    Point3="-77.75,48.4444444444445" />
+                  <mssgle:LineSegment
+                    End="-77.75,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="1016.89285714286,97.178571428571">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="91,75"
+              Start="0,0"
+              End="91,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.4444444444445" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.4444444444445"
+                    Point2="0,44.4444444444445"
+                    Point3="4,44.4444444444445" />
+                  <mssgle:LineSegment
+                    End="87,44.4444444444445" />
+                  <mssgle:CubicBezierSegment
+                    Point1="87,44.4444444444445"
+                    Point2="91,44.4444444444445"
+                    Point3="91,48.4444444444445" />
+                  <mssgle:LineSegment
+                    End="91,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="1125.82142857143,214.178571428571">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.0714285714287"
+              Start="0,0"
+              End="0,56.5714285714287">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5714285714287" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="193,42"
+          Id="Package\legislation relationships"
+          TopLeft="1027.25,278.25" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\legislation sources"
+          TopLeft="931.89285714286,55.178571428571" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\legislation types"
+          TopLeft="1147.14285714286,55.178571428571" />
         <GroupLayout
           Text="Group 2"
           ParentId="Package"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="864,421"
-          Size="864,464"
+          PanelSize="1369,420"
+          Size="1369,463"
           Id="2b682a3a-8a2a-4fde-8916-79472c7dcf1b"
-          TopLeft="843.642857142857,74.9285714285714">
+          TopLeft="287.392857142857,74.9285714285714">
           <GroupLayout.ChildrenIds>
             <s:String>Package\bookable resources category</s:String>
             <s:String>Package\Oversight Types</s:String>
@@ -17177,6 +17339,13 @@ WHERE customertypecode = 948010001</property>
             <s:String>Package.PrecedenceConstraints[Constraint 8]</s:String>
             <s:String>Package\bookable resources category assn</s:String>
             <s:String>Package.PrecedenceConstraints[Constraint 1]</s:String>
+            <s:String>Package\legislation</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint]</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint 2]</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint 4]</s:String>
+            <s:String>Package\legislation relationships</s:String>
+            <s:String>Package\legislation sources</s:String>
+            <s:String>Package\legislation types</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
       </GraphLayout>
@@ -17226,9 +17395,7 @@ WHERE customertypecode = 948010001</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17250,9 +17417,7 @@ WHERE customertypecode = 948010001</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17275,7 +17440,7 @@ WHERE customertypecode = 948010001</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-37.2050390625,39.25,74.410078125,16"
+              BoundingBox="-28.33638671875,41.533203125,56.6727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17513,9 +17678,7 @@ WHERE customertypecode = 948010001</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17538,7 +17701,7 @@ WHERE customertypecode = 948010001</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-37.2050390625,40.75,74.410078125,16"
+              BoundingBox="-28.33638671875,43.033203125,56.6727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17617,7 +17780,7 @@ WHERE customertypecode = 948010001</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-37.2050390625,40.75,74.410078125,16"
+              BoundingBox="-28.33638671875,43.033203125,56.6727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17660,7 +17823,9 @@ WHERE customertypecode = 948010001</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18082,9 +18247,7 @@ WHERE customertypecode = 948010001</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

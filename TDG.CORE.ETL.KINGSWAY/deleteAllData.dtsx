@@ -12,8 +12,8 @@
   DTS:ObjectName="deleteAllData"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="149"
-  DTS:VersionGUID="{E767B45B-491E-4308-BC15-534988B03358}">
+  DTS:VersionBuild="154"
+  DTS:VersionGUID="{AE8F5317-C5D5-4341-BD2E-22F189B5FCE8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,16 +24,16 @@
       DTS:ObjectName="Dynamics CRM Connection Manager">
       <DTS:ObjectData>
         <CrmConnectionManager
-          ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-qa-tcd365.api.crm3.dynamics.com/XRMServices/2011/Organization.svc;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
+          ConnectionString="AuthenticationType=OAuth;ServiceEndpoint=Soap2011;UserName=;Domain=;ServerUrl=https://rom-acc-tdg-data-tcd365.api.crm3.dynamics.com/XRMServices/2011/Organization.svc;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;OAuthType=ClientCredentials;ClientAppId=a6adc57f-f130-4e0e-8cab-c0d6a26f8273;AuthorizationServerUrl=;ServiceResource=;CertificateThumbprint=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
           ConnectByProxy="False">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="DzKfDkHzDAg="
-            IV="qzg3NxebGD3u3NXzibx0Qw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="5qH5UV3W7fA="
+            IV="uxwOo2Z23XlrG41EknTaPQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>qzg3NxebGD3u3NXzibx0Q2kssTuJ3ANxNxZ1cwmDhLlC1L0ouBe4B/1t2hlLsjXQVGaiJin+6voWaYfuQHqdjHrrecE/p5CgmAdLJQNMLXiQcaVe81q1NuTtS5eOEkrr+Ma1/qqKgtK6yeoA6k68OQ==</CipherValue>
+              <CipherValue>uxwOo2Z23XlrG41EknTaPbcagk19srIYITLxWYUHwAwTXa1bJh2NTu9GlGum8SG54ry7opJDAbigh5it15BWHSdOXw3xry+4eXxfkMDnXJSTpYj8Pa1d/du9lffC4R7j96BGEWdfKaoCYAwU1/Dcq3gUBuctoLrGHoYQ+cismIXy2HxlfswiMzv0FiB0ZAN1</CipherValue>
             </CipherData>
           </EncryptedData>
         </CrmConnectionManager>
@@ -8610,298 +8610,6 @@
                   name="Primary Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[createdby]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdby]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[createdby]"
-                      name="createdby"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[createdbyname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdbyname]"
-                      length="200"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[createdbyname]"
-                      name="createdbyname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[createdbyyominame]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdbyyominame]"
-                      length="200"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[createdbyyominame]"
-                      name="createdbyyominame"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[createdon]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdon]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[createdon]"
-                      name="createdon"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[createdonbehalfby]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdonbehalfby]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[createdonbehalfby]"
-                      name="createdonbehalfby"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[createdonbehalfbyname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyname]"
-                      length="200"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[createdonbehalfbyname]"
-                      name="createdonbehalfbyname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[createdonbehalfbyyominame]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyyominame]"
-                      length="200"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[createdonbehalfbyyominame]"
-                      name="createdonbehalfbyyominame"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[importsequencenumber]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[importsequencenumber]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[importsequencenumber]"
-                      name="importsequencenumber"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedby]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedby]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedby]"
-                      name="modifiedby"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedbyname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedbyname]"
-                      length="200"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedbyname]"
-                      name="modifiedbyname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedbyyominame]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedbyyominame]"
-                      length="200"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedbyyominame]"
-                      name="modifiedbyyominame"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedon]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedon]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedon]"
-                      name="modifiedon"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedonbehalfby]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfby]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedonbehalfby]"
-                      name="modifiedonbehalfby"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedonbehalfbyname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyname]"
-                      length="200"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedonbehalfbyname]"
-                      name="modifiedonbehalfbyname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedonbehalfbyyominame]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyyominame]"
-                      length="200"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[modifiedonbehalfbyyominame]"
-                      name="modifiedonbehalfbyyominame"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[organizationid]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[organizationid]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[organizationid]"
-                      name="organizationid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[organizationidname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[organizationidname]"
-                      length="160"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[organizationidname]"
-                      name="organizationidname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[overriddencreatedon]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[overriddencreatedon]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[overriddencreatedon]"
-                      name="overriddencreatedon"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_additionalmetadataetxt]"
-                      dataType="nText"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_additionalmetadataetxt]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_additionalmetadataetxt]"
-                      name="qm_additionalmetadataetxt"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_additionalmetadataftxt]"
-                      dataType="nText"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_additionalmetadataftxt]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_additionalmetadataftxt]"
-                      name="qm_additionalmetadataftxt"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_historicalnoteetxt]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_historicalnoteetxt]"
-                      length="2000"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_historicalnoteetxt]"
-                      name="qm_historicalnoteetxt"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_historicalnoteftxt]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_historicalnoteftxt]"
-                      length="2000"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_historicalnoteftxt]"
-                      name="qm_historicalnoteftxt"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_inforcedte]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_inforcedte]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_inforcedte]"
-                      name="qm_inforcedte"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_justicefid]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_justicefid]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_justicefid]"
-                      name="qm_justicefid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_justiceid]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_justiceid]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_justiceid]"
-                      name="qm_justiceid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_lastamendeddte]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_lastamendeddte]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_lastamendeddte]"
-                      name="qm_lastamendeddte"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_legislationetxt]"
-                      dataType="nText"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_legislationetxt]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_legislationetxt]"
-                      name="qm_legislationetxt"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_legislationftxt]"
-                      dataType="nText"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_legislationftxt]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_legislationftxt]"
-                      name="qm_legislationftxt"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_legislationlbl]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_legislationlbl]"
-                      length="100"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_legislationlbl]"
-                      name="qm_legislationlbl"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_name]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_name]"
-                      length="100"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_name]"
-                      name="qm_name"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_ordernbr]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_ordernbr]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_ordernbr]"
-                      name="qm_ordernbr"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_rclegislationid]"
                       dataType="guid"
                       errorOrTruncationOperation="Conversion"
@@ -8909,165 +8617,6 @@
                       externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_rclegislationid]"
                       lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_rclegislationid]"
                       name="qm_rclegislationid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_rcparentlegislationid]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_rcparentlegislationid]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_rcparentlegislationid]"
-                      name="qm_rcparentlegislationid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_rcparentlegislationidname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_rcparentlegislationidname]"
-                      length="100"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_rcparentlegislationidname]"
-                      name="qm_rcparentlegislationidname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_tylegislationsourceid]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_tylegislationsourceid]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_tylegislationsourceid]"
-                      name="qm_tylegislationsourceid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_tylegislationsourceidname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_tylegislationsourceidname]"
-                      length="100"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_tylegislationsourceidname]"
-                      name="qm_tylegislationsourceidname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_tylegislationtypeid]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_tylegislationtypeid]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_tylegislationtypeid]"
-                      name="qm_tylegislationtypeid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_tylegislationtypeidname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_tylegislationtypeidname]"
-                      length="100"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_tylegislationtypeidname]"
-                      name="qm_tylegislationtypeidname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[statecode]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statecode]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[statecode]"
-                      name="statecode"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[statecodename]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statecodename]"
-                      length="255"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[statecodename]"
-                      name="statecodename"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscode]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statuscode]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscode]"
-                      name="statuscode"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscodename]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statuscodename]"
-                      length="255"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscodename]"
-                      name="statuscodename"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[timezoneruleversionnumber]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[timezoneruleversionnumber]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[timezoneruleversionnumber]"
-                      name="timezoneruleversionnumber"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[utcconversiontimezonecode]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[utcconversiontimezonecode]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[utcconversiontimezonecode]"
-                      name="utcconversiontimezonecode"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[versionnumber]"
-                      dataType="i8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[versionnumber]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[versionnumber]"
-                      name="versionnumber"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_enablingprovision]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_enablingprovision]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_enablingprovision]"
-                      name="qm_enablingprovision"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_enablingprovisionname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_enablingprovisionname]"
-                      length="100"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_enablingprovisionname]"
-                      name="qm_enablingprovisionname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_violationdisplaytexten]"
-                      dataType="nText"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_violationdisplaytexten]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_violationdisplaytexten]"
-                      name="qm_violationdisplaytexten"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_violationdisplaytextfr]"
-                      dataType="nText"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[qm_violationdisplaytextfr]"
-                      lineageId="Package\delete legislation\Dynamics CRM Source.Outputs[Primary Output].Columns[qm_violationdisplaytextfr]"
-                      name="qm_violationdisplaytextfr"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -33462,6 +33011,10 @@
           Id="Package\delete legislation sources"
           TopLeft="474.944444444445,708.630952380948" />
         <NodeLayout
+          Size="190,42"
+          Id="Package\delete legislation types"
+          TopLeft="190,714" />
+        <NodeLayout
           Size="196,42"
           Id="Package\delete opperations (tsis)"
           TopLeft="1433.05555555556,977" />
@@ -33589,6 +33142,28 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="87.2777777777769,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="474.944444444445,732.315476190474">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-94.944444444445,0"
+              Start="0,0"
+              End="-87.444444444445,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-87.444444444445,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -34106,6 +33681,40 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 31]"
+          TopLeft="285,756">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="269.777777777778,97.333333333333"
+              Start="0,0"
+              End="269.777777777778,89.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.6666666666665" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.6666666666665"
+                    Point2="0,48.6666666666665"
+                    Point3="4,48.6666666666665" />
+                  <mssgle:LineSegment
+                    End="265.777777777778,48.6666666666665" />
+                  <mssgle:CubicBezierSegment
+                    Point1="265.777777777778,48.6666666666665"
+                    Point2="269.777777777778,48.6666666666665"
+                    Point3="269.777777777778,52.6666666666665" />
+                  <mssgle:LineSegment
+                    End="269.777777777778,89.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
           TopLeft="1034.83333333333,567.686507936507">
           <EdgeLayout.Curve>
@@ -34273,66 +33882,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="-146.722222222222,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="190,42"
-          Id="Package\delete legislation types"
-          TopLeft="190,714" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="474.944444444445,732.315476190474">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-94.944444444445,0"
-              Start="0,0"
-              End="-87.444444444445,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-87.444444444445,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 31]"
-          TopLeft="285,756">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="269.777777777778,97.333333333333"
-              Start="0,0"
-              End="269.777777777778,89.833333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.6666666666665" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,44.6666666666665"
-                    Point2="0,48.6666666666665"
-                    Point3="4,48.6666666666665" />
-                  <mssgle:LineSegment
-                    End="265.777777777778,48.6666666666665" />
-                  <mssgle:CubicBezierSegment
-                    Point1="265.777777777778,48.6666666666665"
-                    Point2="269.777777777778,48.6666666666665"
-                    Point3="269.777777777778,52.6666666666665" />
-                  <mssgle:LineSegment
-                    End="269.777777777778,89.833333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -34548,7 +34097,7 @@
     design-time-name="Package\delete bookable resource categories">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="184,42"
           Id="Package\delete bookable resource categories\Dynamics CRM Source"
@@ -34588,7 +34137,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -34638,7 +34189,7 @@
     design-time-name="Package\delete bookable resources">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="184,42"
           Id="Package\delete bookable resources\Dynamics CRM Source"
@@ -34666,7 +34217,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -34806,6 +34359,46 @@
         <EdgeLayout
           Id="Package\delete legislation sources.Paths[Primary Output]"
           TopLeft="648.25,211.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,240.5"
+              Start="0,0"
+              End="0,233">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,233" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\delete legislation types">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="193,42"
+          Id="Package\delete legislation types\Dynamics CRM Source"
+          TopLeft="551.5,169.5" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\delete legislation types\Dynamics CRM Destination"
+          TopLeft="546,452" />
+        <EdgeLayout
+          Id="Package\delete legislation types.Paths[Primary Output]"
+          TopLeft="650.25,211.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -35194,7 +34787,7 @@
     design-time-name="Package\delete questionnaire results">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="184,42"
           Id="Package\delete questionnaire results\Dynamics CRM Source"
@@ -35222,9 +34815,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -35466,7 +35057,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -36411,44 +36004,6 @@
             <mssgm:EdgeLabel
               BoundingBox="0,0,0,0"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\delete legislation types">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="213,42"
-          Id="Package\delete legislation types\Dynamics CRM Destination"
-          TopLeft="546,452" />
-        <NodeLayout
-          Size="193,42"
-          Id="Package\delete legislation types\Dynamics CRM Source"
-          TopLeft="551.5,169.5" />
-        <EdgeLayout
-          Id="Package\delete legislation types.Paths[Primary Output]"
-          TopLeft="650.25,211.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,240.5"
-              Start="0,0"
-              End="0,233">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,233" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

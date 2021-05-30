@@ -13,8 +13,8 @@
   DTS:ObjectName="OracleToSql"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="48"
-  DTS:VersionGUID="{36A67E87-CECA-495C-A773-76B32E40E026}">
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{78A39BA3-E450-46A3-9D48-F6AEF06ABD42}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -41,6 +41,2713 @@
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Insert into TCFiscalPeriod"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{b80f083f-ceba-4ba4-a241-a94f9e96dbac}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Insert into TCFiscalPeriod"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Populate data into Microsoft Dynamics 365 CE/CRM."
+              name="Dynamics CRM Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Destination entity to write data."
+                  expressionType="Notify"
+                  name="DestinationEntity">tc_tcfiscalperiod</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how data is written to CRM server."
+                  name="ActionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the values of CRM lookup fields should be removed if the reference records cannot be found. "
+                  expressionType="Notify"
+                  name="RemoveUnresolvableReferences">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
+                  expressionType="Notify"
+                  name="EnableSystemDuplicateDetection">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
+                  expressionType="Notify"
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
+                  expressionType="Notify"
+                  name="RecordMatchingKeyFields"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those NULL-valued fields."
+                  expressionType="Notify"
+                  name="IgnoreNullValuedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those fields that have no value changes in the target system. "
+                  expressionType="Notify"
+                  name="IgnoreUnchangedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to remove those invalid characters before writing to CRM."
+                  expressionType="Notify"
+                  name="RemoveInvalidCharacters">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the flag field(s) that are used to track the source of changes. The field(s) will not posted to CRM server unless there are changes to other fields if specified. &quot;Ignore Unchange Fields&quot; option is required in order for the specified flag field(s) to work. "
+                  expressionType="Notify"
+                  name="ChangeFlagFields"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify what action will be taken when multiple matches are found with Upsert action."
+                  expressionType="Notify"
+                  name="HandlingOfMultipleMatches"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify whether to use optimizations when there are duplicate records form the source system."
+                  expressionType="Notify"
+                  name="OptimizationOnSourceDuplicates"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
+                <property
+                  dataType="System.String"
+                  description="Workflow or action to be executed."
+                  expressionType="Notify"
+                  name="WorkflowAction"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of records to be sent to Microsoft Dynamics 365/CRM server in each service call."
+                  expressionType="Notify"
+                  name="BatchSize">100</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the total number or concurrent threads to write to Dynamics 365/CRM server simultaneously. "
+                  expressionType="Notify"
+                  name="ConcurrentWritingThreadsInTotal">20</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether datetime values should be sent to CRM server in UTC format."
+                  expressionType="Notify"
+                  name="SendDateTimeInUtcFormat">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Connections[DynamicsCRM]"
+                  connectionManagerID="{FC34B335-F386-4A05-AB93-334EDE2F5982}:invalid"
+                  connectionManagerRefId="{FC34B335-F386-4A05-AB93-334EDE2F5982}:invalid"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].Columns[FISCAL_PERIOD_LONG_LBL]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="FISCAL_PERIOD_LONG_LBL"
+                      externalMetadataColumnId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_fiscalperiodlonglbl]"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_PERIOD_LONG_LBL]" />
+                    <inputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].Columns[FISCAL_YEAR_NUM]"
+                      cachedDataType="numeric"
+                      cachedName="FISCAL_YEAR_NUM"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_tcfiscalyearid]"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_YEAR_NUM]" />
+                    <inputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].Columns[FISCAL_PERIOD_NUM]"
+                      cachedDataType="numeric"
+                      cachedName="FISCAL_PERIOD_NUM"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_tcmonthid]"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_PERIOD_NUM]" />
+                    <inputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].Columns[FISCAL_QUARTER_NUM]"
+                      cachedDataType="numeric"
+                      cachedName="FISCAL_QUARTER_NUM"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_tcfiscalquarterid]"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_QUARTER_NUM]" />
+                    <inputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].Columns[PRIMARY_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="PRIMARY_NAME"
+                      externalMetadataColumnId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_name]"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[PRIMARY_NAME]" />
+                    <inputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].Columns[TC_FISCAL_QUARTER_PRIMARY_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="TC_FISCAL_QUARTER_PRIMARY_NAME"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[TC_FISCAL_QUARTER_PRIMARY_NAME]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[createdby]"
+                      dataType="guid"
+                      name="createdby">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[importsequencenumber]"
+                      dataType="i4"
+                      name="importsequencenumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[overriddencreatedon]"
+                      dataType="dbTimeStamp"
+                      name="overriddencreatedon">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">DateTime</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ownerid]"
+                      dataType="guid"
+                      name="ownerid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Owner</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser;team</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[owneridtype]"
+                      dataType="wstr"
+                      length="64"
+                      name="owneridtype">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">EntityName</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">State</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[statuscode]"
+                      dataType="i4"
+                      name="statuscode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Status</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_fiscalperiodlonglbl]"
+                      dataType="wstr"
+                      length="255"
+                      name="tc_fiscalperiodlonglbl">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_name]"
+                      dataType="wstr"
+                      length="100"
+                      name="tc_name">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_tcfiscalperiodid]"
+                      dataType="guid"
+                      name="tc_tcfiscalperiodid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_tcfiscalquarterid]"
+                      dataType="guid"
+                      name="tc_tcfiscalquarterid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">tc_tcfiscalquarter</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupSettings">{"CacheStrategy":"FullCache","LookupTargets":[{"TargetEntity":"tc_tcfiscalquarter","TargetTextField":"tc_fiscalquarternum","SecondaryLookupInputColumn":"TC_FISCAL_QUARTER_PRIMARY_NAME","SecondaryLookupTargetField":"tc_name","WriteNullOnEmptyValues":false}]}</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_tcfiscalyearid]"
+                      dataType="guid"
+                      name="tc_tcfiscalyearid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">tc_tcfiscalyear</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupSettings">{"CacheStrategy":"FullCache","LookupTargets":[{"TargetEntity":"tc_tcfiscalyear","TargetTextField":"tc_fiscalyearnum","WriteNullOnEmptyValues":false}]}</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_tcmonthid]"
+                      dataType="guid"
+                      name="tc_tcmonthid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">tc_tcmonth</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupSettings">{"CacheStrategy":"FullCache","LookupTargets":[{"TargetEntity":"tc_tcmonth","TargetTextField":"tc_monthnum","WriteNullOnEmptyValues":false}]}</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[timezoneruleversionnumber]"
+                      dataType="i4"
+                      name="timezoneruleversionnumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input].ExternalColumns[utcconversiontimezonecode]"
+                      dataType="i4"
+                      name="utcconversiontimezonecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Read data from an ADO.NET connection."
+              name="Premium ADO NET Source"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DataSource">&lt;&lt;Custom Command&gt;&gt;</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="Command">SELECT "DATE_CREATED_DTE"
+      ,"DATE_CURRENT_DTE"
+      ,"DATE_DELETED_DTE"
+      ,"DATE_LAST_UPDATE_DTE"
+      ,"DATE_START_DTE"
+      ,"DATE_STOP_DTE"
+      ,"FISCAL_PERIOD_LBL"
+      ,"FISCAL_PERIOD_LONG_LBL"
+      ,REGEXP_REPLACE(FISCAL_PERIOD_LONG_LBL, '([^\/]+$)', 'Q' || FISCAL_QUARTER_NUM) AS TC_FISCAL_QUARTER_PRIMARY_NAME
+      ,"FISCAL_PERIOD_NUM"
+      ,"FISCAL_QUARTER_NUM"
+      ,"FISCAL_YEAR_NUM"
+      ,"USER_LAST_UPDATE_ID",
+      "FISCAL_PERIOD_LONG_LBL" AS PRIMARY_NAME
+FROM "COREDATA"."TC059_FISCAL_PERIOD"
+
+
+
+</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="PrepareCommand">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetSourceComponent</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Connections[ADO NET]"
+                  connectionManagerID="{C2FB1140-84D7-4BAA-8050-7411C1549206}:invalid"
+                  connectionManagerRefId="{C2FB1140-84D7-4BAA-8050-7411C1549206}:invalid"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CREATED_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CREATED_DTE]"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CREATED_DTE]"
+                      name="DATE_CREATED_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CURRENT_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CURRENT_DTE]"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CURRENT_DTE]"
+                      name="DATE_CURRENT_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_DELETED_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_DELETED_DTE]"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_DELETED_DTE]"
+                      name="DATE_DELETED_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_LAST_UPDATE_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_LAST_UPDATE_DTE]"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_LAST_UPDATE_DTE]"
+                      name="DATE_LAST_UPDATE_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_START_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_START_DTE]"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_START_DTE]"
+                      name="DATE_START_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_STOP_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_STOP_DTE]"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_STOP_DTE]"
+                      name="DATE_STOP_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_PERIOD_LBL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_PERIOD_LBL]"
+                      length="8"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_PERIOD_LBL]"
+                      name="FISCAL_PERIOD_LBL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_PERIOD_LONG_LBL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_PERIOD_LONG_LBL]"
+                      length="12"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_PERIOD_LONG_LBL]"
+                      name="FISCAL_PERIOD_LONG_LBL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_PERIOD_NUM]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_PERIOD_NUM]"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_PERIOD_NUM]"
+                      name="FISCAL_PERIOD_NUM"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_QUARTER_NUM]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_QUARTER_NUM]"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_QUARTER_NUM]"
+                      name="FISCAL_QUARTER_NUM"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_YEAR_NUM]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_YEAR_NUM]"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_YEAR_NUM]"
+                      name="FISCAL_YEAR_NUM"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[USER_LAST_UPDATE_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[USER_LAST_UPDATE_ID]"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[USER_LAST_UPDATE_ID]"
+                      name="USER_LAST_UPDATE_ID"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[PRIMARY_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRIMARY_NAME]"
+                      length="12"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[PRIMARY_NAME]"
+                      name="PRIMARY_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[TC_FISCAL_QUARTER_PRIMARY_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[TC_FISCAL_QUARTER_PRIMARY_NAME]"
+                      length="4000"
+                      lineageId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].Columns[TC_FISCAL_QUARTER_PRIMARY_NAME]"
+                      name="TC_FISCAL_QUARTER_PRIMARY_NAME"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CREATED_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_CREATED_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CURRENT_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_CURRENT_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_DELETED_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_DELETED_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_LAST_UPDATE_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_LAST_UPDATE_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_START_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_START_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_STOP_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_STOP_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_PERIOD_LBL]"
+                      dataType="wstr"
+                      length="8"
+                      name="FISCAL_PERIOD_LBL" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_PERIOD_LONG_LBL]"
+                      dataType="wstr"
+                      length="12"
+                      name="FISCAL_PERIOD_LONG_LBL" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_PERIOD_NUM]"
+                      dataType="numeric"
+                      name="FISCAL_PERIOD_NUM"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_QUARTER_NUM]"
+                      dataType="numeric"
+                      name="FISCAL_QUARTER_NUM"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_YEAR_NUM]"
+                      dataType="numeric"
+                      name="FISCAL_YEAR_NUM"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[USER_LAST_UPDATE_ID]"
+                      dataType="numeric"
+                      name="USER_LAST_UPDATE_ID"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRIMARY_NAME]"
+                      dataType="wstr"
+                      length="12"
+                      name="PRIMARY_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[TC_FISCAL_QUARTER_PRIMARY_NAME]"
+                      dataType="wstr"
+                      length="4000"
+                      name="TC_FISCAL_QUARTER_PRIMARY_NAME" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Insert into TCFiscalPeriod.Paths[Default Output]"
+              endId="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination.Inputs[Input]"
+              name="Default Output"
+              startId="Package\Insert into TCFiscalPeriod\Premium ADO NET Source.Outputs[Default Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Insert into TCFiscalQuarter"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{f939f309-2363-4d38-a9a5-676bc4aa93f4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Insert into TCFiscalQuarter"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Populate data into Microsoft Dynamics 365 CE/CRM."
+              name="Dynamics CRM Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Destination entity to write data."
+                  expressionType="Notify"
+                  name="DestinationEntity">tc_tcfiscalquarter</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how data is written to CRM server."
+                  name="ActionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the values of CRM lookup fields should be removed if the reference records cannot be found. "
+                  expressionType="Notify"
+                  name="RemoveUnresolvableReferences">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
+                  expressionType="Notify"
+                  name="EnableSystemDuplicateDetection">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
+                  expressionType="Notify"
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
+                  expressionType="Notify"
+                  name="RecordMatchingKeyFields"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those NULL-valued fields."
+                  expressionType="Notify"
+                  name="IgnoreNullValuedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those fields that have no value changes in the target system. "
+                  expressionType="Notify"
+                  name="IgnoreUnchangedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to remove those invalid characters before writing to CRM."
+                  expressionType="Notify"
+                  name="RemoveInvalidCharacters">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the flag field(s) that are used to track the source of changes. The field(s) will not posted to CRM server unless there are changes to other fields if specified. &quot;Ignore Unchange Fields&quot; option is required in order for the specified flag field(s) to work. "
+                  expressionType="Notify"
+                  name="ChangeFlagFields"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify what action will be taken when multiple matches are found with Upsert action."
+                  expressionType="Notify"
+                  name="HandlingOfMultipleMatches"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify whether to use optimizations when there are duplicate records form the source system."
+                  expressionType="Notify"
+                  name="OptimizationOnSourceDuplicates"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
+                <property
+                  dataType="System.String"
+                  description="Workflow or action to be executed."
+                  expressionType="Notify"
+                  name="WorkflowAction"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of records to be sent to Microsoft Dynamics 365/CRM server in each service call."
+                  expressionType="Notify"
+                  name="BatchSize">100</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the total number or concurrent threads to write to Dynamics 365/CRM server simultaneously. "
+                  expressionType="Notify"
+                  name="ConcurrentWritingThreadsInTotal">20</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether datetime values should be sent to CRM server in UTC format."
+                  expressionType="Notify"
+                  name="SendDateTimeInUtcFormat">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Connections[DynamicsCRM]"
+                  connectionManagerID="{FC34B335-F386-4A05-AB93-334EDE2F5982}:invalid"
+                  connectionManagerRefId="{FC34B335-F386-4A05-AB93-334EDE2F5982}:invalid"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].Columns[FISCAL_QUARTER_LBL]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="FISCAL_QUARTER_LBL"
+                      externalMetadataColumnId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_fiscalquarterlbl]"
+                      lineageId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_QUARTER_LBL]" />
+                    <inputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].Columns[FISCAL_QUARTER_LONG_LBL]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="FISCAL_QUARTER_LONG_LBL"
+                      externalMetadataColumnId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_fiscalquarterlonglbl]"
+                      lineageId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_QUARTER_LONG_LBL]" />
+                    <inputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].Columns[FISCAL_QUARTER_NUM]"
+                      cachedDataType="numeric"
+                      cachedName="FISCAL_QUARTER_NUM"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_fiscalquarternum]"
+                      lineageId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_QUARTER_NUM]" />
+                    <inputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].Columns[FISCAL_YEAR_NUM]"
+                      cachedDataType="numeric"
+                      cachedName="FISCAL_YEAR_NUM"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_tcfiscalyearid]"
+                      lineageId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_YEAR_NUM]" />
+                    <inputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].Columns[PRIMARY_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="PRIMARY_NAME"
+                      externalMetadataColumnId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_name]"
+                      lineageId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[PRIMARY_NAME]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[createdby]"
+                      dataType="guid"
+                      name="createdby">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[importsequencenumber]"
+                      dataType="i4"
+                      name="importsequencenumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[overriddencreatedon]"
+                      dataType="dbTimeStamp"
+                      name="overriddencreatedon">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">DateTime</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ownerid]"
+                      dataType="guid"
+                      name="ownerid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Owner</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser;team</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[owneridtype]"
+                      dataType="wstr"
+                      length="64"
+                      name="owneridtype">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">EntityName</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">State</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[statuscode]"
+                      dataType="i4"
+                      name="statuscode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Status</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_fiscalquarterlbl]"
+                      dataType="wstr"
+                      length="100"
+                      name="tc_fiscalquarterlbl">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_fiscalquarterlonglbl]"
+                      dataType="wstr"
+                      length="100"
+                      name="tc_fiscalquarterlonglbl">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_fiscalquarternum]"
+                      dataType="i4"
+                      name="tc_fiscalquarternum">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_name]"
+                      dataType="wstr"
+                      length="100"
+                      name="tc_name">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_tcfiscalquarterid]"
+                      dataType="guid"
+                      name="tc_tcfiscalquarterid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_tcfiscalyearid]"
+                      dataType="guid"
+                      name="tc_tcfiscalyearid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">tc_tcfiscalyear</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupSettings">{"CacheStrategy":"FullCache","LookupTargets":[{"TargetEntity":"tc_tcfiscalyear","TargetTextField":"tc_fiscalyearnum","WriteNullOnEmptyValues":false}]}</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[timezoneruleversionnumber]"
+                      dataType="i4"
+                      name="timezoneruleversionnumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input].ExternalColumns[utcconversiontimezonecode]"
+                      dataType="i4"
+                      name="utcconversiontimezonecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Read data from an ADO.NET connection."
+              name="Premium ADO NET Source"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DataSource">&lt;&lt;Custom Command&gt;&gt;</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="Command">SELECT "DATE_CREATED_DTE"
+      ,"DATE_CURRENT_DTE"
+      ,"DATE_DELETED_DTE"
+      ,"DATE_LAST_UPDATE_DTE"
+      ,"DATE_START_DTE"
+      ,"DATE_STOP_DTE"
+      ,"FISCAL_QUARTER_LBL"
+      ,"FISCAL_QUARTER_LONG_LBL"
+      ,"FISCAL_QUARTER_NUM"
+      ,"FISCAL_YEAR_NUM"
+      ,"USER_LAST_UPDATE_ID"
+      ,"FISCAL_QUARTER_LONG_LBL" AS "PRIMARY_NAME"
+FROM "COREDATA"."TC057_FISCAL_QUARTER"</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="PrepareCommand">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetSourceComponent</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Connections[ADO NET]"
+                  connectionManagerID="{C2FB1140-84D7-4BAA-8050-7411C1549206}:invalid"
+                  connectionManagerRefId="{C2FB1140-84D7-4BAA-8050-7411C1549206}:invalid"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CREATED_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CREATED_DTE]"
+                      lineageId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CREATED_DTE]"
+                      name="DATE_CREATED_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CURRENT_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CURRENT_DTE]"
+                      lineageId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CURRENT_DTE]"
+                      name="DATE_CURRENT_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_DELETED_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_DELETED_DTE]"
+                      lineageId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_DELETED_DTE]"
+                      name="DATE_DELETED_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_LAST_UPDATE_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_LAST_UPDATE_DTE]"
+                      lineageId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_LAST_UPDATE_DTE]"
+                      name="DATE_LAST_UPDATE_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_START_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_START_DTE]"
+                      lineageId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_START_DTE]"
+                      name="DATE_START_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_STOP_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_STOP_DTE]"
+                      lineageId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_STOP_DTE]"
+                      name="DATE_STOP_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_QUARTER_LBL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_QUARTER_LBL]"
+                      length="8"
+                      lineageId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_QUARTER_LBL]"
+                      name="FISCAL_QUARTER_LBL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_QUARTER_LONG_LBL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_QUARTER_LONG_LBL]"
+                      length="12"
+                      lineageId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_QUARTER_LONG_LBL]"
+                      name="FISCAL_QUARTER_LONG_LBL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_QUARTER_NUM]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_QUARTER_NUM]"
+                      lineageId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_QUARTER_NUM]"
+                      name="FISCAL_QUARTER_NUM"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_YEAR_NUM]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_YEAR_NUM]"
+                      lineageId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_YEAR_NUM]"
+                      name="FISCAL_YEAR_NUM"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[USER_LAST_UPDATE_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[USER_LAST_UPDATE_ID]"
+                      lineageId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[USER_LAST_UPDATE_ID]"
+                      name="USER_LAST_UPDATE_ID"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[PRIMARY_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRIMARY_NAME]"
+                      length="12"
+                      lineageId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].Columns[PRIMARY_NAME]"
+                      name="PRIMARY_NAME"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CREATED_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_CREATED_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CURRENT_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_CURRENT_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_DELETED_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_DELETED_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_LAST_UPDATE_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_LAST_UPDATE_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_START_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_START_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_STOP_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_STOP_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_QUARTER_LBL]"
+                      dataType="wstr"
+                      length="8"
+                      name="FISCAL_QUARTER_LBL" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_QUARTER_LONG_LBL]"
+                      dataType="wstr"
+                      length="12"
+                      name="FISCAL_QUARTER_LONG_LBL" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_QUARTER_NUM]"
+                      dataType="numeric"
+                      name="FISCAL_QUARTER_NUM"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_YEAR_NUM]"
+                      dataType="numeric"
+                      name="FISCAL_YEAR_NUM"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[USER_LAST_UPDATE_ID]"
+                      dataType="numeric"
+                      name="USER_LAST_UPDATE_ID"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRIMARY_NAME]"
+                      dataType="wstr"
+                      length="12"
+                      name="PRIMARY_NAME" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Insert into TCFiscalQuarter.Paths[Default Output]"
+              endId="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination.Inputs[Input]"
+              name="Default Output"
+              startId="Package\Insert into TCFiscalQuarter\Premium ADO NET Source.Outputs[Default Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Insert into TCFiscalYear"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{b9dcf15a-395d-4e99-a3fb-9a76dfb1a1dc}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Insert into TCFiscalYear"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Populate data into Microsoft Dynamics 365 CE/CRM."
+              name="Dynamics CRM Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Destination entity to write data."
+                  expressionType="Notify"
+                  name="DestinationEntity">tc_tcfiscalyear</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how data is written to CRM server."
+                  name="ActionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the values of CRM lookup fields should be removed if the reference records cannot be found. "
+                  expressionType="Notify"
+                  name="RemoveUnresolvableReferences">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
+                  expressionType="Notify"
+                  name="EnableSystemDuplicateDetection">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
+                  expressionType="Notify"
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
+                  expressionType="Notify"
+                  name="RecordMatchingKeyFields"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those NULL-valued fields."
+                  expressionType="Notify"
+                  name="IgnoreNullValuedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those fields that have no value changes in the target system. "
+                  expressionType="Notify"
+                  name="IgnoreUnchangedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to remove those invalid characters before writing to CRM."
+                  expressionType="Notify"
+                  name="RemoveInvalidCharacters">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the flag field(s) that are used to track the source of changes. The field(s) will not posted to CRM server unless there are changes to other fields if specified. &quot;Ignore Unchange Fields&quot; option is required in order for the specified flag field(s) to work. "
+                  expressionType="Notify"
+                  name="ChangeFlagFields"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify what action will be taken when multiple matches are found with Upsert action."
+                  expressionType="Notify"
+                  name="HandlingOfMultipleMatches"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify whether to use optimizations when there are duplicate records form the source system."
+                  expressionType="Notify"
+                  name="OptimizationOnSourceDuplicates"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
+                <property
+                  dataType="System.String"
+                  description="Workflow or action to be executed."
+                  expressionType="Notify"
+                  name="WorkflowAction"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of records to be sent to Microsoft Dynamics 365/CRM server in each service call."
+                  expressionType="Notify"
+                  name="BatchSize">100</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the total number or concurrent threads to write to Dynamics 365/CRM server simultaneously. "
+                  expressionType="Notify"
+                  name="ConcurrentWritingThreadsInTotal">20</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether datetime values should be sent to CRM server in UTC format."
+                  expressionType="Notify"
+                  name="SendDateTimeInUtcFormat">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Connections[DynamicsCRM]"
+                  connectionManagerID="{FC34B335-F386-4A05-AB93-334EDE2F5982}:invalid"
+                  connectionManagerRefId="{FC34B335-F386-4A05-AB93-334EDE2F5982}:invalid"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input].Columns[FISCAL_YEAR_LONG_LBL]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="FISCAL_YEAR_LONG_LBL"
+                      externalMetadataColumnId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_fiscalyearlonglbl]"
+                      lineageId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_YEAR_LONG_LBL]" />
+                    <inputColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input].Columns[FISCAL_YEAR_NUM]"
+                      cachedDataType="numeric"
+                      cachedName="FISCAL_YEAR_NUM"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_fiscalyearnum]"
+                      lineageId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_YEAR_NUM]" />
+                    <inputColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input].Columns[PRIMARY_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="PRIMARY_NAME"
+                      externalMetadataColumnId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_name]"
+                      lineageId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[PRIMARY_NAME]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input].ExternalColumns[createdby]"
+                      dataType="guid"
+                      name="createdby">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input].ExternalColumns[importsequencenumber]"
+                      dataType="i4"
+                      name="importsequencenumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input].ExternalColumns[overriddencreatedon]"
+                      dataType="dbTimeStamp"
+                      name="overriddencreatedon">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">DateTime</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ownerid]"
+                      dataType="guid"
+                      name="ownerid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Owner</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser;team</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input].ExternalColumns[owneridtype]"
+                      dataType="wstr"
+                      length="64"
+                      name="owneridtype">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">EntityName</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">State</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input].ExternalColumns[statuscode]"
+                      dataType="i4"
+                      name="statuscode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Status</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_fiscalyearlonglbl]"
+                      dataType="wstr"
+                      length="100"
+                      name="tc_fiscalyearlonglbl">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_fiscalyearnum]"
+                      dataType="wstr"
+                      length="100"
+                      name="tc_fiscalyearnum">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_name]"
+                      dataType="wstr"
+                      length="100"
+                      name="tc_name">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_tcfiscalyearid]"
+                      dataType="guid"
+                      name="tc_tcfiscalyearid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input].ExternalColumns[timezoneruleversionnumber]"
+                      dataType="i4"
+                      name="timezoneruleversionnumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input].ExternalColumns[utcconversiontimezonecode]"
+                      dataType="i4"
+                      name="utcconversiontimezonecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Insert into TCFiscalYear\Premium ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Read data from an ADO.NET connection."
+              name="Premium ADO NET Source"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DataSource">&lt;&lt;Custom Command&gt;&gt;</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="Command">SELECT "DATE_CREATED_DTE"
+      ,"DATE_CURRENT_DTE"
+      ,"DATE_DELETED_DTE"
+      ,"DATE_LAST_UPDATE_DTE"
+      ,"DATE_START_DTE"
+      ,"DATE_STOP_DTE"
+      ,"FISCAL_YEAR_LBL"
+      ,"FISCAL_YEAR_LONG_LBL"
+      ,"FISCAL_YEAR_NM"
+      ,"FISCAL_YEAR_NUM"
+      ,"USER_LAST_UPDATE_ID"
+      ,"FISCAL_YEAR_LONG_LBL" AS "PRIMARY_NAME"
+FROM "COREDATA"."TC058_FISCAL_YEAR"</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="PrepareCommand">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetSourceComponent</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Connections[ADO NET]"
+                  connectionManagerID="{C2FB1140-84D7-4BAA-8050-7411C1549206}:invalid"
+                  connectionManagerRefId="{C2FB1140-84D7-4BAA-8050-7411C1549206}:invalid"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CREATED_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CREATED_DTE]"
+                      lineageId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CREATED_DTE]"
+                      name="DATE_CREATED_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CURRENT_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CURRENT_DTE]"
+                      lineageId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CURRENT_DTE]"
+                      name="DATE_CURRENT_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_DELETED_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_DELETED_DTE]"
+                      lineageId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_DELETED_DTE]"
+                      name="DATE_DELETED_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_LAST_UPDATE_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_LAST_UPDATE_DTE]"
+                      lineageId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_LAST_UPDATE_DTE]"
+                      name="DATE_LAST_UPDATE_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_START_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_START_DTE]"
+                      lineageId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_START_DTE]"
+                      name="DATE_START_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_STOP_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_STOP_DTE]"
+                      lineageId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_STOP_DTE]"
+                      name="DATE_STOP_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_YEAR_LBL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_YEAR_LBL]"
+                      length="5"
+                      lineageId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_YEAR_LBL]"
+                      name="FISCAL_YEAR_LBL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_YEAR_LONG_LBL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_YEAR_LONG_LBL]"
+                      length="9"
+                      lineageId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_YEAR_LONG_LBL]"
+                      name="FISCAL_YEAR_LONG_LBL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_YEAR_NM]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_YEAR_NM]"
+                      length="8"
+                      lineageId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_YEAR_NM]"
+                      name="FISCAL_YEAR_NM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_YEAR_NUM]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_YEAR_NUM]"
+                      lineageId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_YEAR_NUM]"
+                      name="FISCAL_YEAR_NUM"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[USER_LAST_UPDATE_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[USER_LAST_UPDATE_ID]"
+                      lineageId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[USER_LAST_UPDATE_ID]"
+                      name="USER_LAST_UPDATE_ID"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[PRIMARY_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRIMARY_NAME]"
+                      length="9"
+                      lineageId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].Columns[PRIMARY_NAME]"
+                      name="PRIMARY_NAME"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CREATED_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_CREATED_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CURRENT_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_CURRENT_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_DELETED_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_DELETED_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_LAST_UPDATE_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_LAST_UPDATE_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_START_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_START_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_STOP_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_STOP_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_YEAR_LBL]"
+                      dataType="wstr"
+                      length="5"
+                      name="FISCAL_YEAR_LBL" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_YEAR_LONG_LBL]"
+                      dataType="wstr"
+                      length="9"
+                      name="FISCAL_YEAR_LONG_LBL" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_YEAR_NM]"
+                      dataType="wstr"
+                      length="8"
+                      name="FISCAL_YEAR_NM" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_YEAR_NUM]"
+                      dataType="numeric"
+                      name="FISCAL_YEAR_NUM"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[USER_LAST_UPDATE_ID]"
+                      dataType="numeric"
+                      name="USER_LAST_UPDATE_ID"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRIMARY_NAME]"
+                      dataType="wstr"
+                      length="9"
+                      name="PRIMARY_NAME" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Insert into TCFiscalYear.Paths[Default Output]"
+              endId="Package\Insert into TCFiscalYear\Dynamics CRM Destination.Inputs[Input]"
+              name="Default Output"
+              startId="Package\Insert into TCFiscalYear\Premium ADO NET Source.Outputs[Default Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Insert into TCMonth"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{9b37d1d9-80bc-4f5e-bfab-e43586d49e33}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Insert into TCMonth"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Insert into TCMonth\Dynamics CRM Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Populate data into Microsoft Dynamics 365 CE/CRM."
+              name="Dynamics CRM Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Destination entity to write data."
+                  expressionType="Notify"
+                  name="DestinationEntity">tc_tcmonth</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how data is written to CRM server."
+                  name="ActionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the values of CRM lookup fields should be removed if the reference records cannot be found. "
+                  expressionType="Notify"
+                  name="RemoveUnresolvableReferences">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
+                  expressionType="Notify"
+                  name="EnableSystemDuplicateDetection">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
+                  expressionType="Notify"
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
+                  expressionType="Notify"
+                  name="RecordMatchingKeyFields"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those NULL-valued fields."
+                  expressionType="Notify"
+                  name="IgnoreNullValuedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those fields that have no value changes in the target system. "
+                  expressionType="Notify"
+                  name="IgnoreUnchangedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to remove those invalid characters before writing to CRM."
+                  expressionType="Notify"
+                  name="RemoveInvalidCharacters">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the flag field(s) that are used to track the source of changes. The field(s) will not posted to CRM server unless there are changes to other fields if specified. &quot;Ignore Unchange Fields&quot; option is required in order for the specified flag field(s) to work. "
+                  expressionType="Notify"
+                  name="ChangeFlagFields"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify what action will be taken when multiple matches are found with Upsert action."
+                  expressionType="Notify"
+                  name="HandlingOfMultipleMatches"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify whether to use optimizations when there are duplicate records form the source system."
+                  expressionType="Notify"
+                  name="OptimizationOnSourceDuplicates"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
+                <property
+                  dataType="System.String"
+                  description="Workflow or action to be executed."
+                  expressionType="Notify"
+                  name="WorkflowAction"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of records to be sent to Microsoft Dynamics 365/CRM server in each service call."
+                  expressionType="Notify"
+                  name="BatchSize">100</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the total number or concurrent threads to write to Dynamics 365/CRM server simultaneously. "
+                  expressionType="Notify"
+                  name="ConcurrentWritingThreadsInTotal">20</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether datetime values should be sent to CRM server in UTC format."
+                  expressionType="Notify"
+                  name="SendDateTimeInUtcFormat">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert into TCMonth\Dynamics CRM Destination.Connections[DynamicsCRM]"
+                  connectionManagerID="{FC34B335-F386-4A05-AB93-334EDE2F5982}:invalid"
+                  connectionManagerRefId="{FC34B335-F386-4A05-AB93-334EDE2F5982}:invalid"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].Columns[FISCAL_PERIOD_NUM]"
+                      cachedDataType="numeric"
+                      cachedName="FISCAL_PERIOD_NUM"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_fiscalperiodnum]"
+                      lineageId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_PERIOD_NUM]" />
+                    <inputColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].Columns[MONTH_ABBR_ELBL]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="MONTH_ABBR_ELBL"
+                      externalMetadataColumnId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_monthabbrelbl]"
+                      lineageId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[MONTH_ABBR_ELBL]" />
+                    <inputColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].Columns[MONTH_ABBR_FLBL]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="MONTH_ABBR_FLBL"
+                      externalMetadataColumnId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_monthabbrflbl]"
+                      lineageId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[MONTH_ABBR_FLBL]" />
+                    <inputColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].Columns[MONTH_ENM]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="MONTH_ENM"
+                      externalMetadataColumnId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_monthenm]"
+                      lineageId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[MONTH_ENM]" />
+                    <inputColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].Columns[MONTH_FNM]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="MONTH_FNM"
+                      externalMetadataColumnId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_monthfnm]"
+                      lineageId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[MONTH_FNM]" />
+                    <inputColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].Columns[MONTH_NUM]"
+                      cachedDataType="numeric"
+                      cachedName="MONTH_NUM"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_monthnum]"
+                      lineageId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[MONTH_NUM]" />
+                    <inputColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].Columns[PRIMARY_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="PRIMARY_NAME"
+                      externalMetadataColumnId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_name]"
+                      lineageId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[PRIMARY_NAME]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[createdby]"
+                      dataType="guid"
+                      name="createdby">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[importsequencenumber]"
+                      dataType="i4"
+                      name="importsequencenumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[overriddencreatedon]"
+                      dataType="dbTimeStamp"
+                      name="overriddencreatedon">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">DateTime</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ownerid]"
+                      dataType="guid"
+                      name="ownerid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Owner</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser;team</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[owneridtype]"
+                      dataType="wstr"
+                      length="64"
+                      name="owneridtype">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">EntityName</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">State</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[statuscode]"
+                      dataType="i4"
+                      name="statuscode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Status</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_fiscalperiodnum]"
+                      dataType="i4"
+                      name="tc_fiscalperiodnum">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_monthabbrelbl]"
+                      dataType="wstr"
+                      length="100"
+                      name="tc_monthabbrelbl">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_monthabbrflbl]"
+                      dataType="wstr"
+                      length="100"
+                      name="tc_monthabbrflbl">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_monthenm]"
+                      dataType="wstr"
+                      length="100"
+                      name="tc_monthenm">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_monthfnm]"
+                      dataType="wstr"
+                      length="100"
+                      name="tc_monthfnm">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_monthnum]"
+                      dataType="i4"
+                      name="tc_monthnum">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_name]"
+                      dataType="wstr"
+                      length="100"
+                      name="tc_name">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tc_tcmonthid]"
+                      dataType="guid"
+                      name="tc_tcmonthid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[timezoneruleversionnumber]"
+                      dataType="i4"
+                      name="timezoneruleversionnumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input].ExternalColumns[utcconversiontimezonecode]"
+                      dataType="i4"
+                      name="utcconversiontimezonecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Insert into TCMonth\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Insert into TCMonth\Premium ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Read data from an ADO.NET connection."
+              name="Premium ADO NET Source"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DataSource">&lt;&lt;Custom Command&gt;&gt;</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="Command">SELECT "DATE_CREATED_DTE"
+      ,"DATE_CURRENT_DTE"
+      ,"DATE_DELETED_DTE"
+      ,"DATE_LAST_UPDATE_DTE"
+      ,"FISCAL_PERIOD_NUM"
+      ,"MONTH_ABBR_ELBL"
+      ,"MONTH_ABBR_FLBL"
+      ,"MONTH_ENM"
+      ,"MONTH_FNM"
+      ,"MONTH_NUM"
+      ,"USER_LAST_UPDATE_ID"
+      ,"MONTH_ENM" AS "PRIMARY_NAME"
+FROM "COREDATA"."TC021_MONTH"</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="PrepareCommand">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetSourceComponent</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert into TCMonth\Premium ADO NET Source.Connections[ADO NET]"
+                  connectionManagerID="{C2FB1140-84D7-4BAA-8050-7411C1549206}:invalid"
+                  connectionManagerRefId="{C2FB1140-84D7-4BAA-8050-7411C1549206}:invalid"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CREATED_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CREATED_DTE]"
+                      lineageId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CREATED_DTE]"
+                      name="DATE_CREATED_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CURRENT_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CURRENT_DTE]"
+                      lineageId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CURRENT_DTE]"
+                      name="DATE_CURRENT_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_DELETED_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_DELETED_DTE]"
+                      lineageId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_DELETED_DTE]"
+                      name="DATE_DELETED_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_LAST_UPDATE_DTE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_LAST_UPDATE_DTE]"
+                      lineageId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_LAST_UPDATE_DTE]"
+                      name="DATE_LAST_UPDATE_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_PERIOD_NUM]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_PERIOD_NUM]"
+                      lineageId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[FISCAL_PERIOD_NUM]"
+                      name="FISCAL_PERIOD_NUM"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[MONTH_ABBR_ELBL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MONTH_ABBR_ELBL]"
+                      length="20"
+                      lineageId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[MONTH_ABBR_ELBL]"
+                      name="MONTH_ABBR_ELBL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[MONTH_ABBR_FLBL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MONTH_ABBR_FLBL]"
+                      length="20"
+                      lineageId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[MONTH_ABBR_FLBL]"
+                      name="MONTH_ABBR_FLBL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[MONTH_ENM]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MONTH_ENM]"
+                      length="20"
+                      lineageId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[MONTH_ENM]"
+                      name="MONTH_ENM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[MONTH_FNM]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MONTH_FNM]"
+                      length="20"
+                      lineageId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[MONTH_FNM]"
+                      name="MONTH_FNM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[MONTH_NUM]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MONTH_NUM]"
+                      lineageId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[MONTH_NUM]"
+                      name="MONTH_NUM"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[USER_LAST_UPDATE_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[USER_LAST_UPDATE_ID]"
+                      lineageId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[USER_LAST_UPDATE_ID]"
+                      name="USER_LAST_UPDATE_ID"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[PRIMARY_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRIMARY_NAME]"
+                      length="20"
+                      lineageId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].Columns[PRIMARY_NAME]"
+                      name="PRIMARY_NAME"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CREATED_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_CREATED_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CURRENT_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_CURRENT_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_DELETED_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_DELETED_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_LAST_UPDATE_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_LAST_UPDATE_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FISCAL_PERIOD_NUM]"
+                      dataType="numeric"
+                      name="FISCAL_PERIOD_NUM"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MONTH_ABBR_ELBL]"
+                      dataType="wstr"
+                      length="20"
+                      name="MONTH_ABBR_ELBL" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MONTH_ABBR_FLBL]"
+                      dataType="wstr"
+                      length="20"
+                      name="MONTH_ABBR_FLBL" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MONTH_ENM]"
+                      dataType="wstr"
+                      length="20"
+                      name="MONTH_ENM" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MONTH_FNM]"
+                      dataType="wstr"
+                      length="20"
+                      name="MONTH_FNM" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MONTH_NUM]"
+                      dataType="numeric"
+                      name="MONTH_NUM"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[USER_LAST_UPDATE_ID]"
+                      dataType="numeric"
+                      name="USER_LAST_UPDATE_ID"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRIMARY_NAME]"
+                      dataType="wstr"
+                      length="20"
+                      name="PRIMARY_NAME" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Insert into TCMonth.Paths[Default Output]"
+              endId="Package\Insert into TCMonth\Dynamics CRM Destination.Inputs[Input]"
+              name="Default Output"
+              startId="Package\Insert into TCMonth\Premium ADO NET Source.Outputs[Default Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\TD001"
       DTS:CreationName="Microsoft.Pipeline"
@@ -25201,6 +27908,32 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{bb42a0e8-285b-4a50-b82f-d25ba9b11700}"
+      DTS:From="Package\Insert into TCFiscalYear"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Insert into TCFiscalQuarter" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{55f8c5ef-368f-4cbc-a6d3-117f4226aeaf}"
+      DTS:From="Package\Insert into TCMonth"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Insert into TCFiscalYear" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{f168c9d3-a7c1-4d5c-8f5c-d0e28676490e}"
+      DTS:From="Package\Insert into TCFiscalQuarter"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Insert into TCFiscalPeriod" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -25212,7 +27945,7 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="110,42"
           Id="Package\TD001"
@@ -25329,6 +28062,88 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
           Size="110,42"
           Id="Package\YD101"
           TopLeft="1275.5,712.5" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Insert into TCFiscalPeriod"
+          TopLeft="245.5,378.5" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Insert into TCFiscalQuarter"
+          TopLeft="242.5,287.5" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Insert into TCFiscalYear"
+          TopLeft="247.5,195.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Insert into TCMonth"
+          TopLeft="254.5,80.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="344,237.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="342,122.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73"
+              Start="0,0"
+              End="0,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="345,329.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -26479,6 +29294,166 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,79.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Insert into TCFiscalPeriod">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination"
+          TopLeft="394,292" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\Insert into TCFiscalPeriod\Premium ADO NET Source"
+          TopLeft="392,155" />
+        <EdgeLayout
+          Id="Package\Insert into TCFiscalPeriod.Paths[Default Output]"
+          TopLeft="495,197">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,95"
+              Start="0,0"
+              End="0,87.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,87.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Insert into TCFiscalQuarter">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination"
+          TopLeft="315,230" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\Insert into TCFiscalQuarter\Premium ADO NET Source"
+          TopLeft="313,117" />
+        <EdgeLayout
+          Id="Package\Insert into TCFiscalQuarter.Paths[Default Output]"
+          TopLeft="416,159">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71"
+              Start="0,0"
+              End="0,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Insert into TCFiscalYear">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Insert into TCFiscalYear\Dynamics CRM Destination"
+          TopLeft="395,208" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\Insert into TCFiscalYear\Premium ADO NET Source"
+          TopLeft="393,108" />
+        <EdgeLayout
+          Id="Package\Insert into TCFiscalYear.Paths[Default Output]"
+          TopLeft="496,150">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Insert into TCMonth">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Insert into TCMonth\Dynamics CRM Destination"
+          TopLeft="411,196" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\Insert into TCMonth\Premium ADO NET Source"
+          TopLeft="414,96" />
+        <EdgeLayout
+          Id="Package\Insert into TCMonth.Paths[Default Output]"
+          TopLeft="514.5,138">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

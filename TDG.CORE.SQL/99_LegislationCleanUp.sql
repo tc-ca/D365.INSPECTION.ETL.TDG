@@ -1,6 +1,6 @@
 /****** Object:  Table [dbo].[26_TDGLegislation]    Script Date: 5/14/2021 10:50:15 PM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[26_TDGLegislation]') AND type in (N'U'))
-DROP TABLE [dbo].[26_TDGLegislation]
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SOURCE__LEGISLATION]') AND type in (N'U'))
+DROP TABLE [dbo].[SOURCE__LEGISLATION]
 GO
 
 /****** Object:  Table [dbo].[26_TDGLegislation]    Script Date: 5/14/2021 10:50:15 PM ******/
@@ -10,7 +10,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[26_TDGLegislation](
+CREATE TABLE [dbo].[SOURCE__LEGISLATION](
 	[(Do Not Modify) Legislation] [nvarchar](4000) NULL,
 	[(Do Not Modify) Row Checksum] [nvarchar](4000) NULL,
 	[(Do Not Modify) Modified On] [nvarchar](4000) NULL,
