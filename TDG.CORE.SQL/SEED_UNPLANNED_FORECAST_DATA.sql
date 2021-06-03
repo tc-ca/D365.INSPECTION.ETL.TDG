@@ -11,7 +11,7 @@ IF EXISTS (
 
 CREATE TABLE [dbo].[STAGING__UNPLANNED_FORECAST](
 	[Id] [uniqueidentifier] NOT NULL,
-	[IdStr] nvarchar(50) NULL,
+	[IdStr] nvarchar(50) NOT NULL,
 	[SinkCreatedOn] [datetime] NULL,
 	[SinkModifiedOn] [datetime] NULL,
 	[statecode] [int] NULL,
@@ -72,12 +72,9 @@ CREATE TABLE [dbo].[STAGING__UNPLANNED_FORECAST](
 		OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF
 	) ON [PRIMARY]
 ) ON [PRIMARY];
-GO
 
 
 DROP TABLE IF EXISTS #SOURCE__UNPLANNED_FORECAST;
-GO
-
 SELECT
 	CAST(id AS uniqueidentifier) id,
 	[ovs_name],
@@ -6559,11 +6556,18 @@ FROM
 			'0',
 			'0'
 	) T1;
-GO
+
+
+--JOIN TO FISCAL YEAR AND REGION SOURCE TABLES TO GET THEIR IDS
+SELECT
+	*
+FROM
+	#SOURCE__UNPLANNED_FORECAST UF
+	JOIN SOURCE__FISCAL_YEAR FY ON UF.ovs_fiscalyearname = FY.tc_name
+	JOIN STAGING__TERRITORY region ON uf.ovs_regionname = region.ovs_territorynameenglish;
 
 
 --insert massaged records into the staging table
---JOIN TO FISCAL YEAR AND REGION SOURCE TABLES TO GET THEIR IDS
 INSERT INTO
 	STAGING__UNPLANNED_FORECAST (
 		id,
@@ -6578,11 +6582,11 @@ INSERT INTO
 		[ovs_forecast]
 	)
 SELECT
-		UF.id,
-		UF.[ovs_name],
-		region.[Id],
+		cast(UF.id as uniqueidentifier),
+		[ovs_name],
+		[ovs_regionname],
 		[ovs_fiscalyearname],
-		OT.Id,
+		[ovs_oversighttype],
 		[ovs_q1],
 		[ovs_q2],
 		[ovs_q3],
@@ -6591,5 +6595,4 @@ SELECT
 FROM
 	#SOURCE__UNPLANNED_FORECAST UF
 	JOIN SOURCE__FISCAL_YEAR FY ON UF.ovs_fiscalyearname = FY.tc_name
-	JOIN STAGING__TERRITORY region ON uf.ovs_regionname = region.ovs_territorynameenglish
-	JOIN STAGING__OVERSIGHTTYPE OT ON UF.ovs_oversighttypename = OT.[ovs_oversighttypenameenglish];
+	JOIN STAGING__TERRITORY region ON uf.ovs_regionname = region.ovs_territorynameenglish;
