@@ -1,0 +1,9 @@
+Please Do not add/delete columns or amend their name.,,,,,,,
+Entity,Attribute,Global Name,Value,Label-English,Label-French,Description-English,Description-French
+tdg_unnumber,tdg_primaryclasscd,tdg_primaryclass,750770000,New option,,,
+tdg_unnumber,tdg_packinggroupcd,tdg_packinggroup,750770000,New option,,,
+tdg_unnumber,tdg_specialprovisionscd,tdg_specialprovisions,750770000,New option,,,
+tdg_unnumber,tdg_specialprovisionscd,tdg_specialprovisions,100000000,New Option 2,,,
+tdg_unnumber,tdg_specialprovisionscd,tdg_specialprovisions,100000001,New Option 2,,,
+tdg_unnumber,tdg_secondaryclasscd,tdg_secondaryclass,750770000,New option,,,
+tdg_unnumber,tdg_exceptedquantitiestxt,tdg_exceptedquantities,750770000,New option,,,
