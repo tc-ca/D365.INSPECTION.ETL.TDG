@@ -1093,6 +1093,7 @@ BEGIN
 	--===================================================================================================
 	--CRM CONSTANTS
 	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50) = 'team';
+	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50) = 'systemuser';
 	--===================================================================================================
 
 	--===================================================================================================
@@ -1107,7 +1108,7 @@ BEGIN
 			[ownerid],
 			[owneridtype],
 			[owningbusinessunit],
-			[owningteam]
+			[owninguser]
 		)
 	SELECT
 		@CONST_RATIONALE_PLANNED   [Id],
@@ -1115,10 +1116,10 @@ BEGIN
 		'Planned::Planifié'        [ovs_name],
 		'Planned'                  [ovs_rationalelbl],
 		'Planifié'                 [ovs_rationalflbl],
-		@CONST_TDG_TEAMID          [ownerid],
-		@CONST_OWNERIDTYPE_TEAM    [owneridtype],
+		@CONST_TDGCORE_USERID          [ownerid],
+		@CONST_OWNERIDTYPE_SYSTEMUSER    [owneridtype],
 		@CONST_TDG_BUSINESSUNITID  [owningbusinessunit],
-		@CONST_TDG_TEAMID          [owningteam]
+		@CONST_TDGCORE_USERID          [owninguser]
 	UNION
 	SELECT
 		@CONST_RATIONALE_UNPLANNED [Id],
@@ -1126,10 +1127,10 @@ BEGIN
 		'Unplanned::Non planifié'  [ovs_name],
 		'Unplanned'                [ovs_rationalelbl],
 		'Non planifié'             [ovs_rationalflbl],
-		@CONST_TDG_TEAMID          [ownerid],
-		@CONST_OWNERIDTYPE_TEAM    [owneridtype],
+		@CONST_TDGCORE_USERID          [ownerid],
+		@CONST_OWNERIDTYPE_SYSTEMUSER    [owneridtype],
 		@CONST_TDG_BUSINESSUNITID  [owningbusinessunit],
-		@CONST_TDG_TEAMID          [owningteam];
+		@CONST_TDGCORE_USERID          [owninguser];
 
 
 	--===================================================================================================
@@ -1145,7 +1146,7 @@ BEGIN
 			[ownerid],
 			[owneridtype],
 			[owningbusinessunit],
-			[owningteam]
+			[owninguser]
 		)
 	SELECT
 		@CONST_OVERSIGHTTYPE_GCIPT,
@@ -1153,10 +1154,10 @@ BEGIN
 		'GC IPT::GC IPT (FR)',
 		'GC IPT',
 		'GC IPT (FR)',
-		@CONST_TDG_TEAMID         [ownerid],
-		@CONST_OWNERIDTYPE_TEAM   [owneridtype],
+		@CONST_TDGCORE_USERID         [ownerid],
+		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
-		@CONST_TDG_TEAMID         [owningteam]
+		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
 		@CONST_OVERSIGHTTYPE_GCTARGETED,
@@ -1164,10 +1165,10 @@ BEGIN
 		'GC Targeted::GC Targeted (FR)',
 		'GC Targeted',
 		'GC ciblé',
-		@CONST_TDG_TEAMID         [ownerid],
-		@CONST_OWNERIDTYPE_TEAM   [owneridtype],
+		@CONST_TDGCORE_USERID         [ownerid],
+		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
-		@CONST_TDG_TEAMID         [owningteam]
+		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
 		@CONST_OVERSIGHTTYPE_GC_FOLLOWUP,
@@ -1175,10 +1176,10 @@ BEGIN
 		'GC Follow-up',
 		'GC Follow-up',
 		'Suivi GC',
-		@CONST_TDG_TEAMID         [ownerid],
-		@CONST_OWNERIDTYPE_TEAM   [owneridtype],
+		@CONST_TDGCORE_USERID         [ownerid],
+		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
-		@CONST_TDG_TEAMID         [owningteam]
+		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
 		@CONST_OVERSIGHTTYPE_MOC_FACILITY_IPT,
@@ -1186,10 +1187,10 @@ BEGIN
 		'MOC Facility IPT',
 		'MOC Facility IPT',
 		'Installation MOC IPT',
-		@CONST_TDG_TEAMID         [ownerid],
-		@CONST_OWNERIDTYPE_TEAM   [owneridtype],
+		@CONST_TDGCORE_USERID         [ownerid],
+		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
-		@CONST_TDG_TEAMID         [owningteam]
+		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
 		@CONST_OVERSIGHTTYPE_MOCTARGETED,
@@ -1197,10 +1198,10 @@ BEGIN
 		'MOC Facility Targeted',
 		'MOC Facility Targeted',
 		'Facilité MOC ciblée',
-		@CONST_TDG_TEAMID         [ownerid],
-		@CONST_OWNERIDTYPE_TEAM   [owneridtype],
+		@CONST_TDGCORE_USERID         [ownerid],
+		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
-		@CONST_TDG_TEAMID         [owningteam]
+		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
 		@CONST_OVERSIGHTTYPE_MOC_FACILITY_FOLLOWUP,
@@ -1208,10 +1209,10 @@ BEGIN
 		'MOC Facility Follow-up',
 		'MOC Facility Follow-up',
 		'Suivi des installations de MOC',
-		@CONST_TDG_TEAMID         [ownerid],
-		@CONST_OWNERIDTYPE_TEAM   [owneridtype],
+		@CONST_TDGCORE_USERID         [ownerid],
+		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
-		@CONST_TDG_TEAMID         [owningteam]
+		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
 		@CONST_OVERSIGHTTYPE_GC_TRIGGERED,
@@ -1219,10 +1220,10 @@ BEGIN
 		'GC Triggered',
 		'GC Triggered',
 		'GC déclenché',
-		@CONST_TDG_TEAMID         [ownerid],
-		@CONST_OWNERIDTYPE_TEAM   [owneridtype],
+		@CONST_TDGCORE_USERID         [ownerid],
+		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
-		@CONST_TDG_TEAMID         [owningteam]
+		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
 		@CONST_OVERSIGHTTYPE_GC_OPPORTUNITY,
@@ -1230,10 +1231,10 @@ BEGIN
 		'GC Opportunity',
 		'GC Opportunity',
 		'Opportunité GC',
-		@CONST_TDG_TEAMID         [ownerid],
-		@CONST_OWNERIDTYPE_TEAM   [owneridtype],
+		@CONST_TDGCORE_USERID         [ownerid],
+		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
-		@CONST_TDG_TEAMID         [owningteam]
+		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
 		@CONST_OVERSIGHTTYPE_GCCONSIGNMENT,
@@ -1241,10 +1242,10 @@ BEGIN
 		'GC Consignment',
 		'GC Consignment',
 		'Envoi GC',
-		@CONST_TDG_TEAMID         [ownerid],
-		@CONST_OWNERIDTYPE_TEAM   [owneridtype],
+		@CONST_TDGCORE_USERID         [ownerid],
+		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
-		@CONST_TDG_TEAMID         [owningteam]
+		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
 		@CONST_OVERSIGHTTYPE_GC_UNDECLARED,
@@ -1252,10 +1253,10 @@ BEGIN
 		'GC Undeclared/ Misdeclared',
 		'GC Undeclared/ Misdeclared',
 		'GC non déclaré / mal déclaré',
-		@CONST_TDG_TEAMID         [ownerid],
-		@CONST_OWNERIDTYPE_TEAM   [owneridtype],
+		@CONST_TDGCORE_USERID         [ownerid],
+		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
-		@CONST_TDG_TEAMID         [owningteam]
+		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
 		@CONST_OVERSIGHTTYPE_MOC_FACILITY_TRIGGERED,
@@ -1263,10 +1264,10 @@ BEGIN
 		'MOC Facility Triggered',
 		'MOC Facility Triggered',
 		'Installation MOC déclenchée',
-		@CONST_TDG_TEAMID         [ownerid],
-		@CONST_OWNERIDTYPE_TEAM   [owneridtype],
+		@CONST_TDGCORE_USERID         [ownerid],
+		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
-		@CONST_TDG_TEAMID         [owningteam]
+		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
 		@CONST_OVERSIGHTTYPE_MOCOPPORTUNITY,
@@ -1274,10 +1275,10 @@ BEGIN
 		'MOC Facility Opportunity',
 		'MOC Facility Opportunity',
 		'Opportunité d''installation MOC',
-		@CONST_TDG_TEAMID         [ownerid],
-		@CONST_OWNERIDTYPE_TEAM   [owneridtype],
+		@CONST_TDGCORE_USERID         [ownerid],
+		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
-		@CONST_TDG_TEAMID         [owningteam]
+		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
 		@CONST_OVERSIGHTTYPE_CIVDOCREVIEW,
@@ -1285,10 +1286,10 @@ BEGIN
 		'Civil Aviation Document Review',
 		'Civil Aviation Document Review',
 		'Examen des documents de l''aviation civile',
-		@CONST_TDG_TEAMID         [ownerid],
-		@CONST_OWNERIDTYPE_TEAM   [owneridtype],
+		@CONST_TDGCORE_USERID         [ownerid],
+		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
-		@CONST_TDG_TEAMID         [owningteam];
+		@CONST_TDGCORE_USERID         [owninguser];
 
 
 	--===================================================================================================
@@ -1305,7 +1306,7 @@ BEGIN
 			[ownerid],
 			[owneridtype],
 			[owningbusinessunit],
-			[owningteam]
+			[owninguser]
 		)
 	SELECT
 		@CONST_WORKORDERTYPE_INSPECTION,
@@ -1314,10 +1315,10 @@ BEGIN
 		@CONST_PRICELISTID,
 		'Inspection',
 		'Inspection',
-		@CONST_TDG_TEAMID         [ownerid],
-		@CONST_OWNERIDTYPE_TEAM   [owneridtype],
+		@CONST_TDGCORE_USERID         [ownerid],
+		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
-		@CONST_TDG_TEAMID         [owningteam]
+		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
 		@CONST_WORKORDERTYPE_REGULATORYAUTHORIZATION,
@@ -1326,10 +1327,10 @@ BEGIN
 		@CONST_PRICELISTID,
 		'Regulatory Authorization',
 		'Autorisation réglementaire',
-		@CONST_TDG_TEAMID         [ownerid],
-		@CONST_OWNERIDTYPE_TEAM   [owneridtype],
+		@CONST_TDGCORE_USERID         [ownerid],
+		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
-		@CONST_TDG_TEAMID         [owningteam];
+		@CONST_TDGCORE_USERID         [owninguser];
 
 
 	--===================================================================================================
@@ -1343,17 +1344,17 @@ BEGIN
 			[ownerid],
 			[owneridtype],
 			[owningbusinessunit],
-			[owningteam]
+			[owninguser]
 		)
 	SELECT
 		@CONST_CATEGORY_INSPECTOR,
 		--INSPECTOR 
 		'Mark a Bookable Resource as an Inspector',
 		'Inspector::Inspecteur',
-		ownerid            = @CONST_TDG_TEAMID,
-		owneridtype        = @CONST_OWNERIDTYPE_TEAM,
+		ownerid            = @CONST_TDGCORE_USERID,
+		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
 		owningbusinessunit = @CONST_TDG_BUSINESSUNITID,
-		owningteam         = @CONST_TDG_TEAMID;
+		owninguser         = @CONST_TDGCORE_USERID;
 
 
 	--===================================================================================================
@@ -1507,7 +1508,7 @@ BEGIN
 				--SYSUSER.territoryid
 			FROM
 				[dbo].tdgdata__systemuser SYSUSER
-				JOIN [16_IIS_INSPECTORS] INSP ON lower(TRIM(INSP.Account_name)) = lower(TRIM(SYSUSER.domainname))
+				JOIN SOURCE__IIS_INSPECTORS INSP ON lower(TRIM(INSP.Account_name)) = lower(TRIM(SYSUSER.domainname))
 		) T;
 
 
@@ -1515,9 +1516,9 @@ BEGIN
 		[dbo].[STAGING__BOOKABLE_RESOURCE]
 	SET
 		owningbusinessunit                 = @CONST_TDG_BUSINESSUNITID,
-		owneridtype                        = @CONST_OWNERIDTYPE_TEAM,
-		ownerid                            = @CONST_TDG_TEAMID,
-		owningteam                         = @CONST_TDG_TEAMID,
+		owneridtype                        = @CONST_OWNERIDTYPE_SYSTEMUSER,
+		ownerid                            = @CONST_TDGCORE_USERID,
+		owninguser                         = @CONST_TDGCORE_USERID,
 		resourcetype                       = 3,
 		statecode                          = 0,
 		statuscode                         = 1,
@@ -1542,7 +1543,7 @@ BEGIN
 			owningbusinessunit,
 			owneridtype,
 			ownerid,
-			owningteam
+			owninguser
 		)
 	SELECT
 		bookableresourceid,
@@ -1551,27 +1552,11 @@ BEGIN
 		statecode          = 0,
 		statuscode         = 1,
 		owningbusinessunit = @CONST_TDG_BUSINESSUNITID,
-		owneridtype        = @CONST_OWNERIDTYPE_TEAM,
-		ownerid            = @CONST_TDG_TEAMID,
-		owningteam         = @CONST_TDG_TEAMID
+		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
+		ownerid            = @CONST_TDGCORE_USERID,
+		owninguser         = @CONST_TDGCORE_USERID
 	FROM
 		[dbo].[STAGING__BOOKABLE_RESOURCE];
 
 
 END
-
---===================================================================================================
---===================================================================================================
---RUN MASTER DATA SSIS PACKAGE AFTER THIS
---KINGSWAYSOFT - SqlToCrm.dtsx
---===================================================================================================
---===================================================================================================
-
---WAIT UNTIL BOOKABLE RESOURCES ARE SYNCED WITH CRM
-SELECT
-	fullname,
-	domainname
-FROM
-	[dbo].[STAGING__BOOKABLE_RESOURCE] BR
-	JOIN [dbo].tdgdata__bookableresource CRMBR ON BR.bookableresourceid = CRMBR.bookableresourceid
-	JOIN [dbo].tdgdata__systemuser SYSUSER ON BR.userid = SYSUSER.systemuserid;

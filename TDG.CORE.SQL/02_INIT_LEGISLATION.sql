@@ -1,5 +1,36 @@
-DELETE FROM [dbo].[SOURCE__LEGISLATION]
+/****** Object:  Table [dbo].[26_TDGLegislation]    Script Date: 5/14/2021 10:50:15 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SOURCE__LEGISLATION]') AND type in (N'U'))
+DROP TABLE [dbo].[SOURCE__LEGISLATION]
 GO
+
+/****** Object:  Table [dbo].[26_TDGLegislation]    Script Date: 5/14/2021 10:50:15 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[SOURCE__LEGISLATION](
+	[(Do Not Modify) Legislation] [nvarchar](4000) NULL,
+	[(Do Not Modify) Row Checksum] [nvarchar](4000) NULL,
+	[(Do Not Modify) Modified On] [nvarchar](4000) NULL,
+	[Name] [nvarchar](4000) NULL,
+	[Legislation Source] [nvarchar](4000) NULL,
+	[Parent Legislation] [nvarchar](4000) NULL,
+	[English Text] [nvarchar](4000) NULL,
+	[Legislation Type] [nvarchar](4000) NULL,
+	[Label] [nvarchar](4000) NULL,
+	[Enabling Act] [nvarchar](4000) NULL,
+	[Enabling Regulation] [nvarchar](4000) NULL,
+	[Order] [nvarchar](4000) NULL,
+	[French Text] [nvarchar](4000) NULL,
+	[Violation Display Text EN] [nvarchar](4000) NULL,
+	[Violation Display Text FR] [nvarchar](4000) NULL,
+	[Violation Text] [nvarchar](4000) NULL
+) ON [PRIMARY]
+GO
+
+
 INSERT [dbo].[SOURCE__LEGISLATION] ([(Do Not Modify) Legislation], [(Do Not Modify) Row Checksum], [(Do Not Modify) Modified On], [Name], [Legislation Source], [Parent Legislation], [English Text], [Legislation Type], [Label], [Enabling Act], [Enabling Regulation], [Order], [French Text], [Violation Display Text EN], [Violation Display Text FR], [Violation Text]) VALUES (N'A1E14D87-B3AF-4CB0-B926-5F1B64840422', NULL, NULL, N'CSA B342-18 5.1.5 a)', N'CSA B342 Selection and use of UN pressure receptacles, multiple-element gas containers, and other pressure receptacles for the transport of dangerous goods, Class 2', NULL, NULL, N'Clause', N'CSA B342-18 5.1.5 a)', NULL, NULL, N'2917', NULL, NULL, NULL, NULL)
 GO
 INSERT [dbo].[SOURCE__LEGISLATION] ([(Do Not Modify) Legislation], [(Do Not Modify) Row Checksum], [(Do Not Modify) Modified On], [Name], [Legislation Source], [Parent Legislation], [English Text], [Legislation Type], [Label], [Enabling Act], [Enabling Regulation], [Order], [French Text], [Violation Display Text EN], [Violation Display Text FR], [Violation Text]) VALUES (N'35939F71-8EA2-419C-A06C-BA7ADCD7EA28', NULL, NULL, N'CSA B342-18 5.1.5 b)', N'CSA B342 Selection and use of UN pressure receptacles, multiple-element gas containers, and other pressure receptacles for the transport of dangerous goods, Class 2', NULL, NULL, N'Clause', N'CSA B342-18 5.1.5 b)', NULL, NULL, N'2918', NULL, NULL, NULL, NULL)

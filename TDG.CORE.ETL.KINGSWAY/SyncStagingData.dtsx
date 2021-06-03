@@ -12,11 +12,33 @@
   DTS:ObjectName="SyncStagingData"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="249"
-  DTS:VersionGUID="{ED8CAE7E-14F0-4472-95EC-DDFE68B4F811}">
+  DTS:VersionBuild="269"
+  DTS:VersionGUID="{53A3D094-1BC3-44CA-A503-49CF7B187E24}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+      DTS:CreationName="DynamicsCRM"
+      DTS:DTSID="{C9B85633-F6B5-46E7-9F91-FC8F6CA1DB0E}"
+      DTS:ObjectName="Dynamics CRM Connection Manager">
+      <DTS:ObjectData>
+        <CrmConnectionManager
+          ConnectionString="AuthenticationType=OAuth;ServiceEndpoint=Soap2011;UserName=;Domain=;ServerUrl=https://rom-acc-tdg-data-tcd365.crm3.dynamics.com;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;OAuthType=ClientCredentials;ClientAppId=a6adc57f-f130-4e0e-8cab-c0d6a26f8273;AuthorizationServerUrl=;ServiceResource=;CertificateThumbprint=;ServiceTimeout=3600;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
+          ConnectByProxy="False">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="YQrlOZKr1ls="
+            IV="rOUaOIz11wYB0BL8XSqYQA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+            <CipherData>
+              <CipherValue>rOUaOIz11wYB0BL8XSqYQCYZWJoMdNw3SvjvjIzvmdJlQHWgu7NouLbLEUC6UZ1LiWCy9EWQbaRU2rci337WSPJIJFhE2R495dxtBkjlbF+Vgo5IXzey3+Htdh3LKMlRHgBJWCYArjxIpcQWohcDl6Ey0V8YMTIKFzI1UMoCTtGGDgHslad27yrGgf9zk+4P</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </CrmConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[tdg-data-migration-db]"
       DTS:CreationName="OLEDB"
@@ -27,12 +49,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Provider=SQLNCLI11.1;Persist Security Info=True;Connect Timeout=0;General Timeout=0;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="gwXA4duWrBI="
-            IV="aEYBLJBjNmFPVH1Aq7d2Mg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="bu5LvoV2BCE="
+            IV="0+A6jLVwPmHWRfUDUJjSJg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>aEYBLJBjNmFPVH1Aq7d2Mse6hwLhoQwBJBPtniDx05TAmXzqLdvfH/1Kf7RS9/zQVTZiW6cP3at4omV77hHZNRKpajwdQZmx9RGjanXMsQTHjyj3bpBFj45b0Mxh80TZGpFPN/3ohNs/j5DzXXTSvupuV+DgASrc/5D4vCvRByZ0HEHE+lh2aKpF/j0aCBIp</CipherValue>
+              <CipherValue>0+A6jLVwPmHWRfUDUJjSJvr/PgcGcloEkb17FraZyk2vrSJ3SNbC1bFDeyUCK9+yEUr+1QvfMb9e9oQEh2IM40hU3gtKSQa5VtbxaDgB1PSAhz3OCtKsdIGyf0kPlKRjzUH4zKaiTn5Syr3zNvAyQNj2oVMGfx7lWmFJA9sMrhuwA502XN6a33wrjaKK2FQJ</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -48,12 +70,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-SqlToCrm-{4C085089-C198-46C9-B725-EB3672E9A468}tdg-data-migration-server.database.windows.net.tdg-data-migration-db.tdgco;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="GCtBKDUsdBI="
-            IV="j6HIP7JOpaMOByLoAz0tuw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="N9C6ihQkADI="
+            IV="XblvAcGnreISzfiszoYh9Q==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>j6HIP7JOpaMOByLoAz0tu4odTEVHchnDQzH4WxQoALiPqMB1q9YdwauNTe5c22zxbrNyj2DbU4KJVD1LvtfWnFh4NkvWfZaPfPaKYvZR41R25RZ5/1zVD/pyyFp4eNaorWC6UMqBYxo9e76kyKuIzksFtVvSqDtOe+wxu81D2OaXH0DrojaqjT4Lj8GOE3TT</CipherValue>
+              <CipherValue>XblvAcGnreISzfiszoYh9bjBHntDy9l10x+KS6jbYXxkZTwjLVFgAZa/9heQTFQOqeZzvWJ6JgWAWOEbHNNfQcMan+ASZLlJ5k9yDb0AJVlg+OdRflTED0PSEc0PEphhCjYdHSw3wkvJhnAHJo8EwSFF+tgAPeVYDSBI+c5LQqMzWKYymtRPsBSonHu18Hxs</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -371,8 +393,8 @@
               <connections>
                 <connection
                   refId="Package\CONTACTS\Dynamics CRM Destination.Connections[DynamicsCRM]"
-                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -3082,25 +3104,6 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\CONTACTS\Dynamics CRM Destination.Inputs[Input].ExternalColumns[parent_contactid]"
-                      dataType="guid"
-                      name="parent_contactid">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">Lookup</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes">contact</property>
-                        <property
-                          dataType="System.Boolean"
-                          name="Createable">true</property>
-                        <property
-                          dataType="System.Boolean"
-                          name="Updateable">true</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
                       refId="Package\CONTACTS\Dynamics CRM Destination.Inputs[Input].ExternalColumns[parentcustomerid]"
                       dataType="guid"
                       name="parentcustomerid">
@@ -3878,7 +3881,7 @@
       ,[telephone1]
       ,[telephone2]
       ,[telephone3]
-  FROM [dbo].[11_CONTACT]</property>
+  FROM [dbo].STAGING__CONTACT</property>
                 <property
                   dataType="System.Int32"
                   description="CommandTimeout"
@@ -4403,8 +4406,8 @@
               <connections>
                 <connection
                   refId="Package\Regulated Entities\Dynamics CRM Destination.Connections[DynamicsCRM]"
-                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -6334,25 +6337,6 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Regulated Entities\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_country]"
-                      dataType="guid"
-                      name="ovs_country">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">Lookup</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes">ovs_country</property>
-                        <property
-                          dataType="System.Boolean"
-                          name="Createable">true</property>
-                        <property
-                          dataType="System.Boolean"
-                          name="Updateable">true</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
                       refId="Package\Regulated Entities\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_iisid]"
                       dataType="wstr"
                       length="25"
@@ -6397,46 +6381,6 @@
                       dataType="wstr"
                       length="6"
                       name="ovs_naicscode">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">String</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes"></property>
-                        <property
-                          dataType="System.Boolean"
-                          name="Createable">true</property>
-                        <property
-                          dataType="System.Boolean"
-                          name="Updateable">true</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Regulated Entities\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_primarycontactemail]"
-                      dataType="wstr"
-                      length="100"
-                      name="ovs_primarycontactemail">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">String</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes"></property>
-                        <property
-                          dataType="System.Boolean"
-                          name="Createable">true</property>
-                        <property
-                          dataType="System.Boolean"
-                          name="Updateable">true</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Regulated Entities\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_primarycontactphone]"
-                      dataType="wstr"
-                      length="100"
-                      name="ovs_primarycontactphone">
                       <properties>
                         <property
                           dataType="System.String"
@@ -7265,6 +7209,45 @@
                           name="Updateable">true</property>
                       </properties>
                     </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_cidid]"
+                      dataType="wstr"
+                      length="100"
+                      name="ovs_cidid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Regulated Entities\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_mocexpiry]"
+                      dataType="dbTimeStamp"
+                      name="ovs_mocexpiry">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">DateTime</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -7918,7 +7901,7 @@
       ,[parentaccountid]
       ,[primarycontactid]
       ,[territoryid]
-  FROM [dbo].[04_ACCOUNT]
+  FROM [dbo].STAGING__ACCOUNT
 WHERE customertypecode = 948010000</property>
                 <property
                   dataType="System.String"
@@ -8858,8 +8841,8 @@ WHERE customertypecode = 948010000</property>
               <connections>
                 <connection
                   refId="Package\SITE CONTACTS\contact primary company id.Connections[DynamicsCRM]"
-                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -10696,19 +10679,6 @@ WHERE customertypecode = 948010000</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\SITE CONTACTS\contact primary company id.Inputs[Input].ExternalColumns[parent_contactid]"
-                      dataType="guid"
-                      name="parent_contactid">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">Lookup</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes">contact</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
                       refId="Package\SITE CONTACTS\contact primary company id.Inputs[Input].ExternalColumns[parentcustomerid]"
                       dataType="guid"
                       name="parentcustomerid">
@@ -11331,8 +11301,8 @@ WHERE customertypecode = 948010000</property>
               <connections>
                 <connection
                   refId="Package\SITE CONTACTS\Dynamics CRM Destination.Connections[DynamicsCRM]"
-                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -12578,19 +12548,6 @@ WHERE customertypecode = 948010000</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\SITE CONTACTS\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_country]"
-                      dataType="guid"
-                      name="ovs_country">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">Lookup</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes">ovs_country</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
                       refId="Package\SITE CONTACTS\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_iisid]"
                       dataType="wstr"
                       length="25"
@@ -12623,34 +12580,6 @@ WHERE customertypecode = 948010000</property>
                       dataType="wstr"
                       length="6"
                       name="ovs_naicscode">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">String</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes"></property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\SITE CONTACTS\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_primarycontactemail]"
-                      dataType="wstr"
-                      length="100"
-                      name="ovs_primarycontactemail">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">String</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes"></property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\SITE CONTACTS\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_primarycontactphone]"
-                      dataType="wstr"
-                      length="100"
-                      name="ovs_primarycontactphone">
                       <properties>
                         <property
                           dataType="System.String"
@@ -13234,6 +13163,33 @@ WHERE customertypecode = 948010000</property>
                           name="LookupTypes">systemuser</property>
                       </properties>
                     </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SITE CONTACTS\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_cidid]"
+                      dataType="wstr"
+                      length="100"
+                      name="ovs_cidid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SITE CONTACTS\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_mocexpiry]"
+                      dataType="dbTimeStamp"
+                      name="ovs_mocexpiry">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">DateTime</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -13322,7 +13278,7 @@ WHERE customertypecode = 948010000</property>
 [accountid]
 ,[company]
 ,[contactid]
-FROM [dbo].[11_CONTACT]</property>
+FROM [dbo].[STAGING__CONTACT]</property>
                 <property
                   dataType="System.Int32"
                   description="CommandTimeout"
@@ -13432,7 +13388,7 @@ FROM [dbo].[11_CONTACT]</property>
 ,[company]
 ,[contactid]
 ,[parentcustomeridtype]
-FROM [dbo].[11_CONTACT]</property>
+FROM [dbo].[STAGING__CONTACT]</property>
                 <property
                   dataType="System.Int32"
                   description="CommandTimeout"
@@ -13852,8 +13808,8 @@ FROM [dbo].[11_CONTACT]</property>
               <connections>
                 <connection
                   refId="Package\Sites\Dynamics CRM Destination.Connections[DynamicsCRM]"
-                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -15894,25 +15850,6 @@ FROM [dbo].[11_CONTACT]</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Sites\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_country]"
-                      dataType="guid"
-                      name="ovs_country">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">Lookup</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes">ovs_country</property>
-                        <property
-                          dataType="System.Boolean"
-                          name="Createable">true</property>
-                        <property
-                          dataType="System.Boolean"
-                          name="Updateable">true</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
                       refId="Package\Sites\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_iisid]"
                       dataType="wstr"
                       length="25"
@@ -15957,46 +15894,6 @@ FROM [dbo].[11_CONTACT]</property>
                       dataType="wstr"
                       length="6"
                       name="ovs_naicscode">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">String</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes"></property>
-                        <property
-                          dataType="System.Boolean"
-                          name="Createable">true</property>
-                        <property
-                          dataType="System.Boolean"
-                          name="Updateable">true</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Sites\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_primarycontactemail]"
-                      dataType="wstr"
-                      length="100"
-                      name="ovs_primarycontactemail">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">String</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes"></property>
-                        <property
-                          dataType="System.Boolean"
-                          name="Createable">true</property>
-                        <property
-                          dataType="System.Boolean"
-                          name="Updateable">true</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Sites\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_primarycontactphone]"
-                      dataType="wstr"
-                      length="100"
-                      name="ovs_primarycontactphone">
                       <properties>
                         <property
                           dataType="System.String"
@@ -16825,6 +16722,45 @@ FROM [dbo].[11_CONTACT]</property>
                           name="Updateable">true</property>
                       </properties>
                     </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Sites\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_cidid]"
+                      dataType="wstr"
+                      length="100"
+                      name="ovs_cidid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Sites\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_mocexpiry]"
+                      dataType="dbTimeStamp"
+                      name="ovs_mocexpiry">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">DateTime</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -17423,7 +17359,7 @@ FROM [dbo].[11_CONTACT]</property>
       ,[parentaccountid]
       ,[primarycontactid]
       ,[territoryid]
-      FROM [dbo].[04_ACCOUNT];</property>
+      FROM [dbo].[STAGING__ACCOUNT];</property>
                 <property
                   dataType="System.Int32"
                   description="CommandTimeout"
@@ -18130,8 +18066,8 @@ FROM [dbo].[11_CONTACT]</property>
               <connections>
                 <connection
                   refId="Package\Violations\Dynamics CRM Destination.Connections[DynamicsCRM]"
-                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -18169,7 +18105,8 @@ FROM [dbo].[11_CONTACT]</property>
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[ownerid]" />
                     <inputColumn
                       refId="Package\Violations\Dynamics CRM Destination.Inputs[Input].Columns[owneridtype]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="64"
                       cachedName="owneridtype"
                       externalMetadataColumnId="Package\Violations\Dynamics CRM Destination.Inputs[Input].ExternalColumns[owneridtype]"
@@ -18182,7 +18119,8 @@ FROM [dbo].[11_CONTACT]</property>
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_approximatetotal]" />
                     <inputColumn
                       refId="Package\Violations\Dynamics CRM Destination.Inputs[Input].Columns[qm_blobpath]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="200"
                       cachedName="qm_blobpath"
                       externalMetadataColumnId="Package\Violations\Dynamics CRM Destination.Inputs[Input].ExternalColumns[qm_blobpath]"
@@ -18213,7 +18151,8 @@ FROM [dbo].[11_CONTACT]</property>
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_isviolation]" />
                     <inputColumn
                       refId="Package\Violations\Dynamics CRM Destination.Inputs[Input].Columns[qm_name]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="300"
                       cachedName="qm_name"
                       externalMetadataColumnId="Package\Violations\Dynamics CRM Destination.Inputs[Input].ExternalColumns[qm_name]"
@@ -18232,14 +18171,16 @@ FROM [dbo].[11_CONTACT]</property>
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_rclegislationid]" />
                     <inputColumn
                       refId="Package\Violations\Dynamics CRM Destination.Inputs[Input].Columns[qm_referenceid]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="255"
                       cachedName="qm_referenceid"
                       externalMetadataColumnId="Package\Violations\Dynamics CRM Destination.Inputs[Input].ExternalColumns[qm_referenceid]"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_referenceid]" />
                     <inputColumn
                       refId="Package\Violations\Dynamics CRM Destination.Inputs[Input].Columns[qm_responseid]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="4000"
                       cachedName="qm_responseid"
                       externalMetadataColumnId="Package\Violations\Dynamics CRM Destination.Inputs[Input].ExternalColumns[qm_responseid]"
@@ -18756,6 +18697,180 @@ FROM [dbo].[11_CONTACT]</property>
                           name="Updateable">true</property>
                       </properties>
                     </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Violations\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_duedate]"
+                      dataType="dbTimeStamp"
+                      name="ovs_duedate">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">DateTime</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Violations\Dynamics CRM Destination.Inputs[Input].ExternalColumns[qm_enablingact]"
+                      dataType="guid"
+                      name="qm_enablingact">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">qm_rclegislation</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Violations\Dynamics CRM Destination.Inputs[Input].ExternalColumns[qm_enablingregulation]"
+                      dataType="guid"
+                      name="qm_enablingregulation">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">qm_rclegislation</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Violations\Dynamics CRM Destination.Inputs[Input].ExternalColumns[qm_violationdisplayfrenchlabel]"
+                      dataType="nText"
+                      name="qm_violationdisplayfrenchlabel">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Memo</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Violations\Dynamics CRM Destination.Inputs[Input].ExternalColumns[qm_violationdisplaylabel]"
+                      dataType="nText"
+                      name="qm_violationdisplaylabel">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Memo</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Violations\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tdg_certificatenumber]"
+                      dataType="wstr"
+                      length="100"
+                      name="tdg_certificatenumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Violations\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tdg_certificatesectionnumber]"
+                      dataType="wstr"
+                      length="100"
+                      name="tdg_certificatesectionnumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Violations\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tdg_certificatetypecd]"
+                      dataType="i4"
+                      name="tdg_certificatetypecd">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Picklist</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Violations\Dynamics CRM Destination.Inputs[Input].ExternalColumns[tdg_templatenumber]"
+                      dataType="wstr"
+                      length="100"
+                      name="tdg_templatenumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -18840,7 +18955,7 @@ FROM [dbo].[11_CONTACT]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[07_VIOLATIONS]</property>
+                  name="OpenRowset">[dbo].[STAGING__VIOLATIONS]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -18916,7 +19031,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[owneridtype]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[owneridtype]"
@@ -18971,7 +19087,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[createdbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[createdbyname]"
@@ -18981,7 +19098,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[createdbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[createdbyyominame]"
@@ -19009,7 +19127,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[createdonbehalfbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[createdonbehalfbyname]"
@@ -19019,7 +19138,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[createdonbehalfbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[createdonbehalfbyyominame]"
@@ -19038,7 +19158,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[modifiedbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[modifiedbyname]"
@@ -19048,7 +19169,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[modifiedbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[modifiedbyyominame]"
@@ -19076,7 +19198,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[modifiedonbehalfbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[modifiedonbehalfbyname]"
@@ -19086,7 +19209,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[modifiedonbehalfbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[modifiedonbehalfbyyominame]"
@@ -19105,7 +19229,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[owneridname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[owneridname]"
@@ -19115,7 +19240,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[owneridyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[owneridyominame]"
@@ -19125,7 +19251,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_blobpath]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_blobpath]"
@@ -19135,7 +19262,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[statecodename]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[statecodename]"
@@ -19145,7 +19273,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[statuscodename]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[statuscodename]"
@@ -19200,7 +19329,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_cysafetyassessmentidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_cysafetyassessmentidname]"
@@ -19237,7 +19367,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_isviolationname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_isviolationname]"
@@ -19247,7 +19378,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_name]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_name]"
@@ -19266,7 +19398,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_questionidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_questionidname]"
@@ -19285,7 +19418,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_rclegislationidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_rclegislationidname]"
@@ -19295,7 +19429,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_referenceid]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_referenceid]"
@@ -19305,7 +19440,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_responseid]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_responseid]"
@@ -19351,7 +19487,8 @@ WHERE customertypecode = 948010001</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_workorderidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_workorderidname]"
@@ -19376,7 +19513,8 @@ WHERE customertypecode = 948010001</property>
                       name="ownerid" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[owneridtype]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="64"
                       name="owneridtype" />
                     <externalMetadataColumn
@@ -19401,12 +19539,14 @@ WHERE customertypecode = 948010001</property>
                       name="statuscode" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[createdbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="createdbyname" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[createdbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="createdbyyominame" />
                     <externalMetadataColumn
@@ -19419,12 +19559,14 @@ WHERE customertypecode = 948010001</property>
                       name="createdonbehalfby" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[createdonbehalfbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="createdonbehalfbyname" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[createdonbehalfbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="createdonbehalfbyyominame" />
                     <externalMetadataColumn
@@ -19433,12 +19575,14 @@ WHERE customertypecode = 948010001</property>
                       name="modifiedby" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[modifiedbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="modifiedbyname" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[modifiedbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="modifiedbyyominame" />
                     <externalMetadataColumn
@@ -19451,12 +19595,14 @@ WHERE customertypecode = 948010001</property>
                       name="modifiedonbehalfby" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[modifiedonbehalfbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="modifiedonbehalfbyname" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[modifiedonbehalfbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="modifiedonbehalfbyyominame" />
                     <externalMetadataColumn
@@ -19465,27 +19611,32 @@ WHERE customertypecode = 948010001</property>
                       name="overriddencreatedon" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[owneridname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="owneridname" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[owneridyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="owneridyominame" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_blobpath]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       name="qm_blobpath" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[statecodename]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="statecodename" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[statuscodename]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="statuscodename" />
                     <externalMetadataColumn
@@ -19510,7 +19661,8 @@ WHERE customertypecode = 948010001</property>
                       name="qm_cysafetyassessmentid" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_cysafetyassessmentidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       name="qm_cysafetyassessmentidname" />
                     <externalMetadataColumn
@@ -19527,12 +19679,14 @@ WHERE customertypecode = 948010001</property>
                       name="qm_isviolation" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_isviolationname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="qm_isviolationname" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_name]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="300"
                       name="qm_name" />
                     <externalMetadataColumn
@@ -19541,7 +19695,8 @@ WHERE customertypecode = 948010001</property>
                       name="qm_questionid" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_questionidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="300"
                       name="qm_questionidname" />
                     <externalMetadataColumn
@@ -19550,17 +19705,20 @@ WHERE customertypecode = 948010001</property>
                       name="qm_rclegislationid" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_rclegislationidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       name="qm_rclegislationidname" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_referenceid]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="qm_referenceid" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_responseid]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="4000"
                       name="qm_responseid" />
                     <externalMetadataColumn
@@ -19581,7 +19739,8 @@ WHERE customertypecode = 948010001</property>
                       name="qm_workorderid" />
                     <externalMetadataColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_workorderidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       name="qm_workorderidname" />
                   </externalMetadataColumns>
@@ -19592,19 +19751,75 @@ WHERE customertypecode = 948010001</property>
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
+                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdby]"
                       dataType="guid"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdby]"
                       name="createdby" />
                     <outputColumn
+                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[importsequencenumber]"
+                      dataType="i4"
+                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[importsequencenumber]"
+                      name="importsequencenumber" />
+                    <outputColumn
+                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ownerid]"
+                      dataType="guid"
+                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ownerid]"
+                      name="ownerid" />
+                    <outputColumn
+                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridtype]"
+                      codePage="1252"
+                      dataType="str"
+                      length="64"
+                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridtype]"
+                      name="owneridtype" />
+                    <outputColumn
+                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owningbusinessunit]"
+                      dataType="guid"
+                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owningbusinessunit]"
+                      name="owningbusinessunit" />
+                    <outputColumn
+                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owningteam]"
+                      dataType="guid"
+                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owningteam]"
+                      name="owningteam" />
+                    <outputColumn
+                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owninguser]"
+                      dataType="guid"
+                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owninguser]"
+                      name="owninguser" />
+                    <outputColumn
+                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statecode]"
+                      dataType="i4"
+                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statecode]"
+                      name="statecode" />
+                    <outputColumn
+                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statuscode]"
+                      dataType="i4"
+                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statuscode]"
+                      name="statuscode" />
+                    <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdbyname]"
                       name="createdbyname" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdbyyominame]"
                       name="createdbyyominame" />
@@ -19620,21 +19835,18 @@ WHERE customertypecode = 948010001</property>
                       name="createdonbehalfby" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdonbehalfbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdonbehalfbyname]"
                       name="createdonbehalfbyname" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdonbehalfbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[createdonbehalfbyyominame]"
                       name="createdonbehalfbyyominame" />
-                    <outputColumn
-                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[importsequencenumber]"
-                      dataType="i4"
-                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[importsequencenumber]"
-                      name="importsequencenumber" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedby]"
                       dataType="guid"
@@ -19642,13 +19854,15 @@ WHERE customertypecode = 948010001</property>
                       name="modifiedby" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedbyname]"
                       name="modifiedbyname" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedbyyominame]"
                       name="modifiedbyyominame" />
@@ -19664,13 +19878,15 @@ WHERE customertypecode = 948010001</property>
                       name="modifiedonbehalfby" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedonbehalfbyname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedonbehalfbyname]"
                       name="modifiedonbehalfbyname" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedonbehalfbyyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[modifiedonbehalfbyyominame]"
                       name="modifiedonbehalfbyyominame" />
@@ -19680,53 +19896,60 @@ WHERE customertypecode = 948010001</property>
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[overriddencreatedon]"
                       name="overriddencreatedon" />
                     <outputColumn
-                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ownerid]"
-                      dataType="guid"
-                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ownerid]"
-                      name="ownerid" />
-                    <outputColumn
-                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridtype]"
-                      dataType="wstr"
-                      length="64"
-                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridtype]"
-                      name="owneridtype" />
-                    <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridname]"
                       name="owneridname" />
                     <outputColumn
-                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owningbusinessunit]"
-                      dataType="guid"
-                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owningbusinessunit]"
-                      name="owningbusinessunit" />
-                    <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridyominame]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="200"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridyominame]"
                       name="owneridyominame" />
                     <outputColumn
-                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owningteam]"
-                      dataType="guid"
-                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owningteam]"
-                      name="owningteam" />
+                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_blobpath]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_blobpath]"
+                      name="qm_blobpath" />
                     <outputColumn
-                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owninguser]"
-                      dataType="guid"
-                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owninguser]"
-                      name="owninguser" />
+                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statecodename]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statecodename]"
+                      name="statecodename" />
+                    <outputColumn
+                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statuscodename]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statuscodename]"
+                      name="statuscodename" />
+                    <outputColumn
+                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[timezoneruleversionnumber]"
+                      dataType="i4"
+                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[timezoneruleversionnumber]"
+                      name="timezoneruleversionnumber" />
+                    <outputColumn
+                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[utcconversiontimezonecode]"
+                      dataType="i4"
+                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[utcconversiontimezonecode]"
+                      name="utcconversiontimezonecode" />
+                    <outputColumn
+                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[versionnumber]"
+                      dataType="i8"
+                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[versionnumber]"
+                      name="versionnumber" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_approximatetotal]"
                       dataType="i4"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_approximatetotal]"
                       name="qm_approximatetotal" />
-                    <outputColumn
-                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statecode]"
-                      dataType="i4"
-                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statecode]"
-                      name="statecode" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_cysafetyassessmentid]"
                       dataType="guid"
@@ -19734,7 +19957,8 @@ WHERE customertypecode = 948010001</property>
                       name="qm_cysafetyassessmentid" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_cysafetyassessmentidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_cysafetyassessmentidname]"
                       name="qm_cysafetyassessmentidname" />
@@ -19755,13 +19979,15 @@ WHERE customertypecode = 948010001</property>
                       name="qm_isviolation" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_isviolationname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_isviolationname]"
                       name="qm_isviolationname" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_name]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="300"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_name]"
                       name="qm_name" />
@@ -19772,7 +19998,8 @@ WHERE customertypecode = 948010001</property>
                       name="qm_questionid" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_questionidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="300"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_questionidname]"
                       name="qm_questionidname" />
@@ -19783,19 +20010,22 @@ WHERE customertypecode = 948010001</property>
                       name="qm_rclegislationid" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_rclegislationidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_rclegislationidname]"
                       name="qm_rclegislationidname" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_referenceid]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_referenceid]"
                       name="qm_referenceid" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_responseid]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="4000"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_responseid]"
                       name="qm_responseid" />
@@ -19821,60 +20051,11 @@ WHERE customertypecode = 948010001</property>
                       name="qm_workorderid" />
                     <outputColumn
                       refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_workorderidname]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_workorderidname]"
                       name="qm_workorderidname" />
-                    <outputColumn
-                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_blobpath]"
-                      dataType="wstr"
-                      length="200"
-                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_blobpath]"
-                      name="qm_blobpath" />
-                    <outputColumn
-                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statuscode]"
-                      dataType="i4"
-                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statuscode]"
-                      name="statuscode" />
-                    <outputColumn
-                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statecodename]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statecodename]"
-                      name="statecodename" />
-                    <outputColumn
-                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statuscodename]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statuscodename]"
-                      name="statuscodename" />
-                    <outputColumn
-                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[timezoneruleversionnumber]"
-                      dataType="i4"
-                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[timezoneruleversionnumber]"
-                      name="timezoneruleversionnumber" />
-                    <outputColumn
-                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[utcconversiontimezonecode]"
-                      dataType="i4"
-                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[utcconversiontimezonecode]"
-                      name="utcconversiontimezonecode" />
-                    <outputColumn
-                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[versionnumber]"
-                      dataType="i8"
-                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[versionnumber]"
-                      name="versionnumber" />
-                    <outputColumn
-                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Violations\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -20042,7 +20223,7 @@ WHERE customertypecode = 948010001</property>
                   dataType="System.Boolean"
                   description="Specifies whether to ignore those fields that have no value changes in the target system. "
                   expressionType="Notify"
-                  name="IgnoreUnchangedFields">true</property>
+                  name="IgnoreUnchangedFields">false</property>
                 <property
                   dataType="System.Boolean"
                   description="Specify whether to remove those invalid characters before writing to CDS/CRM."
@@ -20074,12 +20255,12 @@ WHERE customertypecode = 948010001</property>
                   dataType="System.Int32"
                   description="Specifies the number of records to be sent to CDS/Dynamics CRM server in each service call."
                   expressionType="Notify"
-                  name="BatchSize">5</property>
+                  name="BatchSize">100</property>
                 <property
                   dataType="System.Int32"
                   description="Specify the total number or concurrent threads to write to CDS/CRM server simultaneously. "
                   expressionType="Notify"
-                  name="ConcurrentWritingThreadsInTotal">2</property>
+                  name="ConcurrentWritingThreadsInTotal">20</property>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether datetime values should be sent to CDS/CRM server in UTC format."
@@ -20092,7 +20273,7 @@ WHERE customertypecode = 948010001</property>
                   dataType="System.Boolean"
                   description="Specify whether to tentatively disable relevant plugins"
                   expressionType="Notify"
-                  name="TentativelyDisableRelevantPlugins">false</property>
+                  name="TentativelyDisableRelevantPlugins">true</property>
                 <property
                   dataType="System.Boolean"
                   description="Specify whether to tentatively disable relevant workflows"
@@ -20107,8 +20288,8 @@ WHERE customertypecode = 948010001</property>
               <connections>
                 <connection
                   refId="Package\Work Orders\Dynamics CRM Destination.Connections[DynamicsCRM]"
-                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -20121,12 +20302,73 @@ WHERE customertypecode = 948010001</property>
                   name="Input">
                   <inputColumns>
                     <inputColumn
+                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_workorderid]"
+                      cachedDataType="guid"
+                      cachedName="msdyn_workorderid"
+                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_workorderid]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_workorderid]" />
+                    <inputColumn
+                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_address1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="msdyn_address1"
+                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_address1]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_address1]" />
+                    <inputColumn
+                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_address2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="msdyn_address2"
+                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_address2]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_address2]" />
+                    <inputColumn
+                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_address3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="msdyn_address3"
+                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_address3]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_address3]" />
+                    <inputColumn
+                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="msdyn_city"
+                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_city]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_city]" />
+                    <inputColumn
+                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="msdyn_country"
+                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_country]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_country]" />
+                    <inputColumn
                       refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_name]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="100"
                       cachedName="msdyn_name"
                       externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_name]"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_name]" />
+                    <inputColumn
+                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_postalcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="msdyn_postalcode"
+                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_postalcode]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_postalcode]" />
+                    <inputColumn
+                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_pricelist]"
+                      cachedDataType="guid"
+                      cachedName="msdyn_pricelist"
+                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_pricelist]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_pricelist]" />
                     <inputColumn
                       refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_serviceaccount]"
                       cachedDataType="guid"
@@ -20140,56 +20382,9 @@ WHERE customertypecode = 948010001</property>
                       externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_serviceterritory]"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_serviceterritory]" />
                     <inputColumn
-                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_pricelist]"
-                      cachedDataType="guid"
-                      cachedName="msdyn_pricelist"
-                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_pricelist]"
-                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_pricelist]" />
-                    <inputColumn
-                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_address1]"
-                      cachedDataType="wstr"
-                      cachedLength="250"
-                      cachedName="msdyn_address1"
-                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_address1]"
-                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_address1]" />
-                    <inputColumn
-                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_address2]"
-                      cachedDataType="wstr"
-                      cachedLength="250"
-                      cachedName="msdyn_address2"
-                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_address2]"
-                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_address2]" />
-                    <inputColumn
-                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_address3]"
-                      cachedDataType="wstr"
-                      cachedLength="250"
-                      cachedName="msdyn_address3"
-                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_address3]"
-                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_address3]" />
-                    <inputColumn
-                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_city]"
-                      cachedDataType="wstr"
-                      cachedLength="80"
-                      cachedName="msdyn_city"
-                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_city]"
-                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_city]" />
-                    <inputColumn
-                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_country]"
-                      cachedDataType="wstr"
-                      cachedLength="80"
-                      cachedName="msdyn_country"
-                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_country]"
-                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_country]" />
-                    <inputColumn
-                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_postalcode]"
-                      cachedDataType="wstr"
-                      cachedLength="20"
-                      cachedName="msdyn_postalcode"
-                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_postalcode]"
-                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_postalcode]" />
-                    <inputColumn
                       refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_stateorprovince]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="50"
                       cachedName="msdyn_stateorprovince"
                       externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_stateorprovince]"
@@ -20201,11 +20396,11 @@ WHERE customertypecode = 948010001</property>
                       externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_systemstatus]"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_systemstatus]" />
                     <inputColumn
-                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_workorderid]"
-                      cachedDataType="guid"
-                      cachedName="msdyn_workorderid"
-                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_workorderid]"
-                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_workorderid]" />
+                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_workordersummary]"
+                      cachedDataType="nText"
+                      cachedName="msdyn_workordersummary"
+                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[msdyn_workordersummary]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_workordersummary]" />
                     <inputColumn
                       refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[msdyn_workordertype]"
                       cachedDataType="guid"
@@ -20226,11 +20421,20 @@ WHERE customertypecode = 948010001</property>
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_fiscalyear]" />
                     <inputColumn
                       refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[ovs_iisid]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="100"
                       cachedName="ovs_iisid"
                       externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_iisid]"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_iisid]" />
+                    <inputColumn
+                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[ovs_mocid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="ovs_mocid"
+                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_mocid]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_mocid]" />
                     <inputColumn
                       refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[ovs_oversighttype]"
                       cachedDataType="guid"
@@ -20256,6 +20460,12 @@ WHERE customertypecode = 948010001</property>
                       externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_secondaryinspector]"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_secondaryinspector]" />
                     <inputColumn
+                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[ovs_tyrational]"
+                      cachedDataType="guid"
+                      cachedName="ovs_tyrational"
+                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_tyrational]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_tyrational]" />
+                    <inputColumn
                       refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[ownerid]"
                       cachedDataType="guid"
                       cachedName="ownerid"
@@ -20263,24 +20473,12 @@ WHERE customertypecode = 948010001</property>
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ownerid]" />
                     <inputColumn
                       refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[owneridtype]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="64"
                       cachedName="owneridtype"
                       externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[owneridtype]"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[owneridtype]" />
-                    <inputColumn
-                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[ovs_mocid]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="ovs_mocid"
-                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_mocid]"
-                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_mocid]" />
-                    <inputColumn
-                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].Columns[ovs_tyrational]"
-                      cachedDataType="guid"
-                      cachedName="ovs_tyrational"
-                      externalMetadataColumnId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_tyrational]"
-                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_tyrational]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -21825,25 +22023,6 @@ WHERE customertypecode = 948010001</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_ovscountry]"
-                      dataType="guid"
-                      name="ovs_ovscountry">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">Lookup</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes">ovs_country</property>
-                        <property
-                          dataType="System.Boolean"
-                          name="Createable">true</property>
-                        <property
-                          dataType="System.Boolean"
-                          name="Updateable">true</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
                       refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ovs_primaryinspector]"
                       dataType="guid"
                       name="ovs_primaryinspector">
@@ -22065,25 +22244,6 @@ WHERE customertypecode = 948010001</property>
                         <property
                           dataType="System.String"
                           name="LookupTypes"></property>
-                        <property
-                          dataType="System.Boolean"
-                          name="Createable">true</property>
-                        <property
-                          dataType="System.Boolean"
-                          name="Updateable">true</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Work Orders\Dynamics CRM Destination.Inputs[Input].ExternalColumns[qm_reportcontactid]"
-                      dataType="guid"
-                      name="qm_reportcontactid">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          name="FieldType">Lookup</property>
-                        <property
-                          dataType="System.String"
-                          name="LookupTypes">contact</property>
                         <property
                           dataType="System.Boolean"
                           name="Createable">true</property>
@@ -22353,7 +22513,7 @@ WHERE customertypecode = 948010001</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[SSIS_WorkOrderErrors]</property>
+                  name="OpenRowset">[dbo].[SSIS_WorkOrderErrors]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -22423,7 +22583,8 @@ WHERE customertypecode = 948010001</property>
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ownerid]" />
                     <inputColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[owneridtype]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="64"
                       cachedName="owneridtype"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owneridtype]"
@@ -22442,56 +22603,64 @@ WHERE customertypecode = 948010001</property>
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[owninguser]" />
                     <inputColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_iisid]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="100"
                       cachedName="ovs_iisid"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_iisid]"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_iisid]" />
                     <inputColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_address1]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="250"
                       cachedName="msdyn_address1"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_address1]"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_address1]" />
                     <inputColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_address2]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="250"
                       cachedName="msdyn_address2"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_address2]"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_address2]" />
                     <inputColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_address3]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="250"
                       cachedName="msdyn_address3"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_address3]"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_address3]" />
                     <inputColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_city]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="80"
                       cachedName="msdyn_city"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_city]"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_city]" />
                     <inputColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_country]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="80"
                       cachedName="msdyn_country"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_country]"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_country]" />
                     <inputColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_name]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="100"
                       cachedName="msdyn_name"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_name]"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_name]" />
                     <inputColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_postalcode]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="20"
                       cachedName="msdyn_postalcode"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_postalcode]"
@@ -22510,7 +22679,8 @@ WHERE customertypecode = 948010001</property>
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_serviceaccount]" />
                     <inputColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[msdyn_stateorprovince]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="50"
                       cachedName="msdyn_stateorprovince"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_stateorprovince]"
@@ -22547,7 +22717,8 @@ WHERE customertypecode = 948010001</property>
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_fiscalyear]" />
                     <inputColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ovs_mocid]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="100"
                       cachedName="ovs_mocid"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_mocid]"
@@ -22614,7 +22785,8 @@ WHERE customertypecode = 948010001</property>
                       name="ownerid" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[owneridtype]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="64"
                       name="owneridtype" />
                     <externalMetadataColumn
@@ -22627,42 +22799,50 @@ WHERE customertypecode = 948010001</property>
                       name="owninguser" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_iisid]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       name="ovs_iisid" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_address1]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="250"
                       name="msdyn_address1" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_address2]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="250"
                       name="msdyn_address2" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_address3]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="250"
                       name="msdyn_address3" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_city]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="80"
                       name="msdyn_city" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_country]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="80"
                       name="msdyn_country" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_name]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       name="msdyn_name" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_postalcode]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="20"
                       name="msdyn_postalcode" />
                     <externalMetadataColumn
@@ -22675,7 +22855,8 @@ WHERE customertypecode = 948010001</property>
                       name="msdyn_serviceaccount" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_stateorprovince]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="50"
                       name="msdyn_stateorprovince" />
                     <externalMetadataColumn
@@ -22700,7 +22881,8 @@ WHERE customertypecode = 948010001</property>
                       name="ovs_fiscalyear" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ovs_mocid]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       name="ovs_mocid" />
                     <externalMetadataColumn
@@ -22736,6 +22918,14 @@ WHERE customertypecode = 948010001</property>
                       dataType="wstr"
                       length="2048"
                       name="ErrorMessage" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[msdyn_workordersummary]"
+                      dataType="nText"
+                      name="msdyn_workordersummary" />
+                    <externalMetadataColumn
+                      refId="Package\Work Orders\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[qm_reportcontactid]"
+                      dataType="guid"
+                      name="qm_reportcontactid" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -22820,7 +23010,7 @@ SELECT
       ,[owningbusinessunit]
       ,[owninguser]
       ,[qm_reportcontactid]
-  FROM [dbo].[06_WORK_ORDERS]</property>
+  FROM [dbo].STAGING__WORK_ORDERS</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -22876,7 +23066,8 @@ SELECT
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[owneridtype]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[owneridtype]"
@@ -22904,7 +23095,8 @@ SELECT
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_iisid]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ovs_iisid]"
@@ -22914,7 +23106,8 @@ SELECT
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_address1]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_address1]"
@@ -22924,7 +23117,8 @@ SELECT
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_address2]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_address2]"
@@ -22934,7 +23128,8 @@ SELECT
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_address3]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_address3]"
@@ -22944,7 +23139,8 @@ SELECT
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_city]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_city]"
@@ -22954,7 +23150,8 @@ SELECT
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_country]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_country]"
@@ -22964,7 +23161,8 @@ SELECT
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_name]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_name]"
@@ -22974,7 +23172,8 @@ SELECT
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_postalcode]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_postalcode]"
@@ -23002,7 +23201,8 @@ SELECT
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_stateorprovince]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_stateorprovince]"
@@ -23027,6 +23227,15 @@ SELECT
                       externalMetadataColumnId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_workorderid]"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_workorderid]"
                       name="msdyn_workorderid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_workordersummary]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_workordersummary]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_workordersummary]"
+                      name="msdyn_workordersummary"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[msdyn_workordertype]"
@@ -23057,7 +23266,8 @@ SELECT
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_mocid]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ovs_mocid]"
@@ -23110,6 +23320,15 @@ SELECT
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[ovs_tyrational]"
                       name="ovs_tyrational"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_reportcontactid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_reportcontactid]"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_reportcontactid]"
+                      name="qm_reportcontactid"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -23123,7 +23342,8 @@ SELECT
                       name="ownerid" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[owneridtype]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="64"
                       name="owneridtype" />
                     <externalMetadataColumn
@@ -23136,42 +23356,50 @@ SELECT
                       name="owninguser" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ovs_iisid]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       name="ovs_iisid" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_address1]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="250"
                       name="msdyn_address1" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_address2]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="250"
                       name="msdyn_address2" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_address3]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="250"
                       name="msdyn_address3" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_city]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="80"
                       name="msdyn_city" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_country]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="80"
                       name="msdyn_country" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_name]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       name="msdyn_name" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_postalcode]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="20"
                       name="msdyn_postalcode" />
                     <externalMetadataColumn
@@ -23184,7 +23412,8 @@ SELECT
                       name="msdyn_serviceaccount" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[msdyn_stateorprovince]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="50"
                       name="msdyn_stateorprovince" />
                     <externalMetadataColumn
@@ -23213,7 +23442,8 @@ SELECT
                       name="ovs_fiscalyear" />
                     <externalMetadataColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ovs_mocid]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       name="ovs_mocid" />
                     <externalMetadataColumn
@@ -23271,7 +23501,8 @@ SELECT
                       name="ownerid" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridtype]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="64"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[owneridtype]"
                       name="owneridtype" />
@@ -23287,49 +23518,57 @@ SELECT
                       name="owninguser" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ovs_iisid]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ovs_iisid]"
                       name="ovs_iisid" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_address1]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="250"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_address1]"
                       name="msdyn_address1" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_address2]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="250"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_address2]"
                       name="msdyn_address2" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_address3]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="250"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_address3]"
                       name="msdyn_address3" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_city]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="80"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_city]"
                       name="msdyn_city" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_country]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="80"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_country]"
                       name="msdyn_country" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_name]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_name]"
                       name="msdyn_name" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_postalcode]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="20"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_postalcode]"
                       name="msdyn_postalcode" />
@@ -23345,7 +23584,8 @@ SELECT
                       name="msdyn_serviceaccount" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_stateorprovince]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="50"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_stateorprovince]"
                       name="msdyn_stateorprovince" />
@@ -23359,6 +23599,11 @@ SELECT
                       dataType="guid"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_workorderid]"
                       name="msdyn_workorderid" />
+                    <outputColumn
+                      refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_workordersummary]"
+                      dataType="nText"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_workordersummary]"
+                      name="msdyn_workordersummary" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[msdyn_workordertype]"
                       dataType="guid"
@@ -23376,7 +23621,8 @@ SELECT
                       name="ovs_fiscalyear" />
                     <outputColumn
                       refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ovs_mocid]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ovs_mocid]"
                       name="ovs_mocid" />
@@ -23405,6 +23651,11 @@ SELECT
                       dataType="guid"
                       lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ovs_tyrational]"
                       name="ovs_tyrational" />
+                    <outputColumn
+                      refId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_reportcontactid]"
+                      dataType="guid"
+                      lineageId="Package\Work Orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_reportcontactid]"
+                      name="qm_reportcontactid" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -23804,6 +24055,10 @@ SELECT
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="150,42"
+          Id="Package\Regulated Entities\OLE DB Source"
+          TopLeft="527.5,96.5" />
+        <NodeLayout
           Size="196,42"
           Id="Package\Regulated Entities\Recordset Destination 1"
           TopLeft="352,459" />
@@ -23812,9 +24067,9 @@ SELECT
           Id="Package\Regulated Entities\Dynamics CRM Destination"
           TopLeft="500,290" />
         <NodeLayout
-          Size="150,42"
-          Id="Package\Regulated Entities\OLE DB Source"
-          TopLeft="528.5,95.5" />
+          Size="177,42"
+          Id="Package\Regulated Entities\OLE DB Destination"
+          TopLeft="738,468" />
         <EdgeLayout
           Id="Package\Regulated Entities.Paths[Skipped Rows]"
           TopLeft="572.333333333333,332">
@@ -23853,18 +24108,18 @@ SELECT
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Regulated Entities.Paths[OLE DB Source Output]"
-          TopLeft="605,137.5">
+          TopLeft="604.5,138.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,152.5"
+              EndConnector="0,151.5"
               Start="0,0"
-              End="0,145">
+              End="0,144">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,145" />
+                    End="0,144" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -23873,10 +24128,6 @@ SELECT
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Regulated Entities\OLE DB Destination"
-          TopLeft="738,468" />
         <EdgeLayout
           Id="Package\Regulated Entities.Paths[Error Output]"
           TopLeft="640.666666666667,332">
@@ -23909,7 +24160,7 @@ SELECT
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="64.5802799479167,60.0083876980429,56.6727734375,11.43359375"
+              BoundingBox="64.5802799479165,60.0083876980429,56.6727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -23918,6 +24169,19 @@ SELECT
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Regulated Entities\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Regulated Entities\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -24106,7 +24370,7 @@ SELECT
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="175.080279947917,98.0288909599255,56.6727734375,11.43359375"
+              BoundingBox="175.080279947916,98.0288909599255,56.6727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -24174,28 +24438,10 @@ SELECT
           Size="213,42"
           Id="Package\Sites\Premium ADO NET Source"
           TopLeft="493,98" />
-        <EdgeLayout
-          Id="Package\Sites.Paths[Default Output]"
-          TopLeft="598.5,140">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,152"
-              Start="0,0"
-              End="0,144.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,144.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Sites\OLE DB Destination"
+          TopLeft="687,449" />
         <EdgeLayout
           Id="Package\Sites.Paths[Skipped Rows]"
           TopLeft="563.333333333333,334">
@@ -24232,10 +24478,6 @@ SELECT
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Sites\OLE DB Destination"
-          TopLeft="687,449" />
         <EdgeLayout
           Id="Package\Sites.Paths[Error Output]"
           TopLeft="631.666666666667,334">
@@ -24268,13 +24510,48 @@ SELECT
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="43.5802799479167,51.5144454799627,56.6727734375,11.43359375"
+              BoundingBox="43.5802799479165,51.5144454799627,56.6727734375,11.43359375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sites.Paths[Default Output]"
+          TopLeft="598.5,140">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,152"
+              Start="0,0"
+              End="0,144.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,144.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sites\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Violations">
     <LayoutInfo>
@@ -24285,7 +24562,7 @@ SELECT
           Id="Package\Violations\Recordset Destination 1"
           TopLeft="335,495" />
         <NodeLayout
-          Size="150,42"
+          Size="157,42"
           Id="Package\Violations\OLE DB Source"
           TopLeft="528.5,95.5" />
         <NodeLayout
@@ -24298,7 +24575,7 @@ SELECT
           TopLeft="749,487" />
         <EdgeLayout
           Id="Package\Violations.Paths[OLE DB Source Output]"
-          TopLeft="605,137.5">
+          TopLeft="606.75,137.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -24315,9 +24592,7 @@ SELECT
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24414,114 +24689,112 @@ SELECT
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="177,42"
+          Id="Package\Work Orders\OLE DB Destination"
+          TopLeft="692,483" />
+        <NodeLayout
           Size="196,42"
           Id="Package\Work Orders\Recordset Destination 1"
           TopLeft="370,478" />
         <NodeLayout
           Size="213,42"
           Id="Package\Work Orders\Dynamics CRM Destination"
-          TopLeft="502,290" />
+          TopLeft="502,287" />
         <NodeLayout
           Size="157,42"
           Id="Package\Work Orders\OLE DB Source"
-          TopLeft="528.5,93.5" />
+          TopLeft="527.5,94.5" />
         <EdgeLayout
           Id="Package\Work Orders.Paths[Skipped Rows]"
-          TopLeft="574.333333333333,332">
+          TopLeft="574.333333333333,329">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-106.333333333333,146"
+              EndConnector="-106.333333333333,149"
               Start="0,0"
-              End="-106.333333333333,138.5">
+              End="-106.333333333333,141.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,55.0531220876049" />
+                    End="0,56.2665424044735" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,55.0531220876049"
-                    Point2="0,59.0531220876049"
-                    Point3="-4,59.0531220876049" />
+                    Point1="0,56.2665424044735"
+                    Point2="0,60.2665424044735"
+                    Point3="-4,60.2665424044735" />
                   <mssgle:LineSegment
-                    End="-102.333333333333,59.0531220876049" />
+                    End="-102.333333333333,60.2665424044735" />
                   <mssgle:CubicBezierSegment
-                    Point1="-102.333333333333,59.0531220876049"
-                    Point2="-106.333333333333,59.0531220876049"
-                    Point3="-106.333333333333,63.0531220876049" />
+                    Point1="-102.333333333333,60.2665424044735"
+                    Point2="-106.333333333333,60.2665424044735"
+                    Point3="-106.333333333333,64.2665424044735" />
                   <mssgle:LineSegment
-                    End="-106.333333333333,138.5" />
+                    End="-106.333333333333,141.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-114.234069010417,64.0531220876049,122.1348046875,11.609375"
+              BoundingBox="-84.5549088541667,65.2665424044735,62.776484375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Work Orders.Paths[OLE DB Source Output]"
-          TopLeft="607.75,135.5">
+          TopLeft="607.25,136.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,154.5"
+              EndConnector="0,150.5"
               Start="0,0"
-              End="0,147">
+              End="0,143">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,147" />
+                    End="0,143" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-25.18056640625,67.87841796875,50.3611328125,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Work Orders\OLE DB Destination"
-          TopLeft="693,482" />
         <EdgeLayout
           Id="Package\Work Orders.Paths[Error Output]"
-          TopLeft="642.666666666667,332">
+          TopLeft="642.666666666667,329">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="138.833333333333,150"
+              EndConnector="137.833333333333,154"
               Start="0,0"
-              End="138.833333333333,142.5">
+              End="137.833333333333,146.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,56.6710158434297" />
+                    End="0,58.2889095992544" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,56.6710158434297"
-                    Point2="0,60.6710158434297"
-                    Point3="4,60.6710158434297" />
+                    Point1="0,58.2889095992544"
+                    Point2="0,62.2889095992544"
+                    Point3="4,62.2889095992544" />
                   <mssgle:LineSegment
-                    End="134.833333333333,60.6710158434297" />
+                    End="133.833333333333,62.2889095992544" />
                   <mssgle:CubicBezierSegment
-                    Point1="134.833333333333,60.6710158434297"
-                    Point2="138.833333333333,60.6710158434297"
-                    Point3="138.833333333333,64.6710158434296" />
+                    Point1="133.833333333333,62.2889095992544"
+                    Point2="137.833333333333,62.2889095992544"
+                    Point3="137.833333333333,66.2889095992544" />
                   <mssgle:LineSegment
-                    End="138.833333333333,142.5" />
+                    End="137.833333333333,146.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="21.1949283854167,65.6710158434296,96.4434765625,11.609375"
+              BoundingBox="40.5802799479167,67.2889095992544,56.6727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -24529,46 +24802,20 @@ SELECT
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Work Orders\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Regulated Entities\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sites\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Work Orders\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Work Orders\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

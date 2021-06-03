@@ -25,7 +25,18 @@
       DTS:ObjectName="tdg-data-migration-db">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-OracleToSql-{6FEDA2FE-1E0A-4F88-AA63-479B44271765}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgc;" />
+          DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-OracleToSql-{6FEDA2FE-1E0A-4F88-AA63-479B44271765}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgc;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="TF03dYa46EY="
+            IV="tUKcoLQCFQHHjdnaxvAYOw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+            <CipherData>
+              <CipherValue>tUKcoLQCFQHHjdnaxvAYO6/N0kV7gBYlhc6us2IP4GDajP+R3U/k1+Tu4Or31GP0BBSFWWtjdRo7YoOUZT8FZ1vF5StgBLzSn7dNdLYaEnHgCk2cpwMCuLF0MMh4Qxy+RGwKJCvzU3wKyvePGTHxRjcuIY53r0sJwHnjCdDOQMF7hPxMVdm7dWFgtNULAlCC</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -35,12 +46,1509 @@
       DTS:ObjectName="TDGP.WORLD.TDGIIS_USER2">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="DATA SOURCE=TDGP.WORLD;USER ID=TDGIIS_USER;PERSIST SECURITY INFO=True;" />
+          DTS:ConnectionString="DATA SOURCE=TDGP.WORLD;USER ID=TDGIIS_USER;PERSIST SECURITY INFO=True;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="BVJqsU23AFg="
+            IV="XKRGD1pt+rClVtOuwL+1Kg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+            <CipherData>
+              <CipherValue>XKRGD1pt+rClVtOuwL+1KjseetLXxoRvLK7ndw7ZMo6YcDJ4h27nUPAKEANE/FO9Rnt/TbziwFSE8zlnZoquXIcmjHmr+AKZ6H9iBPtRPEkkjd0olKQ4ggwMl+tGF9Q/HKtK/WXinB5De1ZOOjoFJbpLoSWTucFhg2xSIOspvfm85ix/6ZIW4LrRY8yD0JWo</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Delete Inspectors"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{b9d183ee-b1ba-4ef5-b430-93db0b420429}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete Inspectors"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Delete Inspectors\Premium ADO NET Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Insert, Update, Upsert, and Delete data over an ADO.NET connection."
+              name="Premium ADO NET Destination"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DestinationTable">dbo.16_IIS_INSPECTORS</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="Action"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationAction">3</property>
+                <property
+                  dataType="System.Int32"
+                  description="WriteMode"
+                  expressionType="Notify"
+                  name="WriteMode"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationWriteMode">2</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Int32"
+                  description="BatchSize"
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how to handle duplicates in the temp table before merging. Only applies to non INSERT bulk operations."
+                  expressionType="Notify"
+                  name="DuplicateHandling"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationDuplicateHandling">0</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="FirstMatchOnly">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When enabled, will not overwrite existing values with NULL values during update/upsert operations."
+                  expressionType="Notify"
+                  name="PreventNullOverwrites">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="TransactionIsolationLevel"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionIsolationLevel">0</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PreCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PostCommand"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Delete Inspectors\Premium ADO NET Destination.Connections[ADO NET]"
+                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Delete Inspectors\Premium ADO NET Destination.Inputs[Primary Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Primary Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Destination.Inputs[Primary Input].Columns[Account_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Account_name"
+                      externalMetadataColumnId="Package\Delete Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Account_name]"
+                      lineageId="Package\Delete Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[Account_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Account_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Account_name">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[BADGE]"
+                      dataType="wstr"
+                      length="255"
+                      name="BADGE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[First Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="First Name">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Fullname]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fullname">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Last Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Last Name">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="255"
+                      name="Region">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RegionCrmId]"
+                      dataType="wstr"
+                      length="255"
+                      name="RegionCrmId">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RegionEnm]"
+                      dataType="wstr"
+                      length="255"
+                      name="RegionEnm">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RegionFnm]"
+                      dataType="wstr"
+                      length="255"
+                      name="RegionFnm">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RIN]"
+                      dataType="wstr"
+                      length="255"
+                      name="RIN">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[USER_ID]"
+                      dataType="wstr"
+                      length="255"
+                      name="USER_ID">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Delete Inspectors\Premium ADO NET Destination.Outputs[Error Output]"
+                  isErrorOut="true"
+                  name="Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Delete Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Delete Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Delete Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                    <outputColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[Account_name]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Delete Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Account_name]"
+                      length="255"
+                      lineageId="Package\Delete Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[Account_name]"
+                      name="Account_name" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Delete Inspectors\Premium ADO NET Destination.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[Account_name]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Delete Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Account_name]"
+                      length="255"
+                      lineageId="Package\Delete Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[Account_name]"
+                      name="Account_name" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Delete Inspectors\Premium ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Read data from an ADO.NET connection."
+              name="Premium ADO NET Source"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DataSource">dbo.16_IIS_INSPECTORS</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="Command">SELECT [Account_name]
+      ,[BADGE]
+      ,[First Name]
+      ,[Fullname]
+      ,[Last Name]
+      ,[Region]
+      ,[RegionCrmId]
+      ,[RegionEnm]
+      ,[RegionFnm]
+      ,[RIN]
+      ,[USER_ID]
+FROM [dbo].[16_IIS_INSPECTORS];</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="PrepareCommand">true</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PreCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PostCommand"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetSourceComponent</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Delete Inspectors\Premium ADO NET Source.Connections[ADO NET]"
+                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Delete Inspectors\Premium ADO NET Source.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[Account_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[Account_name]"
+                      length="255"
+                      lineageId="Package\Delete Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[Account_name]"
+                      name="Account_name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[Account_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Account_name" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[BADGE]"
+                      dataType="wstr"
+                      length="255"
+                      name="BADGE" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[First Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="First Name" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[Fullname]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fullname" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[Last Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Last Name" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="255"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[RegionCrmId]"
+                      dataType="wstr"
+                      length="255"
+                      name="RegionCrmId" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[RegionEnm]"
+                      dataType="wstr"
+                      length="255"
+                      name="RegionEnm" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[RegionFnm]"
+                      dataType="wstr"
+                      length="255"
+                      name="RegionFnm" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[RIN]"
+                      dataType="wstr"
+                      length="255"
+                      name="RIN" />
+                    <externalMetadataColumn
+                      refId="Package\Delete Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[USER_ID]"
+                      dataType="wstr"
+                      length="255"
+                      name="USER_ID" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Delete Inspectors.Paths[Default Output]"
+              endId="Package\Delete Inspectors\Premium ADO NET Destination.Inputs[Primary Input]"
+              name="Default Output"
+              startId="Package\Delete Inspectors\Premium ADO NET Source.Outputs[Default Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inspectors"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{ef6bc841-3955-47d2-b5c2-ba3569b0252d}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inspectors"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Inspectors\Premium ADO NET Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Insert, Update, Upsert, and Delete data over an ADO.NET connection."
+              name="Premium ADO NET Destination"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DestinationTable">dbo.16_IIS_INSPECTORS</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="Action"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationAction">4</property>
+                <property
+                  dataType="System.Int32"
+                  description="WriteMode"
+                  expressionType="Notify"
+                  name="WriteMode"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationWriteMode">2</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Int32"
+                  description="BatchSize"
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how to handle duplicates in the temp table before merging. Only applies to non INSERT bulk operations."
+                  expressionType="Notify"
+                  name="DuplicateHandling"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationDuplicateHandling">0</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="FirstMatchOnly">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When enabled, will not overwrite existing values with NULL values during update/upsert operations."
+                  expressionType="Notify"
+                  name="PreventNullOverwrites">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="TransactionIsolationLevel"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionIsolationLevel">0</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PreCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PostCommand"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Inspectors\Premium ADO NET Destination.Connections[ADO NET]"
+                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Primary Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].Columns[Account_name]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Account_name"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Account_name]"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[Account_name]" />
+                    <inputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].Columns[BADGE]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="BADGE"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[BADGE]"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[BADGE]" />
+                    <inputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].Columns[First Name]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="First Name"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[First Name]"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[First Name]" />
+                    <inputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].Columns[Fullname]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="81"
+                      cachedName="Fullname"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Fullname]"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[Fullname]" />
+                    <inputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].Columns[Last Name]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Last Name"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Last Name]"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[Last Name]" />
+                    <inputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].Columns[Region]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Region]"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].Columns[RegionCrmId]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="RegionCrmId"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RegionCrmId]"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[RegionCrmId]" />
+                    <inputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].Columns[RegionEnm]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="120"
+                      cachedName="RegionEnm"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RegionEnm]"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[RegionEnm]" />
+                    <inputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].Columns[RegionFnm]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="120"
+                      cachedName="RegionFnm"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RegionFnm]"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[RegionFnm]" />
+                    <inputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].Columns[RIN]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="RIN"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RIN]"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[RIN]" />
+                    <inputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].Columns[USER_ID]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="USER_ID"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[USER_ID]"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[USER_ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Account_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Account_name">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[BADGE]"
+                      dataType="wstr"
+                      length="255"
+                      name="BADGE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[First Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="First Name">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Fullname]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fullname">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Last Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Last Name">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="255"
+                      name="Region">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RegionCrmId]"
+                      dataType="wstr"
+                      length="255"
+                      name="RegionCrmId">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RegionEnm]"
+                      dataType="wstr"
+                      length="255"
+                      name="RegionEnm">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RegionFnm]"
+                      dataType="wstr"
+                      length="255"
+                      name="RegionFnm">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RIN]"
+                      dataType="wstr"
+                      length="255"
+                      name="RIN">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[USER_ID]"
+                      dataType="wstr"
+                      length="255"
+                      name="USER_ID">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output]"
+                  isErrorOut="true"
+                  name="Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[Account_name]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Account_name]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[Account_name]"
+                      name="Account_name" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[BADGE]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[BADGE]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[BADGE]"
+                      name="BADGE" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[First Name]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[First Name]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[First Name]"
+                      name="First Name" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[Fullname]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Fullname]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[Fullname]"
+                      name="Fullname" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[Last Name]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Last Name]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[Last Name]"
+                      name="Last Name" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[Region]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Region]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[RegionCrmId]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RegionCrmId]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[RegionCrmId]"
+                      name="RegionCrmId" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[RegionEnm]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RegionEnm]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[RegionEnm]"
+                      name="RegionEnm" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[RegionFnm]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RegionFnm]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[RegionFnm]"
+                      name="RegionFnm" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[RIN]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RIN]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[RIN]"
+                      name="RIN" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[USER_ID]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[USER_ID]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Error Output].Columns[USER_ID]"
+                      name="USER_ID" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[Account_name]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Account_name]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[Account_name]"
+                      name="Account_name" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[BADGE]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[BADGE]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[BADGE]"
+                      name="BADGE" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[First Name]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[First Name]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[First Name]"
+                      name="First Name" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[Fullname]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Fullname]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[Fullname]"
+                      name="Fullname" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[Last Name]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Last Name]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[Last Name]"
+                      name="Last Name" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[Region]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Region]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[RegionCrmId]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RegionCrmId]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[RegionCrmId]"
+                      name="RegionCrmId" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[RegionEnm]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RegionEnm]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[RegionEnm]"
+                      name="RegionEnm" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[RegionFnm]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RegionFnm]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[RegionFnm]"
+                      name="RegionFnm" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[RIN]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[RIN]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[RIN]"
+                      name="RIN" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[USER_ID]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[USER_ID]"
+                      length="255"
+                      lineageId="Package\Inspectors\Premium ADO NET Destination.Outputs[Default Output].Columns[USER_ID]"
+                      name="USER_ID" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Inspectors\Premium ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Read data from an ADO.NET connection."
+              name="Premium ADO NET Source"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DataSource">&lt;&lt;Custom Command&gt;&gt;</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="Command">SELECT 
+USER_ID,
+STAKEHOLDER_NAME_FIRST_NM "First Name",
+STAKEHOLDER_NAME_FAMILY_NM "Last Name",
+STAKEHOLDER_NAME_FIRST_NM || ' ' || STAKEHOLDER_NAME_FAMILY_NM "Fullname",
+EMAIL_TXT "Account_name", 
+YD074.INSPECTOR_BADGE_NUM BADGE, 
+YD074.INSPECTOR_CERT_NUM RIN,
+'' "RegionCrmId",
+
+CASE 
+
+WHEN YD093.STAKEHOLDER_ENM = 'TDG ASDA' THEN 'HQ-ES'
+WHEN YD093.STAKEHOLDER_ENM = 'TDG ASDB' THEN 'HQ-CR'
+WHEN YD093.STAKEHOLDER_ENM = 'TDG ASDE' THEN 'HQ-CR'
+WHEN YD093.STAKEHOLDER_ENM = 'TDG PRAIRIE AND NORTHERN REGION' THEN 'PNR'
+WHEN YD093.STAKEHOLDER_ENM = 'TDG PACIFIC REGION' THEN 'PAC'
+WHEN YD093.STAKEHOLDER_ENM = 'TDG ATLANTIC REGION' THEN 'ATL'
+WHEN YD093.STAKEHOLDER_ENM = 'TDG QUEBEC REGION' THEN 'PQ'
+WHEN YD093.STAKEHOLDER_ENM = 'TDG ONTARIO REGION' THEN 'ONT'
+WHEN YD093.STAKEHOLDER_ENM = 'TDG HQ' THEN 'HQ-CR'
+
+END "Region",
+
+YD093.STAKEHOLDER_ENM "RegionEnm", 
+YD093.STAKEHOLDER_FNM "RegionFnm"
+FROM TC008_USER TC008
+JOIN YD083_INDIVIDUAL_INFORMATION YD083 ON TC008.USER_STAKEHOLDER_ID = YD083.STAKEHOLDER_ID
+JOIN YD074_INSPECTOR YD074 ON TC008.USER_STAKEHOLDER_ID = YD074.STAKEHOLDER_ID
+JOIN YD092_STAKEHOLDER_ORG_PERS YD092 ON TC008.USER_STAKEHOLDER_ID = YD092.STAKEHOLDER_CONTACT_ID
+JOIN YD093_STAKEHOLDER_ORG_NAME YD093 ON YD092.STAKEHOLDER_ID = YD093.STAKEHOLDER_ID
+WHERE YD083.DATE_DELETED_DTE IS NULL and TC008.DATE_DELETED_DTE IS NULL AND TC008.DATE_STOP_DTE IS NULL
+AND INSPECTOR_CERT_NUM like '99%';</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="PrepareCommand">true</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PreCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PostCommand"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetSourceComponent</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Inspectors\Premium ADO NET Source.Connections[ADO NET]"
+                  connectionManagerID="Package.ConnectionManagers[TDGP.WORLD.TDGIIS_USER2]"
+                  connectionManagerRefId="Package.ConnectionManagers[TDGP.WORLD.TDGIIS_USER2]"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[Account_name]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[Account_name]"
+                      length="100"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[Account_name]"
+                      name="Account_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[BADGE]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[BADGE]"
+                      length="20"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[BADGE]"
+                      name="BADGE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[First Name]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[First Name]"
+                      length="30"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[First Name]"
+                      name="First Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[Fullname]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[Fullname]"
+                      length="81"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[Fullname]"
+                      name="Fullname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[Last Name]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[Last Name]"
+                      length="50"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[Last Name]"
+                      name="Last Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[Region]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[Region]"
+                      length="5"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[RegionCrmId]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[RegionCrmId]"
+                      length="2"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[RegionCrmId]"
+                      name="RegionCrmId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[RegionEnm]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[RegionEnm]"
+                      length="120"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[RegionEnm]"
+                      name="RegionEnm"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[RegionFnm]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[RegionFnm]"
+                      length="120"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[RegionFnm]"
+                      name="RegionFnm"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[RIN]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[RIN]"
+                      length="30"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[RIN]"
+                      name="RIN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[USER_ID]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[USER_ID]"
+                      length="7"
+                      lineageId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].Columns[USER_ID]"
+                      name="USER_ID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[Account_name]"
+                      codePage="65001"
+                      dataType="str"
+                      length="100"
+                      name="Account_name" />
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[BADGE]"
+                      codePage="65001"
+                      dataType="str"
+                      length="20"
+                      name="BADGE" />
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[First Name]"
+                      codePage="65001"
+                      dataType="str"
+                      length="30"
+                      name="First Name" />
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[Fullname]"
+                      codePage="65001"
+                      dataType="str"
+                      length="81"
+                      name="Fullname" />
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[Last Name]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Last Name" />
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[Region]"
+                      codePage="65001"
+                      dataType="str"
+                      length="5"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[RegionCrmId]"
+                      dataType="wstr"
+                      length="2"
+                      name="RegionCrmId" />
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[RegionEnm]"
+                      codePage="65001"
+                      dataType="str"
+                      length="120"
+                      name="RegionEnm" />
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[RegionFnm]"
+                      codePage="65001"
+                      dataType="str"
+                      length="120"
+                      name="RegionFnm" />
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[RIN]"
+                      codePage="65001"
+                      dataType="str"
+                      length="30"
+                      name="RIN" />
+                    <externalMetadataColumn
+                      refId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[USER_ID]"
+                      codePage="65001"
+                      dataType="str"
+                      length="7"
+                      name="USER_ID" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Inspectors.Paths[Default Output]"
+              endId="Package\Inspectors\Premium ADO NET Destination.Inputs[Primary Input]"
+              name="Default Output"
+              startId="Package\Inspectors\Premium ADO NET Source.Outputs[Default Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Insert into TCFiscalPeriod"
       DTS:CreationName="Microsoft.Pipeline"
@@ -2752,6 +4260,7 @@ FROM "COREDATA"."TC021_MONTH"</property>
       DTS:refId="Package\TD001"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{76B61A41-4B9A-4BB2-B670-3622F22E3E35}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -3428,6 +4937,7 @@ FROM "TDGIIS"."TD001_FILE_STATUS"</property>
       DTS:refId="Package\TD038"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{384A8D4E-9030-464A-8425-9F0B092FBF7F}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -4104,6 +5614,7 @@ FROM "TDGIIS"."TD038_INSPECTION_REASON"</property>
       DTS:refId="Package\TD045"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{C5F237F9-A51F-4AC7-8C87-8585C64259B2}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -5088,6 +6599,7 @@ FROM "TDGIIS"."TD045_ACTIVITY_TYPE"</property>
       DTS:refId="Package\TD070"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{E4A5CF4F-A23C-46FC-8180-78A5EF2BC632}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -6085,6 +7597,7 @@ FROM "TDGIIS"."TD070_VIOLATION"</property>
       DTS:refId="Package\TD071"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{5B0CF9AF-5F6A-4D27-B08C-083FE3C95EDE}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -6685,6 +8198,7 @@ FROM "TDGIIS"."TD071_ACT_REFERENCE"</property>
       DTS:refId="Package\YD020"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{0E9E84C6-20E5-4C9E-A98E-ECB001E51542}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -7336,6 +8850,7 @@ FROM "TDGIIS"."YD020_INSPECTION_VIOLATION"</property>
       DTS:refId="Package\YD021"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{A6E26F1C-6B73-440E-8475-D9ADBD288417}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -8463,6 +9978,7 @@ FROM "TDGIIS"."YD021_MOCLIST"</property>
       DTS:refId="Package\YD023"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{94AC7F52-77F3-4137-AB4D-C9B5A7DDAB5F}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -9218,6 +10734,7 @@ FROM "TDGIIS"."YD023_VIOL_ENFORCEMENT_ACTION"</property>
       DTS:refId="Package\YD030"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{A9A53D75-5FAE-4E4C-AE6F-6B04E2094B6C}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -10212,6 +11729,7 @@ WHERE DATE_DELETED_DTE IS NULL</property>
       DTS:refId="Package\YD032"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{2C78CD34-F0DF-4215-9ED4-4AEEFDD248ED}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -10864,6 +12382,7 @@ WHERE DATE_DELETED_DTE IS NULL</property>
       DTS:refId="Package\YD033"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{D31AF51C-3CAC-463B-AE4D-72678C5E37F4}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -11577,6 +13096,7 @@ WHERE DATE_DELETED_DTE IS NULL</property>
       DTS:refId="Package\YD034"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{1B3C8257-C489-457A-8E25-AB806CB87A57}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -12290,6 +13810,7 @@ WHERE DATE_DELETED_DTE IS NULL</property>
       DTS:refId="Package\YD039"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{4B490F87-B9D0-4842-9436-62ADF21BE562}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -14256,6 +15777,7 @@ FROM "TDGIIS"."YD039_ACTIVITY_ADDRESS"</property>
       DTS:refId="Package\YD040"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{598FAAD1-926B-4B39-B03F-FE351C816DD8}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -15680,8 +17202,9 @@ ORDER BY ACTIVITY_DATE_DTE DESC</property>
                   typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationWriteMode">2</property>
                 <property
                   dataType="System.Int32"
+                  description="CommandTimeout"
                   expressionType="Notify"
-                  name="CommandTimeout">120</property>
+                  name="CommandTimeout">86400</property>
                 <property
                   dataType="System.Int32"
                   description="BatchSize"
@@ -16416,7 +17939,7 @@ ORDER BY ACTIVITY_DATE_DTE DESC</property>
                 <property
                   dataType="System.String"
                   expressionType="Notify"
-                  name="DataSource">TDGIIS.YD041_INSPECTION</property>
+                  name="DataSource"></property>
                 <property
                   dataType="System.String"
                   expressionType="Notify"
@@ -16438,8 +17961,9 @@ ORDER BY ACTIVITY_DATE_DTE DESC</property>
 FROM "TDGIIS"."YD041_INSPECTION"</property>
                 <property
                   dataType="System.Int32"
+                  description="CommandTimeout"
                   expressionType="Notify"
-                  name="CommandTimeout">120</property>
+                  name="CommandTimeout">9999</property>
                 <property
                   dataType="System.Boolean"
                   expressionType="Notify"
@@ -16708,6 +18232,7 @@ FROM "TDGIIS"."YD041_INSPECTION"</property>
       DTS:refId="Package\YD042"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{A7810B91-404B-4E0C-B2B5-2454E0DD66BA}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -17542,6 +19067,7 @@ FROM "TDGIIS"."YD042_SITE_VISIT"</property>
       DTS:refId="Package\YD048"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{8F1524E5-40EC-42FD-8BED-FAB4827CED43}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -18193,6 +19719,7 @@ FROM "TDGIIS"."YD048_ACTIVITY_ASSIGNMENT"</property>
       DTS:refId="Package\YD070"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{EC912161-861A-42C1-9B08-DF1511FF79AE}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -19207,6 +20734,7 @@ FROM "TDGIIS"."YD070_STAKEHOLDER"</property>
       DTS:refId="Package\YD074"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{9841CD2A-E7EF-408E-A5FA-ADE424305819}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -19864,6 +21392,7 @@ FROM "TDGIIS"."YD074_INSPECTOR"</property>
       DTS:refId="Package\YD075"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{4CD7FF44-0A0E-42AE-B57A-3718F4D055C7}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -20460,6 +21989,7 @@ FROM "TDGIIS"."YD075_INDIVIDUAL"</property>
       DTS:refId="Package\YD082"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{E1D0E54C-B1C6-4412-B38E-DE4F9568BA4B}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -21401,6 +22931,7 @@ FROM "TDGIIS"."YD082_INSPECTION_VIOLATION"</property>
       DTS:refId="Package\YD083"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{7AADC78E-7A21-4830-B434-8DE16DBA267A}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -22297,6 +23828,7 @@ WHERE DATE_DELETED_DTE IS NULL</property>
       DTS:refId="Package\YD091"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{E1D3FD22-7202-463E-82E1-E172031F1C7A}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -23068,6 +24600,7 @@ WHERE DATE_DELETED_DTE IS NULL</property>
       DTS:refId="Package\YD092"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{05771953-0B0D-4CCA-BE29-FCCCB3123DBF}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -23720,6 +25253,7 @@ WHERE DATE_DELETED_DTE IS NULL</property>
       DTS:refId="Package\YD093"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{0AA4C4E7-969D-4893-8F4D-4D95CE8F403C}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -24616,6 +26150,7 @@ WHERE DATE_DELETED_DTE IS NULL</property>
       DTS:refId="Package\YD095"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{D14348A0-CBB3-4DF0-A10B-79AEDE210D04}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -25456,6 +26991,7 @@ FROM "TDGIIS"."YD095_STAKEHOLDER_FILE"</property>
       DTS:refId="Package\YD099"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{C5B0D10A-3CAE-45D6-B4C1-CE590F7D3AC1}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -26259,8 +27795,9 @@ FROM "TDGIIS"."YD099_ACTIVITY_SITE_CONTACT"</property>
                   typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationWriteMode">2</property>
                 <property
                   dataType="System.Int32"
+                  description="CommandTimeout"
                   expressionType="Notify"
-                  name="CommandTimeout">120</property>
+                  name="CommandTimeout">86400</property>
                 <property
                   dataType="System.Int32"
                   description="BatchSize"
@@ -26303,6 +27840,10 @@ FROM "TDGIIS"."YD099_ACTIVITY_SITE_CONTACT"</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetDestinationComponent</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies to create a table in tempdb rather than a local temporary table when performing certain bulk operations."
+                  name="UsePermanentTemporaryTable">true</property>
               </properties>
               <connections>
                 <connection
@@ -27309,6 +28850,7 @@ WHERE DATE_DELETED_DTE IS NULL</property>
       DTS:refId="Package\YD101"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{A94567A5-A515-4A74-9270-A481B11200E9}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -28151,7 +29693,7 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
     design-time-name="Package\TD001">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="203,42"
           Id="Package\TD001\Premium ADO NET Source"
@@ -28179,9 +29721,7 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -28711,7 +30251,7 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
     design-time-name="Package\YD041">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="203,42"
           Id="Package\YD041\Premium ADO NET Source"
@@ -28739,9 +30279,7 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -29231,7 +30769,7 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
     design-time-name="Package\YD100">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="203,42"
           Id="Package\YD100\Premium ADO NET Source"
@@ -29259,9 +30797,7 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
