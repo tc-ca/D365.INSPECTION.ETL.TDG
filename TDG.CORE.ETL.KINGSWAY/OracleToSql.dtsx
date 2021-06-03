@@ -13,8 +13,8 @@
   DTS:ObjectName="OracleToSql"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="56"
-  DTS:VersionGUID="{DD145A45-D012-4B16-BEA8-C25C7519BF46}">
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{7084FB3F-CC9F-4607-BA28-F2AD0A3D64B2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,12 +28,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-OracleToSql-{6FEDA2FE-1E0A-4F88-AA63-479B44271765}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgc;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="TF03dYa46EY="
-            IV="tUKcoLQCFQHHjdnaxvAYOw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="d7ip+8OGzoE="
+            IV="xbgvRNUS/DUGBFF1pG45fQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>tUKcoLQCFQHHjdnaxvAYO6/N0kV7gBYlhc6us2IP4GDajP+R3U/k1+Tu4Or31GP0BBSFWWtjdRo7YoOUZT8FZ1vF5StgBLzSn7dNdLYaEnHgCk2cpwMCuLF0MMh4Qxy+RGwKJCvzU3wKyvePGTHxRjcuIY53r0sJwHnjCdDOQMF7hPxMVdm7dWFgtNULAlCC</CipherValue>
+              <CipherValue>xbgvRNUS/DUGBFF1pG45fUilnb5cQYhhT25Z7lIO1mQuGExnzlyXGOgecS7P8TM35uQ/B5Kx0urDyrdnvJrIIwtqq1pKJtLAjuPcjjlANjCGegvnaOqSSPnhOzEWvDSjkrhRxTsDhi9WpzpfH6KXyD0XVoUfoofvhLtG396egN/JmkKl4W/aTli81Z0ge2FD</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -49,12 +49,12 @@
           DTS:ConnectionString="DATA SOURCE=TDGP.WORLD;USER ID=TDGIIS_USER;PERSIST SECURITY INFO=True;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="BVJqsU23AFg="
-            IV="XKRGD1pt+rClVtOuwL+1Kg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="Oa+L185Cdt8="
+            IV="qNxVPx1YWr5wPU09EsE5/g==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>XKRGD1pt+rClVtOuwL+1KjseetLXxoRvLK7ndw7ZMo6YcDJ4h27nUPAKEANE/FO9Rnt/TbziwFSE8zlnZoquXIcmjHmr+AKZ6H9iBPtRPEkkjd0olKQ4ggwMl+tGF9Q/HKtK/WXinB5De1ZOOjoFJbpLoSWTucFhg2xSIOspvfm85ix/6ZIW4LrRY8yD0JWo</CipherValue>
+              <CipherValue>qNxVPx1YWr5wPU09EsE5/t8l3JVCUcXPyhZih8DK7+LS7P5BRyczZYRLR07XNPiNU+wKLdxyrqnW4WU5yyFYZp0AcosBQu+6UWAjPb4d9PhsAjDnncHfkdjkSGbXjEndxmo77Rb7PM/8fufHuZoha/VJltQTcycFexOhRdGP8c7thEJao9s6ulR+HJhW02us</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -25079,7 +25079,7 @@ FROM "TDGIIS"."YD099_ACTIVITY_SITE_CONTACT"</property>
                   dataType="System.Int32"
                   expressionType="Notify"
                   name="Action"
-                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationAction">2</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationAction">4</property>
                 <property
                   dataType="System.Int32"
                   description="WriteMode"
@@ -25842,7 +25842,7 @@ FROM "TDGIIS"."YD099_ACTIVITY_SITE_CONTACT"</property>
                 <property
                   dataType="System.String"
                   expressionType="Notify"
-                  name="DataSource">&lt;&lt;Custom Command&gt;&gt;</property>
+                  name="DataSource"></property>
                 <property
                   dataType="System.String"
                   expressionType="Notify"
@@ -25866,8 +25866,9 @@ FROM "TDGIIS"."YD100_ACTIVITY_REPORT"
 WHERE DATE_DELETED_DTE IS NULL</property>
                 <property
                   dataType="System.Int32"
+                  description="CommandTimeout"
                   expressionType="Notify"
-                  name="CommandTimeout">120</property>
+                  name="CommandTimeout">86400</property>
                 <property
                   dataType="System.Boolean"
                   expressionType="Notify"
@@ -27998,14 +27999,14 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
         <NodeLayout
           Size="203,42"
           Id="Package\YD100\Premium ADO NET Source"
-          TopLeft="553,93" />
+          TopLeft="388,187" />
         <NodeLayout
           Size="224,42"
           Id="Package\YD100\Premium ADO NET Destination"
-          TopLeft="543,222" />
+          TopLeft="378,316" />
         <EdgeLayout
           Id="Package\YD100.Paths[Default Output]"
-          TopLeft="654.75,135">
+          TopLeft="489.75,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
