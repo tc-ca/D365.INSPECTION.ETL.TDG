@@ -131,22 +131,23 @@ END
 
 BEGIN
 
-	--DEFAULTS MASTER DATA
+	
+
 	--=============================================DYNAMIC VALUES===========================================
 	--these variables can change with the environment, so double check these match the environment you're syncing to
-	--ROM-ACC-TDG-DATA VALUES
-	DECLARE @CONST_TDGCORE_USERID                        VARCHAR(50) = 'ae39bb8b-4b92-eb11-b1ac-000d3ae85ba1';
-	DECLARE @CONST_TDGCORE_DOMAINNAME                    VARCHAR(50) = 'tdg.core@034gc.onmicrosoft.com';
-	DECLARE @CONST_TDG_TEAMID                            VARCHAR(50) = 'd5ddb27a-56b7-eb11-8236-000d3a84ec03';
-	DECLARE @CONST_TDG_TEAMNAME                          VARCHAR(50) = 'Transportation of Dangerous Goods';
-	DECLARE @CONST_TDG_BUSINESSUNITID                    VARCHAR(50) = '4E122E0C-73F3-EA11-A815-000D3AF3AC0D';
-	DECLARE @CONST_PRICELISTID                           VARCHAR(50) = 'b92b6a16-7cf7-ea11-a815-000d3af3a7a7';
-	--======================================================================================================
 
-	--===================================================================================================
+	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
+	DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team    WHERE name = 'Quebec');
+	DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
+	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
+	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
+
+	SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_QUEBEC_ID TEAM_QUEBEC_ID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID;
+
 	--CRM CONSTANTS
-	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50) = 'team';
-	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50) = 'systemuser';
+	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
+	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
 	--===================================================================================================
 
 	--create a legislation source for each distinct entry in the excel data
@@ -278,8 +279,8 @@ SELECT '52551b47-5ecc-4215-b9e2-3461ee0686f3' ID, 'Transportation of Dangerous G
 
 	--set ownership of records
 	--UPDATE [STAGING__tylegislation] SET owner	= @CONST_TDGCORE_USERID, [owneridtype] = @CONST_OWNERIDTYPE_SYSTEMUSER, [owningbusinessunit] = @CONST_TDG_BUSINESSUNITID, [owninguser] = @CONST_TDGCORE_USERID;
-	UPDATE [STAGING__tylegislationsource] SET [ownerid]	= @CONST_TDGCORE_USERID, [owneridtype] = @CONST_OWNERIDTYPE_SYSTEMUSER, [owningbusinessunit] = @CONST_TDG_BUSINESSUNITID, [owninguser] = @CONST_TDGCORE_USERID;
-	UPDATE [STAGING__tylegislationtype] SET [ownerid]	= @CONST_TDGCORE_USERID, [owneridtype] = @CONST_OWNERIDTYPE_SYSTEMUSER, [owningbusinessunit] = @CONST_TDG_BUSINESSUNITID, [owninguser] = @CONST_TDGCORE_USERID;
+	UPDATE [STAGING__tylegislationsource] SET [ownerid]	= @CONST_TDGCORE_USERID, [owneridtype] = @CONST_OWNERIDTYPE_SYSTEMUSER, [owningbusinessunit] = @CONST_BUSINESSUNIT_TDG_ID, [owninguser] = @CONST_TDGCORE_USERID;
+	UPDATE [STAGING__tylegislationtype] SET [ownerid]	= @CONST_TDGCORE_USERID, [owneridtype] = @CONST_OWNERIDTYPE_SYSTEMUSER, [owningbusinessunit] = @CONST_BUSINESSUNIT_TDG_ID, [owninguser] = @CONST_TDGCORE_USERID;
 
 END
 
@@ -376,12 +377,13 @@ END
 --===================================================================================================
 
 --WAIT UNTIL BOOKABLE RESOURCES ARE SYNCED WITH CRM
-SELECT
-	CRMBR.bookableresourceid,
-	BR.bookableresourceid,
-	fullname,
-	domainname
-FROM
-	[dbo].[STAGING__BOOKABLE_RESOURCE] BR
-	JOIN [dbo].tdgdata__bookableresource CRMBR ON BR.bookableresourceid = CRMBR.bookableresourceid
-	JOIN [dbo].tdgdata__systemuser SYSUSER ON BR.userid = SYSUSER.systemuserid;
+--ONCE THE BELOW QUERY RETURNS DATA, YOU'RE GOOD TO GO TO NEXT RUN KINGSWAY TO SYNC THE DATA
+--SELECT
+--	CRMBR.bookableresourceid,
+--	BR.bookableresourceid,
+--	fullname,
+--	domainname
+--FROM
+--	[dbo].[STAGING__BOOKABLE_RESOURCE] BR
+--	JOIN [dbo].tdgdata__bookableresource CRMBR ON BR.bookableresourceid = CRMBR.bookableresourceid
+--	JOIN [dbo].tdgdata__systemuser SYSUSER ON BR.userid = SYSUSER.systemuserid;

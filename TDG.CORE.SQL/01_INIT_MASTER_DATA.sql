@@ -471,6 +471,7 @@ BEGIN
 		ovs_fiscalyear UNIQUEIDENTIFIER NULL,
 		ovs_fiscalyearname VARCHAR (100) NULL,
 		ovs_iisid VARCHAR (100) NULL,
+		ovs_iisactivityid numeric(18, 0),
 		ovs_mocid VARCHAR (100) NULL,
 		ovs_operationid UNIQUEIDENTIFIER NULL,
 		ovs_operationidname VARCHAR (200) NULL,
@@ -570,6 +571,8 @@ BEGIN
 		[qm_externalcomments] NTEXT,
 		[qm_internalcomments] NTEXT,
 		[qm_isviolation] BIT,
+		[qm_iisactivityid] NUMERIC(18,0),
+		[qm_iisviolationcd] NUMERIC(18,0),
 		[qm_isviolationname] VARCHAR(255),
 		[qm_name] VARCHAR(300),
 		[qm_questionid] UNIQUEIDENTIFIER,
@@ -1029,6 +1032,24 @@ END
 --===================================================================================================
 BEGIN 
 
+	--=============================================DYNAMIC VALUES===========================================
+	--these variables can change with the environment, so double check these match the environment you're syncing to
+
+	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
+	DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team    WHERE name = 'Quebec');
+	DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
+	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
+	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
+
+	SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_QUEBEC_ID TEAM_QUEBEC_ID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID;
+
+	--CRM CONSTANTS
+	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
+	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
+	--===================================================================================================
+
+
 	--============================================STATIC VALUES==========================================
 	--OVERSIGHT TYPES
 	DECLARE @CONST_OVERSIGHTTYPE_GCTARGETED              VARCHAR(50) = '72afccd3-269e-eb11-b1ac-000d3ae924d1';
@@ -1071,30 +1092,6 @@ BEGIN
 	DECLARE @CONST_TERRITORY_ONTARIO                     VARCHAR(50) = '50B21A84-DB04-EB11-A813-000D3AF3AC0D';
 	--===================================================================================================
 
-	--=============================================DYNAMIC VALUES===========================================
-	--these variables can change with the environment, so double check these match the environment you're syncing to
-	--ROM-ACC-TDG-DATA VALUES
-	DECLARE @CONST_TDGCORE_USERID                        VARCHAR(50) = 'ae39bb8b-4b92-eb11-b1ac-000d3ae85ba1';
-	DECLARE @CONST_TDGCORE_DOMAINNAME                    VARCHAR(50) = 'tdg.core@034gc.onmicrosoft.com';
-	DECLARE @CONST_TDG_TEAMID                            VARCHAR(50) = 'd5ddb27a-56b7-eb11-8236-000d3a84ec03';
-	DECLARE @CONST_TDG_TEAMNAME                          VARCHAR(50) = 'Transportation of Dangerous Goods';
-	DECLARE @CONST_TDG_BUSINESSUNITID                    VARCHAR(50) = '4E122E0C-73F3-EA11-A815-000D3AF3AC0D';
-	DECLARE @CONST_PRICELISTID                           VARCHAR(50) = 'b92b6a16-7cf7-ea11-a815-000d3af3a7a7';
-
-	--DEV
-	-- DECLARE @CONST_TDGCORE_BOOKABLE_RESOURCE_ID       VARCHAR(50) = '2cfc9150-d6a3-eb11-b1ac-000d3ae8bee7';
-	-- DECLARE @CONST_TDGCORE_USERID                     VARCHAR(50) = '15abdd9e-8edd-ea11-a814-000d3af3afe0';
-	-- DECLARE @CONST_TDGCORE_DOMAINNAME                 VARCHAR(50) = 'tdg.core@034gc.onmicrosoft.com';
-	-- DECLARE @CONST_TDG_TEAMID                         VARCHAR(50) = 'ed81d4e5-55b7-eb11-8236-0022483bc30f';
-	-- DECLARE @CONST_TDG_TEAMNAME                       VARCHAR(50) = 'Transportation of Dangerous Goods';
-	-- DECLARE @CONST_TDG_BUSINESSUNITID                 VARCHAR(50) = '4E122E0C-73F3-EA11-A815-000D3AF3AC0D';
-	--===================================================================================================
-
-	--===================================================================================================
-	--CRM CONSTANTS
-	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50) = 'team';
-	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50) = 'systemuser';
-	--===================================================================================================
 
 	--===================================================================================================
 	--RATIONALS
@@ -1118,7 +1115,7 @@ BEGIN
 		'Planifié'                 [ovs_rationalflbl],
 		@CONST_TDGCORE_USERID          [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER    [owneridtype],
-		@CONST_TDG_BUSINESSUNITID  [owningbusinessunit],
+		@CONST_BUSINESSUNIT_TDG_ID  [owningbusinessunit],
 		@CONST_TDGCORE_USERID          [owninguser]
 	UNION
 	SELECT
@@ -1129,7 +1126,7 @@ BEGIN
 		'Non planifié'             [ovs_rationalflbl],
 		@CONST_TDGCORE_USERID          [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER    [owneridtype],
-		@CONST_TDG_BUSINESSUNITID  [owningbusinessunit],
+		@CONST_BUSINESSUNIT_TDG_ID  [owningbusinessunit],
 		@CONST_TDGCORE_USERID          [owninguser];
 
 
@@ -1156,7 +1153,7 @@ BEGIN
 		'GC IPT (FR)',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
-		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
+		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
 		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
@@ -1167,7 +1164,7 @@ BEGIN
 		'GC ciblé',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
-		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
+		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
 		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
@@ -1178,7 +1175,7 @@ BEGIN
 		'Suivi GC',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
-		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
+		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
 		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
@@ -1189,7 +1186,7 @@ BEGIN
 		'Installation MOC IPT',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
-		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
+		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
 		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
@@ -1200,7 +1197,7 @@ BEGIN
 		'Facilité MOC ciblée',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
-		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
+		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
 		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
@@ -1211,7 +1208,7 @@ BEGIN
 		'Suivi des installations de MOC',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
-		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
+		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
 		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
@@ -1222,7 +1219,7 @@ BEGIN
 		'GC déclenché',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
-		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
+		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
 		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
@@ -1233,7 +1230,7 @@ BEGIN
 		'Opportunité GC',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
-		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
+		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
 		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
@@ -1244,7 +1241,7 @@ BEGIN
 		'Envoi GC',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
-		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
+		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
 		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
@@ -1255,7 +1252,7 @@ BEGIN
 		'GC non déclaré / mal déclaré',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
-		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
+		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
 		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
@@ -1266,7 +1263,7 @@ BEGIN
 		'Installation MOC déclenchée',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
-		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
+		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
 		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
@@ -1277,7 +1274,7 @@ BEGIN
 		'Opportunité d''installation MOC',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
-		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
+		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
 		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
@@ -1288,7 +1285,7 @@ BEGIN
 		'Examen des documents de l''aviation civile',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
-		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
+		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
 		@CONST_TDGCORE_USERID         [owninguser];
 
 
@@ -1317,7 +1314,7 @@ BEGIN
 		'Inspection',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
-		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
+		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
 		@CONST_TDGCORE_USERID         [owninguser]
 	UNION
 	SELECT
@@ -1329,7 +1326,7 @@ BEGIN
 		'Autorisation réglementaire',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
-		@CONST_TDG_BUSINESSUNITID [owningbusinessunit],
+		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
 		@CONST_TDGCORE_USERID         [owninguser];
 
 
@@ -1353,7 +1350,7 @@ BEGIN
 		'Inspector::Inspecteur',
 		ownerid            = @CONST_TDGCORE_USERID,
 		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
-		owningbusinessunit = @CONST_TDG_BUSINESSUNITID,
+		owningbusinessunit = @CONST_BUSINESSUNIT_TDG_ID,
 		owninguser         = @CONST_TDGCORE_USERID;
 
 
@@ -1515,7 +1512,7 @@ BEGIN
 	UPDATE
 		[dbo].[STAGING__BOOKABLE_RESOURCE]
 	SET
-		owningbusinessunit                 = @CONST_TDG_BUSINESSUNITID,
+		owningbusinessunit                 = @CONST_BUSINESSUNIT_TDG_ID,
 		owneridtype                        = @CONST_OWNERIDTYPE_SYSTEMUSER,
 		ownerid                            = @CONST_TDGCORE_USERID,
 		owninguser                         = @CONST_TDGCORE_USERID,
@@ -1551,7 +1548,7 @@ BEGIN
 		--INSPECTOR
 		statecode          = 0,
 		statuscode         = 1,
-		owningbusinessunit = @CONST_TDG_BUSINESSUNITID,
+		owningbusinessunit = @CONST_BUSINESSUNIT_TDG_ID,
 		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
 		ownerid            = @CONST_TDGCORE_USERID,
 		owninguser         = @CONST_TDGCORE_USERID
