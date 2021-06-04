@@ -12,8 +12,8 @@
   DTS:ObjectName="SyncMasterData"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="289"
-  DTS:VersionGUID="{B9549538-AE1A-4253-BF8C-05C030D91855}">
+  DTS:VersionBuild="291"
+  DTS:VersionGUID="{F8B5121B-8EE1-4A26-BC16-F6641C7EB1DE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,12 +28,12 @@
           ConnectByProxy="False">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="vWFDXm7nhnw="
-            IV="yDmDDIa+i2j3Q0gMFOaHeQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="pPUGzAoNUFE="
+            IV="P/AqnpF1k7IpUcMjSzVwOQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>yDmDDIa+i2j3Q0gMFOaHeZaPKijCxF5XASUeQh1QC+QmFwjbNgLmf+K28zPx7BH57oyv3EesKam6HcgNI+zmb/Bbvle91JOJbfkpcnnLyqyGP3WmMKZqP7AE42piBgKtzoIhaL1he6vQCLnXbL+4Sm+QP+d4DgGe/D/RVjduFEFd7wpKiyAotkmui6EbjgRx</CipherValue>
+              <CipherValue>P/AqnpF1k7IpUcMjSzVwOe3O+X128rebsIYbPwVEsat80CN7XzkIryhO3VcnFFHDICtOrrxsCPzU733yPhWjoUYH7fKun8xtD/sYMq3LCZBmC/iA6QprHC1G/pF8hiyjO46vLsVkQRmWNkBvf3OsqN0H+tvqt9zGSgaGNf8Wx6pb3OhmgaZguc84PJklf2/7</CipherValue>
             </CipherData>
           </EncryptedData>
         </CrmConnectionManager>
@@ -49,12 +49,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Provider=SQLNCLI11.1;Persist Security Info=True;Connect Timeout=0;General Timeout=0;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="phR5DybPpG8="
-            IV="gW+2H/+7GtDH8ON90zDFcQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="2PwcsZwi5vA="
+            IV="jfZviDEh67SF5JFn1x8HBg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>gW+2H/+7GtDH8ON90zDFcbETDkYLDXKlLd+FUCzWJlJBjrRLMMjJjk3gH3MWOq63yPREnvgBb2JhB3kZ8hVptzuExIvYRLzIQLXLK7eCgrBn5inXJIf/+nk8KWmDiyyJ3bDSf0osOKJkUq5a0XaPxQuVHl/4xDq/zClQwEc3HtdQRwQYj+RlpQlA75ugENIk</CipherValue>
+              <CipherValue>jfZviDEh67SF5JFn1x8HBl6kdiGCXm+xiA5gWGWQWiYGMSZ3hoQQWkYDtWOxq+s2Qv0SFxXTIkW3Tg9RHU466Q639x18vK7i0tMT9Lq66ss7dXKnr69WfSQz7PFMkYmcBeMKwBkEltbWY/v2VoojuCCBydhCVViahelsJNEqtK0hj9y4cYwrEi83UR9nNp69</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -70,12 +70,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-SqlToCrm-{458F205C-D352-491D-9E88-E53D4A3A43AA}tdg-data-migration-server.database.windows.net.tdg-data-migration-db.tdgco;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="QPwSZMcv9d0="
-            IV="4OCn86ffp0q6CmxMz41SXw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="t3hjnNUhNg0="
+            IV="WiZX1kJW+NEDkYAK64rHTQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>4OCn86ffp0q6CmxMz41SX7zkScLQOENVPjRbrLd2hIvaoSMYWF/Hmpx2CscxSZIMiZ0F4bHUfDm1/5NIpmLhOABT0Leqp/KTbyclcGKu95Z6LdgnoBW/3g9SWC45bG1qCjXQtYuRNeiTvvek8Q540/Xa9DaeAek/wTR7AYZ/8KSnTJHlKr3Pov3LWTsWtRaZ</CipherValue>
+              <CipherValue>WiZX1kJW+NEDkYAK64rHTeu/IwLtAjy5BIkl4nxGc3Gq1ZSq77MmA4zYzawxrEITGEc9n5SFcLxcME8A7CewpKgKi5xjIeJIyG1n/OALTlVNScuT7942SpqRHN4OKj8MhavK4Ttcezz4VA2AiTZ9lBTp1bmxqR4pKbNL1zBBqN16zctdzLj+m2fEatUwXWNT</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -17817,16 +17817,8 @@ WHERE customertypecode = 948010001</property>
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="150,42"
-          Id="Package\bookable resources\OLE DB Source 1"
-          TopLeft="950.5,102" />
-        <NodeLayout
-          Size="150,42"
           Id="Package\bookable resources\OLE DB Source"
           TopLeft="528.5,95.5" />
-        <NodeLayout
-          Size="175,42"
-          Id="Package\bookable resources\bookable resources"
-          TopLeft="513,229" />
         <NodeLayout
           Size="182,42"
           Id="Package\bookable resources\Recordset Destination"
@@ -17835,28 +17827,14 @@ WHERE customertypecode = 948010001</property>
           Size="177,42"
           Id="Package\bookable resources\system user regions"
           TopLeft="942,240.5" />
-        <EdgeLayout
-          Id="Package\bookable resources.Paths[OLE DB Source Output1]"
-          TopLeft="1028,144">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,96.5"
-              Start="0,0"
-              End="0,89">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,89" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="150,42"
+          Id="Package\bookable resources\OLE DB Source 1"
+          TopLeft="950.5,102" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\bookable resources\bookable resources"
+          TopLeft="513,229" />
         <EdgeLayout
           Id="Package\bookable resources.Paths[OLE DB Source Output]"
           TopLeft="602,137.5">
@@ -17876,7 +17854,9 @@ WHERE customertypecode = 948010001</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17903,17 +17883,33 @@ WHERE customertypecode = 948010001</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\bookable resources.Paths[OLE DB Source Output1]"
+          TopLeft="1028,144">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,96.5"
+              Start="0,0"
+              End="0,89">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,89" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\bookable resources\OLE DB Source 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\bookable resources\OLE DB Source">
     <Properties>
@@ -17924,6 +17920,14 @@ WHERE customertypecode = 948010001</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\bookable resources\OLE DB Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -17963,7 +17967,9 @@ WHERE customertypecode = 948010001</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18042,7 +18048,9 @@ WHERE customertypecode = 948010001</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18133,7 +18141,9 @@ WHERE customertypecode = 948010001</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18212,7 +18222,9 @@ WHERE customertypecode = 948010001</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18261,10 +18273,6 @@ WHERE customertypecode = 948010001</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="182,42"
-          Id="Package\legislation sources\Recordset Destination"
-          TopLeft="505,382" />
-        <NodeLayout
           Size="150,42"
           Id="Package\legislation sources\OLE DB Source"
           TopLeft="528.5,95.5" />
@@ -18272,28 +18280,10 @@ WHERE customertypecode = 948010001</property>
           Size="213,42"
           Id="Package\legislation sources\Dynamics CRM Destination"
           TopLeft="499,230" />
-        <EdgeLayout
-          Id="Package\legislation sources.Paths[OLE DB Source Output]"
-          TopLeft="604.5,137.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,92.5"
-              Start="0,0"
-              End="0,85">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,85" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="182,42"
+          Id="Package\legislation sources\Recordset Destination"
+          TopLeft="505,382" />
         <EdgeLayout
           Id="Package\legislation sources.Paths[Error Output]"
           TopLeft="605.5,272">
@@ -18327,6 +18317,30 @@ WHERE customertypecode = 948010001</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-33.08638671875,60,56.6727734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\legislation sources.Paths[OLE DB Source Output]"
+          TopLeft="604.5,137.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,92.5"
+              Start="0,0"
+              End="0,85">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,85" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -18382,7 +18396,9 @@ WHERE customertypecode = 948010001</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
