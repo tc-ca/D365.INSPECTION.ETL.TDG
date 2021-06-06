@@ -12,8 +12,8 @@
   DTS:ObjectName="SyncMasterData"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="291"
-  DTS:VersionGUID="{F8B5121B-8EE1-4A26-BC16-F6641C7EB1DE}">
+  DTS:VersionBuild="301"
+  DTS:VersionGUID="{09CDDCA7-E512-4E4D-9340-AE1242D4F89F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,12 +28,12 @@
           ConnectByProxy="False">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="pPUGzAoNUFE="
-            IV="P/AqnpF1k7IpUcMjSzVwOQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="L7r/Q9kH9+Q="
+            IV="rTq/RNFMchICqoFf3TSaOg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>P/AqnpF1k7IpUcMjSzVwOe3O+X128rebsIYbPwVEsat80CN7XzkIryhO3VcnFFHDICtOrrxsCPzU733yPhWjoUYH7fKun8xtD/sYMq3LCZBmC/iA6QprHC1G/pF8hiyjO46vLsVkQRmWNkBvf3OsqN0H+tvqt9zGSgaGNf8Wx6pb3OhmgaZguc84PJklf2/7</CipherValue>
+              <CipherValue>rTq/RNFMchICqoFf3TSaOneeJJ3NMsBMuavCaHAS/xFDD1QeQQMUrAmYaGmvK53B/FFr2OrgNeluLWpxHxVEUHF6jkiZerLL1PWWMstkopRSeK0t1DYW9bpM6tEm9+XxNu1O/+go6Ds4uvnK8FrXJF3B2iKQR6imxZIOtj8ovzb4r65sXfttX5auWmKSlt7j</CipherValue>
             </CipherData>
           </EncryptedData>
         </CrmConnectionManager>
@@ -49,12 +49,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Provider=SQLNCLI11.1;Persist Security Info=True;Connect Timeout=0;General Timeout=0;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="2PwcsZwi5vA="
-            IV="jfZviDEh67SF5JFn1x8HBg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="FNb+Zy71EzE="
+            IV="TpysLNMJ6UMZmq6HoJS6+w==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>jfZviDEh67SF5JFn1x8HBl6kdiGCXm+xiA5gWGWQWiYGMSZ3hoQQWkYDtWOxq+s2Qv0SFxXTIkW3Tg9RHU466Q639x18vK7i0tMT9Lq66ss7dXKnr69WfSQz7PFMkYmcBeMKwBkEltbWY/v2VoojuCCBydhCVViahelsJNEqtK0hj9y4cYwrEi83UR9nNp69</CipherValue>
+              <CipherValue>TpysLNMJ6UMZmq6HoJS6+/nEVBPmz/N4cONjupkKRvyNqRNxBF4YjWid/DVPmq3iM8Sc+ZlRoN5tB7wntDW5kxcdIXtOEKHe0YCqA1AOMzk36LxAYK1Esg3/a3jXEoW+Z+uwpI1cEakBlKf/crkrLLMEOqT5pPj1UBpfk3SASlK/viLtaT3RH6vd3hjF9T1l</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -70,12 +70,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-SqlToCrm-{458F205C-D352-491D-9E88-E53D4A3A43AA}tdg-data-migration-server.database.windows.net.tdg-data-migration-db.tdgco;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="t3hjnNUhNg0="
-            IV="WiZX1kJW+NEDkYAK64rHTQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="JtBOXY2hyKM="
+            IV="r7aKl4LMEqqfzWTwykGlJg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>WiZX1kJW+NEDkYAK64rHTeu/IwLtAjy5BIkl4nxGc3Gq1ZSq77MmA4zYzawxrEITGEc9n5SFcLxcME8A7CewpKgKi5xjIeJIyG1n/OALTlVNScuT7942SpqRHN4OKj8MhavK4Ttcezz4VA2AiTZ9lBTp1bmxqR4pKbNL1zBBqN16zctdzLj+m2fEatUwXWNT</CipherValue>
+              <CipherValue>r7aKl4LMEqqfzWTwykGlJqmnnGemnO61r6CV4rPbapgFqVPKgajYaom+MDgMWxzKgQ14/ksnwMolphhwqmOHjv2CEixOb7xV7qaDbNHI/myhL5qQMezHDiAiADRYldXlHQO1uY7PFAYk1p1aHxlSNAXXOSLK9JMt2jeDFcwFk73TEn8sJ/7jIlvgYJ8pAjSP</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -12023,6 +12023,21 @@ WHERE customertypecode = 948010001</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationComponent</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to tentatively disable relevant plugins"
+                  expressionType="Notify"
+                  name="TentativelyDisableRelevantPlugins">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to tentatively disable relevant workflows"
+                  expressionType="Notify"
+                  name="TentativelyDisableRelevantWorkflows">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whethere to tentatively disable entity change tracking (auditing)"
+                  expressionType="Notify"
+                  name="TentativelyDisableEntityAuditing">true</property>
               </properties>
               <connections>
                 <connection
@@ -12088,17 +12103,17 @@ WHERE customertypecode = 948010001</property>
                       externalMetadataColumnId="Package\legislation sources\Dynamics CRM Destination.Inputs[Input].ExternalColumns[statuscode]"
                       lineageId="Package\legislation sources\OLE DB Source.Outputs[OLE DB Source Output].Columns[statuscode]" />
                     <inputColumn
-                      refId="Package\legislation sources\Dynamics CRM Destination.Inputs[Input].Columns[Id]"
-                      cachedDataType="guid"
-                      cachedName="Id"
-                      externalMetadataColumnId="Package\legislation sources\Dynamics CRM Destination.Inputs[Input].ExternalColumns[qm_tylegislationsourceid]"
-                      lineageId="Package\legislation sources\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]" />
-                    <inputColumn
                       refId="Package\legislation sources\Dynamics CRM Destination.Inputs[Input].Columns[qm_sourcetype]"
                       cachedDataType="i4"
                       cachedName="qm_sourcetype"
                       externalMetadataColumnId="Package\legislation sources\Dynamics CRM Destination.Inputs[Input].ExternalColumns[qm_sourcetype]"
                       lineageId="Package\legislation sources\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_sourcetype]" />
+                    <inputColumn
+                      refId="Package\legislation sources\Dynamics CRM Destination.Inputs[Input].Columns[qm_tylegislationsourceid]"
+                      cachedDataType="guid"
+                      cachedName="qm_tylegislationsourceid"
+                      externalMetadataColumnId="Package\legislation sources\Dynamics CRM Destination.Inputs[Input].ExternalColumns[qm_tylegislationsourceid]"
+                      lineageId="Package\legislation sources\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_tylegislationsourceid]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -12554,15 +12569,6 @@ WHERE customertypecode = 948010001</property>
                       name="statuscode"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\legislation sources\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\legislation sources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id]"
-                      lineageId="Package\legislation sources\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]"
-                      name="Id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\legislation sources\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_name]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
@@ -12663,10 +12669,6 @@ WHERE customertypecode = 948010001</property>
                       dataType="i4"
                       name="statuscode" />
                     <externalMetadataColumn
-                      refId="Package\legislation sources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id]"
-                      dataType="guid"
-                      name="Id" />
-                    <externalMetadataColumn
                       refId="Package\legislation sources\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_name]"
                       dataType="wstr"
                       length="500"
@@ -12706,11 +12708,6 @@ WHERE customertypecode = 948010001</property>
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\legislation sources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id]"
-                      dataType="guid"
-                      lineageId="Package\legislation sources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id]"
-                      name="Id" />
                     <outputColumn
                       refId="Package\legislation sources\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_name]"
                       dataType="wstr"
@@ -13043,11 +13040,11 @@ WHERE customertypecode = 948010001</property>
                       externalMetadataColumnId="Package\legislation types\Dynamics CRM Destination.Inputs[Input].ExternalColumns[qm_name]"
                       lineageId="Package\legislation types\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_name]" />
                     <inputColumn
-                      refId="Package\legislation types\Dynamics CRM Destination.Inputs[Input].Columns[Id]"
+                      refId="Package\legislation types\Dynamics CRM Destination.Inputs[Input].Columns[qm_tylegislationtypeid]"
                       cachedDataType="guid"
-                      cachedName="Id"
+                      cachedName="qm_tylegislationtypeid"
                       externalMetadataColumnId="Package\legislation types\Dynamics CRM Destination.Inputs[Input].ExternalColumns[qm_tylegislationtypeid]"
-                      lineageId="Package\legislation types\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]" />
+                      lineageId="Package\legislation types\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_tylegislationtypeid]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -13426,15 +13423,6 @@ WHERE customertypecode = 948010001</property>
                       name="owninguser"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\legislation types\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\legislation types\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id]"
-                      lineageId="Package\legislation types\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]"
-                      name="Id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\legislation types\OLE DB Source.Outputs[OLE DB Source Output].Columns[qm_name]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
@@ -13498,10 +13486,6 @@ WHERE customertypecode = 948010001</property>
                       dataType="guid"
                       name="owninguser" />
                     <externalMetadataColumn
-                      refId="Package\legislation types\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id]"
-                      dataType="guid"
-                      name="Id" />
-                    <externalMetadataColumn
                       refId="Package\legislation types\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[qm_name]"
                       dataType="wstr"
                       length="100"
@@ -13527,11 +13511,6 @@ WHERE customertypecode = 948010001</property>
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\legislation types\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id]"
-                      dataType="guid"
-                      lineageId="Package\legislation types\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id]"
-                      name="Id" />
                     <outputColumn
                       refId="Package\legislation types\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[qm_name]"
                       dataType="wstr"
@@ -17672,10 +17651,10 @@ WHERE customertypecode = 948010001</property>
         <NodeLayout
           Size="128,42"
           Id="Package\legislation"
-          TopLeft="1063.89285714286,172.178571428571" />
+          TopLeft="137.5,122.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="1225.64285714286,97.178571428571">
+          TopLeft="299.25,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -17709,7 +17688,7 @@ WHERE customertypecode = 948010001</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="1016.89285714286,97.178571428571">
+          TopLeft="90.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -17743,7 +17722,7 @@ WHERE customertypecode = 948010001</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="1125.82142857143,214.178571428571">
+          TopLeft="199.42857142857,164.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -17766,22 +17745,41 @@ WHERE customertypecode = 948010001</property>
         <NodeLayout
           Size="193,42"
           Id="Package\legislation relationships"
-          TopLeft="1027.25,278.25" />
+          TopLeft="100.85714285714,228.571428571429" />
         <NodeLayout
           Size="170,42"
           Id="Package\legislation sources"
-          TopLeft="931.89285714286,55.178571428571" />
+          TopLeft="5.5,5.5" />
         <NodeLayout
           Size="157,42"
           Id="Package\legislation types"
-          TopLeft="1147.14285714286,55.178571428571" />
+          TopLeft="220.75,5.5" />
+        <GroupLayout
+          Text="LEGISLATION"
+          ParentId="2b682a3a-8a2a-4fde-8916-79472c7dcf1b"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="383,326"
+          Size="383,369"
+          Id="e1f78d11-966f-406f-8801-dda6f72aa596"
+          TopLeft="920.837301587304,32.1666666666665">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\legislation</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint]</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint 2]</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint 4]</s:String>
+            <s:String>Package\legislation relationships</s:String>
+            <s:String>Package\legislation sources</s:String>
+            <s:String>Package\legislation types</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
         <GroupLayout
           Text="Group 2"
           ParentId="Package"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="1369,420"
-          Size="1369,463"
+          PanelSize="1369,456"
+          Size="1369,499"
           Id="2b682a3a-8a2a-4fde-8916-79472c7dcf1b"
           TopLeft="293.392857142857,686.928571428571">
           <GroupLayout.ChildrenIds>
@@ -17798,13 +17796,7 @@ WHERE customertypecode = 948010001</property>
             <s:String>Package.PrecedenceConstraints[Constraint 8]</s:String>
             <s:String>Package\bookable resources category assn</s:String>
             <s:String>Package.PrecedenceConstraints[Constraint 1]</s:String>
-            <s:String>Package\legislation</s:String>
-            <s:String>Package.PrecedenceConstraints[Constraint]</s:String>
-            <s:String>Package.PrecedenceConstraints[Constraint 2]</s:String>
-            <s:String>Package.PrecedenceConstraints[Constraint 4]</s:String>
-            <s:String>Package\legislation relationships</s:String>
-            <s:String>Package\legislation sources</s:String>
-            <s:String>Package\legislation types</s:String>
+            <s:String>e1f78d11-966f-406f-8801-dda6f72aa596</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
       </GraphLayout>
@@ -17854,9 +17846,7 @@ WHERE customertypecode = 948010001</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17902,9 +17892,7 @@ WHERE customertypecode = 948010001</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -18048,9 +18036,7 @@ WHERE customertypecode = 948010001</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18141,9 +18127,7 @@ WHERE customertypecode = 948010001</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18222,9 +18206,7 @@ WHERE customertypecode = 948010001</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18339,9 +18321,7 @@ WHERE customertypecode = 948010001</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -18396,9 +18376,7 @@ WHERE customertypecode = 948010001</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout

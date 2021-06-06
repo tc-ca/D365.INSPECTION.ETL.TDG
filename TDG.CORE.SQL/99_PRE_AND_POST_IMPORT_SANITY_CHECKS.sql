@@ -44,38 +44,33 @@ BEGIN
 
 	--=============================================DYNAMIC VALUES===========================================
 	--these variables can change with the environment, so double check these match the environment you're syncing to
-	--ROM-ACC-TDG-DATA VALUES
-	DECLARE @CONST_TDGCORE_USERID                        VARCHAR(50) = 'ae39bb8b-4b92-eb11-b1ac-000d3ae85ba1';
-	DECLARE @CONST_TDGCORE_DOMAINNAME                    VARCHAR(50) = 'tdg.core@034gc.onmicrosoft.com';
-	DECLARE @CONST_TDG_TEAMID                            VARCHAR(50) = 'd5ddb27a-56b7-eb11-8236-000d3a84ec03';
-	DECLARE @CONST_TDG_TEAMNAME                          VARCHAR(50) = 'Transportation of Dangerous Goods';
-	DECLARE @CONST_TDG_BUSINESSUNITID                    VARCHAR(50) = '4E122E0C-73F3-EA11-A815-000D3AF3AC0D';
-	DECLARE @CONST_PRICELISTID                           VARCHAR(50) = 'b92b6a16-7cf7-ea11-a815-000d3af3a7a7';
 
-	--DEV
-	-- DECLARE @CONST_TDGCORE_BOOKABLE_RESOURCE_ID       VARCHAR(50) = '2cfc9150-d6a3-eb11-b1ac-000d3ae8bee7';
-	-- DECLARE @CONST_TDGCORE_USERID                     VARCHAR(50) = '15abdd9e-8edd-ea11-a814-000d3af3afe0';
-	-- DECLARE @CONST_TDGCORE_DOMAINNAME                 VARCHAR(50) = 'tdg.core@034gc.onmicrosoft.com';
-	-- DECLARE @CONST_TDG_TEAMID                         VARCHAR(50) = 'ed81d4e5-55b7-eb11-8236-0022483bc30f';
-	-- DECLARE @CONST_TDG_TEAMNAME                       VARCHAR(50) = 'Transportation of Dangerous Goods';
-	-- DECLARE @CONST_TDG_BUSINESSUNITID                 VARCHAR(50) = '4E122E0C-73F3-EA11-A815-000D3AF3AC0D';
-	--===================================================================================================
+	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
+	DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team    WHERE name = 'Quebec');
+	DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
+	DECLARE @CONST_TEAM_TDG_ID         VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
 
-	--===================================================================================================
+	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
+	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
+
+	SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_QUEBEC_ID TEAM_QUEBEC_ID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID, @CONST_TEAM_TDG_ID;
+
 	--CRM CONSTANTS
-	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50) = 'team';
-	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50) = 'systemuser';
+	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
+	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
 	--===================================================================================================
 
 END
+
+select * from tdgdata__systemuser where systemuserid = '688efe3c-f003-eb11-a813-000d3af3a7a7';
+select * from tdgdata__systemuser where systemuserid = 'c13838ee-ef03-eb11-a813-000d3af3a7a7';
 
 
 --PRE-MIGRATION SANTIY CHECKS
 --===================================================================================================
 --===================================================================================================
 --staging tables should be empty before conversion
-SELECT COUNT(*) [02_REGULATED_ENTITIES]              FROM [dbo].SOURCE__REGULATED_ENTITIES;
-SELECT COUNT(*) [03_SITES]                           FROM [dbo].SOURCE__SITES;
 SELECT COUNT(*) [04_ACCOUNT]                         FROM [dbo].STAGING__ACCOUNT;
 SELECT COUNT(*) [06_WORK_ORDERS]                     FROM [dbo].STAGING__WORK_ORDERS;
 SELECT COUNT(*) [07_VIOLATIONS]                      FROM [dbo].STAGING__VIOLATIONS;
@@ -113,10 +108,10 @@ SELECT [ovs_name] ovs_tyrational        FROM tdgdata__ovs_tyrational         WHE
 SELECT [name] tdgcore_bookable_resource FROM tdgdata__bookableresource		WHERE bookableresourceid    = @CONST_TDGCORE_BOOKABLE_RESOURCE_ID;
 SELECT systemuserid tdgcore_systemuser	FROM tdgdata__systemuser             WHERE systemuserid          = @CONST_TDGCORE_USERID;
 SELECT [fullname] tdgcore_fullname		FROM tdgdata__systemuser             WHERE domainname            = @CONST_TDGCORE_DOMAINNAME;
-SELECT [name] tdgteam                   FROM tdgdata__team                   WHERE teamid                = @CONST_TDG_TEAMID;
-SELECT [name] tdgteamname				FROM tdgdata__team                   WHERE [name]                = @CONST_TDG_TEAMNAME;
+SELECT [name] tdgteam                   FROM tdgdata__team                   WHERE teamid                = @CONST_TEAM_TDG_ID;
+SELECT [name] tdgteamname				FROM tdgdata__team                   WHERE [name]                = @CONST_TEAM_TDG_NAME;
 SELECT [name] defaultpricelevel			FROM tdgdata__pricelevel             WHERE pricelevelid          = @CONST_PRICELISTID;
-SELECT [name] tdgbusinessunit           FROM tdgdata__businessunit           WHERE businessunitid        = @CONST_TDG_BUSINESSUNITID;
+SELECT [name] tdgbusinessunit           FROM tdgdata__businessunit           WHERE businessunitid        = @CONST_BUSINESSUNIT_TDG_ID;
 
 select [name] territories    FROM tdgdata__territory t1 JOIN SOURCE__TERRITORY_TRANSLATION t2 on t1.territoryid = t2.msdyn_serviceterritory;
 
@@ -125,6 +120,11 @@ select [name] territories    FROM tdgdata__territory t1 JOIN SOURCE__TERRITORY_T
 --LEGISLATION CHECKS
 --SANITY CHECKS
 --how many match from replicated data to staging data
+
+TRUNCATE TABLE tdgdata__qm_rclegislation;
+TRUNCATE TABLE tdgdata__qm_tylegislationtype;
+TRUNCATE TABLE tdgdata__qm_tylegislationsource;
+
 DECLARE @stagingCount int           = 0;
 DECLARE @crmCount     int           = 0;
 DECLARE @matchCount   int           = 0;

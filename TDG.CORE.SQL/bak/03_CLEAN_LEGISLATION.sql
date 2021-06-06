@@ -6,22 +6,22 @@ SET QUOTED_IDENTIFIER ON
 
 
 BEGIN
-		/****** Object:  Table [dbo].[STAGING__tylegislation]   Script Date: 5/14/2021 10:50:15 PM ******/
-		IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[STAGING__tylegislation]') AND type in (N'U'))
-		DROP TABLE [dbo].[STAGING__tylegislation];
+	/****** Object:  Table [dbo].[STAGING__tylegislation]   Script Date: 5/14/2021 10:50:15 PM ******/
+	IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[STAGING__tylegislation]') AND type in (N'U'))
+	DROP TABLE [dbo].[STAGING__tylegislation];
 
 
-		/****** Object:  Table [dbo].[tdgdata__qm_tylegislationsource]    Script Date: 5/16/2021 7:53:04 PM ******/
-		IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[STAGING__tylegislationsource]') AND type in (N'U'))
-		DROP TABLE [dbo].[STAGING__tylegislationsource];
+	/****** Object:  Table [dbo].[tdgdata__qm_tylegislationsource]    Script Date: 5/16/2021 7:53:04 PM ******/
+	IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[STAGING__tylegislationsource]') AND type in (N'U'))
+	DROP TABLE [dbo].[STAGING__tylegislationsource];
 
 
-		/****** Object:  Table [dbo].[tdgdata__qm_tylegislationsource]    Script Date: 5/16/2021 7:53:04 PM ******/
-		IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[STAGING__tylegislationtype]') AND type in (N'U'))
-		DROP TABLE [dbo].[STAGING__tylegislationtype];
+	/****** Object:  Table [dbo].[tdgdata__qm_tylegislationsource]    Script Date: 5/16/2021 7:53:04 PM ******/
+	IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[STAGING__tylegislationtype]') AND type in (N'U'))
+	DROP TABLE [dbo].[STAGING__tylegislationtype];
 
 
-		CREATE TABLE [STAGING__tylegislation] (
+	CREATE TABLE [STAGING__tylegislation] (
 		[qm_enablingprovision]			UNIQUEIDENTIFIER,
 		[qm_enablingprovisionname]		NVARCHAR(100),
 		[qm_enablingregulation]			UNIQUEIDENTIFIER,
@@ -44,25 +44,25 @@ BEGIN
 		[qm_violationdisplaytexten]		NTEXT,
 		[qm_violationdisplaytextfr]		NTEXT,
 		[qm_violationtext]				NTEXT
-		) ON [PRIMARY];
+	) ON [PRIMARY];
 
-		CREATE TABLE [dbo].[STAGING__tylegislationsource](
-			[Id] [uniqueidentifier] NOT NULL,
-			[statecode] [int] NULL,
-			[statuscode] [int] NULL,
-			[qm_sourcetype] [int] NULL,
-			[qm_legislationsourceelbl] [nvarchar](100) NULL,
-			[qm_tylegislationsourceid] [uniqueidentifier] NULL,
-			[qm_name] [nvarchar](500) NULL,
-			[qm_legislationsourceflbl] [nvarchar](100) NULL,
-			[qm_legislationsourceetxt] [nvarchar](500) NULL,
-			[qm_legislationsourceftxt] [nvarchar](250) NULL,
-			[ownerid]					[UNIQUEIDENTIFIER] NULL,
-			[owneridtype]				[nvarchar](4000) NULL,
-			[owningbusinessunit]		[UNIQUEIDENTIFIER] NULL,
-			[owningteam]				[uniqueidentifier] NULL,
-			[owninguser]				[UNIQUEIDENTIFIER] NULL
-		) ON [PRIMARY];
+	CREATE TABLE [dbo].[STAGING__tylegislationsource](
+		[Id] [uniqueidentifier] NOT NULL,
+		[statecode] [int] NULL,
+		[statuscode] [int] NULL,
+		[qm_sourcetype] [int] NULL,
+		[qm_legislationsourceelbl] [nvarchar](100) NULL,
+		[qm_tylegislationsourceid] [uniqueidentifier] NULL,
+		[qm_name] [nvarchar](500) NULL,
+		[qm_legislationsourceflbl] [nvarchar](100) NULL,
+		[qm_legislationsourceetxt] [nvarchar](500) NULL,
+		[qm_legislationsourceftxt] [nvarchar](250) NULL,
+		[ownerid]					[UNIQUEIDENTIFIER] NULL,
+		[owneridtype]				[nvarchar](4000) NULL,
+		[owningbusinessunit]		[UNIQUEIDENTIFIER] NULL,
+		[owningteam]				[uniqueidentifier] NULL,
+		[owninguser]				[UNIQUEIDENTIFIER] NULL
+	) ON [PRIMARY];
 
 	CREATE TABLE [dbo].[STAGING__tylegislationtype] (
 		[Id]							[UNIQUEIDENTIFIER] NOT NULL,
@@ -79,21 +79,25 @@ BEGIN
 
 END
 
+
 --DELETE REPLICATED CRM DATA AS A PRECAUTION IN CASE IT INTERFERES WITH OUR ETL
 --===================================================================================================
 --===================================================================================================
 BEGIN 
 
-	--TRUNCATE TABLE dbo.tdgdata__qm_rclegislation;
+	TRUNCATE TABLE dbo.tdgdata__qm_rclegislation;
 	TRUNCATE TABLE dbo.tdgdata__qm_tylegislationtype;
-	--TRUNCATE TABLE dbo.tdgdata__qm_tylegislationsource;
+	TRUNCATE TABLE dbo.tdgdata__qm_tylegislationsource;
 
 END 
+
+
 
 BEGIN
 
 	INSERT INTO [STAGING__tylegislation]
 	(
+		qm_rclegislationid,
 		qm_name,
 		qm_tylegislationsourceidname,
 		qm_rcparentlegislationidname,
@@ -110,7 +114,8 @@ BEGIN
 	)
 	--3411
 	SELECT 
-		[Name] ,
+		[(Do Not Modify) Legislation],
+		[Name],
 		[Legislation Source] ,
 		[Parent Legislation] ,
 		[English Text] ,
@@ -158,7 +163,6 @@ BEGIN
 	--	SELECT DISTINCT qm_tylegislationsourceidname FROM [STAGING__tylegislation]
 	--) T;
 
-
 	--Act			930840000
 	--Regulation	930840001
 	--Standard		930840002
@@ -182,6 +186,10 @@ SELECT '8797d6af-f2dc-4ab8-bfc1-cccabac17387' ID, 'CSA B622 Selection and use of
 SELECT '968e6532-0a86-4bde-a6e5-2329fdcbcc51' ID, 'CSA B626 Portable tank specification TC 44' qm_name,                                                                                                                           @CONST_SOURCETYPE_STANDARD [Source Type] UNION
 SELECT 'bf1c3510-93f7-4987-996b-463e173409e4' ID, 'Transportation of Dangerous Goods Act' qm_name,                                                                                                                                @CONST_SOURCETYPE_ACT 	 [Source Type] UNION
 SELECT '52551b47-5ecc-4215-b9e2-3461ee0686f3' ID, 'Transportation of Dangerous Goods Regulations' qm_name,                                                                                                                        @CONST_SOURCETYPE_REG 	 [Source Type];
+
+update [STAGING__tylegislationsource]
+set qm_legislationsourceetxt = qm_name,
+	qm_legislationsourceftxt = concat('(Translate)', qm_name);
 
 
 	--INSERT KNOWN VALUES FOR LOOKUP
@@ -218,9 +226,9 @@ SELECT '52551b47-5ecc-4215-b9e2-3461ee0686f3' ID, 'Transportation of Dangerous G
 
 
 	--give all provisions an id
-	UPDATE [STAGING__tylegislation] set qm_rclegislationid = newid()
-	FROM [STAGING__tylegislation] 
-	WHERE qm_rclegislationid is null;
+	--UPDATE [STAGING__tylegislation] set qm_rclegislationid = newid()
+	--FROM [STAGING__tylegislation] 
+	--WHERE qm_rclegislationid is null;
 
 
 	--match up the provisions to their legislation sources
@@ -263,6 +271,8 @@ SELECT '52551b47-5ecc-4215-b9e2-3461ee0686f3' ID, 'Transportation of Dangerous G
 
 
 	--localization plugins
+	--=========================================================================
+	--=========================================================================
 	--name, violation text and violation display text
 	UPDATE [STAGING__tylegislation]
 	SET 
@@ -271,16 +281,27 @@ SELECT '52551b47-5ecc-4215-b9e2-3461ee0686f3' ID, 'Transportation of Dangerous G
 	qm_violationdisplaytext = CASE WHEN qm_violationdisplaytexten IS NULL THEN NULL ELSE CONCAT(qm_violationdisplaytexten, '::', qm_violationdisplaytextfr) END
 	FROM [STAGING__tylegislation];
 
+
 	--legislation type
 	UPDATE [STAGING__tylegislationtype]
 	SET 
 	qm_name	= CONCAT([qm_legislationsectiontypeenm], '::', [qm_legislationsectiontypefnm])
 	FROM [STAGING__tylegislation];
+	
+	--=========================================================================
+	--=========================================================================
 
+
+
+	--OWNERSHIP OF RECORDS
+	--=========================================================================
+	--=========================================================================
 	--set ownership of records
-	--UPDATE [STAGING__tylegislation] SET owner	= @CONST_TDGCORE_USERID, [owneridtype] = @CONST_OWNERIDTYPE_SYSTEMUSER, [owningbusinessunit] = @CONST_TDG_BUSINESSUNITID, [owninguser] = @CONST_TDGCORE_USERID;
+	--UPDATE [STAGING__tylegislation] SET owner	= @CONST_TDGCORE_USERID, [owneridtype] = @CONST_OWNERIDTYPE_SYSTEMUSER, [owningbusinessunit] = @CONST_BUSINESSUNIT_TDG_ID, [owninguser] = @CONST_TDGCORE_USERID;
 	UPDATE [STAGING__tylegislationsource] SET [ownerid]	= @CONST_TDGCORE_USERID, [owneridtype] = @CONST_OWNERIDTYPE_SYSTEMUSER, [owningbusinessunit] = @CONST_BUSINESSUNIT_TDG_ID, [owninguser] = @CONST_TDGCORE_USERID;
 	UPDATE [STAGING__tylegislationtype] SET [ownerid]	= @CONST_TDGCORE_USERID, [owneridtype] = @CONST_OWNERIDTYPE_SYSTEMUSER, [owningbusinessunit] = @CONST_BUSINESSUNIT_TDG_ID, [owninguser] = @CONST_TDGCORE_USERID;
+	--=========================================================================
+	--=========================================================================
 
 END
 
@@ -366,8 +387,19 @@ END
 --====================================
 --====================================================
 
+--SOURCE DATA
+SELECT COUNT(*) SOURCE__LEGISLATION FROM SOURCE__LEGISLATION;
 
+--STAGING DATA
+SELECT COUNT(*) STAGING__tylegislation FROM STAGING__tylegislation;
+SELECT COUNT(*) STAGING__tylegislationsource FROM STAGING__tylegislationsource;
+SELECT COUNT(*) STAGING__tylegislationtype FROM STAGING__tylegislationtype;
 
+--DATA SYNCED TO DYNAMICS
+SELECT COUNT(*) tdgdata__qm_rclegislation FROM tdgdata__qm_rclegislation;
+SELECT COUNT(*) tdgdata__qm_tylegislationcharacteristic FROM tdgdata__qm_tylegislationcharacteristic;
+SELECT COUNT(*) tdgdata__qm_tylegislationtype FROM tdgdata__qm_tylegislationtype;
+SELECT COUNT(*) tdgdata__qm_tylegislationsource FROM tdgdata__qm_tylegislationsource;
 
 --===================================================================================================
 --===================================================================================================
