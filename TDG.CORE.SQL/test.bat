@@ -1,0 +1,12 @@
+sqlcmd -S tdg-data-migration-server.database.windows.net -U tdgcore -P Oversight1! -d tdg-data-migration-db -i 01_INIT_MASTER_DATA.sql 01_INIT_MASTER_DATA_LOG.txt
+sqlcmd -S tdg-data-migration-server.database.windows.net -U tdgcore -P Oversight1! -d tdg-data-migration-db -i 02_INIT_LEGISLATION_DATA.sql 02_INIT_LEGISLATION_DATA_LOG.txt
+sqlcmd -S tdg-data-migration-server.database.windows.net -U tdgcore -P Oversight1! -d tdg-data-migration-db -i 03_INIT_UNPLANNED_FORECAST_DATA.sql 03_INIT_UNPLANNED_FORECAST_DATA_LOG.txt
+sqlcmd -S tdg-data-migration-server.database.windows.net -U tdgcore -P Oversight1! -d tdg-data-migration-db -i 04_STAGE_ACCOUNT_DATA.sql 04_STAGE_ACCOUNT_DATA_LOG.txt
+sqlcmd -S tdg-data-migration-server.database.windows.net -U tdgcore -P Oversight1! -d tdg-data-migration-db -i 05_STAGE_CONTACT_DATA.sql 05_STAGE_CONTACT_DATA_LOG.txt
+sqlcmd -S tdg-data-migration-server.database.windows.net -U tdgcore -P Oversight1! -d tdg-data-migration-db -i 06_STAGE_WORKORDER_DATA.sql 06_STAGE_WORKORDER_DATA_LOG.txt
+sqlcmd -S tdg-data-migration-server.database.windows.net -U tdgcore -P Oversight1! -d tdg-data-migration-db -i 07_STAGE_VIOLATION_DATA.sql 07_STAGE_VIOLATION_DATA_LOG.txt
+sqlcmd -S tdg-data-migration-server.database.windows.net -U tdgcore -P Oversight1! -d tdg-data-migration-db -i 08_STAGE_COC_DATA.sql 08_STAGE_COC_DATA.txt
+sqlcmd -S tdg-data-migration-server.database.windows.net -U tdgcore -P Oversight1! -d tdg-data-migration-db -i EquipmentType.sql EquipmentType.txt
+sqlcmd -S tdg-data-migration-server.database.windows.net -U tdgcore -P Oversight1! -d tdg-data-migration-db -i UNNumbers.sql UNNumbers.txt
+sqlcmd -S tdg-data-migration-server.database.windows.net -U tdgcore -P Oversight1! -d tdg-data-migration-db -i SEED_UNPLANNED_FORECAST_DATA.sql SEED_UNPLANNED_FORECAST_DATA.txt
+sqlcmd -S tdg-data-migration-server.database.windows.net -U tdgcore -P Oversight1! -d tdg-data-migration-db -i 99_PRE_AND_POST_IMPORT_SANITY_CHECKS.sql 99_PRE_AND_POST_IMPORT_SANITY_CHECKS.txt

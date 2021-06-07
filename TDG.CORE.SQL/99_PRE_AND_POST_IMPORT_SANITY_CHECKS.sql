@@ -48,13 +48,12 @@ BEGIN
 	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
 	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
 	DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team    WHERE name = 'Quebec');
-	DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
 	DECLARE @CONST_TEAM_TDG_ID         VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
 
 	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
 	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
 
-	SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_QUEBEC_ID TEAM_QUEBEC_ID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID, @CONST_TEAM_TDG_ID;
+	SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_QUEBEC_ID TEAM_QUEBEC_ID, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID, @CONST_TEAM_TDG_ID;
 
 	--CRM CONSTANTS
 	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
@@ -62,9 +61,6 @@ BEGIN
 	--===================================================================================================
 
 END
-
-select * from tdgdata__systemuser where systemuserid = '688efe3c-f003-eb11-a813-000d3af3a7a7';
-select * from tdgdata__systemuser where systemuserid = 'c13838ee-ef03-eb11-a813-000d3af3a7a7';
 
 
 --PRE-MIGRATION SANTIY CHECKS
@@ -109,7 +105,6 @@ SELECT [name] tdgcore_bookable_resource FROM tdgdata__bookableresource		WHERE bo
 SELECT systemuserid tdgcore_systemuser	FROM tdgdata__systemuser             WHERE systemuserid          = @CONST_TDGCORE_USERID;
 SELECT [fullname] tdgcore_fullname		FROM tdgdata__systemuser             WHERE domainname            = @CONST_TDGCORE_DOMAINNAME;
 SELECT [name] tdgteam                   FROM tdgdata__team                   WHERE teamid                = @CONST_TEAM_TDG_ID;
-SELECT [name] tdgteamname				FROM tdgdata__team                   WHERE [name]                = @CONST_TEAM_TDG_NAME;
 SELECT [name] defaultpricelevel			FROM tdgdata__pricelevel             WHERE pricelevelid          = @CONST_PRICELISTID;
 SELECT [name] tdgbusinessunit           FROM tdgdata__businessunit           WHERE businessunitid        = @CONST_BUSINESSUNIT_TDG_ID;
 

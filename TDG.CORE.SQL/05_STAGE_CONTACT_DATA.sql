@@ -6,14 +6,28 @@ BEGIN
 	--=============================================DYNAMIC VALUES===========================================
 	--these variables can change with the environment, so double check these match the environment you're syncing to
 
-	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
-	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
-	DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team    WHERE name = 'Quebec');
-	DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
-	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
-	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
+	--DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+	--DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
+	--DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team    WHERE name = 'Quebec');
+	--DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
+	--DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
+	--DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
 
-	SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_QUEBEC_ID TEAM_QUEBEC_ID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID;
+	--SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_QUEBEC_ID TEAM_QUEBEC_ID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID;
+	
+	
+	--RUN THIS IN XRMTOOLBOX SQL4CDS TO GET VALUES FOR ENVIRONMENT
+	--===================================================================================================
+	--SELECT 'systemuserid' field, systemuserid id FROM systemuser where domainname = 'tdg.core@034gc.onmicrosoft.com';
+	--SELECT 'teamid' field, teamid id FROM team    WHERE name = 'Transportation of Dangerous Goods';
+	--SELECT 'BUSINESSUNITID' field, BUSINESSUNITID id FROM BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods';
+	--SELECT 'pricelevelid' field, pricelevelid id FROM pricelevel  WHERE NAME = 'Base Prices';
+	--===================================================================================================
+
+	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = '15abdd9e-8edd-ea11-a814-000d3af3afe0';
+	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = '4e122e0c-73f3-ea11-a815-000d3af3ac0d';
+	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = 'b92b6a16-7cf7-ea11-a815-000d3af3a7a7';
 
 	--CRM CONSTANTS
 	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';

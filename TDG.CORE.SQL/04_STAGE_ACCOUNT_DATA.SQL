@@ -69,6 +69,9 @@ END
 --===================================================================================================
 
 
+SELECT name, territoryid FROM STAGING__ACCOUNT;;
+
+
 --TABLE DEFINITIONS
 --===================================================================================================
 --===================================================================================================
@@ -572,7 +575,7 @@ SELECT
   @CONST_OWNERIDTYPE_SYSTEMUSER     [owneridtype],
   @CONST_TDGCORE_USERID           [ownerid],
   948010001                   [customertypecode],
-  [msdyn_serviceterritory]    [msdyn_serviceterritory],
+  msdyn_serviceterritory    [msdyn_serviceterritory],
   [msdyn_serviceterritory]    [territoryid],
   T1.REGULATED_ENTITY_ID      [parentaccountid]
 FROM
@@ -590,7 +593,8 @@ FROM
     FROM
       SOURCE__SITES T1
       LEFT JOIN SOURCE__IIS_EXPORT T2 ON T1.IIS_ID = T2.STAKEHOLDER_ID
-      LEFT JOIN [dbo].SOURCE__TERRITORY_TRANSLATION T3 ON UPPER(TRIM(T1.[COUNTRY_SUBDIVISION_CD])) = UPPER(TRIM(T3.[COUNTRY_SUBDIVISION_CD])) --Make sure that no regulated entity ids do not go into the system as sites
+      LEFT JOIN [dbo].SOURCE__TERRITORY_TRANSLATION T3 ON UPPER(TRIM(T1.[COUNTRY_SUBDIVISION_CD])) = UPPER(TRIM(T3.[COUNTRY_SUBDIVISION_CD])) 
+	  --Make sure that no regulated entity ids do not go into the system as sites
       --AND STAKEHOLDER_ID NOT IN
       --(
       -- SELECT
