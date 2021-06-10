@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-PAJP0EI</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="lg0Zu5ZsfzE=" SSIS:IV="1jImag/hihb13CKMu9cY0w==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">mPWJQU7ioO/uIMm8pyNgLFPtkp6QhGGAkEzOPywRmXloUq4EXWUiaonyHbsEmDF57Xvkm4+tE+VF/beWRlDZOqsTu0ctQf7eT8gon3sRLE4bszWt8hml6+R08PHuPc+1a4iR9G0M+K4uusPxyNQ1YJL/vTiVON688Y24cVcEGPT9AgjPfjEk1cf6FuSxgnro</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="8q6hC0pvcAg=" SSIS:IV="c/WRcPSxqtQ5N6zVeJ2pGA==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">q+gLN1yfXh8hDK2V5Mtmgqcy4kUnXAb/+Mjb2UJf3Vf4h9oMxfRSuYisqXygdILKsmx9oC01frRhLgkZFmIjvHPtp5Av8vtI5U0PnhCelk3670BJDpMeSdgkrQHW36du2+FnDKgNe1QT+4tMRBE+hLwSqlK0+tK3SdO1E/T+bNCSILSJshSwxZosnFtHFNCL</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -1641,10 +1641,10 @@
                 <SSIS:Property SSIS:Name="Name">OracleToSql</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">51</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">53</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{8FE38627-9619-4B7A-AA0B-150FE99F2D31}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{4506F7B8-FC10-44A7-AD63-8A275D483715}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
