@@ -501,14 +501,21 @@ BEGIN
 	--=============================================DYNAMIC VALUES===========================================
 	--these variables can change with the environment, so double check these match the environment you're syncing to
 
-	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
-	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
-	DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team    WHERE name = 'Quebec');
-	DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
-	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
-	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
+	--DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+	--DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
+	--DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team    WHERE name = 'Quebec');
+	--DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
+	--DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
+	--DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
 
-	SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_QUEBEC_ID TEAM_QUEBEC_ID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID;
+	--PREPROD, QA, ACC VALUES
+	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = 'ae39bb8b-4b92-eb11-b1ac-000d3ae85ba1';
+	DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = '0fd28d12-89b3-eb11-8236-000d3af3d344';
+	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = '4e122e0c-73f3-ea11-a815-000d3af3ac0d';
+	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = 'b92b6a16-7cf7-ea11-a815-000d3af3a7a7';
+
+	SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID;
 
 	--CRM CONSTANTS
 	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
@@ -602,7 +609,6 @@ BEGIN
 		@CONST_OWNERIDTYPE_SYSTEMUSER    [owneridtype],
 		@CONST_BUSINESSUNIT_TDG_ID  [owningbusinessunit],
 		@CONST_TDGCORE_USERID          [owninguser];
-
 
 	--===================================================================================================
 	--===================================================================================================
@@ -810,7 +816,6 @@ BEGIN
 	INSERT INTO
 		[dbo].[STAGING__BOOKABLE_RESOURCE_CATEGORIES] (
 			[bookableresourcecategoryid],
-			[description],
 			[name],
 			[ownerid],
 			[owneridtype],
@@ -818,15 +823,36 @@ BEGIN
 			[owninguser]
 		)
 	SELECT
+		'ab66b72d-1db7-eb11-8236-0022483bc30f',
+		'Engineering Services::(translate)Engineering Services',
+		ownerid            = @CONST_TDGCORE_USERID,
+		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
+		owningbusinessunit = @CONST_BUSINESSUNIT_TDG_ID,
+		owninguser         = @CONST_TDGCORE_USERID 
+	UNION
+	SELECT
+		'51333935-1db7-eb11-8236-0022483bc30f',
+		'Government of Alberta::Government of Alberta',
+		ownerid            = @CONST_TDGCORE_USERID,
+		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
+		owningbusinessunit = @CONST_BUSINESSUNIT_TDG_ID,
+		owninguser         = @CONST_TDGCORE_USERID
+	UNION
+	SELECT
+		'47605827-1db7-eb11-8236-0022483bc30f',
+		'Regional Inspector::Regional Inspector',
+		ownerid            = @CONST_TDGCORE_USERID,
+		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
+		owningbusinessunit = @CONST_BUSINESSUNIT_TDG_ID,
+		owninguser         = @CONST_TDGCORE_USERID
+	UNION
+	SELECT
 		@CONST_CATEGORY_INSPECTOR,
-		--INSPECTOR 
-		'Mark a Bookable Resource as an Inspector',
 		'Inspector::Inspecteur',
 		ownerid            = @CONST_TDGCORE_USERID,
 		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
 		owningbusinessunit = @CONST_BUSINESSUNIT_TDG_ID,
 		owninguser         = @CONST_TDGCORE_USERID;
-
 
 	--===================================================================================================
 	--===================================================================================================
@@ -978,7 +1004,7 @@ BEGIN
 				--SYSUSER.issyncwithdirectory, 
 				--SYSUSER.territoryid
 			FROM
-				[dbo].tdgdata__systemuser SYSUSER
+				[dbo].CRM__SYSTEMUSER SYSUSER
 				JOIN SOURCE__IIS_INSPECTORS INSP ON lower(TRIM(INSP.Account_name)) = lower(TRIM(SYSUSER.domainname))
 		) T;
 
@@ -1029,5 +1055,31 @@ BEGIN
 	FROM
 		[dbo].[STAGING__BOOKABLE_RESOURCE];
 
-
 END
+
+--OUTPUT FOR LOG
+SELECT COUNT(*) [STAGING__TYRATIONAL] FROM STAGING__TYRATIONAL;
+SELECT ovs_name FROM STAGING__TYRATIONAL;
+
+SELECT COUNT(*) [STAGING__OVERSIGHTTYPE] FROM [STAGING__OVERSIGHTTYPE];
+SELECT ovs_name FROM [STAGING__OVERSIGHTTYPE];
+
+SELECT COUNT(*) [STAGING__WORKORDERTYPE] FROM [STAGING__WORKORDERTYPE];
+SELECT msdyn_name FROM [STAGING__WORKORDERTYPE];
+
+SELECT COUNT(*) [STAGING__BOOKABLE_RESOURCE_CATEGORIES] FROM [STAGING__BOOKABLE_RESOURCE_CATEGORIES];
+SELECT name FROM [STAGING__BOOKABLE_RESOURCE_CATEGORIES];
+
+SELECT COUNT(*) [STAGING__BOOKABLE_RESOURCE] FROM [STAGING__BOOKABLE_RESOURCE];
+SELECT name FROM [STAGING__BOOKABLE_RESOURCE];
+
+SELECT COUNT(*) [STAGING__TERRITORY] FROM [STAGING__TERRITORY];
+SELECT name FROM [STAGING__TERRITORY];
+
+
+
+
+
+
+
+

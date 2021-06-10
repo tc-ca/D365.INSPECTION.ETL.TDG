@@ -318,18 +318,26 @@ DECLARE @CONST_WORKORDER_SYSTEM_STATUS_UNSCHEDULED    VARCHAR(50) = '690970000';
 --=============================================DYNAMIC VALUES===========================================
 --these variables can change with the environment, so double check these match the environment you're syncing to
 
-DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
-DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
-DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team    WHERE name = 'Quebec');
-DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
-DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
-DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
+--DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+--DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
+--DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team    WHERE name = 'Quebec');
+--DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
+--DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
+--DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
 
-SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_QUEBEC_ID TEAM_QUEBEC_ID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID;
+	--PREPROD, QA, ACC VALUES
+	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = '15abdd9e-8edd-ea11-a814-000d3af3afe0';
+	DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = '53122e0c-73f3-ea11-a815-000d3af3ac0d';
+	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = '4e122e0c-73f3-ea11-a815-000d3af3ac0d';
+	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = 'b92b6a16-7cf7-ea11-a815-000d3af3a7a7';
 
---CRM CONSTANTS
-DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
-DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
+	--CRM CONSTANTS
+	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
+	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
+
+	SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID;
+
 --===================================================================================================
 
 --IIS ACTIVITY TYPE TO ROM ACTIVITY MAPPING EXCEL SHEET VALUES
@@ -596,9 +604,6 @@ FROM
 			FROM
 				YD101_FILE_ACTIVITY_TYPE YD101
 				JOIN TD045_ACTIVITY_TYPE TD045 ON YD101.ACTIVITY_TYPE_CD = TD045.ACTIVITY_TYPE_CD
-			WHERE
-				ACTIVITY_TYPE_PARENT_CD IS NULL
-				--AND TD045.DATE_DELETED_DTE IS NULL
 				AND YD101.DATE_DELETED_DTE IS NULL
 			GROUP BY
 				YD101.FILE_NUMBER_NUM,
@@ -759,8 +764,7 @@ FROM
 		ACTIVITY_TYPE_MAPPINGS T2
 	WHERE
 		ROM_OVERSIGHT_TYPE_ID <> 'SITE_VISIT'
-		AND (T1.ACTIVITY_TYPE_CD = t2.IIS_ACTIVITY_TYPE_ID AND IIS_ACTIVITY_SUB_TYPE_ID IS NULL)
-		AND id IS NOT NULL
+		AND (T1.ACTIVITY_TYPE_CD = t2.IIS_ACTIVITY_TYPE_ID AND IIS_ACTIVITY_SUB_TYPE_ID IS NULL) AND id IS NOT NULL
 		OR (T1.ACTIVITY_TYPE_CD = t2.IIS_ACTIVITY_TYPE_ID AND T1.SUBACTIVITY_TYPE_CDS = CAST(T2.IIS_ACTIVITY_SUB_TYPE_ID AS varchar(10)))
 		OR (T1.ACTIVITY_TYPE_CD = t2.IIS_ACTIVITY_TYPE_ID AND CAST(T2.IIS_ACTIVITY_SUB_TYPE_ID AS varchar(10)) IS NULL)
 		OR (T1.ACTIVITY_TYPE_CD = t2.IIS_ACTIVITY_TYPE_ID AND CHARINDEX(CAST(T2.IIS_ACTIVITY_SUB_TYPE_ID AS varchar(10)), T1.SUBACTIVITY_TYPE_CDS) > 0)
@@ -1034,7 +1038,6 @@ INSERT INTO
     [msdyn_workordersummary],
     [ovs_oversighttype],
     [ovs_rational],
-
     [ovs_primaryinspector], --,[ovs_secondaryinspector]
     [ownerid],
     [owneridtype],
@@ -1076,7 +1079,10 @@ FROM #TEMP_WORKPLAN_EXCLUDING_INSPECTIONS_ALREADY_IN_IIS WP
 JOIN [dbo].STAGING__BOOKABLE_RESOURCE BR ON WP.BOOKABLE_RESOURCE_ID = BR.bookableresourceid;
 
 
-UPDATE STAGING__WORK_ORDERS SET [msdyn_workorderid] = ID;
+UPDATE STAGING__WORK_ORDERS 
+SET 
+[msdyn_workorderid] = ID,
+ovs_currentfiscalquarter = ovs_fiscalquarter;
 --==============================================================================
 
 
@@ -1099,35 +1105,35 @@ JOIN STAGING__ACCOUNT T2 ON T1.msdyn_serviceaccount = T2.accountid;
 
 
 /****** Script for SelectTopNRows command from SSMS  ******/
-SELECT 
-      [msdyn_address1]
-      ,[msdyn_address2]
-      ,[msdyn_address3]
-      ,[msdyn_city]
-      ,[msdyn_country]
-      ,[msdyn_name]
-      ,[msdyn_postalcode]
-      ,[msdyn_pricelist]
-      ,[msdyn_serviceaccount]
-      ,[msdyn_serviceterritory]
-      ,[msdyn_stateorprovince]
-      ,[msdyn_systemstatus]
-      ,[msdyn_workorderid]
-      ,[msdyn_workordersummary]
-      ,[msdyn_workordertype]
-      ,[ovs_fiscalquarter]
-      ,[ovs_fiscalyear]
-      ,[ovs_iisid]
-      ,[ovs_mocid]
-      ,[ovs_oversighttype]
-      ,[ovs_primaryinspector]
-      ,[ovs_rational]
-      ,[ovs_secondaryinspector]
-      ,[ovs_tyrational]
-      ,[ownerid]
-      ,[owneridtype]
-      ,[owningbusinessunit]
-      ,[owninguser]
-	  ,ovs_qcreviewcomments
-	  ,ovs_qcreviewcompletedind
-  FROM [dbo].STAGING__WORK_ORDERS
+--SELECT 
+--      [msdyn_address1]
+--      ,[msdyn_address2]
+--      ,[msdyn_address3]
+--      ,[msdyn_city]
+--      ,[msdyn_country]
+--      ,[msdyn_name]
+--      ,[msdyn_postalcode]
+--      ,[msdyn_pricelist]
+--      ,[msdyn_serviceaccount]
+--      ,[msdyn_serviceterritory]
+--      ,[msdyn_stateorprovince]
+--      ,[msdyn_systemstatus]
+--      ,[msdyn_workorderid]
+--      ,[msdyn_workordersummary]
+--      ,[msdyn_workordertype]
+--      ,[ovs_fiscalquarter]
+--      ,[ovs_fiscalyear]
+--      ,[ovs_iisid]
+--      ,[ovs_mocid]
+--      ,[ovs_oversighttype]
+--      ,[ovs_primaryinspector]
+--      ,[ovs_rational]
+--      ,[ovs_secondaryinspector]
+--      ,[ovs_tyrational]
+--      ,[ownerid]
+--      ,[owneridtype]
+--      ,[owningbusinessunit]
+--      ,[owninguser]
+--	  ,ovs_qcreviewcomments
+--	  ,ovs_qcreviewcompletedind
+--  FROM [dbo].STAGING__WORK_ORDERS

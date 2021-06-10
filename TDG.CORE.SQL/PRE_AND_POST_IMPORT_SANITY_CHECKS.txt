@@ -1,0 +1,2 @@
+Msg 137, Level 15, State 2, Server tdg-data-migration-server, Line 114
+Must declare the scalar variable "@CONST_TEAM_TDG_ID".

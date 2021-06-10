@@ -12,8 +12,8 @@
   DTS:ObjectName="deleteAllData"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="199"
-  DTS:VersionGUID="{C87EE5E3-78DE-4AC5-B044-946E43222EF9}">
+  DTS:VersionBuild="213"
+  DTS:VersionGUID="{2ED2A1D5-5608-4EE6-AB1E-25A6F07C1202}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,12 +28,12 @@
           ConnectByProxy="False">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="OW7t8m1psfo="
-            IV="p3jwZEyylpBj84cwjnRbug==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="qhlF6DNgTpw="
+            IV="Dn/Hn4SzLRDW20HK5OFnTw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>p3jwZEyylpBj84cwjnRbunSqfLR4dh2XaBbgPxp8Ssfc3zm3649LKfcoRso+X2aCwbqLMXp/gCOIWbM+2f/Ev7U0qVaeQnGHpUk7LC2dslzv7L/R/qFpCeFx0a8cPhyl0hCPDWvJDm8EhQFnGRdyvh9SOMg6R7TYQ3AAfiadztrE5od6qcqu61yWH1YILwPB</CipherValue>
+              <CipherValue>Dn/Hn4SzLRDW20HK5OFnT9/0wHzeDPM8aqbFxyTkswjAadLG29Qoc24xRHhvzzL6sbL0tk6cMHqot3yHZyeeotWDrLdX1dmwDxs+aQpO0lxLCPySqnYCGGcqOeUlKb8wbNCq/amvuYEXo0Sw3uoJHKSBRHp+9/DaQTotn3WrNg6R7nvNn9SWZOZXJ6RJAFAb</CipherValue>
             </CipherData>
           </EncryptedData>
         </CrmConnectionManager>
@@ -187,6 +187,723 @@
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\booking alerts"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5b14b767-9139-4330-bd11-84bf942fb1f7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="booking alerts"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\booking alerts\Dynamics CRM Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Populate data into Microsoft Dynamics 365 CE/CRM."
+              name="Dynamics CRM Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Destination entity to write data."
+                  expressionType="Notify"
+                  name="DestinationEntity">msdyn_bookingalert</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how data is written to CRM server."
+                  name="ActionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">4</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the values of CRM lookup fields should be removed if the reference records cannot be found. "
+                  expressionType="Notify"
+                  name="RemoveUnresolvableReferences">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
+                  expressionType="Notify"
+                  name="EnableSystemDuplicateDetection">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
+                  expressionType="Notify"
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
+                  expressionType="Notify"
+                  name="RecordMatchingKeyFields"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those NULL-valued fields."
+                  expressionType="Notify"
+                  name="IgnoreNullValuedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those fields that have no value changes in the target system. "
+                  expressionType="Notify"
+                  name="IgnoreUnchangedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to remove those invalid characters before writing to CRM."
+                  expressionType="Notify"
+                  name="RemoveInvalidCharacters">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the flag field(s) that are used to track the source of changes. The field(s) will not posted to CRM server unless there are changes to other fields if specified. &quot;Ignore Unchange Fields&quot; option is required in order for the specified flag field(s) to work. "
+                  expressionType="Notify"
+                  name="ChangeFlagFields"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify what action will be taken when multiple matches are found with Upsert action."
+                  expressionType="Notify"
+                  name="HandlingOfMultipleMatches"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify whether to use optimizations when there are duplicate records form the source system."
+                  expressionType="Notify"
+                  name="OptimizationOnSourceDuplicates"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
+                <property
+                  dataType="System.String"
+                  description="Workflow or action to be executed."
+                  expressionType="Notify"
+                  name="WorkflowAction"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of records to be sent to Microsoft Dynamics 365/CRM server in each service call."
+                  expressionType="Notify"
+                  name="BatchSize">100</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the total number or concurrent threads to write to Dynamics 365/CRM server simultaneously. "
+                  expressionType="Notify"
+                  name="ConcurrentWritingThreadsInTotal">20</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether datetime values should be sent to CRM server in UTC format."
+                  expressionType="Notify"
+                  name="SendDateTimeInUtcFormat">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\booking alerts\Dynamics CRM Destination.Connections[DynamicsCRM]"
+                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\booking alerts\Dynamics CRM Destination.Inputs[Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\booking alerts\Dynamics CRM Destination.Inputs[Input].Columns[activityid]"
+                      cachedDataType="guid"
+                      cachedName="activityid"
+                      externalMetadataColumnId="Package\booking alerts\Dynamics CRM Destination.Inputs[Input].ExternalColumns[activityid]"
+                      lineageId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].Columns[activityid]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Destination.Inputs[Input].ExternalColumns[activityid]"
+                      dataType="guid"
+                      name="activityid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">msdyn_bookingalert</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\booking alerts\Dynamics CRM Destination.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\booking alerts\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\booking alerts\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\booking alerts\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\booking alerts\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\booking alerts\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\booking alerts\Dynamics CRM Destination.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\booking alerts\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\booking alerts\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\booking alerts\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\booking alerts\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\booking alerts\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\booking alerts\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\booking alerts\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\booking alerts\Dynamics CRM Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Extract data from Microsoft Dynamics 365 CE/CRM."
+              name="Dynamics CRM Source"
+              usesDispositions="true"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of source data from Microsoft Dynamics CRM."
+                  expressionType="Notify"
+                  name="SourceType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceType">0</property>
+                <property
+                  dataType="System.String"
+                  description="Dynamics CRM entity to retrieve data from."
+                  expressionType="Notify"
+                  name="SourceEntity">msdyn_bookingalert</property>
+                <property
+                  dataType="System.String"
+                  description="FetchXML statement."
+                  expressionType="Notify"
+                  name="FetchXML"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the batch size of the query."
+                  expressionType="Notify"
+                  name="BatchSize">2000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the maximum number of rows to be returned from the Dynamics 365/CRM server (Specify 0 to read all satisfying records)."
+                  expressionType="Notify"
+                  name="MaxRowsReturned">0</property>
+                <property
+                  dataType="System.Null"
+                  description="The caller to be used for CRM impersonation when reading from CRM server."
+                  expressionType="Notify"
+                  name="ImpersonateAs" />
+                <property
+                  dataType="System.Null"
+                  description="Specifies the output timezone for CRM datetime fields."
+                  expressionType="Notify"
+                  name="OutputTimezone"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceOutputTimezone" />
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\booking alerts\Dynamics CRM Source.Connections[DynamicsCRM]"
+                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output]"
+                  name="Primary Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].Columns[activityid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[activityid]"
+                      lineageId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].Columns[activityid]"
+                      name="activityid"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[activityadditionalparams]"
+                      dataType="nText"
+                      name="activityadditionalparams" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[activityid]"
+                      dataType="guid"
+                      name="activityid" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[activitytypecode]"
+                      dataType="wstr"
+                      length="64"
+                      name="activitytypecode" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[activitytypecodename]"
+                      dataType="wstr"
+                      length="255"
+                      name="activitytypecodename" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[actualdurationminutes]"
+                      dataType="i4"
+                      name="actualdurationminutes" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[actualend]"
+                      dataType="dbTimeStamp"
+                      name="actualend" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[actualstart]"
+                      dataType="dbTimeStamp"
+                      name="actualstart" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[bcc]"
+                      dataType="nText"
+                      name="bcc" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[cc]"
+                      dataType="nText"
+                      name="cc" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[community]"
+                      dataType="i4"
+                      name="community" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[communityname]"
+                      dataType="wstr"
+                      length="255"
+                      name="communityname" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdby]"
+                      dataType="guid"
+                      name="createdby" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdbyname" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdon]"
+                      dataType="dbTimeStamp"
+                      name="createdon" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdonbehalfby]"
+                      dataType="guid"
+                      name="createdonbehalfby" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdonbehalfbyname" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="createdonbehalfbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[customers]"
+                      dataType="nText"
+                      name="customers" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[deliverylastattemptedon]"
+                      dataType="dbTimeStamp"
+                      name="deliverylastattemptedon" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[deliveryprioritycode]"
+                      dataType="i4"
+                      name="deliveryprioritycode" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[deliveryprioritycodename]"
+                      dataType="wstr"
+                      length="255"
+                      name="deliveryprioritycodename" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[description]"
+                      dataType="nText"
+                      name="description" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[exchangeitemid]"
+                      dataType="wstr"
+                      length="200"
+                      name="exchangeitemid" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[exchangerate]"
+                      dataType="numeric"
+                      name="exchangerate"
+                      precision="38"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[exchangeweblink]"
+                      dataType="wstr"
+                      length="1250"
+                      name="exchangeweblink" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[from]"
+                      dataType="nText"
+                      name="from" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[importsequencenumber]"
+                      dataType="i4"
+                      name="importsequencenumber" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[instancetypecode]"
+                      dataType="i4"
+                      name="instancetypecode" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[instancetypecodename]"
+                      dataType="wstr"
+                      length="255"
+                      name="instancetypecodename" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[isbilled]"
+                      dataType="bool"
+                      name="isbilled" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[isbilledname]"
+                      dataType="wstr"
+                      length="255"
+                      name="isbilledname" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ismapiprivate]"
+                      dataType="bool"
+                      name="ismapiprivate" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ismapiprivatename]"
+                      dataType="wstr"
+                      length="255"
+                      name="ismapiprivatename" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[isregularactivity]"
+                      dataType="bool"
+                      name="isregularactivity" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[isregularactivityname]"
+                      dataType="wstr"
+                      length="255"
+                      name="isregularactivityname" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[isworkflowcreated]"
+                      dataType="bool"
+                      name="isworkflowcreated" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[isworkflowcreatedname]"
+                      dataType="wstr"
+                      length="255"
+                      name="isworkflowcreatedname" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[lastonholdtime]"
+                      dataType="dbTimeStamp"
+                      name="lastonholdtime" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[leftvoicemail]"
+                      dataType="bool"
+                      name="leftvoicemail" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[leftvoicemailname]"
+                      dataType="wstr"
+                      length="255"
+                      name="leftvoicemailname" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedby]"
+                      dataType="guid"
+                      name="modifiedby" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedbyname" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedon]"
+                      dataType="dbTimeStamp"
+                      name="modifiedon" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfby]"
+                      dataType="guid"
+                      name="modifiedonbehalfby" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyname]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedonbehalfbyname" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="modifiedonbehalfbyyominame" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[onholdtime]"
+                      dataType="i4"
+                      name="onholdtime" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[optionalattendees]"
+                      dataType="nText"
+                      name="optionalattendees" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[organizer]"
+                      dataType="nText"
+                      name="organizer" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[overriddencreatedon]"
+                      dataType="dbTimeStamp"
+                      name="overriddencreatedon" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[ownerid]"
+                      dataType="guid"
+                      name="ownerid" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[owneridname]"
+                      dataType="wstr"
+                      length="200"
+                      name="owneridname" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[owneridtype]"
+                      dataType="wstr"
+                      length="64"
+                      name="owneridtype" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[owneridyominame]"
+                      dataType="wstr"
+                      length="200"
+                      name="owneridyominame" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[owningbusinessunit]"
+                      dataType="guid"
+                      name="owningbusinessunit" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[owningteam]"
+                      dataType="guid"
+                      name="owningteam" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[owninguser]"
+                      dataType="guid"
+                      name="owninguser" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[partners]"
+                      dataType="nText"
+                      name="partners" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[postponeactivityprocessinguntil]"
+                      dataType="dbTimeStamp"
+                      name="postponeactivityprocessinguntil" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[prioritycode]"
+                      dataType="i4"
+                      name="prioritycode" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[prioritycodename]"
+                      dataType="wstr"
+                      length="255"
+                      name="prioritycodename" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[processid]"
+                      dataType="guid"
+                      name="processid" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[regardingobjectid]"
+                      dataType="guid"
+                      name="regardingobjectid" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[regardingobjectidname]"
+                      dataType="wstr"
+                      length="4000"
+                      name="regardingobjectidname" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[regardingobjectidyominame]"
+                      dataType="wstr"
+                      length="4000"
+                      name="regardingobjectidyominame" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[regardingobjecttypecode]"
+                      dataType="wstr"
+                      length="64"
+                      name="regardingobjecttypecode" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[requiredattendees]"
+                      dataType="nText"
+                      name="requiredattendees" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[resources]"
+                      dataType="nText"
+                      name="resources" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[scheduleddurationminutes]"
+                      dataType="i4"
+                      name="scheduleddurationminutes" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[scheduledend]"
+                      dataType="dbTimeStamp"
+                      name="scheduledend" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[scheduledstart]"
+                      dataType="dbTimeStamp"
+                      name="scheduledstart" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sendermailboxid]"
+                      dataType="guid"
+                      name="sendermailboxid" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sendermailboxidname]"
+                      dataType="wstr"
+                      length="200"
+                      name="sendermailboxidname" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[senton]"
+                      dataType="dbTimeStamp"
+                      name="senton" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[seriesid]"
+                      dataType="guid"
+                      name="seriesid" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[serviceid]"
+                      dataType="guid"
+                      name="serviceid" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[serviceidname]"
+                      dataType="wstr"
+                      length="160"
+                      name="serviceidname" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[slaid]"
+                      dataType="guid"
+                      name="slaid" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[slainvokedid]"
+                      dataType="guid"
+                      name="slainvokedid" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[slainvokedidname]"
+                      dataType="wstr"
+                      length="100"
+                      name="slainvokedidname" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[slaname]"
+                      dataType="wstr"
+                      length="100"
+                      name="slaname" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sortdate]"
+                      dataType="dbTimeStamp"
+                      name="sortdate" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[stageid]"
+                      dataType="guid"
+                      name="stageid" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statecodename]"
+                      dataType="wstr"
+                      length="255"
+                      name="statecodename" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statuscode]"
+                      dataType="i4"
+                      name="statuscode" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statuscodename]"
+                      dataType="wstr"
+                      length="255"
+                      name="statuscodename" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[subject]"
+                      dataType="wstr"
+                      length="200"
+                      name="subject" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[timezoneruleversionnumber]"
+                      dataType="i4"
+                      name="timezoneruleversionnumber" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[to]"
+                      dataType="nText"
+                      name="to" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[transactioncurrencyid]"
+                      dataType="guid"
+                      name="transactioncurrencyid" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[transactioncurrencyidname]"
+                      dataType="wstr"
+                      length="100"
+                      name="transactioncurrencyidname" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[traversedpath]"
+                      dataType="wstr"
+                      length="1250"
+                      name="traversedpath" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[utcconversiontimezonecode]"
+                      dataType="i4"
+                      name="utcconversiontimezonecode" />
+                    <externalMetadataColumn
+                      refId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[versionnumber]"
+                      dataType="i8"
+                      name="versionnumber" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\booking alerts.Paths[Primary Output]"
+              endId="Package\booking alerts\Dynamics CRM Destination.Inputs[Input]"
+              name="Primary Output"
+              startId="Package\booking alerts\Dynamics CRM Source.Outputs[Primary Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\CONFIRMATION OF COMPLIANCE"
       DTS:CreationName="Microsoft.Pipeline"
@@ -20509,7 +21226,7 @@
                   dataType="System.Int32"
                   description="Specifies the number of records to be sent to CDS/Dynamics CRM server in each service call."
                   expressionType="Notify"
-                  name="BatchSize">5</property>
+                  name="BatchSize">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specify the total number or concurrent threads to write to CDS/CRM server simultaneously. "
@@ -20523,6 +21240,21 @@
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationComponent</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to tentatively disable relevant plugins"
+                  expressionType="Notify"
+                  name="TentativelyDisableRelevantPlugins">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to tentatively disable relevant workflows"
+                  expressionType="Notify"
+                  name="TentativelyDisableRelevantWorkflows">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whethere to tentatively disable entity change tracking (auditing)"
+                  expressionType="Notify"
+                  name="TentativelyDisableEntityAuditing">true</property>
               </properties>
               <connections>
                 <connection
@@ -33109,6 +33841,14 @@
       DTS:ObjectName="Constraint 22"
       DTS:To="Package\territories" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 23]"
+      DTS:CreationName=""
+      DTS:DTSID="{C45C8DFD-D724-4F0E-9902-EE9C55F12CB6}"
+      DTS:From="Package\booking alerts"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 23"
+      DTS:To="Package\delete bookable resource bookings" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 24]"
       DTS:CreationName=""
       DTS:DTSID="{41062121-5B1A-4E6C-9A81-3EF0D4A615E0}"
@@ -33455,7 +34195,7 @@
           PanelSize="218,613"
           Size="218,656"
           Id="356cf38a-fc79-405d-ad82-9e0b00bcec9a"
-          TopLeft="101.5,534.5">
+          TopLeft="99.5,622.5">
           <GroupLayout.ChildrenIds>
             <s:String>Package\delete service task type</s:String>
             <s:String>Package.PrecedenceConstraints[Constraint 25]</s:String>
@@ -33534,7 +34274,7 @@
           PanelSize="171,307"
           Size="171,350"
           Id="294e871b-517d-449e-bc4b-8c243cbc0a91"
-          TopLeft="378,687.5">
+          TopLeft="376,775.5">
           <GroupLayout.ChildrenIds>
             <s:String>Package\oversight types</s:String>
             <s:String>Package\rationals</s:String>
@@ -33581,7 +34321,7 @@
           PanelSize="167,205"
           Size="167,248"
           Id="c272b7a5-b17c-48b0-bbaa-e0a0b4e7bd20"
-          TopLeft="608,738.5">
+          TopLeft="606,826.5">
           <GroupLayout.ChildrenIds>
             <s:String>Package\contacts</s:String>
             <s:String>Package\delete accounts</s:String>
@@ -33678,7 +34418,7 @@
           PanelSize="287,409"
           Size="287,452"
           Id="f082b2b0-4fbc-4bf5-9557-16c1f629187a"
-          TopLeft="840,636.5">
+          TopLeft="838,724.5">
           <GroupLayout.ChildrenIds>
             <s:String>Package\delete bookable resource cate ass</s:String>
             <s:String>Package\delete bookable resource categories</s:String>
@@ -33913,7 +34653,7 @@
           PanelSize="316,919"
           Size="316,962"
           Id="231bb873-a983-4031-844a-58a2cb6581d3"
-          TopLeft="1187.5,381.5">
+          TopLeft="1185.5,469.5">
           <GroupLayout.ChildrenIds>
             <s:String>Package\delete question</s:String>
             <s:String>Package\delete question response legislation</s:String>
@@ -33938,14 +34678,14 @@
         <NodeLayout
           Size="166,42"
           Id="Package\SERVICE TASKS"
-          TopLeft="1229,228.833333333333" />
+          TopLeft="1227,316.833333333333" />
         <NodeLayout
           Size="163,42"
           Id="Package\WOKR ORDERS"
-          TopLeft="589.666666666667,222.5" />
+          TopLeft="587.666666666667,310.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 13]"
-          TopLeft="655.666666666667,264.5">
+          TopLeft="653.666666666667,352.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -33979,7 +34719,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="1229,246.666666666666">
+          TopLeft="1227,334.666666666666">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -34001,7 +34741,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 20]"
-          TopLeft="624.666666666667,264.5">
+          TopLeft="622.666666666667,352.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -34035,7 +34775,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 21]"
-          TopLeft="689.333333333333,264.5">
+          TopLeft="687.333333333333,352.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -34057,7 +34797,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 18]"
-          TopLeft="717.666666666667,264.5">
+          TopLeft="715.666666666667,352.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -34091,7 +34831,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 11]"
-          TopLeft="1314.25,270.833333333333">
+          TopLeft="1312.25,358.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -34113,7 +34853,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="675,156.5">
+          TopLeft="673,244.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -34136,10 +34876,10 @@
         <NodeLayout
           Size="222,42"
           Id="Package\delete resource requirements"
-          TopLeft="567.833333333333,114.5" />
+          TopLeft="565.833333333333,202.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="681.333333333333,63.4999999999998">
+          TopLeft="679.333333333333,151.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -34162,16 +34902,42 @@
         <NodeLayout
           Size="249,42"
           Id="Package\delete bookable resource bookings"
-          TopLeft="559.333333333334,21.4999999999998" />
+          TopLeft="557.333333333334,109.5" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\booking alerts"
+          TopLeft="601.25,17.7500000000001" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 23]"
+          TopLeft="678.291666666667,59.7500000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.7499999999997"
+              Start="0,0"
+              End="0,42.2499999999997">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.2499999999997" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <GroupLayout
           Text="WORKORDERS, CASES AND BOOKABLE RESOURCES"
           ParentId="Package"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="1624,1400"
-          Size="1624,1443"
+          PanelSize="1624,1486"
+          Size="1624,1530"
           Id="db0c6cc9-c5d4-4feb-bbe8-d937dc0236f8"
-          TopLeft="685.444444444437,56.9285714285714">
+          TopLeft="685.444444444437,7.92857142857144">
           <GroupLayout.ChildrenIds>
             <s:String>356cf38a-fc79-405d-ad82-9e0b00bcec9a</s:String>
             <s:String>294e871b-517d-449e-bc4b-8c243cbc0a91</s:String>
@@ -34190,6 +34956,8 @@
             <s:String>Package\delete resource requirements</s:String>
             <s:String>Package.PrecedenceConstraints[Constraint 1]</s:String>
             <s:String>Package\delete bookable resource bookings</s:String>
+            <s:String>Package\booking alerts</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint 23]</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
       </GraphLayout>
@@ -34317,7 +35085,7 @@
     design-time-name="Package\delete bookable resource bookings">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="184,42"
           Id="Package\delete bookable resource bookings\Dynamics CRM Source"
@@ -34345,9 +35113,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -35529,7 +36295,7 @@
     design-time-name="Package\oversight types">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="184,42"
           Id="Package\oversight types\Dynamics CRM Source"
@@ -35557,9 +36323,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -36233,7 +36997,7 @@
     design-time-name="Package\work order types">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="184,42"
           Id="Package\work order types\Dynamics CRM Source"
@@ -36261,9 +37025,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -36284,6 +37046,44 @@
           TopLeft="551.5,169.5" />
         <EdgeLayout
           Id="Package\CONFIRMATION OF COMPLIANCE.Paths[Primary Output]"
+          TopLeft="646,211.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,240.5"
+              Start="0,0"
+              End="0,233">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,233" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\booking alerts">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\booking alerts\Dynamics CRM Destination"
+          TopLeft="546,452" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\booking alerts\Dynamics CRM Source"
+          TopLeft="551.5,169.5" />
+        <EdgeLayout
+          Id="Package\booking alerts.Paths[Primary Output]"
           TopLeft="646,211.5">
           <EdgeLayout.Curve>
             <mssgle:Curve

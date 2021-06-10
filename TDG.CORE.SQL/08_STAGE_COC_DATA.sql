@@ -3,18 +3,26 @@
 --=============================================DYNAMIC VALUES===========================================
 --these variables can change with the environment, so double check these match the environment you're syncing to
 
-DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
-DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
-DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team    WHERE name = 'Quebec');
-DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
-DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
-DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
+--DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+--DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
+--DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team    WHERE name = 'Quebec');
+--DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
+--DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
+--DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
 
-SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_QUEBEC_ID TEAM_QUEBEC_ID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID;
+	--PREPROD, QA, ACC VALUES
+	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = '15abdd9e-8edd-ea11-a814-000d3af3afe0';
+	DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = '53122e0c-73f3-ea11-a815-000d3af3ac0d';
+	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = '4e122e0c-73f3-ea11-a815-000d3af3ac0d';
+	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = 'b92b6a16-7cf7-ea11-a815-000d3af3a7a7';
 
---CRM CONSTANTS
-DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
-DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
+	--CRM CONSTANTS
+	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
+	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
+
+	SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID;
+
 --===================================================================================================
 
 
@@ -165,6 +173,8 @@ BEGIN
 			   ,[ovs_justificationtxt]
 			   ,[actualstart]
 			   ,[actualend]
+			   ,scheduledstart
+			   ,scheduledend
 			   ,[ovs_daterequested]
 			   ,[description])
      
@@ -192,17 +202,21 @@ BEGIN
 	,'msdyn_workorder'				 [regardingobjectid_entitytype]
 	,'msdyn_workorder'				 [regardingobjecttypecode]
 	,t2.INSPECTION_JUSTIFICATION_TXT [ovs_justificationtxt]
-	,T2.DATE_FOLLOW_UP_DTE			 [actualstart]
+
+
+	,T2.DATE_CREATED_DTE			 [actualstart]
 	
 	--IF THE STATUS IS ACTIVE, WE WON'T SET THE END DATE
 	--IF THE STATUS IS NOT ACTIVE, WE'LL JUST INCREMENT THE END DATE A TINY BIT SO ITS NOT THE EXACT SAME AS THE START DATE, WHICH IS A VALIDATION RULE IN CRM
 	,CASE 
 		WHEN T2.FOLLOW_UP_TYPE_CD = 1 THEN NULL 
-		ELSE DATE_FOLLOW_UP_DTE + 1 
+		ELSE DATE_FOLLOW_UP_DTE
 	END [actualend]
 
-	,T2.DATE_FOLLOW_UP_DTE			 [ovs_daterequested]
-	,FOLLOW_UP_COMMENT_TXT			 [description]
+	,T2.DATE_FOLLOW_UP_DTE - 30 [scheduledstart]
+	,T2.DATE_FOLLOW_UP_DTE		[scheduledend] --SCHEDULED END = DUE DATE
+	,T2.DATE_FOLLOW_UP_DTE - 30 [ovs_daterequested]
+	,FOLLOW_UP_COMMENT_TXT		[description]
 
 	FROM STAGING__VIOLATIONS T1
 	LEFT JOIN [YD082_INSPECTION_VIOLATION] T2 ON T1.qm_iisviolationcd = t2.VIOLATION_CD AND T1.qm_iisactivityid = T2.ACTIVITY_ID
@@ -211,13 +225,36 @@ BEGIN
 	T2.DATE_DELETED_DTE IS NULL
 	and qm_rclegislationid is not null;
 
+
+	--UPDATE OWNERSHIP OF CoCs
+	UPDATE
+	--SELECT 
+	--T1.qm_iisactivityid,
+	--T1.qm_iisviolationcd,
+	--T1.qm_syresultid,
+	--T4.systemuserid, 
+	--T3.bookableresourceid, 
+	--T3.name, 
+	--T2.msdyn_name,
+	--T2.ovs_primaryinspectorname,
+	--T1.qm_name 
+	STAGING__COC 
+	SET ownerid = T4.systemuserid,
+		owneridtype = @CONST_OWNERIDTYPE_SYSTEMUSER
+	FROM STAGING__COC COC
+	JOIN STAGING__VIOLATIONS T1 ON T1.qm_syresultid = COC.ovs_violation
+	JOIN STAGING__WORK_ORDERS T2 ON T1.qm_workorderid = T2.msdyn_workorderid
+	JOIN STAGING__BOOKABLE_RESOURCE T3 ON T2.ovs_primaryinspectorname = T3.name
+	JOIN tdgdata__systemuser T4 ON T3.userid = T4.systemuserid;
+
+
 	--UPDATE OWNERSHIP OF RECORDS   
-	UPDATE STAGING__COC
-	SET 
-	OWNERID				= @CONST_TDGCORE_USERID,
-	OWNERIDTYPE			= @CONST_OWNERIDTYPE_SYSTEMUSER,
-	OWNINGBUSINESSUNIT	= @CONST_BUSINESSUNIT_TDG_ID,
-	OWNINGUSER			= @CONST_TDGCORE_USERID;
+	--UPDATE STAGING__COC
+	--SET 
+	--OWNERID				= @CONST_TDGCORE_USERID,
+	--OWNERIDTYPE			= @CONST_OWNERIDTYPE_SYSTEMUSER,
+	--OWNINGBUSINESSUNIT	= @CONST_BUSINESSUNIT_TDG_ID,
+	--OWNINGUSER			= @CONST_TDGCORE_USERID;
 	
 	--SET ACTIVITYID WHICH IS PK IN CRM
 	UPDATE STAGING__COC SET activityid = ID;

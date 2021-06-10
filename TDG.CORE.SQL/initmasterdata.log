@@ -1,0 +1,234 @@
+TDGCORE_DOMAINNAME                                 TDGCORE_USERID                                     TEAM_TDG_NAME                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        BUSINESSUNIT_TDG_ID                                PRICELISTID                                       
+-------------------------------------------------- -------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -------------------------------------------------- --------------------------------------------------
+tdg.core@034gc.onmicrosoft.com                     ae39bb8b-4b92-eb11-b1ac-000d3ae85ba1               0fd28d12-89b3-eb11-8236-000d3af3d344                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 4e122e0c-73f3-ea11-a815-000d3af3ac0d               b92b6a16-7cf7-ea11-a815-000d3af3a7a7              
+
+(1 rows affected)
+
+(2 rows affected)
+
+(13 rows affected)
+
+(2 rows affected)
+
+(4 rows affected)
+
+(1 rows affected)
+
+(7 rows affected)
+
+(7 rows affected)
+
+(2 rows affected)
+
+(13 rows affected)
+
+(2 rows affected)
+
+(120 rows affected)
+
+(121 rows affected)
+
+(121 rows affected)
+STAGING__TYRATIONAL
+-------------------
+                  2
+
+(1 rows affected)
+ovs_name                                                                                            
+----------------------------------------------------------------------------------------------------
+Planned::Planifié                                                                                   
+Unplanned::Non planifié                                                                             
+
+(2 rows affected)
+STAGING__OVERSIGHTTYPE
+----------------------
+                    13
+
+(1 rows affected)
+ovs_name                                                                                            
+----------------------------------------------------------------------------------------------------
+GC Opportunity::Opportunité GC                                                                      
+GC Undeclared/ Misdeclared::GC non déclaré / mal déclaré                                            
+GC Follow-up::Suivi GC                                                                              
+GC Consignment::Envoi GC                                                                            
+GC IPT::GC IPT (FR)                                                                                 
+GC Targeted::GC ciblé                                                                               
+MOC Facility Targeted::Facilité MOC ciblée                                                          
+GC Triggered::GC déclenché                                                                          
+Civil Aviation Document Review::Examen des documents de l'aviation civile                           
+MOC Facility Follow-up::Suivi des installations de MOC                                              
+MOC Facility IPT::Installation MOC IPT                                                              
+MOC Facility Triggered::Installation MOC déclenchée                                                 
+MOC Facility Opportunity::Opportunité d'installation MOC                                            
+
+(13 rows affected)
+STAGING__WORKORDERTYPE
+----------------------
+                     2
+
+(1 rows affected)
+msdyn_name                                                                                          
+----------------------------------------------------------------------------------------------------
+Inspection::Inspection                                                                              
+Regulatory Authorization::Autorisation réglementaire                                                
+
+(2 rows affected)
+STAGING__BOOKABLE_RESOURCE_CATEGORIES
+-------------------------------------
+                                    4
+
+(1 rows affected)
+name                                                                                                
+----------------------------------------------------------------------------------------------------
+Inspector::Inspecteur                                                                               
+Regional Inspector::Regional Inspector                                                              
+Government of Alberta::Government of Alberta                                                        
+Engineering Services::(translate)Engineering Services                                               
+
+(4 rows affected)
+STAGING__BOOKABLE_RESOURCE
+--------------------------
+                       121
+
+(1 rows affected)
+name                                                                                                
+----------------------------------------------------------------------------------------------------
+TDG Core                                                                                            
+Elric Ladouceur                                                                                     
+Benoit Robillard                                                                                    
+Ian Crevier                                                                                         
+Kurt Sieloff                                                                                        
+Kyle Buchanan                                                                                       
+Laurianne Bouchard                                                                                  
+Lawrence Shand                                                                                      
+Leonard Freeman                                                                                     
+Lianne Charbonneau                                                                                  
+Luc BELAIRL                                                                                         
+Lynn Matheson                                                                                       
+Manon Phaneuf                                                                                       
+Marc Bonneau                                                                                        
+Marc Ostrowski                                                                                      
+Marc Beaurivage                                                                                     
+Marc-Oliver BOUDRMA                                                                                 
+Mario HOULEM                                                                                        
+Mathieu DesRoches                                                                                   
+Matthew Krech                                                                                       
+Matthew Dunk                                                                                        
+Michael FUMI                                                                                        
+Milan Rose                                                                                          
+Miranda Friesen                                                                                     
+Nathalie Gagnon                                                                                     
+Neil Cristo                                                                                         
+Nicholas Roy                                                                                        
+Nicole Capela                                                                                       
+Nida Chaudhary                                                                                      
+Pascal Verville                                                                                     
+Paul Driver                                                                                         
+Peter Zeljeznak                                                                                     
+Rachelle Godin                                                                                      
+Randy Decker                                                                                        
+Ray Desjardins                                                                                      
+Ray Zillich                                                                                         
+Rebecca Conway                                                                                      
+Rebecca Paul                                                                                        
+Robert Blair                                                                                        
+Roberto Bruni                                                                                       
+Rod Levinton                                                                                        
+Ronald Carriere                                                                                     
+Ryan Gervais                                                                                        
+Samuel Lee                                                                                          
+Sara Devereaux                                                                                      
+Sarah Evangelista                                                                                   
+Serge Fournier                                                                                      
+Sharon Brakeleong                                                                                   
+Stéphane Gagnon                                                                                     
+Stephen McCarty                                                                                     
+Steve Eastman                                                                                       
+Travis MacLean                                                                                      
+Trudy Nastiuk                                                                                       
+Vénessa Talbot                                                                                      
+Vicki Vanderburgh                                                                                   
+Alexandra PINEAUA                                                                                   
+Alvin Wong                                                                                          
+Andrea Heba                                                                                         
+Wali Sagaf                                                                                          
+Anh-Taï Vo                                                                                          
+Walter Chivers                                                                                      
+Anthony Allardyce                                                                                   
+William Chung                                                                                       
+Winston George                                                                                      
+Zeena Mohammed                                                                                      
+Brent Black                                                                                         
+Carrie Salzl                                                                                        
+Chris Wells                                                                                         
+Chris Nowak                                                                                         
+Claude Faust                                                                                        
+Cluny Nichols                                                                                       
+Cory Williams                                                                                       
+Daniel Sylvestre                                                                                    
+Daniel Keenan-Pelletier                                                                             
+David Wood                                                                                          
+David GREYEYD                                                                                       
+Dawn Millen                                                                                         
+Dean McCann                                                                                         
+Debbie Mayers                                                                                       
+Debra Nicholson                                                                                     
+Denis Hache                                                                                         
+Derek Weicker                                                                                       
+Diann Lyver                                                                                         
+Duane LONGD                                                                                         
+Elena Klassen                                                                                       
+Emily Ho                                                                                            
+Emily Feeley                                                                                        
+Eugene DELONE                                                                                       
+Eve Poirier                                                                                         
+France Bernier                                                                                      
+Gail Begley                                                                                         
+Garth McLean                                                                                        
+Gary Li                                                                                             
+Glenn Miller                                                                                        
+Heather Lindsay                                                                                     
+Ida Imler                                                                                           
+James Horbay                                                                                        
+James CRESSWJ                                                                                       
+Janika Ouimette                                                                                     
+Jasbir Grover                                                                                       
+Jean Ouellette                                                                                      
+Jean-Guy Lemay                                                                                      
+Jean-Paul HANDRIJ                                                                                   
+Jennifer Wallenius                                                                                  
+John Tomaselli                                                                                      
+John Vincent                                                                                        
+John Summers                                                                                        
+Josée Boudreau                                                                                      
+Joseph Dos Santos                                                                                   
+Ken Queenan                                                                                         
+Kenneth Small                                                                                       
+Greg Sliva                                                                                          
+Suzanne Lessard                                                                                     
+Michael Kim                                                                                         
+Matthew Ruta                                                                                        
+Patrick Lessard                                                                                     
+Daniel Savard                                                                                       
+Shaun Singh                                                                                         
+Vincent Whitton                                                                                     
+Katherine Smith                                                                                     
+Stephanie Valade                                                                                    
+
+(121 rows affected)
+STAGING__TERRITORY
+------------------
+                 7
+
+(1 rows affected)
+name                                                                                                                                                                                                    
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Prairie and Northern::Prairies et du Nord                                                                                                                                                               
+HQ-ES::HQ-ES                                                                                                                                                                                            
+Ontario::Ontario                                                                                                                                                                                        
+HQ-CR::HQ-CR                                                                                                                                                                                            
+Atlantic::Atlantique                                                                                                                                                                                    
+Quebec::Québec                                                                                                                                                                                          
+Pacific::Pacifique                                                                                                                                                                                      
+
+(7 rows affected)
