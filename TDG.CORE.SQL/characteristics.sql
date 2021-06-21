@@ -615,3 +615,64 @@ SELECT
 FROM
 	#STAGING__MOC_FACILITY_TYPE 
 
+
+		--===================================================================================================
+	--===================================================================================================
+	--LOCALIZATION PLUGIN SUPPORT
+	UPDATE
+		[STAGING__MODES]
+	SET
+		[ovs_name] = CONCAT(
+			ovs_englishlabel,
+			'::',
+			ovs_frenchlabel
+		);
+
+
+	UPDATE
+		[STAGING__AIR_OPERATOR_TYPE]
+	SET
+		[ovs_name] = CONCAT(
+			ovs_englishlabel,
+			'::',
+			ovs_frenchlabel
+		);
+
+
+	UPDATE
+		[STAGING__AIR_OPERATOR_FUNCTION]
+	SET
+		[ovs_name] = CONCAT(
+			ovs_englishlabel,
+			'::',
+			ovs_frenchlabel
+		);
+
+	UPDATE
+		[STAGING__AIRCRAFT_TYPE]
+	SET
+		[ovs_name] = CONCAT(
+			ovs_englishlabel,
+			'::',
+			ovs_frenchlabel
+		);
+
+	UPDATE
+		[STAGING__MOC_TYPE]
+	SET
+		[ovs_name] = CONCAT(
+			ovs_englishlabel,
+			'::',
+			ovs_frenchlabel
+		);
+
+	UPDATE
+		[STAGING__MOC_FACILITY_TYPE]
+	SET
+		[ovs_name] = CONCAT(
+			ovs_englishlabel,
+			'::',
+			ovs_frenchlabel
+		);
+
+
