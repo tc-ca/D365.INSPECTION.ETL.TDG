@@ -12,8 +12,8 @@
   DTS:ObjectName="ExcelToSql"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{D55E31F9-FE26-4B41-AFD9-F008F6CC85C0}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{FE4E584F-9D92-4FF7-AD2C-8B9F410B9698}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,12 +27,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-Package3-{7ED8F26D-FB1F-45D7-8B1A-483B25F5FF52}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="XJspMFiDc2I="
-            IV="7pjfqXs4ALpb2LcCEUFwGw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="/E7Ory1njtU="
+            IV="OwbYxGo6bsqPrWBoLcEmHw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>7pjfqXs4ALpb2LcCEUFwG/gOAima2venDbb36CeVKu5U7E+wINR3JdxDht7wkQZ/tTraBiZKHfho91FoZbbe2nm581jIkGhv5GqtusuqSFf2R9+boEfbe8JxDVT0V0FFrmhh/YwbwJzHewYr3a1ITqWhs4mG69lV5eyupd2urjNv3LyVc+/8Kb/Fxqg++Es/</CipherValue>
+              <CipherValue>OwbYxGo6bsqPrWBoLcEmH+e9Zhxkt0roZWGJZCX9hOs8PI5vf+iuU8rIqpDPeOQ4UU/XX+pf/0CMuCtzPgm6HbJ5PA45xUbDm/4Hae6kzeYVrbszLzK4VrtY8qqbJmfE8WWDcG4fIMvUP1nmVYzJc+5mF05VGxjOkCLP7hckXtUm+OT1e2PXKQ8s/smrRaIB</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -48,12 +48,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-Package3-{45093E3D-2E74-4987-A606-797F71448B41}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="4a51ykYygy0="
-            IV="XKXJVnLbapG5eOZj/owy0Q==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="Acc9cfGnhcg="
+            IV="EhPr7FxZjATwMLzj3hVPsA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>XKXJVnLbapG5eOZj/owy0WXLhk5exET3DOwQB1mMkJgMD5Gyj7AJNAiinR6+biG3jZnDMLKswxaxWP/IhB8EkFm6lyIaZ68jd7Lu8Bk8ynX6uUBIOFO1ZzERPk6kZ39YlDjzT4VNCAz/lQfT6UvjmO4R3ajVb3U4qxjzyC/LSgIsx42xoOp7si96NOOpn4rH</CipherValue>
+              <CipherValue>EhPr7FxZjATwMLzj3hVPsJHIgfm5tyW9rrrI60anc8hoXy/r/KY9nxkl0RbRC5zkbWJo15iBK6MhDQJ7+RIq+er48HJ3nK4BIq+05c8q55NQcHpYHOWqjArBn/D2m8j3UQxiZsrIOd954AtDfNJ2lXXk+w/vxCpWZ08rZNgzN1tkCXudJpQLdkCxwRJHL01A</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -69,12 +69,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-Package3-{A9EC53B8-E514-4CE4-9402-92B500170879}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="HMbpZ8aYeZI="
-            IV="62IAzP1jXUP3Zhsvzs66Nw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="x6q/PlxnTa0="
+            IV="tMAUNRFL/Eh7EJk7qCn6ig==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>62IAzP1jXUP3Zhsvzs66N+tRcu3Qhs5MLKYWhWrX5r60sfqxqY8r/ZdvNTIbIXoziGtIdI9LK70yolEtl6+13fs7z1Ddcy2s5xeHf947pukqVsX3zpnkRO+afL2zfufD+TCHVI61vf/CDllFSITkJV6xl6p3HVlmD+Eva1yd8y32sGXHEbwaNz8E54gr9uVJ</CipherValue>
+              <CipherValue>tMAUNRFL/Eh7EJk7qCn6iut7wXPtMqVgjpXxAh3IALYorBAXOflox0pmRmlYCeewF8LgD+HuxmlFqYc1a4TF3ZCP5HhyAJNJ5mCVQi0CakJzjrB123qDFgXaE2YZXaSigoH9lWDPmuvw72r26CDHWTjTThLWEWOsC+67D0p8iOaRdOFu4D9EI/exVyoN/VQi</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -31276,7 +31276,6 @@ FROM [dbo].[26_TDGLegislation];</property>
       DTS:refId="Package\IIS CONSOLIDATION"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
       DTS:DTSID="{A2A2B942-A1FE-41E4-AA0C-89D2C71D0DAC}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -39212,9 +39211,17 @@ FROM [dbo].[26_TDGLegislation];</property>
           Id="Package\21-22 WORKPLAN"
           TopLeft="1350.5,126.5" />
         <NodeLayout
+          Size="223,42"
+          Id="Package\Delete Legislation Excel Data"
+          TopLeft="1665,119" />
+        <NodeLayout
           Size="179,42"
           Id="Package\IIS CONSOLIDATION"
-          TopLeft="437,136" />
+          TopLeft="435,141" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\Import Legislation Excel Data"
+          TopLeft="1664,222.5" />
         <NodeLayout
           Size="166,42"
           Id="Package\ProvisionMatches"
@@ -39227,14 +39234,6 @@ FROM [dbo].[26_TDGLegislation];</property>
           Size="158,42"
           Id="Package\TDGIIS_EXPORT"
           TopLeft="1027.5,128.5" />
-        <NodeLayout
-          Size="223,42"
-          Id="Package\Delete Legislation Excel Data"
-          TopLeft="1665,119" />
-        <NodeLayout
-          Size="222,42"
-          Id="Package\Import Legislation Excel Data"
-          TopLeft="1664,222.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="1775.75,161">
@@ -39419,12 +39418,50 @@ FROM [dbo].[26_TDGLegislation];</property>
     </LayoutInfo>
   </TaskHost>
   <TaskHost
+    design-time-name="Package\Delete Legislation Excel Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="242,42"
+          Id="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1"
+          TopLeft="511,528" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Delete Legislation Excel Data\Premium ADO NET Source"
+          TopLeft="522,346" />
+        <EdgeLayout
+          Id="Package\Delete Legislation Excel Data.Paths[Default Output]"
+          TopLeft="630.25,388">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,140"
+              Start="0,0"
+              End="0,132.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,132.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
     design-time-name="Package\IIS CONSOLIDATION">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152,42"
+          Size="156,42"
           Id="Package\IIS CONSOLIDATION\TDG Inspectors"
           TopLeft="713.5,167.5" />
         <NodeLayout
@@ -39433,7 +39470,7 @@ FROM [dbo].[26_TDGLegislation];</property>
           TopLeft="681,318" />
         <EdgeLayout
           Id="Package\IIS CONSOLIDATION.Paths[Default Output]"
-          TopLeft="791.25,209.5">
+          TopLeft="792.25,209.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -39450,9 +39487,45 @@ FROM [dbo].[26_TDGLegislation];</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Import Legislation Excel Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Import Legislation Excel Data\Premium Excel Source"
+          TopLeft="859.5,343.5" />
+        <NodeLayout
+          Size="233,42"
+          Id="Package\Import Legislation Excel Data\Premium ADO NET Destination"
+          TopLeft="844,530" />
+        <EdgeLayout
+          Id="Package\Import Legislation Excel Data.Paths[Default Output]"
+          TopLeft="957.75,385.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,144.5"
+              Start="0,0"
+              End="0,137">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,137" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -39573,82 +39646,6 @@ FROM [dbo].[26_TDGLegislation];</property>
             <mssgm:EdgeLabel
               BoundingBox="0,0,0,0"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\Delete Legislation Excel Data">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="242,42"
-          Id="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1"
-          TopLeft="511,528" />
-        <NodeLayout
-          Size="213,42"
-          Id="Package\Delete Legislation Excel Data\Premium ADO NET Source"
-          TopLeft="522,346" />
-        <EdgeLayout
-          Id="Package\Delete Legislation Excel Data.Paths[Default Output]"
-          TopLeft="630.25,388">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,140"
-              Start="0,0"
-              End="0,132.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,132.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\Import Legislation Excel Data">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="191,42"
-          Id="Package\Import Legislation Excel Data\Premium Excel Source"
-          TopLeft="859.5,343.5" />
-        <NodeLayout
-          Size="233,42"
-          Id="Package\Import Legislation Excel Data\Premium ADO NET Destination"
-          TopLeft="844,530" />
-        <EdgeLayout
-          Id="Package\Import Legislation Excel Data.Paths[Default Output]"
-          TopLeft="957.75,385.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,144.5"
-              Start="0,0"
-              End="0,137">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,137" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

@@ -12,8 +12,8 @@
   DTS:ObjectName="CrmToSql"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="33"
-  DTS:VersionGUID="{58206A7F-4526-4804-B57B-625C0C6F1483}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{062F7472-CBA9-422D-9534-0B1781405683}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,16 +24,16 @@
       DTS:ObjectName="Dynamics CRM Connection Manager">
       <DTS:ObjectData>
         <CrmConnectionManager
-          ConnectionString="AuthenticationType=OnlineFederation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev-tcd365.crm3.dynamics.com;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
+          ConnectionString="AuthenticationType=OnlineFederation;ServiceEndpoint=Soap2011;UserName=tdg-test6@034gc.onmicrosoft.com;Domain=;ServerUrl=https://rom-dev-tcd365.crm3.dynamics.com;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"
           ConnectByProxy="False">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="QJzyfoR9ljY="
-            IV="2Cn8wamZUw6Q+pi2BPaURg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="IHVGwsp9xgk="
+            IV="1gsw2KI+MFnwI7wbJj9Cfg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>2Cn8wamZUw6Q+pi2BPaURhxWUxpQUZtmb5VQMn/O7FEIuL+xm1IrIbTUh9NLGnveSMfvN1nbYKlluoh/7WVX9sBEnmCuf/vGZ99epwa3kq64S22Snfn3um5cNUtIoKzaupiCjcwCpR9WSzeoGZbw3A==</CipherValue>
+              <CipherValue>1gsw2KI+MFnwI7wbJj9CfqX2yfUs1PxIqEXSnexhBuyBVyU579D87LAyttk3StPkHIeQoh5qaOD/P4InA1dBwlHhlTz45DR8Iz+ilsC6k3G6gr9WyNHjNiv1BzVeTJWZGC3UjBbIuX6WdsII896TKQ==</CipherValue>
             </CipherData>
           </EncryptedData>
         </CrmConnectionManager>
@@ -27069,8 +27069,8 @@
               <connections>
                 <connection
                   refId="Package\fiscal years\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
-                  connectionManagerRefId="{B37F8C67-7531-4963-A1D3-6C1D98904568}:invalid"
+                  connectionManagerID="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Dynamics CRM Connection Manager]"
                   description="Dynamics CRM Connection Manager"
                   name="DynamicsCRM" />
               </connections>
@@ -27639,12 +27639,12 @@
                 <property
                   dataType="System.String"
                   expressionType="Notify"
-                  name="DestinationTable">dbo.13_FISCAL_YEAR</property>
+                  name="DestinationTable">dbo.SOURCE__FISCAL_YEAR</property>
                 <property
                   dataType="System.Int32"
                   expressionType="Notify"
                   name="Action"
-                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationAction">2</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationAction">0</property>
                 <property
                   dataType="System.Int32"
                   description="WriteMode"
@@ -27714,10 +27714,87 @@
                 <input
                   refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input]"
                   errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="RedirectRow"
                   hasSideEffects="true"
                   name="Primary Input">
                   <inputColumns>
+                    <inputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[ownerid]"
+                      cachedDataType="guid"
+                      cachedName="ownerid"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[ownerid]"
+                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[ownerid]" />
+                    <inputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[owneridtype]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="owneridtype"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[owneridtype]"
+                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[owneridtype]" />
+                    <inputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[owningbusinessunit]"
+                      cachedDataType="guid"
+                      cachedName="owningbusinessunit"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[owningbusinessunit]"
+                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[owningbusinessunit]" />
+                    <inputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[owninguser]"
+                      cachedDataType="guid"
+                      cachedName="owninguser"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[owninguser]"
+                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[owninguser]" />
+                    <inputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[tc_fiscalend]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="tc_fiscalend"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_fiscalend]"
+                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_fiscalend]" />
+                    <inputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[tc_fiscalstart]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="tc_fiscalstart"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_fiscalstart]"
+                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_fiscalstart]" />
+                    <inputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[tc_fiscalyearlonglbl]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="tc_fiscalyearlonglbl"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_fiscalyearlonglbl]"
+                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_fiscalyearlonglbl]" />
+                    <inputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[tc_fiscalyearnum]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="tc_fiscalyearnum"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_fiscalyearnum]"
+                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_fiscalyearnum]" />
+                    <inputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[tc_iscurrentfiscalyear]"
+                      cachedDataType="bool"
+                      cachedName="tc_iscurrentfiscalyear"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_iscurrentfiscalyear]"
+                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_iscurrentfiscalyear]" />
+                    <inputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[tc_iscurrentfiscalyearname]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="tc_iscurrentfiscalyearname"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_iscurrentfiscalyearname]"
+                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_iscurrentfiscalyearname]" />
+                    <inputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[tc_name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="tc_name"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_name]"
+                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_name]" />
+                    <inputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[tc_tcfiscalyearid]"
+                      cachedDataType="guid"
+                      cachedName="tc_tcfiscalyearid"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_tcfiscalyearid]"
+                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_tcfiscalyearid]" />
                     <inputColumn
                       refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[createdby]"
                       cachedDataType="guid"
@@ -27823,25 +27900,12 @@
                       externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[overriddencreatedon]"
                       lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[overriddencreatedon]" />
                     <inputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[ownerid]"
-                      cachedDataType="guid"
-                      cachedName="ownerid"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[ownerid]"
-                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[ownerid]" />
-                    <inputColumn
                       refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[owneridname]"
                       cachedDataType="wstr"
                       cachedLength="200"
                       cachedName="owneridname"
                       externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[owneridname]"
                       lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[owneridname]" />
-                    <inputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[owneridtype]"
-                      cachedDataType="wstr"
-                      cachedLength="64"
-                      cachedName="owneridtype"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[owneridtype]"
-                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[owneridtype]" />
                     <inputColumn
                       refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[owneridyominame]"
                       cachedDataType="wstr"
@@ -27850,23 +27914,11 @@
                       externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[owneridyominame]"
                       lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[owneridyominame]" />
                     <inputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[owningbusinessunit]"
-                      cachedDataType="guid"
-                      cachedName="owningbusinessunit"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[owningbusinessunit]"
-                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[owningbusinessunit]" />
-                    <inputColumn
                       refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[owningteam]"
                       cachedDataType="guid"
                       cachedName="owningteam"
                       externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[owningteam]"
                       lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[owningteam]" />
-                    <inputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[owninguser]"
-                      cachedDataType="guid"
-                      cachedName="owninguser"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[owninguser]"
-                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[owninguser]" />
                     <inputColumn
                       refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[statecode]"
                       cachedDataType="i4"
@@ -27893,58 +27945,6 @@
                       cachedName="statuscodename"
                       externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[statuscodename]"
                       lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscodename]" />
-                    <inputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[tc_fiscalend]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="tc_fiscalend"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_fiscalend]"
-                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_fiscalend]" />
-                    <inputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[tc_fiscalstart]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="tc_fiscalstart"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_fiscalstart]"
-                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_fiscalstart]" />
-                    <inputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[tc_fiscalyearlonglbl]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="tc_fiscalyearlonglbl"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_fiscalyearlonglbl]"
-                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_fiscalyearlonglbl]" />
-                    <inputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[tc_fiscalyearnum]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="tc_fiscalyearnum"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_fiscalyearnum]"
-                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_fiscalyearnum]" />
-                    <inputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[tc_iscurrentfiscalyear]"
-                      cachedDataType="bool"
-                      cachedName="tc_iscurrentfiscalyear"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_iscurrentfiscalyear]"
-                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_iscurrentfiscalyear]" />
-                    <inputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[tc_iscurrentfiscalyearname]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="tc_iscurrentfiscalyearname"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_iscurrentfiscalyearname]"
-                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_iscurrentfiscalyearname]" />
-                    <inputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[tc_name]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="tc_name"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_name]"
-                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_name]" />
-                    <inputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[tc_tcfiscalyearid]"
-                      cachedDataType="guid"
-                      cachedName="tc_tcfiscalyearid"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_tcfiscalyearid]"
-                      lineageId="Package\fiscal years\Dynamics CRM Source.Outputs[Primary Output].Columns[tc_tcfiscalyearid]" />
                     <inputColumn
                       refId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].Columns[tc_todaysdate]"
                       cachedDataType="dbTimeStamp"
@@ -27990,6 +27990,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28011,6 +28014,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28032,6 +28038,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28052,6 +28061,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28072,6 +28084,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28093,6 +28108,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28114,6 +28132,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28134,6 +28155,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28154,6 +28178,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28175,6 +28202,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28196,6 +28226,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28216,6 +28249,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28236,6 +28272,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28257,6 +28296,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28278,6 +28320,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28298,6 +28343,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28339,6 +28387,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28381,6 +28432,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28421,6 +28475,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28461,6 +28518,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28482,6 +28542,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28502,6 +28565,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28523,6 +28589,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28707,6 +28776,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28727,6 +28799,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28747,6 +28822,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -28767,6 +28845,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                   </externalMetadataColumns>
@@ -28796,6 +28877,83 @@
                       length="2048"
                       lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorMessage]"
                       name="ErrorMessage" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[ownerid]"
+                      dataType="guid"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[ownerid]"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[ownerid]"
+                      name="ownerid" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[owneridtype]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[owneridtype]"
+                      length="64"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[owneridtype]"
+                      name="owneridtype" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[owningbusinessunit]"
+                      dataType="guid"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[owningbusinessunit]"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[owningbusinessunit]"
+                      name="owningbusinessunit" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[owninguser]"
+                      dataType="guid"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[owninguser]"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[owninguser]"
+                      name="owninguser" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_fiscalend]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_fiscalend]"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_fiscalend]"
+                      name="tc_fiscalend" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_fiscalstart]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_fiscalstart]"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_fiscalstart]"
+                      name="tc_fiscalstart" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_fiscalyearlonglbl]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_fiscalyearlonglbl]"
+                      length="100"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_fiscalyearlonglbl]"
+                      name="tc_fiscalyearlonglbl" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_fiscalyearnum]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_fiscalyearnum]"
+                      length="100"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_fiscalyearnum]"
+                      name="tc_fiscalyearnum" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_iscurrentfiscalyear]"
+                      dataType="bool"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_iscurrentfiscalyear]"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_iscurrentfiscalyear]"
+                      name="tc_iscurrentfiscalyear" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_iscurrentfiscalyearname]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_iscurrentfiscalyearname]"
+                      length="255"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_iscurrentfiscalyearname]"
+                      name="tc_iscurrentfiscalyearname" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_name]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_name]"
+                      length="100"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_name]"
+                      name="tc_name" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_tcfiscalyearid]"
+                      dataType="guid"
+                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_tcfiscalyearid]"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_tcfiscalyearid]"
+                      name="tc_tcfiscalyearid" />
                     <outputColumn
                       refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[createdby]"
                       dataType="guid"
@@ -28901,25 +29059,12 @@
                       lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[overriddencreatedon]"
                       name="overriddencreatedon" />
                     <outputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[ownerid]"
-                      dataType="guid"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[ownerid]"
-                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[ownerid]"
-                      name="ownerid" />
-                    <outputColumn
                       refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[owneridname]"
                       dataType="wstr"
                       externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[owneridname]"
                       length="200"
                       lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[owneridname]"
                       name="owneridname" />
-                    <outputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[owneridtype]"
-                      dataType="wstr"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[owneridtype]"
-                      length="64"
-                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[owneridtype]"
-                      name="owneridtype" />
                     <outputColumn
                       refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[owneridyominame]"
                       dataType="wstr"
@@ -28928,23 +29073,11 @@
                       lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[owneridyominame]"
                       name="owneridyominame" />
                     <outputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[owningbusinessunit]"
-                      dataType="guid"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[owningbusinessunit]"
-                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[owningbusinessunit]"
-                      name="owningbusinessunit" />
-                    <outputColumn
                       refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[owningteam]"
                       dataType="guid"
                       externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[owningteam]"
                       lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[owningteam]"
                       name="owningteam" />
-                    <outputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[owninguser]"
-                      dataType="guid"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[owninguser]"
-                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[owninguser]"
-                      name="owninguser" />
                     <outputColumn
                       refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[statecode]"
                       dataType="i4"
@@ -28971,58 +29104,6 @@
                       length="255"
                       lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[statuscodename]"
                       name="statuscodename" />
-                    <outputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_fiscalend]"
-                      dataType="dbTimeStamp"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_fiscalend]"
-                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_fiscalend]"
-                      name="tc_fiscalend" />
-                    <outputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_fiscalstart]"
-                      dataType="dbTimeStamp"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_fiscalstart]"
-                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_fiscalstart]"
-                      name="tc_fiscalstart" />
-                    <outputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_fiscalyearlonglbl]"
-                      dataType="wstr"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_fiscalyearlonglbl]"
-                      length="100"
-                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_fiscalyearlonglbl]"
-                      name="tc_fiscalyearlonglbl" />
-                    <outputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_fiscalyearnum]"
-                      dataType="wstr"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_fiscalyearnum]"
-                      length="100"
-                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_fiscalyearnum]"
-                      name="tc_fiscalyearnum" />
-                    <outputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_iscurrentfiscalyear]"
-                      dataType="bool"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_iscurrentfiscalyear]"
-                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_iscurrentfiscalyear]"
-                      name="tc_iscurrentfiscalyear" />
-                    <outputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_iscurrentfiscalyearname]"
-                      dataType="wstr"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_iscurrentfiscalyearname]"
-                      length="255"
-                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_iscurrentfiscalyearname]"
-                      name="tc_iscurrentfiscalyearname" />
-                    <outputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_name]"
-                      dataType="wstr"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_name]"
-                      length="100"
-                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_name]"
-                      name="tc_name" />
-                    <outputColumn
-                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_tcfiscalyearid]"
-                      dataType="guid"
-                      externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[tc_tcfiscalyearid]"
-                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_tcfiscalyearid]"
-                      name="tc_tcfiscalyearid" />
                     <outputColumn
                       refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Error Output].Columns[tc_todaysdate]"
                       dataType="dbTimeStamp"
@@ -29305,6 +29386,342 @@
                       externalMetadataColumnId="Package\fiscal years\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[versionnumber]"
                       lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Default Output].Columns[versionnumber]"
                       name="versionnumber" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records]"
+                  name="Bulk Reporting Output - Inserted Records">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[createdby]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[createdby]"
+                      name="createdby"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[createdbyname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="200"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[createdbyname]"
+                      name="createdbyname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[createdbyyominame]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="200"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[createdbyyominame]"
+                      name="createdbyyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[createdon]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[createdon]"
+                      name="createdon"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[createdonbehalfby]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[createdonbehalfby]"
+                      name="createdonbehalfby"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[createdonbehalfbyname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="200"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[createdonbehalfbyname]"
+                      name="createdonbehalfbyname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[createdonbehalfbyyominame]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="200"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[createdonbehalfbyyominame]"
+                      name="createdonbehalfbyyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[importsequencenumber]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[importsequencenumber]"
+                      name="importsequencenumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[modifiedby]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[modifiedby]"
+                      name="modifiedby"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[modifiedbyname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="200"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[modifiedbyname]"
+                      name="modifiedbyname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[modifiedbyyominame]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="200"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[modifiedbyyominame]"
+                      name="modifiedbyyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[modifiedon]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[modifiedon]"
+                      name="modifiedon"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[modifiedonbehalfby]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[modifiedonbehalfby]"
+                      name="modifiedonbehalfby"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[modifiedonbehalfbyname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="200"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[modifiedonbehalfbyname]"
+                      name="modifiedonbehalfbyname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[modifiedonbehalfbyyominame]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="200"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[modifiedonbehalfbyyominame]"
+                      name="modifiedonbehalfbyyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[overriddencreatedon]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[overriddencreatedon]"
+                      name="overriddencreatedon"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[ownerid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[ownerid]"
+                      name="ownerid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[owneridname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="200"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[owneridname]"
+                      name="owneridname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[owneridtype]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="64"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[owneridtype]"
+                      name="owneridtype"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[owneridyominame]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="200"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[owneridyominame]"
+                      name="owneridyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[owningbusinessunit]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[owningbusinessunit]"
+                      name="owningbusinessunit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[owningteam]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[owningteam]"
+                      name="owningteam"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[owninguser]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[owninguser]"
+                      name="owninguser"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[statecode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[statecode]"
+                      name="statecode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[statecodename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[statecodename]"
+                      name="statecodename"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[statuscode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[statuscode]"
+                      name="statuscode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[statuscodename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[statuscodename]"
+                      name="statuscodename"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[tc_fiscalend]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[tc_fiscalend]"
+                      name="tc_fiscalend"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[tc_fiscalstart]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[tc_fiscalstart]"
+                      name="tc_fiscalstart"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[tc_fiscalyearlonglbl]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[tc_fiscalyearlonglbl]"
+                      name="tc_fiscalyearlonglbl"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[tc_fiscalyearnum]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[tc_fiscalyearnum]"
+                      name="tc_fiscalyearnum"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[tc_iscurrentfiscalyear]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[tc_iscurrentfiscalyear]"
+                      name="tc_iscurrentfiscalyear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[tc_iscurrentfiscalyearname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[tc_iscurrentfiscalyearname]"
+                      name="tc_iscurrentfiscalyearname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[tc_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[tc_name]"
+                      name="tc_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[tc_tcfiscalyearid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[tc_tcfiscalyearid]"
+                      name="tc_tcfiscalyearid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[tc_todaysdate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[tc_todaysdate]"
+                      name="tc_todaysdate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[timezoneruleversionnumber]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[timezoneruleversionnumber]"
+                      name="timezoneruleversionnumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[utcconversiontimezonecode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[utcconversiontimezonecode]"
+                      name="utcconversiontimezonecode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[versionnumber]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\fiscal years\Premium ADO NET Destination.Outputs[Bulk Reporting Output - Inserted Records].Columns[versionnumber]"
+                      name="versionnumber"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -41437,7 +41854,7 @@
     design-time-name="Package\accounts">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="171,42"
           Id="Package\accounts\OLE DB Destination"
@@ -41465,7 +41882,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -41488,7 +41907,7 @@
     design-time-name="Package\bookable resource">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="224,42"
           Id="Package\bookable resource\Premium ADO NET Destination"
@@ -41516,7 +41935,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -41526,7 +41947,7 @@
     design-time-name="Package\bookable resource categories">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="184,42"
           Id="Package\bookable resource categories\Dynamics CRM Source"
@@ -41554,7 +41975,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -41564,7 +41987,7 @@
     design-time-name="Package\bookable resource categories assn">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="184,42"
           Id="Package\bookable resource categories assn\Dynamics CRM Source"
@@ -41592,7 +42015,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -41602,7 +42027,7 @@
     design-time-name="Package\contact">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="233,42"
           Id="Package\contact\Premium ADO NET Destination"
@@ -41642,7 +42067,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -41694,16 +42121,16 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="184,42"
+          Size="193,42"
           Id="Package\fiscal years\Dynamics CRM Source"
-          TopLeft="537,107" />
+          TopLeft="549,107" />
         <NodeLayout
-          Size="224,42"
+          Size="233,42"
           Id="Package\fiscal years\Premium ADO NET Destination"
-          TopLeft="522,278" />
+          TopLeft="523,278" />
         <EdgeLayout
           Id="Package\fiscal years.Paths[Primary Output]"
-          TopLeft="631.5,149">
+          TopLeft="642.5,149">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -41730,7 +42157,7 @@
     design-time-name="Package\system users">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="224,42"
           Id="Package\system users\Premium ADO NET Destination"
@@ -41758,7 +42185,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -41768,7 +42197,7 @@
     design-time-name="Package\work orders">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="171,42"
           Id="Package\work orders\OLE DB Destination"
@@ -41796,7 +42225,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

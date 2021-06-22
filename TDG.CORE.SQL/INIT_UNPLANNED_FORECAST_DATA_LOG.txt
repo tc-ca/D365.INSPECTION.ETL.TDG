@@ -1,0 +1,14 @@
+
+(539 rows affected)
+Msg 207, Level 16, State 1, Server tdg-data-migration-server, Line 9
+Invalid column name 'ovs_region'.
+Msg 207, Level 16, State 1, Server tdg-data-migration-server, Line 10
+Invalid column name 'ovs_fiscalyear'.
+Msg 207, Level 16, State 1, Server tdg-data-migration-server, Line 11
+Invalid column name 'ovs_oversighttype'.
+Msg 207, Level 16, State 1, Server tdg-data-migration-server, Line 51
+Invalid column name 'ownerid'.
+Msg 207, Level 16, State 1, Server tdg-data-migration-server, Line 52
+Invalid column name 'owneridtype'.
+Msg 207, Level 16, State 1, Server tdg-data-migration-server, Line 53
+Invalid column name 'owningbusinessunit'.

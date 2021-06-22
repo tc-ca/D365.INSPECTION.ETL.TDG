@@ -57,545 +57,7 @@ BEGIN
 		[PLANNED2021] [nvarchar](10) NULL,
 	) ON [PRIMARY];
 
-
-	IF EXISTS (
-		SELECT
-			*
-		FROM
-			sys.objects
-		WHERE
-			object_id = OBJECT_ID( '[dbo].[STAGING__ACCOUNT]')
-			AND TYPE IN ('U')
-	) DROP TABLE [dbo].[STAGING__ACCOUNT];
-
-
-	CREATE TABLE [dbo].[STAGING__ACCOUNT] (
-		[accountcategorycode] [int] NULL,
-		[accountclassificationcode] [int] NULL,
-		[accountid] [uniqueidentifier] NULL,
-		[accountnumber] [nvarchar](20) NULL,
-		[accountratingcode] [int] NULL,
-		[address1_addressid] [uniqueidentifier] NULL,
-		[address1_addresstypecode] [int] NULL,
-		[address1_city] [nvarchar](80) NULL,
-		[address1_composite] [nvarchar](max) NULL,
-		[address1_country] [nvarchar](80) NULL,
-		[address1_county] [nvarchar](50) NULL,
-		[address1_fax] [nvarchar](50) NULL,
-		[address1_freighttermscode] [int] NULL,
-		[address1_latitude] [decimal](38, 5) NULL,
-		[address1_line1] [nvarchar](250) NULL,
-		[address1_line2] [nvarchar](250) NULL,
-		[address1_line3] [nvarchar](250) NULL,
-		[address1_longitude] [decimal](38, 5) NULL,
-		[address1_name] [nvarchar](200) NULL,
-		[address1_postalcode] [nvarchar](20) NULL,
-		[address1_postofficebox] [nvarchar](20) NULL,
-		[address1_primarycontactname] [nvarchar](100) NULL,
-		[address1_shippingmethodcode] [int] NULL,
-		[address1_stateorprovince] [nvarchar](50) NULL,
-		[address1_telephone1] [nvarchar](50) NULL,
-		[address1_telephone2] [nvarchar](50) NULL,
-		[address1_telephone3] [nvarchar](50) NULL,
-		[address1_upszone] [nvarchar](4) NULL,
-		[address1_utcoffset] [int] NULL,
-		[address2_addressid] [uniqueidentifier] NULL,
-		[address2_addresstypecode] [int] NULL,
-		[address2_city] [nvarchar](80) NULL,
-		[address2_composite] [nvarchar](max) NULL,
-		[address2_country] [nvarchar](80) NULL,
-		[address2_county] [nvarchar](50) NULL,
-		[address2_fax] [nvarchar](50) NULL,
-		[address2_freighttermscode] [int] NULL,
-		[address2_latitude] [decimal](38, 5) NULL,
-		[address2_line1] [nvarchar](250) NULL,
-		[address2_line2] [nvarchar](250) NULL,
-		[address2_line3] [nvarchar](250) NULL,
-		[address2_longitude] [decimal](38, 5) NULL,
-		[address2_name] [nvarchar](200) NULL,
-		[address2_postalcode] [nvarchar](20) NULL,
-		[address2_postofficebox] [nvarchar](20) NULL,
-		[address2_primarycontactname] [nvarchar](100) NULL,
-		[address2_shippingmethodcode] [int] NULL,
-		[address2_stateorprovince] [nvarchar](50) NULL,
-		[address2_telephone1] [nvarchar](50) NULL,
-		[address2_telephone2] [nvarchar](50) NULL,
-		[address2_telephone3] [nvarchar](50) NULL,
-		[address2_upszone] [nvarchar](4) NULL,
-		[address2_utcoffset] [int] NULL,
-		[aging30] [decimal](38, 2) NULL,
-		[aging30_base] [decimal](38, 4) NULL,
-		[aging60] [decimal](38, 2) NULL,
-		[aging60_base] [decimal](38, 4) NULL,
-		[aging90] [decimal](38, 2) NULL,
-		[aging90_base] [decimal](38, 4) NULL,
-		[businesstypecode] [int] NULL,
-		[createdby] [uniqueidentifier] NULL,
-		[createdby_entitytype] [nvarchar](128) NULL,
-		[createdbyexternalparty] [uniqueidentifier] NULL,
-		[createdbyexternalparty_entitytype] [nvarchar](128) NULL,
-		[createdbyexternalpartyname] [nvarchar](100) NULL,
-		[createdbyexternalpartyyominame] [nvarchar](100) NULL,
-		[createdbyname] [nvarchar](100) NULL,
-		[createdbyyominame] [nvarchar](100) NULL,
-		[createdon] [datetime] NULL,
-		[createdonbehalfby] [uniqueidentifier] NULL,
-		[createdonbehalfby_entitytype] [nvarchar](128) NULL,
-		[createdonbehalfbyname] [nvarchar](100) NULL,
-		[createdonbehalfbyyominame] [nvarchar](100) NULL,
-		[creditlimit] [decimal](38, 2) NULL,
-		[creditlimit_base] [decimal](38, 4) NULL,
-		[creditonhold] [bit] NULL,
-		[customersizecode] [int] NULL,
-		[customertypecode] [int] NULL,
-		[defaultpricelevelid] [uniqueidentifier] NULL,
-		[defaultpricelevelid_entitytype] [nvarchar](128) NULL,
-		[defaultpricelevelidname] [nvarchar](100) NULL,
-		[description] [nvarchar](max) NULL,
-		[donotbulkemail] [bit] NULL,
-		[donotbulkpostalmail] [bit] NULL,
-		[donotemail] [bit] NULL,
-		[donotfax] [bit] NULL,
-		[donotphone] [bit] NULL,
-		[donotpostalmail] [bit] NULL,
-		[donotsendmm] [bit] NULL,
-		[emailaddress1] [nvarchar](100) NULL,
-		[emailaddress2] [nvarchar](100) NULL,
-		[emailaddress3] [nvarchar](100) NULL,
-		[entityimage_timestamp] [bigint] NULL,
-		[entityimage_url] [nvarchar](200) NULL,
-		[entityimageid] [uniqueidentifier] NULL,
-		[exchangerate] [decimal](38, 10) NULL,
-		[fax] [nvarchar](50) NULL,
-		[followemail] [bit] NULL,
-		[ftpsiteurl] [nvarchar](200) NULL,
-		[Id] [uniqueidentifier] NOT NULL,
-		[importsequencenumber] [int] NULL,
-		[industrycode] [int] NULL,
-		[isprivate] [bit] NULL,
-		[lastonholdtime] [datetime] NULL,
-		[lastusedincampaign] [datetime] NULL,
-		[marketcap] [decimal](38, 2) NULL,
-		[marketcap_base] [decimal](38, 4) NULL,
-		[marketingonly] [bit] NULL,
-		[masteraccountidname] [nvarchar](100) NULL,
-		[masteraccountidyominame] [nvarchar](100) NULL,
-		[masterid] [uniqueidentifier] NULL,
-		[masterid_entitytype] [nvarchar](128) NULL,
-		[merged] [bit] NULL,
-		[modifiedby] [uniqueidentifier] NULL,
-		[modifiedby_entitytype] [nvarchar](128) NULL,
-		[modifiedbyexternalparty] [uniqueidentifier] NULL,
-		[modifiedbyexternalparty_entitytype] [nvarchar](128) NULL,
-		[modifiedbyexternalpartyname] [nvarchar](100) NULL,
-		[modifiedbyexternalpartyyominame] [nvarchar](100) NULL,
-		[modifiedbyname] [nvarchar](100) NULL,
-		[modifiedbyyominame] [nvarchar](100) NULL,
-		[modifiedon] [datetime] NULL,
-		[modifiedonbehalfby] [uniqueidentifier] NULL,
-		[modifiedonbehalfby_entitytype] [nvarchar](128) NULL,
-		[modifiedonbehalfbyname] [nvarchar](100) NULL,
-		[modifiedonbehalfbyyominame] [nvarchar](100) NULL,
-		[msdyn_billingaccount] [uniqueidentifier] NULL,
-		[msdyn_billingaccount_entitytype] [nvarchar](128) NULL,
-		[msdyn_billingaccountname] [nvarchar](160) NULL,
-		[msdyn_billingaccountyominame] [nvarchar](160) NULL,
-		[msdyn_preferredresource] [uniqueidentifier] NULL,
-		[msdyn_preferredresource_entitytype] [nvarchar](128) NULL,
-		[msdyn_preferredresourcename] [nvarchar](100) NULL,
-		[msdyn_salestaxcode] [uniqueidentifier] NULL,
-		[msdyn_salestaxcode_entitytype] [nvarchar](128) NULL,
-		[msdyn_salestaxcodename] [nvarchar](100) NULL,
-		[msdyn_serviceterritory] [uniqueidentifier] NULL,
-		[msdyn_serviceterritory_entitytype] [nvarchar](128) NULL,
-		[msdyn_serviceterritoryname] [nvarchar](200) NULL,
-		[msdyn_taxexempt] [bit] NULL,
-		[msdyn_taxexemptnumber] [nvarchar](20) NULL,
-		[msdyn_travelcharge] [decimal](38, 2) NULL,
-		[msdyn_travelcharge_base] [decimal](38, 2) NULL,
-		[msdyn_travelchargetype] [int] NULL,
-		[msdyn_workhourtemplate] [uniqueidentifier] NULL,
-		[msdyn_workhourtemplate_entitytype] [nvarchar](128) NULL,
-		[msdyn_workhourtemplatename] [nvarchar](100) NULL,
-		[msdyn_workorderinstructions] [nvarchar](max) NULL,
-		[name] [nvarchar](160) NULL,
-		[numberofemployees] [int] NULL,
-		[onholdtime] [int] NULL,
-		[opendeals] [int] NULL,
-		[opendeals_date] [datetime] NULL,
-		[opendeals_state] [int] NULL,
-		[openrevenue] [decimal](38, 2) NULL,
-		[openrevenue_base] [decimal](38, 2) NULL,
-		[openrevenue_date] [datetime] NULL,
-		[openrevenue_state] [int] NULL,
-		[originatingleadid] [uniqueidentifier] NULL,
-		[originatingleadid_entitytype] [nvarchar](128) NULL,
-		[originatingleadidname] [nvarchar](100) NULL,
-		[originatingleadidyominame] [nvarchar](100) NULL,
-		[overriddencreatedon] [datetime] NULL,
-		[ovs_accountnameenglish] [nvarchar](4000) NULL,
-		[ovs_accountnamefrench] [nvarchar](4000) NULL,
-		[ovs_country] [uniqueidentifier] NULL,
-		[ovs_country_entitytype] [nvarchar](128) NULL,
-		[ovs_countryname] [nvarchar](100) NULL,
-		[ovs_iisid] [nvarchar](25) NULL,
-		[ovs_legalname] [nvarchar](4000) NULL,
-		[ovs_mocid] [nvarchar](100) NULL,
-		[ovs_naicscode] [nvarchar](6) NULL,
-		[ovs_primarycontactemail] [nvarchar](100) NULL,
-		[ovs_primarycontactphone] [nvarchar](100) NULL,
-		[ovs_sitetype] [uniqueidentifier] NULL,
-		[ovs_sitetype_entitytype] [nvarchar](128) NULL,
-		[ovs_sitetypename] [nvarchar](100) NULL,
-		[ownerid] [uniqueidentifier] NULL,
-		[ownerid_entitytype] [nvarchar](128) NULL,
-		[owneridname] [nvarchar](100) NULL,
-		[owneridtype] [nvarchar](4000) NULL,
-		[owneridyominame] [nvarchar](100) NULL,
-		[ownershipcode] [int] NULL,
-		[owningbusinessunit] [uniqueidentifier] NULL,
-		[owningbusinessunit_entitytype] [nvarchar](128) NULL,
-		[owningteam] [uniqueidentifier] NULL,
-		[owningteam_entitytype] [nvarchar](128) NULL,
-		[owninguser] [uniqueidentifier] NULL,
-		[owninguser_entitytype] [nvarchar](128) NULL,
-		[parentaccountid] [uniqueidentifier] NULL,
-		[parentaccountid_entitytype] [nvarchar](128) NULL,
-		[parentaccountidname] [nvarchar](100) NULL,
-		[parentaccountidyominame] [nvarchar](100) NULL,
-		[participatesinworkflow] [bit] NULL,
-		[paymenttermscode] [int] NULL,
-		[preferredappointmentdaycode] [int] NULL,
-		[preferredappointmenttimecode] [int] NULL,
-		[preferredcontactmethodcode] [int] NULL,
-		[preferredequipmentid] [uniqueidentifier] NULL,
-		[preferredequipmentid_entitytype] [nvarchar](128) NULL,
-		[preferredequipmentidname] [nvarchar](100) NULL,
-		[preferredserviceid] [uniqueidentifier] NULL,
-		[preferredserviceid_entitytype] [nvarchar](128) NULL,
-		[preferredserviceidname] [nvarchar](100) NULL,
-		[preferredsystemuserid] [uniqueidentifier] NULL,
-		[preferredsystemuserid_entitytype] [nvarchar](128) NULL,
-		[preferredsystemuseridname] [nvarchar](100) NULL,
-		[preferredsystemuseridyominame] [nvarchar](100) NULL,
-		[primarycontactid] [uniqueidentifier] NULL,
-		[primarycontactid_entitytype] [nvarchar](128) NULL,
-		[primarycontactidname] [nvarchar](100) NULL,
-		[primarycontactidyominame] [nvarchar](100) NULL,
-		[primarysatoriid] [nvarchar](200) NULL,
-		[primarytwitterid] [nvarchar](128) NULL,
-		[processid] [uniqueidentifier] NULL,
-		[revenue] [decimal](38, 2) NULL,
-		[revenue_base] [decimal](38, 4) NULL,
-		[sharesoutstanding] [int] NULL,
-		[shippingmethodcode] [int] NULL,
-		[sic] [nvarchar](20) NULL,
-		[SinkCreatedOn] [datetime] NULL,
-		[SinkModifiedOn] [datetime] NULL,
-		[slaid] [uniqueidentifier] NULL,
-		[slaid_entitytype] [nvarchar](128) NULL,
-		[slainvokedid] [uniqueidentifier] NULL,
-		[slainvokedid_entitytype] [nvarchar](128) NULL,
-		[slainvokedidname] [nvarchar](100) NULL,
-		[slaname] [nvarchar](100) NULL,
-		[stageid] [uniqueidentifier] NULL,
-		[statecode] [int] NULL,
-		[statuscode] [int] NULL,
-		[stockexchange] [nvarchar](20) NULL,
-		[teamsfollowed] [int] NULL,
-		[telephone1] [nvarchar](50) NULL,
-		[telephone2] [nvarchar](50) NULL,
-		[telephone3] [nvarchar](50) NULL,
-		[territorycode] [int] NULL,
-		[territoryid] [uniqueidentifier] NULL,
-		[territoryid_entitytype] [nvarchar](128) NULL,
-		[territoryidname] [nvarchar](100) NULL,
-		[tickersymbol] [nvarchar](10) NULL,
-		[timespentbymeonemailandmeetings] [nvarchar](1250) NULL,
-		[timezoneruleversionnumber] [int] NULL,
-		[transactioncurrencyid] [uniqueidentifier] NULL,
-		[transactioncurrencyid_entitytype] [nvarchar](128) NULL,
-		[transactioncurrencyidname] [nvarchar](100) NULL,
-		[traversedpath] [nvarchar](1250) NULL,
-		[utcconversiontimezonecode] [int] NULL,
-		[versionnumber] [bigint] NULL,
-		[websiteurl] [nvarchar](200) NULL,
-		[yominame] [nvarchar](160) NULL
-	) ON [PRIMARY];
-
-
-	--TEXTIMAGE_ON [PRIMARY]
-	IF EXISTS (
-		SELECT
-			*
-		FROM
-			sys.objects
-		WHERE
-			object_id = OBJECT_ID( '[dbo].[STAGING__WORK_ORDERS]')
-			AND TYPE IN ('U')
-	) DROP TABLE [dbo].[STAGING__WORK_ORDERS];
-
-
-	CREATE TABLE [dbo].[STAGING__WORK_ORDERS] (
-		createdby UNIQUEIDENTIFIER NULL,
-		createdbyname VARCHAR (200) NULL,
-		createdbyyominame VARCHAR (200) NULL,
-		createdon DATETIME NULL,
-		createdonbehalfby UNIQUEIDENTIFIER NULL,
-		createdonbehalfbyname VARCHAR (200) NULL,
-		createdonbehalfbyyominame VARCHAR (200) NULL,
-		exchangerate NUMERIC (38, 10) NULL,
-		importsequencenumber INT NULL,
-		modifiedby UNIQUEIDENTIFIER NULL,
-		modifiedbyname VARCHAR (200) NULL,
-		modifiedbyyominame VARCHAR (200) NULL,
-		modifiedon DATETIME NULL,
-		modifiedonbehalfby UNIQUEIDENTIFIER NULL,
-		modifiedonbehalfbyname VARCHAR (200) NULL,
-		modifiedonbehalfbyyominame VARCHAR (200) NULL,
-		msdyn_address1 VARCHAR (250) NULL,
-		msdyn_address2 VARCHAR (250) NULL,
-		msdyn_address3 VARCHAR (250) NULL,
-		msdyn_addressname VARCHAR (250) NULL,
-		msdyn_agreement UNIQUEIDENTIFIER NULL,
-		msdyn_agreementname VARCHAR (100) NULL,
-		msdyn_autonumbering VARCHAR (100) NULL,
-		msdyn_billingaccount UNIQUEIDENTIFIER NULL,
-		msdyn_billingaccountname VARCHAR (160) NULL,
-		msdyn_billingaccountyominame VARCHAR (160) NULL,
-		msdyn_bookingsummary ntext NULL,
-		msdyn_childindex INT NULL,
-		msdyn_city VARCHAR (80) NULL,
-		msdyn_closedby UNIQUEIDENTIFIER NULL,
-		msdyn_closedbyname VARCHAR (200) NULL,
-		msdyn_closedbyyominame VARCHAR (200) NULL,
-		msdyn_completedon DATETIME NULL,
-		msdyn_country VARCHAR (80) NULL,
-		msdyn_customerasset UNIQUEIDENTIFIER NULL,
-		msdyn_customerassetname VARCHAR (100) NULL,
-		msdyn_datewindowend DATETIME NULL,
-		msdyn_datewindowstart DATETIME NULL,
-		msdyn_estimatesubtotalamount NUMERIC (38, 2) NULL,
-		msdyn_estimatesubtotalamount_base NUMERIC (38, 2) NULL,
-		msdyn_firstarrivedon DATETIME NULL,
-		msdyn_followupnote ntext NULL,
-		msdyn_followuprequired bit NULL,
-		msdyn_followuprequiredname VARCHAR (255) NULL,
-		msdyn_functionallocation UNIQUEIDENTIFIER NULL,
-		msdyn_functionallocationname VARCHAR (60) NULL,
-		msdyn_instructions ntext NULL,
-		msdyn_internalflags ntext NULL,
-		msdyn_iotalert UNIQUEIDENTIFIER NULL,
-		msdyn_iotalertname VARCHAR (100) NULL,
-		msdyn_isfollowup bit NULL,
-		msdyn_isfollowupname VARCHAR (255) NULL,
-		msdyn_ismobile bit NULL,
-		msdyn_ismobilename VARCHAR (255) NULL,
-		msdyn_latitude FLOAT NULL,
-		msdyn_longitude FLOAT NULL,
-		msdyn_mapcontrol VARCHAR (100) NULL,
-		msdyn_name VARCHAR (100) NULL,
-		msdyn_opportunityid UNIQUEIDENTIFIER NULL,
-		msdyn_opportunityidname VARCHAR (300) NULL,
-		msdyn_parentworkorder UNIQUEIDENTIFIER NULL,
-		msdyn_parentworkordername VARCHAR (100) NULL,
-		msdyn_postalcode VARCHAR (20) NULL,
-		msdyn_preferredresource UNIQUEIDENTIFIER NULL,
-		msdyn_preferredresourcename VARCHAR (100) NULL,
-		msdyn_pricelist UNIQUEIDENTIFIER NULL,
-		msdyn_pricelistname VARCHAR (100) NULL,
-		msdyn_primaryincidentdescription ntext NULL,
-		msdyn_primaryincidentestimatedduration INT NULL,
-		msdyn_primaryincidenttype UNIQUEIDENTIFIER NULL,
-		msdyn_primaryincidenttypename VARCHAR (100) NULL,
-		msdyn_priority UNIQUEIDENTIFIER NULL,
-		msdyn_priorityname VARCHAR (100) NULL,
-		msdyn_reportedbycontact UNIQUEIDENTIFIER NULL,
-		msdyn_reportedbycontactname VARCHAR (160) NULL,
-		msdyn_reportedbycontactyominame VARCHAR (450) NULL,
-		msdyn_serviceaccount UNIQUEIDENTIFIER NULL,
-		msdyn_serviceaccountname VARCHAR (160) NULL,
-		msdyn_serviceaccountyominame VARCHAR (160) NULL,
-		msdyn_servicerequest UNIQUEIDENTIFIER NULL,
-		msdyn_servicerequestname VARCHAR (200) NULL,
-		msdyn_serviceterritory UNIQUEIDENTIFIER NULL,
-		msdyn_serviceterritoryname VARCHAR (200) NULL,
-		msdyn_stateorprovince VARCHAR (50) NULL,
-		msdyn_substatus UNIQUEIDENTIFIER NULL,
-		msdyn_substatusname VARCHAR (100) NULL,
-		msdyn_subtotalamount NUMERIC (38, 2) NULL,
-		msdyn_subtotalamount_base NUMERIC (38, 2) NULL,
-		msdyn_supportcontact UNIQUEIDENTIFIER NULL,
-		msdyn_supportcontactname VARCHAR (100) NULL,
-		msdyn_systemstatus INT NULL,
-		msdyn_systemstatusname VARCHAR (255) NULL,
-		msdyn_taxable bit NULL,
-		msdyn_taxablename VARCHAR (255) NULL,
-		msdyn_taxcode UNIQUEIDENTIFIER NULL,
-		msdyn_taxcodename VARCHAR (100) NULL,
-		msdyn_timeclosed DATETIME NULL,
-		msdyn_timefrompromised DATETIME NULL,
-		msdyn_timegroup UNIQUEIDENTIFIER NULL,
-		msdyn_timegroupdetailselected UNIQUEIDENTIFIER NULL,
-		msdyn_timegroupdetailselectedname VARCHAR (100) NULL,
-		msdyn_timegroupname VARCHAR (100) NULL,
-		msdyn_timetopromised DATETIME NULL,
-		msdyn_timewindowend DATETIME NULL,
-		msdyn_timewindowstart DATETIME NULL,
-		msdyn_totalamount NUMERIC (38, 2) NULL,
-		msdyn_totalamount_base NUMERIC (38, 2) NULL,
-		msdyn_totalestimatedduration INT NULL,
-		msdyn_totalsalestax NUMERIC (38, 2) NULL,
-		msdyn_totalsalestax_base NUMERIC (38, 2) NULL,
-		msdyn_workhourtemplate UNIQUEIDENTIFIER NULL,
-		msdyn_workhourtemplatename VARCHAR (100) NULL,
-		msdyn_worklocation INT NULL,
-		msdyn_worklocationname VARCHAR (255) NULL,
-		msdyn_workorderarrivaltimekpiid UNIQUEIDENTIFIER NULL,
-		msdyn_workorderarrivaltimekpiidname VARCHAR (100) NULL,
-		msdyn_workorderid UNIQUEIDENTIFIER NULL,
-		msdyn_workorderresolutionkpiid UNIQUEIDENTIFIER NULL,
-		msdyn_workorderresolutionkpiidname VARCHAR (100) NULL,
-		msdyn_workordersummary ntext NULL,
-		msdyn_workordertype UNIQUEIDENTIFIER NULL,
-		msdyn_workordertypename VARCHAR (100) NULL,
-		overriddencreatedon DATETIME NULL,
-		ovs_asset UNIQUEIDENTIFIER NULL,
-		ovs_assetcategory UNIQUEIDENTIFIER NULL,
-		ovs_assetcategoryname VARCHAR (100) NULL,
-		ovs_assetname VARCHAR (100) NULL,
-		ovs_currentfiscalquarter UNIQUEIDENTIFIER NULL,
-		ovs_currentfiscalquartername VARCHAR (100) NULL,
-		ovs_fiscalquarter UNIQUEIDENTIFIER NULL,
-		ovs_fiscalquartername VARCHAR (100) NULL,
-		ovs_fiscalyear UNIQUEIDENTIFIER NULL,
-		ovs_fiscalyearname VARCHAR (100) NULL,
-		ovs_iisid VARCHAR (100) NULL,
-		ovs_iisactivityid numeric(18, 0),
-		ovs_mocid VARCHAR (100) NULL,
-		ovs_operationid UNIQUEIDENTIFIER NULL,
-		ovs_operationidname VARCHAR (200) NULL,
-		ovs_operationtypeid UNIQUEIDENTIFIER NULL,
-		ovs_operationtypeidname VARCHAR (100) NULL,
-		ovs_oversighttype UNIQUEIDENTIFIER NULL,
-		ovs_oversighttypename VARCHAR (100) NULL,
-		ovs_ovscountry UNIQUEIDENTIFIER NULL,
-		ovs_ovscountryname VARCHAR (100) NULL,
-		ovs_primaryinspector UNIQUEIDENTIFIER NULL,
-		ovs_primaryinspectorname VARCHAR (100) NULL,
-		ovs_rational UNIQUEIDENTIFIER NULL,
-		ovs_rationalname VARCHAR (100) NULL,
-		ovs_regulatedentity UNIQUEIDENTIFIER NULL,
-		ovs_regulatedentityname VARCHAR (160) NULL,
-		ovs_regulatedentityyominame VARCHAR (160) NULL,
-		ovs_revisedquarterid UNIQUEIDENTIFIER NULL,
-		ovs_revisedquarteridname VARCHAR (100) NULL,
-		ovs_rolluptestdeletemeafter DATETIME NULL,
-		ovs_rolluptestdeletemeafter_date DATETIME NULL,
-		ovs_rolluptestdeletemeafter_state INT NULL,
-		ovs_secondaryinspector UNIQUEIDENTIFIER NULL,
-		ovs_secondaryinspectorname VARCHAR (100) NULL,
-		ovs_siteofviolation UNIQUEIDENTIFIER NULL,
-		ovs_siteofviolationname VARCHAR (160) NULL,
-		ovs_siteofviolationyominame VARCHAR (160) NULL,
-		ovs_tyrational UNIQUEIDENTIFIER NULL,
-		ovs_tyrationalname VARCHAR (100) NULL,
-		ownerid UNIQUEIDENTIFIER NULL,
-		owneridname VARCHAR (200) NULL,
-		owneridtype VARCHAR (64) NULL,
-		owneridyominame VARCHAR (200) NULL,
-		owningbusinessunit UNIQUEIDENTIFIER NULL,
-		owningteam UNIQUEIDENTIFIER NULL,
-		owninguser UNIQUEIDENTIFIER NULL,
-		processid UNIQUEIDENTIFIER NULL,
-		qm_blobpath VARCHAR (200) NULL,
-		qm_remote bit NULL,
-		qm_remotename VARCHAR (255) NULL,
-		qm_reportcontactid UNIQUEIDENTIFIER NULL,
-		qm_reportcontactidname VARCHAR (160) NULL,
-		qm_reportcontactidyominame VARCHAR (450) NULL,
-		stageid UNIQUEIDENTIFIER NULL,
-		statecode INT NULL,
-		statecodename VARCHAR (255) NULL,
-		statuscode INT NULL,
-		statuscodename VARCHAR (255) NULL,
-		timezoneruleversionnumber INT NULL,
-		transactioncurrencyid UNIQUEIDENTIFIER NULL,
-		transactioncurrencyidname VARCHAR (100) NULL,
-		traversedpath VARCHAR (1250) NULL,
-		utcconversiontimezonecode INT NULL,
-		versionnumber bigint NULL
-	) ON [PRIMARY];
-
-
-	/****** Object:  Table [dbo].[STAGING__VIOLATIONS]    Script Date: 4/20/2021 4:03:10 PM ******/
-	IF EXISTS (
-		SELECT
-			*
-		FROM
-			sys.objects
-		WHERE
-			object_id = OBJECT_ID( '[dbo].[STAGING__VIOLATIONS]')
-			AND TYPE IN ('U')
-	) DROP TABLE [dbo].[STAGING__VIOLATIONS];
-
-
-	CREATE TABLE [STAGING__VIOLATIONS] (
-		[createdby] UNIQUEIDENTIFIER,
-		[createdbyname] VARCHAR(200),
-		[createdbyyominame] VARCHAR(200),
-		[createdon] DATETIME,
-		[createdonbehalfby] UNIQUEIDENTIFIER,
-		[createdonbehalfbyname] VARCHAR(200),
-		[createdonbehalfbyyominame] VARCHAR(200),
-		[importsequencenumber] INT,
-		[modifiedby] UNIQUEIDENTIFIER,
-		[modifiedbyname] VARCHAR(200),
-		[modifiedbyyominame] VARCHAR(200),
-		[modifiedon] DATETIME,
-		[modifiedonbehalfby] UNIQUEIDENTIFIER,
-		[modifiedonbehalfbyname] VARCHAR(200),
-		[modifiedonbehalfbyyominame] VARCHAR(200),
-		[overriddencreatedon] DATETIME,
-		[ownerid] UNIQUEIDENTIFIER,
-		[owneridname] VARCHAR(200),
-		[owneridtype] VARCHAR(64),
-		[owneridyominame] VARCHAR(200),
-		[owningbusinessunit] UNIQUEIDENTIFIER,
-		[owningteam] UNIQUEIDENTIFIER,
-		[owninguser] UNIQUEIDENTIFIER,
-		[qm_approximatetotal] INT,
-		[qm_blobpath] VARCHAR(200),
-		[qm_cysafetyassessmentid] UNIQUEIDENTIFIER,
-		[qm_cysafetyassessmentidname] VARCHAR(100),
-		[qm_externalcomments] NTEXT,
-		[qm_internalcomments] NTEXT,
-		[qm_isviolation] BIT,
-		[qm_iisactivityid] NUMERIC(18,0),
-		[qm_iisviolationcd] NUMERIC(18,0),
-		[qm_isviolationname] VARCHAR(255),
-		[qm_name] VARCHAR(300),
-		[qm_questionid] UNIQUEIDENTIFIER,
-		[qm_questionidname] VARCHAR(300),
-		[qm_rclegislationid] UNIQUEIDENTIFIER,
-		[qm_rclegislationidname] VARCHAR(100),
-		[qm_referenceid] VARCHAR(255),
-		[qm_responseid] VARCHAR(4000),
-		[qm_samplesize] INT,
-		[qm_syresultid] UNIQUEIDENTIFIER,
-		[qm_violationcount] INT,
-		[qm_workorderid] UNIQUEIDENTIFIER,
-		[qm_workorderidname] VARCHAR(100),
-		[statecode] INT,
-		[statecodename] VARCHAR(255),
-		[statuscode] INT,
-		[statuscodename] VARCHAR(255),
-		[timezoneruleversionnumber] INT,
-		[utcconversiontimezonecode] INT,
-		[versionnumber] BIGINT
-	) ON [PRIMARY];
-
-
+		
 	IF EXISTS (
 		SELECT
 			*
@@ -898,7 +360,9 @@ BEGIN
 		SECONDARY_INSPECTOR nvarchar (200),
 		SECONDARY_INSPECTOR_ID numeric,
 		SECONDARY_INSPECTOR_BOOKABLE_RESOURCE_ID uniqueidentifier,
-		SECONDARY_INSPECTOR_USER_ID uniqueidentifier
+		SECONDARY_INSPECTOR_USER_ID uniqueidentifier,
+		QC_REVIEW_IND BIT,
+		QC_REVIEW_MANAGERS_COMMENTS VARCHAR(8000)
 	);
 
 
@@ -1027,7 +491,9 @@ BEGIN
 
 END 
 
---INSERT MASTER DATA
+
+
+--DECLARE CONSTANTS
 --===================================================================================================
 --===================================================================================================
 BEGIN 
@@ -1035,14 +501,21 @@ BEGIN
 	--=============================================DYNAMIC VALUES===========================================
 	--these variables can change with the environment, so double check these match the environment you're syncing to
 
-	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
-	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
-	DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team    WHERE name = 'Quebec');
-	DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
-	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
-	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
+	--DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+	--DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
+	--DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team    WHERE name = 'Quebec');
+	--DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
+	--DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
+	--DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
 
-	SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_QUEBEC_ID TEAM_QUEBEC_ID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID;
+	--PREPROD, QA, ACC VALUES
+	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = 'ae39bb8b-4b92-eb11-b1ac-000d3ae85ba1';
+	DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = '0fd28d12-89b3-eb11-8236-000d3af3d344';
+	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = '4e122e0c-73f3-ea11-a815-000d3af3ac0d';
+	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = 'b92b6a16-7cf7-ea11-a815-000d3af3a7a7';
+
+	SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID;
 
 	--CRM CONSTANTS
 	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
@@ -1090,9 +563,17 @@ BEGIN
 	DECLARE @CONST_TERRITORY_PACIFIQUE                   VARCHAR(50) = 'FEB76E9E-1707-EB11-A813-000D3AF3A0D7';
 	DECLARE @CONST_TERRITORY_PNR                         VARCHAR(50) = '02B86E9E-1707-EB11-A813-000D3AF3A0D7';
 	DECLARE @CONST_TERRITORY_ONTARIO                     VARCHAR(50) = '50B21A84-DB04-EB11-A813-000D3AF3AC0D';
-	--===================================================================================================
+	
+
+END
+--===================================================================================================
+--===================================================================================================
 
 
+--CREATE MASTER DATA
+--===================================================================================================
+--===================================================================================================
+BEGIN
 	--===================================================================================================
 	--RATIONALS
 	INSERT INTO
@@ -1128,7 +609,6 @@ BEGIN
 		@CONST_OWNERIDTYPE_SYSTEMUSER    [owneridtype],
 		@CONST_BUSINESSUNIT_TDG_ID  [owningbusinessunit],
 		@CONST_TDGCORE_USERID          [owninguser];
-
 
 	--===================================================================================================
 	--===================================================================================================
@@ -1336,7 +816,6 @@ BEGIN
 	INSERT INTO
 		[dbo].[STAGING__BOOKABLE_RESOURCE_CATEGORIES] (
 			[bookableresourcecategoryid],
-			[description],
 			[name],
 			[ownerid],
 			[owneridtype],
@@ -1344,15 +823,36 @@ BEGIN
 			[owninguser]
 		)
 	SELECT
+		'ab66b72d-1db7-eb11-8236-0022483bc30f',
+		'Engineering Services::(translate)Engineering Services',
+		ownerid            = @CONST_TDGCORE_USERID,
+		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
+		owningbusinessunit = @CONST_BUSINESSUNIT_TDG_ID,
+		owninguser         = @CONST_TDGCORE_USERID 
+	UNION
+	SELECT
+		'51333935-1db7-eb11-8236-0022483bc30f',
+		'Government of Alberta::Government of Alberta',
+		ownerid            = @CONST_TDGCORE_USERID,
+		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
+		owningbusinessunit = @CONST_BUSINESSUNIT_TDG_ID,
+		owninguser         = @CONST_TDGCORE_USERID
+	UNION
+	SELECT
+		'47605827-1db7-eb11-8236-0022483bc30f',
+		'Regional Inspector::Regional Inspector',
+		ownerid            = @CONST_TDGCORE_USERID,
+		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
+		owningbusinessunit = @CONST_BUSINESSUNIT_TDG_ID,
+		owninguser         = @CONST_TDGCORE_USERID
+	UNION
+	SELECT
 		@CONST_CATEGORY_INSPECTOR,
-		--INSPECTOR 
-		'Mark a Bookable Resource as an Inspector',
 		'Inspector::Inspecteur',
 		ownerid            = @CONST_TDGCORE_USERID,
 		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
 		owningbusinessunit = @CONST_BUSINESSUNIT_TDG_ID,
 		owninguser         = @CONST_TDGCORE_USERID;
-
 
 	--===================================================================================================
 	--===================================================================================================
@@ -1504,7 +1004,7 @@ BEGIN
 				--SYSUSER.issyncwithdirectory, 
 				--SYSUSER.territoryid
 			FROM
-				[dbo].tdgdata__systemuser SYSUSER
+				[dbo].CRM__SYSTEMUSER SYSUSER
 				JOIN SOURCE__IIS_INSPECTORS INSP ON lower(TRIM(INSP.Account_name)) = lower(TRIM(SYSUSER.domainname))
 		) T;
 
@@ -1555,5 +1055,31 @@ BEGIN
 	FROM
 		[dbo].[STAGING__BOOKABLE_RESOURCE];
 
-
 END
+
+--OUTPUT FOR LOG
+SELECT COUNT(*) [STAGING__TYRATIONAL] FROM STAGING__TYRATIONAL;
+SELECT ovs_name FROM STAGING__TYRATIONAL;
+
+SELECT COUNT(*) [STAGING__OVERSIGHTTYPE] FROM [STAGING__OVERSIGHTTYPE];
+SELECT ovs_name FROM [STAGING__OVERSIGHTTYPE];
+
+SELECT COUNT(*) [STAGING__WORKORDERTYPE] FROM [STAGING__WORKORDERTYPE];
+SELECT msdyn_name FROM [STAGING__WORKORDERTYPE];
+
+SELECT COUNT(*) [STAGING__BOOKABLE_RESOURCE_CATEGORIES] FROM [STAGING__BOOKABLE_RESOURCE_CATEGORIES];
+SELECT name FROM [STAGING__BOOKABLE_RESOURCE_CATEGORIES];
+
+SELECT COUNT(*) [STAGING__BOOKABLE_RESOURCE] FROM [STAGING__BOOKABLE_RESOURCE];
+SELECT name FROM [STAGING__BOOKABLE_RESOURCE];
+
+SELECT COUNT(*) [STAGING__TERRITORY] FROM [STAGING__TERRITORY];
+SELECT name FROM [STAGING__TERRITORY];
+
+
+
+
+
+
+
+
