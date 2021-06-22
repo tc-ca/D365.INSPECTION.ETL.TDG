@@ -13,8 +13,8 @@
   DTS:ObjectName="OracleToSql"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="50"
-  DTS:VersionGUID="{6BA85E41-BB79-4EC9-BE18-111C680BCC56}">
+  DTS:VersionBuild="53"
+  DTS:VersionGUID="{4506F7B8-FC10-44A7-AD63-8A275D483715}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,12 +28,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-OracleToSql-{6FEDA2FE-1E0A-4F88-AA63-479B44271765}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgc;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="0F8jziWiXVU="
-            IV="YfKFjfwKGf9VS9juBfyZzQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="TSHlzTvjEBk="
+            IV="JpDui8ub0EWIgZOZSCJaRQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>YfKFjfwKGf9VS9juBfyZzZsgOnEOpE2FFliH3nualJLBQbtnobmQV8QeNnbNqzi51Ef6Ha41CvlrML9GorZI6ksRorWw2e7h/ljorkW3wn2xoF9ZLqwC/R4qGx9IPA4IvpgPfELpMUA2UdBWAbSAzD11TUi/vA5QcS6SCOlA8dobjgiA6kiFBGTOSJzGL9hn</CipherValue>
+              <CipherValue>JpDui8ub0EWIgZOZSCJaRWk18f/zWl6MbOeSWm2Umj70XfdhAEfO8V/WRA1ctzgQmbC5Id1HqFtaFWCoFggvM5pSn0riWb/YFuwK3d298epXL3cS9d/nQKD4XLIKL4HOtwtsQR4NqWKPGaw70XdJs3Buqg/IduGtR4yVcuch7CAKdrNLuix8fJqzOyPpbNep</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -49,12 +49,12 @@
           DTS:ConnectionString="DATA SOURCE=TDGP.WORLD;USER ID=TDGIIS_USER;PERSIST SECURITY INFO=True;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="Msoe0ZccqYE="
-            IV="994oy3P9lXHAGrelj/lWpg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="2r7kktGSyWw="
+            IV="yNYcY1g94FayEJbSxK73Sg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>994oy3P9lXHAGrelj/lWpsw9vAedFKAx43KQU7OrNf6ppdbC1Ib0VqjynZ8W1n184hKirzHtiq2RfLwz7mrF4o3WmvvFJ+2nlx7iUpwKEsMYtgLqjKucFnZOQ4W9RL7aAB1Wsk4JW0eucReCO7+cBgjxxpxsa2lBriv9VaJeWR1LpXKXji2MN1Tjt7CeBosb</CipherValue>
+              <CipherValue>yNYcY1g94FayEJbSxK73Sg/w9QbZ0OWS0fdZmqwDUgEbroBQHx8wEZFMvZKPdTPcj26EgIm4Mq4wXNlXWTe0pjK9LGB0+0pTaCccJQ+U8KgDXuAWNKwOP91n/oNKdfBDlOjWRyAmhNWSAXQ+trbrJ7hUOauJc5iHdeIKeCl66t3C+T/4cwJSKCqeOA2AxR8e</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -5536,6 +5536,609 @@ FROM TDGIIS.TD005_FOLLOW_UP_TYPE ;</property>
               endId="Package\TD005\Premium ADO NET Destination 1.Inputs[Primary Input]"
               name="Default Output"
               startId="Package\TD005\Premium ADO NET Source.Outputs[Default Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TD005 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8e6f4f10-2060-4f14-ae7a-02246150ed68}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TD005 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\TD005 1\Premium ADO NET Destination 1"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Insert, Update, Upsert, and Delete data over an ADO.NET connection."
+              name="Premium ADO NET Destination 1"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DestinationTable">dbo.TD005_FOLLOW_UP_TYPE</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="Action"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationAction">2</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="WriteMode"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationWriteMode">0</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Int32"
+                  description="BatchSize"
+                  expressionType="Notify"
+                  name="BatchSize">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how to handle duplicates in the temp table before merging. Only applies to non INSERT bulk operations."
+                  expressionType="Notify"
+                  name="DuplicateHandling"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationDuplicateHandling">0</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="FirstMatchOnly">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When enabled, will not overwrite existing values with NULL values during update/upsert operations."
+                  expressionType="Notify"
+                  name="PreventNullOverwrites">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="TransactionIsolationLevel"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionIsolationLevel">0</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PreCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PostCommand"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TD005 1\Premium ADO NET Destination 1.Connections[ADO NET]"
+                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Primary Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[DATE_CREATED_DTE]"
+                      cachedDataType="date"
+                      cachedName="DATE_CREATED_DTE"
+                      externalMetadataColumnId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[DATE_CREATED_DTE]"
+                      lineageId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CREATED_DTE]" />
+                    <inputColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[DATE_CURRENT_DTE]"
+                      cachedDataType="date"
+                      cachedName="DATE_CURRENT_DTE"
+                      externalMetadataColumnId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[DATE_CURRENT_DTE]"
+                      lineageId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CURRENT_DTE]" />
+                    <inputColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[DATE_DELETED_DTE]"
+                      cachedDataType="date"
+                      cachedName="DATE_DELETED_DTE"
+                      externalMetadataColumnId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[DATE_DELETED_DTE]"
+                      lineageId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_DELETED_DTE]" />
+                    <inputColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[DATE_LAST_UPDATE_DTE]"
+                      cachedDataType="date"
+                      cachedName="DATE_LAST_UPDATE_DTE"
+                      externalMetadataColumnId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[DATE_LAST_UPDATE_DTE]"
+                      lineageId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_LAST_UPDATE_DTE]" />
+                    <inputColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[FOLLOW_UP_TYPE_CD]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="FOLLOW_UP_TYPE_CD"
+                      externalMetadataColumnId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FOLLOW_UP_TYPE_CD]"
+                      lineageId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[FOLLOW_UP_TYPE_CD]" />
+                    <inputColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[FOLLOW_UP_TYPE_ELBL]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="FOLLOW_UP_TYPE_ELBL"
+                      externalMetadataColumnId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FOLLOW_UP_TYPE_ELBL]"
+                      lineageId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[FOLLOW_UP_TYPE_ELBL]" />
+                    <inputColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[FOLLOW_UP_TYPE_FLBL]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="FOLLOW_UP_TYPE_FLBL"
+                      externalMetadataColumnId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FOLLOW_UP_TYPE_FLBL]"
+                      lineageId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[FOLLOW_UP_TYPE_FLBL]" />
+                    <inputColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[FOLLOW_UP_TYPE_IND]"
+                      cachedDataType="i2"
+                      cachedName="FOLLOW_UP_TYPE_IND"
+                      externalMetadataColumnId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FOLLOW_UP_TYPE_IND]"
+                      lineageId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[FOLLOW_UP_TYPE_IND]" />
+                    <inputColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[USER_STAKEHOLDER_ID]"
+                      cachedDataType="decimal"
+                      cachedName="USER_STAKEHOLDER_ID"
+                      externalMetadataColumnId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[USER_STAKEHOLDER_ID]"
+                      lineageId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[USER_STAKEHOLDER_ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[DATE_CREATED_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_CREATED_DTE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[DATE_CURRENT_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_CURRENT_DTE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[DATE_DELETED_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_DELETED_DTE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[DATE_LAST_UPDATE_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_LAST_UPDATE_DTE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FOLLOW_UP_TYPE_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="FOLLOW_UP_TYPE_CD">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FOLLOW_UP_TYPE_ELBL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="FOLLOW_UP_TYPE_ELBL">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FOLLOW_UP_TYPE_FLBL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="FOLLOW_UP_TYPE_FLBL">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FOLLOW_UP_TYPE_IND]"
+                      dataType="i2"
+                      name="FOLLOW_UP_TYPE_IND">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[USER_STAKEHOLDER_ID]"
+                      dataType="numeric"
+                      name="USER_STAKEHOLDER_ID"
+                      precision="29">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\TD005 1\Premium ADO NET Destination 1.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TD005 1\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TD005 1\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\TD005 1\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\TD005 1\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\TD005 1\Premium ADO NET Destination 1.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\TD005 1\Premium ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Read data from an ADO.NET connection."
+              name="Premium ADO NET Source"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DataSource">&lt;&lt;Custom Command&gt;&gt;</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="Command">SELECT FOLLOW_UP_TYPE_CD,
+  FOLLOW_UP_TYPE_IND,
+  FOLLOW_UP_TYPE_ELBL,
+  FOLLOW_UP_TYPE_FLBL,
+  DATE_CREATED_DTE,
+  DATE_CURRENT_DTE,
+  DATE_DELETED_DTE,
+  DATE_LAST_UPDATE_DTE,
+  USER_STAKEHOLDER_ID
+FROM TDGIIS.TD005_FOLLOW_UP_TYPE ;</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="PrepareCommand">true</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PreCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PostCommand"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetSourceComponent</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TD005 1\Premium ADO NET Source.Connections[ADO NET]"
+                  connectionManagerID="Package.ConnectionManagers[TDGP.WORLD.TDGIIS_USER2]"
+                  connectionManagerRefId="Package.ConnectionManagers[TDGP.WORLD.TDGIIS_USER2]"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CREATED_DTE]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CREATED_DTE]"
+                      lineageId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CREATED_DTE]"
+                      name="DATE_CREATED_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CURRENT_DTE]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CURRENT_DTE]"
+                      lineageId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_CURRENT_DTE]"
+                      name="DATE_CURRENT_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_DELETED_DTE]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_DELETED_DTE]"
+                      lineageId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_DELETED_DTE]"
+                      name="DATE_DELETED_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_LAST_UPDATE_DTE]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_LAST_UPDATE_DTE]"
+                      lineageId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[DATE_LAST_UPDATE_DTE]"
+                      name="DATE_LAST_UPDATE_DTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[USER_STAKEHOLDER_ID]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[USER_STAKEHOLDER_ID]"
+                      lineageId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[USER_STAKEHOLDER_ID]"
+                      name="USER_STAKEHOLDER_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[FOLLOW_UP_TYPE_CD]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FOLLOW_UP_TYPE_CD]"
+                      length="20"
+                      lineageId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[FOLLOW_UP_TYPE_CD]"
+                      name="FOLLOW_UP_TYPE_CD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[FOLLOW_UP_TYPE_ELBL]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FOLLOW_UP_TYPE_ELBL]"
+                      length="100"
+                      lineageId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[FOLLOW_UP_TYPE_ELBL]"
+                      name="FOLLOW_UP_TYPE_ELBL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[FOLLOW_UP_TYPE_FLBL]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FOLLOW_UP_TYPE_FLBL]"
+                      length="100"
+                      lineageId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[FOLLOW_UP_TYPE_FLBL]"
+                      name="FOLLOW_UP_TYPE_FLBL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[FOLLOW_UP_TYPE_IND]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FOLLOW_UP_TYPE_IND]"
+                      lineageId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].Columns[FOLLOW_UP_TYPE_IND]"
+                      name="FOLLOW_UP_TYPE_IND"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CREATED_DTE]"
+                      dataType="date"
+                      name="DATE_CREATED_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_CURRENT_DTE]"
+                      dataType="date"
+                      name="DATE_CURRENT_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_DELETED_DTE]"
+                      dataType="date"
+                      name="DATE_DELETED_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[DATE_LAST_UPDATE_DTE]"
+                      dataType="date"
+                      name="DATE_LAST_UPDATE_DTE" />
+                    <externalMetadataColumn
+                      refId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[USER_STAKEHOLDER_ID]"
+                      dataType="decimal"
+                      name="USER_STAKEHOLDER_ID" />
+                    <externalMetadataColumn
+                      refId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FOLLOW_UP_TYPE_CD]"
+                      codePage="65001"
+                      dataType="str"
+                      length="20"
+                      name="FOLLOW_UP_TYPE_CD" />
+                    <externalMetadataColumn
+                      refId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FOLLOW_UP_TYPE_ELBL]"
+                      codePage="65001"
+                      dataType="str"
+                      length="100"
+                      name="FOLLOW_UP_TYPE_ELBL" />
+                    <externalMetadataColumn
+                      refId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FOLLOW_UP_TYPE_FLBL]"
+                      codePage="65001"
+                      dataType="str"
+                      length="100"
+                      name="FOLLOW_UP_TYPE_FLBL" />
+                    <externalMetadataColumn
+                      refId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FOLLOW_UP_TYPE_IND]"
+                      dataType="i2"
+                      name="FOLLOW_UP_TYPE_IND" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\TD005 1.Paths[Default Output]"
+              endId="Package\TD005 1\Premium ADO NET Destination 1.Inputs[Primary Input]"
+              name="Default Output"
+              startId="Package\TD005 1\Premium ADO NET Source.Outputs[Default Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -12328,6 +12931,866 @@ WHERE DATE_DELETED_DTE IS NULL</property>
               endId="Package\YD030\Premium ADO NET Destination.Inputs[Primary Input]"
               name="Default Output"
               startId="Package\YD030\Premium ADO NET Source.Outputs[Default Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\YD031"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{c9599a18-5f61-4e9b-82b1-21aa90b3064b}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="YD031"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\YD031\Premium ADO NET Destination 1"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Insert, Update, Upsert, and Delete data over an ADO.NET connection."
+              name="Premium ADO NET Destination 1"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DestinationTable">dbo.YD031_STAKEHOLDER_DG_PROFILE</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="Action"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationAction">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="WriteMode"
+                  expressionType="Notify"
+                  name="WriteMode"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationWriteMode">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="CommandTimeout"
+                  expressionType="Notify"
+                  name="CommandTimeout">86400</property>
+                <property
+                  dataType="System.Int32"
+                  description="BatchSize"
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how to handle duplicates in the temp table before merging. Only applies to non INSERT bulk operations."
+                  expressionType="Notify"
+                  name="DuplicateHandling"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationDuplicateHandling">0</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="FirstMatchOnly">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When enabled, will not overwrite existing values with NULL values during update/upsert operations."
+                  expressionType="Notify"
+                  name="PreventNullOverwrites">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="TransactionIsolationLevel"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionIsolationLevel">0</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PreCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PostCommand"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\YD031\Premium ADO NET Destination 1.Connections[ADO NET]"
+                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\YD031\Premium ADO NET Destination 1.Inputs[Primary Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Primary Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\YD031\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[STAKEHOLDER_ID]"
+                      cachedDataType="decimal"
+                      cachedName="STAKEHOLDER_ID"
+                      externalMetadataColumnId="Package\YD031\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[STAKEHOLDER_ID]"
+                      lineageId="Package\YD031\Premium ADO NET Source.Outputs[Default Output].Columns[STAKEHOLDER_ID]" />
+                    <inputColumn
+                      refId="Package\YD031\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[UN_NUMBER]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="4000"
+                      cachedName="UN_NUMBER"
+                      externalMetadataColumnId="Package\YD031\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[UN_NUMBER]"
+                      lineageId="Package\YD031\Premium ADO NET Source.Outputs[Default Output].Columns[UN_NUMBER]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\YD031\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[STAKEHOLDER_ID]"
+                      dataType="numeric"
+                      name="STAKEHOLDER_ID"
+                      precision="29">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\YD031\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[UN_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4000"
+                      name="UN_NUMBER">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\YD031\Premium ADO NET Destination 1.Outputs[Error Output]"
+                  isErrorOut="true"
+                  name="Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\YD031\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\YD031\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\YD031\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\YD031\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\YD031\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\YD031\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                    <outputColumn
+                      refId="Package\YD031\Premium ADO NET Destination 1.Outputs[Error Output].Columns[STAKEHOLDER_ID]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\YD031\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[STAKEHOLDER_ID]"
+                      lineageId="Package\YD031\Premium ADO NET Destination 1.Outputs[Error Output].Columns[STAKEHOLDER_ID]"
+                      name="STAKEHOLDER_ID"
+                      precision="29" />
+                    <outputColumn
+                      refId="Package\YD031\Premium ADO NET Destination 1.Outputs[Error Output].Columns[UN_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\YD031\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[UN_NUMBER]"
+                      length="4000"
+                      lineageId="Package\YD031\Premium ADO NET Destination 1.Outputs[Error Output].Columns[UN_NUMBER]"
+                      name="UN_NUMBER" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\YD031\Premium ADO NET Destination 1.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\YD031\Premium ADO NET Destination 1.Outputs[Default Output].Columns[STAKEHOLDER_ID]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\YD031\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[STAKEHOLDER_ID]"
+                      lineageId="Package\YD031\Premium ADO NET Destination 1.Outputs[Default Output].Columns[STAKEHOLDER_ID]"
+                      name="STAKEHOLDER_ID"
+                      precision="29" />
+                    <outputColumn
+                      refId="Package\YD031\Premium ADO NET Destination 1.Outputs[Default Output].Columns[UN_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\YD031\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[UN_NUMBER]"
+                      length="4000"
+                      lineageId="Package\YD031\Premium ADO NET Destination 1.Outputs[Default Output].Columns[UN_NUMBER]"
+                      name="UN_NUMBER" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\YD031\Premium ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Read data from an ADO.NET connection."
+              name="Premium ADO NET Source"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DataSource">&lt;&lt;Custom Command&gt;&gt;</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="Command">SELECT UNIQUE STAKEHOLDER_ID, 
+LISTAGG(YD031.UN_NUMBER_ID, ',') WITHIN GROUP (ORDER BY STAKEHOLDER_ID) AS UN_NUMBER 
+FROM YD031_STAKEHOLDER_DG_PROFILE YD031
+WHERE EXTRACT(YEAR FROM YD031.DATE_DELETED_DTE) = 9999
+GROUP BY YD031.STAKEHOLDER_ID</property>
+                <property
+                  dataType="System.Int32"
+                  description="CommandTimeout"
+                  expressionType="Notify"
+                  name="CommandTimeout">9999</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="PrepareCommand">true</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PreCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PostCommand"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetSourceComponent</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\YD031\Premium ADO NET Source.Connections[ADO NET]"
+                  connectionManagerID="Package.ConnectionManagers[TDGP.WORLD.TDGIIS_USER2]"
+                  connectionManagerRefId="Package.ConnectionManagers[TDGP.WORLD.TDGIIS_USER2]"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\YD031\Premium ADO NET Source.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\YD031\Premium ADO NET Source.Outputs[Default Output].Columns[STAKEHOLDER_ID]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\YD031\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[STAKEHOLDER_ID]"
+                      lineageId="Package\YD031\Premium ADO NET Source.Outputs[Default Output].Columns[STAKEHOLDER_ID]"
+                      name="STAKEHOLDER_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\YD031\Premium ADO NET Source.Outputs[Default Output].Columns[UN_NUMBER]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\YD031\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[UN_NUMBER]"
+                      length="4000"
+                      lineageId="Package\YD031\Premium ADO NET Source.Outputs[Default Output].Columns[UN_NUMBER]"
+                      name="UN_NUMBER"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\YD031\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[STAKEHOLDER_ID]"
+                      dataType="decimal"
+                      name="STAKEHOLDER_ID" />
+                    <externalMetadataColumn
+                      refId="Package\YD031\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[UN_NUMBER]"
+                      codePage="65001"
+                      dataType="str"
+                      length="4000"
+                      name="UN_NUMBER" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\YD031.Paths[Default Output]"
+              endId="Package\YD031\Premium ADO NET Destination 1.Inputs[Primary Input]"
+              name="Default Output"
+              startId="Package\YD031\Premium ADO NET Source.Outputs[Default Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\YD031 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{d072fe8f-712e-46ea-9832-b06ade62fef8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="YD031 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\YD031 1\Premium ADO NET Destination 1"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Insert, Update, Upsert, and Delete data over an ADO.NET connection."
+              name="Premium ADO NET Destination 1"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DestinationTable">dbo.YD034_STAKEHOLDER_BUSINESS</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="Action"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationAction">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="WriteMode"
+                  expressionType="Notify"
+                  name="WriteMode"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationWriteMode">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="CommandTimeout"
+                  expressionType="Notify"
+                  name="CommandTimeout">86400</property>
+                <property
+                  dataType="System.Int32"
+                  description="BatchSize"
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how to handle duplicates in the temp table before merging. Only applies to non INSERT bulk operations."
+                  expressionType="Notify"
+                  name="DuplicateHandling"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationDuplicateHandling">0</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="FirstMatchOnly">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When enabled, will not overwrite existing values with NULL values during update/upsert operations."
+                  expressionType="Notify"
+                  name="PreventNullOverwrites">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="TransactionIsolationLevel"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionIsolationLevel">0</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PreCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PostCommand"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\YD031 1\Premium ADO NET Destination 1.Connections[ADO NET]"
+                  connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
+                  connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Primary Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[BUSINESS_CATEGORY_CD]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="BUSINESS_CATEGORY_CD"
+                      externalMetadataColumnId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[BUSINESS_CATEGORY_CD]"
+                      lineageId="Package\YD031 1\Premium ADO NET Source.Outputs[Default Output].Columns[BUSINESS_CATEGORY_CD]" />
+                    <inputColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[BUSINESS_REMARKS_TXT]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="4000"
+                      cachedName="BUSINESS_REMARKS_TXT"
+                      externalMetadataColumnId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[BUSINESS_REMARKS_TXT]"
+                      lineageId="Package\YD031 1\Premium ADO NET Source.Outputs[Default Output].Columns[BUSINESS_REMARKS_TXT]" />
+                    <inputColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[STAKEHOLDER_ID]"
+                      cachedDataType="decimal"
+                      cachedName="STAKEHOLDER_ID"
+                      externalMetadataColumnId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[STAKEHOLDER_ID]"
+                      lineageId="Package\YD031 1\Premium ADO NET Source.Outputs[Default Output].Columns[STAKEHOLDER_ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[BUSINESS_CATEGORY_CD]"
+                      dataType="wstr"
+                      length="200"
+                      name="BUSINESS_CATEGORY_CD">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[BUSINESS_REMARKS_TXT]"
+                      dataType="wstr"
+                      length="4000"
+                      name="BUSINESS_REMARKS_TXT">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[DATE_CREATED_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_CREATED_DTE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[DATE_CURRENT_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_CURRENT_DTE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[DATE_DELETED_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_DELETED_DTE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[DATE_LAST_UPDATE_DTE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_LAST_UPDATE_DTE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[STAKEHOLDER_ID]"
+                      dataType="numeric"
+                      name="STAKEHOLDER_ID"
+                      precision="18">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[STKHLDR_BUSINESS_SEQ_NUM]"
+                      dataType="numeric"
+                      name="STKHLDR_BUSINESS_SEQ_NUM"
+                      precision="18">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[USER_STAKEHOLDER_ID]"
+                      dataType="numeric"
+                      name="USER_STAKEHOLDER_ID"
+                      precision="18">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Error Output]"
+                  isErrorOut="true"
+                  name="Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                    <outputColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Error Output].Columns[STAKEHOLDER_ID]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[STAKEHOLDER_ID]"
+                      lineageId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Error Output].Columns[STAKEHOLDER_ID]"
+                      name="STAKEHOLDER_ID"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Error Output].Columns[BUSINESS_CATEGORY_CD]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[BUSINESS_CATEGORY_CD]"
+                      length="200"
+                      lineageId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Error Output].Columns[BUSINESS_CATEGORY_CD]"
+                      name="BUSINESS_CATEGORY_CD" />
+                    <outputColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Error Output].Columns[BUSINESS_REMARKS_TXT]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[BUSINESS_REMARKS_TXT]"
+                      length="4000"
+                      lineageId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Error Output].Columns[BUSINESS_REMARKS_TXT]"
+                      name="BUSINESS_REMARKS_TXT" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Default Output].Columns[BUSINESS_CATEGORY_CD]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[BUSINESS_CATEGORY_CD]"
+                      length="200"
+                      lineageId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Default Output].Columns[BUSINESS_CATEGORY_CD]"
+                      name="BUSINESS_CATEGORY_CD" />
+                    <outputColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Default Output].Columns[BUSINESS_REMARKS_TXT]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[BUSINESS_REMARKS_TXT]"
+                      length="4000"
+                      lineageId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Default Output].Columns[BUSINESS_REMARKS_TXT]"
+                      name="BUSINESS_REMARKS_TXT" />
+                    <outputColumn
+                      refId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Default Output].Columns[STAKEHOLDER_ID]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[STAKEHOLDER_ID]"
+                      lineageId="Package\YD031 1\Premium ADO NET Destination 1.Outputs[Default Output].Columns[STAKEHOLDER_ID]"
+                      name="STAKEHOLDER_ID"
+                      precision="18" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\YD031 1\Premium ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Read data from an ADO.NET connection."
+              name="Premium ADO NET Source"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DataSource">&lt;&lt;Custom Command&gt;&gt;</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="Command">SELECT STAKEHOLDER_ID, 
+BUSINESS_CATEGORY_CD,
+BUSINESS_REMARKS_TXT
+FROM YD034_STAKEHOLDER_BUSINESS 
+WHERE DATE_DELETED_DTE IS NULL 
+GROUP BY STAKEHOLDER_ID, BUSINESS_CATEGORY_CD, BUSINESS_REMARKS_TXT</property>
+                <property
+                  dataType="System.Int32"
+                  description="CommandTimeout"
+                  expressionType="Notify"
+                  name="CommandTimeout">9999</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="PrepareCommand">true</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PreCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PostCommand"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetSourceComponent</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\YD031 1\Premium ADO NET Source.Connections[ADO NET]"
+                  connectionManagerID="Package.ConnectionManagers[TDGP.WORLD.TDGIIS_USER2]"
+                  connectionManagerRefId="Package.ConnectionManagers[TDGP.WORLD.TDGIIS_USER2]"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\YD031 1\Premium ADO NET Source.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\YD031 1\Premium ADO NET Source.Outputs[Default Output].Columns[STAKEHOLDER_ID]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\YD031 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[STAKEHOLDER_ID]"
+                      lineageId="Package\YD031 1\Premium ADO NET Source.Outputs[Default Output].Columns[STAKEHOLDER_ID]"
+                      name="STAKEHOLDER_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\YD031 1\Premium ADO NET Source.Outputs[Default Output].Columns[BUSINESS_CATEGORY_CD]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\YD031 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[BUSINESS_CATEGORY_CD]"
+                      length="200"
+                      lineageId="Package\YD031 1\Premium ADO NET Source.Outputs[Default Output].Columns[BUSINESS_CATEGORY_CD]"
+                      name="BUSINESS_CATEGORY_CD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\YD031 1\Premium ADO NET Source.Outputs[Default Output].Columns[BUSINESS_REMARKS_TXT]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\YD031 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[BUSINESS_REMARKS_TXT]"
+                      length="4000"
+                      lineageId="Package\YD031 1\Premium ADO NET Source.Outputs[Default Output].Columns[BUSINESS_REMARKS_TXT]"
+                      name="BUSINESS_REMARKS_TXT"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\YD031 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[STAKEHOLDER_ID]"
+                      dataType="decimal"
+                      name="STAKEHOLDER_ID" />
+                    <externalMetadataColumn
+                      refId="Package\YD031 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[BUSINESS_CATEGORY_CD]"
+                      codePage="65001"
+                      dataType="str"
+                      length="200"
+                      name="BUSINESS_CATEGORY_CD" />
+                    <externalMetadataColumn
+                      refId="Package\YD031 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[BUSINESS_REMARKS_TXT]"
+                      codePage="65001"
+                      dataType="str"
+                      length="4000"
+                      name="BUSINESS_REMARKS_TXT" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\YD031 1.Paths[Default Output]"
+              endId="Package\YD031 1\Premium ADO NET Destination 1.Inputs[Primary Input]"
+              name="Default Output"
+              startId="Package\YD031 1\Premium ADO NET Source.Outputs[Default Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -30126,6 +31589,10 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
           TopLeft="676,311.5" />
         <NodeLayout
           Size="110,42"
+          Id="Package\TD005"
+          TopLeft="678.5,417.5" />
+        <NodeLayout
+          Size="110,42"
           Id="Package\TD038"
           TopLeft="847,311.5" />
         <NodeLayout
@@ -30304,24 +31771,68 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
         </EdgeLayout>
         <NodeLayout
           Size="110,42"
-          Id="Package\TD005"
-          TopLeft="678.5,417.5" />
+          Id="Package\TD005 1"
+          TopLeft="386.5,513.5" />
+        <NodeLayout
+          Size="110,42"
+          Id="Package\YD031"
+          TopLeft="590.5,513.5" />
+        <NodeLayout
+          Size="110,42"
+          Id="Package\YD031 1"
+          TopLeft="764.5,518.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Delete Inspectors">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="NaN,NaN"
+          Id="Package\Delete Inspectors\Premium ADO NET Destination"
+          TopLeft="NaN,NaN" />
+        <NodeLayout
+          Size="NaN,NaN"
+          Id="Package\Delete Inspectors\Premium ADO NET Source"
+          TopLeft="NaN,NaN" />
+        <EdgeLayout
+          Id="Package\Delete Inspectors.Paths[Default Output]"
+          TopLeft="NaN,NaN">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="{assembly:Null}"
+              Start="0,0"
+              End="0,0">
+              <mssgle:Curve.Segments>
+                <assembly:Null />
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <TaskHost
     design-time-name="Package\Insert into TCFiscalPeriod">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="205,42"
-          Id="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination"
-          TopLeft="394,292" />
-        <NodeLayout
           Size="203,42"
           Id="Package\Insert into TCFiscalPeriod\Premium ADO NET Source"
           TopLeft="392,155" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Insert into TCFiscalPeriod\Dynamics CRM Destination"
+          TopLeft="394,292" />
         <EdgeLayout
           Id="Package\Insert into TCFiscalPeriod.Paths[Default Output]"
           TopLeft="495,197">
@@ -30355,13 +31866,13 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="205,42"
-          Id="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination"
-          TopLeft="315,230" />
-        <NodeLayout
           Size="203,42"
           Id="Package\Insert into TCFiscalQuarter\Premium ADO NET Source"
           TopLeft="313,117" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Insert into TCFiscalQuarter\Dynamics CRM Destination"
+          TopLeft="315,230" />
         <EdgeLayout
           Id="Package\Insert into TCFiscalQuarter.Paths[Default Output]"
           TopLeft="416,159">
@@ -30435,13 +31946,13 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="205,42"
-          Id="Package\Insert into TCMonth\Dynamics CRM Destination"
-          TopLeft="411,196" />
-        <NodeLayout
           Size="203,42"
           Id="Package\Insert into TCMonth\Premium ADO NET Source"
           TopLeft="414,96" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Insert into TCMonth\Dynamics CRM Destination"
+          TopLeft="411,196" />
         <EdgeLayout
           Id="Package\Insert into TCMonth.Paths[Default Output]"
           TopLeft="514.5,138">
@@ -30470,10 +31981,46 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
     </LayoutInfo>
   </TaskHost>
   <TaskHost
+    design-time-name="Package\Inspectors">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="NaN,NaN"
+          Id="Package\Inspectors\Premium ADO NET Source"
+          TopLeft="NaN,NaN" />
+        <NodeLayout
+          Size="NaN,NaN"
+          Id="Package\Inspectors\Premium ADO NET Destination"
+          TopLeft="NaN,NaN" />
+        <EdgeLayout
+          Id="Package\Inspectors.Paths[Default Output]"
+          TopLeft="NaN,NaN">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="{assembly:Null}"
+              Start="0,0"
+              End="0,0">
+              <mssgle:Curve.Segments>
+                <assembly:Null />
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
     design-time-name="Package\TD001">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="203,42"
           Id="Package\TD001\Premium ADO NET Source"
@@ -30501,7 +32048,49 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\TD005">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="233,42"
+          Id="Package\TD005\Premium ADO NET Destination 1"
+          TopLeft="539,267" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\TD005\Premium ADO NET Source"
+          TopLeft="553,93" />
+        <EdgeLayout
+          Id="Package\TD005.Paths[Default Output]"
+          TopLeft="655,135">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,132"
+              Start="0,0"
+              End="0,124.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,124.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31031,7 +32620,7 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
     design-time-name="Package\YD041">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="203,42"
           Id="Package\YD041\Premium ADO NET Source"
@@ -31059,7 +32648,9 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31549,7 +33140,7 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
     design-time-name="Package\YD100">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="203,42"
           Id="Package\YD100\Premium ADO NET Source"
@@ -31577,7 +33168,9 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31624,20 +33217,98 @@ FROM "TDGIIS"."YD101_FILE_ACTIVITY_TYPE"</property>
     </LayoutInfo>
   </TaskHost>
   <TaskHost
-    design-time-name="Package\TD005">
+    design-time-name="Package\TD005 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="233,42"
+          Id="Package\TD005 1\Premium ADO NET Destination 1"
+          TopLeft="539,267" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\TD005 1\Premium ADO NET Source"
+          TopLeft="553,93" />
+        <EdgeLayout
+          Id="Package\TD005 1.Paths[Default Output]"
+          TopLeft="655,135">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,132"
+              Start="0,0"
+              End="0,124.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,124.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\YD031">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="233,42"
+          Id="Package\YD031\Premium ADO NET Destination 1"
+          TopLeft="539,267" />
+        <NodeLayout
           Size="203,42"
-          Id="Package\TD005\Premium ADO NET Source"
+          Id="Package\YD031\Premium ADO NET Source"
           TopLeft="553,93" />
+        <EdgeLayout
+          Id="Package\YD031.Paths[Default Output]"
+          TopLeft="655,135">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,132"
+              Start="0,0"
+              End="0,124.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,124.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\YD031 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="233,42"
-          Id="Package\TD005\Premium ADO NET Destination 1"
+          Id="Package\YD031 1\Premium ADO NET Destination 1"
           TopLeft="539,267" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\YD031 1\Premium ADO NET Source"
+          TopLeft="553,93" />
         <EdgeLayout
-          Id="Package\TD005.Paths[Default Output]"
+          Id="Package\YD031 1.Paths[Default Output]"
           TopLeft="655,135">
           <EdgeLayout.Curve>
             <mssgle:Curve

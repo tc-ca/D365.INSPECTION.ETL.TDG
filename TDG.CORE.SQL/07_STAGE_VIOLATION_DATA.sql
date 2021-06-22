@@ -1,38 +1,21 @@
---=============================================DYNAMIC VALUES===========================================
---these variables can change with the environment, so double check these match the environment you're syncing to
-
---DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
---DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
---DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team    WHERE name = 'Quebec');
---DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
---DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
---DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
-
-	--PREPROD, QA, ACC VALUES
-	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
-	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = '15abdd9e-8edd-ea11-a814-000d3af3afe0';
-	DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = '53122e0c-73f3-ea11-a815-000d3af3ac0d';
-	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = '4e122e0c-73f3-ea11-a815-000d3af3ac0d';
-	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = 'b92b6a16-7cf7-ea11-a815-000d3af3a7a7';
-
-	--CRM CONSTANTS
-	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
-	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
-
-	SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID;
-
---===================================================================================================
-
-
 --TABLE DEFINITIONS	
 --===================================================================================
---===================================================================================
-BEGIN
-
-	/****** Object:  Table [dbo].[STAGING__VIOLATIONS]    Script Date: 6/5/2021 11:40:27 PM ******/
+/****** Object:  Table [dbo].[STAGING__VIOLATIONS]    Script Date: 6/5/2021 11:40:27 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[STAGING__VIOLATIONS]') AND type in (N'U'))
 DROP TABLE [dbo].[STAGING__VIOLATIONS]
+GO
 
+DROP TABLE IF EXISTS #TEMP_IIS_INSPECTIONS;
+GO
+
+DROP TABLE IF EXISTS #TEMP_VIOLATIONS_MAPPED_TO_ROM;
+GO
+
+DROP TABLE IF EXISTS #TEMP_VIOLATIONS;
+GO
+
+DROP TABLE IF EXISTS #TEMP_INSPECTION_CATEGORIES;
+GO
 
 CREATE TABLE [dbo].[STAGING__VIOLATIONS] (
 	[Id] [uniqueidentifier] NOT NULL,
@@ -118,65 +101,67 @@ CREATE TABLE [dbo].[STAGING__VIOLATIONS] (
 )WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY];
 
-	
-END
+GO
 --===================================================================================
 --===================================================================================
+
+
+--=============================================DYNAMIC VALUES===========================================
+DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT systemuserid FROM CRM__SYSTEMUSER  where domainname = 'tdg.core@034gc.onmicrosoft.com');
+DECLARE @CONST_TEAM_TDG_ID          VARCHAR(500) = (SELECT teamid FROM CRM__TEAM WHERE name = 'Transportation of Dangerous Goods');
+DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT businessunitid FROM CRM__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
+DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT pricelevelid FROM CRM__pricelevel  WHERE NAME = 'Base Prices');
+DECLARE @CONST_TDGCORE_BOOKABLE_RESOURCE_ID VARCHAR(50) = (SELECT bookableresourceid FROM CRM__BOOKABLERESOURCE WHERE msdyn_primaryemail = @CONST_TDGCORE_DOMAINNAME);
+
+--CRM CONSTANTS
+DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
+DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
+--===================================================================================================
 
 
 
 --GET A TEMPORARY LIST OF INSPECTIONS FROM IIS DATA
 --===================================================================================
---===================================================================================
-BEGIN
+--39446
+SELECT
+	YD095.FILE_NUMBER_NUM,
+	TD001.FILE_STATUS_ETXT,
+	TD001.FILE_STATUS_FTXT,
+	YD040.INSPECTION_DATE_DTE,
+	YD040.ACTIVITY_ID,
+	YD040.STAKEHOLDER_ID,
+	TD038.INSPECTION_REASON_ETXT,
+	TD038.INSPECTION_REASON_FTXT
+INTO #TEMP_IIS_INSPECTIONS
+FROM
+	YD040_ACTIVITY YD040
+	INNER JOIN YD095_STAKEHOLDER_FILE YD095 ON YD040.FILE_NUMBER_NUM = YD095.FILE_NUMBER_NUM
+	INNER JOIN TD001_FILE_STATUS TD001 ON YD095.FILE_STATUS_CD = TD001.FILE_STATUS_CD
+	LEFT JOIN YD041_INSPECTION YD041 ON YD040.ACTIVITY_ID = YD041.ACTIVITY_ID
+	LEFT JOIN TD038_INSPECTION_REASON TD038 ON YD041.INSPECTION_REASON_CD = TD038.INSPECTION_REASON_CD
+WHERE
+	YD040.DATE_DELETED_DTE IS NULL
+	AND YD095.DATE_DELETED_DTE IS NULL
+	AND YD041.DATE_DELETED_DTE IS NULL
+GROUP BY
+	YD095.FILE_NUMBER_NUM,
+	TD001.FILE_STATUS_ETXT,
+	TD001.FILE_STATUS_FTXT,
+	YD040.INSPECTION_DATE_DTE,
+	YD040.ACTIVITY_ID,
+	YD040.STAKEHOLDER_ID,
+	TD038.INSPECTION_REASON_ETXT,
+	TD038.INSPECTION_REASON_FTXT;
 
-	DROP TABLE IF EXISTS #TEMP_IIS_INSPECTIONS;
+--SELECT * FROM #TEMP_IIS_INSPECTIONS;
 
-	--39446
-	SELECT
-		YD095.FILE_NUMBER_NUM,
-		TD001.FILE_STATUS_ETXT,
-		TD001.FILE_STATUS_FTXT,
-		YD040.INSPECTION_DATE_DTE,
-		YD040.ACTIVITY_ID,
-		YD040.STAKEHOLDER_ID,
-		TD038.INSPECTION_REASON_ETXT,
-		TD038.INSPECTION_REASON_FTXT
-	INTO #TEMP_IIS_INSPECTIONS
-	FROM
-		YD040_ACTIVITY YD040
-		INNER JOIN YD095_STAKEHOLDER_FILE YD095 ON YD040.FILE_NUMBER_NUM = YD095.FILE_NUMBER_NUM
-		INNER JOIN TD001_FILE_STATUS TD001 ON YD095.FILE_STATUS_CD = TD001.FILE_STATUS_CD
-		LEFT JOIN YD041_INSPECTION YD041 ON YD040.ACTIVITY_ID = YD041.ACTIVITY_ID
-		LEFT JOIN TD038_INSPECTION_REASON TD038 ON YD041.INSPECTION_REASON_CD = TD038.INSPECTION_REASON_CD
-	WHERE
-		YD040.DATE_DELETED_DTE IS NULL
-		AND YD095.DATE_DELETED_DTE IS NULL
-		AND YD041.DATE_DELETED_DTE IS NULL
-	GROUP BY
-		YD095.FILE_NUMBER_NUM,
-		TD001.FILE_STATUS_ETXT,
-		TD001.FILE_STATUS_FTXT,
-		YD040.INSPECTION_DATE_DTE,
-		YD040.ACTIVITY_ID,
-		YD040.STAKEHOLDER_ID,
-		TD038.INSPECTION_REASON_ETXT,
-		TD038.INSPECTION_REASON_FTXT;
-
-	--SELECT * FROM #TEMP_IIS_INSPECTIONS;
-
-END
---===================================================================================
 --===================================================================================
 
 
 
 --GET A TEMPORARY LIST OF ACTIVITY CATEGORIES AND SUBCATEGORIES OF ACTIVIES FROM IIS
 --===================================================================================
---===================================================================================
-BEGIN
-
-	DROP TABLE IF EXISTS #TEMP_INSPECTION_CATEGORIES;
 
 	SELECT
 	CAT.FILE_NUMBER_NUM,
@@ -219,18 +204,11 @@ BEGIN
 		YD101.FILE_NUMBER_NUM
 	) SUBCAT ON CAT.FILE_NUMBER_NUM = SUBCAT.FILE_NUMBER_NUM;
 
-END
---===================================================================================
 --===================================================================================
 
 
 --GET TEMPORARY LIST OF VIOLATIONS FROM IIS
 --===================================================================================
---===================================================================================
-BEGIN
-
-	DROP TABLE IF EXISTS #TEMP_VIOLATIONS;
-
 	SELECT
 		YD020.ACTIVITY_ID,
 		YD020.VIOLATION_CD,
@@ -246,18 +224,11 @@ BEGIN
 		LEFT JOIN YD021_MOCLIST YD021 ON YD020.ACTIVITY_ID = YD021.ACTIVITY_ID AND YD020.VIOLATION_CD = YD021.VIOLATION_CD
 	WHERE
 		YD020.DATE_DELETED_DTE IS NULL;
-
-END
---===================================================================================
 --===================================================================================
 
 
 --GET A TEMPORARY LIST OF VIOLATIONS THAT WERE MAPPED TO ROM VIA THE LEGISLATION MATCHING EXCEL SHEET DATA
 --===================================================================================
---===================================================================================
-BEGIN
-	DROP TABLE IF EXISTS #TEMP_VIOLATIONS_MAPPED_TO_ROM;
-	
 	SELECT 
 
 	CASE WHEN T4.LegislationId IS NULL THEN 0 ELSE 1 END MATCHED, 
@@ -275,15 +246,11 @@ BEGIN
 	LEFT JOIN SOURCE__LEGISLATION_MATCHING T4 ON T3.VIOLATION_CD = T4.VIOLATION_CD
 	LEFT JOIN STAGING__tylegislation T6 ON T4.LegislationId = T6.qm_rclegislationid
 	ORDER BY T4.LegislationId;
-END
---===================================================================================
 --===================================================================================
 
 
 --LINK UP THE VIOLATIONS BACK TO THEIR WORK ORDER BY MATCHING THE IIS ACTIVITY ID WITH THE IIS ACTIVITY ID FIELD ON THE WORK ORDER, 
 --===================================================================================
---===================================================================================
-BEGIN
 	INSERT INTO
 	  [dbo].STAGING__VIOLATIONS (
 		id,
@@ -356,8 +323,14 @@ BEGIN
 		ELSE CONCAT(TRIM(T1.Label), ' - ', MOC_SERIAL_NUMBER_NUM)
 	  END [qm_name]
 
-	  , LegislationId [qm_rclegislationid], qm_enablingprovision, qm_enablingregulation, MOC_SERIAL_NUMBER_NUM 
-	  [qm_referenceid], 1 [qm_violationcount], msdyn_workorderid [qm_workorderid], T1.ACTIVITY_ID, T1.VIOLATION_CD
+	  ,LegislationId [qm_rclegislationid]
+	  ,qm_enablingprovision
+	  ,qm_enablingregulation
+	  ,MOC_SERIAL_NUMBER_NUM [qm_referenceid]
+	  ,1 [qm_violationcount]
+	  ,t2.msdyn_workorderid [qm_workorderid]
+	  ,T1.ACTIVITY_ID
+	  ,T1.VIOLATION_CD
 
 	FROM #TEMP_VIOLATIONS_MAPPED_TO_ROM T1
 	JOIN STAGING__WORK_ORDERS T2	ON T1.ACTIVITY_ID = T2.ovs_iisactivityid
@@ -373,16 +346,13 @@ BEGIN
 	OWNINGBUSINESSUNIT	= @CONST_BUSINESSUNIT_TDG_ID,
 	OWNINGUSER			= @CONST_TDGCORE_USERID;
 
-END
---===================================================================================
 --===================================================================================
 
+SELECT * FROM #TEMP_VIOLATIONS_MAPPED_TO_ROM;
 
+SELECT * FROM STAGING__VIOLATIONS
 --DATA COUNTS 
 --===================================================================================
---===================================================================================
-BEGIN
-
 	--17808 VIOLATIONS MATCHED TO ROM
 	--
 	SELECT *, (CAST(COUNT_OF_VIOLATIONS_MATCHED_TO_WORKORDERS AS decimal) / COUNT_OF_VIOLATIONS_MAPPED_TO_ROM) MATCH_PRCNT
@@ -417,10 +387,8 @@ BEGIN
 	SELECT COUNT(*) TEMP__IIS_INSPECTIONS_COUNT FROM #TEMP_IIS_INSPECTIONS;
 
 	SELECT COUNT(*) CONFIRMATION_OF_COMPLIANCES_AS_OF_04_01_2020 FROM #TEMP_VIOLATIONS_MAPPED_TO_ROM
-	WHERE MATCHED = 1 AND INSPECTION_DATE_DTE > CAST ('2020-04-01' AS DATETIME);
+	WHERE MATCHED = 1 AND INSPECTION_DATE_DTE > CAST ('2019-04-01' AS DATETIME);
 
-END
---===================================================================================
 --===================================================================================
 
 --QUERY TO USE IN SSIS PACKAGE
@@ -439,3 +407,10 @@ qm_enablingregulation,
 qm_iisactivityid,
 qm_iisviolationcd
 FROM STAGING__VIOLATIONS;
+
+SELECT * FROM STAGING__WORK_ORDERS
+
+
+SELECT COUNT(*) FROM SSIS_RegulatedEntityErrors;
+SELECT COUNT(*) FROM SSIS_SiteErrors;
+SELECT COUNT(*) FROM SSIS_WorkOrderErrors;

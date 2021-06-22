@@ -12,8 +12,8 @@
   DTS:ObjectName="ExcelToSql"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="31"
-  DTS:VersionGUID="{FE4E584F-9D92-4FF7-AD2C-8B9F410B9698}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{D904DB05-6DD8-43DF-888A-BC2980ED2C48}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,12 +27,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-Package3-{7ED8F26D-FB1F-45D7-8B1A-483B25F5FF52}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="/E7Ory1njtU="
-            IV="OwbYxGo6bsqPrWBoLcEmHw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="/rdD6MXKJrc="
+            IV="NmlIOMX6dTyCm3evw2PeZw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>OwbYxGo6bsqPrWBoLcEmH+e9Zhxkt0roZWGJZCX9hOs8PI5vf+iuU8rIqpDPeOQ4UU/XX+pf/0CMuCtzPgm6HbJ5PA45xUbDm/4Hae6kzeYVrbszLzK4VrtY8qqbJmfE8WWDcG4fIMvUP1nmVYzJc+5mF05VGxjOkCLP7hckXtUm+OT1e2PXKQ8s/smrRaIB</CipherValue>
+              <CipherValue>NmlIOMX6dTyCm3evw2PeZxS5Gc/BbXH0e+4zLEN8hoNjU4LvlRzAZd9kCTJtY1gZeDpmi4aLUfKpKsCc7sHkzS82U4ZyW1HxZs4FT4JTC8ayTj3keCWL518DehwP3heJcSwR0cdbH+qS6E4ZPne+nVeej9hl4nHknJq9YfiBqVhXhMj3zWmUI/R+vN+UnHeU</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -48,12 +48,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-Package3-{45093E3D-2E74-4987-A606-797F71448B41}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="Acc9cfGnhcg="
-            IV="EhPr7FxZjATwMLzj3hVPsA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="b/dabY8WomY="
+            IV="SPeouZlJeeOaEQZTdb07cA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>EhPr7FxZjATwMLzj3hVPsJHIgfm5tyW9rrrI60anc8hoXy/r/KY9nxkl0RbRC5zkbWJo15iBK6MhDQJ7+RIq+er48HJ3nK4BIq+05c8q55NQcHpYHOWqjArBn/D2m8j3UQxiZsrIOd954AtDfNJ2lXXk+w/vxCpWZ08rZNgzN1tkCXudJpQLdkCxwRJHL01A</CipherValue>
+              <CipherValue>SPeouZlJeeOaEQZTdb07cEAfsk7a6vHcLlo086/UrjGQbQ4/MwZwDL97Z4ExI+J+Tv1Qz5nLh9DbVazZxPF8nn+JwGkuoh1Yb7738MVewrHepubZQM6+YyBuVHjW+pAHMD9aglWhJmJQ9QUstr75zgDAXP0Bj6kVa6w1Gp01eLcvRHb6ukdVgdTGtO0cjcgF</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -69,12 +69,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-Package3-{A9EC53B8-E514-4CE4-9402-92B500170879}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="x6q/PlxnTa0="
-            IV="tMAUNRFL/Eh7EJk7qCn6ig==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="G8QsNkfbWoQ="
+            IV="IIoqvD87Y6HknJw+oCyWqg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>tMAUNRFL/Eh7EJk7qCn6iut7wXPtMqVgjpXxAh3IALYorBAXOflox0pmRmlYCeewF8LgD+HuxmlFqYc1a4TF3ZCP5HhyAJNJ5mCVQi0CakJzjrB123qDFgXaE2YZXaSigoH9lWDPmuvw72r26CDHWTjTThLWEWOsC+67D0p8iOaRdOFu4D9EI/exVyoN/VQi</CipherValue>
+              <CipherValue>IIoqvD87Y6HknJw+oCyWqk6QGUHOboQV4ZP8dDBY1ti/zOoS1TMJOtG+t0KivFvwvp1xbO6DeuuhkTDJLkBbfJtOKJy57wrqdr19B0jC5o84rHzRkSxTLWCLDClWyg86wk8Ba78NYqQZ6iuydlOGMu28IHiSKvQov9DnHpv10rPVSHaqlqxulo2GP9JY+C87</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -31298,7 +31298,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                 <property
                   dataType="System.String"
                   expressionType="Notify"
-                  name="DestinationTable">dbo.01_IIS_DATA_CONSOLIDATION</property>
+                  name="DestinationTable">dbo.SOURCE__DATA_CONSOLIDATION</property>
                 <property
                   dataType="System.Int32"
                   expressionType="Notify"
@@ -31312,8 +31312,9 @@ FROM [dbo].[26_TDGLegislation];</property>
                   typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationWriteMode">2</property>
                 <property
                   dataType="System.Int32"
+                  description="CommandTimeout"
                   expressionType="Notify"
-                  name="CommandTimeout">120</property>
+                  name="CommandTimeout">254</property>
                 <property
                   dataType="System.Int32"
                   description="BatchSize"
@@ -31376,136 +31377,136 @@ FROM [dbo].[26_TDGLegislation];</property>
                     <inputColumn
                       refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[Address]"
                       cachedDataType="wstr"
-                      cachedLength="4000"
+                      cachedLength="255"
                       cachedName="Address"
                       externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[ADDRESS]"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Address]" />
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Address]" />
                     <inputColumn
                       refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[CITY_TOWN_NAME_NM]"
                       cachedDataType="wstr"
-                      cachedLength="4000"
+                      cachedLength="255"
                       cachedName="CITY_TOWN_NAME_NM"
                       externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[CITY_TOWN_NAME_NM]"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[CITY_TOWN_NAME_NM]" />
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[CITY_TOWN_NAME_NM]" />
                     <inputColumn
                       refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[COMPANY_NAME]"
                       cachedDataType="wstr"
-                      cachedLength="4000"
+                      cachedLength="255"
                       cachedName="COMPANY_NAME"
                       externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[COMPANY_NAME]"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[COMPANY_NAME]" />
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[COMPANY_NAME]" />
                     <inputColumn
                       refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[COUNTRY_SUBDIVISION_CD]"
                       cachedDataType="wstr"
-                      cachedLength="4000"
+                      cachedLength="255"
                       cachedName="COUNTRY_SUBDIVISION_CD"
                       externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[COUNTRY_SUBDIVISION_CD]"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[COUNTRY_SUBDIVISION_CD]" />
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[COUNTRY_SUBDIVISION_CD]" />
                     <inputColumn
                       refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[FILE_STATUS_CD]"
                       cachedDataType="wstr"
-                      cachedLength="4000"
+                      cachedLength="255"
                       cachedName="FILE_STATUS_CD"
                       externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FILE_STATUS_CD]"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[FILE_STATUS_CD]" />
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[FILE_STATUS_CD]" />
                     <inputColumn
                       refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[IIS_ID]"
                       cachedDataType="wstr"
-                      cachedLength="4000"
+                      cachedLength="255"
                       cachedName="IIS_ID"
                       externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[IIS_ID]"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[IIS_ID]" />
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[IIS_ID]" />
                     <inputColumn
                       refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[Notes]"
                       cachedDataType="wstr"
-                      cachedLength="4000"
+                      cachedLength="255"
                       cachedName="Notes"
                       externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[NOTES]"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Notes]" />
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Notes]" />
                     <inputColumn
                       refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[Planned2021]"
                       cachedDataType="wstr"
-                      cachedLength="4000"
+                      cachedLength="255"
                       cachedName="Planned2021"
                       externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[PLANNED2021]"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Planned2021]" />
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Planned2021]" />
                     <inputColumn
                       refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[POSTAL_CODE_TXT]"
                       cachedDataType="wstr"
-                      cachedLength="4000"
+                      cachedLength="255"
                       cachedName="POSTAL_CODE_TXT"
                       externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[POSTAL_CODE_TXT]"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[POSTAL_CODE_TXT]" />
-                    <inputColumn
-                      refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[ASSIGNED TO ]"
-                      cachedDataType="wstr"
-                      cachedLength="4000"
-                      cachedName="ASSIGNED TO "
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[ASSIGNED_TO]"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[ASSIGNED TO ]" />
-                    <inputColumn
-                      refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[Consolidated Common English Name]"
-                      cachedDataType="wstr"
-                      cachedLength="4000"
-                      cachedName="Consolidated Common English Name"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[CONSOLIDATED_COMMON_ENGLISH_NAME]"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Consolidated Common English Name]" />
-                    <inputColumn
-                      refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[Consolidated Common French Name]"
-                      cachedDataType="wstr"
-                      cachedLength="4000"
-                      cachedName="Consolidated Common French Name"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[CONSOLIDATED_COMMON_FRENCH_NAME]"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Consolidated Common French Name]" />
-                    <inputColumn
-                      refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[COMPLETED ]"
-                      cachedDataType="wstr"
-                      cachedLength="4000"
-                      cachedName="COMPLETED "
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[COMPLETED]"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[COMPLETED ]" />
-                    <inputColumn
-                      refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[COMPANY_NAME (formatted)]"
-                      cachedDataType="wstr"
-                      cachedLength="4000"
-                      cachedName="COMPANY_NAME (formatted)"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[COMPANY_NAME_FORMATTED]"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[COMPANY_NAME (formatted)]" />
-                    <inputColumn
-                      refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[Fuzzy Match]"
-                      cachedDataType="wstr"
-                      cachedLength="4000"
-                      cachedName="Fuzzy Match"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FUZZY_MATCH]"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Fuzzy Match]" />
-                    <inputColumn
-                      refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[Matching ID]"
-                      cachedDataType="wstr"
-                      cachedLength="4000"
-                      cachedName="Matching ID"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[MATCHING_ID]"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Matching ID]" />
-                    <inputColumn
-                      refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[regulated entity id]"
-                      cachedDataType="wstr"
-                      cachedLength="4000"
-                      cachedName="regulated entity id"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[REGULATED_ENTITY_ID]"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[regulated entity id]" />
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[POSTAL_CODE_TXT]" />
                     <inputColumn
                       refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[regulated entity name]"
                       cachedDataType="wstr"
-                      cachedLength="4000"
+                      cachedLength="255"
                       cachedName="regulated entity name"
                       externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[REGULATED_ENTITY_NAME]"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[regulated entity name]" />
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[regulated entity name]" />
                     <inputColumn
                       refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[SOUNDEX (Name)]"
                       cachedDataType="wstr"
-                      cachedLength="4000"
+                      cachedLength="255"
                       cachedName="SOUNDEX (Name)"
                       externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[SOUNDEX_NAME]"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[SOUNDEX (Name)]" />
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[SOUNDEX (Name)]" />
+                    <inputColumn
+                      refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[regulated entity id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="regulated entity id"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[REGULATED_ENTITY_ID]"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[regulated entity id]" />
+                    <inputColumn
+                      refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[Matching ID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Matching ID"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[MATCHING_ID]"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Matching ID]" />
+                    <inputColumn
+                      refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[Fuzzy Match]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Fuzzy Match"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FUZZY_MATCH]"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Fuzzy Match]" />
+                    <inputColumn
+                      refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[Consolidated Common French Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Consolidated Common French Name"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[CONSOLIDATED_COMMON_FRENCH_NAME]"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Consolidated Common French Name]" />
+                    <inputColumn
+                      refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[Consolidated Common English Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Consolidated Common English Name"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[CONSOLIDATED_COMMON_ENGLISH_NAME]"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Consolidated Common English Name]" />
+                    <inputColumn
+                      refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[COMPLETED ]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="COMPLETED "
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[COMPLETED]"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[COMPLETED ]" />
+                    <inputColumn
+                      refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[COMPANY_NAME (formatted)]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="COMPANY_NAME (formatted)"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[COMPANY_NAME_FORMATTED]"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[COMPANY_NAME (formatted)]" />
+                    <inputColumn
+                      refId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].Columns[ASSIGNED TO ]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ASSIGNED TO "
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[ASSIGNED_TO]"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[ASSIGNED TO ]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -32007,11 +32008,11 @@ FROM [dbo].[26_TDGLegislation];</property>
               </outputs>
             </component>
             <component
-              refId="Package\IIS CONSOLIDATION\TDG Inspectors"
+              refId="Package\IIS CONSOLIDATION\Premium Excel Source"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
               description="Extract data from Excel."
-              name="TDG Inspectors"
+              name="Premium Excel Source"
               usesDispositions="true">
               <properties>
                 <property
@@ -32028,7 +32029,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                   dataType="System.String"
                   description="Full path to the source file."
                   expressionType="Notify"
-                  name="SourceFilePath">C:\Users\LEBLAAA\source\D365.INSPECTION.ETL.TDG\TDG.CORE.ETL.RESOURCES\CLIENT_FILES\RDIMS-#17119563-v2-IIS DATA CONSOLIDATION.XLSX</property>
+                  name="SourceFilePath">C:\Users\Aaron\Google Drive\Work\TDG Core\Source\D365.INSPECTION.ETL.TDG\TDG.CORE.ETL.RESOURCES\CLIENT_FILES\RDIMS-17119563-v32-IIS DATA CONSOLIDATION.xlsx</property>
                 <property
                   dataType="System.String"
                   description="Password to open the Excel file."
@@ -32061,548 +32062,528 @@ FROM [dbo].[26_TDGLegislation];</property>
               </properties>
               <outputs>
                 <output
-                  refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output]"
+                  refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output]"
                   name="Default Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[COMPLETED ]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[COMPLETED ]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[COMPLETED ]"
-                      length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[COMPLETED ]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[COMPLETED ]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[COMPLETED ]"
                       name="COMPLETED "
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[ASSIGNED TO ]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[ASSIGNED TO ]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[ASSIGNED TO ]"
-                      length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[ASSIGNED TO ]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[ASSIGNED TO ]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[ASSIGNED TO ]"
                       name="ASSIGNED TO "
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[IIS_ID]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[IIS_ID]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[IIS_ID]"
-                      length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[IIS_ID]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[IIS_ID]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[IIS_ID]"
                       name="IIS_ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[COMPANY_NAME (formatted)]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[COMPANY_NAME (formatted)]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[COMPANY_NAME (formatted)]"
-                      length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[COMPANY_NAME (formatted)]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[COMPANY_NAME (formatted)]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[COMPANY_NAME (formatted)]"
                       name="COMPANY_NAME (formatted)"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Planned2021]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Planned2021]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[Planned2021]"
-                      length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Planned2021]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[Planned2021]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Planned2021]"
                       name="Planned2021"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[COMPANY_NAME]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[COMPANY_NAME]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[COMPANY_NAME]"
-                      length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[COMPANY_NAME]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[COMPANY_NAME]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[COMPANY_NAME]"
                       name="COMPANY_NAME"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[COUNTRY_SUBDIVISION_CD]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[COUNTRY_SUBDIVISION_CD]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[COUNTRY_SUBDIVISION_CD]"
-                      length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[COUNTRY_SUBDIVISION_CD]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[COUNTRY_SUBDIVISION_CD]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[COUNTRY_SUBDIVISION_CD]"
                       name="COUNTRY_SUBDIVISION_CD"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[CITY_TOWN_NAME_NM]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[CITY_TOWN_NAME_NM]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[CITY_TOWN_NAME_NM]"
-                      length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[CITY_TOWN_NAME_NM]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[CITY_TOWN_NAME_NM]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[CITY_TOWN_NAME_NM]"
                       name="CITY_TOWN_NAME_NM"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Address]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Address]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[Address]"
-                      length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Address]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[Address]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Address]"
                       name="Address"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[POSTAL_CODE_TXT]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[POSTAL_CODE_TXT]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[POSTAL_CODE_TXT]"
-                      length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[POSTAL_CODE_TXT]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[POSTAL_CODE_TXT]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[POSTAL_CODE_TXT]"
                       name="POSTAL_CODE_TXT"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[FILE_STATUS_CD]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[FILE_STATUS_CD]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[FILE_STATUS_CD]"
-                      length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[FILE_STATUS_CD]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[FILE_STATUS_CD]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[FILE_STATUS_CD]"
                       name="FILE_STATUS_CD"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[SOUNDEX (Name)]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[SOUNDEX (Name)]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[SOUNDEX (Name)]"
-                      length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[SOUNDEX (Name)]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[SOUNDEX (Name)]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[SOUNDEX (Name)]"
                       name="SOUNDEX (Name)"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Matching ID]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Matching ID]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[Matching ID]"
-                      length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Matching ID]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[Matching ID]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Matching ID]"
                       name="Matching ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Fuzzy Match]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Fuzzy Match]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[Fuzzy Match]"
-                      length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Fuzzy Match]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[Fuzzy Match]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Fuzzy Match]"
                       name="Fuzzy Match"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[regulated entity id]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[regulated entity id]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[regulated entity id]"
-                      length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[regulated entity id]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[regulated entity id]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[regulated entity id]"
                       name="regulated entity id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[regulated entity name]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[regulated entity name]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[regulated entity name]"
-                      length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[regulated entity name]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[regulated entity name]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[regulated entity name]"
                       name="regulated entity name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Consolidated Common English Name]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Consolidated Common English Name]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[Consolidated Common English Name]"
-                      length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Consolidated Common English Name]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[Consolidated Common English Name]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Consolidated Common English Name]"
                       name="Consolidated Common English Name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Consolidated Common French Name]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Consolidated Common French Name]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[Consolidated Common French Name]"
-                      length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Consolidated Common French Name]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[Consolidated Common French Name]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Consolidated Common French Name]"
                       name="Consolidated Common French Name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Notes]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Notes]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[Notes]"
-                      length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[Notes]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[Notes]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Notes]"
                       name="Notes"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[For Discussion]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Notes_hyperlink]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[For Discussion]"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[Notes_hyperlink]"
                       length="4000"
-                      lineageId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].Columns[For Discussion]"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[Notes_hyperlink]"
+                      name="Notes_hyperlink"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[For Discussion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[For Discussion]"
+                      length="255"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[For Discussion]"
                       name="For Discussion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[For Discussion_hyperlink]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[For Discussion_hyperlink]"
+                      length="4000"
+                      lineageId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].Columns[For Discussion_hyperlink]"
+                      name="For Discussion_hyperlink"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[COMPLETED ]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[COMPLETED ]"
                       dataType="wstr"
-                      length="4000"
+                      length="255"
                       name="COMPLETED ">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
-                        <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[ASSIGNED TO ]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[ASSIGNED TO ]"
                       dataType="wstr"
-                      length="4000"
+                      length="255"
                       name="ASSIGNED TO ">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
-                        <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[IIS_ID]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[IIS_ID]"
                       dataType="wstr"
-                      length="4000"
+                      length="255"
                       name="IIS_ID">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
-                        <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[COMPANY_NAME (formatted)]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[COMPANY_NAME (formatted)]"
                       dataType="wstr"
-                      length="4000"
+                      length="255"
                       name="COMPANY_NAME (formatted)">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
-                        <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[Planned2021]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[Planned2021]"
                       dataType="wstr"
-                      length="4000"
+                      length="255"
                       name="Planned2021">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
-                        <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[COMPANY_NAME]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[COMPANY_NAME]"
                       dataType="wstr"
-                      length="4000"
+                      length="255"
                       name="COMPANY_NAME">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
-                        <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[COUNTRY_SUBDIVISION_CD]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[COUNTRY_SUBDIVISION_CD]"
                       dataType="wstr"
-                      length="4000"
+                      length="255"
                       name="COUNTRY_SUBDIVISION_CD">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
-                        <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[CITY_TOWN_NAME_NM]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[CITY_TOWN_NAME_NM]"
                       dataType="wstr"
-                      length="4000"
+                      length="255"
                       name="CITY_TOWN_NAME_NM">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
-                        <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[Address]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[Address]"
                       dataType="wstr"
-                      length="4000"
+                      length="255"
                       name="Address">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
-                        <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[POSTAL_CODE_TXT]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[POSTAL_CODE_TXT]"
                       dataType="wstr"
-                      length="4000"
+                      length="255"
                       name="POSTAL_CODE_TXT">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
-                        <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[FILE_STATUS_CD]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[FILE_STATUS_CD]"
                       dataType="wstr"
-                      length="4000"
+                      length="255"
                       name="FILE_STATUS_CD">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
-                        <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[SOUNDEX (Name)]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[SOUNDEX (Name)]"
                       dataType="wstr"
-                      length="4000"
+                      length="255"
                       name="SOUNDEX (Name)">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
-                        <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[Matching ID]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[Matching ID]"
                       dataType="wstr"
-                      length="4000"
+                      length="255"
                       name="Matching ID">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
-                        <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[Fuzzy Match]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[Fuzzy Match]"
                       dataType="wstr"
-                      length="4000"
+                      length="255"
                       name="Fuzzy Match">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
-                        <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[regulated entity id]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[regulated entity id]"
                       dataType="wstr"
-                      length="4000"
+                      length="255"
                       name="regulated entity id">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
-                        <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[regulated entity name]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[regulated entity name]"
                       dataType="wstr"
-                      length="4000"
+                      length="255"
                       name="regulated entity name">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
-                        <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[Consolidated Common English Name]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[Consolidated Common English Name]"
                       dataType="wstr"
-                      length="4000"
+                      length="255"
                       name="Consolidated Common English Name">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
-                        <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[Consolidated Common French Name]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[Consolidated Common French Name]"
                       dataType="wstr"
-                      length="4000"
+                      length="255"
                       name="Consolidated Common French Name">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
-                        <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[Notes]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[Notes]"
                       dataType="wstr"
-                      length="4000"
+                      length="255"
                       name="Notes">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
-                        <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output].ExternalColumns[For Discussion]"
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[Notes_hyperlink]"
                       dataType="wstr"
                       length="4000"
+                      name="Notes_hyperlink">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="ParentColumnName">Notes</property>
+                        <property
+                          dataType="System.Int32"
+                          name="HyperlinkType"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.HyperlinkType">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Output format"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[For Discussion]"
+                      dataType="wstr"
+                      length="255"
                       name="For Discussion">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="IgnoreCastException"
-                          name="IgnoreCastException">false</property>
+                          dataType="System.Int32"
+                          description="Output format"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output].ExternalColumns[For Discussion_hyperlink]"
+                      dataType="wstr"
+                      length="4000"
+                      name="For Discussion_hyperlink">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="ParentColumnName">For Discussion</property>
                         <property
                           dataType="System.Int32"
-                          description="OutputFormat"
+                          name="HyperlinkType"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.HyperlinkType">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Output format"
                           name="OutputFormat"
                           typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat">1</property>
                       </properties>
@@ -32617,7 +32598,7 @@ FROM [dbo].[26_TDGLegislation];</property>
               refId="Package\IIS CONSOLIDATION.Paths[Default Output]"
               endId="Package\IIS CONSOLIDATION\Premium ADO NET Destination.Inputs[Primary Input]"
               name="Default Output"
-              startId="Package\IIS CONSOLIDATION\TDG Inspectors.Outputs[Default Output]" />
+              startId="Package\IIS CONSOLIDATION\Premium Excel Source.Outputs[Default Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -39383,7 +39364,7 @@ FROM [dbo].[26_TDGLegislation];</property>
     design-time-name="Package\21-22 WORKPLAN">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="184,42"
           Id="Package\21-22 WORKPLAN\Premium Excel Source"
@@ -39411,7 +39392,9 @@ FROM [dbo].[26_TDGLegislation];</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -39421,15 +39404,15 @@ FROM [dbo].[26_TDGLegislation];</property>
     design-time-name="Package\Delete Legislation Excel Data">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="242,42"
-          Id="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1"
-          TopLeft="511,528" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="213,42"
           Id="Package\Delete Legislation Excel Data\Premium ADO NET Source"
           TopLeft="522,346" />
+        <NodeLayout
+          Size="242,42"
+          Id="Package\Delete Legislation Excel Data\Premium ADO NET Destination 1"
+          TopLeft="511,528" />
         <EdgeLayout
           Id="Package\Delete Legislation Excel Data.Paths[Default Output]"
           TopLeft="630.25,388">
@@ -39449,7 +39432,9 @@ FROM [dbo].[26_TDGLegislation];</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -39461,27 +39446,27 @@ FROM [dbo].[26_TDGLegislation];</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="156,42"
-          Id="Package\IIS CONSOLIDATION\TDG Inspectors"
-          TopLeft="713.5,167.5" />
-        <NodeLayout
-          Size="224,42"
+          Size="233,42"
           Id="Package\IIS CONSOLIDATION\Premium ADO NET Destination"
-          TopLeft="681,318" />
+          TopLeft="718,867" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\IIS CONSOLIDATION\Premium Excel Source"
+          TopLeft="733,655" />
         <EdgeLayout
           Id="Package\IIS CONSOLIDATION.Paths[Default Output]"
-          TopLeft="792.25,209.5">
+          TopLeft="831.5,697">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,108.5"
+              EndConnector="0,170"
               Start="0,0"
-              End="0,101">
+              End="0,162.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,101" />
+                    End="0,162.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -39497,7 +39482,7 @@ FROM [dbo].[26_TDGLegislation];</property>
     design-time-name="Package\Import Legislation Excel Data">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="191,42"
           Id="Package\Import Legislation Excel Data\Premium Excel Source"
@@ -39525,7 +39510,9 @@ FROM [dbo].[26_TDGLegislation];</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

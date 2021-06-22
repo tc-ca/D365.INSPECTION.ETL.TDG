@@ -1,45 +1,71 @@
---DECLARE CONSTANTS
+IF EXISTS (
+	SELECT
+		*
+	FROM
+		sys.objects
+	WHERE
+		object_id = OBJECT_ID( '[dbo].[STAGING__CONTACT]')
+		AND TYPE IN ('U')
+) DROP TABLE [dbo].[STAGING__CONTACT];
+GO
+
+	CREATE TABLE [dbo].[STAGING__CONTACT](
+		[accountid] [uniqueidentifier] NULL,
+		[accountrolecode] [int] NULL,
+		[address1_addresstypecode] [int] NULL,
+		[address1_city] [nvarchar](80) NULL,
+		[address1_country] [nvarchar](80) NULL,
+		[address1_latitude] [decimal](38, 5) NULL,
+		[address1_line1] [nvarchar](250) NULL,
+		[address1_line2] [nvarchar](250) NULL,
+		[address1_line3] [nvarchar](250) NULL,
+		[address1_postalcode] [nvarchar](20) NULL,
+		[address1_postofficebox] [nvarchar](20) NULL,
+		[address1_primarycontactname] [nvarchar](100) NULL,
+		[address1_stateorprovince] [nvarchar](50) NULL,
+		[address1_telephone1] [nvarchar](50) NULL,
+		[company] [nvarchar](50) NULL,
+		[contactid] [uniqueidentifier] NULL,
+		[customertypecode] [int] NULL,
+		[emailaddress1] [nvarchar](100) NULL,
+		[firstname] [nvarchar](50) NULL,
+		[fullname] [nvarchar](160) NULL,
+		[Id] [uniqueidentifier] NOT NULL,
+		[jobtitle] [nvarchar](100) NULL,
+		[lastname] [nvarchar](50) NULL,
+		[mobilephone] [nvarchar](50) NULL,
+		[ownerid] [uniqueidentifier] NULL,
+		[owneridtype] [nvarchar](4000) NULL,
+		[owningbusinessunit] [uniqueidentifier] NULL,
+		[owningteam] [uniqueidentifier] NULL,
+		[owninguser] [uniqueidentifier] NULL,
+		parentcustomeridtype nvarchar(4000) NULL,
+		[statecode] [int] NULL,
+		[statuscode] [int] NULL,
+		[telephone1] [nvarchar](50) NULL,
+		[telephone2] [nvarchar](50) NULL,
+		[telephone3] [nvarchar](50) NULL
+	) ON [PRIMARY];
+	GO
+	
+	
+	--DECLARE CONSTANTS
 --===================================================================================================
---===================================================================================================
-BEGIN 
 
 	--=============================================DYNAMIC VALUES===========================================
-	--these variables can change with the environment, so double check these match the environment you're syncing to
-
-	--DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
-	--DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
-	--DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team    WHERE name = 'Quebec');
-	--DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
-	--DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
-	--DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
-
-	--SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_QUEBEC_ID TEAM_QUEBEC_ID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID;
-	
-	
-	--RUN THIS IN XRMTOOLBOX SQL4CDS TO GET VALUES FOR ENVIRONMENT
-	--===================================================================================================
-	--SELECT 'systemuserid' field, systemuserid id FROM systemuser where domainname = 'tdg.core@034gc.onmicrosoft.com';
-	--SELECT 'teamid' field, teamid id FROM team    WHERE name = 'Transportation of Dangerous Goods';
-	--SELECT 'BUSINESSUNITID' field, BUSINESSUNITID id FROM BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods';
-	--SELECT 'pricelevelid' field, pricelevelid id FROM pricelevel  WHERE NAME = 'Base Prices';
-	--===================================================================================================
-
-	--PREPROD, QA, ACC VALUES
 	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
-	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = '15abdd9e-8edd-ea11-a814-000d3af3afe0';
-	DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = '53122e0c-73f3-ea11-a815-000d3af3ac0d';
-	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = '4e122e0c-73f3-ea11-a815-000d3af3ac0d';
-	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = 'b92b6a16-7cf7-ea11-a815-000d3af3a7a7';
+	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT systemuserid FROM CRM__SYSTEMUSER  where domainname = 'tdg.core@034gc.onmicrosoft.com');
+	DECLARE @CONST_TEAM_TDG_ID          VARCHAR(500) = (SELECT teamid FROM CRM__TEAM WHERE name = 'Transportation of Dangerous Goods');
+	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT businessunitid FROM CRM__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
+	
 
 	--CRM CONSTANTS
 	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
 	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
 
-	SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID;
-
 	--===================================================================================================
 
-
+	
 	--============================================STATIC VALUES==========================================
 	--OVERSIGHT TYPES
 	DECLARE @CONST_OVERSIGHTTYPE_GCTARGETED              VARCHAR(50) = '72afccd3-269e-eb11-b1ac-000d3ae924d1';
@@ -68,10 +94,6 @@ BEGIN
 	--BOOKABLE RESOURCE CATEGORY
 	DECLARE @CONST_CATEGORY_INSPECTOR                    VARCHAR(50) = '06DB6E56-01F9-EA11-A815-000D3AF3AC0D';
 
-	--TDG CORE BOOKABLE RESOURCE
-	--used as a default value in case inspectors are not able to be loaded or are not licensed in dynamics yet 
-	DECLARE @CONST_TDGCORE_BOOKABLE_RESOURCE_ID          VARCHAR(50) = '2cfc9150-d6a3-eb11-b1ac-000d3ae8bee7';
-
 	--TERRITORIES / REGIONS
 	DECLARE @CONST_TERRITORY_HQ_ES                       VARCHAR(50) = '2e7b2f75-989c-eb11-b1ac-000d3ae92708';
 	DECLARE @CONST_TERRITORY_HQ_CR                       VARCHAR(50) = '52c72783-989c-eb11-b1ac-000d3ae92708';
@@ -80,10 +102,6 @@ BEGIN
 	DECLARE @CONST_TERRITORY_PACIFIQUE                   VARCHAR(50) = 'FEB76E9E-1707-EB11-A813-000D3AF3A0D7';
 	DECLARE @CONST_TERRITORY_PNR                         VARCHAR(50) = '02B86E9E-1707-EB11-A813-000D3AF3A0D7';
 	DECLARE @CONST_TERRITORY_ONTARIO                     VARCHAR(50) = '50B21A84-DB04-EB11-A813-000D3AF3AC0D';
-	
-
-END
---===================================================================================================
 --===================================================================================================
 
 
@@ -188,4 +206,7 @@ SET
 FROM
   STAGING__ACCOUNT t1
   JOIN STAGING__CONTACT t2 ON t1.Id = t2.accountid
-  AND t1.Id = T2.accountid
+  AND t1.Id = T2.accountid;
+
+
+  select count(*) COUNTOF_STAGING__CONTACT from STAGING__CONTACT;

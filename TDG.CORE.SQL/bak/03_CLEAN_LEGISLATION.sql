@@ -11,12 +11,10 @@ BEGIN
 	DROP TABLE [dbo].[STAGING__tylegislation];
 
 
-	/****** Object:  Table [dbo].[tdgdata__qm_tylegislationsource]    Script Date: 5/16/2021 7:53:04 PM ******/
 	IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[STAGING__tylegislationsource]') AND type in (N'U'))
 	DROP TABLE [dbo].[STAGING__tylegislationsource];
 
 
-	/****** Object:  Table [dbo].[tdgdata__qm_tylegislationsource]    Script Date: 5/16/2021 7:53:04 PM ******/
 	IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[STAGING__tylegislationtype]') AND type in (N'U'))
 	DROP TABLE [dbo].[STAGING__tylegislationtype];
 

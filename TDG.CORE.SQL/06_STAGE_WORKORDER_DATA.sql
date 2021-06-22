@@ -1,8 +1,30 @@
 --TABLE DEFINITIONS
 --===================================================================================================
-	/****** Object:  Table [dbo].[tdgdata__msdyn_workorder]    Script Date: 6/6/2021 11:21:47 PM ******/
+	/****** Object:  Table [dbo].[STAGING__WORK_ORDERS]    Script Date: 6/6/2021 11:21:47 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[STAGING__WORK_ORDERS]') AND type in (N'U'))
-DROP TABLE [dbo].[STAGING__WORK_ORDERS]
+DROP TABLE [dbo].[STAGING__WORK_ORDERS];
+GO
+
+DROP TABLE IF EXISTS ACTIVITY_TYPE_MAPPINGS;
+GO
+
+DROP TABLE IF EXISTS #TEMP_IIS_CONTACT_FULL_NAMES;
+GO
+
+DROP TABLE IF EXISTS #TEMP_TRANSFORMED_SOURCE_DATA;
+GO
+
+DROP TABLE IF EXISTS #TEMP_WORKPLAN_MATCHED_BOOKABLE_RESOURCES;
+GO
+
+DROP TABLE IF EXISTS #TEMP_BOOKABLE_RESOURCES;
+GO
+
+DROP TABLE IF EXISTS #TEMP_WORKPLAN;
+GO
+
+DROP TABLE IF EXISTS #TEMP_WORKPLAN_EXCLUDING_INSPECTIONS_ALREADY_IN_IIS;
+GO
 
 /****** Object:  Table [dbo].[STAGING__WORK_ORDERS]    Script Date: 6/6/2021 11:21:47 PM ******/
 SET ANSI_NULLS ON
@@ -280,10 +302,6 @@ DECLARE @CONST_RATIONALE_UNPLANNED                   VARCHAR(50) = '47F438C7-C10
 --BOOKABLE RESOURCE CATEGORY
 DECLARE @CONST_CATEGORY_INSPECTOR                    VARCHAR(50) = '06DB6E56-01F9-EA11-A815-000D3AF3AC0D';
 
---TDG CORE BOOKABLE RESOURCE
---used as a default value in case inspectors are not able to be loaded or are not licensed in dynamics yet 
-DECLARE @CONST_TDGCORE_BOOKABLE_RESOURCE_ID          VARCHAR(50) = '2cfc9150-d6a3-eb11-b1ac-000d3ae8bee7';
-
 --TERRITORIES / REGIONS
 DECLARE @CONST_TERRITORY_HQ_ES                       VARCHAR(50) = '2e7b2f75-989c-eb11-b1ac-000d3ae92708';
 DECLARE @CONST_TERRITORY_HQ_CR                       VARCHAR(50) = '52c72783-989c-eb11-b1ac-000d3ae92708';
@@ -295,8 +313,8 @@ DECLARE @CONST_TERRITORY_ONTARIO                     VARCHAR(50) = '50B21A84-DB0
 
 DECLARE @CONST_WORKORDER_SYSTEM_STATUS_CLOSED_POSTED  VARCHAR(50) = '690970004';
 DECLARE @CONST_WORK_ORDER_STATUSCODE_INACTIVE		  VARCHAR(50) = '2';
+DECLARE @CONST_WORK_ORDER_STATECODE_INACTIVE		  VARCHAR(50) = '1';
 DECLARE @CONST_WORKORDER_SYSTEM_STATUS_UNSCHEDULED    VARCHAR(50) = '690970000';
-
 
 --msdyn_systemstatus	
 --Name	Value
@@ -316,33 +334,21 @@ DECLARE @CONST_WORKORDER_SYSTEM_STATUS_UNSCHEDULED    VARCHAR(50) = '690970000';
 --===================================================================================================
 
 --=============================================DYNAMIC VALUES===========================================
---these variables can change with the environment, so double check these match the environment you're syncing to
+DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT systemuserid FROM CRM__SYSTEMUSER  where domainname = 'tdg.core@034gc.onmicrosoft.com');
+DECLARE @CONST_TEAM_TDG_ID          VARCHAR(500) = (SELECT teamid FROM CRM__TEAM WHERE name = 'Transportation of Dangerous Goods');
+DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT businessunitid FROM CRM__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
+DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT pricelevelid FROM CRM__pricelevel  WHERE NAME = 'Base Prices');
+DECLARE @CONST_TDGCORE_BOOKABLE_RESOURCE_ID VARCHAR(50) = (SELECT bookableresourceid FROM CRM__BOOKABLERESOURCE WHERE msdyn_primaryemail = @CONST_TDGCORE_DOMAINNAME);
+	
 
---DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
---DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
---DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team    WHERE name = 'Quebec');
---DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
---DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
---DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
-
-	--PREPROD, QA, ACC VALUES
-	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
-	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = '15abdd9e-8edd-ea11-a814-000d3af3afe0';
-	DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = '53122e0c-73f3-ea11-a815-000d3af3ac0d';
-	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = '4e122e0c-73f3-ea11-a815-000d3af3ac0d';
-	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = 'b92b6a16-7cf7-ea11-a815-000d3af3a7a7';
-
-	--CRM CONSTANTS
-	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
-	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
-
-	SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID;
-
+--CRM CONSTANTS
+DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
+DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
 --===================================================================================================
 
 --IIS ACTIVITY TYPE TO ROM ACTIVITY MAPPING EXCEL SHEET VALUES
 --===================================================================================================
-DROP TABLE IF EXISTS ACTIVITY_TYPE_MAPPINGS;
 SELECT
 	* INTO ACTIVITY_TYPE_MAPPINGS
 FROM
@@ -501,7 +507,6 @@ FROM
 
 --GET TEMPORARY LIST OF INTERNAL EMPLOYEE FULL NAMES FROM IIS, USED TO JOIN TO BOOKABLE RESOURCES
 --===================================================================================================
-DROP TABLE IF EXISTS #TEMP_IIS_CONTACT_FULL_NAMES;
 SELECT REPLACE(UPPER(
 TRIM(
 	CONCAT(
@@ -710,7 +715,6 @@ DELETE FROM ACTIVITY_TYPE_MAPPINGS WHERE IIS_ACTIVITY_TYPE_ID IS NULL;
 
 
 --create values for fiscal data
-DROP TABLE IF EXISTS #TEMP_TRANSFORMED_SOURCE_DATA;
 SELECT
 	T.*,
 	FY.tc_tcfiscalyearid,
@@ -727,6 +731,7 @@ FROM
 		[ovs_iisid],                                                                  --IIS STAKEHOLDER_ID
 		@CONST_WORKORDER_SYSTEM_STATUS_CLOSED_POSTED WORK_ORDER_STATUS,                --"Closed - Posted"
 		@CONST_WORK_ORDER_STATUSCODE_INACTIVE WORK_ORDER_STATUSCODE,
+		@CONST_WORK_ORDER_STATECODE_INACTIVE WORK_ORDER_STATECODE,
 		FILE_STATUS_ETXT,
 		PRIMARY_INSPECTOR_BOOKABLE_RESOURCE_ID,                                       --PRIMARY INSPECTOR
 		SECONDARY_INSPECTOR_BOOKABLE_RESOURCE_ID,                                     --SECONDARY INSPECTOR
@@ -788,6 +793,7 @@ INSERT INTO
 	[ovs_iisid],
 	[msdyn_systemstatus],
 	[statuscode],
+	statecode,
 	[ovs_primaryinspector],
 	[ovs_secondaryinspector],
 	[ownerid],
@@ -812,6 +818,7 @@ SELECT
 	ovs_iisid,
 	WORK_ORDER_STATUS,
 	WORK_ORDER_STATUSCODE,
+	WORK_ORDER_STATECODE,
 	PRIMARY_INSPECTOR_BOOKABLE_RESOURCE_ID,
 	SECONDARY_INSPECTOR_BOOKABLE_RESOURCE_ID,
 	owner,
@@ -839,6 +846,9 @@ FROM
 UPDATE STAGING__WORK_ORDERS SET msdyn_workorderid = Id; 
 
 
+--TODO MATCH SITE VISITS TO SEANS EXCEL SHEET WITH MATCHES
+
+
 --load the fiscal year, quarter and inspector names into the staging table, easier to look at the data
 UPDATE
 	STAGING__WORK_ORDERS
@@ -855,7 +865,7 @@ FROM
 	STAGING__WORK_ORDERS T1
 	JOIN [dbo].SOURCE__FISCAL_YEAR FY ON T1.ovs_fiscalyear = FY.tc_tcfiscalyearid
 	JOIN [dbo].SOURCE__FISCAL_QUARTER FQ ON T1.ovs_fiscalquarter = FQ.tc_tcfiscalquarterid
-	JOIN [dbo].STAGING__BOOKABLE_RESOURCE BR ON T1.ovs_primaryinspector = BR.bookableresourceid
+	LEFT JOIN [dbo].STAGING__BOOKABLE_RESOURCE BR ON T1.ovs_primaryinspector = BR.bookableresourceid
 	LEFT JOIN [dbo].STAGING__BOOKABLE_RESOURCE BR2 ON T1.ovs_secondaryinspector = BR2.bookableresourceid;
   
 
@@ -887,6 +897,13 @@ SET
 	[msdyn_systemstatus] = '690970003' --Open-Completed
 WHERE
 	ovs_fiscalyearname = '2021-2022';
+
+
+
+--TODO AL: IF NO COCS, ENFORCEMENT ACTIONS OPEN AND INSPECTION DATA IN THE PAST THEN CLOSED - POSTED
+		 --IF NOT, THEN IF THIS FISCAL YEAR
+
+
 --===================================================================================================
 
 
@@ -897,7 +914,6 @@ WHERE
 
 --GET A TEMPORARY TABLE OF THE WORKPLAN WITH SOME TRANSFORMED VALUES AND JOINED TO FISCAL TABLES
 --==============================================================================
-DROP TABLE IF EXISTS #TEMP_WORKPLAN;
 
 SELECT 
 QUARTER,
@@ -918,7 +934,6 @@ FROM (
 
 	SELECT
 		CASE
-			WHEN QUARTER_1 = '1' THEN 'Q1'
 			WHEN QUARTER_2 = '1' THEN 'Q2'
 			WHEN QUARTER_3 = '1' THEN 'Q3'
 			WHEN QUARTER_4 = '1' THEN 'Q4'
@@ -956,7 +971,6 @@ JOIN [dbo].SOURCE__FISCAL_QUARTER FQ ON FQ.tc_name = WP.[QUARTER] AND FQ.tc_tcfi
 
 --GET A TEMPORARY TABLE OF BOOKABLE RESOURCES WITH TRANSFORMED VALUES FROM OUR STAGED DATA
 --==============================================================================
-DROP TABLE IF EXISTS #TEMP_BOOKABLE_RESOURCES;
 SELECT 
 [name],
 
@@ -987,7 +1001,6 @@ FROM STAGING__BOOKABLE_RESOURCE BR;
 
 --MATCH BOOKABLE RESOURCES FROM ROM TO INSPECTORS IN THE WORKPLAN BY NAME, AND PUT MATCHES IN A TEMP TABLE
 --==============================================================================
-DROP TABLE IF EXISTS #TEMP_WORKPLAN_MATCHED_BOOKABLE_RESOURCES;
 SELECT * 
 INTO #TEMP_WORKPLAN_MATCHED_BOOKABLE_RESOURCES
 FROM #TEMP_BOOKABLE_RESOURCES T1
@@ -998,7 +1011,6 @@ JOIN #TEMP_WORKPLAN T2 ON UPPER(TRIM(CONCAT(T2.InspectorFirstName, ' ', T2.Inspe
 --CREATE A LIST OF INSPECTIONS FROM THE WORKPLAN THAT EXCLUDE INSPECTIONS 
 --THAT HAVE ALREADY BEEN ENTERED IN IIS AS WE'VE ALREADY CONVERTED AND DON'T WANT DUPLICATES
 --==============================================================================
-DROP TABLE IF EXISTS #TEMP_WORKPLAN_EXCLUDING_INSPECTIONS_ALREADY_IN_IIS;
 SELECT WP.*, BR.BOOKABLE_RESOURCE_ID, BR.name
 INTO #TEMP_WORKPLAN_EXCLUDING_INSPECTIONS_ALREADY_IN_IIS
 FROM #TEMP_WORKPLAN WP
@@ -1104,7 +1116,7 @@ JOIN STAGING__ACCOUNT T2 ON T1.msdyn_serviceaccount = T2.accountid;
 --==============================================================================
 
 
-/****** Script for SelectTopNRows command from SSMS  ******/
+--/****** Script for SelectTopNRows command from SSMS  ******/
 --SELECT 
 --      [msdyn_address1]
 --      ,[msdyn_address2]
@@ -1118,11 +1130,14 @@ JOIN STAGING__ACCOUNT T2 ON T1.msdyn_serviceaccount = T2.accountid;
 --      ,[msdyn_serviceterritory]
 --      ,[msdyn_stateorprovince]
 --      ,[msdyn_systemstatus]
---      ,[msdyn_workorderid]
+--      ,statuscode
+--	  ,statecode     
+--	  ,[msdyn_workorderid]
 --      ,[msdyn_workordersummary]
 --      ,[msdyn_workordertype]
 --      ,[ovs_fiscalquarter]
 --      ,[ovs_fiscalyear]
+--	  ,ovs_currentfiscalquarter
 --      ,[ovs_iisid]
 --      ,[ovs_mocid]
 --      ,[ovs_oversighttype]
