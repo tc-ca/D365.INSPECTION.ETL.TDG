@@ -128,14 +128,94 @@ LEFT JOIN [dbo].[TD070_VIOLATION] T3 ON T3.VIOLATION_CD = T1.VIOLATION_CD
 ORDER BY NAME
 --===================================================================================
 
-
-SELECT dbo.fn_StripCharacters(T1.VIOLATION_REFERENCE_CD, '^a-z0-9'), dbo.fn_StripCharacters(T2.qm_legislationlbl, '^a-z0-9'), VIOLATION_REFERENCE_CD, qm_legislationlbl, * 
+DROP TABLE IF EXISTS #IIS_TO_ROM_MATCHES;
+SELECT 
+T1.*, T2.*
+INTO #IIS_TO_ROM_MATCHES
 FROM [TD070_VIOLATION] t1
-join STAGING__tylegislation T2 ON dbo.fn_StripCharacters(T1.VIOLATION_REFERENCE_CD, '^a-z0-9') = dbo.fn_StripCharacters(T2.qm_legislationlbl, '^a-z0-9');
+LEFT JOIN STAGING__tylegislation T2 ON dbo.fn_StripCharacters(T1.VIOLATION_REFERENCE_CD, '^a-z0-9') = dbo.fn_StripCharacters(T2.qm_legislationlbl, '^a-z0-9')
+WHERE VIOLATION_CD IN
+(
+	SELECT DISTINCT VIOLATION_CD FROM YD020_INSPECTION_VIOLATION 
+);
 
 
-SELECT dbo.fn_StripCharacters(T1.VIOLATION_REFERENCE_CD, '^a-z0-9'), dbo.fn_StripCharacters(T2.qm_legislationlbl, '^a-z0-9'), VIOLATION_REFERENCE_CD, qm_legislationlbl, * 
-FROM STAGING__tylegislation t2
-JOIN [TD070_VIOLATION] T1 ON dbo.fn_StripCharacters(T1.VIOLATION_REFERENCE_CD, '^a-z0-9') = dbo.fn_StripCharacters(T2.qm_legislationlbl, '^a-z0-9')
-LEFT JOIN 
-WHERE T1.VIOLATION_CD IS NOT NULL
+DROP TABLE IF EXISTS #TEMP__IIS_TO_ROM_BY_ETXT;
+SELECT * 
+INTO #TEMP__IIS_TO_ROM_BY_ETXT
+FROM [TD070_VIOLATION] t1
+JOIN STAGING__tylegislation T2 ON dbo.fn_StripCharacters(T1.VIOLATION_ETXT, '^a-z0-9') = dbo.fn_StripCharacters(T2.qm_violationdisplaytexten, '^a-z0-9');
+
+--DROP TABLE IF EXISTS #UPDATEQUERY;
+--CREATE TABLE #UPDATEQUERY
+--(
+--    UPDATEQUERY NVARCHAR(1000) NOT NULL,
+--    [ORDER] int NULL
+--);
+
+--for the lazy, will create an update statement with the columns of the temp table
+--declare @LINE1 varchar(100), @LINE2 VARCHAR(5000), @LINE3 VARCHAR(1000), @UPDATE_STATEMENT VARCHAR(8000);  
+--SELECT @LINE1 = 'UPDATE #IIS_TO_ROM_MATCHES SET ' + CHAR(10);
+--SELECT @LINE2 = (SELECT STRING_AGG(CONCAT([name], ' = T2.', [name]), ',' + CHAR(10)) updateQuery FROM tempdb.sys.columns WHERE object_id = Object_id('tempdb..#IIS_TO_ROM_MATCHES'));
+--SELECT @LINE3 = CHAR(10) + ' FROM #IIS_TO_ROM_MATCHES T1 JOIN #TEMP__IIS_TO_ROM_BY_ETXT T2 ON T1.VIOLATION_CD = T2.VIOLATION_CD WHERE T1.qm_rclegislationid IS NULL';
+--SELECT @UPDATE_STATEMENT = @LINE1+@LINE2+@LINE3;
+--PRINT @UPDATE_STATEMENT;
+
+UPDATE #IIS_TO_ROM_MATCHES SET 
+qm_enablingprovision = T2.qm_enablingprovision,
+qm_enablingprovisionname = T2.qm_enablingprovisionname,
+qm_enablingregulation = T2.qm_enablingregulation,
+qm_enablingregulationname = T2.qm_enablingregulationname,
+qm_englishname = T2.qm_englishname,
+qm_frenchname = T2.qm_frenchname,
+qm_legislationetxt = T2.qm_legislationetxt,
+qm_legislationftxt = T2.qm_legislationftxt,
+qm_legislationlbl = T2.qm_legislationlbl,
+qm_name = T2.qm_name,
+qm_ordernbr = T2.qm_ordernbr,
+qm_rclegislationid = T2.qm_rclegislationid,
+qm_rcparentlegislationid = T2.qm_rcparentlegislationid,
+qm_rcparentlegislationidname = T2.qm_rcparentlegislationidname,
+qm_tylegislationsourceid = T2.qm_tylegislationsourceid,
+qm_tylegislationsourceidname = T2.qm_tylegislationsourceidname,
+qm_tylegislationtypeid = T2.qm_tylegislationtypeid,
+qm_tylegislationtypeidname = T2.qm_tylegislationtypeidname,
+qm_violationdisplaytext = T2.qm_violationdisplaytext,
+qm_violationdisplaytexten = T2.qm_violationdisplaytexten,
+qm_violationdisplaytextfr = T2.qm_violationdisplaytextfr,
+qm_violationtext = T2.qm_violationtext
+ FROM #IIS_TO_ROM_MATCHES T1 JOIN #TEMP__IIS_TO_ROM_BY_ETXT T2 ON T1.VIOLATION_CD = T2.VIOLATION_CD WHERE T1.qm_rclegislationid IS NULL
+
+
+SELECT 
+VIOLATION_FTXT	
+,VIOLATION_ETXT	
+,VIOLATION_CD	
+,VIOLATION_SOURCE_CD	
+,CASE WHEN VIOLATION_SOURCE_CD = 1 THEN 'ACT' ELSE 'REG' END SOURCE_NAME	
+,VIOLATION_REFERENCE_CD	
+,' ' SEPERATOR	
+,qm_legislationlbl	
+,qm_englishname	
+,qm_frenchname	
+,qm_rclegislationid	
+,qm_violationdisplaytexten	
+,qm_legislationetxt	
+,qm_violationdisplaytextfr	
+,qm_legislationftxt
+FROM 
+#IIS_TO_ROM_MATCHES;
+
+
+SELECT 
+TRIM(qm_legislationlbl) qm_legislationlbl	
+,qm_englishname	
+,qm_frenchname	
+,qm_violationdisplaytexten	
+,qm_violationdisplaytextfr	
+,qm_legislationetxt	
+,qm_legislationftxt
+,qm_rclegislationid	
+FROM STAGING__tylegislation
+WHERE TRIM(qm_legislationlbl) NOT LIKE 'CS%' AND TRIM(qm_legislationlbl) NOT LIKE 'CG%'
+ORDER BY TRIM(qm_legislationlbl);
