@@ -173,6 +173,18 @@ go
 	--,[activityid]
 	--,[activitytypecode]
 
+--	FOLLOW_UP_TYPE_CD	FOLLOW_UP_TYPE_ELBL
+--1	Confirmation of compliance to be provided in 30 days
+--2	Violation Resolved
+--3	Confirmation of compliance not received
+--4	Confirmation of compliance not requested by inspector
+
+----Confirmation of compliance to be provided in 30 days = ACTIVE/ACTIVE
+----Violation Resolved = CLOSED/CONFIRMATION RECEIVED - ON TIME
+----Confirmation of compliance not received = CLOSED - UNRESOLVED
+----Confirmation of compliance not requested by inspector = CLOSED/CONFIRMATION ON-SITE (TO BE CHANGED TO NEW STATUS OF NOT REQUESTED)
+
+	--VIOLATIONS THAT DON'T HAVE ANY FOLLOWUP DATA, OR CHECKBOXES SELECTED IN IIS, WE WILL CREATE
 	CASE WHEN T2.FOLLOW_UP_TYPE_CD = 2 THEN 1			--'CLOSED'
 		 WHEN T2.FOLLOW_UP_TYPE_CD = 3 THEN 1			--'CLOSED'
 		 WHEN T2.FOLLOW_UP_TYPE_CD = 4 THEN 1			--'CLOSED'
@@ -321,5 +333,6 @@ SELECT  @COC_AFTER_APRIL_1_2019 COC_AFTER_APRIL_1_2019,
 --VIOLATION RESOLVED = CLOSED, CONFIRMATION RECIEVED ON TIME
 --COC NOT RECEIVED = CLOSED, CLOSED - UNRESOLVED
 --COC NOT REQUESTED BY INSPECTOR = CLOSED, CONFIRMATION ON-SITE
+
 
 
