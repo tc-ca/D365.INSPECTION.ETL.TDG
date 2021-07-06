@@ -56,17 +56,45 @@
 --===================================================================================================
 --===================================================================================================
 --staging tables should be empty before conversion
-SELECT COUNT(*) [04_ACCOUNT]                         FROM [dbo].STAGING__ACCOUNT;
-SELECT COUNT(*) [06_WORK_ORDERS]                     FROM [dbo].STAGING__WORK_ORDERS;
-SELECT COUNT(*) [07_VIOLATIONS]                      FROM [dbo].STAGING__VIOLATIONS;
-SELECT COUNT(*) [11_CONTACT]                         FROM [dbo].STAGING__CONTACT;
-SELECT COUNT(*) [18_BOOKABLE_RESOURCE_CATEGORY_ASSN] FROM [dbo].STAGING__BOOKABLE_RESOURCE_CATEGORY_ASSN; --staging tables for master lookup data should have values
-SELECT COUNT(*) [12_BOOKABLE_RESOURCE]               FROM [dbo].STAGING__BOOKABLE_RESOURCE;
-SELECT COUNT(*) [17_BOOKABLE_RESOURCE_CATEGORIES]    FROM [dbo].STAGING__BOOKABLE_RESOURCE_CATEGORIES;
-SELECT COUNT(*) [21_TYRATIONAL]                      FROM [dbo].STAGING__TYRATIONAL;
-SELECT COUNT(*) [22_OVERSIGHTTYPE]                   FROM [dbo].STAGING__OVERSIGHTTYPE;
-SELECT COUNT(*) [23_TERRITORY]                       FROM [dbo].STAGING__TERRITORY;
-SELECT COUNT(*) [24_WORKORDERTYPE]                   FROM [dbo].STAGING__WORKORDERTYPE;
+SELECT COUNT(*) [CRM__BOOKABLERESOURCE]	FROM [dbo].[CRM__BOOKABLERESOURCE] 											  ;
+SELECT COUNT(*) [CRM__BUSINESSUNIT]		FROM [dbo].[CRM__BUSINESSUNIT] 												  ;
+SELECT COUNT(*) [CRM__PRICELEVEL]			FROM [dbo].[CRM__PRICELEVEL] 											  ;
+SELECT COUNT(*) [CRM__SYSTEMUSER]			FROM [dbo].[CRM__SYSTEMUSER] 											  ;
+SELECT COUNT(*) [CRM__TEAM]				FROM [dbo].[CRM__TEAM] 														  ;
+SELECT COUNT(*) [CrmCountHistory]			FROM [dbo].[CrmCountHistory] 											  ;
+SELECT COUNT(*) [ERRORS__ACCOUNT_UNNUMBER] FROM [dbo].[ERRORS__ACCOUNT_UNNUMBER] 									  ;
+SELECT COUNT(*) [ERRORS__BUSINESSUNIT]	 FROM [dbo].[ERRORS__BUSINESSUNIT] 											  ;
+SELECT COUNT(*) [ERRORS__COC]				 FROM [dbo].[ERRORS__COC] 												  ;
+SELECT COUNT(*) [SSIS_RegulatedEntityErrors]	FROM [dbo].[SSIS_RegulatedEntityErrors] 							  ;
+SELECT COUNT(*) [SSIS_SiteErrors]					FROM [dbo].[SSIS_SiteErrors] 									  ;
+SELECT COUNT(*) [SSIS_WorkOrderErrors]			FROM [dbo].[SSIS_WorkOrderErrors] 									  ;
+SELECT COUNT(*) [STAGING__ACCOUNT]				FROM [dbo].[STAGING__ACCOUNT] 										  ;
+SELECT COUNT(*) [STAGING__accountclass]			FROM [dbo].[STAGING__accountclass] 									  ;
+SELECT COUNT(*) [STAGING__ACCOUNTUN]				FROM [dbo].[STAGING__ACCOUNTUN] 								  ;
+SELECT COUNT(*) [STAGING__AIR_OPERATOR_FUNCTION]	FROM [dbo].[STAGING__AIR_OPERATOR_FUNCTION] 					  ;
+SELECT COUNT(*) [STAGING__AIR_OPERATOR_TYPE]		FROM [dbo].[STAGING__AIR_OPERATOR_TYPE] 						  ;
+SELECT COUNT(*) [STAGING__AIRCRAFT_TYPE]			FROM [dbo].[STAGING__AIRCRAFT_TYPE] 							  ;
+SELECT COUNT(*) [STAGING__BOOKABLE_RESOURCE]					FROM [dbo].[STAGING__BOOKABLE_RESOURCE] 			  ;
+SELECT COUNT(*) [STAGING__BOOKABLE_RESOURCE_CATEGORIES]	 FROM [dbo].[STAGING__BOOKABLE_RESOURCE_CATEGORIES] 		  ;
+SELECT COUNT(*) [STAGING__BOOKABLE_RESOURCE_CATEGORY_ASSN] FROM [dbo].[STAGING__BOOKABLE_RESOURCE_CATEGORY_ASSN] 	  ;
+SELECT COUNT(*) [STAGING__COC] FROM [dbo].[STAGING__COC] 															  ;
+SELECT COUNT(*) [STAGING__CONTACT] FROM [dbo].[STAGING__CONTACT] 													  ;
+SELECT COUNT(*) [STAGING__ENVIRONMENT_SETTINGS] FROM [dbo].[STAGING__ENVIRONMENT_SETTINGS] 							  ;
+SELECT COUNT(*) [STAGING__EQUIPMENT_TYPE] FROM [dbo].[STAGING__EQUIPMENT_TYPE] 										  ;
+SELECT COUNT(*) [STAGING__MOC_FACILITY_TYPE] FROM [dbo].[STAGING__MOC_FACILITY_TYPE] 								  ;
+SELECT COUNT(*) [STAGING__MOC_TYPE] FROM [dbo].[STAGING__MOC_TYPE] 													  ;
+SELECT COUNT(*) [STAGING__MODES] FROM [dbo].[STAGING__MODES] 														  ;
+SELECT COUNT(*) [STAGING__OVERSIGHTTYPE] FROM [dbo].[STAGING__OVERSIGHTTYPE] 										  ;
+SELECT COUNT(*) [STAGING__TERRITORY] FROM [dbo].[STAGING__TERRITORY] 												  ;
+SELECT COUNT(*) [STAGING__tylegislation] FROM [dbo].[STAGING__tylegislation] 										  ;
+SELECT COUNT(*) [STAGING__tylegislationsource] FROM [dbo].[STAGING__tylegislationsource] 							  ;
+SELECT COUNT(*) [STAGING__tylegislationtype] FROM [dbo].[STAGING__tylegislationtype] 								  ;
+SELECT COUNT(*) [STAGING__TYRATIONAL] FROM [dbo].[STAGING__TYRATIONAL] 												  ;
+SELECT COUNT(*) [STAGING__UNPLANNED_FORECAST] FROM [dbo].[STAGING__UNPLANNED_FORECAST] 								  ;
+SELECT COUNT(*) [STAGING__VIOLATIONS] FROM [dbo].[STAGING__VIOLATIONS] 												  ;
+SELECT COUNT(*) [STAGING__WORK_ORDERS] FROM [dbo].[STAGING__WORK_ORDERS] 											  ;
+SELECT COUNT(*) [STAGING__WORKORDERTYPE] FROM [dbo].[STAGING__WORKORDERTYPE] 										  ;
+SELECT COUNT(*) [STAGING_UN_NUMBERS]	FROM [dbo].[STAGING_UN_NUMBERS]												  ;
 
 --try to match up the staging records with records in CRM by id and make sure they exist in CRM with the same ID
 SELECT 

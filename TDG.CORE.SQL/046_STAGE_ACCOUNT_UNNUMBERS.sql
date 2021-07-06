@@ -75,29 +75,18 @@ GO
 --==================================================================
 
 
---DECLARE DYNAMICS VALUES
---===================================================================================================
-DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
-DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT systemuserid FROM CRM__SYSTEMUSER  where domainname = 'tdg.core@034gc.onmicrosoft.com');
-DECLARE @CONST_TEAM_TDG_ID          VARCHAR(500) = (SELECT teamid FROM CRM__TEAM WHERE name = 'Transportation of Dangerous Goods');
-DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT businessunitid FROM CRM__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
-DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
-DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
-
---WILL LOSE THESE VARIABLE VALUES IF 'GO' IS USED FROM THIS POINT ON
---===================================================================================================
-
-
 --MAIN QUERY
 --JOINS IIS DATA WITH ROM DATA BY UNNUMBER AND SHIPPING NAME AND LOADS DATA INTO TEMP TABLE
 --==================================================================
 --930840000 INBOUND
 --930840001 OUTBOUND
 
+--89198
+--WHATS THE COUNT OF RUNNING QUERY JUST FINISHED
 SELECT 
-newid()			[ovs_accountunid] --PK
-,''				[ovs_name]
-,T3.id			[ovs_unnumber] --UN NUMBER
+DISTINCT 
+T3.id			[ovs_unnumber] --UN NUMBER
+,T3.tdg_name
 ,T4.accountid	[ovs_accountunnumber] --ACCOUNTID
 
 ,CASE 
@@ -108,12 +97,47 @@ WHEN INBOUND_IND = 0 AND OUTBOUND_IND = 0 THEN NULL
 END [ovs_supplychaindirection]
 
 INTO #TEMP__ACCOUNT_UNNUMBERS
-FROM [dbo].[YD031_STAKEHOLDER_DG_PROFILE] T1
-JOIN [XD002_DANGEROUS_GOOD] T2 ON T1.UN_NUMBER_ID = T2.UN_NUMBER_ID 
+FROM 
+(
+	SELECT STAKEHOLDER_ID, MAX(INBOUND_IND) INBOUND_IND, MAX(OUTBOUND_IND) OUTBOUND_IND, UN_NUMBER_ID 
+	FROM [YD031_STAKEHOLDER_DG_PROFILE]
+	WHERE YEAR(DATE_DELETED_DTE) = 9999
+	GROUP BY STAKEHOLDER_ID, UN_NUMBER_ID
+) T1
+JOIN [TD002_DANGEROUS_GOOD] T2 ON T1.UN_NUMBER_ID = T2.UN_NUMBER_ID 
 JOIN STAGING_UN_NUMBERS T3 ON (LEN(T1.UN_NUMBER_ID) = 6 AND T3.tdg_name = T1.UN_NUMBER_ID) OR (LEN(T1.UN_NUMBER_ID) = 7 AND (T2.SHIPPING_NAME_ENM = T3.tdg_shippingnamedescriptionetxt OR T2.SHIPPING_NAME_FNM = T3.tdg_shippingnamedescriptionFtxt))
 JOIN STAGING__ACCOUNT T4 ON T1.STAKEHOLDER_ID = T4.ovs_iisid
-ORDER BY T1.[UN_NUMBER_ID];
+WHERE T4.customertypecode=948010001
+ORDER BY tdg_name;
 --==================================================================
+
+--IF THERE ARE MULTIPLE INSTANCES OF THE SAME UN NUMBER, DIFFERENT SUPPLY CHAIN, WE WILL TAKE THE MOST VALUES
+--EX. a) RECORD 1 - UN1234 - INBOUND,OUTBOUND
+--    b) RECORD 2 - UN1234 - OUTBOUND
+--	  c) RECORD 3 - UN1234 - NULL
+--THE VALUE SAVED TO ROM WILL BE a)
+--==================================================================
+--SELECT 
+--ovs_accountunnumber, 
+--ovs_unnumber, 
+--STRING_AGG([ovs_supplychaindirection], ', ') 
+--WITHIN GROUP (ORDER BY [ovs_supplychaindirection] ASC) AS [ovs_supplychaindirection]
+--,COUNT(ovs_unnumber) countof
+--FROM
+--(
+--	SELECT ovs_accountunnumber, ovs_unnumber, [ovs_supplychaindirection] FROM
+--	(
+--		--unpack csv to rows
+--		SELECT ovs_accountunnumber, ovs_unnumber, SPLIT.Value [ovs_supplychaindirection] 
+--		FROM #TEMP__ACCOUNT_UNNUMBERS
+--		cross apply STRING_SPLIT ([ovs_supplychaindirection], ';') SPLIT
+--	) T
+--	GROUP BY ovs_accountunnumber, ovs_unnumber, [ovs_supplychaindirection]
+--) T2
+--GROUP BY ovs_accountunnumber, ovs_unnumber
+--ORDER BY COUNT(ovs_unnumber) DESC
+--==================================================================
+
 
 
 --INSERT THE DATA INTO THE STAGING TABLE
@@ -126,19 +150,34 @@ INSERT INTO [dbo].[STAGING__ACCOUNTUN]
            ,[ovs_unnumber] --UN NUMBER
            ,[ovs_name])
 SELECT 
- [ovs_accountunid] Id
-,[ovs_accountunid] --PK
-,[ovs_supplychaindirection]
-,[ovs_accountunnumber]
-,[ovs_unnumber] --UN NUMBER
-,[ovs_name]
-FROM #TEMP__ACCOUNT_UNNUMBERS
+	[Id]
+,Id [ovs_accountunid]
+,	[ovs_supplychaindirection]
+,	[ovs_accountunnumber]
+,	[ovs_unnumber] --UN NUMBER
+,	[tdg_name]
+FROM (
+	SELECT 
+	 NEWID() Id
+	,[ovs_supplychaindirection]
+	,[ovs_accountunnumber]
+	,[ovs_unnumber] --UN NUMBER
+	,tdg_name
+	FROM #TEMP__ACCOUNT_UNNUMBERS
+) T
 --==================================================================
 
 
 --UPDATE OWNERSHIP OF RECORDS TO THE GENERIC TDG CORE USER
---==================================================================
-UPDATE STAGING__accountclass 
+--===================================================================================================
+DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT systemuserid FROM CRM__SYSTEMUSER  where domainname = @CONST_TDGCORE_DOMAINNAME);
+DECLARE @CONST_TEAM_TDG_ID          VARCHAR(500) = (SELECT teamid FROM CRM__TEAM WHERE name = 'Transportation of Dangerous Goods');
+DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT businessunitid FROM CRM__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
+DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
+DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
+
+UPDATE [STAGING__ACCOUNTUN] 
 SET 
 ownerid = @CONST_TDGCORE_USERID,
 owneridtype = @CONST_OWNERIDTYPE_SYSTEMUSER,
@@ -148,6 +187,7 @@ owninguser = @CONST_TDGCORE_USERID;
 
 
 --QUERY FOR SSIS
+--==================================================================
 SELECT 
 [Id]
 ,[ovs_supplychaindirection]
@@ -159,4 +199,6 @@ SELECT
 ,owneridtype
 ,owningbusinessunit
 ,owninguser
-FROM [STAGING__ACCOUNTUN];
+FROM [STAGING__ACCOUNTUN]
+ORDER BY [ovs_accountunnumber];
+--==================================================================
