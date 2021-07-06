@@ -87,9 +87,9 @@ SELECT
 FROM
 	(
 SELECT '2c324a5c-cd76-eb11-a812-000d3af3fc54' [id], 'Rail' [ovs_name], 'Rail' [ovs_englishlabel], 'Ferroviaire' [ovs_frenchlabel] UNION
-SELECT '8005c3d4-3f78-eb11-a812-000d3af3fc54', 'Road', 'Road', 'Road' UNION
-SELECT 'fee06d4d-4278-eb11-a812-000d3af3fc54', 'Air', 'Air', 'Air' UNION
-SELECT '7350f37a-4278-eb11-a812-000d3af3fc54', 'Marine', 'Marine', 'Marine'
+SELECT '8005c3d4-3f78-eb11-a812-000d3af3fc54', 'Road', 'Road', 'Route' UNION
+SELECT 'fee06d4d-4278-eb11-a812-000d3af3fc54', 'Air', 'Air', 'Aérien' UNION
+SELECT '7350f37a-4278-eb11-a812-000d3af3fc54', 'Marine', 'Marine', 'Maritime'
 ) T1;
 
 
