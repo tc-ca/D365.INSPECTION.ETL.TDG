@@ -1,0 +1,8 @@
+# Ignore built files
+*.dll
+*.adb
+*.exe
+
+# Ignore deployment files
+#[Mm]odel/[Dd]eployment
+*_LOG.txt

@@ -1,8 +1,6 @@
 ﻿--TABLE DEFINITIONS
 --===================================================================================================
 --===================================================================================================
-BEGIN 
-
 	IF EXISTS (
 		SELECT
 			*
@@ -12,7 +10,7 @@ BEGIN
 			object_id = OBJECT_ID( '[dbo].[SOURCE__REGULATED_ENTITIES]')
 			AND TYPE IN ('U')
 	) DROP TABLE [dbo].[SOURCE__REGULATED_ENTITIES];
-
+	GO
 
 	CREATE TABLE [dbo].[SOURCE__REGULATED_ENTITIES] (
 		[REGULATED_ENTITY_ID] [uniqueidentifier],
@@ -28,7 +26,7 @@ BEGIN
 		[COMPLETED] [nvarchar](10) NULL,
 		[NOTES] [nvarchar](500) NULL
 	) ON [PRIMARY];
-
+	GO
 
 	IF EXISTS (
 		SELECT
@@ -39,7 +37,7 @@ BEGIN
 			object_id = OBJECT_ID('[dbo].[SOURCE__SITES]')
 			AND TYPE IN ('U')
 	) DROP TABLE [dbo].[SOURCE__SITES];
-
+	GO
 
 	CREATE TABLE [dbo].[SOURCE__SITES] (
 		[SITE_ID] [uniqueidentifier],
@@ -56,58 +54,8 @@ BEGIN
 		[COMPLETED] [nvarchar](10) NULL,
 		[PLANNED2021] [nvarchar](10) NULL,
 	) ON [PRIMARY];
-
+	GO
 		
-	IF EXISTS (
-		SELECT
-			*
-		FROM
-			sys.objects
-		WHERE
-			object_id = OBJECT_ID( '[dbo].[STAGING__CONTACT]')
-			AND TYPE IN ('U')
-	) DROP TABLE [dbo].[STAGING__CONTACT];
-
-
-	CREATE TABLE [dbo].[STAGING__CONTACT](
-		[accountid] [uniqueidentifier] NULL,
-		[accountrolecode] [int] NULL,
-		[address1_addresstypecode] [int] NULL,
-		[address1_city] [nvarchar](80) NULL,
-		[address1_country] [nvarchar](80) NULL,
-		[address1_latitude] [decimal](38, 5) NULL,
-		[address1_line1] [nvarchar](250) NULL,
-		[address1_line2] [nvarchar](250) NULL,
-		[address1_line3] [nvarchar](250) NULL,
-		[address1_postalcode] [nvarchar](20) NULL,
-		[address1_postofficebox] [nvarchar](20) NULL,
-		[address1_primarycontactname] [nvarchar](100) NULL,
-		[address1_stateorprovince] [nvarchar](50) NULL,
-		[address1_telephone1] [nvarchar](50) NULL,
-		[company] [nvarchar](50) NULL,
-		[contactid] [uniqueidentifier] NULL,
-		[customertypecode] [int] NULL,
-		[emailaddress1] [nvarchar](100) NULL,
-		[firstname] [nvarchar](50) NULL,
-		[fullname] [nvarchar](160) NULL,
-		[Id] [uniqueidentifier] NOT NULL,
-		[jobtitle] [nvarchar](100) NULL,
-		[lastname] [nvarchar](50) NULL,
-		[mobilephone] [nvarchar](50) NULL,
-		[ownerid] [uniqueidentifier] NULL,
-		[owneridtype] [nvarchar](4000) NULL,
-		[owningbusinessunit] [uniqueidentifier] NULL,
-		[owningteam] [uniqueidentifier] NULL,
-		[owninguser] [uniqueidentifier] NULL,
-		parentcustomeridtype nvarchar(4000) NULL,
-		[statecode] [int] NULL,
-		[statuscode] [int] NULL,
-		[telephone1] [nvarchar](50) NULL,
-		[telephone2] [nvarchar](50) NULL,
-		[telephone3] [nvarchar](50) NULL
-	) ON [PRIMARY];
-
-
 	IF EXISTS (
 		SELECT
 			*
@@ -117,7 +65,7 @@ BEGIN
 			object_id = OBJECT_ID( '[dbo].[STAGING__BOOKABLE_RESOURCE]')
 			AND TYPE IN ('U')
 	) DROP TABLE [dbo].[STAGING__BOOKABLE_RESOURCE];
-
+	GO
 
 	CREATE TABLE [STAGING__BOOKABLE_RESOURCE] (
 		[accountid] UNIQUEIDENTIFIER,
@@ -214,7 +162,7 @@ BEGIN
 		[utcconversiontimezonecode] INT,
 		[versionnumber] BIGINT
 	) ON [PRIMARY];
-
+	GO
 
 	IF EXISTS (
 		SELECT
@@ -227,7 +175,7 @@ BEGIN
 			)
 			AND TYPE IN ('U')
 	) DROP TABLE [dbo].[STAGING__BOOKABLE_RESOURCE_CATEGORIES];
-
+	GO
 
 	CREATE TABLE [STAGING__BOOKABLE_RESOURCE_CATEGORIES] (
 		[bookableresourcecategoryid] UNIQUEIDENTIFIER,
@@ -280,7 +228,7 @@ BEGIN
 			)
 			AND TYPE IN ('U')
 	) DROP TABLE [dbo].[STAGING__BOOKABLE_RESOURCE_CATEGORY_ASSN];
-
+	GO
 
 	CREATE TABLE [STAGING__BOOKABLE_RESOURCE_CATEGORY_ASSN] (
 		[bookableresourcecategoryassnid] UNIQUEIDENTIFIER,
@@ -323,7 +271,7 @@ BEGIN
 		[utcconversiontimezonecode] INT,
 		[versionnumber] BIGINT
 	);
-
+	GO
 
 	IF EXISTS (
 		SELECT
@@ -334,7 +282,7 @@ BEGIN
 			object_id = OBJECT_ID( '[dbo].[SOURCE__IIS_INSPECTIONS]')
 			AND TYPE IN ('U')
 	) DROP TABLE [dbo].[SOURCE__IIS_INSPECTIONS];
-
+	GO
 
 	CREATE TABLE [SOURCE__IIS_INSPECTIONS] (
 		[MONTH] int,
@@ -364,7 +312,7 @@ BEGIN
 		QC_REVIEW_IND BIT,
 		QC_REVIEW_MANAGERS_COMMENTS VARCHAR(8000)
 	);
-
+	GO
 
 	IF EXISTS (
 		SELECT
@@ -375,7 +323,7 @@ BEGIN
 			object_id = OBJECT_ID( '[dbo].[STAGING__TYRATIONAL]')
 			AND TYPE IN ('U')
 	) DROP TABLE [dbo].[STAGING__TYRATIONAL];
-
+	GO
 
 	CREATE TABLE [dbo].[STAGING__TYRATIONAL] (
 		[Id] [uniqueidentifier] NOT NULL,
@@ -396,7 +344,7 @@ BEGIN
 		[statecode] [int] NULL,
 		[statuscode] [int] NULL
 	);
-
+	GO
 
 	/****** Object:  Table [dbo].[STAGING__TYRATIONAL]    Script Date: 4/23/2021 12:20:19 PM ******/
 	IF EXISTS (
@@ -408,7 +356,7 @@ BEGIN
 			object_id = OBJECT_ID( '[dbo].[STAGING__OVERSIGHTTYPE]')
 			AND TYPE IN ('U')
 	) DROP TABLE [dbo].[STAGING__OVERSIGHTTYPE];
-
+	GO
 
 	CREATE TABLE [dbo].[STAGING__OVERSIGHTTYPE](
 		[Id] [uniqueidentifier] NOT NULL,
@@ -422,7 +370,7 @@ BEGIN
 		[owningteam] [uniqueidentifier] NULL,
 		[owninguser] [uniqueidentifier] NULL
 	);
-
+	GO
 
 	/****** Object:  Table [dbo].[STAGING__TERRITORY]    Script Date: 4/23/2021 12:39:57 PM ******/
 	IF EXISTS (
@@ -434,7 +382,7 @@ BEGIN
 			object_id = OBJECT_ID( '[dbo].[STAGING__TERRITORY]')
 			AND TYPE IN ('U')
 	) DROP TABLE [dbo].[STAGING__TERRITORY];
-
+	GO
 
 	CREATE TABLE [dbo].[STAGING__TERRITORY] (
 		[Id] [uniqueidentifier] NOT NULL,
@@ -449,7 +397,7 @@ BEGIN
 		[transactioncurrencyid] [uniqueidentifier] NULL,
 		[transactioncurrencyid_entitytype] [nvarchar](128) NULL
 	);
-
+	GO
 
 	/****** Object:  Table [dbo].[STAGING__WORKORDERTYPE]    Script Date: 4/23/2021 1:43:19 PM ******/
 	IF EXISTS (
@@ -461,7 +409,7 @@ BEGIN
 			object_id = OBJECT_ID( '[dbo].[STAGING__WORKORDERTYPE]')
 			AND TYPE IN ('U')
 	) DROP TABLE [dbo].[STAGING__WORKORDERTYPE];
-
+	GO
 
 	CREATE TABLE [dbo].[STAGING__WORKORDERTYPE](
 		[Id] [uniqueidentifier] NOT NULL,
@@ -476,40 +424,33 @@ BEGIN
 		[owningteam] [uniqueidentifier] NULL,
 		[owninguser] [uniqueidentifier] NULL
 	)
-END 
-
-
---DELETE REPLICATED CRM DATA AS A PRECAUTION IN CASE IT INTERFERES WITH OUR ETL
---===================================================================================================
---===================================================================================================
-BEGIN 
-
-	TRUNCATE TABLE dbo.tdgdata__bookableresource;
-	TRUNCATE TABLE dbo.tdgdata__account;
-	TRUNCATE TABLE dbo.tdgdata__msdyn_workorder;
-	TRUNCATE TABLE dbo.tdgdata__qm_syresult;
-
-END 
-
-
-
---DECLARE CONSTANTS
---===================================================================================================
---===================================================================================================
-BEGIN 
+GO
 
 	--=============================================DYNAMIC VALUES===========================================
 	--these variables can change with the environment, so double check these match the environment you're syncing to
 
 	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
-	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
-	DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
-	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
-	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
+	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT systemuserid FROM CRM__SYSTEMUSER  where domainname = 'tdg.core@034gc.onmicrosoft.com');
+	DECLARE @CONST_TEAM_TDG_ID          VARCHAR(500) = (SELECT teamid FROM CRM__TEAM WHERE name = 'Transportation of Dangerous Goods');
+	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT businessunitid FROM CRM__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
+	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT pricelevelid FROM CRM__pricelevel  WHERE NAME = 'Base Prices');
+	DECLARE @CONST_TDGCORE_BOOKABLE_RESOURCE_ID VARCHAR(50) = (SELECT bookableresourceid FROM CRM__BOOKABLERESOURCE WHERE msdyn_primaryemail = @CONST_TDGCORE_DOMAINNAME);
+	
 
 	--CRM CONSTANTS
 	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
 	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
+
+	SELECT @CONST_TDGCORE_DOMAINNAME 			CONST_TDGCORE_DOMAINNAME ;
+	SELECT @CONST_TDGCORE_USERID     			CONST_TDGCORE_USERID     ;
+	SELECT @CONST_TEAM_TDG_ID        			CONST_TEAM_TDG_ID        ;
+	SELECT @CONST_BUSINESSUNIT_TDG_ID			CONST_BUSINESSUNIT_TDG_ID;
+	SELECT @CONST_PRICELISTID        			CONST_PRICELISTID        ;
+	SELECT @CONST_TDGCORE_BOOKABLE_RESOURCE_ID	CONST_TDGCORE_BOOKABLE_RESOURCE_ID;
+	SELECT @CONST_OWNERIDTYPE_TEAM 				CONST_OWNERIDTYPE_TEAM ;
+	SELECT @CONST_OWNERIDTYPE_SYSTEMUSER		CONST_OWNERIDTYPE_SYSTEMUSER;
+
+
 	--===================================================================================================
 
 
@@ -541,10 +482,6 @@ BEGIN
 	--BOOKABLE RESOURCE CATEGORY
 	DECLARE @CONST_CATEGORY_INSPECTOR                    VARCHAR(50) = '06DB6E56-01F9-EA11-A815-000D3AF3AC0D';
 
-	--TDG CORE BOOKABLE RESOURCE
-	--used as a default value in case inspectors are not able to be loaded or are not licensed in dynamics yet 
-	DECLARE @CONST_TDGCORE_BOOKABLE_RESOURCE_ID          VARCHAR(50) = '2cfc9150-d6a3-eb11-b1ac-000d3ae8bee7';
-
 	--TERRITORIES / REGIONS
 	DECLARE @CONST_TERRITORY_HQ_ES                       VARCHAR(50) = '2e7b2f75-989c-eb11-b1ac-000d3ae92708';
 	DECLARE @CONST_TERRITORY_HQ_CR                       VARCHAR(50) = '52c72783-989c-eb11-b1ac-000d3ae92708';
@@ -554,17 +491,12 @@ BEGIN
 	DECLARE @CONST_TERRITORY_PNR                         VARCHAR(50) = '02B86E9E-1707-EB11-A813-000D3AF3A0D7';
 	DECLARE @CONST_TERRITORY_ONTARIO                     VARCHAR(50) = '50B21A84-DB04-EB11-A813-000D3AF3AC0D';
 	
-
-END
---===================================================================================================
 --===================================================================================================
 
 
 --CREATE MASTER DATA
 --===================================================================================================
 --===================================================================================================
-BEGIN
-	--===================================================================================================
 	--RATIONALS
 	INSERT INTO
 		[dbo].[STAGING__TYRATIONAL] (
@@ -599,7 +531,6 @@ BEGIN
 		@CONST_OWNERIDTYPE_SYSTEMUSER    [owneridtype],
 		@CONST_BUSINESSUNIT_TDG_ID  [owningbusinessunit],
 		@CONST_TDGCORE_USERID          [owninguser];
-
 
 	--===================================================================================================
 	--===================================================================================================
@@ -807,7 +738,6 @@ BEGIN
 	INSERT INTO
 		[dbo].[STAGING__BOOKABLE_RESOURCE_CATEGORIES] (
 			[bookableresourcecategoryid],
-			[description],
 			[name],
 			[ownerid],
 			[owneridtype],
@@ -815,15 +745,36 @@ BEGIN
 			[owninguser]
 		)
 	SELECT
+		'ab66b72d-1db7-eb11-8236-0022483bc30f',
+		'Engineering Services::(translate)Engineering Services',
+		ownerid            = @CONST_TDGCORE_USERID,
+		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
+		owningbusinessunit = @CONST_BUSINESSUNIT_TDG_ID,
+		owninguser         = @CONST_TDGCORE_USERID 
+	UNION
+	SELECT
+		'51333935-1db7-eb11-8236-0022483bc30f',
+		'Government of Alberta::Government of Alberta',
+		ownerid            = @CONST_TDGCORE_USERID,
+		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
+		owningbusinessunit = @CONST_BUSINESSUNIT_TDG_ID,
+		owninguser         = @CONST_TDGCORE_USERID
+	UNION
+	SELECT
+		'47605827-1db7-eb11-8236-0022483bc30f',
+		'Regional Inspector::Regional Inspector',
+		ownerid            = @CONST_TDGCORE_USERID,
+		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
+		owningbusinessunit = @CONST_BUSINESSUNIT_TDG_ID,
+		owninguser         = @CONST_TDGCORE_USERID
+	UNION
+	SELECT
 		@CONST_CATEGORY_INSPECTOR,
-		--INSPECTOR 
-		'Mark a Bookable Resource as an Inspector',
 		'Inspector::Inspecteur',
 		ownerid            = @CONST_TDGCORE_USERID,
 		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
 		owningbusinessunit = @CONST_BUSINESSUNIT_TDG_ID,
 		owninguser         = @CONST_TDGCORE_USERID;
-
 
 	--===================================================================================================
 	--===================================================================================================
@@ -975,7 +926,7 @@ BEGIN
 				--SYSUSER.issyncwithdirectory, 
 				--SYSUSER.territoryid
 			FROM
-				[dbo].tdgdata__systemuser SYSUSER
+				[dbo].CRM__SYSTEMUSER SYSUSER
 				JOIN SOURCE__IIS_INSPECTORS INSP ON lower(TRIM(INSP.Account_name)) = lower(TRIM(SYSUSER.domainname))
 		) T;
 
@@ -986,8 +937,8 @@ BEGIN
 	SET
 		owningbusinessunit                 = @CONST_BUSINESSUNIT_TDG_ID,
 		owneridtype                        = @CONST_OWNERIDTYPE_SYSTEMUSER,
-		ownerid                            = @CONST_TDGCORE_USERID,
-		owninguser                         = @CONST_TDGCORE_USERID,
+		ownerid                            = [USERID],
+		owninguser                         = [USERID],
 		resourcetype                       = 3,
 		statecode                          = 0,
 		statuscode                         = 1,
@@ -1028,4 +979,21 @@ BEGIN
 		[dbo].[STAGING__BOOKABLE_RESOURCE];
 
 
-END
+--OUTPUT FOR LOG
+SELECT COUNT(*) [STAGING__TYRATIONAL] FROM STAGING__TYRATIONAL;
+SELECT ovs_name FROM STAGING__TYRATIONAL;
+
+SELECT COUNT(*) [STAGING__OVERSIGHTTYPE] FROM [STAGING__OVERSIGHTTYPE];
+SELECT ovs_name FROM [STAGING__OVERSIGHTTYPE];
+
+SELECT COUNT(*) [STAGING__WORKORDERTYPE] FROM [STAGING__WORKORDERTYPE];
+SELECT msdyn_name FROM [STAGING__WORKORDERTYPE];
+
+SELECT COUNT(*) [STAGING__BOOKABLE_RESOURCE_CATEGORIES] FROM [STAGING__BOOKABLE_RESOURCE_CATEGORIES];
+SELECT name FROM [STAGING__BOOKABLE_RESOURCE_CATEGORIES];
+
+SELECT COUNT(*) [STAGING__BOOKABLE_RESOURCE] FROM [STAGING__BOOKABLE_RESOURCE];
+SELECT name FROM [STAGING__BOOKABLE_RESOURCE];
+
+SELECT COUNT(*) [STAGING__TERRITORY] FROM [STAGING__TERRITORY];
+SELECT name FROM [STAGING__TERRITORY];

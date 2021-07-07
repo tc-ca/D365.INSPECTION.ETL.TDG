@@ -1,31 +1,10 @@
---CONFIRMATION OF COMPLIANCE
-
---=============================================DYNAMIC VALUES===========================================
---these variables can change with the environment, so double check these match the environment you're syncing to
-
-DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
-DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
-DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team    WHERE name = 'Quebec');
-DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
-DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
-DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
-
-SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_QUEBEC_ID TEAM_QUEBEC_ID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID;
-
---CRM CONSTANTS
-DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
-DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
---===================================================================================================
-
 
 --TABLE DEFINITIONS
 --===================================================================================
 --===================================================================================
-BEGIN
-
-	/****** Object:  Table [dbo].[tdgdata__ovs_confirmationofcompliance]    Script Date: 6/4/2021 1:13:12 AM ******/
 	IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[STAGING__COC]') AND type in (N'U'))
 	DROP TABLE [dbo].[STAGING__COC];
+	go
 
 	CREATE TABLE [dbo].[STAGING__COC] (
 		[Id] [uniqueidentifier] NOT NULL,
@@ -142,12 +121,31 @@ BEGIN
 	)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 	) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY];
 
-END
+go
+
+
+--CONFIRMATION OF COMPLIANCE
+
+--=============================================DYNAMIC VALUES===========================================
+	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT systemuserid FROM CRM__SYSTEMUSER  where domainname = 'tdg.core@034gc.onmicrosoft.com');
+	DECLARE @CONST_TEAM_TDG_ID          VARCHAR(500) = (SELECT teamid FROM CRM__TEAM WHERE name = 'Transportation of Dangerous Goods');
+	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT businessunitid FROM CRM__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
+	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT pricelevelid FROM CRM__pricelevel  WHERE NAME = 'Base Prices');
+	DECLARE @CONST_TDGCORE_BOOKABLE_RESOURCE_ID VARCHAR(50) = (SELECT bookableresourceid FROM CRM__BOOKABLERESOURCE WHERE msdyn_primaryemail = @CONST_TDGCORE_DOMAINNAME);
+	
+
+	--CRM CONSTANTS
+	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
+	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
+--===================================================================================================
+
+
+
 --===================================================================================
 --===================================================================================
 
 --STAGE CONFIRMATION OF COMPLIANCE DATA FROM STAGED VIOLATION DATA JOINED TO IIS VIOLATION FOLLOW UP TABLE
-BEGIN 
 
 	--CONFIRMATION OF COMPLIANCE OPTIONSET VALUES
 	--STATECODE  - DRAFT = 0, CLOSED = 1, CANCELED =2, ACTIVE =3
@@ -165,6 +163,8 @@ BEGIN
 			   ,[ovs_justificationtxt]
 			   ,[actualstart]
 			   ,[actualend]
+			   ,scheduledstart
+			   ,scheduledend
 			   ,[ovs_daterequested]
 			   ,[description])
      
@@ -173,6 +173,18 @@ BEGIN
 	--,[activityid]
 	--,[activitytypecode]
 
+--	FOLLOW_UP_TYPE_CD	FOLLOW_UP_TYPE_ELBL
+--1	Confirmation of compliance to be provided in 30 days
+--2	Violation Resolved
+--3	Confirmation of compliance not received
+--4	Confirmation of compliance not requested by inspector
+
+----Confirmation of compliance to be provided in 30 days = ACTIVE/ACTIVE
+----Violation Resolved = CLOSED/CONFIRMATION RECEIVED - ON TIME
+----Confirmation of compliance not received = CLOSED - UNRESOLVED
+----Confirmation of compliance not requested by inspector = CLOSED/CONFIRMATION ON-SITE (TO BE CHANGED TO NEW STATUS OF NOT REQUESTED)
+
+	--VIOLATIONS THAT DON'T HAVE ANY FOLLOWUP DATA, OR CHECKBOXES SELECTED IN IIS, WE WILL CREATE
 	CASE WHEN T2.FOLLOW_UP_TYPE_CD = 2 THEN 1			--'CLOSED'
 		 WHEN T2.FOLLOW_UP_TYPE_CD = 3 THEN 1			--'CLOSED'
 		 WHEN T2.FOLLOW_UP_TYPE_CD = 4 THEN 1			--'CLOSED'
@@ -194,20 +206,19 @@ BEGIN
 	,t2.INSPECTION_JUSTIFICATION_TXT [ovs_justificationtxt]
 
 
-	--Date Requested = Follow-Up Date
-	--Due Date       = Follow-Up Date + 30 days
-
 	,T2.DATE_CREATED_DTE			 [actualstart]
 	
 	--IF THE STATUS IS ACTIVE, WE WON'T SET THE END DATE
 	--IF THE STATUS IS NOT ACTIVE, WE'LL JUST INCREMENT THE END DATE A TINY BIT SO ITS NOT THE EXACT SAME AS THE START DATE, WHICH IS A VALIDATION RULE IN CRM
 	,CASE 
 		WHEN T2.FOLLOW_UP_TYPE_CD = 1 THEN NULL 
-		ELSE DATE_FOLLOW_UP_DTE + 1 
+		ELSE DATE_FOLLOW_UP_DTE
 	END [actualend]
 
-	,T2.DATE_FOLLOW_UP_DTE			 [ovs_daterequested]
-	,FOLLOW_UP_COMMENT_TXT			 [description]
+	,T2.DATE_FOLLOW_UP_DTE - 30 [scheduledstart]
+	,T2.DATE_FOLLOW_UP_DTE		[scheduledend] --SCHEDULED END = DUE DATE
+	,T2.DATE_FOLLOW_UP_DTE - 30 [ovs_daterequested]
+	,FOLLOW_UP_COMMENT_TXT		[description]
 
 	FROM STAGING__VIOLATIONS T1
 	LEFT JOIN [YD082_INSPECTION_VIOLATION] T2 ON T1.qm_iisviolationcd = t2.VIOLATION_CD AND T1.qm_iisactivityid = T2.ACTIVITY_ID
@@ -216,13 +227,33 @@ BEGIN
 	T2.DATE_DELETED_DTE IS NULL
 	and qm_rclegislationid is not null;
 
-	--UPDATE OWNERSHIP OF RECORDS   
+
+	--UPDATE OWNERSHIP OF CoCs
 	UPDATE STAGING__COC
-	SET 
-	OWNERID				= @CONST_TDGCORE_USERID,
-	OWNERIDTYPE			= @CONST_OWNERIDTYPE_SYSTEMUSER,
-	OWNINGBUSINESSUNIT	= @CONST_BUSINESSUNIT_TDG_ID,
-	OWNINGUSER			= @CONST_TDGCORE_USERID;
+	--SELECT T1.qm_iisactivityid, T1.qm_iisviolationcd, T1.qm_syresultid, T4.systemuserid, T3.bookableresourceid, T3.name, T2.msdyn_name, T2.ovs_primaryinspectorname, T1.qm_name STAGING__COC 
+	SET ownerid = T4.systemuserid,
+		owneridtype = @CONST_OWNERIDTYPE_SYSTEMUSER
+	FROM STAGING__COC COC
+	JOIN STAGING__VIOLATIONS T1 ON T1.qm_syresultid = COC.ovs_violation
+	JOIN STAGING__WORK_ORDERS T2 ON T1.qm_workorderid = T2.msdyn_workorderid
+	JOIN STAGING__BOOKABLE_RESOURCE T3 ON T2.ovs_primaryinspectorname = T3.name
+	JOIN CRM__SYSTEMUSER T4 ON T3.userid = T4.systemuserid;
+
+	--UPDATE THE OWNERSHIP OF COCS TO THE GENERIC TDG CORE USER WHERE WE COULD NOT FIND A MATCH FOR THE INSPECTOR
+	UPDATE STAGING__COC
+	SET ownerid = @CONST_TDGCORE_USERID,
+		owneridtype = @CONST_OWNERIDTYPE_SYSTEMUSER
+	FROM STAGING__COC
+	WHERE OWNERID IS NULL;
+
+
+	--UPDATE OWNERSHIP OF RECORDS   
+	--UPDATE STAGING__COC
+	--SET 
+	--OWNERID				= @CONST_TDGCORE_USERID,
+	--OWNERIDTYPE			= @CONST_OWNERIDTYPE_SYSTEMUSER,
+	--OWNINGBUSINESSUNIT	= @CONST_BUSINESSUNIT_TDG_ID,
+	--OWNINGUSER			= @CONST_TDGCORE_USERID;
 	
 	--SET ACTIVITYID WHICH IS PK IN CRM
 	UPDATE STAGING__COC SET activityid = ID;
@@ -230,10 +261,9 @@ BEGIN
 	--FIX EMPTY STRING JUSTIFICATIONS FROM IIS
 	UPDATE STAGING__COC SET ovs_justificationtxt = NULL WHERE ovs_justificationtxt = ' ';
 
-END
 
 
---BUSINESS ONLY WANTS DATA STARTING FROM APRIL 1 2020, SO DELETE ALL THE REST
+--BUSINESS ONLY WANTS DATA STARTING FROM APRIL 1 2019, SO DELETE ALL THE REST
 --SELECT [subject], [actualstart], [description], [ovs_justificationtxt],
 
 --CASE WHEN statecode = 1 THEN 'CLOSED'
@@ -246,73 +276,63 @@ END
 --	WHEN statuscode = 4 THEN 'ACTIVE'
 --END statuscode
 	
---FROM STAGING__COC WHERE actualstart > CAST('04/01/2020' AS DATE) 
+--FROM STAGING__COC WHERE actualstart > CAST('04/01/2019' AS DATE) 
 --ORDER BY statecode, actualstart;
 
 --COMMAND TO BE USED IN SSIS
---SELECT 
---[Id]
---,[statecode]
---,[statuscode]
---,[subject]
---,[ovs_violation]
---,[regardingobjectid]
---,[regardingobjectid_entitytype]
---,[ovs_justificationtxt]
---,[actualstart]
---,[ovs_daterequested]
---,[description]
---,[actualend]
---FROM STAGING__COC
---WHERE actualstart > CAST('04/01/2020' AS DATE);
+SELECT 
+*
+FROM STAGING__COC
+WHERE actualstart > CAST('04/01/2019' AS DATE);
 
-DECLARE @COC_AFTER_APRIL_1_2020					INT = 0, 
-		@COC_BEFORE_APRIL_1_2020				INT = 0, 
+DECLARE @COC_AFTER_APRIL_1_2019					INT = 0, 
+		@COC_BEFORE_APRIL_1_2019				INT = 0, 
 		@VIOLATIONS_WITH_PROVISION				INT = 0, 
 		@VIOLATIONS_WITH_NO_PROVISION			INT = 0,
 		@ACTIVE_COC								INT = 0,
 		@CONFIRM_ON_SITE						INT = 0,
 		@UNRESOLVED								INT = 0,
 		@CONFIRMED_ON_TIME						INT = 0,
-		@ACTIVE_COC_AFTER_APRIL_1_2020			INT = 0,
-		@CONFIRM_ON_SITE_AFTER_APRIL_1_2020		INT = 0,
-		@UNRESOLVED_AFTER_APRIL_1_2020			INT = 0,
-		@CONFIRMED_ON_TIME_AFTER_APRIL_1_2020	INT = 0;
+		@ACTIVE_COC_AFTER_APRIL_1_2019			INT = 0,
+		@CONFIRM_ON_SITE_AFTER_APRIL_1_2019		INT = 0,
+		@UNRESOLVED_AFTER_APRIL_1_2019			INT = 0,
+		@CONFIRMED_ON_TIME_AFTER_APRIL_1_2019	INT = 0;
 
 SELECT @VIOLATIONS_WITH_NO_PROVISION		 = COUNT(*) FROM STAGING__VIOLATIONS where qm_rclegislationid is null;
 SELECT @VIOLATIONS_WITH_PROVISION			 = COUNT(*) FROM STAGING__VIOLATIONS where qm_rclegislationid IS NOT NULL;
-SELECT @COC_BEFORE_APRIL_1_2020				 = COUNT(*) FROM STAGING__COC where actualstart < CAST('04/01/2020' AS DATE);
-SELECT @COC_AFTER_APRIL_1_2020				 = COUNT(*) FROM STAGING__COC where actualstart >= CAST('04/01/2020' AS DATE);
+SELECT @COC_BEFORE_APRIL_1_2019				 = COUNT(*) FROM STAGING__COC where actualstart < CAST('04/01/2019' AS DATE);
+SELECT @COC_AFTER_APRIL_1_2019				 = COUNT(*) FROM STAGING__COC where actualstart >= CAST('04/01/2019' AS DATE);
 
 SELECT @CONFIRMED_ON_TIME					 = COUNT(*) FROM STAGING__COC	where statuscode = 918640000;
 SELECT @UNRESOLVED							 = COUNT(*) FROM STAGING__COC	where statuscode = 918640002;
 SELECT @CONFIRM_ON_SITE						 = COUNT(*) FROM STAGING__COC	where statuscode = 2;
 SELECT @ACTIVE_COC							 = COUNT(*) FROM STAGING__COC	where statuscode = 4;
 
-SELECT @CONFIRMED_ON_TIME_AFTER_APRIL_1_2020 = COUNT(*) FROM STAGING__COC where actualstart >= CAST('04/01/2020' AS DATE) AND statuscode = 918640000;
-SELECT @UNRESOLVED_AFTER_APRIL_1_2020		 = COUNT(*) FROM STAGING__COC where actualstart >= CAST('04/01/2020' AS DATE) AND statuscode = 918640002;
-SELECT @CONFIRM_ON_SITE_AFTER_APRIL_1_2020	 = COUNT(*) FROM STAGING__COC where actualstart >= CAST('04/01/2020' AS DATE) AND statuscode = 2;
-SELECT @ACTIVE_COC_AFTER_APRIL_1_2020		 = COUNT(*) FROM STAGING__COC where actualstart >= CAST('04/01/2020' AS DATE) AND statuscode = 4;
+SELECT @CONFIRMED_ON_TIME_AFTER_APRIL_1_2019 = COUNT(*) FROM STAGING__COC where actualstart >= CAST('04/01/2019' AS DATE) AND statuscode = 918640000;
+SELECT @UNRESOLVED_AFTER_APRIL_1_2019		 = COUNT(*) FROM STAGING__COC where actualstart >= CAST('04/01/2019' AS DATE) AND statuscode = 918640002;
+SELECT @CONFIRM_ON_SITE_AFTER_APRIL_1_2019	 = COUNT(*) FROM STAGING__COC where actualstart >= CAST('04/01/2019' AS DATE) AND statuscode = 2;
+SELECT @ACTIVE_COC_AFTER_APRIL_1_2019		 = COUNT(*) FROM STAGING__COC where actualstart >= CAST('04/01/2019' AS DATE) AND statuscode = 4;
 
-SELECT  @COC_AFTER_APRIL_1_2020 COC_AFTER_APRIL_1_2020, 
-		@COC_BEFORE_APRIL_1_2020 COC_BEFORE_APRIL_1_2020, 
+SELECT  @COC_AFTER_APRIL_1_2019 COC_AFTER_APRIL_1_2019, 
+		@COC_BEFORE_APRIL_1_2019 COC_BEFORE_APRIL_1_2019, 
 		@VIOLATIONS_WITH_PROVISION VIOLATIONS_WITH_PROVISION, 
 		@VIOLATIONS_WITH_NO_PROVISION VIOLATIONS_WITH_NO_PROVISION, 
 		@CONFIRMED_ON_TIME CONFIRMED_ON_TIME, 
 		@UNRESOLVED UNRESOLVED, 
 		@CONFIRM_ON_SITE CONFIRM_ON_SITE, 
 		@ACTIVE_COC ACTIVE_COC, 
-		@CONFIRMED_ON_TIME_AFTER_APRIL_1_2020 CONFIRMED_ON_TIME_AFTER_APRIL_1_2020, 
-		@UNRESOLVED_AFTER_APRIL_1_2020 UNRESOLVED_AFTER_APRIL_1_2020, 
-		@CONFIRM_ON_SITE_AFTER_APRIL_1_2020 CONFIRM_ON_SITE_AFTER_APRIL_1_2020, 
-		@ACTIVE_COC_AFTER_APRIL_1_2020 ACTIVE_COC_AFTER_APRIL_1_2020;
+		@CONFIRMED_ON_TIME_AFTER_APRIL_1_2019 CONFIRMED_ON_TIME_AFTER_APRIL_1_2019, 
+		@UNRESOLVED_AFTER_APRIL_1_2019 UNRESOLVED_AFTER_APRIL_1_2019, 
+		@CONFIRM_ON_SITE_AFTER_APRIL_1_2019 CONFIRM_ON_SITE_AFTER_APRIL_1_2019, 
+		@ACTIVE_COC_AFTER_APRIL_1_2019 ACTIVE_COC_AFTER_APRIL_1_2019;
 
 
---COC ONLY CREATED FROM >= APRIL 1 2020
+--COC ONLY CREATED FROM >= APRIL 1 2019
 
 --COC TO BE PROVIDED IN 30 DAYS - ACTIVE, ACTIVE
 --VIOLATION RESOLVED = CLOSED, CONFIRMATION RECIEVED ON TIME
 --COC NOT RECEIVED = CLOSED, CLOSED - UNRESOLVED
 --COC NOT REQUESTED BY INSPECTOR = CLOSED, CONFIRMATION ON-SITE
+
 
 

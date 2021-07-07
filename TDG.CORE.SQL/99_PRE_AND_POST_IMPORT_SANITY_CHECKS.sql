@@ -1,5 +1,4 @@
 --DEFAULT MASTER DATA
-BEGIN
 	--============================================STATIC VALUES==========================================
 	--OVERSIGHT TYPES
 	DECLARE @CONST_OVERSIGHTTYPE_GCTARGETED              VARCHAR(50) = '72afccd3-269e-eb11-b1ac-000d3ae924d1';
@@ -28,10 +27,6 @@ BEGIN
 	--BOOKABLE RESOURCE CATEGORY
 	DECLARE @CONST_CATEGORY_INSPECTOR                    VARCHAR(50) = '06DB6E56-01F9-EA11-A815-000D3AF3AC0D';
 
-	--TDG CORE BOOKABLE RESOURCE
-	--used as a default value in case inspectors are not able to be loaded or are not licensed in dynamics yet 
-	DECLARE @CONST_TDGCORE_BOOKABLE_RESOURCE_ID          VARCHAR(50) = '2cfc9150-d6a3-eb11-b1ac-000d3ae8bee7';
-
 	--TERRITORIES / REGIONS
 	DECLARE @CONST_TERRITORY_HQ_ES                       VARCHAR(50) = '2e7b2f75-989c-eb11-b1ac-000d3ae92708';
 	DECLARE @CONST_TERRITORY_HQ_CR                       VARCHAR(50) = '52c72783-989c-eb11-b1ac-000d3ae92708';
@@ -43,41 +38,63 @@ BEGIN
 	--===================================================================================================
 
 	--=============================================DYNAMIC VALUES===========================================
-	--these variables can change with the environment, so double check these match the environment you're syncing to
-
 	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
-	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser  where domainname = 'tdg.core@034gc.onmicrosoft.com');
-	DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team    WHERE name = 'Quebec');
-	DECLARE @CONST_TEAM_TDG_ID         VARCHAR(500) = (SELECT teamid FROM tdgdata__team    WHERE name = 'Transportation of Dangerous Goods');
-
-	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
-	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel  WHERE NAME = 'Base Prices');
-
-	SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_QUEBEC_ID TEAM_QUEBEC_ID, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID, @CONST_TEAM_TDG_ID;
+	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT systemuserid FROM CRM__SYSTEMUSER  where domainname = 'tdg.core@034gc.onmicrosoft.com');
+	DECLARE @CONST_TEAM_TDG_ID          VARCHAR(500) = (SELECT teamid FROM CRM__TEAM WHERE name = 'Transportation of Dangerous Goods');
+	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT businessunitid FROM CRM__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
+	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT pricelevelid FROM CRM__pricelevel  WHERE NAME = 'Base Prices');
+	DECLARE @CONST_TDGCORE_BOOKABLE_RESOURCE_ID VARCHAR(50) = (SELECT bookableresourceid FROM STAGING__BOOKABLE_RESOURCE WHERE msdyn_primaryemail = @CONST_TDGCORE_DOMAINNAME);
+	
 
 	--CRM CONSTANTS
 	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
 	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
 	--===================================================================================================
-
-END
-
+	
 
 --PRE-MIGRATION SANTIY CHECKS
 --===================================================================================================
 --===================================================================================================
 --staging tables should be empty before conversion
-SELECT COUNT(*) [04_ACCOUNT]                         FROM [dbo].STAGING__ACCOUNT;
-SELECT COUNT(*) [06_WORK_ORDERS]                     FROM [dbo].STAGING__WORK_ORDERS;
-SELECT COUNT(*) [07_VIOLATIONS]                      FROM [dbo].STAGING__VIOLATIONS;
-SELECT COUNT(*) [11_CONTACT]                         FROM [dbo].STAGING__CONTACT;
-SELECT COUNT(*) [18_BOOKABLE_RESOURCE_CATEGORY_ASSN] FROM [dbo].STAGING__BOOKABLE_RESOURCE_CATEGORY_ASSN; --staging tables for master lookup data should have values
-SELECT COUNT(*) [12_BOOKABLE_RESOURCE]               FROM [dbo].STAGING__BOOKABLE_RESOURCE;
-SELECT COUNT(*) [17_BOOKABLE_RESOURCE_CATEGORIES]    FROM [dbo].STAGING__BOOKABLE_RESOURCE_CATEGORIES;
-SELECT COUNT(*) [21_TYRATIONAL]                      FROM [dbo].STAGING__TYRATIONAL;
-SELECT COUNT(*) [22_OVERSIGHTTYPE]                   FROM [dbo].STAGING__OVERSIGHTTYPE;
-SELECT COUNT(*) [23_TERRITORY]                       FROM [dbo].STAGING__TERRITORY;
-SELECT COUNT(*) [24_WORKORDERTYPE]                   FROM [dbo].STAGING__WORKORDERTYPE;
+SELECT COUNT(*) [CRM__BOOKABLERESOURCE]	FROM [dbo].[CRM__BOOKABLERESOURCE] 											  ;
+SELECT COUNT(*) [CRM__BUSINESSUNIT]		FROM [dbo].[CRM__BUSINESSUNIT] 												  ;
+SELECT COUNT(*) [CRM__PRICELEVEL]			FROM [dbo].[CRM__PRICELEVEL] 											  ;
+SELECT COUNT(*) [CRM__SYSTEMUSER]			FROM [dbo].[CRM__SYSTEMUSER] 											  ;
+SELECT COUNT(*) [CRM__TEAM]				FROM [dbo].[CRM__TEAM] 														  ;
+SELECT COUNT(*) [CrmCountHistory]			FROM [dbo].[CrmCountHistory] 											  ;
+SELECT COUNT(*) [ERRORS__ACCOUNT_UNNUMBER] FROM [dbo].[ERRORS__ACCOUNT_UNNUMBER] 									  ;
+SELECT COUNT(*) [ERRORS__BUSINESSUNIT]	 FROM [dbo].[ERRORS__BUSINESSUNIT] 											  ;
+SELECT COUNT(*) [ERRORS__COC]				 FROM [dbo].[ERRORS__COC] 												  ;
+SELECT COUNT(*) [SSIS_RegulatedEntityErrors]	FROM [dbo].[SSIS_RegulatedEntityErrors] 							  ;
+SELECT COUNT(*) [SSIS_SiteErrors]					FROM [dbo].[SSIS_SiteErrors] 									  ;
+SELECT COUNT(*) [SSIS_WorkOrderErrors]			FROM [dbo].[SSIS_WorkOrderErrors] 									  ;
+SELECT COUNT(*) [STAGING__ACCOUNT]				FROM [dbo].[STAGING__ACCOUNT] 										  ;
+SELECT COUNT(*) [STAGING__accountclass]			FROM [dbo].[STAGING__accountclass] 									  ;
+SELECT COUNT(*) [STAGING__ACCOUNTUN]				FROM [dbo].[STAGING__ACCOUNTUN] 								  ;
+SELECT COUNT(*) [STAGING__AIR_OPERATOR_FUNCTION]	FROM [dbo].[STAGING__AIR_OPERATOR_FUNCTION] 					  ;
+SELECT COUNT(*) [STAGING__AIR_OPERATOR_TYPE]		FROM [dbo].[STAGING__AIR_OPERATOR_TYPE] 						  ;
+SELECT COUNT(*) [STAGING__AIRCRAFT_TYPE]			FROM [dbo].[STAGING__AIRCRAFT_TYPE] 							  ;
+SELECT COUNT(*) [STAGING__BOOKABLE_RESOURCE]					FROM [dbo].[STAGING__BOOKABLE_RESOURCE] 			  ;
+SELECT COUNT(*) [STAGING__BOOKABLE_RESOURCE_CATEGORIES]	 FROM [dbo].[STAGING__BOOKABLE_RESOURCE_CATEGORIES] 		  ;
+SELECT COUNT(*) [STAGING__BOOKABLE_RESOURCE_CATEGORY_ASSN] FROM [dbo].[STAGING__BOOKABLE_RESOURCE_CATEGORY_ASSN] 	  ;
+SELECT COUNT(*) [STAGING__COC] FROM [dbo].[STAGING__COC] 															  ;
+SELECT COUNT(*) [STAGING__CONTACT] FROM [dbo].[STAGING__CONTACT] 													  ;
+SELECT COUNT(*) [STAGING__ENVIRONMENT_SETTINGS] FROM [dbo].[STAGING__ENVIRONMENT_SETTINGS] 							  ;
+SELECT COUNT(*) [STAGING__EQUIPMENT_TYPE] FROM [dbo].[STAGING__EQUIPMENT_TYPE] 										  ;
+SELECT COUNT(*) [STAGING__MOC_FACILITY_TYPE] FROM [dbo].[STAGING__MOC_FACILITY_TYPE] 								  ;
+SELECT COUNT(*) [STAGING__MOC_TYPE] FROM [dbo].[STAGING__MOC_TYPE] 													  ;
+SELECT COUNT(*) [STAGING__MODES] FROM [dbo].[STAGING__MODES] 														  ;
+SELECT COUNT(*) [STAGING__OVERSIGHTTYPE] FROM [dbo].[STAGING__OVERSIGHTTYPE] 										  ;
+SELECT COUNT(*) [STAGING__TERRITORY] FROM [dbo].[STAGING__TERRITORY] 												  ;
+SELECT COUNT(*) [STAGING__tylegislation] FROM [dbo].[STAGING__tylegislation] 										  ;
+SELECT COUNT(*) [STAGING__tylegislationsource] FROM [dbo].[STAGING__tylegislationsource] 							  ;
+SELECT COUNT(*) [STAGING__tylegislationtype] FROM [dbo].[STAGING__tylegislationtype] 								  ;
+SELECT COUNT(*) [STAGING__TYRATIONAL] FROM [dbo].[STAGING__TYRATIONAL] 												  ;
+SELECT COUNT(*) [STAGING__UNPLANNED_FORECAST] FROM [dbo].[STAGING__UNPLANNED_FORECAST] 								  ;
+SELECT COUNT(*) [STAGING__VIOLATIONS] FROM [dbo].[STAGING__VIOLATIONS] 												  ;
+SELECT COUNT(*) [STAGING__WORK_ORDERS] FROM [dbo].[STAGING__WORK_ORDERS] 											  ;
+SELECT COUNT(*) [STAGING__WORKORDERTYPE] FROM [dbo].[STAGING__WORKORDERTYPE] 										  ;
+SELECT COUNT(*) [STAGING_UN_NUMBERS]	FROM [dbo].[STAGING_UN_NUMBERS]												  ;
 
 --try to match up the staging records with records in CRM by id and make sure they exist in CRM with the same ID
 SELECT 
@@ -101,7 +118,7 @@ SELECT [ovs_name] moc_opportunity       FROM tdgdata__ovs_oversighttype		where o
 SELECT [ovs_name] civ_doc_review        FROM tdgdata__ovs_oversighttype		where ovs_oversighttypeid   = @CONST_OVERSIGHTTYPE_CIVDOCREVIEW ;
 SELECT [ovs_name] ovs_tyrational        FROM tdgdata__ovs_tyrational         WHERE ovs_tyrationalid      = @CONST_RATIONALE_PLANNED;
 SELECT [ovs_name] ovs_tyrational        FROM tdgdata__ovs_tyrational         WHERE ovs_tyrationalid      = @CONST_RATIONALE_UNPLANNED
-SELECT [name] tdgcore_bookable_resource FROM tdgdata__bookableresource		WHERE bookableresourceid    = @CONST_TDGCORE_BOOKABLE_RESOURCE_ID;
+SELECT [name] tdgcore_bookable_resource FROM tdgdata__bookableresource		WHERE bookableresourceid     = @CONST_TDGCORE_BOOKABLE_RESOURCE_ID;
 SELECT systemuserid tdgcore_systemuser	FROM tdgdata__systemuser             WHERE systemuserid          = @CONST_TDGCORE_USERID;
 SELECT [fullname] tdgcore_fullname		FROM tdgdata__systemuser             WHERE domainname            = @CONST_TDGCORE_DOMAINNAME;
 SELECT [name] tdgteam                   FROM tdgdata__team                   WHERE teamid                = @CONST_TEAM_TDG_ID;
@@ -115,11 +132,6 @@ select [name] territories    FROM tdgdata__territory t1 JOIN SOURCE__TERRITORY_T
 --LEGISLATION CHECKS
 --SANITY CHECKS
 --how many match from replicated data to staging data
-
-TRUNCATE TABLE tdgdata__qm_rclegislation;
-TRUNCATE TABLE tdgdata__qm_tylegislationtype;
-TRUNCATE TABLE tdgdata__qm_tylegislationsource;
-
 DECLARE @stagingCount int           = 0;
 DECLARE @crmCount     int           = 0;
 DECLARE @matchCount   int           = 0;
@@ -153,8 +165,5 @@ FROM [dbo].tdgdata__qm_tylegislationsource T1
 JOIN STAGING__tylegislationsource T2 ON T1.qm_name = T2.qm_name;
 
 SELECT @stagingCount staged_record_count, @crmCount crm_record_count, @matchCount records_matched_by_name, @legislationSourceCount legislation_Source_Count, @legislationTypeSourceCount legislation_Type_Source_Count, @legTypeMatchCount legType_Match_Count, @legSourceMatchCount legSource_Match_Count
-
-
-
 --===================================================================================================
 --===================================================================================================

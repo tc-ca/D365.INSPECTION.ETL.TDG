@@ -6586,7 +6586,7 @@ SELECT
 		[ovs_name],
 		[ovs_regionname],
 		[ovs_fiscalyearname],
-		[ovs_oversighttype],
+		ovs_oversighttypename,
 		[ovs_q1],
 		[ovs_q2],
 		[ovs_q3],
@@ -6596,3 +6596,6 @@ FROM
 	#SOURCE__UNPLANNED_FORECAST UF
 	JOIN SOURCE__FISCAL_YEAR FY ON UF.ovs_fiscalyearname = FY.tc_name
 	JOIN STAGING__TERRITORY region ON uf.ovs_regionname = region.ovs_territorynameenglish;
+
+
+SELECT * FROM STAGING__WORK_ORDERS

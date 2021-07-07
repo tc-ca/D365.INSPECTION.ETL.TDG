@@ -1,59 +1,18 @@
-
-
-/****** Object:  Table [dbo].[26_TDGLegislation]    Script Date: 5/14/2021 10:50:15 PM ******/
-SET ANSI_NULLS ON
-
-SET QUOTED_IDENTIFIER ON
-
-
---=============================================DYNAMIC VALUES===========================================
---these variables can change with the environment, so double check these match the environment you're syncing to
-BEGIN
-	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
-	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT ID FROM tdgdata__systemuser	where domainname = 'tdg.core@034gc.onmicrosoft.com');
-	DECLARE @CONST_TEAM_QUEBEC_ID      VARCHAR(50)  = (SELECT teamid FROM tdgdata__team		WHERE name = 'Quebec');
-	DECLARE @CONST_TEAM_TDG_NAME       VARCHAR(500) = (SELECT teamid FROM tdgdata__team		WHERE name = 'Transportation of Dangerous Goods');
-	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT ID FROM TDGDATA__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
-	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT ID FROM tdgdata__pricelevel	WHERE NAME = 'Base Prices');
-
-	SELECT @CONST_TDGCORE_DOMAINNAME TDGCORE_DOMAINNAME, @CONST_TDGCORE_USERID TDGCORE_USERID, @CONST_TEAM_QUEBEC_ID TEAM_QUEBEC_ID, @CONST_TEAM_TDG_NAME TEAM_TDG_NAME, @CONST_BUSINESSUNIT_TDG_ID BUSINESSUNIT_TDG_ID, @CONST_PRICELISTID PRICELISTID;
-
-	--CRM CONSTANTS
-	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
-	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
-
-	--OPTIONSETS
-	--Act			930840000
-	--Regulation	930840001
-	--Standard		930840002
-	DECLARE @CONST_SOURCETYPE_ACT       VARCHAR(50) = 930840000;
-	DECLARE @CONST_SOURCETYPE_REG		VARCHAR(50) = 930840001;
-	DECLARE @CONST_SOURCETYPE_STANDARD	VARCHAR(50) = 930840002;
-END
---===================================================================================================
---===================================================================================================
-
-
-BEGIN
-	/****** Object:  Table [dbo].[STAGING__tylegislation]   Script Date: 5/14/2021 10:50:15 PM ******/
 	IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[STAGING__tylegislation]') AND type in (N'U'))
 	DROP TABLE [dbo].[STAGING__tylegislation];
+	GO
 
-
-	/****** Object:  Table [dbo].[tdgdata__qm_tylegislationsource]    Script Date: 5/16/2021 7:53:04 PM ******/
 	IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[STAGING__tylegislationsource]') AND type in (N'U'))
 	DROP TABLE [dbo].[STAGING__tylegislationsource];
+	GO
 
-
-	/****** Object:  Table [dbo].[tdgdata__qm_tylegislationsource]    Script Date: 5/16/2021 7:53:04 PM ******/
 	IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[STAGING__tylegislationtype]') AND type in (N'U'))
 	DROP TABLE [dbo].[STAGING__tylegislationtype];
+	GO
 
-
-	/****** Object:  Table [dbo].[26_TDGLegislation]    Script Date: 5/14/2021 10:50:15 PM ******/
 	IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SOURCE__LEGISLATION]') AND type in (N'U'))
 	DROP TABLE [dbo].[SOURCE__LEGISLATION];
-
+	GO
 
 	CREATE TABLE [dbo].[SOURCE__LEGISLATION](
 		[(Do Not Modify) Legislation] [nvarchar](4000) NULL,
@@ -73,7 +32,7 @@ BEGIN
 		[Violation Display Text FR] [nvarchar](4000) NULL,
 		[Violation Text] [nvarchar](4000) NULL
 	) ON [PRIMARY];
-
+	GO
 
 	CREATE TABLE [STAGING__tylegislation] (
 		[qm_enablingprovision]			UNIQUEIDENTIFIER,
@@ -99,7 +58,7 @@ BEGIN
 		[qm_violationdisplaytextfr]		NTEXT,
 		[qm_violationtext]				NTEXT
 	) ON [PRIMARY];
-
+	GO
 
 	CREATE TABLE [dbo].[STAGING__tylegislationsource](
 		[statecode] [int] NULL,
@@ -117,7 +76,7 @@ BEGIN
 		[owningteam]				[uniqueidentifier] NULL,
 		[owninguser]				[UNIQUEIDENTIFIER] NULL
 	) ON [PRIMARY];
-
+	GO
 
 	CREATE TABLE [dbo].[STAGING__tylegislationtype] (
 		[qm_name]						[NVARCHAR](100) NULL,
@@ -130,29 +89,36 @@ BEGIN
 		[owningteam]					[uniqueidentifier] NULL,
 		[owninguser]					[uniqueidentifier] NULL
 	) ON [PRIMARY];
+	GO
 
-END
+
+--=============================================DYNAMIC VALUES===========================================
+--these variables can change with the environment, so double check these match the environment you're syncing to
+	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT systemuserid FROM CRM__SYSTEMUSER  where domainname = 'tdg.core@034gc.onmicrosoft.com');
+	DECLARE @CONST_TEAM_TDG_ID          VARCHAR(500) = (SELECT teamid FROM CRM__TEAM WHERE name = 'Transportation of Dangerous Goods');
+	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT businessunitid FROM CRM__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
+	
+
+	--CRM CONSTANTS
+	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
+	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
 
 
---DELETE REPLICATED CRM DATA AS A PRECAUTION IN CASE IT INTERFERES WITH OUR ETL
---===================================================================================================
---===================================================================================================
-BEGIN
 
-	TRUNCATE TABLE dbo.tdgdata__qm_rclegislation;
-	TRUNCATE TABLE dbo.tdgdata__qm_tylegislationtype;
-	TRUNCATE TABLE dbo.tdgdata__qm_tylegislationsource;
-
-END
---===================================================================================================
+	--OPTIONSETS
+	--Act			930840000
+	--Regulation	930840001
+	--Standard		930840002
+	DECLARE @CONST_SOURCETYPE_ACT       VARCHAR(50) = 930840000;
+	DECLARE @CONST_SOURCETYPE_REG		VARCHAR(50) = 930840001;
+	DECLARE @CONST_SOURCETYPE_STANDARD	VARCHAR(50) = 930840002;
 --===================================================================================================
 
 
 --INSERT LEGISLATION SOURCE DATA
 --COMES FROM EXCEL SHEET PROVIDED BY BUSINESS AS JUSTICE DATA IS NOT SUFFICIENT FOR THEIR PURPOSES
 --===================================================================================================
---===================================================================================================
-BEGIN
 	INSERT [dbo].[SOURCE__LEGISLATION] ([(Do Not Modify) Legislation], [(Do Not Modify) Row Checksum], [(Do Not Modify) Modified On], [Name], [Legislation Source], [Parent Legislation], [English Text], [Legislation Type], [Label], [Enabling Act], [Enabling Regulation], [Order], [French Text], [Violation Display Text EN], [Violation Display Text FR], [Violation Text]) VALUES (N'A1E14D87-B3AF-4CB0-B926-5F1B64840422', NULL, NULL, N'CSA B342-18 5.1.5 a)', N'CSA B342 Selection and use of UN pressure receptacles, multiple-element gas containers, and other pressure receptacles for the transport of dangerous goods, Class 2', NULL, NULL, N'Clause', N'CSA B342-18 5.1.5 a)', NULL, NULL, N'2917', NULL, NULL, NULL, NULL)
 	INSERT [dbo].[SOURCE__LEGISLATION] ([(Do Not Modify) Legislation], [(Do Not Modify) Row Checksum], [(Do Not Modify) Modified On], [Name], [Legislation Source], [Parent Legislation], [English Text], [Legislation Type], [Label], [Enabling Act], [Enabling Regulation], [Order], [French Text], [Violation Display Text EN], [Violation Display Text FR], [Violation Text]) VALUES (N'35939F71-8EA2-419C-A06C-BA7ADCD7EA28', NULL, NULL, N'CSA B342-18 5.1.5 b)', N'CSA B342 Selection and use of UN pressure receptacles, multiple-element gas containers, and other pressure receptacles for the transport of dangerous goods, Class 2', NULL, NULL, N'Clause', N'CSA B342-18 5.1.5 b)', NULL, NULL, N'2918', NULL, NULL, NULL, NULL)
 	INSERT [dbo].[SOURCE__LEGISLATION] ([(Do Not Modify) Legislation], [(Do Not Modify) Row Checksum], [(Do Not Modify) Modified On], [Name], [Legislation Source], [Parent Legislation], [English Text], [Legislation Type], [Label], [Enabling Act], [Enabling Regulation], [Order], [French Text], [Violation Display Text EN], [Violation Display Text FR], [Violation Text]) VALUES (N'F9A3446E-8DB6-4F6D-99AB-6BEEEF96BA77', NULL, NULL, N'CSA B342-18 5.1.5 c)', N'CSA B342 Selection and use of UN pressure receptacles, multiple-element gas containers, and other pressure receptacles for the transport of dangerous goods, Class 2', NULL, NULL, N'Clause', N'CSA B342-18 5.1.5 c)', NULL, NULL, N'2919', NULL, NULL, NULL, NULL)
@@ -3744,14 +3710,12 @@ BEGIN
 	INSERT [dbo].[SOURCE__LEGISLATION] ([(Do Not Modify) Legislation], [(Do Not Modify) Row Checksum], [(Do Not Modify) Modified On], [Name], [Legislation Source], [Parent Legislation], [English Text], [Legislation Type], [Label], [Enabling Act], [Enabling Regulation], [Order], [French Text], [Violation Display Text EN], [Violation Display Text FR], [Violation Text]) VALUES (N'9C5C91A2-534D-459C-8841-495AA20760F0', NULL, NULL, N'CSA B342-18 5.1.4 b)', N'CSA B342 Selection and use of UN pressure receptacles, multiple-element gas containers, and other pressure receptacles for the transport of dangerous goods, Class 2', NULL, NULL, N'Clause', N'CSA B342-18 5.1.4 b)', NULL, NULL, N'2915', NULL, NULL, NULL, NULL)
 	INSERT [dbo].[SOURCE__LEGISLATION] ([(Do Not Modify) Legislation], [(Do Not Modify) Row Checksum], [(Do Not Modify) Modified On], [Name], [Legislation Source], [Parent Legislation], [English Text], [Legislation Type], [Label], [Enabling Act], [Enabling Regulation], [Order], [French Text], [Violation Display Text EN], [Violation Display Text FR], [Violation Text]) VALUES (N'E0351845-3F0F-4A95-BD49-BC664AC461D3', NULL, NULL, N'CSA B342-18 5.1.4 c)', N'CSA B342 Selection and use of UN pressure receptacles, multiple-element gas containers, and other pressure receptacles for the transport of dangerous goods, Class 2', NULL, NULL, N'Clause', N'CSA B342-18 5.1.4 c)', NULL, NULL, N'2916', NULL, NULL, NULL, NULL)
 
-END
 
 
 
 --INSERT STAGING DATA
 --===================================================================================================
 --===================================================================================================
-BEGIN
 
 	--LEGISLATION
 	INSERT INTO [STAGING__tylegislation]
@@ -3828,11 +3792,8 @@ BEGIN
 	SELECT 'f54df8e1-1088-488a-8d81-923ef02e3d30' , 'Subparagraph',		'Subparagraph',		'Sous-paragraphe'	UNION
 	SELECT '74956843-c216-449f-9296-517d731cd887' , 'Subsection',		'Subsection',		'Sous-section'	;
 
-END
-
 
 --CLEAN AND MASSAGE THE DATA
-BEGIN
 
 	--NO FRENCH TRANSLATIONS
 	update [STAGING__tylegislationsource]
@@ -3916,8 +3877,6 @@ BEGIN
 	--=========================================================================
 	--=========================================================================
 
-END
-
 
 --SOURCE DATA
 SELECT COUNT(*) SOURCE__LEGISLATION FROM SOURCE__LEGISLATION;
@@ -3926,17 +3885,6 @@ SELECT COUNT(*) SOURCE__LEGISLATION FROM SOURCE__LEGISLATION;
 SELECT COUNT(*) STAGING__tylegislation FROM STAGING__tylegislation;
 SELECT COUNT(*) STAGING__tylegislationsource FROM STAGING__tylegislationsource;
 SELECT COUNT(*) STAGING__tylegislationtype FROM STAGING__tylegislationtype;
-
---DATA SYNCED TO DYNAMICS
-SELECT COUNT(*) tdgdata__qm_rclegislation FROM tdgdata__qm_rclegislation;
-SELECT COUNT(*) tdgdata__qm_tylegislationcharacteristic FROM tdgdata__qm_tylegislationcharacteristic;
-SELECT COUNT(*) tdgdata__qm_tylegislationtype FROM tdgdata__qm_tylegislationtype;
-SELECT COUNT(*) tdgdata__qm_tylegislationsource FROM tdgdata__qm_tylegislationsource;
-
-
-
-
-
 
 
 --PARENTS ARE MISSING 

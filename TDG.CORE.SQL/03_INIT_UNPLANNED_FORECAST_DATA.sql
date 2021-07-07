@@ -7,66 +7,27 @@ IF EXISTS (
 		object_id = OBJECT_ID('[dbo].[STAGING__UNPLANNED_FORECAST]')
 		AND TYPE IN (N'U')
 ) DROP TABLE [dbo].[STAGING__UNPLANNED_FORECAST];
-
+GO
 
 CREATE TABLE [dbo].[STAGING__UNPLANNED_FORECAST](
 	[Id] [uniqueidentifier] NOT NULL,
 	[IdStr] nvarchar(50) NULL,
-	[SinkCreatedOn] [datetime] NULL,
-	[SinkModifiedOn] [datetime] NULL,
-	[statecode] [int] NULL,
-	[statuscode] [int] NULL,
 	[ovs_oversighttype] [uniqueidentifier] NULL,
-	[ovs_oversighttype_entitytype] [nvarchar](128) NULL,
 	[owninguser] [uniqueidentifier] NULL,
-	[owninguser_entitytype] [nvarchar](128) NULL,
-	[createdonbehalfby] [uniqueidentifier] NULL,
-	[createdonbehalfby_entitytype] [nvarchar](128) NULL,
 	[ovs_region] [uniqueidentifier] NULL,
-	[ovs_region_entitytype] [nvarchar](128) NULL,
 	[owningbusinessunit] [uniqueidentifier] NULL,
-	[owningbusinessunit_entitytype] [nvarchar](128) NULL,
 	[owningteam] [uniqueidentifier] NULL,
-	[owningteam_entitytype] [nvarchar](128) NULL,
-	[modifiedby] [uniqueidentifier] NULL,
-	[modifiedby_entitytype] [nvarchar](128) NULL,
-	[createdby] [uniqueidentifier] NULL,
-	[createdby_entitytype] [nvarchar](128) NULL,
 	[ovs_fiscalyear] [uniqueidentifier] NULL,
-	[ovs_fiscalyear_entitytype] [nvarchar](128) NULL,
-	[modifiedonbehalfby] [uniqueidentifier] NULL,
-	[modifiedonbehalfby_entitytype] [nvarchar](128) NULL,
 	[ownerid] [uniqueidentifier] NULL,
-	[ownerid_entitytype] [nvarchar](128) NULL,
-	[createdonbehalfbyyominame] [nvarchar](100) NULL,
 	[ovs_q2] [int] NULL,
 	[ovs_q1] [int] NULL,
-	[owneridname] [nvarchar](100) NULL,
 	[ovs_q4] [int] NULL,
-	[overriddencreatedon] [datetime] NULL,
-	[ovs_fiscalyearname] [nvarchar](100) NULL,
 	[ovs_q3] [int] NULL,
-	[ovs_oversighttypename] [nvarchar](100) NULL,
-	[importsequencenumber] [int] NULL,
 	[ovs_unplannedforecastid] [uniqueidentifier] NULL,
-	[utcconversiontimezonecode] [int] NULL,
-	[createdbyyominame] [nvarchar](100) NULL,
-	[modifiedbyname] [nvarchar](100) NULL,
-	[modifiedbyyominame] [nvarchar](100) NULL,
-	[timezoneruleversionnumber] [int] NULL,
 	[owneridtype] [nvarchar](4000) NULL,
-	[owneridyominame] [nvarchar](100) NULL,
-	[modifiedon] [datetime] NULL,
-	[modifiedonbehalfbyyominame] [nvarchar](100) NULL,
-	[createdbyname] [nvarchar](100) NULL,
-	[createdon] [datetime] NULL,
 	[ovs_forecast] [int] NULL,
-	[createdonbehalfbyname] [nvarchar](100) NULL,
-	[modifiedonbehalfbyname] [nvarchar](100) NULL,
-	[versionnumber] [bigint] NULL,
 	[ovs_name] [nvarchar](100) NULL,
-	[ovs_regionname] [nvarchar](200) NULL,
-	CONSTRAINT [[dbo]].[SOURCE__UNPLANNED_FORECAST]]] PRIMARY KEY CLUSTERED ([Id] ASC) WITH (
+	CONSTRAINT [[dbo]].[STAGING__UNPLANNED_FORECAST]]] PRIMARY KEY CLUSTERED ([Id] ASC) WITH (
 		STATISTICS_NORECOMPUTE = OFF,
 		IGNORE_DUP_KEY = OFF,
 		OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF
@@ -75,20 +36,21 @@ CREATE TABLE [dbo].[STAGING__UNPLANNED_FORECAST](
 GO
 
 
-DROP TABLE IF EXISTS #SOURCE__UNPLANNED_FORECAST;
+DROP TABLE IF EXISTS #TEMP_STAGING__UNPLANNED_FORECAST;
 GO
 
 SELECT
 	CAST(id AS uniqueidentifier) id,
 	[ovs_name],
-	[ovs_regionname],
-	[ovs_fiscalyearname] [ovs_fiscalyearname],
-	[ovs_oversighttypename],
+	ovs_regionname,
+	ovs_fiscalyearname [ovs_fiscalyearname],
+	ovs_oversighttypename,
 	CAST([ovs_q1] AS int) [ovs_q1],
 	CAST([ovs_q2] AS int) [ovs_q2],
 	CAST([ovs_q3] AS int) [ovs_q3],
 	CAST([ovs_q4] AS int) [ovs_q4],
-	CAST([ovs_forecast] AS int) [ovs_forecast] INTO #SOURCE__UNPLANNED_FORECAST
+	CAST([ovs_forecast] AS int) [ovs_forecast] 
+INTO #TEMP_STAGING__UNPLANNED_FORECAST
 FROM
 	(
 		SELECT
@@ -6568,8 +6530,8 @@ INSERT INTO
 	STAGING__UNPLANNED_FORECAST (
 		id,
 		[ovs_name],
-		[ovs_regionname],
-		[ovs_fiscalyearname],
+		ovs_region,
+		ovs_fiscalyear,
 		[ovs_oversighttype],
 		[ovs_q1],
 		[ovs_q2],
@@ -6578,10 +6540,10 @@ INSERT INTO
 		[ovs_forecast]
 	)
 SELECT
-		UF.id,
-		UF.[ovs_name],
-		region.[Id],
-		[ovs_fiscalyearname],
+		UF.id
+		,UF.[ovs_name]
+		,region.[Id]
+		,FY.tc_tcfiscalyearid,
 		OT.Id,
 		[ovs_q1],
 		[ovs_q2],
@@ -6589,7 +6551,32 @@ SELECT
 		[ovs_q4],
 		[ovs_forecast]
 FROM
-	#SOURCE__UNPLANNED_FORECAST UF
-	JOIN SOURCE__FISCAL_YEAR FY ON UF.ovs_fiscalyearname = FY.tc_name
+	#TEMP_STAGING__UNPLANNED_FORECAST UF
 	JOIN STAGING__TERRITORY region ON uf.ovs_regionname = region.ovs_territorynameenglish
+	JOIN SOURCE__FISCAL_YEAR FY ON UF.ovs_fiscalyearname = FY.tc_name
 	JOIN STAGING__OVERSIGHTTYPE OT ON UF.ovs_oversighttypename = OT.[ovs_oversighttypenameenglish];
+GO
+
+	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT systemuserid FROM CRM__SYSTEMUSER  where domainname = 'tdg.core@034gc.onmicrosoft.com');
+	DECLARE @CONST_TEAM_TDG_ID          VARCHAR(500) = (SELECT teamid FROM CRM__TEAM WHERE name = 'Transportation of Dangerous Goods');
+	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT businessunitid FROM CRM__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
+	
+
+	--CRM CONSTANTS
+	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
+	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
+
+
+	
+UPDATE STAGING__UNPLANNED_FORECAST 
+SET 
+ownerid = @CONST_TDGCORE_USERID
+,owneridtype = @CONST_OWNERIDTYPE_SYSTEMUSER
+,owningbusinessunit =  @CONST_BUSINESSUNIT_TDG_ID;
+
+GO
+
+SELECT COUNT(*) COUNTOF_STAGING__UNPLANNED_FORECAST FROM STAGING__UNPLANNED_FORECAST;
+
+
