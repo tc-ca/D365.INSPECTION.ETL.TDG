@@ -192,7 +192,12 @@ BEGIN
 	,'msdyn_workorder'				 [regardingobjectid_entitytype]
 	,'msdyn_workorder'				 [regardingobjecttypecode]
 	,t2.INSPECTION_JUSTIFICATION_TXT [ovs_justificationtxt]
-	,T2.DATE_FOLLOW_UP_DTE			 [actualstart]
+
+
+	--Date Requested = Follow-Up Date
+	--Due Date       = Follow-Up Date + 30 days
+
+	,T2.DATE_CREATED_DTE			 [actualstart]
 	
 	--IF THE STATUS IS ACTIVE, WE WON'T SET THE END DATE
 	--IF THE STATUS IS NOT ACTIVE, WE'LL JUST INCREMENT THE END DATE A TINY BIT SO ITS NOT THE EXACT SAME AS THE START DATE, WHICH IS A VALIDATION RULE IN CRM
