@@ -1780,10 +1780,10 @@
                 <SSIS:Property SSIS:Name="Name">OracleToSql</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">53</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">63</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{4506F7B8-FC10-44A7-AD63-8A275D483715}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{F301E0B7-911D-4476-B996-C8CA0B714C14}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

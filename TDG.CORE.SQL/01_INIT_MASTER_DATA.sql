@@ -929,6 +929,7 @@ GO
 		) T;
 
 
+
 	UPDATE
 		[dbo].[STAGING__BOOKABLE_RESOURCE]
 	SET
