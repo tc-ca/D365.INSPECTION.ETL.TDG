@@ -156,21 +156,21 @@ namespace CrmWebApiEarlyBoundGenerator {
             }
         }
         
+        public String qm_AdditionalMetadataEtxt {
+            get {
+                return this.GetAttributeValue<String>("qm_AdditionalMetadataEtxt");
+            }
+            set {
+                this.SetAttributeValue("qm_AdditionalMetadataEtxt", value);
+            }
+        }
+        
         public String qm_AdditionalMetadataFtxt {
             get {
                 return this.GetAttributeValue<String>("qm_AdditionalMetadataFtxt");
             }
             set {
                 this.SetAttributeValue("qm_AdditionalMetadataFtxt", value);
-            }
-        }
-        
-        public String qm_AddtionalMetadataEtxt {
-            get {
-                return this.GetAttributeValue<String>("qm_AddtionalMetadataEtxt");
-            }
-            set {
-                this.SetAttributeValue("qm_AddtionalMetadataEtxt", value);
             }
         }
         
@@ -312,6 +312,58 @@ namespace CrmWebApiEarlyBoundGenerator {
         }
         
         // <summary>
+        // Unique identifier for Legislation Source associated with Legislation.
+        // </summary>
+        [EntityReference("qm_tylegislationsources", "_qm_tylegislationsourceid_value")]
+        public EntityReference qm_tylegislationsourceId {
+            get {
+                return this.GetAttributeValue<EntityReference>("qm_tylegislationsourceId@odata.bind");
+            }
+            set {
+                this.SetAttributeValue("qm_tylegislationsourceId@odata.bind", value);
+            }
+        }
+        
+        // <summary>
+        // Unique identifier for Legislation Source associated with Legislation.
+        // </summary>
+        [Entity("qm_tylegislationsource", "qm_tylegislationsourceId")]
+        public qm_tylegislationsource qm_tylegislationsourceIdEntity {
+            get {
+                return this.GetAttributeValue<qm_tylegislationsource>("qm_tylegislationsourceId");
+            }
+            set {
+                this.SetAttributeValue("qm_tylegislationsourceId", value);
+            }
+        }
+        
+        // <summary>
+        // Unique identifier for Legislation Section Type associated with Legislation.
+        // </summary>
+        [EntityReference("qm_tylegislationtypes", "_qm_tylegislationtypeid_value")]
+        public EntityReference qm_tylegislationtypeId {
+            get {
+                return this.GetAttributeValue<EntityReference>("qm_tylegislationtypeId@odata.bind");
+            }
+            set {
+                this.SetAttributeValue("qm_tylegislationtypeId@odata.bind", value);
+            }
+        }
+        
+        // <summary>
+        // Unique identifier for Legislation Section Type associated with Legislation.
+        // </summary>
+        [Entity("qm_tylegislationtype", "qm_tylegislationtypeId")]
+        public qm_tylegislationtype qm_tylegislationtypeIdEntity {
+            get {
+                return this.GetAttributeValue<qm_tylegislationtype>("qm_tylegislationtypeId");
+            }
+            set {
+                this.SetAttributeValue("qm_tylegislationtypeId", value);
+            }
+        }
+        
+        // <summary>
         // Status of the Legislation
         //Statut de l'élément Legislation
         // </summary>
@@ -390,6 +442,10 @@ namespace CrmWebApiEarlyBoundGenerator {
             
             public const string _qm_rcParentLegislationId_value = "_qm_rcparentlegislationid_value";
             
+            public const string _qm_tylegislationsourceId_value = "_qm_tylegislationsourceid_value";
+            
+            public const string _qm_tylegislationtypeId_value = "_qm_tylegislationtypeid_value";
+            
             public const string CreatedBy = "createdby";
             
             public const string CreatedByName = "createdbyname";
@@ -426,9 +482,9 @@ namespace CrmWebApiEarlyBoundGenerator {
             
             public const string OverriddenCreatedOn = "overriddencreatedon";
             
-            public const string qm_AdditionalMetadataFtxt = "qm_additionalmetadataftxt";
+            public const string qm_AdditionalMetadataEtxt = "qm_additionalmetadataetxt";
             
-            public const string qm_AddtionalMetadataEtxt = "qm_addtionalmetadataetxt";
+            public const string qm_AdditionalMetadataFtxt = "qm_additionalmetadataftxt";
             
             public const string qm_HistoricalNoteEtxt = "qm_historicalnoteetxt";
             
@@ -457,6 +513,14 @@ namespace CrmWebApiEarlyBoundGenerator {
             public const string qm_rcParentLegislationId = "qm_rcparentlegislationid";
             
             public const string qm_rcParentLegislationIdName = "qm_rcparentlegislationidname";
+            
+            public const string qm_tylegislationsourceId = "qm_tylegislationsourceid";
+            
+            public const string qm_tylegislationsourceIdName = "qm_tylegislationsourceidname";
+            
+            public const string qm_tylegislationtypeId = "qm_tylegislationtypeid";
+            
+            public const string qm_tylegislationtypeIdName = "qm_tylegislationtypeidname";
             
             public const string statecode = "statecode";
             
@@ -487,7 +551,15 @@ namespace CrmWebApiEarlyBoundGenerator {
             
             public const string organizationid = "organizationid";
             
+            public const string qm_rclegislation_tylegislationcharacteristic = "qm_rclegislation_tylegislationcharacteristic";
+            
             public const string qm_rcParentLegislationId = "qm_rcParentLegislationId";
+            
+            public const string qm_syresponse_rclegislation = "qm_syresponse_rclegislation";
+            
+            public const string qm_tylegislationsourceId = "qm_tylegislationsourceId";
+            
+            public const string qm_tylegislationtypeId = "qm_tylegislationtypeId";
         }
         
         public class Schemas {
@@ -528,9 +600,9 @@ namespace CrmWebApiEarlyBoundGenerator {
             
             public const string OverriddenCreatedOn = "OverriddenCreatedOn";
             
-            public const string qm_AdditionalMetadataFtxt = "qm_AdditionalMetadataFtxt";
+            public const string qm_AdditionalMetadataEtxt = "qm_AdditionalMetadataEtxt";
             
-            public const string qm_AddtionalMetadataEtxt = "qm_AddtionalMetadataEtxt";
+            public const string qm_AdditionalMetadataFtxt = "qm_AdditionalMetadataFtxt";
             
             public const string qm_HistoricalNoteEtxt = "qm_HistoricalNoteEtxt";
             
@@ -559,6 +631,14 @@ namespace CrmWebApiEarlyBoundGenerator {
             public const string qm_rcParentLegislationId = "qm_rcParentLegislationId";
             
             public const string qm_rcParentLegislationIdName = "qm_rcParentLegislationIdName";
+            
+            public const string qm_tylegislationsourceId = "qm_tylegislationsourceId";
+            
+            public const string qm_tylegislationsourceIdName = "qm_tylegislationsourceIdName";
+            
+            public const string qm_tylegislationtypeId = "qm_tylegislationtypeId";
+            
+            public const string qm_tylegislationtypeIdName = "qm_tylegislationtypeIdName";
             
             public const string statecode = "statecode";
             

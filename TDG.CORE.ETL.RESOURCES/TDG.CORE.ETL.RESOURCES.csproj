@@ -53,12 +53,33 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="CLIENT_FILES\AvSec - WP - Ontario .xlsx" />
+    <None Include="CLIENT_FILES\Copy of RDIMS-#17119563-v2-IIS_DATA_CONSOLIDATION.XLSX" />
+    <None Include="CLIENT_FILES\ISSO - MIS Sample for PNR.XLSX" />
     <None Include="CLIENT_FILES\RDIMS-#15877414-v1-GENERAL_COMPLIANCE_CHECKLIST.DOCX" />
+    <None Include="CLIENT_FILES\RDIMS-#17119563-v2-IIS DATA CONSOLIDATION.XLSX" />
+    <None Include="CLIENT_FILES\REGULATIONS-SCHEDULE2-V1.3.xlsx" />
+    <None Include="CLIENT_FILES\ROM Work Plan Import Matrix.xlsx" />
+    <None Include="CLIENT_FILES\TDG_-_2019-2020_-_INSPECTION_WORKPLAN.XLSX" />
     <None Include="EXCEL_TEMPLATES\GeneralCompliance.xlsx" />
     <None Include="EXCEL_TEMPLATES\GeneralCompliance_V2.xlsx" />
+    <None Include="CLIENT_FILES\beta1companies.xlsx" />
+    <None Include="CLIENT_FILES\Inspection Example Data.xlsx" />
+    <None Include="CLIENT_FILES\ISSO - MIS Sample for PNR.XLSX" />
+    <None Include="CLIENT_FILES\LegislationExampleData.xlsx" />
+    <None Include="CLIENT_FILES\RDIMS-#15877414-v1-GENERAL_COMPLIANCE_CHECKLIST.DOCX" />
+    <Content Include="EXCEL_TEMPLATES\GeneralCompliance.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EXCEL_TEMPLATES\GeneralCompliance_V2.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="CLIENT_FILES\REGULATIONS-SCHEDULE2-V1.3.xlsx" />
+    <None Include="CLIENT_FILES\ROM Work Plan Import Matrix.xlsx" />
+    <None Include="CLIENT_FILES\TDGActiveLegislation.xlsx" />
+    <None Include="CLIENT_FILES\TDG_-_2019-2020_-_INSPECTION_WORKPLAN.XLSX" />
+    <None Include="CLIENT_FILES\TDG_Inspectors.xlsx" />
     <None Include="EXCEL_TEMPLATES\TDG-PROVISIONS-2020-07-31.xls" />
-    <None Include="EXCEL_TEMPLATES\TDGActiveLegislation.xlsx" />
-    <None Include="EXCEL_TEMPLATES\TDG_Inspectors.xlsx" />
     <None Include="JUSTICE\Doctypes\mathml2\html\lat1.ent" />
     <None Include="JUSTICE\Doctypes\mathml2\html\special.ent" />
     <None Include="JUSTICE\Doctypes\mathml2\html\symbol.ent" />

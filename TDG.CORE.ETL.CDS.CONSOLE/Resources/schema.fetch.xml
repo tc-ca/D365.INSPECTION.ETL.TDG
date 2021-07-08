@@ -1,53 +1,32 @@
 <fetch>
-  <entity name="tc_questionnaire_template">
-    <attribute name="tc_name" alias="template_name" />
-    <attribute name="tc_englishtitle" alias="template_title_english" />
-    <attribute name="tc_englishdescription" alias="template_description_english" />
-    <filter type="and">
-      <condition attribute="tc_name" operator="eq" value="__TEMPLATE_ID__" />
-    </filter>
-    <link-entity name="tc_template_questions_group" from="tc_questionnaire_templateid" to="tc_questionnaire_templateid" link-type="outer" intersect="true">
-      <link-entity name="tc_questionnaire_questions_group" from="tc_questionnaire_questions_groupid" to="tc_questionnaire_questions_groupid" link-type="inner">
-        <attribute name="tc_name" alias="group_name" />
-        <attribute name="tc_englishtitle" alias="group_title_english" />
-        <attribute name="tc_isrepeatable" alias="group_is_repeatable" />
-        <attribute name="tc_htmlelementid" alias="group_html_element_id" />
-        <link-entity name="tc_qtn_question_group_order" from="tc_group" to="tc_questionnaire_questions_groupid">
-          <attribute name="tc_showkey" alias="group_show_key" />
-          <attribute name="tc_hidekey" alias="group_hide_key" />
-          <attribute name="tc_visible" alias="group_visible" />
-          <attribute name="tc_order" alias="group_order" />
-          <attribute name="tc_responsedelimiter" alias="group_response_delimiter" />
-          <order attribute="tc_order" />
-        </link-entity>
-        <link-entity name="tc_questions_group_question" from="tc_questionnaire_questions_groupid" to="tc_questionnaire_questions_groupid" link-type="inner" intersect="true">
-          <link-entity name="tc_questionnaire_question" from="tc_questionnaire_questionid" to="tc_questionnaire_questionid">
-            <attribute name="tc_englishtext" alias="question_text_english" />
-            <attribute name="tc_name" alias="question_name" />
-            <attribute name="tc_htmlelementid" alias="question_html_element_id" />
-            <link-entity name="tc_qtn_question_order" from="tc_question" to="tc_questionnaire_questionid">
-              <attribute name="tc_order" alias="question_order" />
-              <attribute name="tc_visible" alias="question_visible" />
-              <attribute name="tc_showkey" alias="question_show_key" />
-              <attribute name="tc_hidekey" alias="question_hide_key" />
-              <order attribute="tc_order" />
-            </link-entity>
-            <link-entity name="tc_questionnaire_question_response" from="tc_questionnaire_question" to="tc_questionnaire_questionid">
-              <attribute name="tc_controlinputtype" alias="response_control_input_type" />
-              <attribute name="tc_controllabelenglishtext" alias="response_control_label_text_english" />
-              <attribute name="tc_controlinputname" alias="response_control_input_name" />
-              <attribute name="tc_controlinputid" alias="response_control_input_id" />
-              <attribute name="tc_name" alias="response_name" />
-              <attribute name="tc_internalcomment" alias="response_internal_comment" />
-              <attribute name="tc_isproblem" alias="response_is_problem" />
-              <attribute name="tc_externalcomment" alias="response_external_comment" />
-              <attribute name="tc_emitvalue" alias="response_emit_value" />
-              <attribute name="tc_picture" alias="response_picture" />
-              <attribute name="tc_issafetyconcern" alias="response_is_safety_concern" />
-              <attribute name="tc_order" alias="response_order" />
-              <attribute name="tc_displayingroupheader" alias="response_display_in_group_header" />
-              <order attribute="tc_order" />
-            </link-entity>
+  <entity name="qm_sytemplate">
+    <attribute name="qm_sytemplateid" alias="templateId"/>
+    <attribute name="qm_name" alias="templatePrimaryKey"/>
+    <attribute name="qm_templateetxt" alias="templateTitleEn"/>
+    <attribute name="qm_templateftxt" alias="templateTitleFr"/>
+    <link-entity name="qm_sytemplate_sygroup" from="qm_sytemplateid" to="qm_sytemplateid" link-type="inner" alias="template_groups" intersect="true" >
+      <link-entity name="qm_sygroup" from="qm_sygroupid" to="qm_sygroupid" link-type="outer" alias="groups" visible="true" >
+        <attribute name="qm_groupf" />
+        <attribute name="qm_groupe" />
+        <attribute name="qm_name" />
+        <attribute name="qm_ordernbr" />
+        <attribute name="qm_isvisibleind" />
+        <attribute name="qm_sygroupid" />
+        <order attribute="qm_ordernbr" />
+        <link-entity name="qm_syquestion" from="qm_sygroupid" to="qm_sygroupid" link-type="inner" alias="questions" visible="true" >
+          <attribute name="qm_name" />
+          <attribute name="qm_questione" />
+          <attribute name="qm_questionf" />
+          <attribute name="qm_ordernbr" />
+          <attribute name="qm_isvisibleind" />
+          <attribute name="qm_questiontypecd" />
+          <attribute name="qm_syquestionid" />
+          <attribute name="qm_syquestionid_self" />
+          <order attribute="qm_ordernbr" />
+          <link-entity name="qm_syresponse" from="qm_syquestionid" to="qm_syquestionid" link-type="outer" alias="responses" visible="true" >
+            <attribute name="qm_name" />
+            <attribute name="qm_syresponseid" />
+            <order attribute="qm_name" />
           </link-entity>
         </link-entity>
       </link-entity>

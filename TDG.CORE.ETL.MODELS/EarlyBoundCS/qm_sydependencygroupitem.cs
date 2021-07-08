@@ -157,6 +157,18 @@ namespace CrmWebApiEarlyBoundGenerator {
         }
         
         // <summary>
+        // value of this dependency of a dependency group
+        // </summary>
+        public String qm_dependencyvaluetxt {
+            get {
+                return this.GetAttributeValue<String>("qm_dependencyvaluetxt");
+            }
+            set {
+                this.SetAttributeValue("qm_dependencyvaluetxt", value);
+            }
+        }
+        
+        // <summary>
         // The name of the custom entity.
         // </summary>
         public String qm_name {
@@ -230,30 +242,6 @@ namespace CrmWebApiEarlyBoundGenerator {
             }
             set {
                 this.SetAttributeValue("qm_SYQuestionId", value);
-            }
-        }
-        
-        // <summary>
-        // English
-        // </summary>
-        public String qm_ValidationValueE {
-            get {
-                return this.GetAttributeValue<String>("qm_ValidationValueE");
-            }
-            set {
-                this.SetAttributeValue("qm_ValidationValueE", value);
-            }
-        }
-        
-        // <summary>
-        // French
-        // </summary>
-        public String qm_ValidationValueF {
-            get {
-                return this.GetAttributeValue<String>("qm_ValidationValueF");
-            }
-            set {
-                this.SetAttributeValue("qm_ValidationValueF", value);
             }
         }
         
@@ -374,7 +362,13 @@ namespace CrmWebApiEarlyBoundGenerator {
             
             public const string OverriddenCreatedOn = "overriddencreatedon";
             
+            public const string qm_dependencyvaluetxt = "qm_dependencyvaluetxt";
+            
             public const string qm_name = "qm_name";
+            
+            public const string qm_operatorcd = "qm_operatorcd";
+            
+            public const string qm_operatorcdName = "qm_operatorcdname";
             
             public const string qm_SYDependencyGroupId = "qm_sydependencygroupid";
             
@@ -385,10 +379,6 @@ namespace CrmWebApiEarlyBoundGenerator {
             public const string qm_SYQuestionId = "qm_syquestionid";
             
             public const string qm_SYQuestionIdName = "qm_syquestionidname";
-            
-            public const string qm_ValidationValueE = "qm_validationvaluee";
-            
-            public const string qm_ValidationValueF = "qm_validationvaluef";
             
             public const string statecode = "statecode";
             
@@ -462,7 +452,13 @@ namespace CrmWebApiEarlyBoundGenerator {
             
             public const string OverriddenCreatedOn = "OverriddenCreatedOn";
             
+            public const string qm_dependencyvaluetxt = "qm_dependencyvaluetxt";
+            
             public const string qm_name = "qm_name";
+            
+            public const string qm_operatorcd = "qm_operatorcd";
+            
+            public const string qm_operatorcdName = "qm_operatorcdName";
             
             public const string qm_SYDependencyGroupId = "qm_SYDependencyGroupId";
             
@@ -473,10 +469,6 @@ namespace CrmWebApiEarlyBoundGenerator {
             public const string qm_SYQuestionId = "qm_SYQuestionId";
             
             public const string qm_SYQuestionIdName = "qm_SYQuestionIdName";
-            
-            public const string qm_ValidationValueE = "qm_ValidationValueE";
-            
-            public const string qm_ValidationValueF = "qm_ValidationValueF";
             
             public const string statecode = "statecode";
             

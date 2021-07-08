@@ -165,21 +165,27 @@ namespace CrmWebApiEarlyBoundGenerator {
             }
         }
         
-        public String qm_ExternalComment {
+        // <summary>
+        // external comments to be included on the inspection report and sent to the proponent as entered by an inspector during or after an inspection
+        // </summary>
+        public String qm_externalcommentstxt {
             get {
-                return this.GetAttributeValue<String>("qm_ExternalComment");
+                return this.GetAttributeValue<String>("qm_externalcommentstxt");
             }
             set {
-                this.SetAttributeValue("qm_ExternalComment", value);
+                this.SetAttributeValue("qm_externalcommentstxt", value);
             }
         }
         
-        public String qm_InternalComment {
+        // <summary>
+        // Internal comments that are for TC use only and not to be included in the inspection report or sent to the proponent as entered by an inspector during or after an inspection
+        // </summary>
+        public String qm_internalcommentstxt {
             get {
-                return this.GetAttributeValue<String>("qm_InternalComment");
+                return this.GetAttributeValue<String>("qm_internalcommentstxt");
             }
             set {
-                this.SetAttributeValue("qm_InternalComment", value);
+                this.SetAttributeValue("qm_internalcommentstxt", value);
             }
         }
         
@@ -192,15 +198,6 @@ namespace CrmWebApiEarlyBoundGenerator {
             }
             set {
                 this.SetAttributeValue("qm_name", value);
-            }
-        }
-        
-        public String qm_Result {
-            get {
-                return this.GetAttributeValue<String>("qm_Result");
-            }
-            set {
-                this.SetAttributeValue("qm_Result", value);
             }
         }
         
@@ -227,6 +224,20 @@ namespace CrmWebApiEarlyBoundGenerator {
             }
             set {
                 this.SetAttributeValue("qm_SYQuestionId", value);
+            }
+        }
+        
+        // <summary>
+        // is the crm guid of the response id selected for this question result. 
+        //
+        //Not putting a direct lookup on this entity to avoid a circular dependency in the schema, which causes performance degredation of dynamics
+        // </summary>
+        public String qm_syresponseid {
+            get {
+                return this.GetAttributeValue<String>("qm_syresponseid");
+            }
+            set {
+                this.SetAttributeValue("qm_syresponseid", value);
             }
         }
         
@@ -360,17 +371,17 @@ namespace CrmWebApiEarlyBoundGenerator {
             
             public const string qm_AzureBlobID = "qm_azureblobid";
             
-            public const string qm_ExternalComment = "qm_externalcomment";
+            public const string qm_externalcommentstxt = "qm_externalcommentstxt";
             
-            public const string qm_InternalComment = "qm_internalcomment";
+            public const string qm_internalcommentstxt = "qm_internalcommentstxt";
             
             public const string qm_name = "qm_name";
-            
-            public const string qm_Result = "qm_result";
             
             public const string qm_SYQuestionId = "qm_syquestionid";
             
             public const string qm_SYQuestionIdName = "qm_syquestionidname";
+            
+            public const string qm_syresponseid = "qm_syresponseid";
             
             public const string qm_syresultId = "qm_syresultid";
             
@@ -446,17 +457,17 @@ namespace CrmWebApiEarlyBoundGenerator {
             
             public const string qm_AzureBlobID = "qm_AzureBlobID";
             
-            public const string qm_ExternalComment = "qm_ExternalComment";
+            public const string qm_externalcommentstxt = "qm_externalcommentstxt";
             
-            public const string qm_InternalComment = "qm_InternalComment";
+            public const string qm_internalcommentstxt = "qm_internalcommentstxt";
             
             public const string qm_name = "qm_name";
-            
-            public const string qm_Result = "qm_Result";
             
             public const string qm_SYQuestionId = "qm_SYQuestionId";
             
             public const string qm_SYQuestionIdName = "qm_SYQuestionIdName";
+            
+            public const string qm_syresponseid = "qm_syresponseid";
             
             public const string qm_syresultId = "qm_syresultId";
             

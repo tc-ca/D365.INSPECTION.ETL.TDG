@@ -5,6 +5,7 @@
     <UserSecretsId>d183c3aa-5816-403d-8390-da43aaa244bf</UserSecretsId>
     <AssemblyName>TDG.CORE.ETL.CDS</AssemblyName>
     <RootNamespace>TDG.CORE.ETL.CDS</RootNamespace>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

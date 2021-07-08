@@ -52,12 +52,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JUSTICE\JusticeModels.cs" />
     <Compile Include="LegApiClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TDG.CORE.ETL.MODELS\TDG.CORE.ETL.MODELS.csproj">
+      <Project>{45bf5593-6020-4771-9420-df5c8a7c4104}</Project>
+      <Name>TDG.CORE.ETL.MODELS</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

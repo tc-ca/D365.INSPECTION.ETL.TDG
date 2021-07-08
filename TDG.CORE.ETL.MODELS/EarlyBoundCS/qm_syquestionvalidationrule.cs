@@ -178,32 +178,6 @@ namespace CrmWebApiEarlyBoundGenerator {
         }
         
         // <summary>
-        // Unique identifier for Dependency Group associated with Question Validation Rule.
-        // </summary>
-        [EntityReference("qm_sydependencygroups", "_qm_sydependencygroupid_value")]
-        public EntityReference qm_SYDependencyGroupId {
-            get {
-                return this.GetAttributeValue<EntityReference>("qm_SYDependencyGroupId@odata.bind");
-            }
-            set {
-                this.SetAttributeValue("qm_SYDependencyGroupId@odata.bind", value);
-            }
-        }
-        
-        // <summary>
-        // Unique identifier for Dependency Group associated with Question Validation Rule.
-        // </summary>
-        [Entity("qm_sydependencygroup", "qm_SYDependencyGroupId")]
-        public qm_sydependencygroup qm_SYDependencyGroupIdEntity {
-            get {
-                return this.GetAttributeValue<qm_sydependencygroup>("qm_SYDependencyGroupId");
-            }
-            set {
-                this.SetAttributeValue("qm_SYDependencyGroupId", value);
-            }
-        }
-        
-        // <summary>
         // Unique identifier for Question associated with Question Validation Rule.
         // </summary>
         [EntityReference("qm_syquestions", "_qm_syquestionid_value")]
@@ -242,12 +216,25 @@ namespace CrmWebApiEarlyBoundGenerator {
             }
         }
         
-        public String qm_ValidationValue {
+        // <summary>
+        // Unique identifier for Validation Rule Type associated with Question Validation Rule.
+        // </summary>
+        [EntityReference("qm_tyvalidationruletypes", "_qm_tyvalidationruletypeid_value")]
+        public EntityReference qm_tyvalidationruletypeId {
             get {
-                return this.GetAttributeValue<String>("qm_ValidationValue");
+                return this.GetAttributeValue<EntityReference>("qm_tyvalidationruletypeId@odata.bind");
             }
             set {
-                this.SetAttributeValue("qm_ValidationValue", value);
+                this.SetAttributeValue("qm_tyvalidationruletypeId@odata.bind", value);
+            }
+        }
+        
+        public String qm_validationvaluetxt {
+            get {
+                return this.GetAttributeValue<String>("qm_validationvaluetxt");
+            }
+            set {
+                this.SetAttributeValue("qm_validationvaluetxt", value);
             }
         }
         
@@ -328,9 +315,9 @@ namespace CrmWebApiEarlyBoundGenerator {
             
             public const string _OrganizationId_value = "_organizationid_value";
             
-            public const string _qm_SYDependencyGroupId_value = "_qm_sydependencygroupid_value";
-            
             public const string _qm_SYQuestionId_value = "_qm_syquestionid_value";
+            
+            public const string _qm_tyvalidationruletypeId_value = "_qm_tyvalidationruletypeid_value";
             
             public const string CreatedBy = "createdby";
             
@@ -374,17 +361,17 @@ namespace CrmWebApiEarlyBoundGenerator {
             
             public const string qm_name = "qm_name";
             
-            public const string qm_SYDependencyGroupId = "qm_sydependencygroupid";
-            
-            public const string qm_SYDependencyGroupIdName = "qm_sydependencygroupidname";
-            
             public const string qm_SYQuestionId = "qm_syquestionid";
             
             public const string qm_SYQuestionIdName = "qm_syquestionidname";
             
             public const string qm_syquestionvalidationruleId = "qm_syquestionvalidationruleid";
             
-            public const string qm_ValidationValue = "qm_validationvalue";
+            public const string qm_tyvalidationruletypeId = "qm_tyvalidationruletypeid";
+            
+            public const string qm_tyvalidationruletypeIdName = "qm_tyvalidationruletypeidname";
+            
+            public const string qm_validationvaluetxt = "qm_validationvaluetxt";
             
             public const string statecode = "statecode";
             
@@ -415,9 +402,9 @@ namespace CrmWebApiEarlyBoundGenerator {
             
             public const string organizationid = "organizationid";
             
-            public const string qm_SYDependencyGroupId = "qm_SYDependencyGroupId";
-            
             public const string qm_SYQuestionId = "qm_SYQuestionId";
+            
+            public const string qm_tyvalidationruletypeId = "qm_tyvalidationruletypeId";
         }
         
         public class Schemas {
@@ -464,17 +451,17 @@ namespace CrmWebApiEarlyBoundGenerator {
             
             public const string qm_name = "qm_name";
             
-            public const string qm_SYDependencyGroupId = "qm_SYDependencyGroupId";
-            
-            public const string qm_SYDependencyGroupIdName = "qm_SYDependencyGroupIdName";
-            
             public const string qm_SYQuestionId = "qm_SYQuestionId";
             
             public const string qm_SYQuestionIdName = "qm_SYQuestionIdName";
             
             public const string qm_syquestionvalidationruleId = "qm_syquestionvalidationruleId";
             
-            public const string qm_ValidationValue = "qm_ValidationValue";
+            public const string qm_tyvalidationruletypeId = "qm_tyvalidationruletypeId";
+            
+            public const string qm_tyvalidationruletypeIdName = "qm_tyvalidationruletypeIdName";
+            
+            public const string qm_validationvaluetxt = "qm_validationvaluetxt";
             
             public const string statecode = "statecode";
             

@@ -46,8 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EarlyBoundCS\Entity.cs" />
+    <Compile Include="EarlyBoundCS\OptionSets\qm_questionresponsetypecd.cs" />
     <Compile Include="EarlyBoundCS\OptionSets\qm_rclegislation_statecode.cs" />
     <Compile Include="EarlyBoundCS\OptionSets\qm_rclegislation_statuscode.cs" />
+    <Compile Include="EarlyBoundCS\OptionSets\qm_rylegislationcharacteristics_statecode.cs" />
+    <Compile Include="EarlyBoundCS\OptionSets\qm_rylegislationcharacteristics_statuscode.cs" />
     <Compile Include="EarlyBoundCS\OptionSets\qm_sydependencygroupitem_statecode.cs" />
     <Compile Include="EarlyBoundCS\OptionSets\qm_sydependencygroupitem_statuscode.cs" />
     <Compile Include="EarlyBoundCS\OptionSets\qm_sydependencygroup_statecode.cs" />
@@ -64,22 +67,32 @@
     <Compile Include="EarlyBoundCS\OptionSets\qm_syresult_statuscode.cs" />
     <Compile Include="EarlyBoundCS\OptionSets\qm_sytemplate_statecode.cs" />
     <Compile Include="EarlyBoundCS\OptionSets\qm_sytemplate_statuscode.cs" />
+    <Compile Include="EarlyBoundCS\OptionSets\qm_tylegislationcharacteristic_statecode.cs" />
+    <Compile Include="EarlyBoundCS\OptionSets\qm_tylegislationcharacteristic_statuscode.cs" />
+    <Compile Include="EarlyBoundCS\OptionSets\qm_tylegislationsource_statecode.cs" />
+    <Compile Include="EarlyBoundCS\OptionSets\qm_tylegislationsource_statuscode.cs" />
     <Compile Include="EarlyBoundCS\OptionSets\qm_tylegislationtype_statecode.cs" />
     <Compile Include="EarlyBoundCS\OptionSets\qm_tylegislationtype_statuscode.cs" />
+    <Compile Include="EarlyBoundCS\OptionSets\qm_TYValidationruletype_statecode.cs" />
+    <Compile Include="EarlyBoundCS\OptionSets\qm_TYValidationruletype_statuscode.cs" />
     <Compile Include="EarlyBoundCS\qm_rclegislation.cs" />
+    <Compile Include="EarlyBoundCS\qm_rclegislation_tylegislationcharacterist.cs" />
     <Compile Include="EarlyBoundCS\qm_sydependencygroup.cs" />
     <Compile Include="EarlyBoundCS\qm_sydependencygroupitem.cs" />
     <Compile Include="EarlyBoundCS\qm_sygroup.cs" />
     <Compile Include="EarlyBoundCS\qm_syquestion.cs" />
     <Compile Include="EarlyBoundCS\qm_syquestionvalidationrule.cs" />
     <Compile Include="EarlyBoundCS\qm_syresponse.cs" />
+    <Compile Include="EarlyBoundCS\qm_syresponse_rclegislation.cs" />
     <Compile Include="EarlyBoundCS\qm_syresult.cs" />
     <Compile Include="EarlyBoundCS\qm_sytemplate.cs" />
     <Compile Include="EarlyBoundCS\qm_sytemplate_sygroup.cs" />
+    <Compile Include="EarlyBoundCS\qm_tylegislationcharacteristic.cs" />
+    <Compile Include="EarlyBoundCS\qm_tylegislationsource.cs" />
     <Compile Include="EarlyBoundCS\qm_tylegislationtype.cs" />
     <Compile Include="LEGISLATION\LegislationModels.cs" />
     <Compile Include="LEGISLATION\JusticeToTCModel.cs" />
-    <Compile Include="LEGISLATION\LegislationModels.cs" />
+    <Compile Include="LegsRegsApiModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QUESTIONNAIRE\QuestionnaireModels.cs" />
   </ItemGroup>
@@ -96,6 +109,5 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

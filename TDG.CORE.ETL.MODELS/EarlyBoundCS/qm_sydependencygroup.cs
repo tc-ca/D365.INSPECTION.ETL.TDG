@@ -208,6 +208,32 @@ namespace CrmWebApiEarlyBoundGenerator {
         }
         
         // <summary>
+        // Unique identifier for Question Validation Rule associated with Dependency Group.
+        // </summary>
+        [EntityReference("qm_syquestionvalidationrules", "_qm_syquestionvalidationruleid_value")]
+        public EntityReference qm_SYQuestionValidationruleId {
+            get {
+                return this.GetAttributeValue<EntityReference>("qm_SYQuestionValidationruleId@odata.bind");
+            }
+            set {
+                this.SetAttributeValue("qm_SYQuestionValidationruleId@odata.bind", value);
+            }
+        }
+        
+        // <summary>
+        // Unique identifier for Question Validation Rule associated with Dependency Group.
+        // </summary>
+        [Entity("qm_syquestionvalidationrule", "qm_SYQuestionValidationruleId")]
+        public qm_syquestionvalidationrule qm_SYQuestionValidationruleIdEntity {
+            get {
+                return this.GetAttributeValue<qm_syquestionvalidationrule>("qm_SYQuestionValidationruleId");
+            }
+            set {
+                this.SetAttributeValue("qm_SYQuestionValidationruleId", value);
+            }
+        }
+        
+        // <summary>
         // Status of the Dependency Group
         //Statut de l'élément Dependency Group
         // </summary>
@@ -286,6 +312,8 @@ namespace CrmWebApiEarlyBoundGenerator {
             
             public const string _qm_SYQuestionId_value = "_qm_syquestionid_value";
             
+            public const string _qm_SYQuestionValidationruleId_value = "_qm_syquestionvalidationruleid_value";
+            
             public const string CreatedBy = "createdby";
             
             public const string CreatedByName = "createdbyname";
@@ -322,6 +350,10 @@ namespace CrmWebApiEarlyBoundGenerator {
             
             public const string OverriddenCreatedOn = "overriddencreatedon";
             
+            public const string qm_dependencygroupruletypecd = "qm_dependencygroupruletypecd";
+            
+            public const string qm_dependencygroupruletypecdName = "qm_dependencygroupruletypecdname";
+            
             public const string qm_name = "qm_name";
             
             public const string qm_sydependencygroupId = "qm_sydependencygroupid";
@@ -329,6 +361,10 @@ namespace CrmWebApiEarlyBoundGenerator {
             public const string qm_SYQuestionId = "qm_syquestionid";
             
             public const string qm_SYQuestionIdName = "qm_syquestionidname";
+            
+            public const string qm_SYQuestionValidationruleId = "qm_syquestionvalidationruleid";
+            
+            public const string qm_SYQuestionValidationruleIdName = "qm_syquestionvalidationruleidname";
             
             public const string statecode = "statecode";
             
@@ -360,6 +396,8 @@ namespace CrmWebApiEarlyBoundGenerator {
             public const string organizationid = "organizationid";
             
             public const string qm_SYQuestionId = "qm_SYQuestionId";
+            
+            public const string qm_SYQuestionValidationruleId = "qm_SYQuestionValidationruleId";
         }
         
         public class Schemas {
@@ -400,6 +438,10 @@ namespace CrmWebApiEarlyBoundGenerator {
             
             public const string OverriddenCreatedOn = "OverriddenCreatedOn";
             
+            public const string qm_dependencygroupruletypecd = "qm_dependencygroupruletypecd";
+            
+            public const string qm_dependencygroupruletypecdName = "qm_dependencygroupruletypecdName";
+            
             public const string qm_name = "qm_name";
             
             public const string qm_sydependencygroupId = "qm_sydependencygroupId";
@@ -407,6 +449,10 @@ namespace CrmWebApiEarlyBoundGenerator {
             public const string qm_SYQuestionId = "qm_SYQuestionId";
             
             public const string qm_SYQuestionIdName = "qm_SYQuestionIdName";
+            
+            public const string qm_SYQuestionValidationruleId = "qm_SYQuestionValidationruleId";
+            
+            public const string qm_SYQuestionValidationruleIdName = "qm_SYQuestionValidationruleIdName";
             
             public const string statecode = "statecode";
             

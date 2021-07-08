@@ -234,7 +234,7 @@ namespace TDG.CORE.ETL.CDS
             }
         }
 
-        public static void FetchLegislationData(string legFetchXml, CrmServiceClient existingService = null, string outputPath = "legislation.integration.js")
+        public static void FetchLegislationData(CrmServiceClient existingService = null, string outputPath = "legislation.integration.js")
         {
             CrmServiceClient service = null;
 
@@ -252,7 +252,7 @@ namespace TDG.CORE.ETL.CDS
                     {
                         Console.WriteLine(Environment.NewLine + "-----FETCHING LEGISLATION DATA-----" + Environment.NewLine + ":)");
 
-                        var result = CrmSdkHelper.ExecuteLegislationFetchXml(legFetchXml);
+                        var result = CrmSdkHelper.ExecuteLegislationFetchXml();
 
                         JToken jsonFormatted = JToken.Parse(result);
                         var beautified = jsonFormatted.ToString(Formatting.Indented);
@@ -307,7 +307,7 @@ namespace TDG.CORE.ETL.CDS
             }
         }
 
-        public static void ETLLegislationData(Regulation legData, CrmServiceClient existingService = null)
+        public static void ETLLegislationData(Regulation legData, CrmServiceClient existingService = null, int top = 0)
         {
             CrmServiceClient service = null;
 
@@ -324,7 +324,7 @@ namespace TDG.CORE.ETL.CDS
                     if (service.IsReady)
                     {
                         Console.WriteLine(Environment.NewLine + "-----UPDATING LEGISLATION DATA-----" + Environment.NewLine + ":)");
-                        CrmSdkHelper.CreateOrUpdateLegislations(service, legData);
+                        CrmSdkHelper.CreateOrUpdateLegislations(service, legData, top);
                     }
                     else
                     {

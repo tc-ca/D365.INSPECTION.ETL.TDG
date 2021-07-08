@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30320.27
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1340
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "TDG.CORE.ETL.KINGSWAY", "TDG.CORE.ETL.KINGSWAY.dtproj", "{F066A4AC-1486-44BE-BCD5-7313B42009CD}"
 EndProject
@@ -11,8 +11,8 @@ Global
 		Development|Default = Development|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F066A4AC-1486-44BE-BCD5-7313B42009CD}.Azure|Default.ActiveCfg = Azure
-		{F066A4AC-1486-44BE-BCD5-7313B42009CD}.Azure|Default.Build.0 = Azure
+		{F066A4AC-1486-44BE-BCD5-7313B42009CD}.Azure|Default.ActiveCfg = Development
+		{F066A4AC-1486-44BE-BCD5-7313B42009CD}.Azure|Default.Build.0 = Development
 		{F066A4AC-1486-44BE-BCD5-7313B42009CD}.Development|Default.ActiveCfg = Development
 		{F066A4AC-1486-44BE-BCD5-7313B42009CD}.Development|Default.Build.0 = Development
 	EndGlobalSection
