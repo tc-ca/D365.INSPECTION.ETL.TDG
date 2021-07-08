@@ -879,6 +879,9 @@ FROM
 --The field name remains as "Mode".
 --This is a tag that will be associated with a site.  It will need to be in the Site Operating Profile section; these values are used to build / filter the questionnaire.
 --Multiple values for Mode can be selected
+
+
+
 --Try to sanitize some bad data from IIS
 UPDATE
   [dbo].STAGING__ACCOUNT
@@ -898,8 +901,39 @@ SET
   END;
 
 
-  select count(name) COUNTOF_ACCOUNTS
+  select count(name) COUNTOF_ACCOUNTS_FROM_CONSOLIDATION_EXCEL
   from STAGING__ACCOUNT;
+
+
+  --ENSURE THERE ARE 0 COMPANIES MISSING FROM ROM 
+--==========================================================================
+SELECT STAKEHOLDER_ID
+INTO #TEMP_IIS_IDS
+FROM YD070_STAKEHOLDER
+where STAKEHOLDER_TYPE_CD
+NOT IN (
+	1,	--TC Individual
+	2,	--External Individual
+	3,	--TC Organization
+	13, --Company Contact
+	14  --Inspection Contact
+)
+AND date_deleted_dte is null and FILE_STATUS_CD = 'ACTIVE';
+
+
+SELECT COUNT(*) missingSites 
+FROM #TEMP_IIS_IDS
+WHERE 
+STAKEHOLDER_ID
+not in
+(
+	SELECT ovs_iisid FROM [STAGING__ACCOUNT]
+	WHERE customertypecode = 948010001
+);
+--==========================================================================
+
+
+
 
   --SELECT * FROM STAGING__ACCOUNT
   --order by name;
