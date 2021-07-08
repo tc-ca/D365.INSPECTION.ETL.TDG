@@ -168,7 +168,7 @@ INSERT INTO
     [firstname],
     [lastname],
     [fullname]
-    ,[jobtitle]
+    --,[jobtitle]
   )
 SELECT
   contactid,                                        --id
@@ -198,6 +198,7 @@ FROM
       IIS.CONTACT_PHONE,
       IIS.CONTACT_TFH,
       IIS.USER_CONTACT,
+	  
 CASE
         WHEN Charindex(' ', USER_CONTACT) = 0 THEN 'TDG'
         ELSE TRIM(

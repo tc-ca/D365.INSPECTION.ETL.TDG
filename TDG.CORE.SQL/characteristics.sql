@@ -88,7 +88,7 @@ FROM
 	(
 SELECT '2c324a5c-cd76-eb11-a812-000d3af3fc54' [id], 'Rail' [ovs_name], 'Rail' [ovs_englishlabel], 'Ferroviaire' [ovs_frenchlabel] UNION
 SELECT '8005c3d4-3f78-eb11-a812-000d3af3fc54', 'Road', 'Road', 'Route' UNION
-SELECT 'fee06d4d-4278-eb11-a812-000d3af3fc54', 'Air', 'Air', 'Aérien' UNION
+SELECT 'fee06d4d-4278-eb11-a812-000d3af3fc54', 'Air', 'Air', 'AÃ©rien' UNION
 SELECT '7350f37a-4278-eb11-a812-000d3af3fc54', 'Marine', 'Marine', 'Maritime'
 ) T1;
 
@@ -185,11 +185,11 @@ SELECT
 	INTO #STAGING__AIR_OPERATOR_TYPE
 FROM
 	(
-SELECT '95fe3ecd-29a8-eb11-9442-000d3ae99322' [id], '604 Private Operator' [ovs_name], '604 Private Operator' [ovs_englishlabel], '604 Opérateur privé' [ovs_frenchlabel] UNION
-SELECT 'dc355cf7-29a8-eb11-9442-000d3ae99322', '702 Aerial Work', '702 Aerial Work', '702 Travaux aériens' UNION
-SELECT 'ad73771e-2aa8-eb11-9442-000d3ae99322', '703 Air Taxi', '703 Air Taxi', '703 Taxi aérien' UNION
-SELECT 'cf82ac38-2aa8-eb11-9442-000d3ae99322', '704 Commuter Operations', '704 Commuter Operations', '704 Opérations de banlieue' UNION
-SELECT '5b3aca57-2aa8-eb11-9442-000d3ae99322', '705 Airline Operations', '705 Airline Operations', '705 Opérations aériennes'
+SELECT '95fe3ecd-29a8-eb11-9442-000d3ae99322' [id], '604 Private Operator' [ovs_name], '604 Private Operator' [ovs_englishlabel], '604 OpÃ©rateur privÃ©' [ovs_frenchlabel] UNION
+SELECT 'dc355cf7-29a8-eb11-9442-000d3ae99322', '702 Aerial Work', '702 Aerial Work', '702 Travaux aÃ©riens' UNION
+SELECT 'ad73771e-2aa8-eb11-9442-000d3ae99322', '703 Air Taxi', '703 Air Taxi', '703 Taxi aÃ©rien' UNION
+SELECT 'cf82ac38-2aa8-eb11-9442-000d3ae99322', '704 Commuter Operations', '704 Commuter Operations', '704 OpÃ©rations de banlieue' UNION
+SELECT '5b3aca57-2aa8-eb11-9442-000d3ae99322', '705 Airline Operations', '705 Airline Operations', '705 OpÃ©rations aÃ©riennes'
 ) T1;
 
 
@@ -282,10 +282,10 @@ SELECT
 FROM
 	(
 SELECT 'd45874a9-6ba8-eb11-9442-000d3ae99322' [id], 'Ramp' [ovs_name], 'Ramp' [ovs_englishlabel], 'Rampe' [ovs_frenchlabel] UNION
-SELECT 'c8677cb8-6ba8-eb11-9442-000d3ae99322', 'Crew', 'Crew', 'Équipage' UNION
+SELECT 'c8677cb8-6ba8-eb11-9442-000d3ae99322', 'Crew', 'Crew', 'Ã‰quipage' UNION
 SELECT '53e7aac4-6ba8-eb11-9442-000d3ae99322', 'Cargo Facility', 'Cargo Facility', 'Installation de fret' UNION
 SELECT '0a591dd5-6ba8-eb11-9442-000d3ae99322', 'Passenger Terminal', 'Passenger Terminal', 'Terminal passagers' UNION
-SELECT '777649e9-6ba8-eb11-9442-000d3ae99322', 'Aircraft Maintenance', 'Aircraft Maintenance', 'Maintenance des aéronefs'
+SELECT '777649e9-6ba8-eb11-9442-000d3ae99322', 'Aircraft Maintenance', 'Aircraft Maintenance', 'Maintenance des aÃ©ronefs'
 ) T1;
 
 
@@ -474,18 +474,18 @@ SELECT
 FROM
 	(
 SELECT 'e23e22b5-4278-eb11-a812-000d3af3fc54' [id], 'Cylinders, Spheres and Tubes' [ovs_name], 'Cylinders, Spheres and Tubes' [ovs_englishlabel], 'Bouteilles et tubes' [ovs_frenchlabel] UNION
-SELECT '37acc996-4378-eb11-a812-000d3af3fc54', 'UN Intermediate Bulk Containers (IBCs)', 'UN Intermediate Bulk Containers (IBCs)', 'Grands récipients pour vrac (GRV) normalisés UN' UNION
-SELECT '5884fdbb-4378-eb11-a812-000d3af3fc54', 'Infectious Substances Containers', 'Infectious Substances Containers', 'Contenants pour matières infectieuses' UNION
+SELECT '37acc996-4378-eb11-a812-000d3af3fc54', 'UN Intermediate Bulk Containers (IBCs)', 'UN Intermediate Bulk Containers (IBCs)', 'Grands rÃ©cipients pour vrac (GRV) normalisÃ©s UN' UNION
+SELECT '5884fdbb-4378-eb11-a812-000d3af3fc54', 'Infectious Substances Containers', 'Infectious Substances Containers', 'Contenants pour matiÃ¨res infectieuses' UNION
 SELECT '4be1e2d4-4378-eb11-a812-000d3af3fc54', 'Railway Tank Cars', 'Railway Tank Cars', 'Wagons-citernes' UNION
-SELECT '2bb706e9-4378-eb11-a812-000d3af3fc54', 'UN Standardized Small Containers for Liquids or Solids', 'UN Standardized Small Containers for Liquids or Solids', 'Petits contenants normalisés UN pour liquides ou solides' UNION
-SELECT '8baba4f7-4378-eb11-a812-000d3af3fc54', 'Highway Tank', 'Highway Tank', 'Citernes routières' UNION
+SELECT '2bb706e9-4378-eb11-a812-000d3af3fc54', 'UN Standardized Small Containers for Liquids or Solids', 'UN Standardized Small Containers for Liquids or Solids', 'Petits contenants normalisÃ©s UN pour liquides ou solides' UNION
+SELECT '8baba4f7-4378-eb11-a812-000d3af3fc54', 'Highway Tank', 'Highway Tank', 'Citernes routiÃ¨res' UNION
 SELECT '245fe40a-4478-eb11-a812-000d3af3fc54', 'TC Portable Tanks', 'TC Portable Tanks', 'Citernes amovibles TC' UNION
-SELECT '44ff6b21-4478-eb11-a812-000d3af3fc54', 'UN Portable Tanks (including tank containers)', 'UN Portable Tanks (including tank containers)', 'Citernes mobiles normalisées UN (y compris les conteneurs-citernes)' UNION
-SELECT '6dfbef3c-4478-eb11-a812-000d3af3fc54', 'Aerosol Containers and Gas Cartridges', 'Aerosol Containers and Gas Cartridges', 'Bombes aérosol et cartouches à gaz' UNION
+SELECT '44ff6b21-4478-eb11-a812-000d3af3fc54', 'UN Portable Tanks (including tank containers)', 'UN Portable Tanks (including tank containers)', 'Citernes mobiles normalisÃ©es UN (y compris les conteneurs-citernes)' UNION
+SELECT '6dfbef3c-4478-eb11-a812-000d3af3fc54', 'Aerosol Containers and Gas Cartridges', 'Aerosol Containers and Gas Cartridges', 'Bombes aÃ©rosol et cartouches Ã  gaz' UNION
 SELECT '9af6204f-4478-eb11-a812-000d3af3fc54', 'Ton Containers', 'Ton Containers', 'Contenants d''une tonne' UNION
 SELECT 'c4d8385c-4478-eb11-a812-000d3af3fc54', 'Means of transport', 'Means of transport', 'Contenant un emballage' UNION
 SELECT '3920246f-4478-eb11-a812-000d3af3fc54', 'Consolidation Bin', 'Consolidation Bin', 'Conteneur de groupage' UNION
-SELECT '0c6af89b-5a78-eb11-a812-000d3af3fc54', 'Fumigated Unit', 'Fumigated Unit', 'Unité fumigée' UNION
+SELECT '0c6af89b-5a78-eb11-a812-000d3af3fc54', 'Fumigated Unit', 'Fumigated Unit', 'UnitÃ© fumigÃ©e' UNION
 SELECT 'ef855a81-5b78-eb11-a812-000d3af3fc54', 'Marine Pollutant DG', 'Marine Pollutant DG', 'DG des polluants marins'
 ) T1;
 
@@ -578,17 +578,17 @@ SELECT
 	INTO #STAGING__MOC_FACILITY_TYPE
 FROM
 	(
-SELECT '325695da-4278-eb11-a812-000d3af3fc54' [id], 'UN Cylinders, UN Tubes, UN cryogenic receptacles and MEGC''s' [ovs_name], 'UN Cylinders, UN Tubes, UN cryogenic receptacles and MEGC''s' [ovs_englishlabel], 'Bouteilles à gaz UN, tubes UN, récipients cryogéniques UN, et CGEM' [ovs_frenchlabel] UNION
-SELECT 'af48d1ae-4878-eb11-a812-000d3af3fc54', 'Cylinder and tube requalifiers', 'Cylinder and tube requalifiers', 'Installations de requalification de bouteilles à gaz et de tubes' UNION
-SELECT '94a540d0-4878-eb11-a812-000d3af3fc54', 'Cylinder and tube manufacturers', 'Cylinder and tube manufacturers', 'Fabricants de bouteilles à gaz et de tubes' UNION
-SELECT '0785c5f7-4878-eb11-a812-000d3af3fc54', 'Independent Inspectors for cylinder and tube manufacturers', 'Independent Inspectors for cylinder and tube manufacturers', 'Inspecteurs indépendants d''usines de fabrication de bouteilles à gaz et de tubes' UNION
-SELECT 'ccaef522-4978-eb11-a812-000d3af3fc54', 'UN Pressure Receptacle Periodic Inspection and Test Facilities', 'UN Pressure Receptacle Periodic Inspection and Test Facilities', 'Installations de requalification de bouteilles à gaz et de tubes' UNION
-SELECT 'd40b1548-4978-eb11-a812-000d3af3fc54', 'UN Pressure Receptacle Manufacturers', 'UN Pressure Receptacle Manufacturers', 'Fabricants de récipients à pression UN' UNION
-SELECT 'b344d46d-4978-eb11-a812-000d3af3fc54', 'Inspection Bodies for Manufacture of UN Pressure Receptacles', 'Inspection Bodies for Manufacture of UN Pressure Receptacles', 'Organisme d’inspection pour récipients à pression UN' UNION
-SELECT '5d3dcdb7-4978-eb11-a812-000d3af3fc54', 'Design Review Agencies for UN Pressure Receptacle Manufacture', 'Design Review Agencies for UN Pressure Receptacle Manufacture', 'Organismes de revue de conception de la fabrication de récipients à pression UN' UNION
-SELECT '5327cfc8-4978-eb11-a812-000d3af3fc54', 'Aerosol and Gas Cartridge Manufacturers', 'Aerosol and Gas Cartridge Manufacturers', 'Fabricants de bombes aérosol et de cartouches à gaz' UNION
-SELECT '9fadc2e1-4978-eb11-a812-000d3af3fc54', 'Drum reconditioners', 'Drum reconditioners', 'Installations de reconditionnement des fûts' UNION
-SELECT 'bd7a95f4-4978-eb11-a812-000d3af3fc54', 'IBC requalifiers (leak test and inspect)', 'IBC requalifiers (leak test and inspect)', 'Installations de requalification des grands contenants pour vrac (essais d''étanchéité et inspection)' UNION
+SELECT '325695da-4278-eb11-a812-000d3af3fc54' [id], 'UN Cylinders, UN Tubes, UN cryogenic receptacles and MEGC''s' [ovs_name], 'UN Cylinders, UN Tubes, UN cryogenic receptacles and MEGC''s' [ovs_englishlabel], 'Bouteilles Ã  gaz UN, tubes UN, rÃ©cipients cryogÃ©niques UN, et CGEM' [ovs_frenchlabel] UNION
+SELECT 'af48d1ae-4878-eb11-a812-000d3af3fc54', 'Cylinder and tube requalifiers', 'Cylinder and tube requalifiers', 'Installations de requalification de bouteilles Ã  gaz et de tubes' UNION
+SELECT '94a540d0-4878-eb11-a812-000d3af3fc54', 'Cylinder and tube manufacturers', 'Cylinder and tube manufacturers', 'Fabricants de bouteilles Ã  gaz et de tubes' UNION
+SELECT '0785c5f7-4878-eb11-a812-000d3af3fc54', 'Independent Inspectors for cylinder and tube manufacturers', 'Independent Inspectors for cylinder and tube manufacturers', 'Inspecteurs indÃ©pendants d''usines de fabrication de bouteilles Ã  gaz et de tubes' UNION
+SELECT 'ccaef522-4978-eb11-a812-000d3af3fc54', 'UN Pressure Receptacle Periodic Inspection and Test Facilities', 'UN Pressure Receptacle Periodic Inspection and Test Facilities', 'Installations de requalification de bouteilles Ã  gaz et de tubes' UNION
+SELECT 'd40b1548-4978-eb11-a812-000d3af3fc54', 'UN Pressure Receptacle Manufacturers', 'UN Pressure Receptacle Manufacturers', 'Fabricants de rÃ©cipients Ã  pression UN' UNION
+SELECT 'b344d46d-4978-eb11-a812-000d3af3fc54', 'Inspection Bodies for Manufacture of UN Pressure Receptacles', 'Inspection Bodies for Manufacture of UN Pressure Receptacles', 'Organisme dâ€™inspection pour rÃ©cipients Ã  pression UN' UNION
+SELECT '5d3dcdb7-4978-eb11-a812-000d3af3fc54', 'Design Review Agencies for UN Pressure Receptacle Manufacture', 'Design Review Agencies for UN Pressure Receptacle Manufacture', 'Organismes de revue de conception de la fabrication de rÃ©cipients Ã  pression UN' UNION
+SELECT '5327cfc8-4978-eb11-a812-000d3af3fc54', 'Aerosol and Gas Cartridge Manufacturers', 'Aerosol and Gas Cartridge Manufacturers', 'Fabricants de bombes aÃ©rosol et de cartouches Ã  gaz' UNION
+SELECT '9fadc2e1-4978-eb11-a812-000d3af3fc54', 'Drum reconditioners', 'Drum reconditioners', 'Installations de reconditionnement des fÃ»ts' UNION
+SELECT 'bd7a95f4-4978-eb11-a812-000d3af3fc54', 'IBC requalifiers (leak test and inspect)', 'IBC requalifiers (leak test and inspect)', 'Installations de requalification des grands contenants pour vrac (essais d''Ã©tanchÃ©itÃ© et inspection)' UNION
 SELECT '2f241b09-4a78-eb11-a812-000d3af3fc54', 'Railway Tank Car facilities', 'Railway Tank Car facilities', 'Installations pour wagons-citernes' UNION
 SELECT '7ca58372-5a78-eb11-a812-000d3af3fc54', 'MOC Manufacturer', 'MOC Manufacturer', 'Fabricant petits contenants'
 ) T1;
