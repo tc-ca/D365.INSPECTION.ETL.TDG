@@ -75,7 +75,8 @@ unTableEnglish.forEach((row, i) => {
     const englishShippingName = extractionHelper.extractShippingName(row.entry[1])
     const frenchShippingName = extractionHelper.extractShippingName(rowFrench.entry[1])
     const classes = extractionHelper.extractClassData(row.entry[2])
-    const primaryClass = classes[0]
+    const primaryClass = classes[0].replace(/[^0-9.]/g, '');
+    const primaryClassProperty = classes[0].replace(/[^A-Za-z]/g, '');
     const secondaryClass = classes.slice(1).join('; ').replace(/[{()}]/g, '')
     const packingGroup = typeof row.entry[3] === 'string' ? row.entry[3] : row.entry[3]._ // value in the "_" property when shipping name contains multiple lines in the html, example UN0482
     const specialProvisions = (typeof row.entry[4] === 'string' ? row.entry[4] : row.entry[4]._ === undefined ? '' : row.entry[4]._).replace(/,/g, ';') // value in the "_" property when shipping name contains multiple lines in the html, example UN0482
@@ -92,6 +93,7 @@ unTableEnglish.forEach((row, i) => {
       'English Shipping Name': englishShippingName, // string
       'French Shipping Name': frenchShippingName, // string
       'Primary Class': primaryClass, // option set
+      'Primary Class Property': primaryClassProperty,
       'Secondary Class': secondaryClass, // option set
       'Packing Group': packingGroup, // option set
       'Special Provisions': specialProvisions, // option set
