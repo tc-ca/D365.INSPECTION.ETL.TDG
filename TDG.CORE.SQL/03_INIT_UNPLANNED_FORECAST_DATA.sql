@@ -39,6 +39,40 @@ GO
 DROP TABLE IF EXISTS #TEMP_STAGING__UNPLANNED_FORECAST;
 GO
 
+
+--INSERT DATA RECIEVED FROM SEANS EXCEL SHEET LOOK AT KINGSWAY PACKAGE FOR FILENAME
+INSERT INTO
+	STAGING__UNPLANNED_FORECAST (
+		id,
+		ovs_region,
+		ovs_fiscalyear,
+		[ovs_oversighttype],
+		[ovs_q1],
+		[ovs_q2],
+		[ovs_q3],
+		[ovs_q4],
+		[ovs_forecast]
+	)
+SELECT 
+	NEWID() id,
+	territoryid,
+	T4.tc_tcfiscalyearid,
+	ovs_oversighttypeid,
+	CAST(Q1 AS int) [ovs_q1],
+	CAST(Q2 AS int) [ovs_q2],
+	CAST(Q3 AS int) [ovs_q3],
+	CAST(Q4 AS int) [ovs_q4],
+	CAST([Total Forecast] AS int) [ovs_forecast] 
+FROM SOURCE__UNPLANNED_FORECASTS T1
+JOIN STAGING__TERRITORY T2 ON T2.ovs_territorynameenglish = T1.Region
+JOIN SOURCE__FISCAL_YEAR T4 ON T1.[Fiscal Year] = T4.tc_name
+LEFT JOIN STAGING__OVERSIGHTTYPE T3 ON dbo.fn_StripCharacters(T3.ovs_oversighttypenameenglish, '^a-z0-9')  = dbo.fn_StripCharacters(T1.[Inspection Type], '^a-z0-9')
+ORDER BY T1.[Fiscal Year], T1.[Inspection Type];
+
+
+
+
+--INSERT 10 MORE YEARS OF STARTING DATA FOR EASIER DATA ENTRY LATER
 SELECT
 	CAST(id AS uniqueidentifier) id,
 	[ovs_name],
@@ -51,103 +85,20 @@ SELECT
 	CAST([ovs_q4] AS int) [ovs_q4],
 	CAST([ovs_forecast] AS int) [ovs_forecast] 
 INTO #TEMP_STAGING__UNPLANNED_FORECAST
+
 FROM
 	(
 		SELECT
-			'73cd786d-b0c3-eb11-bacc-000d3ae864fc' id,
-			'Atlantic-2020-2021-GC Triggered' ovs_name,
-			'Atlantic' ovs_regionname,
-			'2020-2021' [ovs_fiscalyearname],
-			'GC Triggered' [ovs_oversighttypename],
-			'0' ovs_q1,
-			'0' ovs_q2,
-			'0' ovs_q3,
-			'0' ovs_q4,
-			'0' ovs_forecast
-		UNION
-		SELECT
-			'74cd786d-b0c3-eb11-bacc-000d3ae864fc',
-			'Atlantic-2020-2021-GC Opportunity',
-			'Atlantic',
-			'2020-2021',
-			'GC Opportunity',
-			'0',
-			'0',
-			'0',
-			'0',
-			'0'
-		UNION
-		SELECT
-			'3ee5876f-b0c3-eb11-bacc-000d3ae868f0',
-			'Atlantic-2020-2021-GC Consignment',
-			'Atlantic',
-			'2020-2021',
-			'GC Consignment',
-			'0',
-			'0',
-			'0',
-			'0',
-			'0'
-		UNION
-		SELECT
-			'3fe5876f-b0c3-eb11-bacc-000d3ae868f0',
-			'Atlantic-2020-2021-GC Undeclared/ Misdeclared',
-			'Atlantic',
-			'2020-2021',
-			'GC Undeclared/ Misdeclared',
-			'0',
-			'0',
-			'0',
-			'0',
-			'0'
-		UNION
-		SELECT
-			'40e5876f-b0c3-eb11-bacc-000d3ae868f0',
-			'Atlantic-2020-2021-MOC Facility Triggered',
-			'Atlantic',
-			'2020-2021',
-			'MOC Facility Triggered',
-			'0',
-			'0',
-			'0',
-			'0',
-			'0'
-		UNION
-		SELECT
-			'41e5876f-b0c3-eb11-bacc-000d3ae868f0',
-			'Atlantic-2020-2021-MOC Facility Opportunity',
-			'Atlantic',
-			'2020-2021',
-			'MOC Facility Opportunity',
-			'0',
-			'0',
-			'0',
-			'0',
-			'0'
-		UNION
-		SELECT
-			'42e5876f-b0c3-eb11-bacc-000d3ae868f0',
-			'Atlantic-2020-2021-Civil Aviation Document Review',
-			'Atlantic',
-			'2020-2021',
-			'Civil Aviation Document Review',
-			'0',
-			'0',
-			'0',
-			'0',
-			'0'
-		UNION
-		SELECT
-			'deaf4967-b0c3-eb11-bacc-000d3ae864fc',
-			'Atlantic-2021-2022-GC Consignment',
-			'Atlantic',
-			'2021-2022',
-			'GC Consignment',
-			'0',
-			'0',
-			'0',
-			'0',
-			'0'
+			'deaf4967-b0c3-eb11-bacc-000d3ae864fc' ID,
+			'Atlantic-2021-2022-GC Consignment'    OVS_NAME,
+			'Atlantic'							   OVS_REGIONNAME,
+			'2021-2022'							   OVS_FISCALYEARNAME,
+			'GC Consignment'					   OVS_OVERSIGHTTYPENAME,
+			'0' OVS_Q1,
+			'0' OVS_Q2,
+			'0' OVS_Q3,
+			'0' OVS_Q4,
+			'0' OVS_FORECAST
 		UNION
 		SELECT
 			'e1af4967-b0c3-eb11-bacc-000d3ae864fc',

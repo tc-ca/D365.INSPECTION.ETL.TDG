@@ -1,29 +1,13 @@
-	--=============================================DYNAMIC VALUES===========================================
-	--these variables can change with the environment, so double check these match the environment you're syncing to
-	--ROM-ACC-TDG-DATA VALUES
-
-	DECLARE @CONST_TDGCORE_DOMAINNAME  NVARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
-	DECLARE @CONST_TDGCORE_USERID      NVARCHAR(50)  = (SELECT systemuserid FROM CRM__SYSTEMUSER  where domainname = 'tdg.core@034gc.onmicrosoft.com');
-	DECLARE @CONST_TEAM_TDG_ID          NVARCHAR(500) = (SELECT teamid FROM CRM__TEAM WHERE name = 'Transportation of Dangerous Goods');
-	DECLARE @CONST_BUSINESSUNIT_TDG_ID NVARCHAR(50)  = (SELECT businessunitid FROM CRM__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
-	DECLARE @CONST_PRICELISTID         NVARCHAR(50)  = (SELECT pricelevelid FROM CRM__pricelevel  WHERE NAME = 'Base Prices');
-	DECLARE @CONST_TDGCORE_BOOKABLE_RESOURCE_ID NVARCHAR(50) = (SELECT bookableresourceid FROM CRM__BOOKABLERESOURCE WHERE msdyn_primaryemail = @CONST_TDGCORE_DOMAINNAME);
+	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT systemuserid FROM CRM__SYSTEMUSER  where domainname = 'tdg.core@034gc.onmicrosoft.com');
+	DECLARE @CONST_TEAM_TDG_ID          VARCHAR(500) = (SELECT teamid FROM CRM__TEAM WHERE name = 'Transportation of Dangerous Goods');
+	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT businessunitid FROM CRM__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
+	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT pricelevelid FROM CRM__pricelevel  WHERE NAME = 'Base Prices');
+	DECLARE @CONST_TDGCORE_BOOKABLE_RESOURCE_ID VARCHAR(50) = (SELECT bookableresourceid FROM CRM__BOOKABLERESOURCE WHERE msdyn_primaryemail = @CONST_TDGCORE_DOMAINNAME);
 	
-
-	--DEV
-	-- DECLARE @CONST_TDGCORE_BOOKABLE_RESOURCE_ID       NVARCHAR(50) = '2cfc9150-d6a3-eb11-b1ac-000d3ae8bee7';
-	-- DECLARE @CONST_TDGCORE_USERID                     NVARCHAR(50) = '15abdd9e-8edd-ea11-a814-000d3af3afe0';
-	-- DECLARE @CONST_TDGCORE_DOMAINNAME                 NVARCHAR(50) = 'tdg.core@034gc.onmicrosoft.com';
-	-- DECLARE @CONST_TDG_TEAMID                         NVARCHAR(50) = 'ed81d4e5-55b7-eb11-8236-0022483bc30f';
-	-- DECLARE @CONST_TDG_TEAMNAME                       NVARCHAR(50) = 'Transportation of Dangerous Goods';
-	-- DECLARE @CONST_BUSINESSUNIT_TDG_ID                 NVARCHAR(50) = '4E122E0C-73F3-EA11-A815-000D3AF3AC0D';
-	--===================================================================================================
-
-	--===================================================================================================
 	--CRM CONSTANTS
-	DECLARE @CONST_OWNERIDTYPE_TEAM NVARCHAR(50) = 'team';
-	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER NVARCHAR(50) = 'systemuser';
-	--===================================================================================================
+	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
+	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50)	= 'systemuser';
 
 
 IF EXISTS (

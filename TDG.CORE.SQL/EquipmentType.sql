@@ -1,29 +1,14 @@
-	--=============================================DYNAMIC VALUES===========================================
-	--these variables can change with the environment, so double check these match the environment you're syncing to
-	--ROM-ACC-TDG-DATA VALUES
-	DECLARE @CONST_TDGCORE_USERID                        VARCHAR(50) = 'ae39bb8b-4b92-eb11-b1ac-000d3ae85ba1';
-	DECLARE @CONST_TDGCORE_DOMAINNAME                    VARCHAR(50) = 'tdg.core@034gc.onmicrosoft.com';
-	DECLARE @CONST_TDG_TEAMID                            VARCHAR(50) = 'd5ddb27a-56b7-eb11-8236-000d3a84ec03';
-	DECLARE @CONST_TDG_TEAMNAME                          VARCHAR(50) = 'Transportation of Dangerous Goods';
-	DECLARE @CONST_TDG_BUSINESSUNITID                    VARCHAR(50) = '4E122E0C-73F3-EA11-A815-000D3AF3AC0D';
-	DECLARE @CONST_PRICELISTID                           VARCHAR(50) = 'b92b6a16-7cf7-ea11-a815-000d3af3a7a7';
-
-	--DEV
-	-- DECLARE @CONST_TDGCORE_BOOKABLE_RESOURCE_ID       VARCHAR(50) = '2cfc9150-d6a3-eb11-b1ac-000d3ae8bee7';
-	-- DECLARE @CONST_TDGCORE_USERID                     VARCHAR(50) = '15abdd9e-8edd-ea11-a814-000d3af3afe0';
-	-- DECLARE @CONST_TDGCORE_DOMAINNAME                 VARCHAR(50) = 'tdg.core@034gc.onmicrosoft.com';
-	-- DECLARE @CONST_TDG_TEAMID                         VARCHAR(50) = 'ed81d4e5-55b7-eb11-8236-0022483bc30f';
-	-- DECLARE @CONST_TDG_TEAMNAME                       VARCHAR(50) = 'Transportation of Dangerous Goods';
-	-- DECLARE @CONST_TDG_BUSINESSUNITID                 VARCHAR(50) = '4E122E0C-73F3-EA11-A815-000D3AF3AC0D';
-	--===================================================================================================
-
-	--===================================================================================================
+	DECLARE @CONST_TDGCORE_DOMAINNAME  NVARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
+	DECLARE @CONST_TDGCORE_USERID      NVARCHAR(50)  = (SELECT systemuserid FROM CRM__SYSTEMUSER  where domainname = 'tdg.core@034gc.onmicrosoft.com');
+	DECLARE @CONST_TEAM_TDG_ID          NVARCHAR(500) = (SELECT teamid FROM CRM__TEAM WHERE name = 'Transportation of Dangerous Goods');
+	DECLARE @CONST_BUSINESSUNIT_TDG_ID NVARCHAR(50)  = (SELECT businessunitid FROM CRM__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
+	DECLARE @CONST_PRICELISTID         NVARCHAR(50)  = (SELECT pricelevelid FROM CRM__pricelevel  WHERE NAME = 'Base Prices');
+	DECLARE @CONST_TDGCORE_BOOKABLE_RESOURCE_ID NVARCHAR(50) = (SELECT bookableresourceid FROM CRM__BOOKABLERESOURCE WHERE msdyn_primaryemail = @CONST_TDGCORE_DOMAINNAME);
+	
 	--CRM CONSTANTS
-	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50) = 'team';
-	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER VARCHAR(50) = 'systemuser';
-	--===================================================================================================
+	DECLARE @CONST_OWNERIDTYPE_TEAM NVARCHAR(50)			= 'team';
+	DECLARE @CONST_OWNERIDTYPE_SYSTEMUSER NVARCHAR(50)	= 'systemuser';
 
-	select * from STAGING__EQUIPMENT_TYPE
 
 IF EXISTS (
 	SELECT
@@ -37,32 +22,32 @@ IF EXISTS (
 
 CREATE TABLE dbo.STAGING__EQUIPMENT_TYPE (
     [id] UNIQUEIDENTIFIER NULL,
-    [ovs_name] VARCHAR(100) NULL,
-    [ovs_ohsequipmenttypeen] VARCHAR(100) NULL,
-    [ovs_ohsequipmenttypefr] VARCHAR(250) NULL,
-    [createdby] VARCHAR(50) NULL,
-    [createdbyname] VARCHAR(100) NULL,
-    [createdbyyominame] VARCHAR(100) NULL,
+    [ovs_name] NVARCHAR(500) NULL,
+    [ovs_ohsequipmenttypeen] NVARCHAR(100) NULL,
+    [ovs_ohsequipmenttypefr] NVARCHAR(250) NULL,
+    [createdby] NVARCHAR(50) NULL,
+    [createdbyname] NVARCHAR(100) NULL,
+    [createdbyyominame] NVARCHAR(100) NULL,
     [createdon] DATETIME NULL,
-    [createdonbehalfby] VARCHAR(50) NULL,
-    [createdonbehalfbyname] VARCHAR(100) NULL,
-    [createdonbehalfbyyominame] VARCHAR(100) NULL,
+    [createdonbehalfby] NVARCHAR(50) NULL,
+    [createdonbehalfbyname] NVARCHAR(100) NULL,
+    [createdonbehalfbyyominame] NVARCHAR(100) NULL,
     [importsequencenumber] INT NULL,
-    [modifiedby] VARCHAR(50) NULL,
-    [modifiedbyname] VARCHAR(100) NULL,
-    [modifiedbyyominame] VARCHAR(100) NULL,
+    [modifiedby] NVARCHAR(50) NULL,
+    [modifiedbyname] NVARCHAR(100) NULL,
+    [modifiedbyyominame] NVARCHAR(100) NULL,
     [modifiedon] DATETIME NULL,
-    [modifiedonbehalfby] VARCHAR(50) NULL,
-    [modifiedonbehalfbyname] VARCHAR(100) NULL,
-    [modifiedonbehalfbyyominame] VARCHAR(100) NULL,
+    [modifiedonbehalfby] NVARCHAR(50) NULL,
+    [modifiedonbehalfbyname] NVARCHAR(100) NULL,
+    [modifiedonbehalfbyyominame] NVARCHAR(100) NULL,
     [overriddencreatedon] DATETIME NULL,
-    [ownerid] VARCHAR(50) NULL,
-    [owneridname] VARCHAR(100) NULL,
-    [owneridtype] VARCHAR(50) NULL,
-    [owneridyominame] VARCHAR(100) NULL,
-    [owningbusinessunit] VARCHAR(50) NULL,
-    [owningteam] VARCHAR(50) NULL,
-    [owninguser] VARCHAR(50) NULL,
+    [ownerid] NVARCHAR(50) NULL,
+    [owneridname] NVARCHAR(100) NULL,
+    [owneridtype] NVARCHAR(50) NULL,
+    [owneridyominame] NVARCHAR(100) NULL,
+    [owningbusinessunit] NVARCHAR(50) NULL,
+    [owningteam] NVARCHAR(50) NULL,
+    [owninguser] NVARCHAR(50) NULL,
     [statecode] INT NULL,
     [statuscode] INT NULL,
     [timezoneruleversionnumber] INT NULL,
@@ -128,8 +113,20 @@ SELECT
 		[ovs_ohsequipmenttypefr],
 		@CONST_TDGCORE_USERID			 [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER    [owneridtype],
-		@CONST_TDG_BUSINESSUNITID		 [owningbusinessunit],
+		@CONST_BUSINESSUNIT_TDG_ID		 [owningbusinessunit],
 		@CONST_TDGCORE_USERID			 [owninguser]
 FROM
-	#STAGING__EQUIPMENT_TYPE 
+	#STAGING__EQUIPMENT_TYPE;
+
+--LOCALIZATION SUPPORT
+
+UPDATE
+	STAGING__EQUIPMENT_TYPE
+SET
+	[ovs_name] = CONCAT(
+		ovs_ohsequipmenttypeen,
+		'::',
+		ovs_ohsequipmenttypefr
+	);
+
 

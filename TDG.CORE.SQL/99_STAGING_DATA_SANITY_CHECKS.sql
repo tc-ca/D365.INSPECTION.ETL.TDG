@@ -1,7 +1,4 @@
 ﻿--DECLARE CONSTANTS
---===================================================================================================
---===================================================================================================
-BEGIN 
 	--=============================================DYNAMIC VALUES===========================================
 	DECLARE @CONST_TDGCORE_DOMAINNAME  VARCHAR(50)  = 'tdg.core@034gc.onmicrosoft.com';
 	DECLARE @CONST_TDGCORE_USERID      VARCHAR(50)  = (SELECT systemuserid FROM CRM__SYSTEMUSER  where domainname = 'tdg.core@034gc.onmicrosoft.com');
@@ -57,9 +54,6 @@ BEGIN
 	DECLARE @CONST_TERRITORY_PNR                         VARCHAR(50) = '02B86E9E-1707-EB11-A813-000D3AF3A0D7';
 	DECLARE @CONST_TERRITORY_ONTARIO                     VARCHAR(50) = '50B21A84-DB04-EB11-A813-000D3AF3AC0D';
 	--===================================================================================================
-END
---===================================================================================================
---===================================================================================================
 
 
 
@@ -71,12 +65,14 @@ DECLARE @crm_workorders_w_invalid_bookable_resources int = 0;
 DECLARE @crm_bookableresource_count int = 0;
 DECLARE @stage_inspections_count int = 0;
 DECLARE @stage_bookableresource_count int = 0;
-
+DECLARE @WO_OWNED_BY_WRONG_PEOPLE INT = 0;
+DECLARE @WO_WITH_INVALID_ACCOUNTS INT = 0;
+DECLARE @CONTACTS_WITH_INVALID_ACCOUNTS INT = 0;
 
 --no workorders with non-existing bookableresources
 SELECT @crm_workorders_w_invalid_bookable_resources = COUNT(*)
-FROM tdgdata__systemuser
-JOIN STAGING__BOOKABLE_RESOURCE T1 ON tdgdata__systemuser.systemuserid = T1.userid
+FROM CRM__SYSTEMUSER
+JOIN STAGING__BOOKABLE_RESOURCE T1 ON CRM__SYSTEMUSER.systemuserid = T1.userid
 WHERE systemuserid IN
 (
 	SELECT T1.ownerid 
@@ -87,14 +83,8 @@ WHERE systemuserid IN
 	)
 );
 
-SELECT @stage_bookableresource_count = COUNT(*) FROM STAGING__BOOKABLE_RESOURCE;
-SELECT @crm_bookableresource_count = COUNT(*) FROM dbo.tdgdata__bookableresource;
-SELECT @stage_inspections_count = COUNT(*) FROM dbo.STAGING__WORK_ORDERS;
-SELECT @stage_inspections_count = COUNT(*) FROM dbo.tdgdata__msdyn_workorder;
-
-
 --records should only be owned by the tdg team or the primary inspector
-SELECT * 
+SELECT @WO_OWNED_BY_WRONG_PEOPLE = COUNT(*) 
 FROM STAGING__WORK_ORDERS T1
 where T1.[ownerid] not in 
 (
@@ -102,8 +92,13 @@ where T1.[ownerid] not in
 )
 AND T1.ownerid <> @CONST_TEAM_TDG_ID;
 
+
+SELECT @stage_bookableresource_count = COUNT(*) FROM STAGING__BOOKABLE_RESOURCE;
+SELECT @stage_inspections_count = COUNT(*) FROM dbo.STAGING__WORK_ORDERS;
+
+
 --no inspections for sites that dont exists
-SELECT * 
+SELECT @WO_WITH_INVALID_ACCOUNTS = COUNT(*)
 FROM STAGING__WORK_ORDERS T1
 where T1.msdyn_serviceaccount not in 
 (
@@ -111,23 +106,48 @@ where T1.msdyn_serviceaccount not in
 )
 
 --no contacts linked to sites that dont exists
-SELECT * 
+SELECT @CONTACTS_WITH_INVALID_ACCOUNTS = COUNT(*) 
 FROM dbo.STAGING__CONTACT T1
 where T1.company not in 
 (
 	SELECT accountid FROM dbo.STAGING__ACCOUNT
 )
 
---staging data check; tables should no longer be empty
-SELECT COUNT(*) [02_REGULATED_ENTITIES]     FROM [dbo].SOURCE__REGULATED_ENTITIES;
-SELECT COUNT(*) [03_SITES]        FROM [dbo].SOURCE__SITES;
-SELECT COUNT(*) [04_ACCOUNT]       FROM [dbo].STAGING__ACCOUNT;
-SELECT COUNT(*) [06_WORK_ORDERS]      FROM [dbo].STAGING__WORK_ORDERS;
-SELECT COUNT(*) [07_VIOLATIONS]       FROM [dbo].STAGING__VIOLATIONS;
-SELECT COUNT(*) [11_CONTACT]       FROM [dbo].STAGING__CONTACT;
-SELECT COUNT(*) [12_BOOKABLE_RESOURCE]     FROM [dbo].STAGING__BOOKABLE_RESOURCE;
-SELECT COUNT(*) [18_BOOKABLE_RESOURCE_CATEGORY_ASSN] FROM [dbo].STAGING__BOOKABLE_RESOURCE_CATEGORY_ASSN;
 
+select @crm_workorders_w_invalid_bookable_resources crm_workorders_w_invalid_bookable_resources, @stage_bookableresource_count stage_bookableresource_count, @stage_inspections_count stage_inspections_count,
+@WO_OWNED_BY_WRONG_PEOPLE WO_OWNED_BY_WRONG_PEOPLE, @WO_WITH_INVALID_ACCOUNTS WO_WITH_INVALID_ACCOUNTS, @CONTACTS_WITH_INVALID_ACCOUNTS CONTACTS_WITH_INVALID_ACCOUNTS
+
+
+--staging data check; tables should no longer be empty
+
+SELECT 
+(SELECT COUNT(*) FROM [dbo].SOURCE__REGULATED_ENTITIES) CONSOLIDATION_SHEET_REGULATED_ENTITIES,
+(SELECT COUNT(*) FROM [dbo].SOURCE__SITES) CONSOLIDATION_SHEET_SITES,
+(SELECT COUNT(*) FROM [dbo].STAGING__ACCOUNT WHERE ovs_iisid NOT IN (SELECT IIS_ID FROM SOURCE__DATA_CONSOLIDATION)) IIS_SITES_NOT_IN_CONSOLIDATION,
+(SELECT COUNT(*) FROM [dbo].STAGING__ACCOUNT) REGENT_SITES_FROM_CONSOLIDATION_PLUS_IIS_SITES,
+(SELECT COUNT(*) FROM [dbo].STAGING__WORK_ORDERS) [WORK_ORDERS],
+(SELECT COUNT(*) FROM [dbo].STAGING__VIOLATIONS) [VIOLATIONS],
+(SELECT COUNT(*) FROM [dbo].STAGING__CONTACT) [CONTACT],
+(SELECT COUNT(*) FROM [dbo].STAGING__BOOKABLE_RESOURCE) [BOOKABLE_RESOURCE],
+(SELECT COUNT(*) FROM [dbo].STAGING__BOOKABLE_RESOURCE_CATEGORY_ASSN) [BOOKABLE_RESOURCE_CATEGORY_ASSN] 
+
+
+select * from STAGING__ACCOUNT where name is null and ovs_legalname is null;
+
+
+SELECT 
+(SELECT COUNT(*) FROM STAGING__WORK_ORDERS WHERE ovs_fiscalyearname = '2021-2022') INSPECTIONS_2021_2022,
+(SELECT COUNT(*) FROM STAGING__WORK_ORDERS WHERE ovs_fiscalyearname = '2020-2021') INSPECTIONS_2020_2021,
+(SELECT COUNT(*) FROM STAGING__WORK_ORDERS WHERE ovs_iisactivityid IS NULL) INSPECTIONS_NO_IIS_ACTIVITYID,
+(SELECT COUNT(*) FROM SOURCE__WORKPLAN_IMPORT WHERE fiscal_year = '2021-2022' AND CURRENTLY_PLANNED = '1') WORKPLAN_2021_2022_PLANNED
+
+
+
+SELECT * FROM 
+SOURCE__WORKPLAN_IMPORT T1 
+LEFT JOIN STAGING__WORK_ORDERS T2 ON T1.fiscal_year = T2.ovs_fiscalyearname AND T1.IIS_ID = T2.ovs_iisid
+WHERE T1.fiscal_year = '2021-2022' AND T1.CURRENTLY_PLANNED = 1
+AND T2.Id IS NULL;
 
 
 --VIOLATION CHECKS

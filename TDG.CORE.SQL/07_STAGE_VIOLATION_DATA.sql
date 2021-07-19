@@ -391,24 +391,24 @@ SELECT * FROM STAGING__VIOLATIONS
 
 --===================================================================================
 
---QUERY TO USE IN SSIS PACKAGE
-SELECT 
-[qm_syresultid],
-[qm_externalcomments],
-[qm_internalcomments],
-[qm_isviolation],
-[qm_name],
-[qm_rclegislationid],
-qm_enablingact,
-qm_enablingregulation,
-[qm_referenceid],
-[qm_violationcount],
-[qm_workorderid],
-qm_iisactivityid,
-qm_iisviolationcd
-FROM STAGING__VIOLATIONS;
+----QUERY TO USE IN SSIS PACKAGE
+--SELECT 
+--[qm_syresultid],
+--[qm_externalcomments],
+--[qm_internalcomments],
+--[qm_isviolation],
+--[qm_name],
+--[qm_rclegislationid],
+--qm_enablingact,
+--qm_enablingregulation,
+--[qm_referenceid],
+--[qm_violationcount],
+--[qm_workorderid],
+--qm_iisactivityid,
+--qm_iisviolationcd
+--FROM STAGING__VIOLATIONS;
 
-SELECT * FROM STAGING__WORK_ORDERS
+--SELECT * FROM STAGING__WORK_ORDERS
 
 
 SELECT COUNT(*) FROM SSIS_RegulatedEntityErrors;

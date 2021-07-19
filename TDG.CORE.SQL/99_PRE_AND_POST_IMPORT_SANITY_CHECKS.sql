@@ -20,7 +20,6 @@
 	DECLARE @CONST_WORKORDERTYPE_INSPECTION              VARCHAR(50) = 'b1ee680a-7cf7-ea11-a815-000d3af3a7a7';
 	DECLARE @CONST_WORKORDERTYPE_REGULATORYAUTHORIZATION VARCHAR(50) = '46706c0a-ad60-eb11-a812-000d3ae9471c';
 
-	--RATIONALS
 	DECLARE @CONST_RATIONALE_PLANNED                     VARCHAR(50) = '994C3EC1-C104-EB11-A813-000D3AF3A7A7';
 	DECLARE @CONST_RATIONALE_UNPLANNED                   VARCHAR(50) = '47F438C7-C104-EB11-A813-000D3AF3A7A7';
 
@@ -97,36 +96,37 @@ SELECT COUNT(*) [STAGING__WORKORDERTYPE] FROM [dbo].[STAGING__WORKORDERTYPE] 			
 SELECT COUNT(*) [STAGING_UN_NUMBERS]	FROM [dbo].[STAGING_UN_NUMBERS]												  ;
 
 --try to match up the staging records with records in CRM by id and make sure they exist in CRM with the same ID
-SELECT 
-(SELECT COUNT(*) bookableresources FROM [dbo].tdgdata__bookableresource) bookableresources,
-(SELECT COUNT(*) bookableresources FROM [dbo].STAGING__BOOKABLE_RESOURCE) stagingbookableresources,
-(
-	SELECT COUNT(*) FROM
-	(
-		SELECT t1.bookableresourceid, t1.name FROM dbo.tdgdata__bookableresource T1 
-		JOIN dbo.STAGING__BOOKABLE_RESOURCE T2 
-		ON T2.bookableresourceid = T1.bookableresourceid
-	) T
-) book_rsrces_with_matching_ids
+--SELECT 
+--(SELECT COUNT(*) bookableresources FROM [dbo].tdgdata__bookableresource) bookableresources,
+--(SELECT COUNT(*) bookableresources FROM [dbo].STAGING__BOOKABLE_RESOURCE) stagingbookableresources,
+--(
+--	SELECT COUNT(*) FROM
+--	(
+--		SELECT t1.bookableresourceid, t1.name FROM dbo.tdgdata__bookableresource T1 
+--		JOIN dbo.STAGING__BOOKABLE_RESOURCE T2 
+--		ON T2.bookableresourceid = T1.bookableresourceid
+--	) T
+--) book_rsrces_with_matching_ids
+
+select * from STAGING__TYRATIONAL
 
 --verify hardcoded values inserted in scripts have been loaded and exist in crm database before running conversion
-SELECT [msdyn_name] msdyn_workordertype FROM tdgdata__msdyn_workordertype    WHERE msdyn_workordertypeid = @CONST_WORKORDERTYPE_INSPECTION;
-SELECT [ovs_name] gc_targeted           FROM tdgdata__ovs_oversighttype		where ovs_oversighttypeid   = @CONST_OVERSIGHTTYPE_GCTARGETED;
-SELECT [ovs_name] moc_targeted          FROM tdgdata__ovs_oversighttype		where ovs_oversighttypeid   = @CONST_OVERSIGHTTYPE_MOCTARGETED;
-SELECT [ovs_name] gc_consignment        FROM tdgdata__ovs_oversighttype		where ovs_oversighttypeid   = @CONST_OVERSIGHTTYPE_GCCONSIGNMENT;
-SELECT [ovs_name] moc_opportunity       FROM tdgdata__ovs_oversighttype		where ovs_oversighttypeid   = @CONST_OVERSIGHTTYPE_MOCOPPORTUNITY;
-SELECT [ovs_name] civ_doc_review        FROM tdgdata__ovs_oversighttype		where ovs_oversighttypeid   = @CONST_OVERSIGHTTYPE_CIVDOCREVIEW ;
-SELECT [ovs_name] ovs_tyrational        FROM tdgdata__ovs_tyrational         WHERE ovs_tyrationalid      = @CONST_RATIONALE_PLANNED;
-SELECT [ovs_name] ovs_tyrational        FROM tdgdata__ovs_tyrational         WHERE ovs_tyrationalid      = @CONST_RATIONALE_UNPLANNED
-SELECT [name] tdgcore_bookable_resource FROM tdgdata__bookableresource		WHERE bookableresourceid     = @CONST_TDGCORE_BOOKABLE_RESOURCE_ID;
-SELECT systemuserid tdgcore_systemuser	FROM tdgdata__systemuser             WHERE systemuserid          = @CONST_TDGCORE_USERID;
-SELECT [fullname] tdgcore_fullname		FROM tdgdata__systemuser             WHERE domainname            = @CONST_TDGCORE_DOMAINNAME;
-SELECT [name] tdgteam                   FROM tdgdata__team                   WHERE teamid                = @CONST_TEAM_TDG_ID;
-SELECT [name] defaultpricelevel			FROM tdgdata__pricelevel             WHERE pricelevelid          = @CONST_PRICELISTID;
-SELECT [name] tdgbusinessunit           FROM tdgdata__businessunit           WHERE businessunitid        = @CONST_BUSINESSUNIT_TDG_ID;
+SELECT [msdyn_name] msdyn_workordertype FROM STAGING__WORKORDERTYPE    WHERE msdyn_workordertypeid = @CONST_WORKORDERTYPE_INSPECTION;
+SELECT [ovs_name] gc_targeted           FROM STAGING__OVERSIGHTTYPE		 where ovs_oversighttypeid   = @CONST_OVERSIGHTTYPE_GCTARGETED;
+SELECT [ovs_name] moc_targeted          FROM STAGING__OVERSIGHTTYPE where ovs_oversighttypeid   = @CONST_OVERSIGHTTYPE_MOCTARGETED;
+SELECT [ovs_name] gc_consignment        FROM STAGING__OVERSIGHTTYPE where ovs_oversighttypeid   = @CONST_OVERSIGHTTYPE_GCCONSIGNMENT;
+SELECT [ovs_name] moc_opportunity       FROM STAGING__OVERSIGHTTYPE where ovs_oversighttypeid   = @CONST_OVERSIGHTTYPE_MOCOPPORTUNITY;
+SELECT [ovs_name] civ_doc_review        FROM STAGING__OVERSIGHTTYPE where ovs_oversighttypeid   = @CONST_OVERSIGHTTYPE_CIVDOCREVIEW ;
+SELECT [ovs_name] ovs_tyrational        FROM STAGING__TYRATIONAL WHERE id = @CONST_RATIONALE_PLANNED;
+SELECT [ovs_name] ovs_tyrational        FROM STAGING__TYRATIONAL WHERE id = @CONST_RATIONALE_UNPLANNED
+SELECT [name] tdgcore_bookable_resource FROM STAGING__BOOKABLE_RESOURCE		 WHERE bookableresourceid    = @CONST_TDGCORE_BOOKABLE_RESOURCE_ID;
+SELECT systemuserid tdgcore_systemuser	FROM CRM__SYSTEMUSER WHERE systemuserid          = @CONST_TDGCORE_USERID;
+SELECT [fullname] tdgcore_fullname		FROM CRM__SYSTEMUSER WHERE domainname            = @CONST_TDGCORE_DOMAINNAME;
+SELECT [name] tdgteam                   FROM CRM__TEAM                   WHERE teamid                = @CONST_TEAM_TDG_ID;
+SELECT [name] defaultpricelevel			FROM CRM__PRICELEVEL WHERE pricelevelid          = @CONST_PRICELISTID;
+SELECT [name] tdgbusinessunit           FROM CRM__BUSINESSUNIT WHERE businessunitid        = @CONST_BUSINESSUNIT_TDG_ID;
 
-select [name] territories    FROM tdgdata__territory t1 JOIN SOURCE__TERRITORY_TRANSLATION t2 on t1.territoryid = t2.msdyn_serviceterritory;
-
+select t1.[name] territories    FROM STAGING__TERRITORY t1 JOIN SOURCE__TERRITORY_TRANSLATION t2 on t1.territoryid = t2.msdyn_serviceterritory;
 
 
 --LEGISLATION CHECKS

@@ -178,43 +178,62 @@
 	GO
 
 	CREATE TABLE [STAGING__BOOKABLE_RESOURCE_CATEGORIES] (
-		[bookableresourcecategoryid] UNIQUEIDENTIFIER,
-		[createdby] UNIQUEIDENTIFIER,
-		[createdbyname] VARCHAR(200),
-		[createdbyyominame] VARCHAR(200),
-		[createdon] DATETIME,
-		[createdonbehalfby] UNIQUEIDENTIFIER,
-		[createdonbehalfbyname] VARCHAR(200),
-		[createdonbehalfbyyominame] VARCHAR(200),
-		[description] VARCHAR(100),
-		[exchangerate] NUMERIC(38, 10),
-		[importsequencenumber] INT,
-		[modifiedby] UNIQUEIDENTIFIER,
-		[modifiedbyname] VARCHAR(200),
-		[modifiedbyyominame] VARCHAR(200),
-		[modifiedon] DATETIME,
-		[modifiedonbehalfby] UNIQUEIDENTIFIER,
-		[modifiedonbehalfbyname] VARCHAR(200),
-		[modifiedonbehalfbyyominame] VARCHAR(200),
-		[name] VARCHAR(100),
-		[overriddencreatedon] DATETIME,
-		[ownerid] UNIQUEIDENTIFIER,
-		[owneridname] VARCHAR(200),
-		[owneridtype] VARCHAR(64),
-		[owneridyominame] VARCHAR(200),
-		[owningbusinessunit] UNIQUEIDENTIFIER,
-		[owningteam] UNIQUEIDENTIFIER,
-		[owninguser] UNIQUEIDENTIFIER,
-		[statecode] INT,
-		[statecodename] VARCHAR(255),
-		[statuscode] INT,
-		[statuscodename] VARCHAR(255),
-		[timezoneruleversionnumber] INT,
-		[transactioncurrencyid] UNIQUEIDENTIFIER,
-		[transactioncurrencyidname] VARCHAR(100),
-		[utcconversiontimezonecode] INT,
-		[versionnumber] BIGINT
-	) ON [PRIMARY];
+		[bookableresourcecategoryid] [uniqueidentifier] NULL,
+		[createdby] [uniqueidentifier] NULL,
+		[createdby_entitytype] [nvarchar](128) NULL,
+		[createdbyname] [nvarchar](100) NULL,
+		[createdbyyominame] [nvarchar](100) NULL,
+		[createdon] [datetime] NULL,
+		[createdonbehalfby] [uniqueidentifier] NULL,
+		[createdonbehalfby_entitytype] [nvarchar](128) NULL,
+		[createdonbehalfbyname] [nvarchar](100) NULL,
+		[createdonbehalfbyyominame] [nvarchar](100) NULL,
+		[description] [nvarchar](100) NULL,
+		[exchangerate] [decimal](38, 10) NULL,
+		[Id] [uniqueidentifier] NOT NULL,
+		[importsequencenumber] [int] NULL,
+		[modifiedby] [uniqueidentifier] NULL,
+		[modifiedby_entitytype] [nvarchar](128) NULL,
+		[modifiedbyname] [nvarchar](100) NULL,
+		[modifiedbyyominame] [nvarchar](100) NULL,
+		[modifiedon] [datetime] NULL,
+		[modifiedonbehalfby] [uniqueidentifier] NULL,
+		[modifiedonbehalfby_entitytype] [nvarchar](128) NULL,
+		[modifiedonbehalfbyname] [nvarchar](100) NULL,
+		[modifiedonbehalfbyyominame] [nvarchar](100) NULL,
+		[name] [nvarchar](500) NULL,
+		[overriddencreatedon] [datetime] NULL,
+		[ovs_categoryetxt] [nvarchar](250) NULL,
+		[ovs_categoryftxt] [nvarchar](250) NULL,
+		[ownerid] [uniqueidentifier] NULL,
+		[ownerid_entitytype] [nvarchar](128) NULL,
+		[owneridname] [nvarchar](100) NULL,
+		[owneridtype] [nvarchar](4000) NULL,
+		[owneridyominame] [nvarchar](100) NULL,
+		[owningbusinessunit] [uniqueidentifier] NULL,
+		[owningbusinessunit_entitytype] [nvarchar](128) NULL,
+		[owningteam] [uniqueidentifier] NULL,
+		[owningteam_entitytype] [nvarchar](128) NULL,
+		[owninguser] [uniqueidentifier] NULL,
+		[owninguser_entitytype] [nvarchar](128) NULL,
+		[SinkCreatedOn] [datetime] NULL,
+		[SinkModifiedOn] [datetime] NULL,
+		[statecode] [int] NULL,
+		[statuscode] [int] NULL,
+		[timezoneruleversionnumber] [int] NULL,
+		[transactioncurrencyid] [uniqueidentifier] NULL,
+		[transactioncurrencyid_entitytype] [nvarchar](128) NULL,
+		[transactioncurrencyidname] [nvarchar](100) NULL,
+		[utcconversiontimezonecode] [int] NULL,
+		[versionnumber] [bigint] NULL,
+ CONSTRAINT [EPK[dbo]].[STAGING__BOOKABLE_RESOURCE_CATEGORIES]]] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
 
 
 	IF EXISTS (
@@ -434,8 +453,6 @@ GO
 	DECLARE @CONST_TEAM_TDG_ID          VARCHAR(500) = (SELECT teamid FROM CRM__TEAM WHERE name = 'Transportation of Dangerous Goods');
 	DECLARE @CONST_BUSINESSUNIT_TDG_ID VARCHAR(50)  = (SELECT businessunitid FROM CRM__BUSINESSUNIT WHERE name = 'Transportation of Dangerous Goods');
 	DECLARE @CONST_PRICELISTID         VARCHAR(50)  = (SELECT pricelevelid FROM CRM__pricelevel  WHERE NAME = 'Base Prices');
-	DECLARE @CONST_TDGCORE_BOOKABLE_RESOURCE_ID VARCHAR(50) = (SELECT bookableresourceid FROM CRM__BOOKABLERESOURCE WHERE msdyn_primaryemail = @CONST_TDGCORE_DOMAINNAME);
-	
 
 	--CRM CONSTANTS
 	DECLARE @CONST_OWNERIDTYPE_TEAM VARCHAR(50)			= 'team';
@@ -446,7 +463,6 @@ GO
 	SELECT @CONST_TEAM_TDG_ID        			CONST_TEAM_TDG_ID        ;
 	SELECT @CONST_BUSINESSUNIT_TDG_ID			CONST_BUSINESSUNIT_TDG_ID;
 	SELECT @CONST_PRICELISTID        			CONST_PRICELISTID        ;
-	SELECT @CONST_TDGCORE_BOOKABLE_RESOURCE_ID	CONST_TDGCORE_BOOKABLE_RESOURCE_ID;
 	SELECT @CONST_OWNERIDTYPE_TEAM 				CONST_OWNERIDTYPE_TEAM ;
 	SELECT @CONST_OWNERIDTYPE_SYSTEMUSER		CONST_OWNERIDTYPE_SYSTEMUSER;
 	--===================================================================================================
@@ -477,7 +493,6 @@ GO
 	DECLARE @CONST_RATIONALE_PLANNED                     VARCHAR(50) = '994C3EC1-C104-EB11-A813-000D3AF3A7A7';
 	DECLARE @CONST_RATIONALE_UNPLANNED                   VARCHAR(50) = '47F438C7-C104-EB11-A813-000D3AF3A7A7';
 
-	--BOOKABLE RESOURCE CATEGORY
 	DECLARE @CONST_CATEGORY_INSPECTOR                    VARCHAR(50) = '06DB6E56-01F9-EA11-A815-000D3AF3AC0D';
 
 	--TERRITORIES / REGIONS
@@ -500,7 +515,6 @@ GO
 		[dbo].[STAGING__TYRATIONAL] (
 			[Id],
 			[ovs_tyrationalid],
-			[ovs_name],
 			[ovs_rationalelbl],
 			[ovs_rationalflbl],
 			[ownerid],
@@ -511,7 +525,6 @@ GO
 	SELECT
 		@CONST_RATIONALE_PLANNED   [Id],
 		@CONST_RATIONALE_PLANNED   [ovs_tyrationalid],
-		'Planned::Planifié'        [ovs_name],
 		'Planned'                  [ovs_rationalelbl],
 		'Planifié'                 [ovs_rationalflbl],
 		@CONST_TDGCORE_USERID          [ownerid],
@@ -522,7 +535,6 @@ GO
 	SELECT
 		@CONST_RATIONALE_UNPLANNED [Id],
 		@CONST_RATIONALE_UNPLANNED [ovs_tyrationalid],
-		'Unplanned::Non planifié'  [ovs_name],
 		'Unplanned'                [ovs_rationalelbl],
 		'Non planifié'             [ovs_rationalflbl],
 		@CONST_TDGCORE_USERID          [ownerid],
@@ -537,7 +549,6 @@ GO
 		[dbo].[STAGING__OVERSIGHTTYPE] (
 			[Id],
 			[ovs_oversighttypeid],
-			[ovs_name],
 			[ovs_oversighttypenameenglish],
 			[ovs_oversighttypenamefrench],
 			[ownerid],
@@ -548,9 +559,8 @@ GO
 	SELECT
 		@CONST_OVERSIGHTTYPE_GCIPT,
 		@CONST_OVERSIGHTTYPE_GCIPT,
-		'GC IPT::GC IPT (FR)',
 		'GC IPT',
-		'GC IPT (FR)',
+		'CG OPRI',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
@@ -559,9 +569,8 @@ GO
 	SELECT
 		@CONST_OVERSIGHTTYPE_GCTARGETED,
 		@CONST_OVERSIGHTTYPE_GCTARGETED,
-		'GC Targeted::GC Targeted (FR)',
 		'GC Targeted',
-		'GC ciblé',
+		'GC Ciblé',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
@@ -571,8 +580,7 @@ GO
 		@CONST_OVERSIGHTTYPE_GC_FOLLOWUP,
 		@CONST_OVERSIGHTTYPE_GC_FOLLOWUP,
 		'GC Follow-up',
-		'GC Follow-up',
-		'Suivi GC',
+		'CG Inspection de suivi',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
@@ -582,8 +590,7 @@ GO
 		@CONST_OVERSIGHTTYPE_MOC_FACILITY_IPT,
 		@CONST_OVERSIGHTTYPE_MOC_FACILITY_IPT,
 		'MOC Facility IPT',
-		'MOC Facility IPT',
-		'Installation MOC IPT',
+		'Installation liée aux contenants. OPRI',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
@@ -593,8 +600,7 @@ GO
 		@CONST_OVERSIGHTTYPE_MOCTARGETED,
 		@CONST_OVERSIGHTTYPE_MOCTARGETED,
 		'MOC Facility Targeted',
-		'MOC Facility Targeted',
-		'Facilité MOC ciblée',
+		'Installation liée aux contenants. Ciblée',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
@@ -604,8 +610,7 @@ GO
 		@CONST_OVERSIGHTTYPE_MOC_FACILITY_FOLLOWUP,
 		@CONST_OVERSIGHTTYPE_MOC_FACILITY_FOLLOWUP,
 		'MOC Facility Follow-up',
-		'MOC Facility Follow-up',
-		'Suivi des installations de MOC',
+		'Installation liée aux contenants. Inspection de suivi',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
@@ -615,8 +620,7 @@ GO
 		@CONST_OVERSIGHTTYPE_GC_TRIGGERED,
 		@CONST_OVERSIGHTTYPE_GC_TRIGGERED,
 		'GC Triggered',
-		'GC Triggered',
-		'GC déclenché',
+		'CG Déclenchée',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
@@ -626,8 +630,7 @@ GO
 		@CONST_OVERSIGHTTYPE_GC_OPPORTUNITY,
 		@CONST_OVERSIGHTTYPE_GC_OPPORTUNITY,
 		'GC Opportunity',
-		'GC Opportunity',
-		'Opportunité GC',
+		'CG D''opportunité',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
@@ -637,8 +640,7 @@ GO
 		@CONST_OVERSIGHTTYPE_GCCONSIGNMENT,
 		@CONST_OVERSIGHTTYPE_GCCONSIGNMENT,
 		'GC Consignment',
-		'GC Consignment',
-		'Envoi GC',
+		'CG D''envoi',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
@@ -648,8 +650,7 @@ GO
 		@CONST_OVERSIGHTTYPE_GC_UNDECLARED,
 		@CONST_OVERSIGHTTYPE_GC_UNDECLARED,
 		'GC Undeclared/ Misdeclared',
-		'GC Undeclared/ Misdeclared',
-		'GC non déclaré / mal déclaré',
+		'CG Non déclarées / mal déclarées',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
@@ -659,8 +660,7 @@ GO
 		@CONST_OVERSIGHTTYPE_MOC_FACILITY_TRIGGERED,
 		@CONST_OVERSIGHTTYPE_MOC_FACILITY_TRIGGERED,
 		'MOC Facility Triggered',
-		'MOC Facility Triggered',
-		'Installation MOC déclenchée',
+		'Installation liée aux contenants inspection. Déclenchée',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
@@ -670,8 +670,7 @@ GO
 		@CONST_OVERSIGHTTYPE_MOCOPPORTUNITY,
 		@CONST_OVERSIGHTTYPE_MOCOPPORTUNITY,
 		'MOC Facility Opportunity',
-		'MOC Facility Opportunity',
-		'Opportunité d''installation MOC',
+		'Installation liée aux contenants. D''opportunité',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
@@ -681,8 +680,7 @@ GO
 		@CONST_OVERSIGHTTYPE_CIVDOCREVIEW,
 		@CONST_OVERSIGHTTYPE_CIVDOCREVIEW,
 		'Civil Aviation Document Review',
-		'Civil Aviation Document Review',
-		'Examen des documents de l''aviation civile',
+		'Examen documentation de l''aviation civile',
 		@CONST_TDGCORE_USERID         [ownerid],
 		@CONST_OWNERIDTYPE_SYSTEMUSER   [owneridtype],
 		@CONST_BUSINESSUNIT_TDG_ID [owningbusinessunit],
@@ -696,7 +694,6 @@ GO
 		[dbo].[STAGING__WORKORDERTYPE] (
 			[Id],
 			[msdyn_workordertypeid],
-			[msdyn_name],
 			[msdyn_pricelist],
 			[ovs_workordertypenameenglish],
 			[ovs_workordertypenamefrench],
@@ -708,7 +705,6 @@ GO
 	SELECT
 		@CONST_WORKORDERTYPE_INSPECTION,
 		@CONST_WORKORDERTYPE_INSPECTION,
-		'Inspection::Inspection',
 		@CONST_PRICELISTID,
 		'Inspection',
 		'Inspection',
@@ -720,7 +716,6 @@ GO
 	SELECT
 		@CONST_WORKORDERTYPE_REGULATORYAUTHORIZATION,
 		@CONST_WORKORDERTYPE_REGULATORYAUTHORIZATION,
-		'Regulatory Authorization',
 		@CONST_PRICELISTID,
 		'Regulatory Authorization',
 		'Autorisation réglementaire',
@@ -735,8 +730,9 @@ GO
 	--BOOKABLE RESOURCE CATEGORIES
 	INSERT INTO
 		[dbo].[STAGING__BOOKABLE_RESOURCE_CATEGORIES] (
-			[bookableresourcecategoryid],
-			[name],
+			[id],
+			[ovs_categoryetxt],
+			[ovs_categoryftxt],
 			[ownerid],
 			[owneridtype],
 			[owningbusinessunit],
@@ -744,7 +740,8 @@ GO
 		)
 	SELECT
 		'ab66b72d-1db7-eb11-8236-0022483bc30f',
-		'Engineering Services::(translate)Engineering Services',
+		ovs_categoryetxt = 'Engineering Services',
+		ovs_categoryftxt = 'Services d’ingénierie',
 		ownerid            = @CONST_TDGCORE_USERID,
 		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
 		owningbusinessunit = @CONST_BUSINESSUNIT_TDG_ID,
@@ -752,7 +749,8 @@ GO
 	UNION
 	SELECT
 		'51333935-1db7-eb11-8236-0022483bc30f',
-		'Government of Alberta::Government of Alberta',
+		ovs_categoryetxt = 'Government of Alberta',
+		ovs_categoryftxt = 'Gouvernement de l’Alberta',
 		ownerid            = @CONST_TDGCORE_USERID,
 		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
 		owningbusinessunit = @CONST_BUSINESSUNIT_TDG_ID,
@@ -760,7 +758,8 @@ GO
 	UNION
 	SELECT
 		'47605827-1db7-eb11-8236-0022483bc30f',
-		'Regional Inspector::Regional Inspector',
+		ovs_categoryetxt = 'Regional Inspector',
+		ovs_categoryftxt = 'Inspecteur régional',
 		ownerid            = @CONST_TDGCORE_USERID,
 		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
 		owningbusinessunit = @CONST_BUSINESSUNIT_TDG_ID,
@@ -768,11 +767,15 @@ GO
 	UNION
 	SELECT
 		@CONST_CATEGORY_INSPECTOR,
-		'Inspector::Inspecteur',
+		ovs_categoryetxt = 'Inspector',
+		ovs_categoryftxt = 'Inspecteur',
 		ownerid            = @CONST_TDGCORE_USERID,
 		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
 		owningbusinessunit = @CONST_BUSINESSUNIT_TDG_ID,
 		owninguser         = @CONST_TDGCORE_USERID;
+
+	UPDATE STAGING__BOOKABLE_RESOURCE_CATEGORIES
+	SET [bookableresourcecategoryid] = id;
 
 	--===================================================================================================
 	--===================================================================================================
@@ -787,7 +790,7 @@ GO
 			[ovs_badgenumber]
 		)
 	SELECT
-		@CONST_TDGCORE_BOOKABLE_RESOURCE_ID [bookableresourceid],
+		newid() [bookableresourceid],
 		--tdg core bookable resource id
 		@CONST_TDGCORE_USERID               [userid],
 		-- tdg core system user id
@@ -804,177 +807,66 @@ GO
 		[dbo].[STAGING__TERRITORY] (
 			[Id],
 			[territoryid],
-			[name],
 			[ovs_territorynameenglish],
 			[ovs_territorynamefrench]
 		)
 	SELECT
 		@CONST_TERRITORY_HQ_ES,
 		@CONST_TERRITORY_HQ_ES,
-		'HQ-ES::FR HQ-ES',
 		'HQ-ES',
 		'HQ-ES'
 	UNION
 	SELECT
 		@CONST_TERRITORY_HQ_CR,
 		@CONST_TERRITORY_HQ_CR,
-		'HQ-CR::FR HQ-CR',
 		'HQ-CR',
 		'HQ-CR'
 	UNION
 	SELECT
 		@CONST_TERRITORY_ATLANTIC,
 		@CONST_TERRITORY_ATLANTIC,
-		'Atlantic::Atlantique',
 		'Atlantic',
 		'Atlantique'
 	UNION
 	SELECT
 		@CONST_TERRITORY_QUEBEC,
 		@CONST_TERRITORY_QUEBEC,
-		'Quebec::Québec',
 		'Quebec',
 		'Québec'
 	UNION
 	SELECT
 		@CONST_TERRITORY_PACIFIQUE,
 		@CONST_TERRITORY_PACIFIQUE,
-		'Pacific::Pacifique',
 		'Pacific',
 		'Pacifique'
 	UNION
 	SELECT
 		@CONST_TERRITORY_PNR,
 		@CONST_TERRITORY_PNR,
-		 'Prairie and Northern::Prairies et du Nord',
 		 'Prairie and Northern',
 		 'Prairies et du Nord'
 	UNION
 	SELECT
 		@CONST_TERRITORY_ONTARIO,
 		@CONST_TERRITORY_ONTARIO,
-		'Ontario::Ontario',
 		'Ontario',
 		'Ontario';
-
-
 	--===================================================================================================
+
+
 	--===================================================================================================
 	--LOCALIZATION PLUGIN SUPPORT
-	UPDATE
-		[STAGING__TERRITORY]
-	SET
-		[name] = CONCAT(
-			ovs_territorynameenglish,
-			'::',
-			ovs_territorynamefrench
-		);
+	UPDATE [STAGING__TERRITORY] SET [name] = CONCAT(ovs_territorynameenglish, '::', ovs_territorynamefrench);
 
+	UPDATE [STAGING__WORKORDERTYPE] SET [msdyn_name] = CONCAT(ovs_workordertypenameenglish,'::',ovs_workordertypenamefrench);
 
-	UPDATE
-		[STAGING__WORKORDERTYPE]
-	SET
-		[msdyn_name] = CONCAT(
-			ovs_workordertypenameenglish,
-			'::',
-			ovs_workordertypenamefrench
-		);
+	UPDATE [STAGING__OVERSIGHTTYPE] SET [ovs_name] = CONCAT(ovs_oversighttypenameenglish, '::', ovs_oversighttypenamefrench);
 
+	UPDATE [STAGING__TYRATIONAL] SET [ovs_name] = CONCAT(ovs_rationalelbl, '::', ovs_rationalflbl);
 
-	UPDATE
-		[STAGING__OVERSIGHTTYPE]
-	SET
-		[ovs_name] = CONCAT(
-			ovs_oversighttypenameenglish,
-			'::',
-			ovs_oversighttypenamefrench
-		);
-
-
-	UPDATE
-		[STAGING__TYRATIONAL]
-	SET
-		[ovs_name] = CONCAT(ovs_rationalelbl, '::', ovs_rationalflbl);
-
-
+	UPDATE STAGING__BOOKABLE_RESOURCE_CATEGORIES SET [name] = CONCAT(ovs_categoryetxt, '::', ovs_categoryftxt);
 	--===================================================================================================
-	--BOOKABLE RESOURCES
-	INSERT INTO
-		[dbo].[STAGING__BOOKABLE_RESOURCE] (
-			bookableresourceid,
-			[userid],
-			[name],
-			[msdyn_primaryemail],
-			[ovs_registeredinspectornumberrin],
-			[ovs_badgenumber]
-		)
-	SELECT
-		*
-	FROM
-		(
-			SELECT
-				newid() bookableresourceid,
-				SYSUSER.systemuserid,
-				CONCAT(SYSUSER.firstname, ' ', SYSUSER.lastname) name,
-				domainname,
-				RIN,
-				BADGE --,
-				--SYSUSER.isdisabled, 
-				--SYSUSER.islicensed, 
-				--SYSUSER.issyncwithdirectory, 
-				--SYSUSER.territoryid
-			FROM
-				[dbo].CRM__SYSTEMUSER SYSUSER
-				JOIN SOURCE__IIS_INSPECTORS INSP ON lower(TRIM(INSP.Account_name)) = lower(TRIM(SYSUSER.domainname))
-		) T;
 
-
-
-	UPDATE
-		[dbo].[STAGING__BOOKABLE_RESOURCE]
-	SET
-		owningbusinessunit                 = @CONST_BUSINESSUNIT_TDG_ID,
-		owneridtype                        = @CONST_OWNERIDTYPE_SYSTEMUSER,
-		ownerid                            = [USERID],
-		owninguser                         = [USERID],
-		resourcetype                       = 3,
-		statecode                          = 0,
-		statuscode                         = 1,
-		msdyn_derivecapacity               = 0,
-		msdyn_displayonscheduleassistant   = 1,
-		msdyn_displayonscheduleboard       = 1,
-		msdyn_enabledforfieldservicemobile = 1,
-		msdyn_enabledripscheduling         = 0,
-		msdyn_endlocation                  = 690970002,
-		--location agnostic
-		msdyn_startlocation                = 690970002,
-		--location agnostic
-		msdyn_timeoffapprovalrequired      = 0;
-
-
-	INSERT INTO
-		[STAGING__BOOKABLE_RESOURCE_CATEGORY_ASSN] (
-			resource,
-			resourcecategory,
-			statecode,
-			statuscode,
-			owningbusinessunit,
-			owneridtype,
-			ownerid,
-			owninguser
-		)
-	SELECT
-		bookableresourceid,
-		resourcecategory   = @CONST_CATEGORY_INSPECTOR,
-		--INSPECTOR
-		statecode          = 0,
-		statuscode         = 1,
-		owningbusinessunit = @CONST_BUSINESSUNIT_TDG_ID,
-		owneridtype        = @CONST_OWNERIDTYPE_SYSTEMUSER,
-		ownerid            = @CONST_TDGCORE_USERID,
-		owninguser         = @CONST_TDGCORE_USERID
-	FROM
-		[dbo].[STAGING__BOOKABLE_RESOURCE];
 
 
 --OUTPUT FOR LOG

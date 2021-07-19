@@ -332,3 +332,20 @@ SELECT  @COC_AFTER_APRIL_1_2019 COC_AFTER_APRIL_1_2019,
 
 
 
+--select 
+--activityid,
+--actualend,
+--actualstart,
+--description,
+--ovs_daterequested,
+--ovs_justificationtxt,
+--ovs_violation,
+--ownerid,
+--owneridtype,
+--regardingobjectid,
+--regardingobjecttypecode,
+--statecode,
+--statuscode,
+--subject
+--from 
+--[STAGING__COC]

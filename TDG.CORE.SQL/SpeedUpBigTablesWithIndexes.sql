@@ -21,6 +21,33 @@
 --) T
 --ORDER BY TotalPages DESC, TableName;
 
+
+--INDEX TEMPLATE
+--=================================================================
+----DROP INDEX IF EXISTS  IX_[TABLE_NAME]_[FIELD_NAME] ON [TABLE_NAME];
+----CREATE INDEX IX_[TABLE_NAME]_[FIELD_NAME] ON [dbo].[TABLE_NAME] ([FIELD_NAME]);
+--=================================================================
+
+
+------=============================ACCOUNTS======
+DROP INDEX IF EXISTS IX_STAGING__ACCOUNT_CUSTOMERTYPECODE_OVS_IISID ON [STAGING__ACCOUNT];
+CREATE NONCLUSTERED INDEX IX_STAGING__ACCOUNT_CUSTOMERTYPECODE_OVS_IISID
+ON [dbo].[STAGING__ACCOUNT] ([customertypecode])
+INCLUDE ([ovs_iisid]);
+
+DROP INDEX IF EXISTS  IX_STAGING__ACCOUNT_CUSTOMERTYPECODE ON [STAGING__ACCOUNT];
+CREATE INDEX IX_STAGING__ACCOUNT_CUSTOMERTYPECODE
+ON [dbo].[STAGING__ACCOUNT] ([customertypecode]);
+
+DROP INDEX IF EXISTS  IX_YD070_STAKEHOLDER_STAKEHOLDER_ID ON YD070_STAKEHOLDER;
+CREATE INDEX IX_YD070_STAKEHOLDER_STAKEHOLDER_ID ON [dbo].YD070_STAKEHOLDER (STAKEHOLDER_ID);
+--=========================================================
+
+
+
+
+
+
 --ADD UNIQUE INDEX ON YD041
 --=============================================================
 ALTER TABLE

@@ -12,8 +12,8 @@
   DTS:ObjectName="ExcelToSql"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{02BEBD0D-4C08-4883-A957-DC6BFBF3ABC0}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{99F9063F-90A0-4F9F-AA09-4555FE0151DE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,12 +27,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-Package3-{7ED8F26D-FB1F-45D7-8B1A-483B25F5FF52}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="7sMYs2VhG4c="
-            IV="To2tNT1miXJZVdI7ty/t0g==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="5wDvAlArcso="
+            IV="4DrKw2Jnnnybm9VLznKg7g==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>To2tNT1miXJZVdI7ty/t0qFtzU17N96+23iFz/RlJCLkD631idyK8Hel7Wg8EZyTtSRbLEhu+tYKIzleFrwjiBbq9JdoaRzZuunBqJXuEpzZPlWKlwD7OppCopue9+vk0pO6Nt8xXzHgSdrMqjgapzshyIFaBCMCpg4KioNdoxzJQKddoB4g+WLXe7CZvmpw</CipherValue>
+              <CipherValue>4DrKw2Jnnnybm9VLznKg7k/YJJpElM6YdNgId+kF3dk3z3Fe5EVFy1DAdrDcFL4awGQyLZIwThwUDHeml7tRi7U4tO6iwB+bwmZv+ChukbIAng/sBBxtypccPhC47FlhED703YPpaAS5tzheH8vPba8tP2KKJ4z5kBEyFUnxvVb65URKvAoeuX5MEFx/ngJD</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -48,12 +48,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-Package3-{45093E3D-2E74-4987-A606-797F71448B41}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="LibKlbmIdJU="
-            IV="JMytCjCvsjtMKk36mxzaRA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="GgxL08PZDMI="
+            IV="nGX6d47g8u7Pia1dhwb39g==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>JMytCjCvsjtMKk36mxzaRFf8sU20g5Xp7Wdh6MwPbX6VSHHdteoxnS3yKBhdvcXgXowh6y2TJdQzjJ/KrKTMdHE7cccDQ4JpdHjfm58dGcyKBjKmxauo6rCbJez5RqYsiDsMmRU03iif+bbtAFo2mazKCYWQ8YAR/d0kaYvNul4COTBoPA/S1uUIZJECJjgp</CipherValue>
+              <CipherValue>nGX6d47g8u7Pia1dhwb39taFyW9h0xYGXh3q7PeOfoAO0B9nDTwsKyvs0zJL0IBv864jlkgRGplRKSBGKAPpahUDCoYCUrw8rIfpqHsftRoPt4j9229ctEIE4kFEIwwesPv0q3WdhjV3eOq22FptTscd5jz0csEIbA96FPUFjkQCRL006j+lcFB0YSVyLGOj</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -69,12 +69,12 @@
           DTS:ConnectionString="Data Source=tdg-data-migration-server.database.windows.net;User ID=tdgcore;Initial Catalog=tdg-data-migration-db;Persist Security Info=True;Application Name=SSIS-Package3-{A9EC53B8-E514-4CE4-9402-92B500170879}tcp:aarons-tc-sql-server.database.windows.net,1433.aaron-tc-sql-db.tdgcore;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="FfRYGmb4kpE="
-            IV="eTVYLUoEpLsB1g6FTX9qbQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="UDfujm6hMWI="
+            IV="GXXizolOm3lHfTKaW3La/g==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>eTVYLUoEpLsB1g6FTX9qbaNaZxwPpk0A0zj2oS+u/s8vH3ZrSTElUVdDsIGw6CcOABgXMGMjPqPjSjEshl7+6NW6YlzoNuLf6th1xxczWMXqA3m7atEyjQw2ZYmQFK6kYoN3dcUmYUZ5Jmj9DRwa+75pKRrfjLAYCgptGtdg+yu9XWIsSPiq5scV+kmqj+fj</CipherValue>
+              <CipherValue>GXXizolOm3lHfTKaW3La/ufC8K3ryTPrz8DI+5P06m/9DqLqAz0NdUaZ141/jKnKq5/Dv6YoeYGpGuroISqJ37kzng7Cd309CSBMSoKykYQpMPNLlnLUe/ZClqQFRXDkkKbYSHnKVmtnkCUr8Fs/3LjrbSflD7OnJQ3opWRxNcWsQ3YBNLnZuyVsNH0G5LRB</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -39153,13 +39153,13 @@ FROM [dbo].[26_TDGLegislation];</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\UN Number CSV"
+      DTS:refId="Package\UN Number Excel"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
       DTS:DTSID="{ca0cd70e-6e44-4278-bc06-c0646cfc4b52}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="UN Number CSV"
+      DTS:ObjectName="UN Number Excel"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -39167,7 +39167,7 @@ FROM [dbo].[26_TDGLegislation];</property>
           version="1">
           <components>
             <component
-              refId="Package\UN Number CSV\Premium ADO NET Destination"
+              refId="Package\UN Number Excel\Premium ADO NET Destination"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
               description="Insert, Update, Upsert, and Delete data over an ADO.NET connection."
@@ -39240,7 +39240,7 @@ FROM [dbo].[26_TDGLegislation];</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\UN Number CSV\Premium ADO NET Destination.Connections[ADO NET]"
+                  refId="Package\UN Number Excel\Premium ADO NET Destination.Connections[ADO NET]"
                   connectionManagerID="Package.ConnectionManagers[tdg-data-migration-db]"
                   connectionManagerRefId="Package.ConnectionManagers[tdg-data-migration-db]"
                   description="ADO.NET"
@@ -39248,107 +39248,107 @@ FROM [dbo].[26_TDGLegislation];</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input]"
+                  refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Primary Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].Columns[6 (a) Explosive Limit and Limited Quantity Index]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].Columns[6 (a) Explosive Limit and Limited Quantity Index]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="6 (a) Explosive Limit and Limited Quantity Index"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[6 (a) Explosive Limit and Limited Quantity Index]"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[6 (a) Explosive Limit and Limited Quantity Index]" />
+                      externalMetadataColumnId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[6 (a) Explosive Limit and Limited Quantity Index]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[6 (a) Explosive Limit and Limited Quantity Index]" />
                     <inputColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].Columns[6 (b) Excepted Quantities]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].Columns[6 (b) Excepted Quantities]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="6 (b) Excepted Quantities"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[6 (b) Excepted Quantities]"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[6 (b) Excepted Quantities]" />
+                      externalMetadataColumnId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[6 (b) Excepted Quantities]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[6 (b) Excepted Quantities]" />
                     <inputColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].Columns[English Shipping Name]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].Columns[English Shipping Name]"
                       cachedDataType="wstr"
                       cachedLength="4000"
                       cachedName="English Shipping Name"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[English Shipping Name]"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[English Shipping Name]" />
+                      externalMetadataColumnId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[English Shipping Name]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[English Shipping Name]" />
                     <inputColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].Columns[ERAP Index]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].Columns[ERAP Index]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="ERAP Index"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[ERAP Index]"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[ERAP Index]" />
+                      externalMetadataColumnId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[ERAP Index]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[ERAP Index]" />
                     <inputColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].Columns[French Shipping Name]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].Columns[French Shipping Name]"
                       cachedDataType="wstr"
                       cachedLength="4000"
                       cachedName="French Shipping Name"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[French Shipping Name]"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[French Shipping Name]" />
+                      externalMetadataColumnId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[French Shipping Name]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[French Shipping Name]" />
                     <inputColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].Columns[Packing Group]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].Columns[Packing Group]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Packing Group"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Packing Group]"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Packing Group]" />
+                      externalMetadataColumnId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Packing Group]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Packing Group]" />
                     <inputColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].Columns[Passenger Carrying Vessel Index]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].Columns[Passenger Carrying Vessel Index]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Passenger Carrying Vessel Index"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Passenger Carrying Vessel Index]"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Passenger Carrying Vessel Index]" />
+                      externalMetadataColumnId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Passenger Carrying Vessel Index]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Passenger Carrying Vessel Index]" />
                     <inputColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].Columns[Primary Class]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].Columns[Primary Class]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Primary Class"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Primary Class]"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Primary Class]" />
+                      externalMetadataColumnId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Primary Class]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Primary Class]" />
                     <inputColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].Columns[Road or Railway Passenger Carrying Vehicle Index]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].Columns[Road or Railway Passenger Carrying Vehicle Index]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Road or Railway Passenger Carrying Vehicle Index"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Road or Railway Passenger Carrying Vehicle Index]"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Road or Railway Passenger Carrying Vehicle Index]" />
+                      externalMetadataColumnId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Road or Railway Passenger Carrying Vehicle Index]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Road or Railway Passenger Carrying Vehicle Index]" />
                     <inputColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].Columns[Secondary Class]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].Columns[Secondary Class]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Secondary Class"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Secondary Class]"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Secondary Class]" />
+                      externalMetadataColumnId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Secondary Class]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Secondary Class]" />
                     <inputColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].Columns[Shipping Name and Description]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].Columns[Shipping Name and Description]"
                       cachedDataType="nText"
                       cachedName="Shipping Name and Description"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Shipping Name and Description]"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Shipping Name and Description]" />
+                      externalMetadataColumnId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Shipping Name and Description]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Shipping Name and Description]" />
                     <inputColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].Columns[Special Provisions]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].Columns[Special Provisions]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Special Provisions"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Special Provisions]"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Special Provisions]" />
+                      externalMetadataColumnId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Special Provisions]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Special Provisions]" />
                     <inputColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].Columns[UN Number]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].Columns[UN Number]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="UN Number"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[UN Number]"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[UN Number]" />
+                      externalMetadataColumnId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[UN Number]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[UN Number]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[6 (a) Explosive Limit and Limited Quantity Index]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[6 (a) Explosive Limit and Limited Quantity Index]"
                       dataType="wstr"
                       length="255"
                       name="6 (a) Explosive Limit and Limited Quantity Index">
@@ -39369,7 +39369,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[6 (b) Excepted Quantities]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[6 (b) Excepted Quantities]"
                       dataType="wstr"
                       length="255"
                       name="6 (b) Excepted Quantities">
@@ -39390,7 +39390,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[English Shipping Name]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[English Shipping Name]"
                       dataType="wstr"
                       length="4000"
                       name="English Shipping Name">
@@ -39411,7 +39411,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[ERAP Index]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[ERAP Index]"
                       dataType="wstr"
                       length="255"
                       name="ERAP Index">
@@ -39432,7 +39432,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[French Shipping Name]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[French Shipping Name]"
                       dataType="wstr"
                       length="4000"
                       name="French Shipping Name">
@@ -39453,7 +39453,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Packing Group]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Packing Group]"
                       dataType="wstr"
                       length="255"
                       name="Packing Group">
@@ -39474,7 +39474,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Passenger Carrying Vessel Index]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Passenger Carrying Vessel Index]"
                       dataType="wstr"
                       length="255"
                       name="Passenger Carrying Vessel Index">
@@ -39495,7 +39495,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Primary Class]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Primary Class]"
                       dataType="wstr"
                       length="255"
                       name="Primary Class">
@@ -39516,7 +39516,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Road or Railway Passenger Carrying Vehicle Index]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Road or Railway Passenger Carrying Vehicle Index]"
                       dataType="wstr"
                       length="255"
                       name="Road or Railway Passenger Carrying Vehicle Index">
@@ -39537,7 +39537,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Secondary Class]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Secondary Class]"
                       dataType="wstr"
                       length="255"
                       name="Secondary Class">
@@ -39558,7 +39558,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Shipping Name and Description]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Shipping Name and Description]"
                       dataType="nText"
                       name="Shipping Name and Description">
                       <properties>
@@ -39578,7 +39578,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Special Provisions]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[Special Provisions]"
                       dataType="wstr"
                       length="255"
                       name="Special Provisions">
@@ -39599,7 +39599,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[UN Number]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[UN Number]"
                       dataType="wstr"
                       length="255"
                       name="UN Number">
@@ -39624,44 +39624,44 @@ FROM [dbo].[26_TDGLegislation];</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\UN Number CSV\Premium ADO NET Destination.Outputs[Error Output]"
+                  refId="Package\UN Number Excel\Premium ADO NET Destination.Outputs[Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Error Output"
-                  synchronousInputId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input]">
+                  synchronousInputId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\UN Number CSV\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      lineageId="Package\UN Number Excel\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\UN Number CSV\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\UN Number Excel\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\UN Number CSV\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      refId="Package\UN Number Excel\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorMessage]"
                       dataType="wstr"
                       length="2048"
-                      lineageId="Package\UN Number CSV\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      lineageId="Package\UN Number Excel\Premium ADO NET Destination.Outputs[Error Output].Columns[ErrorMessage]"
                       name="ErrorMessage" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\UN Number CSV\Premium ADO NET Destination.Outputs[Default Output]"
+                  refId="Package\UN Number Excel\Premium ADO NET Destination.Outputs[Default Output]"
                   exclusionGroup="1"
                   name="Default Output"
-                  synchronousInputId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input]">
+                  synchronousInputId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input]">
                   <externalMetadataColumns />
                 </output>
               </outputs>
             </component>
             <component
-              refId="Package\UN Number CSV\Premium Excel Source"
+              refId="Package\UN Number Excel\Premium Excel Source"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
               description="Extract data from Excel."
@@ -39715,143 +39715,143 @@ FROM [dbo].[26_TDGLegislation];</property>
               </properties>
               <outputs>
                 <output
-                  refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output]"
+                  refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output]"
                   name="Default Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[UN Number]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[UN Number]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[UN Number]"
+                      externalMetadataColumnId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[UN Number]"
                       length="255"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[UN Number]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[UN Number]"
                       name="UN Number"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Shipping Name and Description]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Shipping Name and Description]"
                       dataType="nText"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[Shipping Name and Description]"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Shipping Name and Description]"
+                      externalMetadataColumnId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[Shipping Name and Description]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Shipping Name and Description]"
                       name="Shipping Name and Description"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[English Shipping Name]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[English Shipping Name]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[English Shipping Name]"
+                      externalMetadataColumnId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[English Shipping Name]"
                       length="4000"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[English Shipping Name]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[English Shipping Name]"
                       name="English Shipping Name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[French Shipping Name]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[French Shipping Name]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[French Shipping Name]"
+                      externalMetadataColumnId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[French Shipping Name]"
                       length="4000"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[French Shipping Name]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[French Shipping Name]"
                       name="French Shipping Name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Primary Class]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Primary Class]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[Primary Class]"
+                      externalMetadataColumnId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[Primary Class]"
                       length="255"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Primary Class]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Primary Class]"
                       name="Primary Class"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Secondary Class]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Secondary Class]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[Secondary Class]"
+                      externalMetadataColumnId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[Secondary Class]"
                       length="255"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Secondary Class]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Secondary Class]"
                       name="Secondary Class"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Packing Group]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Packing Group]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[Packing Group]"
+                      externalMetadataColumnId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[Packing Group]"
                       length="255"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Packing Group]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Packing Group]"
                       name="Packing Group"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Special Provisions]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Special Provisions]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[Special Provisions]"
+                      externalMetadataColumnId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[Special Provisions]"
                       length="255"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Special Provisions]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Special Provisions]"
                       name="Special Provisions"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[6 (a) Explosive Limit and Limited Quantity Index]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[6 (a) Explosive Limit and Limited Quantity Index]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[6 (a) Explosive Limit and Limited Quantity Index]"
+                      externalMetadataColumnId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[6 (a) Explosive Limit and Limited Quantity Index]"
                       length="255"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[6 (a) Explosive Limit and Limited Quantity Index]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[6 (a) Explosive Limit and Limited Quantity Index]"
                       name="6 (a) Explosive Limit and Limited Quantity Index"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[6 (b) Excepted Quantities]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[6 (b) Excepted Quantities]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[6 (b) Excepted Quantities]"
+                      externalMetadataColumnId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[6 (b) Excepted Quantities]"
                       length="255"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[6 (b) Excepted Quantities]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[6 (b) Excepted Quantities]"
                       name="6 (b) Excepted Quantities"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[ERAP Index]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[ERAP Index]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[ERAP Index]"
+                      externalMetadataColumnId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[ERAP Index]"
                       length="255"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[ERAP Index]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[ERAP Index]"
                       name="ERAP Index"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Passenger Carrying Vessel Index]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Passenger Carrying Vessel Index]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[Passenger Carrying Vessel Index]"
+                      externalMetadataColumnId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[Passenger Carrying Vessel Index]"
                       length="255"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Passenger Carrying Vessel Index]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Passenger Carrying Vessel Index]"
                       name="Passenger Carrying Vessel Index"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Road or Railway Passenger Carrying Vehicle Index]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Road or Railway Passenger Carrying Vehicle Index]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[Road or Railway Passenger Carrying Vehicle Index]"
+                      externalMetadataColumnId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[Road or Railway Passenger Carrying Vehicle Index]"
                       length="255"
-                      lineageId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].Columns[Road or Railway Passenger Carrying Vehicle Index]"
+                      lineageId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].Columns[Road or Railway Passenger Carrying Vehicle Index]"
                       name="Road or Railway Passenger Carrying Vehicle Index"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[UN Number]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[UN Number]"
                       dataType="wstr"
                       length="255"
                       name="UN Number">
@@ -39868,7 +39868,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[Shipping Name and Description]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[Shipping Name and Description]"
                       dataType="nText"
                       name="Shipping Name and Description">
                       <properties>
@@ -39884,7 +39884,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[English Shipping Name]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[English Shipping Name]"
                       dataType="wstr"
                       length="4000"
                       name="English Shipping Name">
@@ -39901,7 +39901,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[French Shipping Name]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[French Shipping Name]"
                       dataType="wstr"
                       length="4000"
                       name="French Shipping Name">
@@ -39918,7 +39918,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[Primary Class]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[Primary Class]"
                       dataType="wstr"
                       length="255"
                       name="Primary Class">
@@ -39935,7 +39935,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[Secondary Class]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[Secondary Class]"
                       dataType="wstr"
                       length="255"
                       name="Secondary Class">
@@ -39952,7 +39952,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[Packing Group]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[Packing Group]"
                       dataType="wstr"
                       length="255"
                       name="Packing Group">
@@ -39969,7 +39969,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[Special Provisions]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[Special Provisions]"
                       dataType="wstr"
                       length="255"
                       name="Special Provisions">
@@ -39986,7 +39986,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[6 (a) Explosive Limit and Limited Quantity Index]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[6 (a) Explosive Limit and Limited Quantity Index]"
                       dataType="wstr"
                       length="255"
                       name="6 (a) Explosive Limit and Limited Quantity Index">
@@ -40003,7 +40003,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[6 (b) Excepted Quantities]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[6 (b) Excepted Quantities]"
                       dataType="wstr"
                       length="255"
                       name="6 (b) Excepted Quantities">
@@ -40020,7 +40020,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[ERAP Index]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[ERAP Index]"
                       dataType="wstr"
                       length="255"
                       name="ERAP Index">
@@ -40037,7 +40037,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[Passenger Carrying Vessel Index]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[Passenger Carrying Vessel Index]"
                       dataType="wstr"
                       length="255"
                       name="Passenger Carrying Vessel Index">
@@ -40054,7 +40054,7 @@ FROM [dbo].[26_TDGLegislation];</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output].ExternalColumns[Road or Railway Passenger Carrying Vehicle Index]"
+                      refId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output].ExternalColumns[Road or Railway Passenger Carrying Vehicle Index]"
                       dataType="wstr"
                       length="255"
                       name="Road or Railway Passenger Carrying Vehicle Index">
@@ -40077,10 +40077,10 @@ FROM [dbo].[26_TDGLegislation];</property>
           </components>
           <paths>
             <path
-              refId="Package\UN Number CSV.Paths[Default Output]"
-              endId="Package\UN Number CSV\Premium ADO NET Destination.Inputs[Primary Input]"
+              refId="Package\UN Number Excel.Paths[Default Output]"
+              endId="Package\UN Number Excel\Premium ADO NET Destination.Inputs[Primary Input]"
               name="Default Output"
-              startId="Package\UN Number CSV\Premium Excel Source.Outputs[Default Output]" />
+              startId="Package\UN Number Excel\Premium Excel Source.Outputs[Default Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -40148,6 +40148,10 @@ FROM [dbo].[26_TDGLegislation];</property>
           Size="158,42"
           Id="Package\TDGIIS_EXPORT"
           TopLeft="1027.5,128.5" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\UN Number Excel"
+          TopLeft="747,344.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="1775.75,161">
@@ -40170,10 +40174,6 @@ FROM [dbo].[26_TDGLegislation];</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="162,42"
-          Id="Package\UN Number CSV"
-          TopLeft="747,344.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -40381,15 +40381,15 @@ FROM [dbo].[26_TDGLegislation];</property>
     design-time-name="Package\IIS CONSOLIDATION">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="233,42"
-          Id="Package\IIS CONSOLIDATION\Premium ADO NET Destination"
-          TopLeft="718,867" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="191,42"
           Id="Package\IIS CONSOLIDATION\Premium Excel Source"
           TopLeft="733,655" />
+        <NodeLayout
+          Size="233,42"
+          Id="Package\IIS CONSOLIDATION\Premium ADO NET Destination"
+          TopLeft="718,867" />
         <EdgeLayout
           Id="Package\IIS CONSOLIDATION.Paths[Default Output]"
           TopLeft="831.5,697">
@@ -40409,7 +40409,9 @@ FROM [dbo].[26_TDGLegislation];</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -40576,32 +40578,32 @@ FROM [dbo].[26_TDGLegislation];</property>
     </LayoutInfo>
   </TaskHost>
   <TaskHost
-    design-time-name="Package\UN Number CSV">
+    design-time-name="Package\UN Number Excel">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="233,42"
-          Id="Package\UN Number CSV\Premium ADO NET Destination"
-          TopLeft="141,274" />
-        <NodeLayout
           Size="191,42"
-          Id="Package\UN Number CSV\Premium Excel Source"
-          TopLeft="156,61" />
+          Id="Package\UN Number Excel\Premium Excel Source"
+          TopLeft="153,64" />
+        <NodeLayout
+          Size="233,42"
+          Id="Package\UN Number Excel\Premium ADO NET Destination"
+          TopLeft="129,275" />
         <EdgeLayout
-          Id="Package\UN Number CSV.Paths[Default Output]"
-          TopLeft="254.5,103">
+          Id="Package\UN Number Excel.Paths[Default Output]"
+          TopLeft="247,106">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,171"
+              EndConnector="0,169"
               Start="0,0"
-              End="0,163.5">
+              End="0,161.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,163.5" />
+                    End="0,161.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
